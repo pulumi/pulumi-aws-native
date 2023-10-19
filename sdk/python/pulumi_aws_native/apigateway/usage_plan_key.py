@@ -36,7 +36,15 @@ class UsagePlanKeyArgs:
              key_id: pulumi.Input[str],
              key_type: pulumi.Input['UsagePlanKeyKeyType'],
              usage_plan_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'usagePlanId' in kwargs:
+            usage_plan_id = kwargs['usagePlanId']
+
         _setter("key_id", key_id)
         _setter("key_type", key_type)
         _setter("usage_plan_id", usage_plan_id)

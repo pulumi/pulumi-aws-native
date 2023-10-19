@@ -77,7 +77,33 @@ class TaskDefinitionArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
              task_role_arn: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerDefinitions' in kwargs:
+            container_definitions = kwargs['containerDefinitions']
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'inferenceAccelerators' in kwargs:
+            inference_accelerators = kwargs['inferenceAccelerators']
+        if 'ipcMode' in kwargs:
+            ipc_mode = kwargs['ipcMode']
+        if 'networkMode' in kwargs:
+            network_mode = kwargs['networkMode']
+        if 'pidMode' in kwargs:
+            pid_mode = kwargs['pidMode']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'proxyConfiguration' in kwargs:
+            proxy_configuration = kwargs['proxyConfiguration']
+        if 'requiresCompatibilities' in kwargs:
+            requires_compatibilities = kwargs['requiresCompatibilities']
+        if 'runtimePlatform' in kwargs:
+            runtime_platform = kwargs['runtimePlatform']
+        if 'taskRoleArn' in kwargs:
+            task_role_arn = kwargs['taskRoleArn']
+
         if container_definitions is not None:
             _setter("container_definitions", container_definitions)
         if cpu is not None:

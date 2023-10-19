@@ -40,7 +40,9 @@ class LogGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -84,7 +86,9 @@ class MetricFilterDimension(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -163,7 +167,17 @@ class MetricFilterMetricTransformation(dict):
              default_value: Optional[float] = None,
              dimensions: Optional[Sequence['outputs.MetricFilterDimension']] = None,
              unit: Optional['MetricFilterMetricTransformationUnit'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("metric_name", metric_name)
         _setter("metric_namespace", metric_namespace)
         _setter("metric_value", metric_value)

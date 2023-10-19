@@ -31,7 +31,11 @@ class DedicatedIpPoolArgs:
              _setter: Callable[[Any, Any], None],
              pool_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DedicatedIpPoolTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+
         if pool_name is not None:
             _setter("pool_name", pool_name)
         if tags is not None:

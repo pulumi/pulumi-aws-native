@@ -36,7 +36,9 @@ class ChannelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -74,7 +76,9 @@ class PlaybackKeyPairTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -112,7 +116,9 @@ class RecordingConfigurationDestinationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if s3 is not None:
             _setter("s3", s3)
 
@@ -146,7 +152,11 @@ class RecordingConfigurationRenditionConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              rendition_selection: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']] = None,
              renditions: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'renditionSelection' in kwargs:
+            rendition_selection = kwargs['renditionSelection']
+
         if rendition_selection is not None:
             _setter("rendition_selection", rendition_selection)
         if renditions is not None:
@@ -192,7 +202,11 @@ class RecordingConfigurationS3DestinationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              bucket_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+
         _setter("bucket_name", bucket_name)
 
     @property
@@ -220,7 +234,9 @@ class RecordingConfigurationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -271,7 +287,13 @@ class RecordingConfigurationThumbnailConfigurationArgs:
              resolution: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']] = None,
              storage: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]] = None,
              target_interval_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordingMode' in kwargs:
+            recording_mode = kwargs['recordingMode']
+        if 'targetIntervalSeconds' in kwargs:
+            target_interval_seconds = kwargs['targetIntervalSeconds']
+
         if recording_mode is not None:
             _setter("recording_mode", recording_mode)
         if resolution is not None:
@@ -345,7 +367,9 @@ class StreamKeyTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

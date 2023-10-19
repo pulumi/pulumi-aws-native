@@ -37,7 +37,15 @@ class ConnectorArgs:
              directory_id: pulumi.Input[str],
              vpc_information: pulumi.Input['ConnectorVpcInformationArgs'],
              tags: Optional[pulumi.Input['ConnectorTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'vpcInformation' in kwargs:
+            vpc_information = kwargs['vpcInformation']
+
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("directory_id", directory_id)
         _setter("vpc_information", vpc_information)

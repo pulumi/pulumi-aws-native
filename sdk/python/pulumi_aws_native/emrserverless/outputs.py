@@ -43,7 +43,9 @@ class ApplicationAutoStartConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -96,7 +98,11 @@ class ApplicationAutoStopConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              idle_timeout_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeoutMinutes' in kwargs:
+            idle_timeout_minutes = kwargs['idleTimeoutMinutes']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if idle_timeout_minutes is not None:
@@ -155,7 +161,11 @@ class ApplicationImageConfigurationInput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              image_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+
         if image_uri is not None:
             _setter("image_uri", image_uri)
 
@@ -205,7 +215,13 @@ class ApplicationInitialCapacityConfig(dict):
              _setter: Callable[[Any, Any], None],
              worker_configuration: 'outputs.ApplicationWorkerConfiguration',
              worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerConfiguration' in kwargs:
+            worker_configuration = kwargs['workerConfiguration']
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+
         _setter("worker_configuration", worker_configuration)
         _setter("worker_count", worker_count)
 
@@ -241,7 +257,9 @@ class ApplicationInitialCapacityConfigKeyValuePair(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: 'outputs.ApplicationInitialCapacityConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -282,7 +300,9 @@ class ApplicationMaximumAllowedResources(dict):
              cpu: str,
              memory: str,
              disk: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cpu", cpu)
         _setter("memory", memory)
         if disk is not None:
@@ -351,7 +371,13 @@ class ApplicationNetworkConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -397,7 +423,9 @@ class ApplicationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -441,7 +469,9 @@ class ApplicationWorkerConfiguration(dict):
              cpu: str,
              memory: str,
              disk: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cpu", cpu)
         _setter("memory", memory)
         if disk is not None:
@@ -479,7 +509,9 @@ class ApplicationWorkerTypeSpecificationInputMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

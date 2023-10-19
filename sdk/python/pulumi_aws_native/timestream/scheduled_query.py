@@ -56,7 +56,27 @@ class ScheduledQueryArgs:
              scheduled_query_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTagArgs']]]] = None,
              target_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorReportConfiguration' in kwargs:
+            error_report_configuration = kwargs['errorReportConfiguration']
+        if 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'scheduleConfiguration' in kwargs:
+            schedule_configuration = kwargs['scheduleConfiguration']
+        if 'scheduledQueryExecutionRoleArn' in kwargs:
+            scheduled_query_execution_role_arn = kwargs['scheduledQueryExecutionRoleArn']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'scheduledQueryName' in kwargs:
+            scheduled_query_name = kwargs['scheduledQueryName']
+        if 'targetConfiguration' in kwargs:
+            target_configuration = kwargs['targetConfiguration']
+
         _setter("error_report_configuration", error_report_configuration)
         _setter("notification_configuration", notification_configuration)
         _setter("query_string", query_string)

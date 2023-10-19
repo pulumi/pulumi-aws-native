@@ -58,7 +58,13 @@ class StreamEncryption(dict):
              _setter: Callable[[Any, Any], None],
              encryption_type: 'StreamEncryptionEncryptionType',
              key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         _setter("encryption_type", encryption_type)
         _setter("key_id", key_id)
 
@@ -115,7 +121,11 @@ class StreamModeDetails(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_mode: 'StreamModeDetailsStreamMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamMode' in kwargs:
+            stream_mode = kwargs['streamMode']
+
         _setter("stream_mode", stream_mode)
 
     @property
@@ -150,7 +160,9 @@ class StreamTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

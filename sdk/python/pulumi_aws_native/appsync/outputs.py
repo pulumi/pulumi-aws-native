@@ -75,7 +75,13 @@ class DataSourceAuthorizationConfig(dict):
              _setter: Callable[[Any, Any], None],
              authorization_type: str,
              aws_iam_config: Optional['outputs.DataSourceAwsIamConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'awsIamConfig' in kwargs:
+            aws_iam_config = kwargs['awsIamConfig']
+
         _setter("authorization_type", authorization_type)
         if aws_iam_config is not None:
             _setter("aws_iam_config", aws_iam_config)
@@ -125,7 +131,13 @@ class DataSourceAwsIamConfig(dict):
              _setter: Callable[[Any, Any], None],
              signing_region: Optional[str] = None,
              signing_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+        if 'signingServiceName' in kwargs:
+            signing_service_name = kwargs['signingServiceName']
+
         if signing_region is not None:
             _setter("signing_region", signing_region)
         if signing_service_name is not None:
@@ -181,7 +193,15 @@ class DataSourceDeltaSyncConfig(dict):
              base_table_ttl: str,
              delta_sync_table_name: str,
              delta_sync_table_ttl: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseTableTtl' in kwargs:
+            base_table_ttl = kwargs['baseTableTtl']
+        if 'deltaSyncTableName' in kwargs:
+            delta_sync_table_name = kwargs['deltaSyncTableName']
+        if 'deltaSyncTableTtl' in kwargs:
+            delta_sync_table_ttl = kwargs['deltaSyncTableTtl']
+
         _setter("base_table_ttl", base_table_ttl)
         _setter("delta_sync_table_name", delta_sync_table_name)
         _setter("delta_sync_table_ttl", delta_sync_table_ttl)
@@ -249,7 +269,17 @@ class DataSourceDynamoDbConfig(dict):
              delta_sync_config: Optional['outputs.DataSourceDeltaSyncConfig'] = None,
              use_caller_credentials: Optional[bool] = None,
              versioned: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'deltaSyncConfig' in kwargs:
+            delta_sync_config = kwargs['deltaSyncConfig']
+        if 'useCallerCredentials' in kwargs:
+            use_caller_credentials = kwargs['useCallerCredentials']
+
         _setter("aws_region", aws_region)
         _setter("table_name", table_name)
         if delta_sync_config is not None:
@@ -317,7 +347,11 @@ class DataSourceElasticsearchConfig(dict):
              _setter: Callable[[Any, Any], None],
              aws_region: str,
              endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+
         _setter("aws_region", aws_region)
         _setter("endpoint", endpoint)
 
@@ -361,7 +395,11 @@ class DataSourceEventBridgeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_bus_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBusArn' in kwargs:
+            event_bus_arn = kwargs['eventBusArn']
+
         _setter("event_bus_arn", event_bus_arn)
 
     @property
@@ -402,7 +440,11 @@ class DataSourceHttpConfig(dict):
              _setter: Callable[[Any, Any], None],
              endpoint: str,
              authorization_config: Optional['outputs.DataSourceAuthorizationConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+
         _setter("endpoint", endpoint)
         if authorization_config is not None:
             _setter("authorization_config", authorization_config)
@@ -447,7 +489,11 @@ class DataSourceLambdaConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_function_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         _setter("lambda_function_arn", lambda_function_arn)
 
     @property
@@ -488,7 +534,11 @@ class DataSourceOpenSearchServiceConfig(dict):
              _setter: Callable[[Any, Any], None],
              aws_region: str,
              endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+
         _setter("aws_region", aws_region)
         _setter("endpoint", endpoint)
 
@@ -550,7 +600,17 @@ class DataSourceRdsHttpEndpointConfig(dict):
              db_cluster_identifier: str,
              database_name: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if 'awsSecretStoreArn' in kwargs:
+            aws_secret_store_arn = kwargs['awsSecretStoreArn']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("aws_region", aws_region)
         _setter("aws_secret_store_arn", aws_secret_store_arn)
         _setter("db_cluster_identifier", db_cluster_identifier)
@@ -619,7 +679,13 @@ class DataSourceRelationalDatabaseConfig(dict):
              _setter: Callable[[Any, Any], None],
              relational_database_source_type: str,
              rds_http_endpoint_config: Optional['outputs.DataSourceRdsHttpEndpointConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relationalDatabaseSourceType' in kwargs:
+            relational_database_source_type = kwargs['relationalDatabaseSourceType']
+        if 'rdsHttpEndpointConfig' in kwargs:
+            rds_http_endpoint_config = kwargs['rdsHttpEndpointConfig']
+
         _setter("relational_database_source_type", relational_database_source_type)
         if rds_http_endpoint_config is not None:
             _setter("rds_http_endpoint_config", rds_http_endpoint_config)
@@ -667,7 +733,11 @@ class FunctionConfigurationAppSyncRuntime(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("name", name)
         _setter("runtime_version", runtime_version)
 
@@ -711,7 +781,11 @@ class FunctionConfigurationLambdaConflictHandlerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_conflict_handler_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaConflictHandlerArn' in kwargs:
+            lambda_conflict_handler_arn = kwargs['lambdaConflictHandlerArn']
+
         if lambda_conflict_handler_arn is not None:
             _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
@@ -760,7 +834,15 @@ class FunctionConfigurationSyncConfig(dict):
              conflict_detection: str,
              conflict_handler: Optional[str] = None,
              lambda_conflict_handler_config: Optional['outputs.FunctionConfigurationLambdaConflictHandlerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conflictDetection' in kwargs:
+            conflict_detection = kwargs['conflictDetection']
+        if 'conflictHandler' in kwargs:
+            conflict_handler = kwargs['conflictHandler']
+        if 'lambdaConflictHandlerConfig' in kwargs:
+            lambda_conflict_handler_config = kwargs['lambdaConflictHandlerConfig']
+
         _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
             _setter("conflict_handler", conflict_handler)
@@ -827,7 +909,17 @@ class GraphQlApiAdditionalAuthenticationProvider(dict):
              lambda_authorizer_config: Optional['outputs.GraphQlApiLambdaAuthorizerConfig'] = None,
              open_id_connect_config: Optional['outputs.GraphQlApiOpenIdConnectConfig'] = None,
              user_pool_config: Optional['outputs.GraphQlApiCognitoUserPoolConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'lambdaAuthorizerConfig' in kwargs:
+            lambda_authorizer_config = kwargs['lambdaAuthorizerConfig']
+        if 'openIdConnectConfig' in kwargs:
+            open_id_connect_config = kwargs['openIdConnectConfig']
+        if 'userPoolConfig' in kwargs:
+            user_pool_config = kwargs['userPoolConfig']
+
         _setter("authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
             _setter("lambda_authorizer_config", lambda_authorizer_config)
@@ -896,7 +988,15 @@ class GraphQlApiCognitoUserPoolConfig(dict):
              app_id_client_regex: Optional[str] = None,
              aws_region: Optional[str] = None,
              user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appIdClientRegex' in kwargs:
+            app_id_client_regex = kwargs['appIdClientRegex']
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if app_id_client_regex is not None:
             _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
@@ -959,7 +1059,15 @@ class GraphQlApiLambdaAuthorizerConfig(dict):
              authorizer_result_ttl_in_seconds: Optional[float] = None,
              authorizer_uri: Optional[str] = None,
              identity_validation_expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if 'identityValidationExpression' in kwargs:
+            identity_validation_expression = kwargs['identityValidationExpression']
+
         if authorizer_result_ttl_in_seconds is not None:
             _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
@@ -1022,7 +1130,15 @@ class GraphQlApiLogConfig(dict):
              cloud_watch_logs_role_arn: Optional[str] = None,
              exclude_verbose_content: Optional[bool] = None,
              field_log_level: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsRoleArn' in kwargs:
+            cloud_watch_logs_role_arn = kwargs['cloudWatchLogsRoleArn']
+        if 'excludeVerboseContent' in kwargs:
+            exclude_verbose_content = kwargs['excludeVerboseContent']
+        if 'fieldLogLevel' in kwargs:
+            field_log_level = kwargs['fieldLogLevel']
+
         if cloud_watch_logs_role_arn is not None:
             _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if exclude_verbose_content is not None:
@@ -1088,7 +1204,15 @@ class GraphQlApiOpenIdConnectConfig(dict):
              client_id: Optional[str] = None,
              iat_ttl: Optional[float] = None,
              issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authTtl' in kwargs:
+            auth_ttl = kwargs['authTtl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'iatTtl' in kwargs:
+            iat_ttl = kwargs['iatTtl']
+
         if auth_ttl is not None:
             _setter("auth_ttl", auth_ttl)
         if client_id is not None:
@@ -1134,7 +1258,9 @@ class GraphQlApiTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1193,7 +1319,17 @@ class GraphQlApiUserPoolConfig(dict):
              aws_region: Optional[str] = None,
              default_action: Optional[str] = None,
              user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appIdClientRegex' in kwargs:
+            app_id_client_regex = kwargs['appIdClientRegex']
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if app_id_client_regex is not None:
             _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
@@ -1256,7 +1392,11 @@ class ResolverAppSyncRuntime(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("name", name)
         _setter("runtime_version", runtime_version)
 
@@ -1303,7 +1443,11 @@ class ResolverCachingConfig(dict):
              _setter: Callable[[Any, Any], None],
              ttl: float,
              caching_keys: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cachingKeys' in kwargs:
+            caching_keys = kwargs['cachingKeys']
+
         _setter("ttl", ttl)
         if caching_keys is not None:
             _setter("caching_keys", caching_keys)
@@ -1348,7 +1492,11 @@ class ResolverLambdaConflictHandlerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_conflict_handler_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaConflictHandlerArn' in kwargs:
+            lambda_conflict_handler_arn = kwargs['lambdaConflictHandlerArn']
+
         if lambda_conflict_handler_arn is not None:
             _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
@@ -1370,7 +1518,9 @@ class ResolverPipelineConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              functions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if functions is not None:
             _setter("functions", functions)
 
@@ -1419,7 +1569,15 @@ class ResolverSyncConfig(dict):
              conflict_detection: str,
              conflict_handler: Optional[str] = None,
              lambda_conflict_handler_config: Optional['outputs.ResolverLambdaConflictHandlerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conflictDetection' in kwargs:
+            conflict_detection = kwargs['conflictDetection']
+        if 'conflictHandler' in kwargs:
+            conflict_handler = kwargs['conflictHandler']
+        if 'lambdaConflictHandlerConfig' in kwargs:
+            lambda_conflict_handler_config = kwargs['lambdaConflictHandlerConfig']
+
         _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
             _setter("conflict_handler", conflict_handler)
@@ -1474,7 +1632,11 @@ class SourceApiAssociationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              merge_type: Optional['SourceApiAssociationConfigMergeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mergeType' in kwargs:
+            merge_type = kwargs['mergeType']
+
         if merge_type is not None:
             _setter("merge_type", merge_type)
 

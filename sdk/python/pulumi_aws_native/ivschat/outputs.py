@@ -57,7 +57,11 @@ class LoggingConfigurationCloudWatchLogsDestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+
         _setter("log_group_name", log_group_name)
 
     @property
@@ -110,7 +114,11 @@ class LoggingConfigurationDestinationConfiguration(dict):
              cloud_watch_logs: Optional['outputs.LoggingConfigurationCloudWatchLogsDestinationConfiguration'] = None,
              firehose: Optional['outputs.LoggingConfigurationFirehoseDestinationConfiguration'] = None,
              s3: Optional['outputs.LoggingConfigurationS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
@@ -170,7 +178,11 @@ class LoggingConfigurationFirehoseDestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delivery_stream_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+
         _setter("delivery_stream_name", delivery_stream_name)
 
     @property
@@ -218,7 +230,11 @@ class LoggingConfigurationS3DestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              bucket_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+
         _setter("bucket_name", bucket_name)
 
     @property
@@ -253,7 +269,9 @@ class LoggingConfigurationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -314,7 +332,11 @@ class RoomMessageReviewHandler(dict):
              _setter: Callable[[Any, Any], None],
              fallback_result: Optional['RoomMessageReviewHandlerFallbackResult'] = None,
              uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackResult' in kwargs:
+            fallback_result = kwargs['fallbackResult']
+
         if fallback_result is not None:
             _setter("fallback_result", fallback_result)
         if uri is not None:
@@ -360,7 +382,9 @@ class RoomTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

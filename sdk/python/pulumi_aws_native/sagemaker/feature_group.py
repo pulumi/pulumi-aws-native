@@ -60,7 +60,23 @@ class FeatureGroupArgs:
              online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventTimeFeatureName' in kwargs:
+            event_time_feature_name = kwargs['eventTimeFeatureName']
+        if 'featureDefinitions' in kwargs:
+            feature_definitions = kwargs['featureDefinitions']
+        if 'recordIdentifierFeatureName' in kwargs:
+            record_identifier_feature_name = kwargs['recordIdentifierFeatureName']
+        if 'featureGroupName' in kwargs:
+            feature_group_name = kwargs['featureGroupName']
+        if 'offlineStoreConfig' in kwargs:
+            offline_store_config = kwargs['offlineStoreConfig']
+        if 'onlineStoreConfig' in kwargs:
+            online_store_config = kwargs['onlineStoreConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("event_time_feature_name", event_time_feature_name)
         _setter("feature_definitions", feature_definitions)
         _setter("record_identifier_feature_name", record_identifier_feature_name)

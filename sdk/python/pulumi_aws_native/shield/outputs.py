@@ -68,7 +68,15 @@ class ProactiveEngagementEmergencyContact(dict):
              email_address: str,
              contact_notes: Optional[str] = None,
              phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'contactNotes' in kwargs:
+            contact_notes = kwargs['contactNotes']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email_address", email_address)
         if contact_notes is not None:
             _setter("contact_notes", contact_notes)
@@ -123,7 +131,9 @@ class ProtectionApplicationLayerAutomaticResponseConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              action: Any,
              status: 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("status", status)
 
@@ -164,7 +174,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties(
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -198,7 +210,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties(
     def _configure(
              _setter: Callable[[Any, Any], None],
              block: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if block is not None:
             _setter("block", block)
 
@@ -235,7 +249,9 @@ class ProtectionGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -279,7 +295,9 @@ class ProtectionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

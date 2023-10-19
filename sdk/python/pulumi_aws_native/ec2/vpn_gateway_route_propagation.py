@@ -29,7 +29,13 @@ class VpnGatewayRoutePropagationArgs:
              _setter: Callable[[Any, Any], None],
              route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              vpn_gateway_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         _setter("route_table_ids", route_table_ids)
         _setter("vpn_gateway_id", vpn_gateway_id)
 

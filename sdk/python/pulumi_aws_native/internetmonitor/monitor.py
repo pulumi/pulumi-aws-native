@@ -56,7 +56,23 @@ class MonitorArgs:
              status: Optional[pulumi.Input['MonitorConfigState']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
              traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthEventsConfig' in kwargs:
+            health_events_config = kwargs['healthEventsConfig']
+        if 'internetMeasurementsLogDelivery' in kwargs:
+            internet_measurements_log_delivery = kwargs['internetMeasurementsLogDelivery']
+        if 'maxCityNetworksToMonitor' in kwargs:
+            max_city_networks_to_monitor = kwargs['maxCityNetworksToMonitor']
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'resourcesToAdd' in kwargs:
+            resources_to_add = kwargs['resourcesToAdd']
+        if 'resourcesToRemove' in kwargs:
+            resources_to_remove = kwargs['resourcesToRemove']
+        if 'trafficPercentageToMonitor' in kwargs:
+            traffic_percentage_to_monitor = kwargs['trafficPercentageToMonitor']
+
         if health_events_config is not None:
             _setter("health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:

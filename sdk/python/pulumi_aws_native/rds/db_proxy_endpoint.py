@@ -50,7 +50,19 @@ class DbProxyEndpointArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyEndpointTagFormatArgs']]]] = None,
              target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if 'dbProxyEndpointName' in kwargs:
+            db_proxy_endpoint_name = kwargs['dbProxyEndpointName']
+        if 'targetRole' in kwargs:
+            target_role = kwargs['targetRole']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("db_proxy_name", db_proxy_name)
         _setter("vpc_subnet_ids", vpc_subnet_ids)
         if db_proxy_endpoint_name is not None:

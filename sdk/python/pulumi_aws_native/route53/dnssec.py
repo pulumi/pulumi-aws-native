@@ -27,7 +27,11 @@ class DnssecArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              hosted_zone_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         _setter("hosted_zone_id", hosted_zone_id)
 
     @property

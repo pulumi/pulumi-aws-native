@@ -61,7 +61,25 @@ class LoadBalancerArgs:
              session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
              tls_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if 'attachedInstances' in kwargs:
+            attached_instances = kwargs['attachedInstances']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if 'sessionStickinessEnabled' in kwargs:
+            session_stickiness_enabled = kwargs['sessionStickinessEnabled']
+        if 'sessionStickinessLbCookieDurationSeconds' in kwargs:
+            session_stickiness_lb_cookie_duration_seconds = kwargs['sessionStickinessLbCookieDurationSeconds']
+        if 'tlsPolicyName' in kwargs:
+            tls_policy_name = kwargs['tlsPolicyName']
+
         _setter("instance_port", instance_port)
         if attached_instances is not None:
             _setter("attached_instances", attached_instances)

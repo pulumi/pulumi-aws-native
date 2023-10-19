@@ -52,7 +52,9 @@ class AutoScalingConfigurationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -84,7 +86,9 @@ class ObservabilityConfigurationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -120,7 +124,9 @@ class ObservabilityConfigurationTraceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vendor: 'ObservabilityConfigurationTraceConfigurationVendor',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("vendor", vendor)
 
     @property
@@ -174,7 +180,13 @@ class ServiceAuthenticationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              access_role_arn: Optional[str] = None,
              connection_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRoleArn' in kwargs:
+            access_role_arn = kwargs['accessRoleArn']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         if access_role_arn is not None:
             _setter("access_role_arn", access_role_arn)
         if connection_arn is not None:
@@ -238,7 +250,13 @@ class ServiceCodeConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              configuration_source: 'ServiceCodeConfigurationConfigurationSource',
              code_configuration_values: Optional['outputs.ServiceCodeConfigurationValues'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationSource' in kwargs:
+            configuration_source = kwargs['configurationSource']
+        if 'codeConfigurationValues' in kwargs:
+            code_configuration_values = kwargs['codeConfigurationValues']
+
         _setter("configuration_source", configuration_source)
         if code_configuration_values is not None:
             _setter("code_configuration_values", code_configuration_values)
@@ -318,7 +336,17 @@ class ServiceCodeConfigurationValues(dict):
              runtime_environment_secrets: Optional[Sequence['outputs.ServiceKeyValuePair']] = None,
              runtime_environment_variables: Optional[Sequence['outputs.ServiceKeyValuePair']] = None,
              start_command: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildCommand' in kwargs:
+            build_command = kwargs['buildCommand']
+        if 'runtimeEnvironmentSecrets' in kwargs:
+            runtime_environment_secrets = kwargs['runtimeEnvironmentSecrets']
+        if 'runtimeEnvironmentVariables' in kwargs:
+            runtime_environment_variables = kwargs['runtimeEnvironmentVariables']
+        if 'startCommand' in kwargs:
+            start_command = kwargs['startCommand']
+
         _setter("runtime", runtime)
         if build_command is not None:
             _setter("build_command", build_command)
@@ -429,7 +457,17 @@ class ServiceCodeRepository(dict):
              source_code_version: 'outputs.ServiceSourceCodeVersion',
              code_configuration: Optional['outputs.ServiceCodeConfiguration'] = None,
              source_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'sourceCodeVersion' in kwargs:
+            source_code_version = kwargs['sourceCodeVersion']
+        if 'codeConfiguration' in kwargs:
+            code_configuration = kwargs['codeConfiguration']
+        if 'sourceDirectory' in kwargs:
+            source_directory = kwargs['sourceDirectory']
+
         _setter("repository_url", repository_url)
         _setter("source_code_version", source_code_version)
         if code_configuration is not None:
@@ -506,7 +544,13 @@ class ServiceEgressConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              egress_type: 'ServiceEgressConfigurationEgressType',
              vpc_connector_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressType' in kwargs:
+            egress_type = kwargs['egressType']
+        if 'vpcConnectorArn' in kwargs:
+            vpc_connector_arn = kwargs['vpcConnectorArn']
+
         _setter("egress_type", egress_type)
         if vpc_connector_arn is not None:
             _setter("vpc_connector_arn", vpc_connector_arn)
@@ -564,7 +608,11 @@ class ServiceEncryptionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("kms_key", kms_key)
 
     @property
@@ -634,7 +682,13 @@ class ServiceHealthCheckConfiguration(dict):
              protocol: Optional['ServiceHealthCheckConfigurationProtocol'] = None,
              timeout: Optional[int] = None,
              unhealthy_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         if healthy_threshold is not None:
             _setter("healthy_threshold", healthy_threshold)
         if interval is not None:
@@ -748,7 +802,15 @@ class ServiceImageConfiguration(dict):
              runtime_environment_secrets: Optional[Sequence['outputs.ServiceKeyValuePair']] = None,
              runtime_environment_variables: Optional[Sequence['outputs.ServiceKeyValuePair']] = None,
              start_command: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeEnvironmentSecrets' in kwargs:
+            runtime_environment_secrets = kwargs['runtimeEnvironmentSecrets']
+        if 'runtimeEnvironmentVariables' in kwargs:
+            runtime_environment_variables = kwargs['runtimeEnvironmentVariables']
+        if 'startCommand' in kwargs:
+            start_command = kwargs['startCommand']
+
         if port is not None:
             _setter("port", port)
         if runtime_environment_secrets is not None:
@@ -835,7 +897,15 @@ class ServiceImageRepository(dict):
              image_identifier: str,
              image_repository_type: 'ServiceImageRepositoryImageRepositoryType',
              image_configuration: Optional['outputs.ServiceImageConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageIdentifier' in kwargs:
+            image_identifier = kwargs['imageIdentifier']
+        if 'imageRepositoryType' in kwargs:
+            image_repository_type = kwargs['imageRepositoryType']
+        if 'imageConfiguration' in kwargs:
+            image_configuration = kwargs['imageConfiguration']
+
         _setter("image_identifier", image_identifier)
         _setter("image_repository_type", image_repository_type)
         if image_configuration is not None:
@@ -899,7 +969,11 @@ class ServiceIngressConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_publicly_accessible: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isPubliclyAccessible' in kwargs:
+            is_publicly_accessible = kwargs['isPubliclyAccessible']
+
         _setter("is_publicly_accessible", is_publicly_accessible)
 
     @property
@@ -955,7 +1029,11 @@ class ServiceInstanceConfiguration(dict):
              cpu: Optional[str] = None,
              instance_role_arn: Optional[str] = None,
              memory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceRoleArn' in kwargs:
+            instance_role_arn = kwargs['instanceRoleArn']
+
         if cpu is not None:
             _setter("cpu", cpu)
         if instance_role_arn is not None:
@@ -1003,7 +1081,9 @@ class ServiceKeyValuePair(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -1060,7 +1140,13 @@ class ServiceNetworkConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              egress_configuration: Optional['outputs.ServiceEgressConfiguration'] = None,
              ingress_configuration: Optional['outputs.ServiceIngressConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressConfiguration' in kwargs:
+            egress_configuration = kwargs['egressConfiguration']
+        if 'ingressConfiguration' in kwargs:
+            ingress_configuration = kwargs['ingressConfiguration']
+
         if egress_configuration is not None:
             _setter("egress_configuration", egress_configuration)
         if ingress_configuration is not None:
@@ -1119,7 +1205,13 @@ class ServiceObservabilityConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              observability_enabled: bool,
              observability_configuration_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'observabilityEnabled' in kwargs:
+            observability_enabled = kwargs['observabilityEnabled']
+        if 'observabilityConfigurationArn' in kwargs:
+            observability_configuration_arn = kwargs['observabilityConfigurationArn']
+
         _setter("observability_enabled", observability_enabled)
         if observability_configuration_arn is not None:
             _setter("observability_configuration_arn", observability_configuration_arn)
@@ -1164,7 +1256,9 @@ class ServiceSourceCodeVersion(dict):
              _setter: Callable[[Any, Any], None],
              type: 'ServiceSourceCodeVersionType',
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -1236,7 +1330,17 @@ class ServiceSourceConfiguration(dict):
              auto_deployments_enabled: Optional[bool] = None,
              code_repository: Optional['outputs.ServiceCodeRepository'] = None,
              image_repository: Optional['outputs.ServiceImageRepository'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'autoDeploymentsEnabled' in kwargs:
+            auto_deployments_enabled = kwargs['autoDeploymentsEnabled']
+        if 'codeRepository' in kwargs:
+            code_repository = kwargs['codeRepository']
+        if 'imageRepository' in kwargs:
+            image_repository = kwargs['imageRepository']
+
         if authentication_configuration is not None:
             _setter("authentication_configuration", authentication_configuration)
         if auto_deployments_enabled is not None:
@@ -1285,7 +1389,9 @@ class ServiceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1317,7 +1423,9 @@ class VpcConnectorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1376,7 +1484,13 @@ class VpcIngressConnectionIngressVpcConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              vpc_endpoint_id: str,
              vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("vpc_endpoint_id", vpc_endpoint_id)
         _setter("vpc_id", vpc_id)
 
@@ -1412,7 +1526,9 @@ class VpcIngressConnectionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

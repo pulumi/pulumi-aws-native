@@ -50,7 +50,21 @@ class PipelineArgs:
              pipeline_display_name: Optional[pulumi.Input[str]] = None,
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineDefinition' in kwargs:
+            pipeline_definition = kwargs['pipelineDefinition']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'parallelismConfiguration' in kwargs:
+            parallelism_configuration = kwargs['parallelismConfiguration']
+        if 'pipelineDescription' in kwargs:
+            pipeline_description = kwargs['pipelineDescription']
+        if 'pipelineDisplayName' in kwargs:
+            pipeline_display_name = kwargs['pipelineDisplayName']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+
         _setter("pipeline_definition", pipeline_definition)
         _setter("role_arn", role_arn)
         if parallelism_configuration is not None:

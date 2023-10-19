@@ -42,7 +42,15 @@ class LoadBalancerAccessLoggingPolicyArgs:
              s3_bucket_name: pulumi.Input[str],
              emit_interval: Optional[pulumi.Input[int]] = None,
              s3_bucket_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'emitInterval' in kwargs:
+            emit_interval = kwargs['emitInterval']
+        if 's3BucketPrefix' in kwargs:
+            s3_bucket_prefix = kwargs['s3BucketPrefix']
+
         _setter("enabled", enabled)
         _setter("s3_bucket_name", s3_bucket_name)
         if emit_interval is not None:
@@ -102,7 +110,13 @@ class LoadBalancerAppCookieStickinessPolicyArgs:
              _setter: Callable[[Any, Any], None],
              cookie_name: pulumi.Input[str],
              policy_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("cookie_name", cookie_name)
         _setter("policy_name", policy_name)
 
@@ -140,7 +154,9 @@ class LoadBalancerConnectionDrainingPolicyArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -176,7 +192,11 @@ class LoadBalancerConnectionSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle_timeout: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         _setter("idle_timeout", idle_timeout)
 
     @property
@@ -213,7 +233,13 @@ class LoadBalancerHealthCheckArgs:
              target: pulumi.Input[str],
              timeout: pulumi.Input[str],
              unhealthy_threshold: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         _setter("healthy_threshold", healthy_threshold)
         _setter("interval", interval)
         _setter("target", target)
@@ -281,7 +307,13 @@ class LoadBalancerLbCookieStickinessPolicyArgs:
              _setter: Callable[[Any, Any], None],
              cookie_expiration_period: Optional[pulumi.Input[str]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieExpirationPeriod' in kwargs:
+            cookie_expiration_period = kwargs['cookieExpirationPeriod']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if cookie_expiration_period is not None:
             _setter("cookie_expiration_period", cookie_expiration_period)
         if policy_name is not None:
@@ -333,7 +365,19 @@ class LoadBalancerListenersArgs:
              instance_protocol: Optional[pulumi.Input[str]] = None,
              policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ssl_certificate_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if 'loadBalancerPort' in kwargs:
+            load_balancer_port = kwargs['loadBalancerPort']
+        if 'instanceProtocol' in kwargs:
+            instance_protocol = kwargs['instanceProtocol']
+        if 'policyNames' in kwargs:
+            policy_names = kwargs['policyNames']
+        if 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+
         _setter("instance_port", instance_port)
         _setter("load_balancer_port", load_balancer_port)
         _setter("protocol", protocol)
@@ -423,7 +467,17 @@ class LoadBalancerPoliciesArgs:
              policy_type: pulumi.Input[str],
              instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              load_balancer_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'instancePorts' in kwargs:
+            instance_ports = kwargs['instancePorts']
+        if 'loadBalancerPorts' in kwargs:
+            load_balancer_ports = kwargs['loadBalancerPorts']
+
         _setter("attributes", attributes)
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)
@@ -493,7 +547,9 @@ class LoadBalancerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

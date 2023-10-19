@@ -35,7 +35,17 @@ class PortfolioShareArgs:
              portfolio_id: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
              share_tag_options: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if 'shareTagOptions' in kwargs:
+            share_tag_options = kwargs['shareTagOptions']
+
         _setter("account_id", account_id)
         _setter("portfolio_id", portfolio_id)
         if accept_language is not None:

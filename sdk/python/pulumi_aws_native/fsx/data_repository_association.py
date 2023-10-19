@@ -54,7 +54,19 @@ class DataRepositoryAssociationArgs:
              imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
              s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRepositoryPath' in kwargs:
+            data_repository_path = kwargs['dataRepositoryPath']
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'fileSystemPath' in kwargs:
+            file_system_path = kwargs['fileSystemPath']
+        if 'batchImportMetaDataOnCreate' in kwargs:
+            batch_import_meta_data_on_create = kwargs['batchImportMetaDataOnCreate']
+        if 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+
         _setter("data_repository_path", data_repository_path)
         _setter("file_system_id", file_system_id)
         _setter("file_system_path", file_system_path)

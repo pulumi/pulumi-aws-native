@@ -37,7 +37,11 @@ class VpnGatewayArgs:
              type: pulumi.Input[str],
              amazon_side_asn: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+
         _setter("type", type)
         if amazon_side_asn is not None:
             _setter("amazon_side_asn", amazon_side_asn)

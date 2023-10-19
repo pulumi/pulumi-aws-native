@@ -74,7 +74,31 @@ class GameServerGroupArgs:
              min_size: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
              vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceDefinitions' in kwargs:
+            instance_definitions = kwargs['instanceDefinitions']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if 'balancingStrategy' in kwargs:
+            balancing_strategy = kwargs['balancingStrategy']
+        if 'deleteOption' in kwargs:
+            delete_option = kwargs['deleteOption']
+        if 'gameServerGroupName' in kwargs:
+            game_server_group_name = kwargs['gameServerGroupName']
+        if 'gameServerProtectionPolicy' in kwargs:
+            game_server_protection_policy = kwargs['gameServerProtectionPolicy']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if 'vpcSubnets' in kwargs:
+            vpc_subnets = kwargs['vpcSubnets']
+
         _setter("instance_definitions", instance_definitions)
         _setter("role_arn", role_arn)
         if auto_scaling_policy is not None:

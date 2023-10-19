@@ -32,7 +32,11 @@ class CollectionArgs:
              _setter: Callable[[Any, Any], None],
              collection_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+
         _setter("collection_id", collection_id)
         if tags is not None:
             _setter("tags", tags)

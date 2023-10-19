@@ -34,7 +34,13 @@ class CodeRepositoryArgs:
              git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
              code_repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gitConfig' in kwargs:
+            git_config = kwargs['gitConfig']
+        if 'codeRepositoryName' in kwargs:
+            code_repository_name = kwargs['codeRepositoryName']
+
         _setter("git_config", git_config)
         if code_repository_name is not None:
             _setter("code_repository_name", code_repository_name)

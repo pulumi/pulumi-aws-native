@@ -58,7 +58,29 @@ class AuthorizerArgs:
              identity_validation_expression: Optional[pulumi.Input[str]] = None,
              jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'authorizerType' in kwargs:
+            authorizer_type = kwargs['authorizerType']
+        if 'authorizerCredentialsArn' in kwargs:
+            authorizer_credentials_arn = kwargs['authorizerCredentialsArn']
+        if 'authorizerPayloadFormatVersion' in kwargs:
+            authorizer_payload_format_version = kwargs['authorizerPayloadFormatVersion']
+        if 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if 'enableSimpleResponses' in kwargs:
+            enable_simple_responses = kwargs['enableSimpleResponses']
+        if 'identitySource' in kwargs:
+            identity_source = kwargs['identitySource']
+        if 'identityValidationExpression' in kwargs:
+            identity_validation_expression = kwargs['identityValidationExpression']
+        if 'jwtConfiguration' in kwargs:
+            jwt_configuration = kwargs['jwtConfiguration']
+
         _setter("api_id", api_id)
         _setter("authorizer_type", authorizer_type)
         if authorizer_credentials_arn is not None:

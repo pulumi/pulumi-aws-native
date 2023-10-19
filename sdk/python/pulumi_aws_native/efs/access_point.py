@@ -44,7 +44,19 @@ class AccessPointArgs:
              client_token: Optional[pulumi.Input[str]] = None,
              posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
              root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'accessPointTags' in kwargs:
+            access_point_tags = kwargs['accessPointTags']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'posixUser' in kwargs:
+            posix_user = kwargs['posixUser']
+        if 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+
         _setter("file_system_id", file_system_id)
         if access_point_tags is not None:
             _setter("access_point_tags", access_point_tags)

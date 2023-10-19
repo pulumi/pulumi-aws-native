@@ -53,7 +53,17 @@ class SecurityProfileArgs:
              security_profile_name: Optional[pulumi.Input[str]] = None,
              tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'allowedAccessControlTags' in kwargs:
+            allowed_access_control_tags = kwargs['allowedAccessControlTags']
+        if 'securityProfileName' in kwargs:
+            security_profile_name = kwargs['securityProfileName']
+        if 'tagRestrictedResources' in kwargs:
+            tag_restricted_resources = kwargs['tagRestrictedResources']
+
         _setter("instance_arn", instance_arn)
         if allowed_access_control_tags is not None:
             _setter("allowed_access_control_tags", allowed_access_control_tags)

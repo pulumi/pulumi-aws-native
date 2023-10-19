@@ -73,7 +73,11 @@ class BridgeEgressGatewayBridge(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_bitrate: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+
         _setter("max_bitrate", max_bitrate)
 
     @property
@@ -130,7 +134,13 @@ class BridgeFailoverConfig(dict):
              failover_mode: 'BridgeFailoverModeEnum',
              source_priority: Optional['outputs.BridgeSourcePriority'] = None,
              state: Optional['BridgeFailoverConfigStateEnum'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if 'sourcePriority' in kwargs:
+            source_priority = kwargs['sourcePriority']
+
         _setter("failover_mode", failover_mode)
         if source_priority is not None:
             _setter("source_priority", source_priority)
@@ -205,7 +215,13 @@ class BridgeFlowSource(dict):
              flow_arn: str,
              name: str,
              flow_vpc_interface_attachment: Optional['outputs.BridgeVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'flowVpcInterfaceAttachment' in kwargs:
+            flow_vpc_interface_attachment = kwargs['flowVpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         _setter("name", name)
         if flow_vpc_interface_attachment is not None:
@@ -274,7 +290,13 @@ class BridgeIngressGatewayBridge(dict):
              _setter: Callable[[Any, Any], None],
              max_bitrate: int,
              max_outputs: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'maxOutputs' in kwargs:
+            max_outputs = kwargs['maxOutputs']
+
         _setter("max_bitrate", max_bitrate)
         _setter("max_outputs", max_outputs)
 
@@ -353,7 +375,13 @@ class BridgeNetworkOutput(dict):
              port: int,
              protocol: 'BridgeProtocolEnum',
              ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+
         _setter("ip_address", ip_address)
         _setter("name", name)
         _setter("network_name", network_name)
@@ -464,7 +492,13 @@ class BridgeNetworkSource(dict):
              network_name: str,
              port: int,
              protocol: 'BridgeProtocolEnum',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multicastIp' in kwargs:
+            multicast_ip = kwargs['multicastIp']
+        if 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+
         _setter("multicast_ip", multicast_ip)
         _setter("name", name)
         _setter("network_name", network_name)
@@ -547,7 +581,11 @@ class BridgeOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              network_output: Optional['outputs.BridgeNetworkOutput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkOutput' in kwargs:
+            network_output = kwargs['networkOutput']
+
         if network_output is not None:
             _setter("network_output", network_output)
 
@@ -611,7 +649,13 @@ class BridgeOutputResourceBridgeNetworkOutput(dict):
              port: int,
              protocol: 'BridgeOutputResourceBridgeNetworkOutputProtocol',
              ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+
         _setter("ip_address", ip_address)
         _setter("network_name", network_name)
         _setter("port", port)
@@ -699,7 +743,13 @@ class BridgeSource(dict):
              _setter: Callable[[Any, Any], None],
              flow_source: Optional['outputs.BridgeFlowSource'] = None,
              network_source: Optional['outputs.BridgeNetworkSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowSource' in kwargs:
+            flow_source = kwargs['flowSource']
+        if 'networkSource' in kwargs:
+            network_source = kwargs['networkSource']
+
         if flow_source is not None:
             _setter("flow_source", flow_source)
         if network_source is not None:
@@ -758,7 +808,13 @@ class BridgeSourceBridgeFlowSource(dict):
              _setter: Callable[[Any, Any], None],
              flow_arn: str,
              flow_vpc_interface_attachment: Optional['outputs.BridgeSourceVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'flowVpcInterfaceAttachment' in kwargs:
+            flow_vpc_interface_attachment = kwargs['flowVpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         if flow_vpc_interface_attachment is not None:
             _setter("flow_vpc_interface_attachment", flow_vpc_interface_attachment)
@@ -830,7 +886,13 @@ class BridgeSourceBridgeNetworkSource(dict):
              network_name: str,
              port: int,
              protocol: 'BridgeSourceProtocolEnum',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multicastIp' in kwargs:
+            multicast_ip = kwargs['multicastIp']
+        if 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+
         _setter("multicast_ip", multicast_ip)
         _setter("network_name", network_name)
         _setter("port", port)
@@ -905,7 +967,11 @@ class BridgeSourcePriority(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              primary_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primarySource' in kwargs:
+            primary_source = kwargs['primarySource']
+
         if primary_source is not None:
             _setter("primary_source", primary_source)
 
@@ -954,7 +1020,11 @@ class BridgeSourceVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1003,7 +1073,11 @@ class BridgeVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1094,7 +1168,21 @@ class FlowEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("role_arn", role_arn)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -1264,7 +1352,21 @@ class FlowEntitlementEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("algorithm", algorithm)
         _setter("role_arn", role_arn)
         if constant_initialization_vector is not None:
@@ -1406,7 +1508,15 @@ class FlowFailoverConfig(dict):
              recovery_window: Optional[int] = None,
              source_priority: Optional['outputs.FlowFailoverConfigSourcePriorityProperties'] = None,
              state: Optional['FlowFailoverConfigState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if 'recoveryWindow' in kwargs:
+            recovery_window = kwargs['recoveryWindow']
+        if 'sourcePriority' in kwargs:
+            source_priority = kwargs['sourcePriority']
+
         if failover_mode is not None:
             _setter("failover_mode", failover_mode)
         if recovery_window is not None:
@@ -1482,7 +1592,11 @@ class FlowFailoverConfigSourcePriorityProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              primary_source: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primarySource' in kwargs:
+            primary_source = kwargs['primarySource']
+
         _setter("primary_source", primary_source)
 
     @property
@@ -1536,7 +1650,13 @@ class FlowGatewayBridgeSource(dict):
              _setter: Callable[[Any, Any], None],
              bridge_arn: str,
              vpc_interface_attachment: Optional['outputs.FlowVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
             _setter("vpc_interface_attachment", vpc_interface_attachment)
@@ -1610,7 +1730,15 @@ class FlowOutputEncryption(dict):
              secret_arn: str,
              algorithm: Optional['FlowOutputEncryptionAlgorithm'] = None,
              key_type: Optional['FlowOutputEncryptionKeyType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+
         _setter("role_arn", role_arn)
         _setter("secret_arn", secret_arn)
         if algorithm is not None:
@@ -1687,7 +1815,11 @@ class FlowOutputVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1842,7 +1974,41 @@ class FlowSource(dict):
              stream_id: Optional[str] = None,
              vpc_interface_name: Optional[str] = None,
              whitelist_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entitlementArn' in kwargs:
+            entitlement_arn = kwargs['entitlementArn']
+        if 'gatewayBridgeSource' in kwargs:
+            gateway_bridge_source = kwargs['gatewayBridgeSource']
+        if 'ingestIp' in kwargs:
+            ingest_ip = kwargs['ingestIp']
+        if 'ingestPort' in kwargs:
+            ingest_port = kwargs['ingestPort']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if 'senderControlPort' in kwargs:
+            sender_control_port = kwargs['senderControlPort']
+        if 'senderIpAddress' in kwargs:
+            sender_ip_address = kwargs['senderIpAddress']
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if 'sourceIngestPort' in kwargs:
+            source_ingest_port = kwargs['sourceIngestPort']
+        if 'sourceListenerAddress' in kwargs:
+            source_listener_address = kwargs['sourceListenerAddress']
+        if 'sourceListenerPort' in kwargs:
+            source_listener_port = kwargs['sourceListenerPort']
+        if 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+        if 'whitelistCidr' in kwargs:
+            whitelist_cidr = kwargs['whitelistCidr']
+
         if decryption is not None:
             _setter("decryption", decryption)
         if description is not None:
@@ -2123,7 +2289,21 @@ class FlowSourceEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("role_arn", role_arn)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -2257,7 +2437,13 @@ class FlowSourceGatewayBridgeSource(dict):
              _setter: Callable[[Any, Any], None],
              bridge_arn: str,
              vpc_interface_attachment: Optional['outputs.FlowSourceVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
             _setter("vpc_interface_attachment", vpc_interface_attachment)
@@ -2315,7 +2501,11 @@ class FlowSourceVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -2364,7 +2554,11 @@ class FlowVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -2417,7 +2611,11 @@ class GatewayNetwork(dict):
              _setter: Callable[[Any, Any], None],
              cidr_block: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+
         _setter("cidr_block", cidr_block)
         _setter("name", name)
 

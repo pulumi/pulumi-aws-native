@@ -40,7 +40,15 @@ class DataflowEndpointGroupArgs:
              contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointDetails' in kwargs:
+            endpoint_details = kwargs['endpointDetails']
+        if 'contactPostPassDurationSeconds' in kwargs:
+            contact_post_pass_duration_seconds = kwargs['contactPostPassDurationSeconds']
+        if 'contactPrePassDurationSeconds' in kwargs:
+            contact_pre_pass_duration_seconds = kwargs['contactPrePassDurationSeconds']
+
         _setter("endpoint_details", endpoint_details)
         if contact_post_pass_duration_seconds is not None:
             _setter("contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)

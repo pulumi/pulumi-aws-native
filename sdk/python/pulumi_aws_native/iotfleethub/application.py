@@ -41,7 +41,15 @@ class ApplicationArgs:
              application_description: Optional[pulumi.Input[str]] = None,
              application_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'applicationDescription' in kwargs:
+            application_description = kwargs['applicationDescription']
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+
         _setter("role_arn", role_arn)
         if application_description is not None:
             _setter("application_description", application_description)

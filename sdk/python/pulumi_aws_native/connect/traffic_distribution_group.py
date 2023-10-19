@@ -42,7 +42,11 @@ class TrafficDistributionGroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficDistributionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+
         _setter("instance_arn", instance_arn)
         if description is not None:
             _setter("description", description)

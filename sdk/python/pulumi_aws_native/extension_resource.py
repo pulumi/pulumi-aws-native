@@ -31,7 +31,9 @@ class ExtensionResourceArgs:
              _setter: Callable[[Any, Any], None],
              properties: pulumi.Input[Mapping[str, Any]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("properties", properties)
         _setter("type", type)
 

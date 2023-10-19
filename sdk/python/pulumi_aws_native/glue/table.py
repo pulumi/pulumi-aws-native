@@ -37,7 +37,17 @@ class TableArgs:
              database_name: pulumi.Input[str],
              table_input: pulumi.Input['TableInputArgs'],
              open_table_format_input: Optional[pulumi.Input['TableOpenTableFormatInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableInput' in kwargs:
+            table_input = kwargs['tableInput']
+        if 'openTableFormatInput' in kwargs:
+            open_table_format_input = kwargs['openTableFormatInput']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("table_input", table_input)

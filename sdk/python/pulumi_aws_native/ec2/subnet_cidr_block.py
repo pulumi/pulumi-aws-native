@@ -31,7 +31,13 @@ class SubnetCidrBlockArgs:
              _setter: Callable[[Any, Any], None],
              ipv6_cidr_block: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("ipv6_cidr_block", ipv6_cidr_block)
         _setter("subnet_id", subnet_id)
 

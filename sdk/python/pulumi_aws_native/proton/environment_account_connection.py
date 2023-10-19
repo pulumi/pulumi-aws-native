@@ -56,7 +56,21 @@ class EnvironmentAccountConnectionArgs:
              management_account_id: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAccountConnectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codebuildRoleArn' in kwargs:
+            codebuild_role_arn = kwargs['codebuildRoleArn']
+        if 'componentRoleArn' in kwargs:
+            component_role_arn = kwargs['componentRoleArn']
+        if 'environmentAccountId' in kwargs:
+            environment_account_id = kwargs['environmentAccountId']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'managementAccountId' in kwargs:
+            management_account_id = kwargs['managementAccountId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if codebuild_role_arn is not None:
             _setter("codebuild_role_arn", codebuild_role_arn)
         if component_role_arn is not None:

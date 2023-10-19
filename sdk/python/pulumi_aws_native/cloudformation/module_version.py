@@ -34,7 +34,13 @@ class ModuleVersionArgs:
              _setter: Callable[[Any, Any], None],
              module_name: pulumi.Input[str],
              module_package: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'moduleName' in kwargs:
+            module_name = kwargs['moduleName']
+        if 'modulePackage' in kwargs:
+            module_package = kwargs['modulePackage']
+
         _setter("module_name", module_name)
         _setter("module_package", module_package)
 

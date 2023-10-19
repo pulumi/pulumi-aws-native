@@ -41,7 +41,11 @@ class ContactListArgs:
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTagArgs']]]] = None,
              topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactListName' in kwargs:
+            contact_list_name = kwargs['contactListName']
+
         if contact_list_name is not None:
             _setter("contact_list_name", contact_list_name)
         if description is not None:

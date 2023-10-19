@@ -46,7 +46,15 @@ class PrefixListArgs:
              entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
              prefix_list_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'maxEntries' in kwargs:
+            max_entries = kwargs['maxEntries']
+        if 'prefixListName' in kwargs:
+            prefix_list_name = kwargs['prefixListName']
+
         _setter("address_family", address_family)
         _setter("max_entries", max_entries)
         if entries is not None:

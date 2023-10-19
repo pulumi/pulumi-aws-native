@@ -32,7 +32,13 @@ class NetworkInterfacePermissionArgs:
              aws_account_id: pulumi.Input[str],
              network_interface_id: pulumi.Input[str],
              permission: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         _setter("aws_account_id", aws_account_id)
         _setter("network_interface_id", network_interface_id)
         _setter("permission", permission)

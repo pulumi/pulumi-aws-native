@@ -31,7 +31,13 @@ class DrtAccessArgs:
              _setter: Callable[[Any, Any], None],
              role_arn: pulumi.Input[str],
              log_bucket_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'logBucketList' in kwargs:
+            log_bucket_list = kwargs['logBucketList']
+
         _setter("role_arn", role_arn)
         if log_bucket_list is not None:
             _setter("log_bucket_list", log_bucket_list)

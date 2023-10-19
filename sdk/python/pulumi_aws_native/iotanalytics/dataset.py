@@ -50,7 +50,19 @@ class DatasetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
              triggers: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
              versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentDeliveryRules' in kwargs:
+            content_delivery_rules = kwargs['contentDeliveryRules']
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if 'lateDataRules' in kwargs:
+            late_data_rules = kwargs['lateDataRules']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+
         _setter("actions", actions)
         if content_delivery_rules is not None:
             _setter("content_delivery_rules", content_delivery_rules)

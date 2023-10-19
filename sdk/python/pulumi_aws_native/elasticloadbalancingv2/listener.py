@@ -46,7 +46,17 @@ class ListenerArgs:
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              ssl_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultActions' in kwargs:
+            default_actions = kwargs['defaultActions']
+        if 'loadBalancerArn' in kwargs:
+            load_balancer_arn = kwargs['loadBalancerArn']
+        if 'alpnPolicy' in kwargs:
+            alpn_policy = kwargs['alpnPolicy']
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+
         _setter("default_actions", default_actions)
         _setter("load_balancer_arn", load_balancer_arn)
         if alpn_policy is not None:

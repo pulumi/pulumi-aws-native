@@ -35,7 +35,15 @@ class TransitGatewayMulticastGroupSourceArgs:
              group_ip_address: pulumi.Input[str],
              network_interface_id: pulumi.Input[str],
              transit_gateway_multicast_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupIpAddress' in kwargs:
+            group_ip_address = kwargs['groupIpAddress']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'transitGatewayMulticastDomainId' in kwargs:
+            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
+
         _setter("group_ip_address", group_ip_address)
         _setter("network_interface_id", network_interface_id)
         _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)

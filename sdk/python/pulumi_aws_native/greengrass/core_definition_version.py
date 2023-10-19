@@ -31,7 +31,11 @@ class CoreDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              core_definition_id: pulumi.Input[str],
              cores: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionVersionCoreArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreDefinitionId' in kwargs:
+            core_definition_id = kwargs['coreDefinitionId']
+
         _setter("core_definition_id", core_definition_id)
         _setter("cores", cores)
 

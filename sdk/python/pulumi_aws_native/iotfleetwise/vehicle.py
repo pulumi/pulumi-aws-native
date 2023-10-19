@@ -44,7 +44,15 @@ class VehicleArgs:
              attributes: Optional[pulumi.Input['VehicleattributesMapArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VehicleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'decoderManifestArn' in kwargs:
+            decoder_manifest_arn = kwargs['decoderManifestArn']
+        if 'modelManifestArn' in kwargs:
+            model_manifest_arn = kwargs['modelManifestArn']
+        if 'associationBehavior' in kwargs:
+            association_behavior = kwargs['associationBehavior']
+
         _setter("decoder_manifest_arn", decoder_manifest_arn)
         _setter("model_manifest_arn", model_manifest_arn)
         if association_behavior is not None:

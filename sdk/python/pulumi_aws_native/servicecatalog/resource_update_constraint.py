@@ -38,7 +38,17 @@ class ResourceUpdateConstraintArgs:
              tag_update_on_provisioned_product: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'tagUpdateOnProvisionedProduct' in kwargs:
+            tag_update_on_provisioned_product = kwargs['tagUpdateOnProvisionedProduct']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)
         _setter("tag_update_on_provisioned_product", tag_update_on_provisioned_product)

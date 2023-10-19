@@ -44,7 +44,19 @@ class FhirDatastoreArgs:
              preload_data_config: Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']] = None,
              sse_configuration: Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreTypeVersion' in kwargs:
+            datastore_type_version = kwargs['datastoreTypeVersion']
+        if 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if 'identityProviderConfiguration' in kwargs:
+            identity_provider_configuration = kwargs['identityProviderConfiguration']
+        if 'preloadDataConfig' in kwargs:
+            preload_data_config = kwargs['preloadDataConfig']
+        if 'sseConfiguration' in kwargs:
+            sse_configuration = kwargs['sseConfiguration']
+
         _setter("datastore_type_version", datastore_type_version)
         if datastore_name is not None:
             _setter("datastore_name", datastore_name)

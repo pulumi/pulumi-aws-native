@@ -53,7 +53,13 @@ class LocationFSxWindowsArgs:
              password: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+
         _setter("security_group_arns", security_group_arns)
         _setter("user", user)
         if domain is not None:

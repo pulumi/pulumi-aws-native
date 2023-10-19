@@ -59,7 +59,19 @@ class PipeArgs:
              source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
              tags: Optional[pulumi.Input['PipeTagMapArgs']] = None,
              target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+        if 'enrichmentParameters' in kwargs:
+            enrichment_parameters = kwargs['enrichmentParameters']
+        if 'sourceParameters' in kwargs:
+            source_parameters = kwargs['sourceParameters']
+        if 'targetParameters' in kwargs:
+            target_parameters = kwargs['targetParameters']
+
         _setter("role_arn", role_arn)
         _setter("source", source)
         _setter("target", target)

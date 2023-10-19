@@ -29,7 +29,11 @@ class RegexPatternSetArgs:
              _setter: Callable[[Any, Any], None],
              regex_pattern_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regexPatternStrings' in kwargs:
+            regex_pattern_strings = kwargs['regexPatternStrings']
+
         _setter("regex_pattern_strings", regex_pattern_strings)
         if name is not None:
             _setter("name", name)

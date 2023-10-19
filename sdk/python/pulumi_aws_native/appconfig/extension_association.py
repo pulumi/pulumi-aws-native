@@ -41,7 +41,15 @@ class ExtensionAssociationArgs:
              parameters: Optional[Any] = None,
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionIdentifier' in kwargs:
+            extension_identifier = kwargs['extensionIdentifier']
+        if 'extensionVersionNumber' in kwargs:
+            extension_version_number = kwargs['extensionVersionNumber']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         if extension_identifier is not None:
             _setter("extension_identifier", extension_identifier)
         if extension_version_number is not None:

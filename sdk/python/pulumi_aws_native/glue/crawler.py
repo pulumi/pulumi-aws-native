@@ -64,7 +64,19 @@ class CrawlerArgs:
              schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
              table_prefix: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crawlerSecurityConfiguration' in kwargs:
+            crawler_security_configuration = kwargs['crawlerSecurityConfiguration']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'recrawlPolicy' in kwargs:
+            recrawl_policy = kwargs['recrawlPolicy']
+        if 'schemaChangePolicy' in kwargs:
+            schema_change_policy = kwargs['schemaChangePolicy']
+        if 'tablePrefix' in kwargs:
+            table_prefix = kwargs['tablePrefix']
+
         _setter("role", role)
         _setter("targets", targets)
         if classifiers is not None:

@@ -56,7 +56,11 @@ class AccessPointVpcConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if vpc_id is not None:
             _setter("vpc_id", vpc_id)
 
@@ -105,7 +109,11 @@ class BucketAbortIncompleteMultipartUpload(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              days_after_initiation: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysAfterInitiation' in kwargs:
+            days_after_initiation = kwargs['daysAfterInitiation']
+
         _setter("days_after_initiation", days_after_initiation)
 
     @property
@@ -136,7 +144,9 @@ class BucketFilterAndOperatorProperties(dict):
              _setter: Callable[[Any, Any], None],
              tags: Sequence['outputs.BucketFilterTag'],
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tags", tags)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -179,7 +189,9 @@ class BucketFilterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -209,7 +221,9 @@ class BucketLifecycleConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: Sequence['outputs.BucketRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -280,7 +294,15 @@ class BucketRule(dict):
              filter: Optional['outputs.BucketRuleFilterProperties'] = None,
              id: Optional[str] = None,
              status: Optional['BucketRuleStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abortIncompleteMultipartUpload' in kwargs:
+            abort_incomplete_multipart_upload = kwargs['abortIncompleteMultipartUpload']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+
         if abort_incomplete_multipart_upload is not None:
             _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration_date is not None:
@@ -384,7 +406,11 @@ class BucketRuleFilterProperties(dict):
              and_operator: Optional['outputs.BucketFilterAndOperatorProperties'] = None,
              prefix: Optional[str] = None,
              tag: Optional['outputs.BucketFilterTag'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andOperator' in kwargs:
+            and_operator = kwargs['andOperator']
+
         if and_operator is not None:
             _setter("and_operator", and_operator)
         if prefix is not None:
@@ -432,7 +458,9 @@ class BucketTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -483,7 +511,11 @@ class EndpointFailedReason(dict):
              _setter: Callable[[Any, Any], None],
              error_code: Optional[str] = None,
              message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+
         if error_code is not None:
             _setter("error_code", error_code)
         if message is not None:
@@ -541,7 +573,11 @@ class EndpointNetworkInterface(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              network_interface_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         _setter("network_interface_id", network_interface_id)
 
     @property

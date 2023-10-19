@@ -139,7 +139,17 @@ class CachePolicyConfig(dict):
              name: str,
              parameters_in_cache_key_and_forwarded_to_origin: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin',
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if 'parametersInCacheKeyAndForwardedToOrigin' in kwargs:
+            parameters_in_cache_key_and_forwarded_to_origin = kwargs['parametersInCacheKeyAndForwardedToOrigin']
+
         _setter("default_ttl", default_ttl)
         _setter("max_ttl", max_ttl)
         _setter("min_ttl", min_ttl)
@@ -211,7 +221,11 @@ class CachePolicyCookiesConfig(dict):
              _setter: Callable[[Any, Any], None],
              cookie_behavior: str,
              cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+
         _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -259,7 +273,11 @@ class CachePolicyHeadersConfig(dict):
              _setter: Callable[[Any, Any], None],
              header_behavior: str,
              headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+
         _setter("header_behavior", header_behavior)
         if headers is not None:
             _setter("headers", headers)
@@ -324,7 +342,19 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
              headers_config: 'outputs.CachePolicyHeadersConfig',
              query_strings_config: 'outputs.CachePolicyQueryStringsConfig',
              enable_accept_encoding_brotli: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookiesConfig' in kwargs:
+            cookies_config = kwargs['cookiesConfig']
+        if 'enableAcceptEncodingGzip' in kwargs:
+            enable_accept_encoding_gzip = kwargs['enableAcceptEncodingGzip']
+        if 'headersConfig' in kwargs:
+            headers_config = kwargs['headersConfig']
+        if 'queryStringsConfig' in kwargs:
+            query_strings_config = kwargs['queryStringsConfig']
+        if 'enableAcceptEncodingBrotli' in kwargs:
+            enable_accept_encoding_brotli = kwargs['enableAcceptEncodingBrotli']
+
         _setter("cookies_config", cookies_config)
         _setter("enable_accept_encoding_gzip", enable_accept_encoding_gzip)
         _setter("headers_config", headers_config)
@@ -392,7 +422,13 @@ class CachePolicyQueryStringsConfig(dict):
              _setter: Callable[[Any, Any], None],
              query_string_behavior: str,
              query_strings: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
             _setter("query_strings", query_strings)
@@ -420,7 +456,9 @@ class CloudFrontOriginAccessIdentityConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              comment: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
 
     @property
@@ -479,7 +517,17 @@ class ContinuousDeploymentPolicyConfig(dict):
              single_weight_policy_config: Optional['outputs.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties'] = None,
              traffic_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfig'] = None,
              type: Optional['ContinuousDeploymentPolicyConfigType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stagingDistributionDnsNames' in kwargs:
+            staging_distribution_dns_names = kwargs['stagingDistributionDnsNames']
+        if 'singleHeaderPolicyConfig' in kwargs:
+            single_header_policy_config = kwargs['singleHeaderPolicyConfig']
+        if 'singleWeightPolicyConfig' in kwargs:
+            single_weight_policy_config = kwargs['singleWeightPolicyConfig']
+        if 'trafficConfig' in kwargs:
+            traffic_config = kwargs['trafficConfig']
+
         _setter("enabled", enabled)
         _setter("staging_distribution_dns_names", staging_distribution_dns_names)
         if single_header_policy_config is not None:
@@ -537,7 +585,9 @@ class ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties(dict):
              _setter: Callable[[Any, Any], None],
              header: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("header", header)
         _setter("value", value)
 
@@ -584,7 +634,11 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties(dict):
              _setter: Callable[[Any, Any], None],
              weight: float,
              session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicySessionStickinessConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sessionStickinessConfig' in kwargs:
+            session_stickiness_config = kwargs['sessionStickinessConfig']
+
         _setter("weight", weight)
         if session_stickiness_config is not None:
             _setter("session_stickiness_config", session_stickiness_config)
@@ -634,7 +688,13 @@ class ContinuousDeploymentPolicySessionStickinessConfig(dict):
              _setter: Callable[[Any, Any], None],
              idle_ttl: int,
              maximum_ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTtl' in kwargs:
+            idle_ttl = kwargs['idleTtl']
+        if 'maximumTtl' in kwargs:
+            maximum_ttl = kwargs['maximumTtl']
+
         _setter("idle_ttl", idle_ttl)
         _setter("maximum_ttl", maximum_ttl)
 
@@ -664,7 +724,9 @@ class ContinuousDeploymentPolicySingleHeaderConfig(dict):
              _setter: Callable[[Any, Any], None],
              header: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("header", header)
         _setter("value", value)
 
@@ -711,7 +773,11 @@ class ContinuousDeploymentPolicySingleWeightConfig(dict):
              _setter: Callable[[Any, Any], None],
              weight: float,
              session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicySessionStickinessConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sessionStickinessConfig' in kwargs:
+            session_stickiness_config = kwargs['sessionStickinessConfig']
+
         _setter("weight", weight)
         if session_stickiness_config is not None:
             _setter("session_stickiness_config", session_stickiness_config)
@@ -764,7 +830,13 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
              type: 'ContinuousDeploymentPolicyTrafficConfigType',
              single_header_config: Optional['outputs.ContinuousDeploymentPolicySingleHeaderConfig'] = None,
              single_weight_config: Optional['outputs.ContinuousDeploymentPolicySingleWeightConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'singleHeaderConfig' in kwargs:
+            single_header_config = kwargs['singleHeaderConfig']
+        if 'singleWeightConfig' in kwargs:
+            single_weight_config = kwargs['singleWeightConfig']
+
         _setter("type", type)
         if single_header_config is not None:
             _setter("single_header_config", single_header_config)
@@ -909,7 +981,47 @@ class DistributionCacheBehavior(dict):
              smooth_streaming: Optional[bool] = None,
              trusted_key_groups: Optional[Sequence[str]] = None,
              trusted_signers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
         _setter("path_pattern", path_pattern)
         _setter("target_origin_id", target_origin_id)
         _setter("viewer_protocol_policy", viewer_protocol_policy)
@@ -1162,7 +1274,35 @@ class DistributionConfig(dict):
              staging: Optional[bool] = None,
              viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
              web_acl_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if 'cacheBehaviors' in kwargs:
+            cache_behaviors = kwargs['cacheBehaviors']
+        if 'continuousDeploymentPolicyId' in kwargs:
+            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
+        if 'customErrorResponses' in kwargs:
+            custom_error_responses = kwargs['customErrorResponses']
+        if 'customOrigin' in kwargs:
+            custom_origin = kwargs['customOrigin']
+        if 'defaultRootObject' in kwargs:
+            default_root_object = kwargs['defaultRootObject']
+        if 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if 'ipv6Enabled' in kwargs:
+            ipv6_enabled = kwargs['ipv6Enabled']
+        if 'originGroups' in kwargs:
+            origin_groups = kwargs['originGroups']
+        if 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+        if 's3Origin' in kwargs:
+            s3_origin = kwargs['s3Origin']
+        if 'viewerCertificate' in kwargs:
+            viewer_certificate = kwargs['viewerCertificate']
+        if 'webAclId' in kwargs:
+            web_acl_id = kwargs['webAclId']
+
         _setter("default_cache_behavior", default_cache_behavior)
         _setter("enabled", enabled)
         if aliases is not None:
@@ -1342,7 +1482,11 @@ class DistributionCookies(dict):
              _setter: Callable[[Any, Any], None],
              forward: str,
              whitelisted_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'whitelistedNames' in kwargs:
+            whitelisted_names = kwargs['whitelistedNames']
+
         _setter("forward", forward)
         if whitelisted_names is not None:
             _setter("whitelisted_names", whitelisted_names)
@@ -1402,7 +1546,17 @@ class DistributionCustomErrorResponse(dict):
              error_caching_min_ttl: Optional[float] = None,
              response_code: Optional[int] = None,
              response_page_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'errorCachingMinTtl' in kwargs:
+            error_caching_min_ttl = kwargs['errorCachingMinTtl']
+        if 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if 'responsePagePath' in kwargs:
+            response_page_path = kwargs['responsePagePath']
+
         _setter("error_code", error_code)
         if error_caching_min_ttl is not None:
             _setter("error_caching_min_ttl", error_caching_min_ttl)
@@ -1486,7 +1640,21 @@ class DistributionCustomOriginConfig(dict):
              origin_keepalive_timeout: Optional[int] = None,
              origin_read_timeout: Optional[int] = None,
              origin_ssl_protocols: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originProtocolPolicy' in kwargs:
+            origin_protocol_policy = kwargs['originProtocolPolicy']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'originKeepaliveTimeout' in kwargs:
+            origin_keepalive_timeout = kwargs['originKeepaliveTimeout']
+        if 'originReadTimeout' in kwargs:
+            origin_read_timeout = kwargs['originReadTimeout']
+        if 'originSslProtocols' in kwargs:
+            origin_ssl_protocols = kwargs['originSslProtocols']
+
         _setter("origin_protocol_policy", origin_protocol_policy)
         if http_port is not None:
             _setter("http_port", http_port)
@@ -1647,7 +1815,45 @@ class DistributionDefaultCacheBehavior(dict):
              smooth_streaming: Optional[bool] = None,
              trusted_key_groups: Optional[Sequence[str]] = None,
              trusted_signers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
         _setter("target_origin_id", target_origin_id)
         _setter("viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
@@ -1821,7 +2027,13 @@ class DistributionForwardedValues(dict):
              cookies: Optional['outputs.DistributionCookies'] = None,
              headers: Optional[Sequence[str]] = None,
              query_string_cache_keys: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'queryStringCacheKeys' in kwargs:
+            query_string_cache_keys = kwargs['queryStringCacheKeys']
+
         _setter("query_string", query_string)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -1885,7 +2097,13 @@ class DistributionFunctionAssociation(dict):
              _setter: Callable[[Any, Any], None],
              event_type: Optional[str] = None,
              function_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         if event_type is not None:
             _setter("event_type", event_type)
         if function_arn is not None:
@@ -1934,7 +2152,11 @@ class DistributionGeoRestriction(dict):
              _setter: Callable[[Any, Any], None],
              restriction_type: str,
              locations: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restrictionType' in kwargs:
+            restriction_type = kwargs['restrictionType']
+
         _setter("restriction_type", restriction_type)
         if locations is not None:
             _setter("locations", locations)
@@ -1989,7 +2211,15 @@ class DistributionLambdaFunctionAssociation(dict):
              event_type: Optional[str] = None,
              include_body: Optional[bool] = None,
              lambda_function_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'includeBody' in kwargs:
+            include_body = kwargs['includeBody']
+        if 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         if event_type is not None:
             _setter("event_type", event_type)
         if include_body is not None:
@@ -2062,7 +2292,19 @@ class DistributionLegacyCustomOrigin(dict):
              origin_ssl_protocols: Sequence[str],
              http_port: Optional[int] = None,
              https_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'originProtocolPolicy' in kwargs:
+            origin_protocol_policy = kwargs['originProtocolPolicy']
+        if 'originSslProtocols' in kwargs:
+            origin_ssl_protocols = kwargs['originSslProtocols']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+
         _setter("dns_name", dns_name)
         _setter("origin_protocol_policy", origin_protocol_policy)
         _setter("origin_ssl_protocols", origin_ssl_protocols)
@@ -2131,7 +2373,13 @@ class DistributionLegacyS3Origin(dict):
              _setter: Callable[[Any, Any], None],
              dns_name: str,
              origin_access_identity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+
         _setter("dns_name", dns_name)
         if origin_access_identity is not None:
             _setter("origin_access_identity", origin_access_identity)
@@ -2182,7 +2430,11 @@ class DistributionLogging(dict):
              bucket: str,
              include_cookies: Optional[bool] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeCookies' in kwargs:
+            include_cookies = kwargs['includeCookies']
+
         _setter("bucket", bucket)
         if include_cookies is not None:
             _setter("include_cookies", include_cookies)
@@ -2277,7 +2529,27 @@ class DistributionOrigin(dict):
              origin_path: Optional[str] = None,
              origin_shield: Optional['outputs.DistributionOriginShield'] = None,
              s3_origin_config: Optional['outputs.DistributionS3OriginConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'connectionAttempts' in kwargs:
+            connection_attempts = kwargs['connectionAttempts']
+        if 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if 'customOriginConfig' in kwargs:
+            custom_origin_config = kwargs['customOriginConfig']
+        if 'originAccessControlId' in kwargs:
+            origin_access_control_id = kwargs['originAccessControlId']
+        if 'originCustomHeaders' in kwargs:
+            origin_custom_headers = kwargs['originCustomHeaders']
+        if 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if 'originShield' in kwargs:
+            origin_shield = kwargs['originShield']
+        if 's3OriginConfig' in kwargs:
+            s3_origin_config = kwargs['s3OriginConfig']
+
         _setter("domain_name", domain_name)
         _setter("id", id)
         if connection_attempts is not None:
@@ -2382,7 +2654,13 @@ class DistributionOriginCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              header_name: str,
              header_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -2432,7 +2710,11 @@ class DistributionOriginGroup(dict):
              failover_criteria: 'outputs.DistributionOriginGroupFailoverCriteria',
              id: str,
              members: 'outputs.DistributionOriginGroupMembers',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverCriteria' in kwargs:
+            failover_criteria = kwargs['failoverCriteria']
+
         _setter("failover_criteria", failover_criteria)
         _setter("id", id)
         _setter("members", members)
@@ -2482,7 +2764,11 @@ class DistributionOriginGroupFailoverCriteria(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status_codes: 'outputs.DistributionStatusCodes',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+
         _setter("status_codes", status_codes)
 
     @property
@@ -2520,7 +2806,11 @@ class DistributionOriginGroupMember(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              origin_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originId' in kwargs:
+            origin_id = kwargs['originId']
+
         _setter("origin_id", origin_id)
 
     @property
@@ -2544,7 +2834,9 @@ class DistributionOriginGroupMembers(dict):
              _setter: Callable[[Any, Any], None],
              items: Sequence['outputs.DistributionOriginGroupMember'],
              quantity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
         _setter("quantity", quantity)
 
@@ -2574,7 +2866,9 @@ class DistributionOriginGroups(dict):
              _setter: Callable[[Any, Any], None],
              quantity: int,
              items: Optional[Sequence['outputs.DistributionOriginGroup']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("quantity", quantity)
         if items is not None:
             _setter("items", items)
@@ -2622,7 +2916,11 @@ class DistributionOriginShield(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              origin_shield_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originShieldRegion' in kwargs:
+            origin_shield_region = kwargs['originShieldRegion']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if origin_shield_region is not None:
@@ -2668,7 +2966,11 @@ class DistributionRestrictions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              geo_restriction: 'outputs.DistributionGeoRestriction',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'geoRestriction' in kwargs:
+            geo_restriction = kwargs['geoRestriction']
+
         _setter("geo_restriction", geo_restriction)
 
     @property
@@ -2706,7 +3008,11 @@ class DistributionS3OriginConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              origin_access_identity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+
         if origin_access_identity is not None:
             _setter("origin_access_identity", origin_access_identity)
 
@@ -2731,7 +3037,9 @@ class DistributionStatusCodes(dict):
              _setter: Callable[[Any, Any], None],
              items: Sequence[int],
              quantity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
         _setter("quantity", quantity)
 
@@ -2761,7 +3069,9 @@ class DistributionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2825,7 +3135,19 @@ class DistributionViewerCertificate(dict):
              iam_certificate_id: Optional[str] = None,
              minimum_protocol_version: Optional[str] = None,
              ssl_support_method: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acmCertificateArn' in kwargs:
+            acm_certificate_arn = kwargs['acmCertificateArn']
+        if 'cloudFrontDefaultCertificate' in kwargs:
+            cloud_front_default_certificate = kwargs['cloudFrontDefaultCertificate']
+        if 'iamCertificateId' in kwargs:
+            iam_certificate_id = kwargs['iamCertificateId']
+        if 'minimumProtocolVersion' in kwargs:
+            minimum_protocol_version = kwargs['minimumProtocolVersion']
+        if 'sslSupportMethod' in kwargs:
+            ssl_support_method = kwargs['sslSupportMethod']
+
         if acm_certificate_arn is not None:
             _setter("acm_certificate_arn", acm_certificate_arn)
         if cloud_front_default_certificate is not None:
@@ -2878,7 +3200,9 @@ class FunctionConfig(dict):
              _setter: Callable[[Any, Any], None],
              comment: str,
              runtime: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comment", comment)
         _setter("runtime", runtime)
 
@@ -2922,7 +3246,11 @@ class FunctionMetadata(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              function_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         if function_arn is not None:
             _setter("function_arn", function_arn)
 
@@ -2950,7 +3278,9 @@ class KeyGroupConfig(dict):
              items: Sequence[str],
              name: str,
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
         _setter("name", name)
         if comment is not None:
@@ -3001,7 +3331,11 @@ class MonitoringSubscription(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              realtime_metrics_subscription_config: Optional['outputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'realtimeMetricsSubscriptionConfig' in kwargs:
+            realtime_metrics_subscription_config = kwargs['realtimeMetricsSubscriptionConfig']
+
         if realtime_metrics_subscription_config is not None:
             _setter("realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
@@ -3040,7 +3374,11 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              realtime_metrics_subscription_status: 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'realtimeMetricsSubscriptionStatus' in kwargs:
+            realtime_metrics_subscription_status = kwargs['realtimeMetricsSubscriptionStatus']
+
         _setter("realtime_metrics_subscription_status", realtime_metrics_subscription_status)
 
     @property
@@ -3094,7 +3432,15 @@ class OriginAccessControlConfig(dict):
              signing_behavior: str,
              signing_protocol: str,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originAccessControlOriginType' in kwargs:
+            origin_access_control_origin_type = kwargs['originAccessControlOriginType']
+        if 'signingBehavior' in kwargs:
+            signing_behavior = kwargs['signingBehavior']
+        if 'signingProtocol' in kwargs:
+            signing_protocol = kwargs['signingProtocol']
+
         _setter("name", name)
         _setter("origin_access_control_origin_type", origin_access_control_origin_type)
         _setter("signing_behavior", signing_behavior)
@@ -3173,7 +3519,15 @@ class OriginRequestPolicyConfig(dict):
              name: str,
              query_strings_config: 'outputs.OriginRequestPolicyQueryStringsConfig',
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookiesConfig' in kwargs:
+            cookies_config = kwargs['cookiesConfig']
+        if 'headersConfig' in kwargs:
+            headers_config = kwargs['headersConfig']
+        if 'queryStringsConfig' in kwargs:
+            query_strings_config = kwargs['queryStringsConfig']
+
         _setter("cookies_config", cookies_config)
         _setter("headers_config", headers_config)
         _setter("name", name)
@@ -3239,7 +3593,11 @@ class OriginRequestPolicyCookiesConfig(dict):
              _setter: Callable[[Any, Any], None],
              cookie_behavior: str,
              cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+
         _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -3287,7 +3645,11 @@ class OriginRequestPolicyHeadersConfig(dict):
              _setter: Callable[[Any, Any], None],
              header_behavior: str,
              headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+
         _setter("header_behavior", header_behavior)
         if headers is not None:
             _setter("headers", headers)
@@ -3337,7 +3699,13 @@ class OriginRequestPolicyQueryStringsConfig(dict):
              _setter: Callable[[Any, Any], None],
              query_string_behavior: str,
              query_strings: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
             _setter("query_strings", query_strings)
@@ -3393,7 +3761,13 @@ class PublicKeyConfig(dict):
              encoded_key: str,
              name: str,
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if 'encodedKey' in kwargs:
+            encoded_key = kwargs['encodedKey']
+
         _setter("caller_reference", caller_reference)
         _setter("encoded_key", encoded_key)
         _setter("name", name)
@@ -3455,7 +3829,13 @@ class RealtimeLogConfigEndPoint(dict):
              _setter: Callable[[Any, Any], None],
              kinesis_stream_config: 'outputs.RealtimeLogConfigKinesisStreamConfig',
              stream_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kinesisStreamConfig' in kwargs:
+            kinesis_stream_config = kwargs['kinesisStreamConfig']
+        if 'streamType' in kwargs:
+            stream_type = kwargs['streamType']
+
         _setter("kinesis_stream_config", kinesis_stream_config)
         _setter("stream_type", stream_type)
 
@@ -3504,7 +3884,13 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
              _setter: Callable[[Any, Any], None],
              role_arn: str,
              stream_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         _setter("role_arn", role_arn)
         _setter("stream_arn", stream_arn)
 
@@ -3531,7 +3917,9 @@ class ResponseHeadersPolicyAccessControlAllowHeaders(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -3552,7 +3940,9 @@ class ResponseHeadersPolicyAccessControlAllowMethods(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -3573,7 +3963,9 @@ class ResponseHeadersPolicyAccessControlAllowOrigins(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -3594,7 +3986,9 @@ class ResponseHeadersPolicyAccessControlExposeHeaders(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -3658,7 +4052,19 @@ class ResponseHeadersPolicyConfig(dict):
              remove_headers_config: Optional['outputs.ResponseHeadersPolicyRemoveHeadersConfig'] = None,
              security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None,
              server_timing_headers_config: Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsConfig' in kwargs:
+            cors_config = kwargs['corsConfig']
+        if 'customHeadersConfig' in kwargs:
+            custom_headers_config = kwargs['customHeadersConfig']
+        if 'removeHeadersConfig' in kwargs:
+            remove_headers_config = kwargs['removeHeadersConfig']
+        if 'securityHeadersConfig' in kwargs:
+            security_headers_config = kwargs['securityHeadersConfig']
+        if 'serverTimingHeadersConfig' in kwargs:
+            server_timing_headers_config = kwargs['serverTimingHeadersConfig']
+
         _setter("name", name)
         if comment is not None:
             _setter("comment", comment)
@@ -3741,7 +4147,11 @@ class ResponseHeadersPolicyContentSecurityPolicy(dict):
              _setter: Callable[[Any, Any], None],
              content_security_policy: str,
              override: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+
         _setter("content_security_policy", content_security_policy)
         _setter("override", override)
 
@@ -3768,7 +4178,9 @@ class ResponseHeadersPolicyContentTypeOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              override: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("override", override)
 
     @property
@@ -3836,7 +4248,23 @@ class ResponseHeadersPolicyCorsConfig(dict):
              origin_override: bool,
              access_control_expose_headers: Optional['outputs.ResponseHeadersPolicyAccessControlExposeHeaders'] = None,
              access_control_max_age_sec: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlAllowCredentials' in kwargs:
+            access_control_allow_credentials = kwargs['accessControlAllowCredentials']
+        if 'accessControlAllowHeaders' in kwargs:
+            access_control_allow_headers = kwargs['accessControlAllowHeaders']
+        if 'accessControlAllowMethods' in kwargs:
+            access_control_allow_methods = kwargs['accessControlAllowMethods']
+        if 'accessControlAllowOrigins' in kwargs:
+            access_control_allow_origins = kwargs['accessControlAllowOrigins']
+        if 'originOverride' in kwargs:
+            origin_override = kwargs['originOverride']
+        if 'accessControlExposeHeaders' in kwargs:
+            access_control_expose_headers = kwargs['accessControlExposeHeaders']
+        if 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+
         _setter("access_control_allow_credentials", access_control_allow_credentials)
         _setter("access_control_allow_headers", access_control_allow_headers)
         _setter("access_control_allow_methods", access_control_allow_methods)
@@ -3901,7 +4329,9 @@ class ResponseHeadersPolicyCustomHeader(dict):
              header: str,
              override: bool,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("header", header)
         _setter("override", override)
         _setter("value", value)
@@ -3934,7 +4364,9 @@ class ResponseHeadersPolicyCustomHeadersConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence['outputs.ResponseHeadersPolicyCustomHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -3975,7 +4407,11 @@ class ResponseHeadersPolicyFrameOptions(dict):
              _setter: Callable[[Any, Any], None],
              frame_option: str,
              override: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameOption' in kwargs:
+            frame_option = kwargs['frameOption']
+
         _setter("frame_option", frame_option)
         _setter("override", override)
 
@@ -4022,7 +4458,11 @@ class ResponseHeadersPolicyReferrerPolicy(dict):
              _setter: Callable[[Any, Any], None],
              override: bool,
              referrer_policy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+
         _setter("override", override)
         _setter("referrer_policy", referrer_policy)
 
@@ -4049,7 +4489,9 @@ class ResponseHeadersPolicyRemoveHeader(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("header", header)
 
     @property
@@ -4070,7 +4512,9 @@ class ResponseHeadersPolicyRemoveHeadersConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              items: Sequence['outputs.ResponseHeadersPolicyRemoveHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("items", items)
 
     @property
@@ -4133,7 +4577,21 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
              referrer_policy: Optional['outputs.ResponseHeadersPolicyReferrerPolicy'] = None,
              strict_transport_security: Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity'] = None,
              xss_protection: Optional['outputs.ResponseHeadersPolicyXssProtection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+        if 'contentTypeOptions' in kwargs:
+            content_type_options = kwargs['contentTypeOptions']
+        if 'frameOptions' in kwargs:
+            frame_options = kwargs['frameOptions']
+        if 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+        if 'strictTransportSecurity' in kwargs:
+            strict_transport_security = kwargs['strictTransportSecurity']
+        if 'xssProtection' in kwargs:
+            xss_protection = kwargs['xssProtection']
+
         if content_security_policy is not None:
             _setter("content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -4210,7 +4668,11 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              sampling_rate: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         _setter("enabled", enabled)
         if sampling_rate is not None:
             _setter("sampling_rate", sampling_rate)
@@ -4266,7 +4728,13 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
              override: bool,
              include_subdomains: Optional[bool] = None,
              preload: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+        if 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+
         _setter("access_control_max_age_sec", access_control_max_age_sec)
         _setter("override", override)
         if include_subdomains is not None:
@@ -4335,7 +4803,13 @@ class ResponseHeadersPolicyXssProtection(dict):
              protection: bool,
              mode_block: Optional[bool] = None,
              report_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modeBlock' in kwargs:
+            mode_block = kwargs['modeBlock']
+        if 'reportUri' in kwargs:
+            report_uri = kwargs['reportUri']
+
         _setter("override", override)
         _setter("protection", protection)
         if mode_block is not None:
@@ -4415,7 +4889,15 @@ class StreamingDistributionConfig(dict):
              aliases: Optional[Sequence[str]] = None,
              logging: Optional['outputs.StreamingDistributionLogging'] = None,
              price_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Origin' in kwargs:
+            s3_origin = kwargs['s3Origin']
+        if 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+        if 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+
         _setter("comment", comment)
         _setter("enabled", enabled)
         _setter("s3_origin", s3_origin)
@@ -4481,7 +4963,9 @@ class StreamingDistributionLogging(dict):
              bucket: str,
              enabled: bool,
              prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         _setter("enabled", enabled)
         _setter("prefix", prefix)
@@ -4536,7 +5020,13 @@ class StreamingDistributionS3Origin(dict):
              _setter: Callable[[Any, Any], None],
              domain_name: str,
              origin_access_identity: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+
         _setter("domain_name", domain_name)
         _setter("origin_access_identity", origin_access_identity)
 
@@ -4566,7 +5056,9 @@ class StreamingDistributionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4613,7 +5105,11 @@ class StreamingDistributionTrustedSigners(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              aws_account_numbers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountNumbers' in kwargs:
+            aws_account_numbers = kwargs['awsAccountNumbers']
+
         _setter("enabled", enabled)
         if aws_account_numbers is not None:
             _setter("aws_account_numbers", aws_account_numbers)

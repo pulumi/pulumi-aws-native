@@ -40,7 +40,15 @@ class VodSourceArgs:
              source_location_name: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]] = None,
              vod_source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpPackageConfigurations' in kwargs:
+            http_package_configurations = kwargs['httpPackageConfigurations']
+        if 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if 'vodSourceName' in kwargs:
+            vod_source_name = kwargs['vodSourceName']
+
         _setter("http_package_configurations", http_package_configurations)
         _setter("source_location_name", source_location_name)
         if tags is not None:

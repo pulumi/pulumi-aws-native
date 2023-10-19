@@ -97,7 +97,35 @@ class NodegroupArgs:
              taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]] = None,
              update_config: Optional[pulumi.Input['NodegroupUpdateConfigArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'nodeRole' in kwargs:
+            node_role = kwargs['nodeRole']
+        if 'amiType' in kwargs:
+            ami_type = kwargs['amiType']
+        if 'capacityType' in kwargs:
+            capacity_type = kwargs['capacityType']
+        if 'diskSize' in kwargs:
+            disk_size = kwargs['diskSize']
+        if 'forceUpdateEnabled' in kwargs:
+            force_update_enabled = kwargs['forceUpdateEnabled']
+        if 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'nodegroupName' in kwargs:
+            nodegroup_name = kwargs['nodegroupName']
+        if 'releaseVersion' in kwargs:
+            release_version = kwargs['releaseVersion']
+        if 'remoteAccess' in kwargs:
+            remote_access = kwargs['remoteAccess']
+        if 'scalingConfig' in kwargs:
+            scaling_config = kwargs['scalingConfig']
+        if 'updateConfig' in kwargs:
+            update_config = kwargs['updateConfig']
+
         _setter("cluster_name", cluster_name)
         _setter("node_role", node_role)
         _setter("subnets", subnets)

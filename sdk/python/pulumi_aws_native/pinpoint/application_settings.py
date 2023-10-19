@@ -40,7 +40,17 @@ class ApplicationSettingsArgs:
              cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
              limits: Optional[pulumi.Input['ApplicationSettingsLimitsArgs']] = None,
              quiet_time: Optional[pulumi.Input['ApplicationSettingsQuietTimeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'campaignHook' in kwargs:
+            campaign_hook = kwargs['campaignHook']
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if 'quietTime' in kwargs:
+            quiet_time = kwargs['quietTime']
+
         _setter("application_id", application_id)
         if campaign_hook is not None:
             _setter("campaign_hook", campaign_hook)

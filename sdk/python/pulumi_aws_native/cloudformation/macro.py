@@ -38,7 +38,15 @@ class MacroArgs:
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         _setter("function_name", function_name)
         if description is not None:
             _setter("description", description)

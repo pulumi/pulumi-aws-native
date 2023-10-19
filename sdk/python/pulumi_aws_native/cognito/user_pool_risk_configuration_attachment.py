@@ -40,7 +40,19 @@ class UserPoolRiskConfigurationAttachmentArgs:
              account_takeover_risk_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']] = None,
              compromised_credentials_risk_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']] = None,
              risk_exception_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'accountTakeoverRiskConfiguration' in kwargs:
+            account_takeover_risk_configuration = kwargs['accountTakeoverRiskConfiguration']
+        if 'compromisedCredentialsRiskConfiguration' in kwargs:
+            compromised_credentials_risk_configuration = kwargs['compromisedCredentialsRiskConfiguration']
+        if 'riskExceptionConfiguration' in kwargs:
+            risk_exception_configuration = kwargs['riskExceptionConfiguration']
+
         _setter("client_id", client_id)
         _setter("user_pool_id", user_pool_id)
         if account_takeover_risk_configuration is not None:

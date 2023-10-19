@@ -63,7 +63,15 @@ class TaskTemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+
         _setter("instance_arn", instance_arn)
         if client_token is not None:
             _setter("client_token", client_token)

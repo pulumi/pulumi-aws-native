@@ -41,7 +41,9 @@ class HttpNamespaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -76,7 +78,9 @@ class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -102,7 +106,11 @@ class PrivateDnsNamespacePropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional[pulumi.Input['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -128,7 +136,9 @@ class PrivateDnsNamespaceSoaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -157,7 +167,9 @@ class PrivateDnsNamespaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -192,7 +204,11 @@ class PublicDnsNamespacePropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional[pulumi.Input['PublicDnsNamespacePublicDnsPropertiesMutableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -218,7 +234,9 @@ class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -244,7 +262,9 @@ class PublicDnsNamespaceSoaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -273,7 +293,9 @@ class PublicDnsNamespaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -314,7 +336,15 @@ class ServiceDnsConfigArgs:
              dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]],
              namespace_id: Optional[pulumi.Input[str]] = None,
              routing_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'routingPolicy' in kwargs:
+            routing_policy = kwargs['routingPolicy']
+
         _setter("dns_records", dns_records)
         if namespace_id is not None:
             _setter("namespace_id", namespace_id)
@@ -364,7 +394,9 @@ class ServiceDnsRecordArgs:
              _setter: Callable[[Any, Any], None],
              ttl: pulumi.Input[float],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("ttl", ttl)
         _setter("type", type)
 
@@ -405,7 +437,13 @@ class ServiceHealthCheckConfigArgs:
              type: pulumi.Input[str],
              failure_threshold: Optional[pulumi.Input[float]] = None,
              resource_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+
         _setter("type", type)
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
@@ -452,7 +490,11 @@ class ServiceHealthCheckCustomConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              failure_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
 
@@ -481,7 +523,9 @@ class ServiceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

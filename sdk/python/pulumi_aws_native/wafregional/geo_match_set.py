@@ -31,7 +31,11 @@ class GeoMatchSetArgs:
              _setter: Callable[[Any, Any], None],
              geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'geoMatchConstraints' in kwargs:
+            geo_match_constraints = kwargs['geoMatchConstraints']
+
         if geo_match_constraints is not None:
             _setter("geo_match_constraints", geo_match_constraints)
         if name is not None:

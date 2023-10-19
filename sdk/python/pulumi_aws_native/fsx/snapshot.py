@@ -34,7 +34,11 @@ class SnapshotArgs:
              volume_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         _setter("volume_id", volume_id)
         if name is not None:
             _setter("name", name)

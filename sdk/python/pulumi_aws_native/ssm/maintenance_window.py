@@ -58,7 +58,19 @@ class MaintenanceWindowArgs:
              schedule_timezone: Optional[pulumi.Input[str]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowUnassociatedTargets' in kwargs:
+            allow_unassociated_targets = kwargs['allowUnassociatedTargets']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if 'scheduleTimezone' in kwargs:
+            schedule_timezone = kwargs['scheduleTimezone']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("allow_unassociated_targets", allow_unassociated_targets)
         _setter("cutoff", cutoff)
         _setter("duration", duration)

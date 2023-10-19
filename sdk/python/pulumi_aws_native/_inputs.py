@@ -61,7 +61,21 @@ class ProviderAssumeRoleArgs:
              session_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transitive_tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'policyArns' in kwargs:
+            policy_arns = kwargs['policyArns']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'sessionName' in kwargs:
+            session_name = kwargs['sessionName']
+        if 'transitiveTagKeys' in kwargs:
+            transitive_tag_keys = kwargs['transitiveTagKeys']
+
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)
         if external_id is not None:
@@ -192,7 +206,9 @@ class ProviderDefaultTagsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if tags is not None:
             _setter("tags", tags)
 
@@ -857,7 +873,11 @@ class ProviderEndpointArgs:
              workmail: Optional[pulumi.Input[str]] = None,
              workspaces: Optional[pulumi.Input[str]] = None,
              xray: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
         if accessanalyzer is not None:
             _setter("accessanalyzer", accessanalyzer)
         if acm is not None:
@@ -3106,7 +3126,11 @@ class ProviderIgnoreTagsArgs:
              _setter: Callable[[Any, Any], None],
              key_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyPrefixes' in kwargs:
+            key_prefixes = kwargs['keyPrefixes']
+
         if key_prefixes is not None:
             _setter("key_prefixes", key_prefixes)
         if keys is not None:

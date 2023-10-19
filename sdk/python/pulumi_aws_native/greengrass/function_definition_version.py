@@ -34,7 +34,13 @@ class FunctionDefinitionVersionInitArgs:
              function_definition_id: pulumi.Input[str],
              functions: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionVersionFunctionArgs']]],
              default_config: Optional[pulumi.Input['FunctionDefinitionVersionDefaultConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionDefinitionId' in kwargs:
+            function_definition_id = kwargs['functionDefinitionId']
+        if 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         _setter("function_definition_id", function_definition_id)
         _setter("functions", functions)
         if default_config is not None:

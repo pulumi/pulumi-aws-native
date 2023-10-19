@@ -54,7 +54,13 @@ class EvaluationFormArgs:
              description: Optional[pulumi.Input[str]] = None,
              scoring_strategy: Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'scoringStrategy' in kwargs:
+            scoring_strategy = kwargs['scoringStrategy']
+
         _setter("instance_arn", instance_arn)
         _setter("items", items)
         _setter("status", status)

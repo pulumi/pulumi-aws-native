@@ -67,7 +67,29 @@ class FunctionConfigurationArgs:
              response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
              runtime: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']] = None,
              sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'dataSourceName' in kwargs:
+            data_source_name = kwargs['dataSourceName']
+        if 'codeS3Location' in kwargs:
+            code_s3_location = kwargs['codeS3Location']
+        if 'functionVersion' in kwargs:
+            function_version = kwargs['functionVersion']
+        if 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if 'requestMappingTemplate' in kwargs:
+            request_mapping_template = kwargs['requestMappingTemplate']
+        if 'requestMappingTemplateS3Location' in kwargs:
+            request_mapping_template_s3_location = kwargs['requestMappingTemplateS3Location']
+        if 'responseMappingTemplate' in kwargs:
+            response_mapping_template = kwargs['responseMappingTemplate']
+        if 'responseMappingTemplateS3Location' in kwargs:
+            response_mapping_template_s3_location = kwargs['responseMappingTemplateS3Location']
+        if 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
         _setter("api_id", api_id)
         _setter("data_source_name", data_source_name)
         if code is not None:

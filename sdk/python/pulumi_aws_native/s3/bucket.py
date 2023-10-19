@@ -102,7 +102,47 @@ class BucketArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
              versioning_configuration: Optional[pulumi.Input['BucketVersioningConfigurationArgs']] = None,
              website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accelerateConfiguration' in kwargs:
+            accelerate_configuration = kwargs['accelerateConfiguration']
+        if 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if 'analyticsConfigurations' in kwargs:
+            analytics_configurations = kwargs['analyticsConfigurations']
+        if 'bucketEncryption' in kwargs:
+            bucket_encryption = kwargs['bucketEncryption']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if 'intelligentTieringConfigurations' in kwargs:
+            intelligent_tiering_configurations = kwargs['intelligentTieringConfigurations']
+        if 'inventoryConfigurations' in kwargs:
+            inventory_configurations = kwargs['inventoryConfigurations']
+        if 'lifecycleConfiguration' in kwargs:
+            lifecycle_configuration = kwargs['lifecycleConfiguration']
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if 'metricsConfigurations' in kwargs:
+            metrics_configurations = kwargs['metricsConfigurations']
+        if 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+        if 'ownershipControls' in kwargs:
+            ownership_controls = kwargs['ownershipControls']
+        if 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+        if 'websiteConfiguration' in kwargs:
+            website_configuration = kwargs['websiteConfiguration']
+
         if accelerate_configuration is not None:
             _setter("accelerate_configuration", accelerate_configuration)
         if access_control is not None:

@@ -53,7 +53,25 @@ class DomainConfigurationArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainConfigurationTagArgs']]]] = None,
              tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
              validation_certificate_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizerConfig' in kwargs:
+            authorizer_config = kwargs['authorizerConfig']
+        if 'domainConfigurationName' in kwargs:
+            domain_configuration_name = kwargs['domainConfigurationName']
+        if 'domainConfigurationStatus' in kwargs:
+            domain_configuration_status = kwargs['domainConfigurationStatus']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'serverCertificateArns' in kwargs:
+            server_certificate_arns = kwargs['serverCertificateArns']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+        if 'validationCertificateArn' in kwargs:
+            validation_certificate_arn = kwargs['validationCertificateArn']
+
         if authorizer_config is not None:
             _setter("authorizer_config", authorizer_config)
         if domain_configuration_name is not None:

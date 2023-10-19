@@ -61,7 +61,25 @@ class JobDefinitionArgs:
              scheduling_priority: Optional[pulumi.Input[int]] = None,
              tags: Optional[Any] = None,
              timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerProperties' in kwargs:
+            container_properties = kwargs['containerProperties']
+        if 'eksProperties' in kwargs:
+            eks_properties = kwargs['eksProperties']
+        if 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if 'nodeProperties' in kwargs:
+            node_properties = kwargs['nodeProperties']
+        if 'platformCapabilities' in kwargs:
+            platform_capabilities = kwargs['platformCapabilities']
+        if 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+        if 'schedulingPriority' in kwargs:
+            scheduling_priority = kwargs['schedulingPriority']
+
         _setter("type", type)
         if container_properties is not None:
             _setter("container_properties", container_properties)

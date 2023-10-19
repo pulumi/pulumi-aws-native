@@ -34,7 +34,13 @@ class UserPoolDomainArgs:
              domain: pulumi.Input[str],
              user_pool_id: pulumi.Input[str],
              custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'customDomainConfig' in kwargs:
+            custom_domain_config = kwargs['customDomainConfig']
+
         _setter("domain", domain)
         _setter("user_pool_id", user_pool_id)
         if custom_domain_config is not None:

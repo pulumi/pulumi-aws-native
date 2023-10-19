@@ -68,7 +68,21 @@ class StudioComponentArgs:
              secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
              subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
              tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if 'ec2SecurityGroupIds' in kwargs:
+            ec2_security_group_ids = kwargs['ec2SecurityGroupIds']
+        if 'initializationScripts' in kwargs:
+            initialization_scripts = kwargs['initializationScripts']
+        if 'runtimeRoleArn' in kwargs:
+            runtime_role_arn = kwargs['runtimeRoleArn']
+        if 'scriptParameters' in kwargs:
+            script_parameters = kwargs['scriptParameters']
+        if 'secureInitializationRoleArn' in kwargs:
+            secure_initialization_role_arn = kwargs['secureInitializationRoleArn']
+
         _setter("studio_id", studio_id)
         _setter("type", type)
         if configuration is not None:

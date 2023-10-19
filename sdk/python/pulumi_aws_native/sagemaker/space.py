@@ -42,7 +42,15 @@ class SpaceArgs:
              space_name: Optional[pulumi.Input[str]] = None,
              space_settings: Optional[pulumi.Input['SpaceSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if 'spaceSettings' in kwargs:
+            space_settings = kwargs['spaceSettings']
+
         _setter("domain_id", domain_id)
         if space_name is not None:
             _setter("space_name", space_name)

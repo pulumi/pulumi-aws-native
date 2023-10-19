@@ -56,7 +56,19 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataBundles' in kwargs:
+            data_bundles = kwargs['dataBundles']
+        if 'federationMode' in kwargs:
+            federation_mode = kwargs['federationMode']
+        if 'federationParameters' in kwargs:
+            federation_parameters = kwargs['federationParameters']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'superuserParameters' in kwargs:
+            superuser_parameters = kwargs['superuserParameters']
+
         if data_bundles is not None:
             _setter("data_bundles", data_bundles)
         if description is not None:

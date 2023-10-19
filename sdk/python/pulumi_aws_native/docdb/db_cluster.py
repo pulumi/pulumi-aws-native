@@ -94,7 +94,51 @@ class DbClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if availability_zones is not None:
             _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:

@@ -35,7 +35,13 @@ class GroupArgs:
              display_name: pulumi.Input[str],
              identity_store_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+
         _setter("display_name", display_name)
         _setter("identity_store_id", identity_store_id)
         if description is not None:

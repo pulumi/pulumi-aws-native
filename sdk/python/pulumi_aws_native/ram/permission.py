@@ -40,7 +40,13 @@ class PermissionArgs:
              resource_type: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyTemplate' in kwargs:
+            policy_template = kwargs['policyTemplate']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("policy_template", policy_template)
         _setter("resource_type", resource_type)
         if name is not None:

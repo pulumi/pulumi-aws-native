@@ -73,7 +73,23 @@ class VolumeArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'autoEnableIo' in kwargs:
+            auto_enable_io = kwargs['autoEnableIo']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'multiAttachEnabled' in kwargs:
+            multi_attach_enabled = kwargs['multiAttachEnabled']
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         _setter("availability_zone", availability_zone)
         if auto_enable_io is not None:
             _setter("auto_enable_io", auto_enable_io)

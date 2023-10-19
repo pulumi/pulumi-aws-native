@@ -49,7 +49,15 @@ class MulticastGroupArgs:
              disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if 'associateWirelessDevice' in kwargs:
+            associate_wireless_device = kwargs['associateWirelessDevice']
+        if 'disassociateWirelessDevice' in kwargs:
+            disassociate_wireless_device = kwargs['disassociateWirelessDevice']
+
         _setter("lo_ra_wan", lo_ra_wan)
         if associate_wireless_device is not None:
             _setter("associate_wireless_device", associate_wireless_device)

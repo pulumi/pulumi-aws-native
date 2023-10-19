@@ -32,7 +32,13 @@ class GraphQlSchemaArgs:
              api_id: pulumi.Input[str],
              definition: Optional[pulumi.Input[str]] = None,
              definition_s3_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'definitionS3Location' in kwargs:
+            definition_s3_location = kwargs['definitionS3Location']
+
         _setter("api_id", api_id)
         if definition is not None:
             _setter("definition", definition)

@@ -41,7 +41,15 @@ class StepArgs:
              hadoop_jar_step: pulumi.Input['StepHadoopJarStepConfigArgs'],
              job_flow_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionOnFailure' in kwargs:
+            action_on_failure = kwargs['actionOnFailure']
+        if 'hadoopJarStep' in kwargs:
+            hadoop_jar_step = kwargs['hadoopJarStep']
+        if 'jobFlowId' in kwargs:
+            job_flow_id = kwargs['jobFlowId']
+
         _setter("action_on_failure", action_on_failure)
         _setter("hadoop_jar_step", hadoop_jar_step)
         _setter("job_flow_id", job_flow_id)

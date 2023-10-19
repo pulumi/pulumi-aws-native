@@ -35,7 +35,13 @@ class ResolverRuleAssociationArgs:
              resolver_rule_id: pulumi.Input[str],
              vpc_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resolverRuleId' in kwargs:
+            resolver_rule_id = kwargs['resolverRuleId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("resolver_rule_id", resolver_rule_id)
         _setter("vpc_id", vpc_id)
         if name is not None:

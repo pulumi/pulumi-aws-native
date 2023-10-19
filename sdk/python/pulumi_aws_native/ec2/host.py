@@ -55,7 +55,25 @@ class HostArgs:
              instance_family: Optional[pulumi.Input[str]] = None,
              instance_type: Optional[pulumi.Input[str]] = None,
              outpost_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'autoPlacement' in kwargs:
+            auto_placement = kwargs['autoPlacement']
+        if 'hostMaintenance' in kwargs:
+            host_maintenance = kwargs['hostMaintenance']
+        if 'hostRecovery' in kwargs:
+            host_recovery = kwargs['hostRecovery']
+        if 'instanceFamily' in kwargs:
+            instance_family = kwargs['instanceFamily']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+
         _setter("availability_zone", availability_zone)
         if asset_id is not None:
             _setter("asset_id", asset_id)

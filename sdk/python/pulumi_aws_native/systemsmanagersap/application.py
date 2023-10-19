@@ -48,7 +48,15 @@ class ApplicationArgs:
              sap_instance_number: Optional[pulumi.Input[str]] = None,
              sid: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if 'sapInstanceNumber' in kwargs:
+            sap_instance_number = kwargs['sapInstanceNumber']
+
         _setter("application_id", application_id)
         _setter("application_type", application_type)
         if credentials is not None:

@@ -49,7 +49,19 @@ class ProfileArgs:
              require_instance_properties: Optional[pulumi.Input[bool]] = None,
              session_policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArns' in kwargs:
+            role_arns = kwargs['roleArns']
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if 'requireInstanceProperties' in kwargs:
+            require_instance_properties = kwargs['requireInstanceProperties']
+        if 'sessionPolicy' in kwargs:
+            session_policy = kwargs['sessionPolicy']
+
         _setter("role_arns", role_arns)
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)

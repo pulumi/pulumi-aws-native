@@ -39,7 +39,15 @@ class BasePathMappingArgs:
              base_path: Optional[pulumi.Input[str]] = None,
              rest_api_id: Optional[pulumi.Input[str]] = None,
              stage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+
         _setter("domain_name", domain_name)
         if base_path is not None:
             _setter("base_path", base_path)

@@ -38,7 +38,15 @@ class NetworkInsightsAnalysisArgs:
              additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInsightsPathId' in kwargs:
+            network_insights_path_id = kwargs['networkInsightsPathId']
+        if 'additionalAccounts' in kwargs:
+            additional_accounts = kwargs['additionalAccounts']
+        if 'filterInArns' in kwargs:
+            filter_in_arns = kwargs['filterInArns']
+
         _setter("network_insights_path_id", network_insights_path_id)
         if additional_accounts is not None:
             _setter("additional_accounts", additional_accounts)

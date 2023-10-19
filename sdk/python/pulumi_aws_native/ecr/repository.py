@@ -54,7 +54,23 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              repository_policy_text: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emptyOnDelete' in kwargs:
+            empty_on_delete = kwargs['emptyOnDelete']
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if 'imageTagMutability' in kwargs:
+            image_tag_mutability = kwargs['imageTagMutability']
+        if 'lifecyclePolicy' in kwargs:
+            lifecycle_policy = kwargs['lifecyclePolicy']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'repositoryPolicyText' in kwargs:
+            repository_policy_text = kwargs['repositoryPolicyText']
+
         if empty_on_delete is not None:
             _setter("empty_on_delete", empty_on_delete)
         if encryption_configuration is not None:

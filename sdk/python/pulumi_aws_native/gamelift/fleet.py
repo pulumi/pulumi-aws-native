@@ -125,7 +125,51 @@ class FleetArgs:
              script_id: Optional[pulumi.Input[str]] = None,
              server_launch_parameters: Optional[pulumi.Input[str]] = None,
              server_launch_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anywhereConfiguration' in kwargs:
+            anywhere_configuration = kwargs['anywhereConfiguration']
+        if 'buildId' in kwargs:
+            build_id = kwargs['buildId']
+        if 'certificateConfiguration' in kwargs:
+            certificate_configuration = kwargs['certificateConfiguration']
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'desiredEc2Instances' in kwargs:
+            desired_ec2_instances = kwargs['desiredEc2Instances']
+        if 'ec2InboundPermissions' in kwargs:
+            ec2_inbound_permissions = kwargs['ec2InboundPermissions']
+        if 'ec2InstanceType' in kwargs:
+            ec2_instance_type = kwargs['ec2InstanceType']
+        if 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if 'instanceRoleArn' in kwargs:
+            instance_role_arn = kwargs['instanceRoleArn']
+        if 'logPaths' in kwargs:
+            log_paths = kwargs['logPaths']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'metricGroups' in kwargs:
+            metric_groups = kwargs['metricGroups']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if 'newGameSessionProtectionPolicy' in kwargs:
+            new_game_session_protection_policy = kwargs['newGameSessionProtectionPolicy']
+        if 'peerVpcAwsAccountId' in kwargs:
+            peer_vpc_aws_account_id = kwargs['peerVpcAwsAccountId']
+        if 'peerVpcId' in kwargs:
+            peer_vpc_id = kwargs['peerVpcId']
+        if 'resourceCreationLimitPolicy' in kwargs:
+            resource_creation_limit_policy = kwargs['resourceCreationLimitPolicy']
+        if 'runtimeConfiguration' in kwargs:
+            runtime_configuration = kwargs['runtimeConfiguration']
+        if 'scriptId' in kwargs:
+            script_id = kwargs['scriptId']
+        if 'serverLaunchParameters' in kwargs:
+            server_launch_parameters = kwargs['serverLaunchParameters']
+        if 'serverLaunchPath' in kwargs:
+            server_launch_path = kwargs['serverLaunchPath']
+
         if anywhere_configuration is not None:
             _setter("anywhere_configuration", anywhere_configuration)
         if build_id is not None:

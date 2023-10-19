@@ -37,7 +37,9 @@ class AcceleratorTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -90,7 +92,13 @@ class EndpointGroupEndpointConfigurationArgs:
              endpoint_id: pulumi.Input[str],
              client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if 'clientIpPreservationEnabled' in kwargs:
+            client_ip_preservation_enabled = kwargs['clientIpPreservationEnabled']
+
         _setter("endpoint_id", endpoint_id)
         if client_ip_preservation_enabled is not None:
             _setter("client_ip_preservation_enabled", client_ip_preservation_enabled)
@@ -152,7 +160,13 @@ class EndpointGroupPortOverrideArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_port: pulumi.Input[int],
              listener_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointPort' in kwargs:
+            endpoint_port = kwargs['endpointPort']
+        if 'listenerPort' in kwargs:
+            listener_port = kwargs['listenerPort']
+
         _setter("endpoint_port", endpoint_port)
         _setter("listener_port", listener_port)
 
@@ -193,7 +207,13 @@ class ListenerPortRangeArgs:
              _setter: Callable[[Any, Any], None],
              from_port: pulumi.Input[int],
              to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 

@@ -67,7 +67,29 @@ class MaintenanceWindowTaskArgs:
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
              task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
              task_parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskArn' in kwargs:
+            task_arn = kwargs['taskArn']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if 'cutoffBehavior' in kwargs:
+            cutoff_behavior = kwargs['cutoffBehavior']
+        if 'loggingInfo' in kwargs:
+            logging_info = kwargs['loggingInfo']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'taskInvocationParameters' in kwargs:
+            task_invocation_parameters = kwargs['taskInvocationParameters']
+        if 'taskParameters' in kwargs:
+            task_parameters = kwargs['taskParameters']
+
         _setter("priority", priority)
         _setter("task_arn", task_arn)
         _setter("task_type", task_type)

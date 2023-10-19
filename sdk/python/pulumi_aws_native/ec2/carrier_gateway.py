@@ -33,7 +33,11 @@ class CarrierGatewayArgs:
              _setter: Callable[[Any, Any], None],
              vpc_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CarrierGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("vpc_id", vpc_id)
         if tags is not None:
             _setter("tags", tags)

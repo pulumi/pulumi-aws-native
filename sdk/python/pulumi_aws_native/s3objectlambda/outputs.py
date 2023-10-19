@@ -39,7 +39,9 @@ class AccessPointAlias(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if status is not None:
             _setter("status", status)
@@ -95,7 +97,13 @@ class AccessPointAwsLambda(dict):
              _setter: Callable[[Any, Any], None],
              function_arn: str,
              function_payload: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if 'functionPayload' in kwargs:
+            function_payload = kwargs['functionPayload']
+
         _setter("function_arn", function_arn)
         if function_payload is not None:
             _setter("function_payload", function_payload)
@@ -161,7 +169,17 @@ class AccessPointObjectLambdaConfiguration(dict):
              transformation_configurations: Sequence['outputs.AccessPointTransformationConfiguration'],
              allowed_features: Optional[Sequence[str]] = None,
              cloud_watch_metrics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportingAccessPoint' in kwargs:
+            supporting_access_point = kwargs['supportingAccessPoint']
+        if 'transformationConfigurations' in kwargs:
+            transformation_configurations = kwargs['transformationConfigurations']
+        if 'allowedFeatures' in kwargs:
+            allowed_features = kwargs['allowedFeatures']
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+
         _setter("supporting_access_point", supporting_access_point)
         _setter("transformation_configurations", transformation_configurations)
         if allowed_features is not None:
@@ -222,7 +240,11 @@ class AccessPointPolicyStatus(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_public: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isPublic' in kwargs:
+            is_public = kwargs['isPublic']
+
         if is_public is not None:
             _setter("is_public", is_public)
 
@@ -294,7 +316,17 @@ class AccessPointPublicAccessBlockConfiguration(dict):
              block_public_policy: Optional[bool] = None,
              ignore_public_acls: Optional[bool] = None,
              restrict_public_buckets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
         if block_public_acls is not None:
             _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -380,7 +412,11 @@ class AccessPointTransformationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence[str],
              content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTransformation' in kwargs:
+            content_transformation = kwargs['contentTransformation']
+
         _setter("actions", actions)
         _setter("content_transformation", content_transformation)
 
@@ -424,7 +460,11 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
     def _configure(
              _setter: Callable[[Any, Any], None],
              aws_lambda: 'outputs.AccessPointAwsLambda',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsLambda' in kwargs:
+            aws_lambda = kwargs['awsLambda']
+
         _setter("aws_lambda", aws_lambda)
 
     @property

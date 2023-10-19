@@ -43,7 +43,19 @@ class EnvironmentLoggingConfigurationArgs:
              task_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
              webserver_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
              worker_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dagProcessingLogs' in kwargs:
+            dag_processing_logs = kwargs['dagProcessingLogs']
+        if 'schedulerLogs' in kwargs:
+            scheduler_logs = kwargs['schedulerLogs']
+        if 'taskLogs' in kwargs:
+            task_logs = kwargs['taskLogs']
+        if 'webserverLogs' in kwargs:
+            webserver_logs = kwargs['webserverLogs']
+        if 'workerLogs' in kwargs:
+            worker_logs = kwargs['workerLogs']
+
         if dag_processing_logs is not None:
             _setter("dag_processing_logs", dag_processing_logs)
         if scheduler_logs is not None:
@@ -122,7 +134,13 @@ class EnvironmentModuleLoggingConfigurationArgs:
              cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              log_level: Optional[pulumi.Input['EnvironmentLoggingLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+
         if cloud_watch_log_group_arn is not None:
             _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -178,7 +196,13 @@ class EnvironmentNetworkConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:

@@ -73,7 +73,39 @@ class ClientVpnEndpointArgs:
              transport_protocol: Optional[pulumi.Input[str]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
              vpn_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationOptions' in kwargs:
+            authentication_options = kwargs['authenticationOptions']
+        if 'clientCidrBlock' in kwargs:
+            client_cidr_block = kwargs['clientCidrBlock']
+        if 'connectionLogOptions' in kwargs:
+            connection_log_options = kwargs['connectionLogOptions']
+        if 'serverCertificateArn' in kwargs:
+            server_certificate_arn = kwargs['serverCertificateArn']
+        if 'clientConnectOptions' in kwargs:
+            client_connect_options = kwargs['clientConnectOptions']
+        if 'clientLoginBannerOptions' in kwargs:
+            client_login_banner_options = kwargs['clientLoginBannerOptions']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'selfServicePortal' in kwargs:
+            self_service_portal = kwargs['selfServicePortal']
+        if 'sessionTimeoutHours' in kwargs:
+            session_timeout_hours = kwargs['sessionTimeoutHours']
+        if 'splitTunnel' in kwargs:
+            split_tunnel = kwargs['splitTunnel']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'vpnPort' in kwargs:
+            vpn_port = kwargs['vpnPort']
+
         _setter("authentication_options", authentication_options)
         _setter("client_cidr_block", client_cidr_block)
         _setter("connection_log_options", connection_log_options)

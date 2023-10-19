@@ -53,7 +53,21 @@ class SolutionArgs:
              perform_hpo: Optional[pulumi.Input[bool]] = None,
              recipe_arn: Optional[pulumi.Input[str]] = None,
              solution_config: Optional[pulumi.Input['SolutionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetGroupArn' in kwargs:
+            dataset_group_arn = kwargs['datasetGroupArn']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'performAutoMl' in kwargs:
+            perform_auto_ml = kwargs['performAutoMl']
+        if 'performHpo' in kwargs:
+            perform_hpo = kwargs['performHpo']
+        if 'recipeArn' in kwargs:
+            recipe_arn = kwargs['recipeArn']
+        if 'solutionConfig' in kwargs:
+            solution_config = kwargs['solutionConfig']
+
         _setter("dataset_group_arn", dataset_group_arn)
         if event_type is not None:
             _setter("event_type", event_type)

@@ -49,7 +49,23 @@ class UserPoolUserArgs:
              user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
              validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'clientMetadata' in kwargs:
+            client_metadata = kwargs['clientMetadata']
+        if 'desiredDeliveryMediums' in kwargs:
+            desired_delivery_mediums = kwargs['desiredDeliveryMediums']
+        if 'forceAliasCreation' in kwargs:
+            force_alias_creation = kwargs['forceAliasCreation']
+        if 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if 'userAttributes' in kwargs:
+            user_attributes = kwargs['userAttributes']
+        if 'validationData' in kwargs:
+            validation_data = kwargs['validationData']
+
         _setter("user_pool_id", user_pool_id)
         if client_metadata is not None:
             _setter("client_metadata", client_metadata)

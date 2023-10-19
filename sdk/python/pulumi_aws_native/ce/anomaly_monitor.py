@@ -44,7 +44,19 @@ class AnomalyMonitorArgs:
              monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
              monitor_specification: Optional[pulumi.Input[str]] = None,
              resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if 'monitorType' in kwargs:
+            monitor_type = kwargs['monitorType']
+        if 'monitorDimension' in kwargs:
+            monitor_dimension = kwargs['monitorDimension']
+        if 'monitorSpecification' in kwargs:
+            monitor_specification = kwargs['monitorSpecification']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+
         _setter("monitor_name", monitor_name)
         _setter("monitor_type", monitor_type)
         if monitor_dimension is not None:

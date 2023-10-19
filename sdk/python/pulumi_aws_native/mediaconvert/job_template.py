@@ -55,7 +55,17 @@ class JobTemplateArgs:
              queue: Optional[pulumi.Input[str]] = None,
              status_update_interval: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'settingsJson' in kwargs:
+            settings_json = kwargs['settingsJson']
+        if 'accelerationSettings' in kwargs:
+            acceleration_settings = kwargs['accelerationSettings']
+        if 'hopDestinations' in kwargs:
+            hop_destinations = kwargs['hopDestinations']
+        if 'statusUpdateInterval' in kwargs:
+            status_update_interval = kwargs['statusUpdateInterval']
+
         _setter("settings_json", settings_json)
         if acceleration_settings is not None:
             _setter("acceleration_settings", acceleration_settings)

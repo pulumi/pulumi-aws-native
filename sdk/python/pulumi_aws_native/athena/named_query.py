@@ -43,7 +43,13 @@ class NamedQueryArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              work_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'workGroup' in kwargs:
+            work_group = kwargs['workGroup']
+
         _setter("database", database)
         _setter("query_string", query_string)
         if description is not None:

@@ -49,7 +49,15 @@ class ReplicaKeyArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              pending_window_in_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyPolicy' in kwargs:
+            key_policy = kwargs['keyPolicy']
+        if 'primaryKeyArn' in kwargs:
+            primary_key_arn = kwargs['primaryKeyArn']
+        if 'pendingWindowInDays' in kwargs:
+            pending_window_in_days = kwargs['pendingWindowInDays']
+
         _setter("key_policy", key_policy)
         _setter("primary_key_arn", primary_key_arn)
         if description is not None:

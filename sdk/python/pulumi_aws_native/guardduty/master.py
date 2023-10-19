@@ -32,7 +32,15 @@ class MasterArgs:
              detector_id: pulumi.Input[str],
              master_id: pulumi.Input[str],
              invitation_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if 'masterId' in kwargs:
+            master_id = kwargs['masterId']
+        if 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         _setter("detector_id", detector_id)
         _setter("master_id", master_id)
         if invitation_id is not None:

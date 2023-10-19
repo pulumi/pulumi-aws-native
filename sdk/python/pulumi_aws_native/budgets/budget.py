@@ -31,7 +31,11 @@ class BudgetArgs:
              _setter: Callable[[Any, Any], None],
              budget: pulumi.Input['BudgetDataArgs'],
              notifications_with_subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationWithSubscribersArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationsWithSubscribers' in kwargs:
+            notifications_with_subscribers = kwargs['notificationsWithSubscribers']
+
         _setter("budget", budget)
         if notifications_with_subscribers is not None:
             _setter("notifications_with_subscribers", notifications_with_subscribers)

@@ -112,7 +112,61 @@ class AutoScalingGroupArgs:
              target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+        if 'defaultInstanceWarmup' in kwargs:
+            default_instance_warmup = kwargs['defaultInstanceWarmup']
+        if 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if 'desiredCapacityType' in kwargs:
+            desired_capacity_type = kwargs['desiredCapacityType']
+        if 'healthCheckGracePeriod' in kwargs:
+            health_check_grace_period = kwargs['healthCheckGracePeriod']
+        if 'healthCheckType' in kwargs:
+            health_check_type = kwargs['healthCheckType']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'launchConfigurationName' in kwargs:
+            launch_configuration_name = kwargs['launchConfigurationName']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'lifecycleHookSpecificationList' in kwargs:
+            lifecycle_hook_specification_list = kwargs['lifecycleHookSpecificationList']
+        if 'loadBalancerNames' in kwargs:
+            load_balancer_names = kwargs['loadBalancerNames']
+        if 'maxInstanceLifetime' in kwargs:
+            max_instance_lifetime = kwargs['maxInstanceLifetime']
+        if 'metricsCollection' in kwargs:
+            metrics_collection = kwargs['metricsCollection']
+        if 'mixedInstancesPolicy' in kwargs:
+            mixed_instances_policy = kwargs['mixedInstancesPolicy']
+        if 'newInstancesProtectedFromScaleIn' in kwargs:
+            new_instances_protected_from_scale_in = kwargs['newInstancesProtectedFromScaleIn']
+        if 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if 'notificationConfigurations' in kwargs:
+            notification_configurations = kwargs['notificationConfigurations']
+        if 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if 'serviceLinkedRoleArn' in kwargs:
+            service_linked_role_arn = kwargs['serviceLinkedRoleArn']
+        if 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if 'terminationPolicies' in kwargs:
+            termination_policies = kwargs['terminationPolicies']
+        if 'vpcZoneIdentifier' in kwargs:
+            vpc_zone_identifier = kwargs['vpcZoneIdentifier']
+
         _setter("max_size", max_size)
         _setter("min_size", min_size)
         if auto_scaling_group_name is not None:

@@ -57,7 +57,19 @@ class ContainerInitArgs:
              private_registry_access: Optional[pulumi.Input['ContainerPrivateRegistryAccessArgs']] = None,
              public_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPublicDomainNameArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'containerServiceDeployment' in kwargs:
+            container_service_deployment = kwargs['containerServiceDeployment']
+        if 'isDisabled' in kwargs:
+            is_disabled = kwargs['isDisabled']
+        if 'privateRegistryAccess' in kwargs:
+            private_registry_access = kwargs['privateRegistryAccess']
+        if 'publicDomainNames' in kwargs:
+            public_domain_names = kwargs['publicDomainNames']
+
         _setter("power", power)
         _setter("scale", scale)
         _setter("service_name", service_name)

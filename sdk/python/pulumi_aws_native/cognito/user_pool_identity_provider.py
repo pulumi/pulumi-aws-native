@@ -41,7 +41,21 @@ class UserPoolIdentityProviderArgs:
              attribute_mapping: Optional[Any] = None,
              idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              provider_details: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'attributeMapping' in kwargs:
+            attribute_mapping = kwargs['attributeMapping']
+        if 'idpIdentifiers' in kwargs:
+            idp_identifiers = kwargs['idpIdentifiers']
+        if 'providerDetails' in kwargs:
+            provider_details = kwargs['providerDetails']
+
         _setter("provider_name", provider_name)
         _setter("provider_type", provider_type)
         _setter("user_pool_id", user_pool_id)

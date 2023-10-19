@@ -41,7 +41,13 @@ class CapacityReservationArgs:
              capacity_assignment_configuration: Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetDpus' in kwargs:
+            target_dpus = kwargs['targetDpus']
+        if 'capacityAssignmentConfiguration' in kwargs:
+            capacity_assignment_configuration = kwargs['capacityAssignmentConfiguration']
+
         _setter("target_dpus", target_dpus)
         if capacity_assignment_configuration is not None:
             _setter("capacity_assignment_configuration", capacity_assignment_configuration)

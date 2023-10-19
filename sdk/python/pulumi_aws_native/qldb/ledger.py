@@ -40,7 +40,15 @@ class LedgerArgs:
              kms_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'permissionsMode' in kwargs:
+            permissions_mode = kwargs['permissionsMode']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("permissions_mode", permissions_mode)
         if deletion_protection is not None:
             _setter("deletion_protection", deletion_protection)

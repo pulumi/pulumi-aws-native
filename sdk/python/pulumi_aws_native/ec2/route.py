@@ -79,7 +79,37 @@ class RouteArgs:
              transit_gateway_id: Optional[pulumi.Input[str]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
              vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if 'carrierGatewayId' in kwargs:
+            carrier_gateway_id = kwargs['carrierGatewayId']
+        if 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if 'destinationIpv6CidrBlock' in kwargs:
+            destination_ipv6_cidr_block = kwargs['destinationIpv6CidrBlock']
+        if 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if 'egressOnlyInternetGatewayId' in kwargs:
+            egress_only_internet_gateway_id = kwargs['egressOnlyInternetGatewayId']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'localGatewayId' in kwargs:
+            local_gateway_id = kwargs['localGatewayId']
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
         _setter("route_table_id", route_table_id)
         if carrier_gateway_id is not None:
             _setter("carrier_gateway_id", carrier_gateway_id)

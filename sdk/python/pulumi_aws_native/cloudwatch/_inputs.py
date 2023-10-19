@@ -49,7 +49,9 @@ class AlarmDimensionArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -118,7 +120,15 @@ class AlarmMetricDataQueryArgs:
              metric_stat: Optional[pulumi.Input['AlarmMetricStatArgs']] = None,
              period: Optional[pulumi.Input[int]] = None,
              return_data: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
         _setter("id", id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -246,7 +256,9 @@ class AlarmMetricStatArgs:
              period: pulumi.Input[int],
              stat: pulumi.Input[str],
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("metric", metric)
         _setter("period", period)
         _setter("stat", stat)
@@ -326,7 +338,11 @@ class AlarmMetricArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]] = None,
              metric_name: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if metric_name is not None:
@@ -386,7 +402,13 @@ class AnomalyDetectorConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              excluded_time_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorRangeArgs']]]] = None,
              metric_time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedTimeRanges' in kwargs:
+            excluded_time_ranges = kwargs['excludedTimeRanges']
+        if 'metricTimeZone' in kwargs:
+            metric_time_zone = kwargs['metricTimeZone']
+
         if excluded_time_ranges is not None:
             _setter("excluded_time_ranges", excluded_time_ranges)
         if metric_time_zone is not None:
@@ -426,7 +448,9 @@ class AnomalyDetectorDimensionArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -479,7 +503,15 @@ class AnomalyDetectorMetricDataQueryArgs:
              metric_stat: Optional[pulumi.Input['AnomalyDetectorMetricStatArgs']] = None,
              period: Optional[pulumi.Input[int]] = None,
              return_data: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
         _setter("id", id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -570,7 +602,11 @@ class AnomalyDetectorMetricMathAnomalyDetectorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metric_data_queries: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricDataQueryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDataQueries' in kwargs:
+            metric_data_queries = kwargs['metricDataQueries']
+
         if metric_data_queries is not None:
             _setter("metric_data_queries", metric_data_queries)
 
@@ -605,7 +641,9 @@ class AnomalyDetectorMetricStatArgs:
              period: pulumi.Input[int],
              stat: pulumi.Input[str],
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("metric", metric)
         _setter("period", period)
         _setter("stat", stat)
@@ -667,7 +705,11 @@ class AnomalyDetectorMetricArgs:
              metric_name: pulumi.Input[str],
              namespace: pulumi.Input[str],
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         if dimensions is not None:
@@ -716,7 +758,13 @@ class AnomalyDetectorRangeArgs:
              _setter: Callable[[Any, Any], None],
              end_time: pulumi.Input[str],
              start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -760,7 +808,11 @@ class AnomalyDetectorSingleMetricAnomalyDetectorArgs:
              metric_name: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              stat: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if metric_name is not None:
@@ -814,8 +866,10 @@ class InsightRuleTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -838,7 +892,11 @@ class MetricStreamFilterArgs:
              _setter: Callable[[Any, Any], None],
              namespace: pulumi.Input[str],
              metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricNames' in kwargs:
+            metric_names = kwargs['metricNames']
+
         _setter("namespace", namespace)
         if metric_names is not None:
             _setter("metric_names", metric_names)
@@ -888,7 +946,13 @@ class MetricStreamStatisticsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
              include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalStatistics' in kwargs:
+            additional_statistics = kwargs['additionalStatistics']
+        if 'includeMetrics' in kwargs:
+            include_metrics = kwargs['includeMetrics']
+
         _setter("additional_statistics", additional_statistics)
         _setter("include_metrics", include_metrics)
 
@@ -937,7 +1001,11 @@ class MetricStreamStatisticsMetricArgs:
              _setter: Callable[[Any, Any], None],
              metric_name: pulumi.Input[str],
              namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
 
@@ -986,7 +1054,9 @@ class MetricStreamTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

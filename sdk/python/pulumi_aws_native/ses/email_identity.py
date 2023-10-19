@@ -44,7 +44,21 @@ class EmailIdentityArgs:
              dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
              feedback_attributes: Optional[pulumi.Input['EmailIdentityFeedbackAttributesArgs']] = None,
              mail_from_attributes: Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if 'configurationSetAttributes' in kwargs:
+            configuration_set_attributes = kwargs['configurationSetAttributes']
+        if 'dkimAttributes' in kwargs:
+            dkim_attributes = kwargs['dkimAttributes']
+        if 'dkimSigningAttributes' in kwargs:
+            dkim_signing_attributes = kwargs['dkimSigningAttributes']
+        if 'feedbackAttributes' in kwargs:
+            feedback_attributes = kwargs['feedbackAttributes']
+        if 'mailFromAttributes' in kwargs:
+            mail_from_attributes = kwargs['mailFromAttributes']
+
         _setter("email_identity", email_identity)
         if configuration_set_attributes is not None:
             _setter("configuration_set_attributes", configuration_set_attributes)

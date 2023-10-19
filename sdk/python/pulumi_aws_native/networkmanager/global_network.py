@@ -41,7 +41,11 @@ class GlobalNetworkArgs:
              description: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalNetworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if description is not None:

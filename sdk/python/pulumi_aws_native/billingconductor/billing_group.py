@@ -45,7 +45,15 @@ class BillingGroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountGrouping' in kwargs:
+            account_grouping = kwargs['accountGrouping']
+        if 'computationPreference' in kwargs:
+            computation_preference = kwargs['computationPreference']
+        if 'primaryAccountId' in kwargs:
+            primary_account_id = kwargs['primaryAccountId']
+
         _setter("account_grouping", account_grouping)
         _setter("computation_preference", computation_preference)
         _setter("primary_account_id", primary_account_id)

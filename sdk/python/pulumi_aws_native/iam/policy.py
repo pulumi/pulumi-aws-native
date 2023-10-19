@@ -43,7 +43,13 @@ class PolicyArgs:
              policy_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         if groups is not None:
             _setter("groups", groups)

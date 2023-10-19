@@ -43,7 +43,17 @@ class SimulationArgs:
              name: Optional[pulumi.Input[str]] = None,
              schema_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
              snapshot_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+        if 'schemaS3Location' in kwargs:
+            schema_s3_location = kwargs['schemaS3Location']
+        if 'snapshotS3Location' in kwargs:
+            snapshot_s3_location = kwargs['snapshotS3Location']
+
         _setter("role_arn", role_arn)
         if maximum_duration is not None:
             _setter("maximum_duration", maximum_duration)

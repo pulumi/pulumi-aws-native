@@ -29,7 +29,11 @@ class ContinuousDeploymentPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              continuous_deployment_policy_config: pulumi.Input['ContinuousDeploymentPolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'continuousDeploymentPolicyConfig' in kwargs:
+            continuous_deployment_policy_config = kwargs['continuousDeploymentPolicyConfig']
+
         _setter("continuous_deployment_policy_config", continuous_deployment_policy_config)
 
     @property

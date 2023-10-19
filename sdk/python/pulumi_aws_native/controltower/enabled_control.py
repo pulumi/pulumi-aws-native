@@ -31,7 +31,13 @@ class EnabledControlArgs:
              _setter: Callable[[Any, Any], None],
              control_identifier: pulumi.Input[str],
              target_identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlIdentifier' in kwargs:
+            control_identifier = kwargs['controlIdentifier']
+        if 'targetIdentifier' in kwargs:
+            target_identifier = kwargs['targetIdentifier']
+
         _setter("control_identifier", control_identifier)
         _setter("target_identifier", target_identifier)
 

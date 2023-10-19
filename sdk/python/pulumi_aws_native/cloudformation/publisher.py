@@ -32,7 +32,13 @@ class PublisherArgs:
              _setter: Callable[[Any, Any], None],
              accept_terms_and_conditions: pulumi.Input[bool],
              connection_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptTermsAndConditions' in kwargs:
+            accept_terms_and_conditions = kwargs['acceptTermsAndConditions']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("accept_terms_and_conditions", accept_terms_and_conditions)
         if connection_arn is not None:
             _setter("connection_arn", connection_arn)

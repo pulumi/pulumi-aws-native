@@ -46,7 +46,15 @@ class ResourceShareArgs:
              resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceShareTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowExternalPrincipals' in kwargs:
+            allow_external_principals = kwargs['allowExternalPrincipals']
+        if 'permissionArns' in kwargs:
+            permission_arns = kwargs['permissionArns']
+        if 'resourceArns' in kwargs:
+            resource_arns = kwargs['resourceArns']
+
         if allow_external_principals is not None:
             _setter("allow_external_principals", allow_external_principals)
         if name is not None:

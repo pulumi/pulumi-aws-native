@@ -39,7 +39,15 @@ class PreparedStatementArgs:
              statement_name: pulumi.Input[str],
              work_group: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryStatement' in kwargs:
+            query_statement = kwargs['queryStatement']
+        if 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if 'workGroup' in kwargs:
+            work_group = kwargs['workGroup']
+
         _setter("query_statement", query_statement)
         _setter("statement_name", statement_name)
         _setter("work_group", work_group)

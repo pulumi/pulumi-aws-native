@@ -88,7 +88,39 @@ class TrailArgs:
              sns_topic_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrailTagArgs']]]] = None,
              trail_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isLogging' in kwargs:
+            is_logging = kwargs['isLogging']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'advancedEventSelectors' in kwargs:
+            advanced_event_selectors = kwargs['advancedEventSelectors']
+        if 'cloudWatchLogsLogGroupArn' in kwargs:
+            cloud_watch_logs_log_group_arn = kwargs['cloudWatchLogsLogGroupArn']
+        if 'cloudWatchLogsRoleArn' in kwargs:
+            cloud_watch_logs_role_arn = kwargs['cloudWatchLogsRoleArn']
+        if 'enableLogFileValidation' in kwargs:
+            enable_log_file_validation = kwargs['enableLogFileValidation']
+        if 'eventSelectors' in kwargs:
+            event_selectors = kwargs['eventSelectors']
+        if 'includeGlobalServiceEvents' in kwargs:
+            include_global_service_events = kwargs['includeGlobalServiceEvents']
+        if 'insightSelectors' in kwargs:
+            insight_selectors = kwargs['insightSelectors']
+        if 'isMultiRegionTrail' in kwargs:
+            is_multi_region_trail = kwargs['isMultiRegionTrail']
+        if 'isOrganizationTrail' in kwargs:
+            is_organization_trail = kwargs['isOrganizationTrail']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if 'snsTopicName' in kwargs:
+            sns_topic_name = kwargs['snsTopicName']
+        if 'trailName' in kwargs:
+            trail_name = kwargs['trailName']
+
         _setter("is_logging", is_logging)
         _setter("s3_bucket_name", s3_bucket_name)
         if advanced_event_selectors is not None:

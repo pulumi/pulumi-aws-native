@@ -33,7 +33,15 @@ class SkillAuthenticationConfigurationArgs:
              client_id: pulumi.Input[str],
              client_secret: pulumi.Input[str],
              refresh_token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("refresh_token", refresh_token)
@@ -78,7 +86,9 @@ class SkillOverridesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              manifest: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if manifest is not None:
             _setter("manifest", manifest)
 
@@ -116,7 +126,17 @@ class SkillPackageArgs:
              overrides: Optional[pulumi.Input['SkillOverridesArgs']] = None,
              s3_bucket_role: Optional[pulumi.Input[str]] = None,
              s3_object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if 's3BucketRole' in kwargs:
+            s3_bucket_role = kwargs['s3BucketRole']
+        if 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
         if overrides is not None:

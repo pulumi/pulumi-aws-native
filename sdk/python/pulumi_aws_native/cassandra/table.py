@@ -68,7 +68,29 @@ class TableArgs:
              regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if 'partitionKeyColumns' in kwargs:
+            partition_key_columns = kwargs['partitionKeyColumns']
+        if 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if 'clientSideTimestampsEnabled' in kwargs:
+            client_side_timestamps_enabled = kwargs['clientSideTimestampsEnabled']
+        if 'clusteringKeyColumns' in kwargs:
+            clustering_key_columns = kwargs['clusteringKeyColumns']
+        if 'defaultTimeToLive' in kwargs:
+            default_time_to_live = kwargs['defaultTimeToLive']
+        if 'encryptionSpecification' in kwargs:
+            encryption_specification = kwargs['encryptionSpecification']
+        if 'pointInTimeRecoveryEnabled' in kwargs:
+            point_in_time_recovery_enabled = kwargs['pointInTimeRecoveryEnabled']
+        if 'regularColumns' in kwargs:
+            regular_columns = kwargs['regularColumns']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("keyspace_name", keyspace_name)
         _setter("partition_key_columns", partition_key_columns)
         if billing_mode is not None:

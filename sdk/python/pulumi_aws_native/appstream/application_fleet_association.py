@@ -29,7 +29,13 @@ class ApplicationFleetAssociationArgs:
              _setter: Callable[[Any, Any], None],
              application_arn: pulumi.Input[str],
              fleet_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+
         _setter("application_arn", application_arn)
         _setter("fleet_name", fleet_name)
 

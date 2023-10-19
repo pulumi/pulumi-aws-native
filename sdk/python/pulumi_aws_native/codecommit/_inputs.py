@@ -31,7 +31,11 @@ class RepositoryCodeArgs:
              _setter: Callable[[Any, Any], None],
              s3: pulumi.Input['RepositoryS3Args'],
              branch_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
         _setter("s3", s3)
         if branch_name is not None:
             _setter("branch_name", branch_name)
@@ -73,7 +77,11 @@ class RepositoryS3Args:
              bucket: pulumi.Input[str],
              key: pulumi.Input[str],
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:
@@ -122,7 +130,9 @@ class RepositoryTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -169,7 +179,13 @@ class RepositoryTriggerArgs:
              name: pulumi.Input[str],
              branches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              custom_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         _setter("destination_arn", destination_arn)
         _setter("events", events)
         _setter("name", name)

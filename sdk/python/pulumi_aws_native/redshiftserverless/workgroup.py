@@ -56,7 +56,25 @@ class WorkgroupArgs:
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupTagArgs']]]] = None,
              workgroup_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseCapacity' in kwargs:
+            base_capacity = kwargs['baseCapacity']
+        if 'configParameters' in kwargs:
+            config_parameters = kwargs['configParameters']
+        if 'enhancedVpcRouting' in kwargs:
+            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
         if base_capacity is not None:
             _setter("base_capacity", base_capacity)
         if config_parameters is not None:

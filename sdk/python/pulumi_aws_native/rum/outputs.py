@@ -107,7 +107,27 @@ class AppMonitorConfiguration(dict):
              metric_destinations: Optional[Sequence['outputs.AppMonitorMetricDestination']] = None,
              session_sample_rate: Optional[float] = None,
              telemetries: Optional[Sequence['AppMonitorTelemetry']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCookies' in kwargs:
+            allow_cookies = kwargs['allowCookies']
+        if 'enableXRay' in kwargs:
+            enable_x_ray = kwargs['enableXRay']
+        if 'excludedPages' in kwargs:
+            excluded_pages = kwargs['excludedPages']
+        if 'favoritePages' in kwargs:
+            favorite_pages = kwargs['favoritePages']
+        if 'guestRoleArn' in kwargs:
+            guest_role_arn = kwargs['guestRoleArn']
+        if 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if 'includedPages' in kwargs:
+            included_pages = kwargs['includedPages']
+        if 'metricDestinations' in kwargs:
+            metric_destinations = kwargs['metricDestinations']
+        if 'sessionSampleRate' in kwargs:
+            session_sample_rate = kwargs['sessionSampleRate']
+
         if allow_cookies is not None:
             _setter("allow_cookies", allow_cookies)
         if enable_x_ray is not None:
@@ -229,7 +249,9 @@ class AppMonitorCustomEvents(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: Optional['AppMonitorCustomEventsStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is not None:
             _setter("status", status)
 
@@ -358,7 +380,17 @@ class AppMonitorMetricDefinition(dict):
              namespace: Optional[str] = None,
              unit_label: Optional[str] = None,
              value_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dimensionKeys' in kwargs:
+            dimension_keys = kwargs['dimensionKeys']
+        if 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+        if 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+
         _setter("name", name)
         if dimension_keys is not None:
             _setter("dimension_keys", dimension_keys)
@@ -528,7 +560,15 @@ class AppMonitorMetricDestination(dict):
              destination_arn: Optional[str] = None,
              iam_role_arn: Optional[str] = None,
              metric_definitions: Optional[Sequence['outputs.AppMonitorMetricDefinition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'metricDefinitions' in kwargs:
+            metric_definitions = kwargs['metricDefinitions']
+
         _setter("destination", destination)
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
@@ -595,7 +635,9 @@ class AppMonitorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

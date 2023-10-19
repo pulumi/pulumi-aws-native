@@ -27,7 +27,11 @@ class OrganizationAdminArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("account_id", account_id)
 
     @property

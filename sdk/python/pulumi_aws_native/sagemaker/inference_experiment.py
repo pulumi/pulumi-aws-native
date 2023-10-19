@@ -74,7 +74,25 @@ class InferenceExperimentArgs:
              shadow_mode_config: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']] = None,
              status_reason: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'modelVariants' in kwargs:
+            model_variants = kwargs['modelVariants']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'dataStorageConfig' in kwargs:
+            data_storage_config = kwargs['dataStorageConfig']
+        if 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if 'shadowModeConfig' in kwargs:
+            shadow_mode_config = kwargs['shadowModeConfig']
+        if 'statusReason' in kwargs:
+            status_reason = kwargs['statusReason']
+
         _setter("endpoint_name", endpoint_name)
         _setter("model_variants", model_variants)
         _setter("role_arn", role_arn)

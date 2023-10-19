@@ -64,7 +64,11 @@ class AutomationRuleDateFilter(dict):
              date_range: Optional['outputs.AutomationRuleDateRange'] = None,
              end: Optional[str] = None,
              start: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateRange' in kwargs:
+            date_range = kwargs['dateRange']
+
         if date_range is not None:
             _setter("date_range", date_range)
         if end is not None:
@@ -103,7 +107,9 @@ class AutomationRuleDateRange(dict):
              _setter: Callable[[Any, Any], None],
              unit: 'AutomationRuleDateRangeUnit',
              value: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -136,7 +142,9 @@ class AutomationRuleMapFilter(dict):
              comparison: 'AutomationRuleMapFilterComparison',
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         _setter("key", key)
         _setter("value", value)
@@ -189,7 +197,11 @@ class AutomationRuleNoteUpdate(dict):
              _setter: Callable[[Any, Any], None],
              text: str,
              updated_by: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'updatedBy' in kwargs:
+            updated_by = kwargs['updatedBy']
+
         _setter("text", text)
         _setter("updated_by", updated_by)
 
@@ -222,7 +234,9 @@ class AutomationRuleNumberFilter(dict):
              eq: Optional[float] = None,
              gte: Optional[float] = None,
              lte: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if eq is not None:
             _setter("eq", eq)
         if gte is not None:
@@ -278,7 +292,11 @@ class AutomationRuleRelatedFinding(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              product_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+
         _setter("id", id)
         _setter("product_arn", product_arn)
 
@@ -311,7 +329,9 @@ class AutomationRuleSeverityUpdate(dict):
              label: Optional['AutomationRuleSeverityUpdateLabel'] = None,
              normalized: Optional[int] = None,
              product: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if label is not None:
             _setter("label", label)
         if normalized is not None:
@@ -350,7 +370,9 @@ class AutomationRuleStringFilter(dict):
              _setter: Callable[[Any, Any], None],
              comparison: 'AutomationRuleStringFilterComparison',
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         _setter("value", value)
 
@@ -378,8 +400,10 @@ class AutomationRuleTags(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -394,7 +418,9 @@ class AutomationRuleWorkflowUpdate(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: 'AutomationRuleWorkflowUpdateStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -410,8 +436,10 @@ class AutomationRulemap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -446,7 +474,11 @@ class AutomationRulesAction(dict):
              _setter: Callable[[Any, Any], None],
              finding_fields_update: 'outputs.AutomationRulesFindingFieldsUpdate',
              type: 'AutomationRulesActionType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'findingFieldsUpdate' in kwargs:
+            finding_fields_update = kwargs['findingFieldsUpdate']
+
         _setter("finding_fields_update", finding_fields_update)
         _setter("type", type)
 
@@ -523,7 +555,15 @@ class AutomationRulesFindingFieldsUpdate(dict):
              user_defined_fields: Optional['outputs.AutomationRulemap'] = None,
              verification_state: Optional['AutomationRulesFindingFieldsUpdateVerificationState'] = None,
              workflow: Optional['outputs.AutomationRuleWorkflowUpdate'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relatedFindings' in kwargs:
+            related_findings = kwargs['relatedFindings']
+        if 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+
         if confidence is not None:
             _setter("confidence", confidence)
         if criticality is not None:
@@ -785,7 +825,67 @@ class AutomationRulesFindingFilters(dict):
              user_defined_fields: Optional[Sequence['outputs.AutomationRuleMapFilter']] = None,
              verification_state: Optional[Sequence['outputs.AutomationRuleStringFilter']] = None,
              workflow_status: Optional[Sequence['outputs.AutomationRuleStringFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'complianceAssociatedStandardsId' in kwargs:
+            compliance_associated_standards_id = kwargs['complianceAssociatedStandardsId']
+        if 'complianceSecurityControlId' in kwargs:
+            compliance_security_control_id = kwargs['complianceSecurityControlId']
+        if 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'firstObservedAt' in kwargs:
+            first_observed_at = kwargs['firstObservedAt']
+        if 'generatorId' in kwargs:
+            generator_id = kwargs['generatorId']
+        if 'lastObservedAt' in kwargs:
+            last_observed_at = kwargs['lastObservedAt']
+        if 'noteText' in kwargs:
+            note_text = kwargs['noteText']
+        if 'noteUpdatedAt' in kwargs:
+            note_updated_at = kwargs['noteUpdatedAt']
+        if 'noteUpdatedBy' in kwargs:
+            note_updated_by = kwargs['noteUpdatedBy']
+        if 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if 'recordState' in kwargs:
+            record_state = kwargs['recordState']
+        if 'relatedFindingsId' in kwargs:
+            related_findings_id = kwargs['relatedFindingsId']
+        if 'relatedFindingsProductArn' in kwargs:
+            related_findings_product_arn = kwargs['relatedFindingsProductArn']
+        if 'resourceDetailsOther' in kwargs:
+            resource_details_other = kwargs['resourceDetailsOther']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourcePartition' in kwargs:
+            resource_partition = kwargs['resourcePartition']
+        if 'resourceRegion' in kwargs:
+            resource_region = kwargs['resourceRegion']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'severityLabel' in kwargs:
+            severity_label = kwargs['severityLabel']
+        if 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+        if 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+        if 'workflowStatus' in kwargs:
+            workflow_status = kwargs['workflowStatus']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if company_name is not None:
@@ -1073,7 +1173,11 @@ class StandardsControl(dict):
              _setter: Callable[[Any, Any], None],
              standards_control_arn: str,
              reason: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'standardsControlArn' in kwargs:
+            standards_control_arn = kwargs['standardsControlArn']
+
         _setter("standards_control_arn", standards_control_arn)
         if reason is not None:
             _setter("reason", reason)

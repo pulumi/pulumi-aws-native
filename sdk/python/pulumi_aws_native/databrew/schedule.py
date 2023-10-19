@@ -39,7 +39,13 @@ class ScheduleArgs:
              job_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExpression' in kwargs:
+            cron_expression = kwargs['cronExpression']
+        if 'jobNames' in kwargs:
+            job_names = kwargs['jobNames']
+
         _setter("cron_expression", cron_expression)
         if job_names is not None:
             _setter("job_names", job_names)

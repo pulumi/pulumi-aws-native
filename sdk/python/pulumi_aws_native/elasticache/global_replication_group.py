@@ -62,7 +62,25 @@ class GlobalReplicationGroupArgs:
              global_replication_group_description: Optional[pulumi.Input[str]] = None,
              global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
              regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticFailoverEnabled' in kwargs:
+            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
+        if 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if 'cacheParameterGroupName' in kwargs:
+            cache_parameter_group_name = kwargs['cacheParameterGroupName']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'globalNodeGroupCount' in kwargs:
+            global_node_group_count = kwargs['globalNodeGroupCount']
+        if 'globalReplicationGroupDescription' in kwargs:
+            global_replication_group_description = kwargs['globalReplicationGroupDescription']
+        if 'globalReplicationGroupIdSuffix' in kwargs:
+            global_replication_group_id_suffix = kwargs['globalReplicationGroupIdSuffix']
+        if 'regionalConfigurations' in kwargs:
+            regional_configurations = kwargs['regionalConfigurations']
+
         _setter("members", members)
         if automatic_failover_enabled is not None:
             _setter("automatic_failover_enabled", automatic_failover_enabled)

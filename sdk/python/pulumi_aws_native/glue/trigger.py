@@ -55,7 +55,15 @@ class TriggerArgs:
              start_on_creation: Optional[pulumi.Input[bool]] = None,
              tags: Optional[Any] = None,
              workflow_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBatchingCondition' in kwargs:
+            event_batching_condition = kwargs['eventBatchingCondition']
+        if 'startOnCreation' in kwargs:
+            start_on_creation = kwargs['startOnCreation']
+        if 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
         _setter("actions", actions)
         _setter("type", type)
         if description is not None:

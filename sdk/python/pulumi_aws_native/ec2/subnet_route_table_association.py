@@ -29,7 +29,13 @@ class SubnetRouteTableAssociationArgs:
              _setter: Callable[[Any, Any], None],
              route_table_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("route_table_id", route_table_id)
         _setter("subnet_id", subnet_id)
 

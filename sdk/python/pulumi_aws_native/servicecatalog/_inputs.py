@@ -44,7 +44,13 @@ class CloudFormationProductCodeStarParametersArgs:
              branch: pulumi.Input[str],
              connection_arn: pulumi.Input[str],
              repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactPath' in kwargs:
+            artifact_path = kwargs['artifactPath']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("artifact_path", artifact_path)
         _setter("branch", branch)
         _setter("connection_arn", connection_arn)
@@ -99,7 +105,11 @@ class CloudFormationProductConnectionParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              code_star: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeStar' in kwargs:
+            code_star = kwargs['codeStar']
+
         if code_star is not None:
             _setter("code_star", code_star)
 
@@ -137,7 +147,11 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
              disable_template_validation: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableTemplateValidation' in kwargs:
+            disable_template_validation = kwargs['disableTemplateValidation']
+
         _setter("info", info)
         if description is not None:
             _setter("description", description)
@@ -209,7 +223,11 @@ class CloudFormationProductSourceConnectionArgs:
              _setter: Callable[[Any, Any], None],
              connection_parameters: pulumi.Input['CloudFormationProductConnectionParametersArgs'],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionParameters' in kwargs:
+            connection_parameters = kwargs['connectionParameters']
+
         _setter("connection_parameters", connection_parameters)
         _setter("type", type)
 
@@ -247,7 +265,9 @@ class CloudFormationProductTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -285,7 +305,9 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -338,7 +360,23 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
              stack_set_max_concurrency_percentage: Optional[pulumi.Input[int]] = None,
              stack_set_operation_type: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']] = None,
              stack_set_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackSetAccounts' in kwargs:
+            stack_set_accounts = kwargs['stackSetAccounts']
+        if 'stackSetFailureToleranceCount' in kwargs:
+            stack_set_failure_tolerance_count = kwargs['stackSetFailureToleranceCount']
+        if 'stackSetFailureTolerancePercentage' in kwargs:
+            stack_set_failure_tolerance_percentage = kwargs['stackSetFailureTolerancePercentage']
+        if 'stackSetMaxConcurrencyCount' in kwargs:
+            stack_set_max_concurrency_count = kwargs['stackSetMaxConcurrencyCount']
+        if 'stackSetMaxConcurrencyPercentage' in kwargs:
+            stack_set_max_concurrency_percentage = kwargs['stackSetMaxConcurrencyPercentage']
+        if 'stackSetOperationType' in kwargs:
+            stack_set_operation_type = kwargs['stackSetOperationType']
+        if 'stackSetRegions' in kwargs:
+            stack_set_regions = kwargs['stackSetRegions']
+
         if stack_set_accounts is not None:
             _setter("stack_set_accounts", stack_set_accounts)
         if stack_set_failure_tolerance_count is not None:
@@ -433,7 +471,9 @@ class CloudFormationProvisionedProductTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -471,7 +511,9 @@ class PortfolioTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -509,7 +551,9 @@ class ServiceActionDefinitionParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

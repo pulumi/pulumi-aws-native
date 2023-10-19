@@ -327,7 +327,15 @@ class AppImageConfigFileSystemConfig(dict):
              default_gid: Optional[int] = None,
              default_uid: Optional[int] = None,
              mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultGid' in kwargs:
+            default_gid = kwargs['defaultGid']
+        if 'defaultUid' in kwargs:
+            default_uid = kwargs['defaultUid']
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
         if default_gid is not None:
             _setter("default_gid", default_gid)
         if default_uid is not None:
@@ -402,7 +410,13 @@ class AppImageConfigKernelGatewayImageConfig(dict):
              _setter: Callable[[Any, Any], None],
              kernel_specs: Sequence['outputs.AppImageConfigKernelSpec'],
              file_system_config: Optional['outputs.AppImageConfigFileSystemConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kernelSpecs' in kwargs:
+            kernel_specs = kwargs['kernelSpecs']
+        if 'fileSystemConfig' in kwargs:
+            file_system_config = kwargs['fileSystemConfig']
+
         _setter("kernel_specs", kernel_specs)
         if file_system_config is not None:
             _setter("file_system_config", file_system_config)
@@ -460,7 +474,11 @@ class AppImageConfigKernelSpec(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("name", name)
         if display_name is not None:
             _setter("display_name", display_name)
@@ -497,7 +515,9 @@ class AppImageConfigTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -556,7 +576,15 @@ class AppResourceSpec(dict):
              instance_type: Optional['AppResourceSpecInstanceType'] = None,
              sage_maker_image_arn: Optional[str] = None,
              sage_maker_image_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'sageMakerImageArn' in kwargs:
+            sage_maker_image_arn = kwargs['sageMakerImageArn']
+        if 'sageMakerImageVersionArn' in kwargs:
+            sage_maker_image_version_arn = kwargs['sageMakerImageVersionArn']
+
         if instance_type is not None:
             _setter("instance_type", instance_type)
         if sage_maker_image_arn is not None:
@@ -604,7 +632,9 @@ class AppTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -656,7 +686,13 @@ class CodeRepositoryGitConfig(dict):
              repository_url: str,
              branch: Optional[str] = None,
              secret_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("repository_url", repository_url)
         if branch is not None:
             _setter("branch", branch)
@@ -694,7 +730,9 @@ class CodeRepositoryTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -768,7 +806,19 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
              local_path: str,
              s3_data_distribution_type: Optional['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCapturedDestinationS3Uri' in kwargs:
+            data_captured_destination_s3_uri = kwargs['dataCapturedDestinationS3Uri']
+        if 'datasetFormat' in kwargs:
+            dataset_format = kwargs['datasetFormat']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
@@ -869,7 +919,17 @@ class DataQualityJobDefinitionClusterConfig(dict):
              instance_type: str,
              volume_size_in_gb: int,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
@@ -945,7 +1005,11 @@ class DataQualityJobDefinitionConstraintsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -977,7 +1041,9 @@ class DataQualityJobDefinitionCsv(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if header is not None:
             _setter("header", header)
 
@@ -1054,7 +1120,19 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
              environment: Optional[Any] = None,
              post_analytics_processor_source_uri: Optional[str] = None,
              record_preprocessor_source_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+        if 'containerArguments' in kwargs:
+            container_arguments = kwargs['containerArguments']
+        if 'containerEntrypoint' in kwargs:
+            container_entrypoint = kwargs['containerEntrypoint']
+        if 'postAnalyticsProcessorSourceUri' in kwargs:
+            post_analytics_processor_source_uri = kwargs['postAnalyticsProcessorSourceUri']
+        if 'recordPreprocessorSourceUri' in kwargs:
+            record_preprocessor_source_uri = kwargs['recordPreprocessorSourceUri']
+
         _setter("image_uri", image_uri)
         if container_arguments is not None:
             _setter("container_arguments", container_arguments)
@@ -1161,7 +1239,15 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
              baselining_job_name: Optional[str] = None,
              constraints_resource: Optional['outputs.DataQualityJobDefinitionConstraintsResource'] = None,
              statistics_resource: Optional['outputs.DataQualityJobDefinitionStatisticsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseliningJobName' in kwargs:
+            baselining_job_name = kwargs['baseliningJobName']
+        if 'constraintsResource' in kwargs:
+            constraints_resource = kwargs['constraintsResource']
+        if 'statisticsResource' in kwargs:
+            statistics_resource = kwargs['statisticsResource']
+
         if baselining_job_name is not None:
             _setter("baselining_job_name", baselining_job_name)
         if constraints_resource is not None:
@@ -1225,7 +1311,13 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
              _setter: Callable[[Any, Any], None],
              batch_transform_input: Optional['outputs.DataQualityJobDefinitionBatchTransformInput'] = None,
              endpoint_input: Optional['outputs.DataQualityJobDefinitionEndpointInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchTransformInput' in kwargs:
+            batch_transform_input = kwargs['batchTransformInput']
+        if 'endpointInput' in kwargs:
+            endpoint_input = kwargs['endpointInput']
+
         if batch_transform_input is not None:
             _setter("batch_transform_input", batch_transform_input)
         if endpoint_input is not None:
@@ -1266,7 +1358,9 @@ class DataQualityJobDefinitionDatasetFormat(dict):
              csv: Optional['outputs.DataQualityJobDefinitionCsv'] = None,
              json: Optional['outputs.DataQualityJobDefinitionJson'] = None,
              parquet: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if json is not None:
@@ -1343,7 +1437,17 @@ class DataQualityJobDefinitionEndpointInput(dict):
              local_path: str,
              s3_data_distribution_type: Optional['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['DataQualityJobDefinitionEndpointInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
         if s3_data_distribution_type is not None:
@@ -1400,7 +1504,9 @@ class DataQualityJobDefinitionJson(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if line is not None:
             _setter("line", line)
 
@@ -1448,7 +1554,11 @@ class DataQualityJobDefinitionMonitoringOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_output: 'outputs.DataQualityJobDefinitionS3Output',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Output' in kwargs:
+            s3_output = kwargs['s3Output']
+
         _setter("s3_output", s3_output)
 
     @property
@@ -1499,7 +1609,13 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              monitoring_outputs: Sequence['outputs.DataQualityJobDefinitionMonitoringOutput'],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringOutputs' in kwargs:
+            monitoring_outputs = kwargs['monitoringOutputs']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -1556,7 +1672,11 @@ class DataQualityJobDefinitionMonitoringResources(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_config: 'outputs.DataQualityJobDefinitionClusterConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+
         _setter("cluster_config", cluster_config)
 
     @property
@@ -1612,7 +1732,15 @@ class DataQualityJobDefinitionNetworkConfig(dict):
              enable_inter_container_traffic_encryption: Optional[bool] = None,
              enable_network_isolation: Optional[bool] = None,
              vpc_config: Optional['outputs.DataQualityJobDefinitionVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableInterContainerTrafficEncryption' in kwargs:
+            enable_inter_container_traffic_encryption = kwargs['enableInterContainerTrafficEncryption']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if enable_inter_container_traffic_encryption is not None:
             _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
@@ -1690,7 +1818,15 @@ class DataQualityJobDefinitionS3Output(dict):
              local_path: str,
              s3_uri: str,
              s3_upload_mode: Optional['DataQualityJobDefinitionS3OutputS3UploadMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 's3UploadMode' in kwargs:
+            s3_upload_mode = kwargs['s3UploadMode']
+
         _setter("local_path", local_path)
         _setter("s3_uri", s3_uri)
         if s3_upload_mode is not None:
@@ -1757,7 +1893,11 @@ class DataQualityJobDefinitionStatisticsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -1806,7 +1946,11 @@ class DataQualityJobDefinitionStoppingCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_runtime_in_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRuntimeInSeconds' in kwargs:
+            max_runtime_in_seconds = kwargs['maxRuntimeInSeconds']
+
         _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
@@ -1841,7 +1985,9 @@ class DataQualityJobDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1902,7 +2048,11 @@ class DataQualityJobDefinitionVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -1969,7 +2119,13 @@ class Device(dict):
              device_name: str,
              description: Optional[str] = None,
              iot_thing_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'iotThingName' in kwargs:
+            iot_thing_name = kwargs['iotThingName']
+
         _setter("device_name", device_name)
         if description is not None:
             _setter("description", description)
@@ -2039,7 +2195,13 @@ class DeviceFleetEdgeOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              s3_output_location: str,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3OutputLocation' in kwargs:
+            s3_output_location = kwargs['s3OutputLocation']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("s3_output_location", s3_output_location)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -2084,7 +2246,9 @@ class DeviceFleetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2124,7 +2288,9 @@ class DeviceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2193,7 +2359,15 @@ class DomainCustomImage(dict):
              app_image_config_name: str,
              image_name: str,
              image_version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appImageConfigName' in kwargs:
+            app_image_config_name = kwargs['appImageConfigName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageVersionNumber' in kwargs:
+            image_version_number = kwargs['imageVersionNumber']
+
         _setter("app_image_config_name", app_image_config_name)
         _setter("image_name", image_name)
         if image_version_number is not None:
@@ -2278,7 +2452,17 @@ class DomainDefaultSpaceSettings(dict):
              jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
              kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
              security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if 'jupyterServerAppSettings' in kwargs:
+            jupyter_server_app_settings = kwargs['jupyterServerAppSettings']
+        if 'kernelGatewayAppSettings' in kwargs:
+            kernel_gateway_app_settings = kwargs['kernelGatewayAppSettings']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             _setter("jupyter_server_app_settings", jupyter_server_app_settings)
@@ -2355,7 +2539,11 @@ class DomainJupyterServerAppSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if default_resource_spec is not None:
             _setter("default_resource_spec", default_resource_spec)
 
@@ -2407,7 +2595,13 @@ class DomainKernelGatewayAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
              default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customImages' in kwargs:
+            custom_images = kwargs['customImages']
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if custom_images is not None:
             _setter("custom_images", custom_images)
         if default_resource_spec is not None:
@@ -2471,7 +2665,13 @@ class DomainRSessionAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
              default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customImages' in kwargs:
+            custom_images = kwargs['customImages']
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if custom_images is not None:
             _setter("custom_images", custom_images)
         if default_resource_spec is not None:
@@ -2533,7 +2733,13 @@ class DomainRStudioServerProAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              access_status: Optional['DomainRStudioServerProAppSettingsAccessStatus'] = None,
              user_group: Optional['DomainRStudioServerProAppSettingsUserGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessStatus' in kwargs:
+            access_status = kwargs['accessStatus']
+        if 'userGroup' in kwargs:
+            user_group = kwargs['userGroup']
+
         if access_status is not None:
             _setter("access_status", access_status)
         if user_group is not None:
@@ -2609,7 +2815,17 @@ class DomainRStudioServerProDomainSettings(dict):
              default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
              r_studio_connect_url: Optional[str] = None,
              r_studio_package_manager_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainExecutionRoleArn' in kwargs:
+            domain_execution_role_arn = kwargs['domainExecutionRoleArn']
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+        if 'rStudioConnectUrl' in kwargs:
+            r_studio_connect_url = kwargs['rStudioConnectUrl']
+        if 'rStudioPackageManagerUrl' in kwargs:
+            r_studio_package_manager_url = kwargs['rStudioPackageManagerUrl']
+
         _setter("domain_execution_role_arn", domain_execution_role_arn)
         if default_resource_spec is not None:
             _setter("default_resource_spec", default_resource_spec)
@@ -2698,7 +2914,17 @@ class DomainResourceSpec(dict):
              lifecycle_config_arn: Optional[str] = None,
              sage_maker_image_arn: Optional[str] = None,
              sage_maker_image_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'lifecycleConfigArn' in kwargs:
+            lifecycle_config_arn = kwargs['lifecycleConfigArn']
+        if 'sageMakerImageArn' in kwargs:
+            sage_maker_image_arn = kwargs['sageMakerImageArn']
+        if 'sageMakerImageVersionArn' in kwargs:
+            sage_maker_image_version_arn = kwargs['sageMakerImageVersionArn']
+
         if instance_type is not None:
             _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
@@ -2782,7 +3008,13 @@ class DomainSettings(dict):
              _setter: Callable[[Any, Any], None],
              r_studio_server_pro_domain_settings: Optional['outputs.DomainRStudioServerProDomainSettings'] = None,
              security_group_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rStudioServerProDomainSettings' in kwargs:
+            r_studio_server_pro_domain_settings = kwargs['rStudioServerProDomainSettings']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         if r_studio_server_pro_domain_settings is not None:
             _setter("r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
@@ -2850,7 +3082,15 @@ class DomainSharingSettings(dict):
              notebook_output_option: Optional['DomainSharingSettingsNotebookOutputOption'] = None,
              s3_kms_key_id: Optional[str] = None,
              s3_output_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notebookOutputOption' in kwargs:
+            notebook_output_option = kwargs['notebookOutputOption']
+        if 's3KmsKeyId' in kwargs:
+            s3_kms_key_id = kwargs['s3KmsKeyId']
+        if 's3OutputPath' in kwargs:
+            s3_output_path = kwargs['s3OutputPath']
+
         if notebook_output_option is not None:
             _setter("notebook_output_option", notebook_output_option)
         if s3_kms_key_id is not None:
@@ -2898,7 +3138,9 @@ class DomainTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2983,7 +3225,23 @@ class DomainUserSettings(dict):
              r_studio_server_pro_app_settings: Optional['outputs.DomainRStudioServerProAppSettings'] = None,
              security_groups: Optional[Sequence[str]] = None,
              sharing_settings: Optional['outputs.DomainSharingSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if 'jupyterServerAppSettings' in kwargs:
+            jupyter_server_app_settings = kwargs['jupyterServerAppSettings']
+        if 'kernelGatewayAppSettings' in kwargs:
+            kernel_gateway_app_settings = kwargs['kernelGatewayAppSettings']
+        if 'rSessionAppSettings' in kwargs:
+            r_session_app_settings = kwargs['rSessionAppSettings']
+        if 'rStudioServerProAppSettings' in kwargs:
+            r_studio_server_pro_app_settings = kwargs['rStudioServerProAppSettings']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sharingSettings' in kwargs:
+            sharing_settings = kwargs['sharingSettings']
+
         _setter("execution_role", execution_role)
         if jupyter_server_app_settings is not None:
             _setter("jupyter_server_app_settings", jupyter_server_app_settings)
@@ -3078,7 +3336,11 @@ class EndpointAlarm(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              alarm_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+
         _setter("alarm_name", alarm_name)
 
     @property
@@ -3099,7 +3361,9 @@ class EndpointAutoRollbackConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              alarms: Sequence['outputs.EndpointAlarm'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("alarms", alarms)
 
     @property
@@ -3147,7 +3411,15 @@ class EndpointBlueGreenUpdatePolicy(dict):
              traffic_routing_configuration: 'outputs.EndpointTrafficRoutingConfig',
              maximum_execution_timeout_in_seconds: Optional[int] = None,
              termination_wait_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'trafficRoutingConfiguration' in kwargs:
+            traffic_routing_configuration = kwargs['trafficRoutingConfiguration']
+        if 'maximumExecutionTimeoutInSeconds' in kwargs:
+            maximum_execution_timeout_in_seconds = kwargs['maximumExecutionTimeoutInSeconds']
+        if 'terminationWaitInSeconds' in kwargs:
+            termination_wait_in_seconds = kwargs['terminationWaitInSeconds']
+
         _setter("traffic_routing_configuration", traffic_routing_configuration)
         if maximum_execution_timeout_in_seconds is not None:
             _setter("maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
@@ -3185,7 +3457,9 @@ class EndpointCapacitySize(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -3229,7 +3503,11 @@ class EndpointConfigAsyncInferenceClientConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_concurrent_invocations_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConcurrentInvocationsPerInstance' in kwargs:
+            max_concurrent_invocations_per_instance = kwargs['maxConcurrentInvocationsPerInstance']
+
         if max_concurrent_invocations_per_instance is not None:
             _setter("max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
 
@@ -3273,7 +3551,13 @@ class EndpointConfigAsyncInferenceConfig(dict):
              _setter: Callable[[Any, Any], None],
              output_config: 'outputs.EndpointConfigAsyncInferenceOutputConfig',
              client_config: Optional['outputs.EndpointConfigAsyncInferenceClientConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputConfig' in kwargs:
+            output_config = kwargs['outputConfig']
+        if 'clientConfig' in kwargs:
+            client_config = kwargs['clientConfig']
+
         _setter("output_config", output_config)
         if client_config is not None:
             _setter("client_config", client_config)
@@ -3328,7 +3612,15 @@ class EndpointConfigAsyncInferenceNotificationConfig(dict):
              error_topic: Optional[str] = None,
              include_inference_response_in: Optional[Sequence[str]] = None,
              success_topic: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorTopic' in kwargs:
+            error_topic = kwargs['errorTopic']
+        if 'includeInferenceResponseIn' in kwargs:
+            include_inference_response_in = kwargs['includeInferenceResponseIn']
+        if 'successTopic' in kwargs:
+            success_topic = kwargs['successTopic']
+
         if error_topic is not None:
             _setter("error_topic", error_topic)
         if include_inference_response_in is not None:
@@ -3396,7 +3688,17 @@ class EndpointConfigAsyncInferenceOutputConfig(dict):
              notification_config: Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig'] = None,
              s3_failure_path: Optional[str] = None,
              s3_output_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'notificationConfig' in kwargs:
+            notification_config = kwargs['notificationConfig']
+        if 's3FailurePath' in kwargs:
+            s3_failure_path = kwargs['s3FailurePath']
+        if 's3OutputPath' in kwargs:
+            s3_output_path = kwargs['s3OutputPath']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if notification_config is not None:
@@ -3461,7 +3763,13 @@ class EndpointConfigCaptureContentTypeHeader(dict):
              _setter: Callable[[Any, Any], None],
              csv_content_types: Optional[Sequence[str]] = None,
              json_content_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvContentTypes' in kwargs:
+            csv_content_types = kwargs['csvContentTypes']
+        if 'jsonContentTypes' in kwargs:
+            json_content_types = kwargs['jsonContentTypes']
+
         if csv_content_types is not None:
             _setter("csv_content_types", csv_content_types)
         if json_content_types is not None:
@@ -3507,7 +3815,11 @@ class EndpointConfigCaptureOption(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              capture_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captureMode' in kwargs:
+            capture_mode = kwargs['captureMode']
+
         _setter("capture_mode", capture_mode)
 
     @property
@@ -3555,7 +3867,15 @@ class EndpointConfigClarifyExplainerConfig(dict):
              shap_config: 'outputs.EndpointConfigClarifyShapConfig',
              enable_explanations: Optional[str] = None,
              inference_config: Optional['outputs.EndpointConfigClarifyInferenceConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shapConfig' in kwargs:
+            shap_config = kwargs['shapConfig']
+        if 'enableExplanations' in kwargs:
+            enable_explanations = kwargs['enableExplanations']
+        if 'inferenceConfig' in kwargs:
+            inference_config = kwargs['inferenceConfig']
+
         _setter("shap_config", shap_config)
         if enable_explanations is not None:
             _setter("enable_explanations", enable_explanations)
@@ -3585,8 +3905,10 @@ class EndpointConfigClarifyFeatureType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3596,8 +3918,10 @@ class EndpointConfigClarifyHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3679,7 +4003,31 @@ class EndpointConfigClarifyInferenceConfig(dict):
              max_record_count: Optional[int] = None,
              probability_attribute: Optional[str] = None,
              probability_index: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTemplate' in kwargs:
+            content_template = kwargs['contentTemplate']
+        if 'featureHeaders' in kwargs:
+            feature_headers = kwargs['featureHeaders']
+        if 'featureTypes' in kwargs:
+            feature_types = kwargs['featureTypes']
+        if 'featuresAttribute' in kwargs:
+            features_attribute = kwargs['featuresAttribute']
+        if 'labelAttribute' in kwargs:
+            label_attribute = kwargs['labelAttribute']
+        if 'labelHeaders' in kwargs:
+            label_headers = kwargs['labelHeaders']
+        if 'labelIndex' in kwargs:
+            label_index = kwargs['labelIndex']
+        if 'maxPayloadInMb' in kwargs:
+            max_payload_in_mb = kwargs['maxPayloadInMb']
+        if 'maxRecordCount' in kwargs:
+            max_record_count = kwargs['maxRecordCount']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 'probabilityIndex' in kwargs:
+            probability_index = kwargs['probabilityIndex']
+
         if content_template is not None:
             _setter("content_template", content_template)
         if feature_headers is not None:
@@ -3798,7 +4146,15 @@ class EndpointConfigClarifyShapBaselineConfig(dict):
              mime_type: Optional[str] = None,
              shap_baseline: Optional[str] = None,
              shap_baseline_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mimeType' in kwargs:
+            mime_type = kwargs['mimeType']
+        if 'shapBaseline' in kwargs:
+            shap_baseline = kwargs['shapBaseline']
+        if 'shapBaselineUri' in kwargs:
+            shap_baseline_uri = kwargs['shapBaselineUri']
+
         if mime_type is not None:
             _setter("mime_type", mime_type)
         if shap_baseline is not None:
@@ -3869,7 +4225,17 @@ class EndpointConfigClarifyShapConfig(dict):
              seed: Optional[int] = None,
              text_config: Optional['outputs.EndpointConfigClarifyTextConfig'] = None,
              use_logit: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shapBaselineConfig' in kwargs:
+            shap_baseline_config = kwargs['shapBaselineConfig']
+        if 'numberOfSamples' in kwargs:
+            number_of_samples = kwargs['numberOfSamples']
+        if 'textConfig' in kwargs:
+            text_config = kwargs['textConfig']
+        if 'useLogit' in kwargs:
+            use_logit = kwargs['useLogit']
+
         _setter("shap_baseline_config", shap_baseline_config)
         if number_of_samples is not None:
             _setter("number_of_samples", number_of_samples)
@@ -3921,7 +4287,9 @@ class EndpointConfigClarifyTextConfig(dict):
              _setter: Callable[[Any, Any], None],
              granularity: str,
              language: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("granularity", granularity)
         _setter("language", language)
 
@@ -3990,7 +4358,21 @@ class EndpointConfigDataCaptureConfig(dict):
              capture_content_type_header: Optional['outputs.EndpointConfigCaptureContentTypeHeader'] = None,
              enable_capture: Optional[bool] = None,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captureOptions' in kwargs:
+            capture_options = kwargs['captureOptions']
+        if 'destinationS3Uri' in kwargs:
+            destination_s3_uri = kwargs['destinationS3Uri']
+        if 'initialSamplingPercentage' in kwargs:
+            initial_sampling_percentage = kwargs['initialSamplingPercentage']
+        if 'captureContentTypeHeader' in kwargs:
+            capture_content_type_header = kwargs['captureContentTypeHeader']
+        if 'enableCapture' in kwargs:
+            enable_capture = kwargs['enableCapture']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("capture_options", capture_options)
         _setter("destination_s3_uri", destination_s3_uri)
         _setter("initial_sampling_percentage", initial_sampling_percentage)
@@ -4061,7 +4443,11 @@ class EndpointConfigExplainerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              clarify_explainer_config: Optional['outputs.EndpointConfigClarifyExplainerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clarifyExplainerConfig' in kwargs:
+            clarify_explainer_config = kwargs['clarifyExplainerConfig']
+
         if clarify_explainer_config is not None:
             _setter("clarify_explainer_config", clarify_explainer_config)
 
@@ -4150,7 +4536,31 @@ class EndpointConfigProductionVariant(dict):
              model_data_download_timeout_in_seconds: Optional[int] = None,
              serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None,
              volume_size_in_gb: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initialVariantWeight' in kwargs:
+            initial_variant_weight = kwargs['initialVariantWeight']
+        if 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if 'variantName' in kwargs:
+            variant_name = kwargs['variantName']
+        if 'acceleratorType' in kwargs:
+            accelerator_type = kwargs['acceleratorType']
+        if 'containerStartupHealthCheckTimeoutInSeconds' in kwargs:
+            container_startup_health_check_timeout_in_seconds = kwargs['containerStartupHealthCheckTimeoutInSeconds']
+        if 'enableSsmAccess' in kwargs:
+            enable_ssm_access = kwargs['enableSsmAccess']
+        if 'initialInstanceCount' in kwargs:
+            initial_instance_count = kwargs['initialInstanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'modelDataDownloadTimeoutInSeconds' in kwargs:
+            model_data_download_timeout_in_seconds = kwargs['modelDataDownloadTimeoutInSeconds']
+        if 'serverlessConfig' in kwargs:
+            serverless_config = kwargs['serverlessConfig']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+
         _setter("initial_variant_weight", initial_variant_weight)
         _setter("model_name", model_name)
         _setter("variant_name", variant_name)
@@ -4266,7 +4676,15 @@ class EndpointConfigServerlessConfig(dict):
              max_concurrency: int,
              memory_size_in_mb: int,
              provisioned_concurrency: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'memorySizeInMb' in kwargs:
+            memory_size_in_mb = kwargs['memorySizeInMb']
+        if 'provisionedConcurrency' in kwargs:
+            provisioned_concurrency = kwargs['provisionedConcurrency']
+
         _setter("max_concurrency", max_concurrency)
         _setter("memory_size_in_mb", memory_size_in_mb)
         if provisioned_concurrency is not None:
@@ -4303,7 +4721,9 @@ class EndpointConfigTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4357,7 +4777,15 @@ class EndpointDeploymentConfig(dict):
              auto_rollback_configuration: Optional['outputs.EndpointAutoRollbackConfig'] = None,
              blue_green_update_policy: Optional['outputs.EndpointBlueGreenUpdatePolicy'] = None,
              rolling_update_policy: Optional['outputs.EndpointRollingUpdatePolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRollbackConfiguration' in kwargs:
+            auto_rollback_configuration = kwargs['autoRollbackConfiguration']
+        if 'blueGreenUpdatePolicy' in kwargs:
+            blue_green_update_policy = kwargs['blueGreenUpdatePolicy']
+        if 'rollingUpdatePolicy' in kwargs:
+            rolling_update_policy = kwargs['rollingUpdatePolicy']
+
         if auto_rollback_configuration is not None:
             _setter("auto_rollback_configuration", auto_rollback_configuration)
         if blue_green_update_policy is not None:
@@ -4425,7 +4853,17 @@ class EndpointRollingUpdatePolicy(dict):
              wait_interval_in_seconds: int,
              maximum_execution_timeout_in_seconds: Optional[int] = None,
              rollback_maximum_batch_size: Optional['outputs.EndpointCapacitySize'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumBatchSize' in kwargs:
+            maximum_batch_size = kwargs['maximumBatchSize']
+        if 'waitIntervalInSeconds' in kwargs:
+            wait_interval_in_seconds = kwargs['waitIntervalInSeconds']
+        if 'maximumExecutionTimeoutInSeconds' in kwargs:
+            maximum_execution_timeout_in_seconds = kwargs['maximumExecutionTimeoutInSeconds']
+        if 'rollbackMaximumBatchSize' in kwargs:
+            rollback_maximum_batch_size = kwargs['rollbackMaximumBatchSize']
+
         _setter("maximum_batch_size", maximum_batch_size)
         _setter("wait_interval_in_seconds", wait_interval_in_seconds)
         if maximum_execution_timeout_in_seconds is not None:
@@ -4469,7 +4907,9 @@ class EndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4526,7 +4966,15 @@ class EndpointTrafficRoutingConfig(dict):
              canary_size: Optional['outputs.EndpointCapacitySize'] = None,
              linear_step_size: Optional['outputs.EndpointCapacitySize'] = None,
              wait_interval_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'canarySize' in kwargs:
+            canary_size = kwargs['canarySize']
+        if 'linearStepSize' in kwargs:
+            linear_step_size = kwargs['linearStepSize']
+        if 'waitIntervalInSeconds' in kwargs:
+            wait_interval_in_seconds = kwargs['waitIntervalInSeconds']
+
         _setter("type", type)
         if canary_size is not None:
             _setter("canary_size", canary_size)
@@ -4585,7 +5033,11 @@ class EndpointVariantProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              variant_property_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'variantPropertyType' in kwargs:
+            variant_property_type = kwargs['variantPropertyType']
+
         if variant_property_type is not None:
             _setter("variant_property_type", variant_property_type)
 
@@ -4630,7 +5082,11 @@ class FeatureGroupDataCatalogConfig(dict):
              catalog: str,
              database: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("catalog", catalog)
         _setter("database", database)
         _setter("table_name", table_name)
@@ -4685,7 +5141,13 @@ class FeatureGroupFeatureDefinition(dict):
              _setter: Callable[[Any, Any], None],
              feature_name: str,
              feature_type: 'FeatureGroupFeatureDefinitionFeatureType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if 'featureType' in kwargs:
+            feature_type = kwargs['featureType']
+
         _setter("feature_name", feature_name)
         _setter("feature_type", feature_type)
 
@@ -4729,7 +5191,11 @@ class FeatureGroupOnlineStoreSecurityConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -4773,7 +5239,13 @@ class FeatureGroupS3StorageConfig(dict):
              _setter: Callable[[Any, Any], None],
              s3_uri: str,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("s3_uri", s3_uri)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -4810,7 +5282,9 @@ class FeatureGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4848,7 +5322,9 @@ class ImageTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4911,7 +5387,13 @@ class InferenceExperimentCaptureContentTypeHeader(dict):
              _setter: Callable[[Any, Any], None],
              csv_content_types: Optional[Sequence[str]] = None,
              json_content_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvContentTypes' in kwargs:
+            csv_content_types = kwargs['csvContentTypes']
+        if 'jsonContentTypes' in kwargs:
+            json_content_types = kwargs['jsonContentTypes']
+
         if csv_content_types is not None:
             _setter("csv_content_types", csv_content_types)
         if json_content_types is not None:
@@ -4979,7 +5461,13 @@ class InferenceExperimentDataStorageConfig(dict):
              destination: str,
              content_type: Optional['outputs.InferenceExperimentCaptureContentTypeHeader'] = None,
              kms_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("destination", destination)
         if content_type is not None:
             _setter("content_type", content_type)
@@ -5055,7 +5543,15 @@ class InferenceExperimentEndpointMetadata(dict):
              endpoint_name: str,
              endpoint_config_name: Optional[str] = None,
              endpoint_status: Optional['InferenceExperimentEndpointMetadataEndpointStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'endpointConfigName' in kwargs:
+            endpoint_config_name = kwargs['endpointConfigName']
+        if 'endpointStatus' in kwargs:
+            endpoint_status = kwargs['endpointStatus']
+
         _setter("endpoint_name", endpoint_name)
         if endpoint_config_name is not None:
             _setter("endpoint_config_name", endpoint_config_name)
@@ -5125,7 +5621,13 @@ class InferenceExperimentModelInfrastructureConfig(dict):
              _setter: Callable[[Any, Any], None],
              infrastructure_type: 'InferenceExperimentModelInfrastructureConfigInfrastructureType',
              real_time_inference_config: 'outputs.InferenceExperimentRealTimeInferenceConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureType' in kwargs:
+            infrastructure_type = kwargs['infrastructureType']
+        if 'realTimeInferenceConfig' in kwargs:
+            real_time_inference_config = kwargs['realTimeInferenceConfig']
+
         _setter("infrastructure_type", infrastructure_type)
         _setter("real_time_inference_config", real_time_inference_config)
 
@@ -5190,7 +5692,15 @@ class InferenceExperimentModelVariantConfig(dict):
              infrastructure_config: 'outputs.InferenceExperimentModelInfrastructureConfig',
              model_name: str,
              variant_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureConfig' in kwargs:
+            infrastructure_config = kwargs['infrastructureConfig']
+        if 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if 'variantName' in kwargs:
+            variant_name = kwargs['variantName']
+
         _setter("infrastructure_config", infrastructure_config)
         _setter("model_name", model_name)
         _setter("variant_name", variant_name)
@@ -5259,7 +5769,13 @@ class InferenceExperimentRealTimeInferenceConfig(dict):
              _setter: Callable[[Any, Any], None],
              instance_count: int,
              instance_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
 
@@ -5322,7 +5838,13 @@ class InferenceExperimentSchedule(dict):
              _setter: Callable[[Any, Any], None],
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if start_time is not None:
@@ -5387,7 +5909,13 @@ class InferenceExperimentShadowModeConfig(dict):
              _setter: Callable[[Any, Any], None],
              shadow_model_variants: Sequence['outputs.InferenceExperimentShadowModelVariantConfig'],
              source_model_variant_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shadowModelVariants' in kwargs:
+            shadow_model_variants = kwargs['shadowModelVariants']
+        if 'sourceModelVariantName' in kwargs:
+            source_model_variant_name = kwargs['sourceModelVariantName']
+
         _setter("shadow_model_variants", shadow_model_variants)
         _setter("source_model_variant_name", source_model_variant_name)
 
@@ -5450,7 +5978,13 @@ class InferenceExperimentShadowModelVariantConfig(dict):
              _setter: Callable[[Any, Any], None],
              sampling_percentage: int,
              shadow_model_variant_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+        if 'shadowModelVariantName' in kwargs:
+            shadow_model_variant_name = kwargs['shadowModelVariantName']
+
         _setter("sampling_percentage", sampling_percentage)
         _setter("shadow_model_variant_name", shadow_model_variant_name)
 
@@ -5494,7 +6028,9 @@ class InferenceExperimentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -5609,7 +6145,31 @@ class ModelBiasJobDefinitionBatchTransformInput(dict):
              s3_data_distribution_type: Optional['ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelBiasJobDefinitionBatchTransformInputS3InputMode'] = None,
              start_time_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCapturedDestinationS3Uri' in kwargs:
+            data_captured_destination_s3_uri = kwargs['dataCapturedDestinationS3Uri']
+        if 'datasetFormat' in kwargs:
+            dataset_format = kwargs['datasetFormat']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'endTimeOffset' in kwargs:
+            end_time_offset = kwargs['endTimeOffset']
+        if 'featuresAttribute' in kwargs:
+            features_attribute = kwargs['featuresAttribute']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 'probabilityThresholdAttribute' in kwargs:
+            probability_threshold_attribute = kwargs['probabilityThresholdAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+        if 'startTimeOffset' in kwargs:
+            start_time_offset = kwargs['startTimeOffset']
+
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
@@ -5767,7 +6327,17 @@ class ModelBiasJobDefinitionClusterConfig(dict):
              instance_type: str,
              volume_size_in_gb: int,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
@@ -5843,7 +6413,11 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -5875,7 +6449,9 @@ class ModelBiasJobDefinitionCsv(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if header is not None:
             _setter("header", header)
 
@@ -5912,7 +6488,9 @@ class ModelBiasJobDefinitionDatasetFormat(dict):
              csv: Optional['outputs.ModelBiasJobDefinitionCsv'] = None,
              json: Optional['outputs.ModelBiasJobDefinitionJson'] = None,
              parquet: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if json is not None:
@@ -6024,7 +6602,29 @@ class ModelBiasJobDefinitionEndpointInput(dict):
              s3_data_distribution_type: Optional['ModelBiasJobDefinitionEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelBiasJobDefinitionEndpointInputS3InputMode'] = None,
              start_time_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'endTimeOffset' in kwargs:
+            end_time_offset = kwargs['endTimeOffset']
+        if 'featuresAttribute' in kwargs:
+            features_attribute = kwargs['featuresAttribute']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 'probabilityThresholdAttribute' in kwargs:
+            probability_threshold_attribute = kwargs['probabilityThresholdAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+        if 'startTimeOffset' in kwargs:
+            start_time_offset = kwargs['startTimeOffset']
+
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
         if end_time_offset is not None:
@@ -6138,7 +6738,9 @@ class ModelBiasJobDefinitionJson(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if line is not None:
             _setter("line", line)
 
@@ -6197,7 +6799,13 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
              config_uri: str,
              image_uri: str,
              environment: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configUri' in kwargs:
+            config_uri = kwargs['configUri']
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+
         _setter("config_uri", config_uri)
         _setter("image_uri", image_uri)
         if environment is not None:
@@ -6268,7 +6876,13 @@ class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
              _setter: Callable[[Any, Any], None],
              baselining_job_name: Optional[str] = None,
              constraints_resource: Optional['outputs.ModelBiasJobDefinitionConstraintsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseliningJobName' in kwargs:
+            baselining_job_name = kwargs['baseliningJobName']
+        if 'constraintsResource' in kwargs:
+            constraints_resource = kwargs['constraintsResource']
+
         if baselining_job_name is not None:
             _setter("baselining_job_name", baselining_job_name)
         if constraints_resource is not None:
@@ -6330,7 +6944,15 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
              ground_truth_s3_input: 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input',
              batch_transform_input: Optional['outputs.ModelBiasJobDefinitionBatchTransformInput'] = None,
              endpoint_input: Optional['outputs.ModelBiasJobDefinitionEndpointInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groundTruthS3Input' in kwargs:
+            ground_truth_s3_input = kwargs['groundTruthS3Input']
+        if 'batchTransformInput' in kwargs:
+            batch_transform_input = kwargs['batchTransformInput']
+        if 'endpointInput' in kwargs:
+            endpoint_input = kwargs['endpointInput']
+
         _setter("ground_truth_s3_input", ground_truth_s3_input)
         if batch_transform_input is not None:
             _setter("batch_transform_input", batch_transform_input)
@@ -6389,7 +7011,11 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         _setter("s3_uri", s3_uri)
 
     @property
@@ -6436,7 +7062,11 @@ class ModelBiasJobDefinitionMonitoringOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_output: 'outputs.ModelBiasJobDefinitionS3Output',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Output' in kwargs:
+            s3_output = kwargs['s3Output']
+
         _setter("s3_output", s3_output)
 
     @property
@@ -6487,7 +7117,13 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              monitoring_outputs: Sequence['outputs.ModelBiasJobDefinitionMonitoringOutput'],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringOutputs' in kwargs:
+            monitoring_outputs = kwargs['monitoringOutputs']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -6544,7 +7180,11 @@ class ModelBiasJobDefinitionMonitoringResources(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_config: 'outputs.ModelBiasJobDefinitionClusterConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+
         _setter("cluster_config", cluster_config)
 
     @property
@@ -6600,7 +7240,15 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
              enable_inter_container_traffic_encryption: Optional[bool] = None,
              enable_network_isolation: Optional[bool] = None,
              vpc_config: Optional['outputs.ModelBiasJobDefinitionVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableInterContainerTrafficEncryption' in kwargs:
+            enable_inter_container_traffic_encryption = kwargs['enableInterContainerTrafficEncryption']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if enable_inter_container_traffic_encryption is not None:
             _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
@@ -6678,7 +7326,15 @@ class ModelBiasJobDefinitionS3Output(dict):
              local_path: str,
              s3_uri: str,
              s3_upload_mode: Optional['ModelBiasJobDefinitionS3OutputS3UploadMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 's3UploadMode' in kwargs:
+            s3_upload_mode = kwargs['s3UploadMode']
+
         _setter("local_path", local_path)
         _setter("s3_uri", s3_uri)
         if s3_upload_mode is not None:
@@ -6745,7 +7401,11 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_runtime_in_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRuntimeInSeconds' in kwargs:
+            max_runtime_in_seconds = kwargs['maxRuntimeInSeconds']
+
         _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
@@ -6780,7 +7440,9 @@ class ModelBiasJobDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -6841,7 +7503,11 @@ class ModelBiasJobDefinitionVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -6906,7 +7572,15 @@ class ModelCardAdditionalInformation(dict):
              caveats_and_recommendations: Optional[str] = None,
              custom_details: Optional[Any] = None,
              ethical_considerations: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caveatsAndRecommendations' in kwargs:
+            caveats_and_recommendations = kwargs['caveatsAndRecommendations']
+        if 'customDetails' in kwargs:
+            custom_details = kwargs['customDetails']
+        if 'ethicalConsiderations' in kwargs:
+            ethical_considerations = kwargs['ethicalConsiderations']
+
         if caveats_and_recommendations is not None:
             _setter("caveats_and_recommendations", caveats_and_recommendations)
         if custom_details is not None:
@@ -6985,7 +7659,13 @@ class ModelCardBarChartMetric(dict):
              notes: Optional[str] = None,
              x_axis_name: Optional[Sequence[str]] = None,
              y_axis_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAxisName' in kwargs:
+            x_axis_name = kwargs['xAxisName']
+        if 'yAxisName' in kwargs:
+            y_axis_name = kwargs['yAxisName']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -7075,7 +7755,15 @@ class ModelCardBusinessDetails(dict):
              business_problem: Optional[str] = None,
              business_stakeholders: Optional[str] = None,
              line_of_business: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'businessProblem' in kwargs:
+            business_problem = kwargs['businessProblem']
+        if 'businessStakeholders' in kwargs:
+            business_stakeholders = kwargs['businessStakeholders']
+        if 'lineOfBusiness' in kwargs:
+            line_of_business = kwargs['lineOfBusiness']
+
         if business_problem is not None:
             _setter("business_problem", business_problem)
         if business_stakeholders is not None:
@@ -7150,7 +7838,13 @@ class ModelCardContainer(dict):
              image: str,
              model_data_url: Optional[str] = None,
              nearest_model_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelDataUrl' in kwargs:
+            model_data_url = kwargs['modelDataUrl']
+        if 'nearestModelName' in kwargs:
+            nearest_model_name = kwargs['nearestModelName']
+
         _setter("image", image)
         if model_data_url is not None:
             _setter("model_data_url", model_data_url)
@@ -7247,7 +7941,23 @@ class ModelCardContent(dict):
              model_overview: Optional['outputs.ModelCardModelOverview'] = None,
              model_package_details: Optional['outputs.ModelCardModelPackageDetails'] = None,
              training_details: Optional['outputs.ModelCardTrainingDetails'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInformation' in kwargs:
+            additional_information = kwargs['additionalInformation']
+        if 'businessDetails' in kwargs:
+            business_details = kwargs['businessDetails']
+        if 'evaluationDetails' in kwargs:
+            evaluation_details = kwargs['evaluationDetails']
+        if 'intendedUses' in kwargs:
+            intended_uses = kwargs['intendedUses']
+        if 'modelOverview' in kwargs:
+            model_overview = kwargs['modelOverview']
+        if 'modelPackageDetails' in kwargs:
+            model_package_details = kwargs['modelPackageDetails']
+        if 'trainingDetails' in kwargs:
+            training_details = kwargs['trainingDetails']
+
         if additional_information is not None:
             _setter("additional_information", additional_information)
         if business_details is not None:
@@ -7354,7 +8064,15 @@ class ModelCardEvaluationDetail(dict):
              evaluation_observation: Optional[str] = None,
              metadata: Optional[Any] = None,
              metric_groups: Optional[Sequence['outputs.ModelCardMetricGroup']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluationJobArn' in kwargs:
+            evaluation_job_arn = kwargs['evaluationJobArn']
+        if 'evaluationObservation' in kwargs:
+            evaluation_observation = kwargs['evaluationObservation']
+        if 'metricGroups' in kwargs:
+            metric_groups = kwargs['metricGroups']
+
         _setter("name", name)
         if datasets is not None:
             _setter("datasets", datasets)
@@ -7416,7 +8134,9 @@ class ModelCardInferenceSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              containers: Sequence['outputs.ModelCardContainer'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("containers", containers)
 
     @property
@@ -7485,7 +8205,19 @@ class ModelCardIntendedUses(dict):
              intended_uses: Optional[str] = None,
              purpose_of_model: Optional[str] = None,
              risk_rating: Optional['ModelCardRiskRating'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'explanationsForRiskRating' in kwargs:
+            explanations_for_risk_rating = kwargs['explanationsForRiskRating']
+        if 'factorsAffectingModelEfficiency' in kwargs:
+            factors_affecting_model_efficiency = kwargs['factorsAffectingModelEfficiency']
+        if 'intendedUses' in kwargs:
+            intended_uses = kwargs['intendedUses']
+        if 'purposeOfModel' in kwargs:
+            purpose_of_model = kwargs['purposeOfModel']
+        if 'riskRating' in kwargs:
+            risk_rating = kwargs['riskRating']
+
         if explanations_for_risk_rating is not None:
             _setter("explanations_for_risk_rating", explanations_for_risk_rating)
         if factors_affecting_model_efficiency is not None:
@@ -7581,7 +8313,13 @@ class ModelCardLinearGraphMetric(dict):
              notes: Optional[str] = None,
              x_axis_name: Optional[str] = None,
              y_axis_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAxisName' in kwargs:
+            x_axis_name = kwargs['xAxisName']
+        if 'yAxisName' in kwargs:
+            y_axis_name = kwargs['yAxisName']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -7669,7 +8407,13 @@ class ModelCardMatrixMetric(dict):
              notes: Optional[str] = None,
              x_axis_name: Optional[Sequence[str]] = None,
              y_axis_name: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAxisName' in kwargs:
+            x_axis_name = kwargs['xAxisName']
+        if 'yAxisName' in kwargs:
+            y_axis_name = kwargs['yAxisName']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -7749,7 +8493,11 @@ class ModelCardMetricGroup(dict):
              _setter: Callable[[Any, Any], None],
              metric_data: Sequence[Any],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricData' in kwargs:
+            metric_data = kwargs['metricData']
+
         _setter("metric_data", metric_data)
         _setter("name", name)
 
@@ -7854,7 +8602,29 @@ class ModelCardModelOverview(dict):
              model_owner: Optional[str] = None,
              model_version: Optional[float] = None,
              problem_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'algorithmType' in kwargs:
+            algorithm_type = kwargs['algorithmType']
+        if 'inferenceEnvironment' in kwargs:
+            inference_environment = kwargs['inferenceEnvironment']
+        if 'modelArtifact' in kwargs:
+            model_artifact = kwargs['modelArtifact']
+        if 'modelCreator' in kwargs:
+            model_creator = kwargs['modelCreator']
+        if 'modelDescription' in kwargs:
+            model_description = kwargs['modelDescription']
+        if 'modelId' in kwargs:
+            model_id = kwargs['modelId']
+        if 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if 'modelOwner' in kwargs:
+            model_owner = kwargs['modelOwner']
+        if 'modelVersion' in kwargs:
+            model_version = kwargs['modelVersion']
+        if 'problemType' in kwargs:
+            problem_type = kwargs['problemType']
+
         if algorithm_type is not None:
             _setter("algorithm_type", algorithm_type)
         if inference_environment is not None:
@@ -7993,7 +8763,11 @@ class ModelCardModelOverviewInferenceEnvironmentProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_image: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerImage' in kwargs:
+            container_image = kwargs['containerImage']
+
         if container_image is not None:
             _setter("container_image", container_image)
 
@@ -8038,7 +8812,11 @@ class ModelCardModelPackageCreator(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              user_profile_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+
         if user_profile_name is not None:
             _setter("user_profile_name", user_profile_name)
 
@@ -8155,7 +8933,31 @@ class ModelCardModelPackageDetails(dict):
              model_package_version: Optional[float] = None,
              source_algorithms: Optional[Sequence['outputs.ModelCardSourceAlgorithm']] = None,
              task: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approvalDescription' in kwargs:
+            approval_description = kwargs['approvalDescription']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'inferenceSpecification' in kwargs:
+            inference_specification = kwargs['inferenceSpecification']
+        if 'modelApprovalStatus' in kwargs:
+            model_approval_status = kwargs['modelApprovalStatus']
+        if 'modelPackageArn' in kwargs:
+            model_package_arn = kwargs['modelPackageArn']
+        if 'modelPackageDescription' in kwargs:
+            model_package_description = kwargs['modelPackageDescription']
+        if 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if 'modelPackageName' in kwargs:
+            model_package_name = kwargs['modelPackageName']
+        if 'modelPackageStatus' in kwargs:
+            model_package_status = kwargs['modelPackageStatus']
+        if 'modelPackageVersion' in kwargs:
+            model_package_version = kwargs['modelPackageVersion']
+        if 'sourceAlgorithms' in kwargs:
+            source_algorithms = kwargs['sourceAlgorithms']
+
         if approval_description is not None:
             _setter("approval_description", approval_description)
         if created_by is not None:
@@ -8310,7 +9112,9 @@ class ModelCardObjectiveFunction(dict):
              _setter: Callable[[Any, Any], None],
              function: Optional['outputs.ModelCardObjectiveFunctionFunctionProperties'] = None,
              notes: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if function is not None:
             _setter("function", function)
         if notes is not None:
@@ -8354,7 +9158,9 @@ class ModelCardObjectiveFunctionFunctionProperties(dict):
              condition: Optional[str] = None,
              facet: Optional[str] = None,
              function: Optional['ModelCardObjectiveFunctionFunctionPropertiesFunction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if condition is not None:
             _setter("condition", condition)
         if facet is not None:
@@ -8416,7 +9222,11 @@ class ModelCardSecurityConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -8481,7 +9291,13 @@ class ModelCardSimpleMetric(dict):
              notes: Optional[str] = None,
              x_axis_name: Optional[str] = None,
              y_axis_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAxisName' in kwargs:
+            x_axis_name = kwargs['xAxisName']
+        if 'yAxisName' in kwargs:
+            y_axis_name = kwargs['yAxisName']
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -8561,7 +9377,13 @@ class ModelCardSourceAlgorithm(dict):
              _setter: Callable[[Any, Any], None],
              algorithm_name: str,
              model_data_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'algorithmName' in kwargs:
+            algorithm_name = kwargs['algorithmName']
+        if 'modelDataUrl' in kwargs:
+            model_data_url = kwargs['modelDataUrl']
+
         _setter("algorithm_name", algorithm_name)
         if model_data_url is not None:
             _setter("model_data_url", model_data_url)
@@ -8606,7 +9428,9 @@ class ModelCardTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -8672,7 +9496,15 @@ class ModelCardTrainingDetails(dict):
              objective_function: Optional['outputs.ModelCardObjectiveFunction'] = None,
              training_job_details: Optional['outputs.ModelCardTrainingDetailsTrainingJobDetailsProperties'] = None,
              training_observations: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectiveFunction' in kwargs:
+            objective_function = kwargs['objectiveFunction']
+        if 'trainingJobDetails' in kwargs:
+            training_job_details = kwargs['trainingJobDetails']
+        if 'trainingObservations' in kwargs:
+            training_observations = kwargs['trainingObservations']
+
         if objective_function is not None:
             _setter("objective_function", objective_function)
         if training_job_details is not None:
@@ -8759,7 +9591,23 @@ class ModelCardTrainingDetailsTrainingJobDetailsProperties(dict):
              training_metrics: Optional[Sequence['outputs.ModelCardTrainingMetric']] = None,
              user_provided_hyper_parameters: Optional[Sequence['outputs.ModelCardTrainingHyperParameter']] = None,
              user_provided_training_metrics: Optional[Sequence['outputs.ModelCardTrainingMetric']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hyperParameters' in kwargs:
+            hyper_parameters = kwargs['hyperParameters']
+        if 'trainingArn' in kwargs:
+            training_arn = kwargs['trainingArn']
+        if 'trainingDatasets' in kwargs:
+            training_datasets = kwargs['trainingDatasets']
+        if 'trainingEnvironment' in kwargs:
+            training_environment = kwargs['trainingEnvironment']
+        if 'trainingMetrics' in kwargs:
+            training_metrics = kwargs['trainingMetrics']
+        if 'userProvidedHyperParameters' in kwargs:
+            user_provided_hyper_parameters = kwargs['userProvidedHyperParameters']
+        if 'userProvidedTrainingMetrics' in kwargs:
+            user_provided_training_metrics = kwargs['userProvidedTrainingMetrics']
+
         if hyper_parameters is not None:
             _setter("hyper_parameters", hyper_parameters)
         if training_arn is not None:
@@ -8849,7 +9697,11 @@ class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPro
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_image: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerImage' in kwargs:
+            container_image = kwargs['containerImage']
+
         if container_image is not None:
             _setter("container_image", container_image)
 
@@ -8883,7 +9735,9 @@ class ModelCardTrainingHyperParameter(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -8922,7 +9776,9 @@ class ModelCardTrainingMetric(dict):
              name: str,
              value: float,
              notes: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if notes is not None:
@@ -8992,7 +9848,15 @@ class ModelCardUserContext(dict):
              domain_id: Optional[str] = None,
              user_profile_arn: Optional[str] = None,
              user_profile_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'userProfileArn' in kwargs:
+            user_profile_arn = kwargs['userProfileArn']
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+
         if domain_id is not None:
             _setter("domain_id", domain_id)
         if user_profile_arn is not None:
@@ -9088,7 +9952,21 @@ class ModelContainerDefinition(dict):
              model_data_url: Optional[str] = None,
              model_package_name: Optional[str] = None,
              multi_model_config: Optional['outputs.ModelMultiModelConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerHostname' in kwargs:
+            container_hostname = kwargs['containerHostname']
+        if 'imageConfig' in kwargs:
+            image_config = kwargs['imageConfig']
+        if 'inferenceSpecificationName' in kwargs:
+            inference_specification_name = kwargs['inferenceSpecificationName']
+        if 'modelDataUrl' in kwargs:
+            model_data_url = kwargs['modelDataUrl']
+        if 'modelPackageName' in kwargs:
+            model_package_name = kwargs['modelPackageName']
+        if 'multiModelConfig' in kwargs:
+            multi_model_config = kwargs['multiModelConfig']
+
         if container_hostname is not None:
             _setter("container_hostname", container_hostname)
         if environment is not None:
@@ -9231,7 +10109,25 @@ class ModelExplainabilityJobDefinitionBatchTransformInput(dict):
              probability_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCapturedDestinationS3Uri' in kwargs:
+            data_captured_destination_s3_uri = kwargs['dataCapturedDestinationS3Uri']
+        if 'datasetFormat' in kwargs:
+            dataset_format = kwargs['datasetFormat']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'featuresAttribute' in kwargs:
+            features_attribute = kwargs['featuresAttribute']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
@@ -9362,7 +10258,17 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
              instance_type: str,
              volume_size_in_gb: int,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
@@ -9438,7 +10344,11 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -9470,7 +10380,9 @@ class ModelExplainabilityJobDefinitionCsv(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if header is not None:
             _setter("header", header)
 
@@ -9507,7 +10419,9 @@ class ModelExplainabilityJobDefinitionDatasetFormat(dict):
              csv: Optional['outputs.ModelExplainabilityJobDefinitionCsv'] = None,
              json: Optional['outputs.ModelExplainabilityJobDefinitionJson'] = None,
              parquet: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if json is not None:
@@ -9602,7 +10516,23 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
              probability_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelExplainabilityJobDefinitionEndpointInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'featuresAttribute' in kwargs:
+            features_attribute = kwargs['featuresAttribute']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
         if features_attribute is not None:
@@ -9689,7 +10619,9 @@ class ModelExplainabilityJobDefinitionJson(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if line is not None:
             _setter("line", line)
 
@@ -9748,7 +10680,13 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
              config_uri: str,
              image_uri: str,
              environment: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configUri' in kwargs:
+            config_uri = kwargs['configUri']
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+
         _setter("config_uri", config_uri)
         _setter("image_uri", image_uri)
         if environment is not None:
@@ -9819,7 +10757,13 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
              _setter: Callable[[Any, Any], None],
              baselining_job_name: Optional[str] = None,
              constraints_resource: Optional['outputs.ModelExplainabilityJobDefinitionConstraintsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseliningJobName' in kwargs:
+            baselining_job_name = kwargs['baseliningJobName']
+        if 'constraintsResource' in kwargs:
+            constraints_resource = kwargs['constraintsResource']
+
         if baselining_job_name is not None:
             _setter("baselining_job_name", baselining_job_name)
         if constraints_resource is not None:
@@ -9876,7 +10820,13 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
              _setter: Callable[[Any, Any], None],
              batch_transform_input: Optional['outputs.ModelExplainabilityJobDefinitionBatchTransformInput'] = None,
              endpoint_input: Optional['outputs.ModelExplainabilityJobDefinitionEndpointInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchTransformInput' in kwargs:
+            batch_transform_input = kwargs['batchTransformInput']
+        if 'endpointInput' in kwargs:
+            endpoint_input = kwargs['endpointInput']
+
         if batch_transform_input is not None:
             _setter("batch_transform_input", batch_transform_input)
         if endpoint_input is not None:
@@ -9928,7 +10878,11 @@ class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_output: 'outputs.ModelExplainabilityJobDefinitionS3Output',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Output' in kwargs:
+            s3_output = kwargs['s3Output']
+
         _setter("s3_output", s3_output)
 
     @property
@@ -9979,7 +10933,13 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              monitoring_outputs: Sequence['outputs.ModelExplainabilityJobDefinitionMonitoringOutput'],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringOutputs' in kwargs:
+            monitoring_outputs = kwargs['monitoringOutputs']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -10036,7 +10996,11 @@ class ModelExplainabilityJobDefinitionMonitoringResources(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_config: 'outputs.ModelExplainabilityJobDefinitionClusterConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+
         _setter("cluster_config", cluster_config)
 
     @property
@@ -10092,7 +11056,15 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
              enable_inter_container_traffic_encryption: Optional[bool] = None,
              enable_network_isolation: Optional[bool] = None,
              vpc_config: Optional['outputs.ModelExplainabilityJobDefinitionVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableInterContainerTrafficEncryption' in kwargs:
+            enable_inter_container_traffic_encryption = kwargs['enableInterContainerTrafficEncryption']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if enable_inter_container_traffic_encryption is not None:
             _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
@@ -10170,7 +11142,15 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
              local_path: str,
              s3_uri: str,
              s3_upload_mode: Optional['ModelExplainabilityJobDefinitionS3OutputS3UploadMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 's3UploadMode' in kwargs:
+            s3_upload_mode = kwargs['s3UploadMode']
+
         _setter("local_path", local_path)
         _setter("s3_uri", s3_uri)
         if s3_upload_mode is not None:
@@ -10237,7 +11217,11 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_runtime_in_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRuntimeInSeconds' in kwargs:
+            max_runtime_in_seconds = kwargs['maxRuntimeInSeconds']
+
         _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
@@ -10272,7 +11256,9 @@ class ModelExplainabilityJobDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -10333,7 +11319,11 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -10388,7 +11378,13 @@ class ModelImageConfig(dict):
              _setter: Callable[[Any, Any], None],
              repository_access_mode: str,
              repository_auth_config: Optional['outputs.ModelRepositoryAuthConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryAccessMode' in kwargs:
+            repository_access_mode = kwargs['repositoryAccessMode']
+        if 'repositoryAuthConfig' in kwargs:
+            repository_auth_config = kwargs['repositoryAuthConfig']
+
         _setter("repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
             _setter("repository_auth_config", repository_auth_config)
@@ -10416,7 +11412,9 @@ class ModelInferenceExecutionConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
 
     @property
@@ -10454,7 +11452,11 @@ class ModelMultiModelConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              model_cache_setting: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelCacheSetting' in kwargs:
+            model_cache_setting = kwargs['modelCacheSetting']
+
         if model_cache_setting is not None:
             _setter("model_cache_setting", model_cache_setting)
 
@@ -10530,7 +11532,17 @@ class ModelPackageAdditionalInferenceSpecificationDefinition(dict):
              supported_realtime_inference_instance_types: Optional[Sequence[str]] = None,
              supported_response_mime_types: Optional[Sequence[str]] = None,
              supported_transform_instance_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedContentTypes' in kwargs:
+            supported_content_types = kwargs['supportedContentTypes']
+        if 'supportedRealtimeInferenceInstanceTypes' in kwargs:
+            supported_realtime_inference_instance_types = kwargs['supportedRealtimeInferenceInstanceTypes']
+        if 'supportedResponseMimeTypes' in kwargs:
+            supported_response_mime_types = kwargs['supportedResponseMimeTypes']
+        if 'supportedTransformInstanceTypes' in kwargs:
+            supported_transform_instance_types = kwargs['supportedTransformInstanceTypes']
+
         _setter("containers", containers)
         _setter("name", name)
         if description is not None:
@@ -10644,7 +11656,13 @@ class ModelPackageBias(dict):
              post_training_report: Optional['outputs.ModelPackageMetricsSource'] = None,
              pre_training_report: Optional['outputs.ModelPackageMetricsSource'] = None,
              report: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postTrainingReport' in kwargs:
+            post_training_report = kwargs['postTrainingReport']
+        if 'preTrainingReport' in kwargs:
+            pre_training_report = kwargs['preTrainingReport']
+
         if post_training_report is not None:
             _setter("post_training_report", post_training_report)
         if pre_training_report is not None:
@@ -10744,7 +11762,21 @@ class ModelPackageContainerDefinition(dict):
              model_data_url: Optional[str] = None,
              model_input: Optional['outputs.ModelPackageContainerDefinitionModelInputProperties'] = None,
              nearest_model_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerHostname' in kwargs:
+            container_hostname = kwargs['containerHostname']
+        if 'frameworkVersion' in kwargs:
+            framework_version = kwargs['frameworkVersion']
+        if 'imageDigest' in kwargs:
+            image_digest = kwargs['imageDigest']
+        if 'modelDataUrl' in kwargs:
+            model_data_url = kwargs['modelDataUrl']
+        if 'modelInput' in kwargs:
+            model_input = kwargs['modelInput']
+        if 'nearestModelName' in kwargs:
+            nearest_model_name = kwargs['nearestModelName']
+
         _setter("image", image)
         if container_hostname is not None:
             _setter("container_hostname", container_hostname)
@@ -10862,7 +11894,11 @@ class ModelPackageContainerDefinitionModelInputProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_input_config: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataInputConfig' in kwargs:
+            data_input_config = kwargs['dataInputConfig']
+
         _setter("data_input_config", data_input_config)
 
     @property
@@ -10887,8 +11923,10 @@ class ModelPackageCustomerMetadataProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10926,7 +11964,11 @@ class ModelPackageDataSource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_data_source: 'outputs.ModelPackageS3DataSource',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3DataSource' in kwargs:
+            s3_data_source = kwargs['s3DataSource']
+
         _setter("s3_data_source", s3_data_source)
 
     @property
@@ -10981,7 +12023,13 @@ class ModelPackageDriftCheckBaselines(dict):
              explainability: Optional['outputs.ModelPackageDriftCheckExplainability'] = None,
              model_data_quality: Optional['outputs.ModelPackageDriftCheckModelDataQuality'] = None,
              model_quality: Optional['outputs.ModelPackageDriftCheckModelQuality'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelDataQuality' in kwargs:
+            model_data_quality = kwargs['modelDataQuality']
+        if 'modelQuality' in kwargs:
+            model_quality = kwargs['modelQuality']
+
         if bias is not None:
             _setter("bias", bias)
         if explainability is not None:
@@ -11057,7 +12105,15 @@ class ModelPackageDriftCheckBias(dict):
              config_file: Optional['outputs.ModelPackageFileSource'] = None,
              post_training_constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
              pre_training_constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configFile' in kwargs:
+            config_file = kwargs['configFile']
+        if 'postTrainingConstraints' in kwargs:
+            post_training_constraints = kwargs['postTrainingConstraints']
+        if 'preTrainingConstraints' in kwargs:
+            pre_training_constraints = kwargs['preTrainingConstraints']
+
         if config_file is not None:
             _setter("config_file", config_file)
         if post_training_constraints is not None:
@@ -11119,7 +12175,11 @@ class ModelPackageDriftCheckExplainability(dict):
              _setter: Callable[[Any, Any], None],
              config_file: Optional['outputs.ModelPackageFileSource'] = None,
              constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configFile' in kwargs:
+            config_file = kwargs['configFile']
+
         if config_file is not None:
             _setter("config_file", config_file)
         if constraints is not None:
@@ -11157,7 +12217,9 @@ class ModelPackageDriftCheckModelDataQuality(dict):
              _setter: Callable[[Any, Any], None],
              constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
              statistics: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constraints is not None:
             _setter("constraints", constraints)
         if statistics is not None:
@@ -11195,7 +12257,9 @@ class ModelPackageDriftCheckModelQuality(dict):
              _setter: Callable[[Any, Any], None],
              constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
              statistics: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constraints is not None:
             _setter("constraints", constraints)
         if statistics is not None:
@@ -11225,8 +12289,10 @@ class ModelPackageEnvironment(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -11247,7 +12313,9 @@ class ModelPackageExplainability(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              report: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if report is not None:
             _setter("report", report)
 
@@ -11305,7 +12373,15 @@ class ModelPackageFileSource(dict):
              s3_uri: str,
              content_digest: Optional[str] = None,
              content_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'contentDigest' in kwargs:
+            content_digest = kwargs['contentDigest']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("s3_uri", s3_uri)
         if content_digest is not None:
             _setter("content_digest", content_digest)
@@ -11360,7 +12436,9 @@ class ModelPackageGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11439,7 +12517,17 @@ class ModelPackageInferenceSpecification(dict):
              supported_response_mime_types: Sequence[str],
              supported_realtime_inference_instance_types: Optional[Sequence[str]] = None,
              supported_transform_instance_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedContentTypes' in kwargs:
+            supported_content_types = kwargs['supportedContentTypes']
+        if 'supportedResponseMimeTypes' in kwargs:
+            supported_response_mime_types = kwargs['supportedResponseMimeTypes']
+        if 'supportedRealtimeInferenceInstanceTypes' in kwargs:
+            supported_realtime_inference_instance_types = kwargs['supportedRealtimeInferenceInstanceTypes']
+        if 'supportedTransformInstanceTypes' in kwargs:
+            supported_transform_instance_types = kwargs['supportedTransformInstanceTypes']
+
         _setter("containers", containers)
         _setter("supported_content_types", supported_content_types)
         _setter("supported_response_mime_types", supported_response_mime_types)
@@ -11541,7 +12629,15 @@ class ModelPackageMetadataProperties(dict):
              generated_by: Optional[str] = None,
              project_id: Optional[str] = None,
              repository: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commitId' in kwargs:
+            commit_id = kwargs['commitId']
+        if 'generatedBy' in kwargs:
+            generated_by = kwargs['generatedBy']
+        if 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if commit_id is not None:
             _setter("commit_id", commit_id)
         if generated_by is not None:
@@ -11632,7 +12728,15 @@ class ModelPackageMetricsSource(dict):
              content_type: str,
              s3_uri: str,
              content_digest: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'contentDigest' in kwargs:
+            content_digest = kwargs['contentDigest']
+
         _setter("content_type", content_type)
         _setter("s3_uri", s3_uri)
         if content_digest is not None:
@@ -11684,7 +12788,9 @@ class ModelPackageModelDataQuality(dict):
              _setter: Callable[[Any, Any], None],
              constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
              statistics: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constraints is not None:
             _setter("constraints", constraints)
         if statistics is not None:
@@ -11747,7 +12853,13 @@ class ModelPackageModelMetrics(dict):
              explainability: Optional['outputs.ModelPackageExplainability'] = None,
              model_data_quality: Optional['outputs.ModelPackageModelDataQuality'] = None,
              model_quality: Optional['outputs.ModelPackageModelQuality'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelDataQuality' in kwargs:
+            model_data_quality = kwargs['modelDataQuality']
+        if 'modelQuality' in kwargs:
+            model_quality = kwargs['modelQuality']
+
         if bias is not None:
             _setter("bias", bias)
         if explainability is not None:
@@ -11799,7 +12911,9 @@ class ModelPackageModelQuality(dict):
              _setter: Callable[[Any, Any], None],
              constraints: Optional['outputs.ModelPackageMetricsSource'] = None,
              statistics: Optional['outputs.ModelPackageMetricsSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if constraints is not None:
             _setter("constraints", constraints)
         if statistics is not None:
@@ -11858,7 +12972,13 @@ class ModelPackageS3DataSource(dict):
              _setter: Callable[[Any, Any], None],
              s3_data_type: 'ModelPackageS3DataSourceS3DataType',
              s3_uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3DataType' in kwargs:
+            s3_data_type = kwargs['s3DataType']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         _setter("s3_data_type", s3_data_type)
         _setter("s3_uri", s3_uri)
 
@@ -11921,7 +13041,13 @@ class ModelPackageSourceAlgorithm(dict):
              _setter: Callable[[Any, Any], None],
              algorithm_name: str,
              model_data_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'algorithmName' in kwargs:
+            algorithm_name = kwargs['algorithmName']
+        if 'modelDataUrl' in kwargs:
+            model_data_url = kwargs['modelDataUrl']
+
         _setter("algorithm_name", algorithm_name)
         if model_data_url is not None:
             _setter("model_data_url", model_data_url)
@@ -11979,7 +13105,11 @@ class ModelPackageSourceAlgorithmSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_algorithms: Sequence['outputs.ModelPackageSourceAlgorithm'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceAlgorithms' in kwargs:
+            source_algorithms = kwargs['sourceAlgorithms']
+
         _setter("source_algorithms", source_algorithms)
 
     @property
@@ -12026,7 +13156,11 @@ class ModelPackageStatusDetails(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              validation_statuses: Optional[Sequence['outputs.ModelPackageStatusItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'validationStatuses' in kwargs:
+            validation_statuses = kwargs['validationStatuses']
+
         if validation_statuses is not None:
             _setter("validation_statuses", validation_statuses)
 
@@ -12080,7 +13214,11 @@ class ModelPackageStatusItem(dict):
              name: str,
              status: 'ModelPackageStatusItemStatus',
              failure_reason: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+
         _setter("name", name)
         _setter("status", status)
         if failure_reason is not None:
@@ -12134,7 +13272,9 @@ class ModelPackageTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12208,7 +13348,17 @@ class ModelPackageTransformInput(dict):
              compression_type: Optional['ModelPackageTransformInputCompressionType'] = None,
              content_type: Optional[str] = None,
              split_type: Optional['ModelPackageTransformInputSplitType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'compressionType' in kwargs:
+            compression_type = kwargs['compressionType']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'splitType' in kwargs:
+            split_type = kwargs['splitType']
+
         _setter("data_source", data_source)
         if compression_type is not None:
             _setter("compression_type", compression_type)
@@ -12313,7 +13463,21 @@ class ModelPackageTransformJobDefinition(dict):
              environment: Optional['outputs.ModelPackageEnvironment'] = None,
              max_concurrent_transforms: Optional[int] = None,
              max_payload_in_mb: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transformInput' in kwargs:
+            transform_input = kwargs['transformInput']
+        if 'transformOutput' in kwargs:
+            transform_output = kwargs['transformOutput']
+        if 'transformResources' in kwargs:
+            transform_resources = kwargs['transformResources']
+        if 'batchStrategy' in kwargs:
+            batch_strategy = kwargs['batchStrategy']
+        if 'maxConcurrentTransforms' in kwargs:
+            max_concurrent_transforms = kwargs['maxConcurrentTransforms']
+        if 'maxPayloadInMb' in kwargs:
+            max_payload_in_mb = kwargs['maxPayloadInMb']
+
         _setter("transform_input", transform_input)
         _setter("transform_output", transform_output)
         _setter("transform_resources", transform_resources)
@@ -12423,7 +13587,15 @@ class ModelPackageTransformOutput(dict):
              accept: Optional[str] = None,
              assemble_with: Optional['ModelPackageTransformOutputAssembleWith'] = None,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3OutputPath' in kwargs:
+            s3_output_path = kwargs['s3OutputPath']
+        if 'assembleWith' in kwargs:
+            assemble_with = kwargs['assembleWith']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("s3_output_path", s3_output_path)
         if accept is not None:
             _setter("accept", accept)
@@ -12513,7 +13685,15 @@ class ModelPackageTransformResources(dict):
              instance_count: int,
              instance_type: str,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         if volume_kms_key_id is not None:
@@ -12585,7 +13765,13 @@ class ModelPackageValidationProfile(dict):
              _setter: Callable[[Any, Any], None],
              profile_name: str,
              transform_job_definition: 'outputs.ModelPackageTransformJobDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'transformJobDefinition' in kwargs:
+            transform_job_definition = kwargs['transformJobDefinition']
+
         _setter("profile_name", profile_name)
         _setter("transform_job_definition", transform_job_definition)
 
@@ -12644,7 +13830,13 @@ class ModelPackageValidationSpecification(dict):
              _setter: Callable[[Any, Any], None],
              validation_profiles: Sequence['outputs.ModelPackageValidationProfile'],
              validation_role: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'validationProfiles' in kwargs:
+            validation_profiles = kwargs['validationProfiles']
+        if 'validationRole' in kwargs:
+            validation_role = kwargs['validationRole']
+
         _setter("validation_profiles", validation_profiles)
         _setter("validation_role", validation_role)
 
@@ -12750,7 +13942,29 @@ class ModelQualityJobDefinitionBatchTransformInput(dict):
              s3_data_distribution_type: Optional['ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelQualityJobDefinitionBatchTransformInputS3InputMode'] = None,
              start_time_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCapturedDestinationS3Uri' in kwargs:
+            data_captured_destination_s3_uri = kwargs['dataCapturedDestinationS3Uri']
+        if 'datasetFormat' in kwargs:
+            dataset_format = kwargs['datasetFormat']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'endTimeOffset' in kwargs:
+            end_time_offset = kwargs['endTimeOffset']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 'probabilityThresholdAttribute' in kwargs:
+            probability_threshold_attribute = kwargs['probabilityThresholdAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+        if 'startTimeOffset' in kwargs:
+            start_time_offset = kwargs['startTimeOffset']
+
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
@@ -12898,7 +14112,17 @@ class ModelQualityJobDefinitionClusterConfig(dict):
              instance_type: str,
              volume_size_in_gb: int,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
@@ -12974,7 +14198,11 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -13006,7 +14234,9 @@ class ModelQualityJobDefinitionCsv(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if header is not None:
             _setter("header", header)
 
@@ -13043,7 +14273,9 @@ class ModelQualityJobDefinitionDatasetFormat(dict):
              csv: Optional['outputs.ModelQualityJobDefinitionCsv'] = None,
              json: Optional['outputs.ModelQualityJobDefinitionJson'] = None,
              parquet: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if json is not None:
@@ -13149,7 +14381,27 @@ class ModelQualityJobDefinitionEndpointInput(dict):
              s3_data_distribution_type: Optional['ModelQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['ModelQualityJobDefinitionEndpointInputS3InputMode'] = None,
              start_time_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 'endTimeOffset' in kwargs:
+            end_time_offset = kwargs['endTimeOffset']
+        if 'inferenceAttribute' in kwargs:
+            inference_attribute = kwargs['inferenceAttribute']
+        if 'probabilityAttribute' in kwargs:
+            probability_attribute = kwargs['probabilityAttribute']
+        if 'probabilityThresholdAttribute' in kwargs:
+            probability_threshold_attribute = kwargs['probabilityThresholdAttribute']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+        if 'startTimeOffset' in kwargs:
+            start_time_offset = kwargs['startTimeOffset']
+
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
         if end_time_offset is not None:
@@ -13253,7 +14505,9 @@ class ModelQualityJobDefinitionJson(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if line is not None:
             _setter("line", line)
 
@@ -13335,7 +14589,21 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
              environment: Optional[Any] = None,
              post_analytics_processor_source_uri: Optional[str] = None,
              record_preprocessor_source_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+        if 'problemType' in kwargs:
+            problem_type = kwargs['problemType']
+        if 'containerArguments' in kwargs:
+            container_arguments = kwargs['containerArguments']
+        if 'containerEntrypoint' in kwargs:
+            container_entrypoint = kwargs['containerEntrypoint']
+        if 'postAnalyticsProcessorSourceUri' in kwargs:
+            post_analytics_processor_source_uri = kwargs['postAnalyticsProcessorSourceUri']
+        if 'recordPreprocessorSourceUri' in kwargs:
+            record_preprocessor_source_uri = kwargs['recordPreprocessorSourceUri']
+
         _setter("image_uri", image_uri)
         _setter("problem_type", problem_type)
         if container_arguments is not None:
@@ -13443,7 +14711,13 @@ class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
              _setter: Callable[[Any, Any], None],
              baselining_job_name: Optional[str] = None,
              constraints_resource: Optional['outputs.ModelQualityJobDefinitionConstraintsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseliningJobName' in kwargs:
+            baselining_job_name = kwargs['baseliningJobName']
+        if 'constraintsResource' in kwargs:
+            constraints_resource = kwargs['constraintsResource']
+
         if baselining_job_name is not None:
             _setter("baselining_job_name", baselining_job_name)
         if constraints_resource is not None:
@@ -13505,7 +14779,15 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
              ground_truth_s3_input: 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input',
              batch_transform_input: Optional['outputs.ModelQualityJobDefinitionBatchTransformInput'] = None,
              endpoint_input: Optional['outputs.ModelQualityJobDefinitionEndpointInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groundTruthS3Input' in kwargs:
+            ground_truth_s3_input = kwargs['groundTruthS3Input']
+        if 'batchTransformInput' in kwargs:
+            batch_transform_input = kwargs['batchTransformInput']
+        if 'endpointInput' in kwargs:
+            endpoint_input = kwargs['endpointInput']
+
         _setter("ground_truth_s3_input", ground_truth_s3_input)
         if batch_transform_input is not None:
             _setter("batch_transform_input", batch_transform_input)
@@ -13564,7 +14846,11 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         _setter("s3_uri", s3_uri)
 
     @property
@@ -13611,7 +14897,11 @@ class ModelQualityJobDefinitionMonitoringOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_output: 'outputs.ModelQualityJobDefinitionS3Output',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Output' in kwargs:
+            s3_output = kwargs['s3Output']
+
         _setter("s3_output", s3_output)
 
     @property
@@ -13662,7 +14952,13 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              monitoring_outputs: Sequence['outputs.ModelQualityJobDefinitionMonitoringOutput'],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringOutputs' in kwargs:
+            monitoring_outputs = kwargs['monitoringOutputs']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -13719,7 +15015,11 @@ class ModelQualityJobDefinitionMonitoringResources(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_config: 'outputs.ModelQualityJobDefinitionClusterConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+
         _setter("cluster_config", cluster_config)
 
     @property
@@ -13775,7 +15075,15 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
              enable_inter_container_traffic_encryption: Optional[bool] = None,
              enable_network_isolation: Optional[bool] = None,
              vpc_config: Optional['outputs.ModelQualityJobDefinitionVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableInterContainerTrafficEncryption' in kwargs:
+            enable_inter_container_traffic_encryption = kwargs['enableInterContainerTrafficEncryption']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if enable_inter_container_traffic_encryption is not None:
             _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
@@ -13853,7 +15161,15 @@ class ModelQualityJobDefinitionS3Output(dict):
              local_path: str,
              s3_uri: str,
              s3_upload_mode: Optional['ModelQualityJobDefinitionS3OutputS3UploadMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 's3UploadMode' in kwargs:
+            s3_upload_mode = kwargs['s3UploadMode']
+
         _setter("local_path", local_path)
         _setter("s3_uri", s3_uri)
         if s3_upload_mode is not None:
@@ -13920,7 +15236,11 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_runtime_in_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRuntimeInSeconds' in kwargs:
+            max_runtime_in_seconds = kwargs['maxRuntimeInSeconds']
+
         _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
@@ -13955,7 +15275,9 @@ class ModelQualityJobDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14016,7 +15338,11 @@ class ModelQualityJobDefinitionVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -14066,7 +15392,11 @@ class ModelRepositoryAuthConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              repository_credentials_provider_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryCredentialsProviderArn' in kwargs:
+            repository_credentials_provider_arn = kwargs['repositoryCredentialsProviderArn']
+
         _setter("repository_credentials_provider_arn", repository_credentials_provider_arn)
 
     @property
@@ -14090,7 +15420,9 @@ class ModelTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14137,7 +15469,11 @@ class ModelVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -14192,7 +15528,13 @@ class MonitoringScheduleBaselineConfig(dict):
              _setter: Callable[[Any, Any], None],
              constraints_resource: Optional['outputs.MonitoringScheduleConstraintsResource'] = None,
              statistics_resource: Optional['outputs.MonitoringScheduleStatisticsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'constraintsResource' in kwargs:
+            constraints_resource = kwargs['constraintsResource']
+        if 'statisticsResource' in kwargs:
+            statistics_resource = kwargs['statisticsResource']
+
         if constraints_resource is not None:
             _setter("constraints_resource", constraints_resource)
         if statistics_resource is not None:
@@ -14268,7 +15610,19 @@ class MonitoringScheduleBatchTransformInput(dict):
              local_path: str,
              s3_data_distribution_type: Optional['MonitoringScheduleBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['MonitoringScheduleBatchTransformInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCapturedDestinationS3Uri' in kwargs:
+            data_captured_destination_s3_uri = kwargs['dataCapturedDestinationS3Uri']
+        if 'datasetFormat' in kwargs:
+            dataset_format = kwargs['datasetFormat']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
@@ -14369,7 +15723,17 @@ class MonitoringScheduleClusterConfig(dict):
              instance_type: str,
              volume_size_in_gb: int,
              volume_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
@@ -14460,7 +15824,17 @@ class MonitoringScheduleConfig(dict):
              monitoring_job_definition_name: Optional[str] = None,
              monitoring_type: Optional['MonitoringScheduleMonitoringType'] = None,
              schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringJobDefinition' in kwargs:
+            monitoring_job_definition = kwargs['monitoringJobDefinition']
+        if 'monitoringJobDefinitionName' in kwargs:
+            monitoring_job_definition_name = kwargs['monitoringJobDefinitionName']
+        if 'monitoringType' in kwargs:
+            monitoring_type = kwargs['monitoringType']
+        if 'scheduleConfig' in kwargs:
+            schedule_config = kwargs['scheduleConfig']
+
         if monitoring_job_definition is not None:
             _setter("monitoring_job_definition", monitoring_job_definition)
         if monitoring_job_definition_name is not None:
@@ -14530,7 +15904,11 @@ class MonitoringScheduleConstraintsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -14562,7 +15940,9 @@ class MonitoringScheduleCsv(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              header: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if header is not None:
             _setter("header", header)
 
@@ -14599,7 +15979,9 @@ class MonitoringScheduleDatasetFormat(dict):
              csv: Optional['outputs.MonitoringScheduleCsv'] = None,
              json: Optional['outputs.MonitoringScheduleJson'] = None,
              parquet: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if json is not None:
@@ -14676,7 +16058,17 @@ class MonitoringScheduleEndpointInput(dict):
              local_path: str,
              s3_data_distribution_type: Optional['MonitoringScheduleEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['MonitoringScheduleEndpointInputS3InputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3DataDistributionType' in kwargs:
+            s3_data_distribution_type = kwargs['s3DataDistributionType']
+        if 's3InputMode' in kwargs:
+            s3_input_mode = kwargs['s3InputMode']
+
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
         if s3_data_distribution_type is not None:
@@ -14733,7 +16125,9 @@ class MonitoringScheduleJson(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if line is not None:
             _setter("line", line)
 
@@ -14806,7 +16200,19 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
              container_entrypoint: Optional[Sequence[str]] = None,
              post_analytics_processor_source_uri: Optional[str] = None,
              record_preprocessor_source_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+        if 'containerArguments' in kwargs:
+            container_arguments = kwargs['containerArguments']
+        if 'containerEntrypoint' in kwargs:
+            container_entrypoint = kwargs['containerEntrypoint']
+        if 'postAnalyticsProcessorSourceUri' in kwargs:
+            post_analytics_processor_source_uri = kwargs['postAnalyticsProcessorSourceUri']
+        if 'recordPreprocessorSourceUri' in kwargs:
+            record_preprocessor_source_uri = kwargs['recordPreprocessorSourceUri']
+
         _setter("image_uri", image_uri)
         if container_arguments is not None:
             _setter("container_arguments", container_arguments)
@@ -14934,7 +16340,25 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
              endpoint_name: Optional[str] = None,
              failure_reason: Optional[str] = None,
              processing_job_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'monitoringExecutionStatus' in kwargs:
+            monitoring_execution_status = kwargs['monitoringExecutionStatus']
+        if 'monitoringScheduleName' in kwargs:
+            monitoring_schedule_name = kwargs['monitoringScheduleName']
+        if 'scheduledTime' in kwargs:
+            scheduled_time = kwargs['scheduledTime']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if 'processingJobArn' in kwargs:
+            processing_job_arn = kwargs['processingJobArn']
+
         _setter("creation_time", creation_time)
         _setter("last_modified_time", last_modified_time)
         _setter("monitoring_execution_status", monitoring_execution_status)
@@ -15046,7 +16470,13 @@ class MonitoringScheduleMonitoringInput(dict):
              _setter: Callable[[Any, Any], None],
              batch_transform_input: Optional['outputs.MonitoringScheduleBatchTransformInput'] = None,
              endpoint_input: Optional['outputs.MonitoringScheduleEndpointInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchTransformInput' in kwargs:
+            batch_transform_input = kwargs['batchTransformInput']
+        if 'endpointInput' in kwargs:
+            endpoint_input = kwargs['endpointInput']
+
         if batch_transform_input is not None:
             _setter("batch_transform_input", batch_transform_input)
         if endpoint_input is not None:
@@ -15138,7 +16568,25 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
              environment: Optional[Any] = None,
              network_config: Optional['outputs.MonitoringScheduleNetworkConfig'] = None,
              stopping_condition: Optional['outputs.MonitoringScheduleStoppingCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringAppSpecification' in kwargs:
+            monitoring_app_specification = kwargs['monitoringAppSpecification']
+        if 'monitoringInputs' in kwargs:
+            monitoring_inputs = kwargs['monitoringInputs']
+        if 'monitoringOutputConfig' in kwargs:
+            monitoring_output_config = kwargs['monitoringOutputConfig']
+        if 'monitoringResources' in kwargs:
+            monitoring_resources = kwargs['monitoringResources']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'baselineConfig' in kwargs:
+            baseline_config = kwargs['baselineConfig']
+        if 'networkConfig' in kwargs:
+            network_config = kwargs['networkConfig']
+        if 'stoppingCondition' in kwargs:
+            stopping_condition = kwargs['stoppingCondition']
+
         _setter("monitoring_app_specification", monitoring_app_specification)
         _setter("monitoring_inputs", monitoring_inputs)
         _setter("monitoring_output_config", monitoring_output_config)
@@ -15240,7 +16688,11 @@ class MonitoringScheduleMonitoringOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_output: 'outputs.MonitoringScheduleS3Output',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Output' in kwargs:
+            s3_output = kwargs['s3Output']
+
         _setter("s3_output", s3_output)
 
     @property
@@ -15291,7 +16743,13 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              monitoring_outputs: Sequence['outputs.MonitoringScheduleMonitoringOutput'],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringOutputs' in kwargs:
+            monitoring_outputs = kwargs['monitoringOutputs']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -15348,7 +16806,11 @@ class MonitoringScheduleMonitoringResources(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_config: 'outputs.MonitoringScheduleClusterConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+
         _setter("cluster_config", cluster_config)
 
     @property
@@ -15404,7 +16866,15 @@ class MonitoringScheduleNetworkConfig(dict):
              enable_inter_container_traffic_encryption: Optional[bool] = None,
              enable_network_isolation: Optional[bool] = None,
              vpc_config: Optional['outputs.MonitoringScheduleVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableInterContainerTrafficEncryption' in kwargs:
+            enable_inter_container_traffic_encryption = kwargs['enableInterContainerTrafficEncryption']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if enable_inter_container_traffic_encryption is not None:
             _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
@@ -15482,7 +16952,15 @@ class MonitoringScheduleS3Output(dict):
              local_path: str,
              s3_uri: str,
              s3_upload_mode: Optional['MonitoringScheduleS3OutputS3UploadMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localPath' in kwargs:
+            local_path = kwargs['localPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 's3UploadMode' in kwargs:
+            s3_upload_mode = kwargs['s3UploadMode']
+
         _setter("local_path", local_path)
         _setter("s3_uri", s3_uri)
         if s3_upload_mode is not None:
@@ -15549,7 +17027,11 @@ class MonitoringScheduleScheduleConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -15597,7 +17079,11 @@ class MonitoringScheduleStatisticsResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if s3_uri is not None:
             _setter("s3_uri", s3_uri)
 
@@ -15646,7 +17132,11 @@ class MonitoringScheduleStoppingCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_runtime_in_seconds: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRuntimeInSeconds' in kwargs:
+            max_runtime_in_seconds = kwargs['maxRuntimeInSeconds']
+
         _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
@@ -15681,7 +17171,9 @@ class MonitoringScheduleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -15742,7 +17234,11 @@ class MonitoringScheduleVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
              subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -15792,7 +17288,11 @@ class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              minimum_instance_metadata_service_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minimumInstanceMetadataServiceVersion' in kwargs:
+            minimum_instance_metadata_service_version = kwargs['minimumInstanceMetadataServiceVersion']
+
         _setter("minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
 
     @property
@@ -15813,7 +17313,9 @@ class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              content: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if content is not None:
             _setter("content", content)
 
@@ -15838,7 +17340,9 @@ class NotebookInstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -15897,7 +17401,17 @@ class OfflineStoreConfigProperties(dict):
              data_catalog_config: Optional['outputs.FeatureGroupDataCatalogConfig'] = None,
              disable_glue_table_creation: Optional[bool] = None,
              table_format: Optional['FeatureGroupTableFormat'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3StorageConfig' in kwargs:
+            s3_storage_config = kwargs['s3StorageConfig']
+        if 'dataCatalogConfig' in kwargs:
+            data_catalog_config = kwargs['dataCatalogConfig']
+        if 'disableGlueTableCreation' in kwargs:
+            disable_glue_table_creation = kwargs['disableGlueTableCreation']
+        if 'tableFormat' in kwargs:
+            table_format = kwargs['tableFormat']
+
         _setter("s3_storage_config", s3_storage_config)
         if data_catalog_config is not None:
             _setter("data_catalog_config", data_catalog_config)
@@ -15961,7 +17475,13 @@ class OnlineStoreConfigProperties(dict):
              _setter: Callable[[Any, Any], None],
              enable_online_store: Optional[bool] = None,
              security_config: Optional['outputs.FeatureGroupOnlineStoreSecurityConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableOnlineStore' in kwargs:
+            enable_online_store = kwargs['enableOnlineStore']
+        if 'securityConfig' in kwargs:
+            security_config = kwargs['securityConfig']
+
         if enable_online_store is not None:
             _setter("enable_online_store", enable_online_store)
         if security_config is not None:
@@ -16010,7 +17530,11 @@ class ParallelismConfigurationProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_parallel_execution_steps: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxParallelExecutionSteps' in kwargs:
+            max_parallel_execution_steps = kwargs['maxParallelExecutionSteps']
+
         _setter("max_parallel_execution_steps", max_parallel_execution_steps)
 
     @property
@@ -16054,7 +17578,11 @@ class PipelineDefinition0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_definition_body: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineDefinitionBody' in kwargs:
+            pipeline_definition_body = kwargs['pipelineDefinitionBody']
+
         _setter("pipeline_definition_body", pipeline_definition_body)
 
     @property
@@ -16095,7 +17623,11 @@ class PipelineDefinition1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_definition_s3_location: 'outputs.PipelineS3Location',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineDefinitionS3Location' in kwargs:
+            pipeline_definition_s3_location = kwargs['pipelineDefinitionS3Location']
+
         _setter("pipeline_definition_s3_location", pipeline_definition_s3_location)
 
     @property
@@ -16148,7 +17680,11 @@ class PipelineS3Location(dict):
              key: str,
              e_tag: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if e_tag is not None:
@@ -16204,7 +17740,9 @@ class PipelineTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -16242,7 +17780,9 @@ class ProjectProvisioningParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -16286,7 +17826,9 @@ class ProjectTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -16347,7 +17889,13 @@ class ServiceCatalogProvisionedProductDetailsProperties(dict):
              _setter: Callable[[Any, Any], None],
              provisioned_product_id: Optional[str] = None,
              provisioned_product_status_message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedProductId' in kwargs:
+            provisioned_product_id = kwargs['provisionedProductId']
+        if 'provisionedProductStatusMessage' in kwargs:
+            provisioned_product_status_message = kwargs['provisionedProductStatusMessage']
+
         if provisioned_product_id is not None:
             _setter("provisioned_product_id", provisioned_product_id)
         if provisioned_product_status_message is not None:
@@ -16415,7 +17963,17 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
              path_id: Optional[str] = None,
              provisioning_artifact_id: Optional[str] = None,
              provisioning_parameters: Optional[Sequence['outputs.ProjectProvisioningParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'pathId' in kwargs:
+            path_id = kwargs['pathId']
+        if 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if 'provisioningParameters' in kwargs:
+            provisioning_parameters = kwargs['provisioningParameters']
+
         _setter("product_id", product_id)
         if path_id is not None:
             _setter("path_id", path_id)
@@ -16496,7 +18054,15 @@ class SpaceCustomImage(dict):
              app_image_config_name: str,
              image_name: str,
              image_version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appImageConfigName' in kwargs:
+            app_image_config_name = kwargs['appImageConfigName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageVersionNumber' in kwargs:
+            image_version_number = kwargs['imageVersionNumber']
+
         _setter("app_image_config_name", app_image_config_name)
         _setter("image_name", image_name)
         if image_version_number is not None:
@@ -16562,7 +18128,11 @@ class SpaceJupyterServerAppSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if default_resource_spec is not None:
             _setter("default_resource_spec", default_resource_spec)
 
@@ -16614,7 +18184,13 @@ class SpaceKernelGatewayAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              custom_images: Optional[Sequence['outputs.SpaceCustomImage']] = None,
              default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customImages' in kwargs:
+            custom_images = kwargs['customImages']
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if custom_images is not None:
             _setter("custom_images", custom_images)
         if default_resource_spec is not None:
@@ -16681,7 +18257,15 @@ class SpaceResourceSpec(dict):
              instance_type: Optional['SpaceResourceSpecInstanceType'] = None,
              sage_maker_image_arn: Optional[str] = None,
              sage_maker_image_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'sageMakerImageArn' in kwargs:
+            sage_maker_image_arn = kwargs['sageMakerImageArn']
+        if 'sageMakerImageVersionArn' in kwargs:
+            sage_maker_image_version_arn = kwargs['sageMakerImageVersionArn']
+
         if instance_type is not None:
             _setter("instance_type", instance_type)
         if sage_maker_image_arn is not None:
@@ -16756,7 +18340,13 @@ class SpaceSettings(dict):
              _setter: Callable[[Any, Any], None],
              jupyter_server_app_settings: Optional['outputs.SpaceJupyterServerAppSettings'] = None,
              kernel_gateway_app_settings: Optional['outputs.SpaceKernelGatewayAppSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jupyterServerAppSettings' in kwargs:
+            jupyter_server_app_settings = kwargs['jupyterServerAppSettings']
+        if 'kernelGatewayAppSettings' in kwargs:
+            kernel_gateway_app_settings = kwargs['kernelGatewayAppSettings']
+
         if jupyter_server_app_settings is not None:
             _setter("jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -16794,7 +18384,9 @@ class SpaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -16857,7 +18449,15 @@ class UserProfileCustomImage(dict):
              app_image_config_name: str,
              image_name: str,
              image_version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appImageConfigName' in kwargs:
+            app_image_config_name = kwargs['appImageConfigName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'imageVersionNumber' in kwargs:
+            image_version_number = kwargs['imageVersionNumber']
+
         _setter("app_image_config_name", app_image_config_name)
         _setter("image_name", image_name)
         if image_version_number is not None:
@@ -16923,7 +18523,11 @@ class UserProfileJupyterServerAppSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if default_resource_spec is not None:
             _setter("default_resource_spec", default_resource_spec)
 
@@ -16975,7 +18579,13 @@ class UserProfileKernelGatewayAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
              default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customImages' in kwargs:
+            custom_images = kwargs['customImages']
+        if 'defaultResourceSpec' in kwargs:
+            default_resource_spec = kwargs['defaultResourceSpec']
+
         if custom_images is not None:
             _setter("custom_images", custom_images)
         if default_resource_spec is not None:
@@ -17040,7 +18650,13 @@ class UserProfileRStudioServerProAppSettings(dict):
              _setter: Callable[[Any, Any], None],
              access_status: Optional['UserProfileRStudioServerProAppSettingsAccessStatus'] = None,
              user_group: Optional['UserProfileRStudioServerProAppSettingsUserGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessStatus' in kwargs:
+            access_status = kwargs['accessStatus']
+        if 'userGroup' in kwargs:
+            user_group = kwargs['userGroup']
+
         if access_status is not None:
             _setter("access_status", access_status)
         if user_group is not None:
@@ -17107,7 +18723,15 @@ class UserProfileResourceSpec(dict):
              instance_type: Optional['UserProfileResourceSpecInstanceType'] = None,
              sage_maker_image_arn: Optional[str] = None,
              sage_maker_image_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'sageMakerImageArn' in kwargs:
+            sage_maker_image_arn = kwargs['sageMakerImageArn']
+        if 'sageMakerImageVersionArn' in kwargs:
+            sage_maker_image_version_arn = kwargs['sageMakerImageVersionArn']
+
         if instance_type is not None:
             _setter("instance_type", instance_type)
         if sage_maker_image_arn is not None:
@@ -17188,7 +18812,15 @@ class UserProfileSharingSettings(dict):
              notebook_output_option: Optional['UserProfileSharingSettingsNotebookOutputOption'] = None,
              s3_kms_key_id: Optional[str] = None,
              s3_output_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notebookOutputOption' in kwargs:
+            notebook_output_option = kwargs['notebookOutputOption']
+        if 's3KmsKeyId' in kwargs:
+            s3_kms_key_id = kwargs['s3KmsKeyId']
+        if 's3OutputPath' in kwargs:
+            s3_output_path = kwargs['s3OutputPath']
+
         if notebook_output_option is not None:
             _setter("notebook_output_option", notebook_output_option)
         if s3_kms_key_id is not None:
@@ -17236,7 +18868,9 @@ class UserProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -17316,7 +18950,21 @@ class UserProfileUserSettings(dict):
              r_studio_server_pro_app_settings: Optional['outputs.UserProfileRStudioServerProAppSettings'] = None,
              security_groups: Optional[Sequence[str]] = None,
              sharing_settings: Optional['outputs.UserProfileSharingSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if 'jupyterServerAppSettings' in kwargs:
+            jupyter_server_app_settings = kwargs['jupyterServerAppSettings']
+        if 'kernelGatewayAppSettings' in kwargs:
+            kernel_gateway_app_settings = kwargs['kernelGatewayAppSettings']
+        if 'rStudioServerProAppSettings' in kwargs:
+            r_studio_server_pro_app_settings = kwargs['rStudioServerProAppSettings']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sharingSettings' in kwargs:
+            sharing_settings = kwargs['sharingSettings']
+
         if execution_role is not None:
             _setter("execution_role", execution_role)
         if jupyter_server_app_settings is not None:
@@ -17415,7 +19063,15 @@ class WorkteamCognitoMemberDefinition(dict):
              cognito_client_id: str,
              cognito_user_group: str,
              cognito_user_pool: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitoClientId' in kwargs:
+            cognito_client_id = kwargs['cognitoClientId']
+        if 'cognitoUserGroup' in kwargs:
+            cognito_user_group = kwargs['cognitoUserGroup']
+        if 'cognitoUserPool' in kwargs:
+            cognito_user_pool = kwargs['cognitoUserPool']
+
         _setter("cognito_client_id", cognito_client_id)
         _setter("cognito_user_group", cognito_user_group)
         _setter("cognito_user_pool", cognito_user_pool)
@@ -17470,7 +19126,13 @@ class WorkteamMemberDefinition(dict):
              _setter: Callable[[Any, Any], None],
              cognito_member_definition: Optional['outputs.WorkteamCognitoMemberDefinition'] = None,
              oidc_member_definition: Optional['outputs.WorkteamOidcMemberDefinition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitoMemberDefinition' in kwargs:
+            cognito_member_definition = kwargs['cognitoMemberDefinition']
+        if 'oidcMemberDefinition' in kwargs:
+            oidc_member_definition = kwargs['oidcMemberDefinition']
+
         if cognito_member_definition is not None:
             _setter("cognito_member_definition", cognito_member_definition)
         if oidc_member_definition is not None:
@@ -17516,7 +19178,11 @@ class WorkteamNotificationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              notification_topic_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+
         _setter("notification_topic_arn", notification_topic_arn)
 
     @property
@@ -17554,7 +19220,11 @@ class WorkteamOidcMemberDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              oidc_groups: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oidcGroups' in kwargs:
+            oidc_groups = kwargs['oidcGroups']
+
         _setter("oidc_groups", oidc_groups)
 
     @property
@@ -17578,7 +19248,9 @@ class WorkteamTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

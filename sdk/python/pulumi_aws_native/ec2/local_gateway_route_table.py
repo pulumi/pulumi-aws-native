@@ -37,7 +37,11 @@ class LocalGatewayRouteTableArgs:
              local_gateway_id: pulumi.Input[str],
              mode: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localGatewayId' in kwargs:
+            local_gateway_id = kwargs['localGatewayId']
+
         _setter("local_gateway_id", local_gateway_id)
         if mode is not None:
             _setter("mode", mode)

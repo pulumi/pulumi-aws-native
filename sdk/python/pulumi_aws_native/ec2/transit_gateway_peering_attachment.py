@@ -45,7 +45,17 @@ class TransitGatewayPeeringAttachmentArgs:
              peer_transit_gateway_id: pulumi.Input[str],
              transit_gateway_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAccountId' in kwargs:
+            peer_account_id = kwargs['peerAccountId']
+        if 'peerRegion' in kwargs:
+            peer_region = kwargs['peerRegion']
+        if 'peerTransitGatewayId' in kwargs:
+            peer_transit_gateway_id = kwargs['peerTransitGatewayId']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+
         _setter("peer_account_id", peer_account_id)
         _setter("peer_region", peer_region)
         _setter("peer_transit_gateway_id", peer_transit_gateway_id)

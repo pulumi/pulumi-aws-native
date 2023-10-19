@@ -31,7 +31,11 @@ class DistributionArgs:
              _setter: Callable[[Any, Any], None],
              distribution_config: pulumi.Input['DistributionConfigArgs'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'distributionConfig' in kwargs:
+            distribution_config = kwargs['distributionConfig']
+
         _setter("distribution_config", distribution_config)
         if tags is not None:
             _setter("tags", tags)

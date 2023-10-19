@@ -32,7 +32,13 @@ class UserPoolUserToGroupAttachmentArgs:
              group_name: pulumi.Input[str],
              user_pool_id: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         _setter("group_name", group_name)
         _setter("user_pool_id", user_pool_id)
         _setter("username", username)

@@ -32,7 +32,11 @@ class NetworkInsightsAccessScopeAnalysisArgs:
              _setter: Callable[[Any, Any], None],
              network_insights_access_scope_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAnalysisTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInsightsAccessScopeId' in kwargs:
+            network_insights_access_scope_id = kwargs['networkInsightsAccessScopeId']
+
         _setter("network_insights_access_scope_id", network_insights_access_scope_id)
         if tags is not None:
             _setter("tags", tags)

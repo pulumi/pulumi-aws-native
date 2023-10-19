@@ -58,7 +58,29 @@ class ClusterArgs:
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUserName' in kwargs:
+            admin_user_name = kwargs['adminUserName']
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'shardCapacity' in kwargs:
+            shard_capacity = kwargs['shardCapacity']
+        if 'shardCount' in kwargs:
+            shard_count = kwargs['shardCount']
+        if 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("admin_user_name", admin_user_name)
         _setter("auth_type", auth_type)
         _setter("shard_capacity", shard_capacity)

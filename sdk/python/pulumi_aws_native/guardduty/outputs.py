@@ -65,7 +65,13 @@ class DetectorCfnDataSourceConfigurations(dict):
              kubernetes: Optional['outputs.DetectorCfnKubernetesConfiguration'] = None,
              malware_protection: Optional['outputs.DetectorCfnMalwareProtectionConfiguration'] = None,
              s3_logs: Optional['outputs.DetectorCfns3LogsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'malwareProtection' in kwargs:
+            malware_protection = kwargs['malwareProtection']
+        if 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if kubernetes is not None:
             _setter("kubernetes", kubernetes)
         if malware_protection is not None:
@@ -104,7 +110,9 @@ class DetectorCfnFeatureAdditionalConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if status is not None:
@@ -156,7 +164,11 @@ class DetectorCfnFeatureConfiguration(dict):
              name: 'DetectorCfnFeatureConfigurationName',
              status: 'DetectorCfnFeatureConfigurationStatus',
              additional_configuration: Optional[Sequence['outputs.DetectorCfnFeatureAdditionalConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+
         _setter("name", name)
         _setter("status", status)
         if additional_configuration is not None:
@@ -190,7 +202,9 @@ class DetectorCfnKubernetesAuditLogsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enable", enable)
 
     @property
@@ -228,7 +242,11 @@ class DetectorCfnKubernetesConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              audit_logs: 'outputs.DetectorCfnKubernetesAuditLogsConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditLogs' in kwargs:
+            audit_logs = kwargs['auditLogs']
+
         _setter("audit_logs", audit_logs)
 
     @property
@@ -266,7 +284,11 @@ class DetectorCfnMalwareProtectionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              scan_ec2_instance_with_findings: Optional['outputs.DetectorCfnScanEc2InstanceWithFindingsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scanEc2InstanceWithFindings' in kwargs:
+            scan_ec2_instance_with_findings = kwargs['scanEc2InstanceWithFindings']
+
         if scan_ec2_instance_with_findings is not None:
             _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
@@ -305,7 +327,11 @@ class DetectorCfnScanEc2InstanceWithFindingsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ebs_volumes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ebsVolumes' in kwargs:
+            ebs_volumes = kwargs['ebsVolumes']
+
         if ebs_volumes is not None:
             _setter("ebs_volumes", ebs_volumes)
 
@@ -327,7 +353,9 @@ class DetectorCfns3LogsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enable", enable)
 
     @property
@@ -351,7 +379,9 @@ class DetectorTagItem(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -436,7 +466,19 @@ class FilterCondition(dict):
              lte: Optional[int] = None,
              neq: Optional[Sequence[str]] = None,
              not_equals: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'greaterThan' in kwargs:
+            greater_than = kwargs['greaterThan']
+        if 'greaterThanOrEqual' in kwargs:
+            greater_than_or_equal = kwargs['greaterThanOrEqual']
+        if 'lessThan' in kwargs:
+            less_than = kwargs['lessThan']
+        if 'lessThanOrEqual' in kwargs:
+            less_than_or_equal = kwargs['lessThanOrEqual']
+        if 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+
         if eq is not None:
             _setter("eq", eq)
         if equals is not None:
@@ -555,7 +597,11 @@ class FilterFindingCriteria(dict):
              _setter: Callable[[Any, Any], None],
              criterion: Optional[Any] = None,
              item_type: Optional['outputs.FilterCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'itemType' in kwargs:
+            item_type = kwargs['itemType']
+
         if criterion is not None:
             _setter("criterion", criterion)
         if item_type is not None:
@@ -587,7 +633,9 @@ class FilterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -617,7 +665,9 @@ class IpSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -647,7 +697,9 @@ class ThreatIntelSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

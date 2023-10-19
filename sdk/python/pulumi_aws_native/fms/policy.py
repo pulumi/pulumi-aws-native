@@ -68,7 +68,35 @@ class PolicyArgs:
              resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources_clean_up: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludeResourceTags' in kwargs:
+            exclude_resource_tags = kwargs['excludeResourceTags']
+        if 'remediationEnabled' in kwargs:
+            remediation_enabled = kwargs['remediationEnabled']
+        if 'securityServicePolicyData' in kwargs:
+            security_service_policy_data = kwargs['securityServicePolicyData']
+        if 'deleteAllPolicyResources' in kwargs:
+            delete_all_policy_resources = kwargs['deleteAllPolicyResources']
+        if 'excludeMap' in kwargs:
+            exclude_map = kwargs['excludeMap']
+        if 'includeMap' in kwargs:
+            include_map = kwargs['includeMap']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'resourceSetIds' in kwargs:
+            resource_set_ids = kwargs['resourceSetIds']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceTypeList' in kwargs:
+            resource_type_list = kwargs['resourceTypeList']
+        if 'resourcesCleanUp' in kwargs:
+            resources_clean_up = kwargs['resourcesCleanUp']
+
         _setter("exclude_resource_tags", exclude_resource_tags)
         _setter("remediation_enabled", remediation_enabled)
         _setter("security_service_policy_data", security_service_policy_data)

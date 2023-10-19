@@ -51,7 +51,13 @@ class ManagedPolicyArgs:
              path: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'managedPolicyName' in kwargs:
+            managed_policy_name = kwargs['managedPolicyName']
+
         _setter("policy_document", policy_document)
         if description is not None:
             _setter("description", description)

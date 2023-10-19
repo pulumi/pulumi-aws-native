@@ -63,7 +63,21 @@ class LicenseArgs:
              license_name: Optional[pulumi.Input[str]] = None,
              product_sku: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumptionConfiguration' in kwargs:
+            consumption_configuration = kwargs['consumptionConfiguration']
+        if 'homeRegion' in kwargs:
+            home_region = kwargs['homeRegion']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if 'licenseMetadata' in kwargs:
+            license_metadata = kwargs['licenseMetadata']
+        if 'licenseName' in kwargs:
+            license_name = kwargs['licenseName']
+        if 'productSku' in kwargs:
+            product_sku = kwargs['productSku']
+
         _setter("consumption_configuration", consumption_configuration)
         _setter("entitlements", entitlements)
         _setter("home_region", home_region)

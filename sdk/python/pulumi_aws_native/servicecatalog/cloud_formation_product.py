@@ -64,7 +64,25 @@ class CloudFormationProductArgs:
              support_email: Optional[pulumi.Input[str]] = None,
              support_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if 'productType' in kwargs:
+            product_type = kwargs['productType']
+        if 'provisioningArtifactParameters' in kwargs:
+            provisioning_artifact_parameters = kwargs['provisioningArtifactParameters']
+        if 'replaceProvisioningArtifacts' in kwargs:
+            replace_provisioning_artifacts = kwargs['replaceProvisioningArtifacts']
+        if 'sourceConnection' in kwargs:
+            source_connection = kwargs['sourceConnection']
+        if 'supportDescription' in kwargs:
+            support_description = kwargs['supportDescription']
+        if 'supportEmail' in kwargs:
+            support_email = kwargs['supportEmail']
+        if 'supportUrl' in kwargs:
+            support_url = kwargs['supportUrl']
+
         _setter("owner", owner)
         if accept_language is not None:
             _setter("accept_language", accept_language)

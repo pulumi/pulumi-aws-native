@@ -84,7 +84,31 @@ class CanaryArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
              visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None,
              vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactS3Location' in kwargs:
+            artifact_s3_location = kwargs['artifactS3Location']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'artifactConfig' in kwargs:
+            artifact_config = kwargs['artifactConfig']
+        if 'deleteLambdaResourcesOnCanaryDeletion' in kwargs:
+            delete_lambda_resources_on_canary_deletion = kwargs['deleteLambdaResourcesOnCanaryDeletion']
+        if 'failureRetentionPeriod' in kwargs:
+            failure_retention_period = kwargs['failureRetentionPeriod']
+        if 'runConfig' in kwargs:
+            run_config = kwargs['runConfig']
+        if 'startCanaryAfterCreation' in kwargs:
+            start_canary_after_creation = kwargs['startCanaryAfterCreation']
+        if 'successRetentionPeriod' in kwargs:
+            success_retention_period = kwargs['successRetentionPeriod']
+        if 'visualReference' in kwargs:
+            visual_reference = kwargs['visualReference']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("artifact_s3_location", artifact_s3_location)
         _setter("code", code)
         _setter("execution_role_arn", execution_role_arn)

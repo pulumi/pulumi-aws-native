@@ -63,7 +63,21 @@ class AssumeRole(dict):
              session_name: Optional[str] = None,
              tags: Optional[Mapping[str, str]] = None,
              transitive_tag_keys: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'policyArns' in kwargs:
+            policy_arns = kwargs['policyArns']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'sessionName' in kwargs:
+            session_name = kwargs['sessionName']
+        if 'transitiveTagKeys' in kwargs:
+            transitive_tag_keys = kwargs['transitiveTagKeys']
+
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)
         if external_id is not None:
@@ -165,7 +179,9 @@ class DefaultTags(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if tags is not None:
             _setter("tags", tags)
 
@@ -829,7 +845,11 @@ class Endpoints(dict):
              workmail: Optional[str] = None,
              workspaces: Optional[str] = None,
              xray: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
         if accessanalyzer is not None:
             _setter("accessanalyzer", accessanalyzer)
         if acm is not None:
@@ -2445,7 +2465,11 @@ class IgnoreTags(dict):
              _setter: Callable[[Any, Any], None],
              key_prefixes: Optional[Sequence[str]] = None,
              keys: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyPrefixes' in kwargs:
+            key_prefixes = kwargs['keyPrefixes']
+
         if key_prefixes is not None:
             _setter("key_prefixes", key_prefixes)
         if keys is not None:

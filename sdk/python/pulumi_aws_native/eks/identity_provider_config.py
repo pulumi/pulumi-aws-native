@@ -45,7 +45,13 @@ class IdentityProviderConfigArgs:
              identity_provider_config_name: Optional[pulumi.Input[str]] = None,
              oidc: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'identityProviderConfigName' in kwargs:
+            identity_provider_config_name = kwargs['identityProviderConfigName']
+
         _setter("cluster_name", cluster_name)
         _setter("type", type)
         if identity_provider_config_name is not None:

@@ -37,7 +37,11 @@ class PlaybackKeyPairArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_key_material: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKeyMaterial' in kwargs:
+            public_key_material = kwargs['publicKeyMaterial']
+
         if name is not None:
             _setter("name", name)
         if public_key_material is not None:

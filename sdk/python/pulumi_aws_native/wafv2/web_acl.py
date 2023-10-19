@@ -63,7 +63,23 @@ class WebAclArgs:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]] = None,
              token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'associationConfig' in kwargs:
+            association_config = kwargs['associationConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if 'customResponseBodies' in kwargs:
+            custom_response_bodies = kwargs['customResponseBodies']
+        if 'tokenDomains' in kwargs:
+            token_domains = kwargs['tokenDomains']
+
         _setter("default_action", default_action)
         _setter("scope", scope)
         _setter("visibility_config", visibility_config)

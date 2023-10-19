@@ -62,7 +62,23 @@ class FormArgs:
              label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['FormTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'formActionType' in kwargs:
+            form_action_type = kwargs['formActionType']
+        if 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if 'sectionalElements' in kwargs:
+            sectional_elements = kwargs['sectionalElements']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'labelDecorator' in kwargs:
+            label_decorator = kwargs['labelDecorator']
+
         _setter("data_type", data_type)
         _setter("fields", fields)
         _setter("form_action_type", form_action_type)

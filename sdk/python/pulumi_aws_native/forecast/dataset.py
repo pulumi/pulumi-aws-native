@@ -51,7 +51,17 @@ class DatasetArgs:
              dataset_name: Optional[pulumi.Input[str]] = None,
              encryption_config: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetType' in kwargs:
+            dataset_type = kwargs['datasetType']
+        if 'dataFrequency' in kwargs:
+            data_frequency = kwargs['dataFrequency']
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("dataset_type", dataset_type)
         _setter("domain", domain)
         _setter("schema", schema)

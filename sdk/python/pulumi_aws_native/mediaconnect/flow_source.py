@@ -98,7 +98,37 @@ class FlowSourceInitArgs:
              stream_id: Optional[pulumi.Input[str]] = None,
              vpc_interface_name: Optional[pulumi.Input[str]] = None,
              whitelist_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entitlementArn' in kwargs:
+            entitlement_arn = kwargs['entitlementArn']
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'gatewayBridgeSource' in kwargs:
+            gateway_bridge_source = kwargs['gatewayBridgeSource']
+        if 'ingestPort' in kwargs:
+            ingest_port = kwargs['ingestPort']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if 'senderControlPort' in kwargs:
+            sender_control_port = kwargs['senderControlPort']
+        if 'senderIpAddress' in kwargs:
+            sender_ip_address = kwargs['senderIpAddress']
+        if 'sourceListenerAddress' in kwargs:
+            source_listener_address = kwargs['sourceListenerAddress']
+        if 'sourceListenerPort' in kwargs:
+            source_listener_port = kwargs['sourceListenerPort']
+        if 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+        if 'whitelistCidr' in kwargs:
+            whitelist_cidr = kwargs['whitelistCidr']
+
         _setter("description", description)
         if decryption is not None:
             _setter("decryption", decryption)

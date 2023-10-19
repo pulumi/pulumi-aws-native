@@ -50,7 +50,27 @@ class VpcCidrBlockArgs:
              ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
              ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
              ipv6_pool: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'amazonProvidedIpv6CidrBlock' in kwargs:
+            amazon_provided_ipv6_cidr_block = kwargs['amazonProvidedIpv6CidrBlock']
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if 'ipv4IpamPoolId' in kwargs:
+            ipv4_ipam_pool_id = kwargs['ipv4IpamPoolId']
+        if 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+        if 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if 'ipv6IpamPoolId' in kwargs:
+            ipv6_ipam_pool_id = kwargs['ipv6IpamPoolId']
+        if 'ipv6NetmaskLength' in kwargs:
+            ipv6_netmask_length = kwargs['ipv6NetmaskLength']
+        if 'ipv6Pool' in kwargs:
+            ipv6_pool = kwargs['ipv6Pool']
+
         _setter("vpc_id", vpc_id)
         if amazon_provided_ipv6_cidr_block is not None:
             _setter("amazon_provided_ipv6_cidr_block", amazon_provided_ipv6_cidr_block)

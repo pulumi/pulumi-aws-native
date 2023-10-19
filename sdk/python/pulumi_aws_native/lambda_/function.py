@@ -121,7 +121,37 @@ class FunctionArgs:
              timeout: Optional[pulumi.Input[int]] = None,
              tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
              vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeSigningConfigArn' in kwargs:
+            code_signing_config_arn = kwargs['codeSigningConfigArn']
+        if 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'fileSystemConfigs' in kwargs:
+            file_system_configs = kwargs['fileSystemConfigs']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'imageConfig' in kwargs:
+            image_config = kwargs['imageConfig']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'reservedConcurrentExecutions' in kwargs:
+            reserved_concurrent_executions = kwargs['reservedConcurrentExecutions']
+        if 'runtimeManagementConfig' in kwargs:
+            runtime_management_config = kwargs['runtimeManagementConfig']
+        if 'snapStart' in kwargs:
+            snap_start = kwargs['snapStart']
+        if 'tracingConfig' in kwargs:
+            tracing_config = kwargs['tracingConfig']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("code", code)
         _setter("role", role)
         if architectures is not None:

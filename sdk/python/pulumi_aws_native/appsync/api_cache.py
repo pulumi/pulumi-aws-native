@@ -41,7 +41,17 @@ class ApiCacheArgs:
              type: pulumi.Input[str],
              at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiCachingBehavior' in kwargs:
+            api_caching_behavior = kwargs['apiCachingBehavior']
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'atRestEncryptionEnabled' in kwargs:
+            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
+        if 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+
         _setter("api_caching_behavior", api_caching_behavior)
         _setter("api_id", api_id)
         _setter("ttl", ttl)

@@ -40,7 +40,11 @@ class SecurityConfigArgs:
              name: Optional[pulumi.Input[str]] = None,
              saml_options: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']] = None,
              type: Optional[pulumi.Input['SecurityConfigType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

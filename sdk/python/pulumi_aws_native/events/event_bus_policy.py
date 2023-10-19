@@ -43,7 +43,13 @@ class EventBusPolicyArgs:
              event_bus_name: Optional[pulumi.Input[str]] = None,
              principal: Optional[pulumi.Input[str]] = None,
              statement: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+
         _setter("statement_id", statement_id)
         if action is not None:
             _setter("action", action)

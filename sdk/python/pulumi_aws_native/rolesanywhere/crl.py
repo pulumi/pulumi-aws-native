@@ -40,7 +40,13 @@ class CrlArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]] = None,
              trust_anchor_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlData' in kwargs:
+            crl_data = kwargs['crlData']
+        if 'trustAnchorArn' in kwargs:
+            trust_anchor_arn = kwargs['trustAnchorArn']
+
         _setter("crl_data", crl_data)
         if enabled is not None:
             _setter("enabled", enabled)

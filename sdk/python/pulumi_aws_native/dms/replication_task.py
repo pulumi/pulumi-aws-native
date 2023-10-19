@@ -64,7 +64,33 @@ class ReplicationTaskArgs:
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationTaskTagArgs']]]] = None,
              task_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'migrationType' in kwargs:
+            migration_type = kwargs['migrationType']
+        if 'replicationInstanceArn' in kwargs:
+            replication_instance_arn = kwargs['replicationInstanceArn']
+        if 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+        if 'cdcStartPosition' in kwargs:
+            cdc_start_position = kwargs['cdcStartPosition']
+        if 'cdcStartTime' in kwargs:
+            cdc_start_time = kwargs['cdcStartTime']
+        if 'cdcStopPosition' in kwargs:
+            cdc_stop_position = kwargs['cdcStopPosition']
+        if 'replicationTaskIdentifier' in kwargs:
+            replication_task_identifier = kwargs['replicationTaskIdentifier']
+        if 'replicationTaskSettings' in kwargs:
+            replication_task_settings = kwargs['replicationTaskSettings']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if 'taskData' in kwargs:
+            task_data = kwargs['taskData']
+
         _setter("migration_type", migration_type)
         _setter("replication_instance_arn", replication_instance_arn)
         _setter("source_endpoint_arn", source_endpoint_arn)

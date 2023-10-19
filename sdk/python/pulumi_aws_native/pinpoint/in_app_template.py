@@ -44,7 +44,15 @@ class InAppTemplateArgs:
              layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+        if 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+
         _setter("template_name", template_name)
         if content is not None:
             _setter("content", content)

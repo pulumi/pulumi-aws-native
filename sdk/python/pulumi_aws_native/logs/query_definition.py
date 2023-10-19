@@ -35,7 +35,13 @@ class QueryDefinitionArgs:
              query_string: pulumi.Input[str],
              log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'logGroupNames' in kwargs:
+            log_group_names = kwargs['logGroupNames']
+
         _setter("query_string", query_string)
         if log_group_names is not None:
             _setter("log_group_names", log_group_names)

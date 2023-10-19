@@ -40,7 +40,9 @@ class ChannelGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -80,7 +82,9 @@ class ChannelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -123,7 +127,13 @@ class OriginEndpointEncryptionContractConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              preset_speke20_audio: pulumi.Input['OriginEndpointPresetSpeke20Audio'],
              preset_speke20_video: pulumi.Input['OriginEndpointPresetSpeke20Video'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'presetSpeke20Audio' in kwargs:
+            preset_speke20_audio = kwargs['presetSpeke20Audio']
+        if 'presetSpeke20Video' in kwargs:
+            preset_speke20_video = kwargs['presetSpeke20Video']
+
         _setter("preset_speke20_audio", preset_speke20_audio)
         _setter("preset_speke20_video", preset_speke20_video)
 
@@ -164,7 +174,13 @@ class OriginEndpointEncryptionMethodArgs:
              _setter: Callable[[Any, Any], None],
              cmaf_encryption_method: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']] = None,
              ts_encryption_method: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cmafEncryptionMethod' in kwargs:
+            cmaf_encryption_method = kwargs['cmafEncryptionMethod']
+        if 'tsEncryptionMethod' in kwargs:
+            ts_encryption_method = kwargs['tsEncryptionMethod']
+
         if cmaf_encryption_method is not None:
             _setter("cmaf_encryption_method", cmaf_encryption_method)
         if ts_encryption_method is not None:
@@ -217,7 +233,17 @@ class OriginEndpointEncryptionArgs:
              speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
              constant_initialization_vector: Optional[pulumi.Input[str]] = None,
              key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionMethod' in kwargs:
+            encryption_method = kwargs['encryptionMethod']
+        if 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if 'keyRotationIntervalSeconds' in kwargs:
+            key_rotation_interval_seconds = kwargs['keyRotationIntervalSeconds']
+
         _setter("encryption_method", encryption_method)
         _setter("speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
@@ -309,7 +335,19 @@ class OriginEndpointHlsManifestConfigurationArgs:
              program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
              scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'childManifestName' in kwargs:
+            child_manifest_name = kwargs['childManifestName']
+        if 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if 'programDateTimeIntervalSeconds' in kwargs:
+            program_date_time_interval_seconds = kwargs['programDateTimeIntervalSeconds']
+        if 'scteHls' in kwargs:
+            scte_hls = kwargs['scteHls']
+
         _setter("manifest_name", manifest_name)
         if child_manifest_name is not None:
             _setter("child_manifest_name", child_manifest_name)
@@ -435,7 +473,19 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
              program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
              scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'childManifestName' in kwargs:
+            child_manifest_name = kwargs['childManifestName']
+        if 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if 'programDateTimeIntervalSeconds' in kwargs:
+            program_date_time_interval_seconds = kwargs['programDateTimeIntervalSeconds']
+        if 'scteHls' in kwargs:
+            scte_hls = kwargs['scteHls']
+
         _setter("manifest_name", manifest_name)
         if child_manifest_name is not None:
             _setter("child_manifest_name", child_manifest_name)
@@ -537,7 +587,11 @@ class OriginEndpointScteHlsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ad_marker_hls: Optional[pulumi.Input['OriginEndpointAdMarkerHls']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adMarkerHls' in kwargs:
+            ad_marker_hls = kwargs['adMarkerHls']
+
         if ad_marker_hls is not None:
             _setter("ad_marker_hls", ad_marker_hls)
 
@@ -567,7 +621,11 @@ class OriginEndpointScteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              scte_filter: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scteFilter' in kwargs:
+            scte_filter = kwargs['scteFilter']
+
         if scte_filter is not None:
             _setter("scte_filter", scte_filter)
 
@@ -622,7 +680,19 @@ class OriginEndpointSegmentArgs:
              segment_name: Optional[pulumi.Input[str]] = None,
              ts_include_dvb_subtitles: Optional[pulumi.Input[bool]] = None,
              ts_use_audio_rendition_group: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeIframeOnlyStreams' in kwargs:
+            include_iframe_only_streams = kwargs['includeIframeOnlyStreams']
+        if 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+        if 'tsIncludeDvbSubtitles' in kwargs:
+            ts_include_dvb_subtitles = kwargs['tsIncludeDvbSubtitles']
+        if 'tsUseAudioRenditionGroup' in kwargs:
+            ts_use_audio_rendition_group = kwargs['tsUseAudioRenditionGroup']
+
         if encryption is not None:
             _setter("encryption", encryption)
         if include_iframe_only_streams is not None:
@@ -754,7 +824,17 @@ class OriginEndpointSpekeKeyProviderArgs:
              resource_id: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'drmSystems' in kwargs:
+            drm_systems = kwargs['drmSystems']
+        if 'encryptionContractConfiguration' in kwargs:
+            encryption_contract_configuration = kwargs['encryptionContractConfiguration']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("drm_systems", drm_systems)
         _setter("encryption_contract_configuration", encryption_contract_configuration)
         _setter("resource_id", resource_id)
@@ -840,7 +920,9 @@ class OriginEndpointTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

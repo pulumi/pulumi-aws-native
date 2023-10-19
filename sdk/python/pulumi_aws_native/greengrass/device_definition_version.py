@@ -31,7 +31,11 @@ class DeviceDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              device_definition_id: pulumi.Input[str],
              devices: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionVersionDeviceArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceDefinitionId' in kwargs:
+            device_definition_id = kwargs['deviceDefinitionId']
+
         _setter("device_definition_id", device_definition_id)
         _setter("devices", devices)
 

@@ -42,7 +42,11 @@ class DimensionArgs:
              type: pulumi.Input['DimensionType'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValues' in kwargs:
+            string_values = kwargs['stringValues']
+
         _setter("string_values", string_values)
         _setter("type", type)
         if name is not None:

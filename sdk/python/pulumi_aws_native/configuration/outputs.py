@@ -59,7 +59,9 @@ class AggregationAuthorizationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -99,7 +101,9 @@ class ComplianceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -160,7 +164,15 @@ class ConfigRuleCustomPolicyDetails(dict):
              enable_debug_log_delivery: Optional[bool] = None,
              policy_runtime: Optional[str] = None,
              policy_text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableDebugLogDelivery' in kwargs:
+            enable_debug_log_delivery = kwargs['enableDebugLogDelivery']
+        if 'policyRuntime' in kwargs:
+            policy_runtime = kwargs['policyRuntime']
+        if 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+
         if enable_debug_log_delivery is not None:
             _setter("enable_debug_log_delivery", enable_debug_log_delivery)
         if policy_runtime is not None:
@@ -212,7 +224,9 @@ class ConfigRuleEvaluationModeConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
 
@@ -279,7 +293,17 @@ class ConfigRuleScope(dict):
              compliance_resource_types: Optional[Sequence[str]] = None,
              tag_key: Optional[str] = None,
              tag_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'complianceResourceId' in kwargs:
+            compliance_resource_id = kwargs['complianceResourceId']
+        if 'complianceResourceTypes' in kwargs:
+            compliance_resource_types = kwargs['complianceResourceTypes']
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if compliance_resource_id is not None:
             _setter("compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
@@ -374,7 +398,15 @@ class ConfigRuleSource(dict):
              custom_policy_details: Optional['outputs.ConfigRuleCustomPolicyDetails'] = None,
              source_details: Optional[Sequence['outputs.ConfigRuleSourceDetail']] = None,
              source_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPolicyDetails' in kwargs:
+            custom_policy_details = kwargs['customPolicyDetails']
+        if 'sourceDetails' in kwargs:
+            source_details = kwargs['sourceDetails']
+        if 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+
         _setter("owner", owner)
         if custom_policy_details is not None:
             _setter("custom_policy_details", custom_policy_details)
@@ -464,7 +496,15 @@ class ConfigRuleSourceDetail(dict):
              event_source: str,
              message_type: str,
              maximum_execution_frequency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'messageType' in kwargs:
+            message_type = kwargs['messageType']
+        if 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+
         _setter("event_source", event_source)
         _setter("message_type", message_type)
         if maximum_execution_frequency is not None:
@@ -534,7 +574,15 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
              account_ids: Sequence[str],
              all_aws_regions: Optional[bool] = None,
              aws_regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountIds' in kwargs:
+            account_ids = kwargs['accountIds']
+        if 'allAwsRegions' in kwargs:
+            all_aws_regions = kwargs['allAwsRegions']
+        if 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+
         _setter("account_ids", account_ids)
         if all_aws_regions is not None:
             _setter("all_aws_regions", all_aws_regions)
@@ -596,7 +644,15 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
              role_arn: str,
              all_aws_regions: Optional[bool] = None,
              aws_regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'allAwsRegions' in kwargs:
+            all_aws_regions = kwargs['allAwsRegions']
+        if 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+
         _setter("role_arn", role_arn)
         if all_aws_regions is not None:
             _setter("all_aws_regions", all_aws_regions)
@@ -642,7 +698,9 @@ class ConfigurationAggregatorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -692,7 +750,11 @@ class ConfigurationRecorderExclusionByResourceTypes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_types: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         _setter("resource_types", resource_types)
 
     @property
@@ -750,7 +812,19 @@ class ConfigurationRecorderRecordingGroup(dict):
              include_global_resource_types: Optional[bool] = None,
              recording_strategy: Optional['outputs.ConfigurationRecorderRecordingStrategy'] = None,
              resource_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allSupported' in kwargs:
+            all_supported = kwargs['allSupported']
+        if 'exclusionByResourceTypes' in kwargs:
+            exclusion_by_resource_types = kwargs['exclusionByResourceTypes']
+        if 'includeGlobalResourceTypes' in kwargs:
+            include_global_resource_types = kwargs['includeGlobalResourceTypes']
+        if 'recordingStrategy' in kwargs:
+            recording_strategy = kwargs['recordingStrategy']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if all_supported is not None:
             _setter("all_supported", all_supported)
         if exclusion_by_resource_types is not None:
@@ -817,7 +891,11 @@ class ConfigurationRecorderRecordingStrategy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              use_only: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useOnly' in kwargs:
+            use_only = kwargs['useOnly']
+
         _setter("use_only", use_only)
 
     @property
@@ -866,7 +944,13 @@ class ConformancePackInputParameter(dict):
              _setter: Callable[[Any, Any], None],
              parameter_name: str,
              parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -910,7 +994,11 @@ class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delivery_frequency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryFrequency' in kwargs:
+            delivery_frequency = kwargs['deliveryFrequency']
+
         if delivery_frequency is not None:
             _setter("delivery_frequency", delivery_frequency)
 
@@ -995,7 +1083,27 @@ class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata(dict):
              resource_types_scope: Optional[Sequence[str]] = None,
              tag_key_scope: Optional[str] = None,
              tag_value_scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+        if 'debugLogDeliveryAccounts' in kwargs:
+            debug_log_delivery_accounts = kwargs['debugLogDeliveryAccounts']
+        if 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if 'organizationConfigRuleTriggerTypes' in kwargs:
+            organization_config_rule_trigger_types = kwargs['organizationConfigRuleTriggerTypes']
+        if 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("policy_text", policy_text)
         _setter("runtime", runtime)
         if debug_log_delivery_accounts is not None:
@@ -1140,7 +1248,25 @@ class OrganizationConfigRuleOrganizationCustomRuleMetadata(dict):
              resource_types_scope: Optional[Sequence[str]] = None,
              tag_key_scope: Optional[str] = None,
              tag_value_scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+        if 'organizationConfigRuleTriggerTypes' in kwargs:
+            organization_config_rule_trigger_types = kwargs['organizationConfigRuleTriggerTypes']
+        if 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("lambda_function_arn", lambda_function_arn)
         _setter("organization_config_rule_trigger_types", organization_config_rule_trigger_types)
         if description is not None:
@@ -1266,7 +1392,23 @@ class OrganizationConfigRuleOrganizationManagedRuleMetadata(dict):
              resource_types_scope: Optional[Sequence[str]] = None,
              tag_key_scope: Optional[str] = None,
              tag_value_scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleIdentifier' in kwargs:
+            rule_identifier = kwargs['ruleIdentifier']
+        if 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("rule_identifier", rule_identifier)
         if description is not None:
             _setter("description", description)
@@ -1364,7 +1506,13 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
              _setter: Callable[[Any, Any], None],
              parameter_name: str,
              parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -1408,7 +1556,11 @@ class RemediationConfigurationExecutionControls(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ssm_controls: Optional['outputs.RemediationConfigurationSsmControls'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ssmControls' in kwargs:
+            ssm_controls = kwargs['ssmControls']
+
         if ssm_controls is not None:
             _setter("ssm_controls", ssm_controls)
 
@@ -1452,7 +1604,13 @@ class RemediationConfigurationSsmControls(dict):
              _setter: Callable[[Any, Any], None],
              concurrent_execution_rate_percentage: Optional[int] = None,
              error_percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentExecutionRatePercentage' in kwargs:
+            concurrent_execution_rate_percentage = kwargs['concurrentExecutionRatePercentage']
+        if 'errorPercentage' in kwargs:
+            error_percentage = kwargs['errorPercentage']
+
         if concurrent_execution_rate_percentage is not None:
             _setter("concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
         if error_percentage is not None:
@@ -1492,7 +1650,9 @@ class StoredQueryTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1553,7 +1713,13 @@ class TemplateSsmDocumentDetailsProperties(dict):
              _setter: Callable[[Any, Any], None],
              document_name: Optional[str] = None,
              document_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+
         if document_name is not None:
             _setter("document_name", document_name)
         if document_version is not None:

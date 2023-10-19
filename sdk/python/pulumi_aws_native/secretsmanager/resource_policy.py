@@ -32,7 +32,15 @@ class ResourcePolicyArgs:
              resource_policy: Any,
              secret_id: pulumi.Input[str],
              block_public_policy: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourcePolicy' in kwargs:
+            resource_policy = kwargs['resourcePolicy']
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+
         _setter("resource_policy", resource_policy)
         _setter("secret_id", secret_id)
         if block_public_policy is not None:

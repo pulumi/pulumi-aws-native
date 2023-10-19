@@ -37,7 +37,13 @@ class PlanArgs:
              contact_id: Optional[pulumi.Input[str]] = None,
              rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if 'rotationIds' in kwargs:
+            rotation_ids = kwargs['rotationIds']
+
         if contact_id is not None:
             _setter("contact_id", contact_id)
         if rotation_ids is not None:

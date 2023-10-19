@@ -60,8 +60,10 @@ class ConnectorTags(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -93,7 +95,11 @@ class ConnectorVpcInformation(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              security_group_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
 
     @property
@@ -109,8 +115,10 @@ class DirectoryRegistrationTags(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -128,7 +136,9 @@ class TemplateApplicationPolicies(dict):
              _setter: Callable[[Any, Any], None],
              policies: Sequence[Any],
              critical: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("policies", policies)
         if critical is not None:
             _setter("critical", critical)
@@ -173,7 +183,11 @@ class TemplateApplicationPolicy0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              policy_type: 'TemplateApplicationPolicyType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         _setter("policy_type", policy_type)
 
     @property
@@ -211,7 +225,11 @@ class TemplateApplicationPolicy1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              policy_object_identifier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyObjectIdentifier' in kwargs:
+            policy_object_identifier = kwargs['policyObjectIdentifier']
+
         _setter("policy_object_identifier", policy_object_identifier)
 
     @property
@@ -254,7 +272,13 @@ class TemplateCertificateValidity(dict):
              _setter: Callable[[Any, Any], None],
              renewal_period: 'outputs.TemplateValidityPeriod',
              validity_period: 'outputs.TemplateValidityPeriod',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'renewalPeriod' in kwargs:
+            renewal_period = kwargs['renewalPeriod']
+        if 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+
         _setter("renewal_period", renewal_period)
         _setter("validity_period", validity_period)
 
@@ -298,7 +322,11 @@ class TemplateDefinition0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_v2: 'outputs.TemplateV2',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateV2' in kwargs:
+            template_v2 = kwargs['templateV2']
+
         _setter("template_v2", template_v2)
 
     @property
@@ -336,7 +364,11 @@ class TemplateDefinition1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_v3: 'outputs.TemplateV3',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateV3' in kwargs:
+            template_v3 = kwargs['templateV3']
+
         _setter("template_v3", template_v3)
 
     @property
@@ -374,7 +406,11 @@ class TemplateDefinition2Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_v4: 'outputs.TemplateV4',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateV4' in kwargs:
+            template_v4 = kwargs['templateV4']
+
         _setter("template_v4", template_v4)
 
     @property
@@ -432,7 +468,19 @@ class TemplateEnrollmentFlagsV2(dict):
              no_security_extension: Optional[bool] = None,
              remove_invalid_certificate_from_personal_store: Optional[bool] = None,
              user_interaction_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -519,7 +567,19 @@ class TemplateEnrollmentFlagsV3(dict):
              no_security_extension: Optional[bool] = None,
              remove_invalid_certificate_from_personal_store: Optional[bool] = None,
              user_interaction_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -606,7 +666,19 @@ class TemplateEnrollmentFlagsV4(dict):
              no_security_extension: Optional[bool] = None,
              remove_invalid_certificate_from_personal_store: Optional[bool] = None,
              user_interaction_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -678,7 +750,13 @@ class TemplateExtensionsV2(dict):
              _setter: Callable[[Any, Any], None],
              key_usage: 'outputs.TemplateKeyUsage',
              application_policies: Optional['outputs.TemplateApplicationPolicies'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -728,7 +806,13 @@ class TemplateExtensionsV3(dict):
              _setter: Callable[[Any, Any], None],
              key_usage: 'outputs.TemplateKeyUsage',
              application_policies: Optional['outputs.TemplateApplicationPolicies'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -778,7 +862,13 @@ class TemplateExtensionsV4(dict):
              _setter: Callable[[Any, Any], None],
              key_usage: 'outputs.TemplateKeyUsage',
              application_policies: Optional['outputs.TemplateApplicationPolicies'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -828,7 +918,13 @@ class TemplateGeneralFlagsV2(dict):
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[bool] = None,
              machine_type: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -879,7 +975,13 @@ class TemplateGeneralFlagsV3(dict):
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[bool] = None,
              machine_type: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -930,7 +1032,13 @@ class TemplateGeneralFlagsV4(dict):
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[bool] = None,
              machine_type: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -979,7 +1087,11 @@ class TemplateGroupAccessControlEntryAccessRights(dict):
              _setter: Callable[[Any, Any], None],
              auto_enroll: Optional['TemplateGroupAccessControlEntryAccessRight'] = None,
              enroll: Optional['TemplateGroupAccessControlEntryAccessRight'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnroll' in kwargs:
+            auto_enroll = kwargs['autoEnroll']
+
         if auto_enroll is not None:
             _setter("auto_enroll", auto_enroll)
         if enroll is not None:
@@ -1028,7 +1140,11 @@ class TemplateKeyUsage(dict):
              _setter: Callable[[Any, Any], None],
              usage_flags: 'outputs.TemplateKeyUsageFlags',
              critical: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'usageFlags' in kwargs:
+            usage_flags = kwargs['usageFlags']
+
         _setter("usage_flags", usage_flags)
         if critical is not None:
             _setter("critical", critical)
@@ -1093,7 +1209,19 @@ class TemplateKeyUsageFlags(dict):
              key_agreement: Optional[bool] = None,
              key_encipherment: Optional[bool] = None,
              non_repudiation: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if data_encipherment is not None:
             _setter("data_encipherment", data_encipherment)
         if digital_signature is not None:
@@ -1160,7 +1288,11 @@ class TemplateKeyUsageProperty0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              property_type: 'TemplateKeyUsagePropertyType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+
         _setter("property_type", property_type)
 
     @property
@@ -1198,7 +1330,11 @@ class TemplateKeyUsageProperty1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              property_flags: 'outputs.TemplateKeyUsagePropertyFlags',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyFlags' in kwargs:
+            property_flags = kwargs['propertyFlags']
+
         _setter("property_flags", property_flags)
 
     @property
@@ -1242,7 +1378,11 @@ class TemplateKeyUsagePropertyFlags(dict):
              decrypt: Optional[bool] = None,
              key_agreement: Optional[bool] = None,
              sign: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+
         if decrypt is not None:
             _setter("decrypt", decrypt)
         if key_agreement is not None:
@@ -1305,7 +1445,15 @@ class TemplatePrivateKeyAttributesV2(dict):
              key_spec: 'TemplateKeySpec',
              minimal_key_length: float,
              crypto_providers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+
         _setter("key_spec", key_spec)
         _setter("minimal_key_length", minimal_key_length)
         if crypto_providers is not None:
@@ -1374,7 +1522,17 @@ class TemplatePrivateKeyAttributesV3(dict):
              key_usage_property: Any,
              minimal_key_length: float,
              crypto_providers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if 'keyUsageProperty' in kwargs:
+            key_usage_property = kwargs['keyUsageProperty']
+        if 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+
         _setter("algorithm", algorithm)
         _setter("key_spec", key_spec)
         _setter("key_usage_property", key_usage_property)
@@ -1455,7 +1613,17 @@ class TemplatePrivateKeyAttributesV4(dict):
              algorithm: Optional['TemplatePrivateKeyAlgorithm'] = None,
              crypto_providers: Optional[Sequence[str]] = None,
              key_usage_property: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+        if 'keyUsageProperty' in kwargs:
+            key_usage_property = kwargs['keyUsageProperty']
+
         _setter("key_spec", key_spec)
         _setter("minimal_key_length", minimal_key_length)
         if algorithm is not None:
@@ -1530,7 +1698,15 @@ class TemplatePrivateKeyFlagsV2(dict):
              client_version: 'TemplateClientCompatibilityV2',
              exportable_key: Optional[bool] = None,
              strong_key_protection_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1597,7 +1773,17 @@ class TemplatePrivateKeyFlagsV3(dict):
              exportable_key: Optional[bool] = None,
              require_alternate_signature_algorithm: Optional[bool] = None,
              strong_key_protection_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if 'requireAlternateSignatureAlgorithm' in kwargs:
+            require_alternate_signature_algorithm = kwargs['requireAlternateSignatureAlgorithm']
+        if 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1681,7 +1867,21 @@ class TemplatePrivateKeyFlagsV4(dict):
              require_same_key_renewal: Optional[bool] = None,
              strong_key_protection_required: Optional[bool] = None,
              use_legacy_provider: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if 'requireAlternateSignatureAlgorithm' in kwargs:
+            require_alternate_signature_algorithm = kwargs['requireAlternateSignatureAlgorithm']
+        if 'requireSameKeyRenewal' in kwargs:
+            require_same_key_renewal = kwargs['requireSameKeyRenewal']
+        if 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+        if 'useLegacyProvider' in kwargs:
+            use_legacy_provider = kwargs['useLegacyProvider']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1799,7 +1999,29 @@ class TemplateSubjectNameFlagsV2(dict):
              san_require_email: Optional[bool] = None,
              san_require_spn: Optional[bool] = None,
              san_require_upn: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1946,7 +2168,29 @@ class TemplateSubjectNameFlagsV3(dict):
              san_require_email: Optional[bool] = None,
              san_require_spn: Optional[bool] = None,
              san_require_upn: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -2093,7 +2337,29 @@ class TemplateSubjectNameFlagsV4(dict):
              san_require_email: Optional[bool] = None,
              san_require_spn: Optional[bool] = None,
              san_require_upn: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -2173,8 +2439,10 @@ class TemplateTags(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2239,7 +2507,23 @@ class TemplateV2(dict):
              private_key_flags: 'outputs.TemplatePrivateKeyFlagsV2',
              subject_name_flags: 'outputs.TemplateSubjectNameFlagsV2',
              superseded_templates: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2358,7 +2642,25 @@ class TemplateV3(dict):
              private_key_flags: 'outputs.TemplatePrivateKeyFlagsV3',
              subject_name_flags: 'outputs.TemplateSubjectNameFlagsV3',
              superseded_templates: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if 'hashAlgorithm' in kwargs:
+            hash_algorithm = kwargs['hashAlgorithm']
+        if 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2483,7 +2785,25 @@ class TemplateV4(dict):
              subject_name_flags: 'outputs.TemplateSubjectNameFlagsV4',
              hash_algorithm: Optional['TemplateHashAlgorithm'] = None,
              superseded_templates: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if 'hashAlgorithm' in kwargs:
+            hash_algorithm = kwargs['hashAlgorithm']
+        if 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2574,7 +2894,11 @@ class TemplateValidityPeriod(dict):
              _setter: Callable[[Any, Any], None],
              period: float,
              period_type: 'TemplateValidityPeriodType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'periodType' in kwargs:
+            period_type = kwargs['periodType']
+
         _setter("period", period)
         _setter("period_type", period_type)
 

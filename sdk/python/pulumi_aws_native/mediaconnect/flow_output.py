@@ -82,7 +82,25 @@ class FlowOutputArgs:
              smoothing_latency: Optional[pulumi.Input[int]] = None,
              stream_id: Optional[pulumi.Input[str]] = None,
              vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'cidrAllowList' in kwargs:
+            cidr_allow_list = kwargs['cidrAllowList']
+        if 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if 'remoteId' in kwargs:
+            remote_id = kwargs['remoteId']
+        if 'smoothingLatency' in kwargs:
+            smoothing_latency = kwargs['smoothingLatency']
+        if 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         _setter("protocol", protocol)
         if cidr_allow_list is not None:

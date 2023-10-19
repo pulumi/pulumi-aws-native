@@ -68,7 +68,11 @@ class ClusterBrokerLogsArgs:
              cloud_watch_logs: Optional[pulumi.Input['ClusterCloudWatchLogsArgs']] = None,
              firehose: Optional[pulumi.Input['ClusterFirehoseArgs']] = None,
              s3: Optional[pulumi.Input['ClusterS3Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
@@ -131,7 +135,21 @@ class ClusterBrokerNodeGroupInfoArgs:
              connectivity_info: Optional[pulumi.Input['ClusterConnectivityInfoArgs']] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_info: Optional[pulumi.Input['ClusterStorageInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'brokerAzDistribution' in kwargs:
+            broker_az_distribution = kwargs['brokerAzDistribution']
+        if 'connectivityInfo' in kwargs:
+            connectivity_info = kwargs['connectivityInfo']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'storageInfo' in kwargs:
+            storage_info = kwargs['storageInfo']
+
         _setter("client_subnets", client_subnets)
         _setter("instance_type", instance_type)
         if broker_az_distribution is not None:
@@ -216,7 +234,9 @@ class ClusterClientAuthenticationArgs:
              sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
              tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
              unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sasl is not None:
             _setter("sasl", sasl)
         if tls is not None:
@@ -267,7 +287,11 @@ class ClusterCloudWatchLogsArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("enabled", enabled)
         if log_group is not None:
             _setter("log_group", log_group)
@@ -306,7 +330,9 @@ class ClusterConfigurationInfoArgs:
              _setter: Callable[[Any, Any], None],
              arn: pulumi.Input[str],
              revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
         _setter("revision", revision)
 
@@ -344,7 +370,13 @@ class ClusterConnectivityInfoArgs:
              _setter: Callable[[Any, Any], None],
              public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
              vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicAccess' in kwargs:
+            public_access = kwargs['publicAccess']
+        if 'vpcConnectivity' in kwargs:
+            vpc_connectivity = kwargs['vpcConnectivity']
+
         if public_access is not None:
             _setter("public_access", public_access)
         if vpc_connectivity is not None:
@@ -384,7 +416,13 @@ class ClusterEbsStorageInfoArgs:
              _setter: Callable[[Any, Any], None],
              provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+
         if provisioned_throughput is not None:
             _setter("provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
@@ -421,7 +459,11 @@ class ClusterEncryptionAtRestArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_volume_kms_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataVolumeKmsKeyId' in kwargs:
+            data_volume_kms_key_id = kwargs['dataVolumeKmsKeyId']
+
         _setter("data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
@@ -449,7 +491,13 @@ class ClusterEncryptionInTransitArgs:
              _setter: Callable[[Any, Any], None],
              client_broker: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']] = None,
              in_cluster: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientBroker' in kwargs:
+            client_broker = kwargs['clientBroker']
+        if 'inCluster' in kwargs:
+            in_cluster = kwargs['inCluster']
+
         if client_broker is not None:
             _setter("client_broker", client_broker)
         if in_cluster is not None:
@@ -489,7 +537,13 @@ class ClusterEncryptionInfoArgs:
              _setter: Callable[[Any, Any], None],
              encryption_at_rest: Optional[pulumi.Input['ClusterEncryptionAtRestArgs']] = None,
              encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInTransitArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAtRest' in kwargs:
+            encryption_at_rest = kwargs['encryptionAtRest']
+        if 'encryptionInTransit' in kwargs:
+            encryption_in_transit = kwargs['encryptionInTransit']
+
         if encryption_at_rest is not None:
             _setter("encryption_at_rest", encryption_at_rest)
         if encryption_in_transit is not None:
@@ -529,7 +583,11 @@ class ClusterFirehoseArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              delivery_stream: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("enabled", enabled)
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
@@ -565,7 +623,9 @@ class ClusterIamArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -590,7 +650,11 @@ class ClusterJmxExporterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled_in_broker: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledInBroker' in kwargs:
+            enabled_in_broker = kwargs['enabledInBroker']
+
         _setter("enabled_in_broker", enabled_in_broker)
 
     @property
@@ -615,7 +679,11 @@ class ClusterLoggingInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              broker_logs: pulumi.Input['ClusterBrokerLogsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'brokerLogs' in kwargs:
+            broker_logs = kwargs['brokerLogs']
+
         _setter("broker_logs", broker_logs)
 
     @property
@@ -640,7 +708,11 @@ class ClusterNodeExporterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled_in_broker: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledInBroker' in kwargs:
+            enabled_in_broker = kwargs['enabledInBroker']
+
         _setter("enabled_in_broker", enabled_in_broker)
 
     @property
@@ -665,7 +737,9 @@ class ClusterOpenMonitoringArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              prometheus: pulumi.Input['ClusterPrometheusArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("prometheus", prometheus)
 
     @property
@@ -693,7 +767,13 @@ class ClusterPrometheusArgs:
              _setter: Callable[[Any, Any], None],
              jmx_exporter: Optional[pulumi.Input['ClusterJmxExporterArgs']] = None,
              node_exporter: Optional[pulumi.Input['ClusterNodeExporterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jmxExporter' in kwargs:
+            jmx_exporter = kwargs['jmxExporter']
+        if 'nodeExporter' in kwargs:
+            node_exporter = kwargs['nodeExporter']
+
         if jmx_exporter is not None:
             _setter("jmx_exporter", jmx_exporter)
         if node_exporter is not None:
@@ -733,7 +813,11 @@ class ClusterProvisionedThroughputArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              volume_throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeThroughput' in kwargs:
+            volume_throughput = kwargs['volumeThroughput']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if volume_throughput is not None:
@@ -770,7 +854,9 @@ class ClusterPublicAccessArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -802,7 +888,9 @@ class ClusterS3Args:
              enabled: pulumi.Input[bool],
              bucket: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if bucket is not None:
             _setter("bucket", bucket)
@@ -852,7 +940,9 @@ class ClusterSaslArgs:
              _setter: Callable[[Any, Any], None],
              iam: Optional[pulumi.Input['ClusterIamArgs']] = None,
              scram: Optional[pulumi.Input['ClusterScramArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iam is not None:
             _setter("iam", iam)
         if scram is not None:
@@ -889,7 +979,9 @@ class ClusterScramArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -914,7 +1006,11 @@ class ClusterStorageInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ebsStorageInfo' in kwargs:
+            ebs_storage_info = kwargs['ebsStorageInfo']
+
         if ebs_storage_info is not None:
             _setter("ebs_storage_info", ebs_storage_info)
 
@@ -943,7 +1039,11 @@ class ClusterTlsArgs:
              _setter: Callable[[Any, Any], None],
              certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArnList' in kwargs:
+            certificate_authority_arn_list = kwargs['certificateAuthorityArnList']
+
         if certificate_authority_arn_list is not None:
             _setter("certificate_authority_arn_list", certificate_authority_arn_list)
         if enabled is not None:
@@ -980,7 +1080,9 @@ class ClusterUnauthenticatedArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1008,7 +1110,9 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
              tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sasl is not None:
             _setter("sasl", sasl)
         if tls is not None:
@@ -1045,7 +1149,9 @@ class ClusterVpcConnectivityIamArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1073,7 +1179,9 @@ class ClusterVpcConnectivitySaslArgs:
              _setter: Callable[[Any, Any], None],
              iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
              scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iam is not None:
             _setter("iam", iam)
         if scram is not None:
@@ -1110,7 +1218,9 @@ class ClusterVpcConnectivityScramArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1135,7 +1245,9 @@ class ClusterVpcConnectivityTlsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1160,7 +1272,11 @@ class ClusterVpcConnectivityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+
         if client_authentication is not None:
             _setter("client_authentication", client_authentication)
 
@@ -1192,7 +1308,11 @@ class ConfigurationLatestRevisionArgs:
              creation_time: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              revision: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+
         if creation_time is not None:
             _setter("creation_time", creation_time)
         if description is not None:
@@ -1240,7 +1360,9 @@ class ServerlessClusterClientAuthenticationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sasl: pulumi.Input['ServerlessClusterSaslArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("sasl", sasl)
 
     @property
@@ -1265,7 +1387,9 @@ class ServerlessClusterIamArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1290,7 +1414,9 @@ class ServerlessClusterSaslArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              iam: pulumi.Input['ServerlessClusterIamArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("iam", iam)
 
     @property
@@ -1318,7 +1444,13 @@ class ServerlessClusterVpcConfigArgs:
              _setter: Callable[[Any, Any], None],
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnet_ids", subnet_ids)
         if security_groups is not None:
             _setter("security_groups", security_groups)
@@ -1352,7 +1484,9 @@ class VpcConnectionTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

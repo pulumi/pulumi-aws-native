@@ -44,7 +44,13 @@ class SequenceStoreArgs:
              name: Optional[pulumi.Input[str]] = None,
              sse_config: Optional[pulumi.Input['SequenceStoreSseConfigArgs']] = None,
              tags: Optional[pulumi.Input['SequenceStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackLocation' in kwargs:
+            fallback_location = kwargs['fallbackLocation']
+        if 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+
         if description is not None:
             _setter("description", description)
         if fallback_location is not None:

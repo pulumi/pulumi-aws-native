@@ -44,7 +44,17 @@ class EndpointArgs:
              name: Optional[pulumi.Input[str]] = None,
              replication_config: Optional[pulumi.Input['EndpointReplicationConfigArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBuses' in kwargs:
+            event_buses = kwargs['eventBuses']
+        if 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+        if 'replicationConfig' in kwargs:
+            replication_config = kwargs['replicationConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("event_buses", event_buses)
         _setter("routing_config", routing_config)
         if description is not None:

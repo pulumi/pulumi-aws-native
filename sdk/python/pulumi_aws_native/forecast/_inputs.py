@@ -37,7 +37,13 @@ class DatasetAttributesItemPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              attribute_name: Optional[pulumi.Input[str]] = None,
              attribute_type: Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'attributeType' in kwargs:
+            attribute_type = kwargs['attributeType']
+
         if attribute_name is not None:
             _setter("attribute_name", attribute_name)
         if attribute_type is not None:
@@ -88,7 +94,9 @@ class DatasetGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -132,7 +140,13 @@ class EncryptionConfigPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              kms_key_arn: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if kms_key_arn is not None:
             _setter("kms_key_arn", kms_key_arn)
         if role_arn is not None:
@@ -169,7 +183,9 @@ class SchemaPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
             _setter("attributes", attributes)
 
@@ -201,7 +217,9 @@ class TagsItemPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

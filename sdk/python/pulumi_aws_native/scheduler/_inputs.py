@@ -53,7 +53,13 @@ class ScheduleAwsVpcConfigurationArgs:
              subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
              assign_public_ip: Optional[pulumi.Input['ScheduleAssignPublicIp']] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -118,7 +124,11 @@ class ScheduleCapacityProviderStrategyItemArgs:
              capacity_provider: pulumi.Input[str],
              base: Optional[pulumi.Input[float]] = None,
              weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -178,7 +188,9 @@ class ScheduleDeadLetterConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -260,7 +272,33 @@ class ScheduleEcsParametersArgs:
              reference_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTagMapArgs']]]] = None,
              task_count: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'placementStrategy' in kwargs:
+            placement_strategy = kwargs['placementStrategy']
+        if 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
         _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
@@ -469,7 +507,11 @@ class ScheduleEventBridgeParametersArgs:
              _setter: Callable[[Any, Any], None],
              detail_type: pulumi.Input[str],
              source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+
         _setter("detail_type", detail_type)
         _setter("source", source)
 
@@ -517,7 +559,11 @@ class ScheduleFlexibleTimeWindowArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input['ScheduleFlexibleTimeWindowMode'],
              maximum_window_in_minutes: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumWindowInMinutes' in kwargs:
+            maximum_window_in_minutes = kwargs['maximumWindowInMinutes']
+
         _setter("mode", mode)
         if maximum_window_in_minutes is not None:
             _setter("maximum_window_in_minutes", maximum_window_in_minutes)
@@ -564,7 +610,9 @@ class ScheduleGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -609,7 +657,11 @@ class ScheduleKinesisParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              partition_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
         _setter("partition_key", partition_key)
 
     @property
@@ -640,7 +692,11 @@ class ScheduleNetworkConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              awsvpc_configuration: Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsvpcConfiguration' in kwargs:
+            awsvpc_configuration = kwargs['awsvpcConfiguration']
+
         if awsvpc_configuration is not None:
             _setter("awsvpc_configuration", awsvpc_configuration)
 
@@ -673,7 +729,9 @@ class SchedulePlacementConstraintArgs:
              _setter: Callable[[Any, Any], None],
              expression: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['SchedulePlacementConstraintType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if expression is not None:
             _setter("expression", expression)
         if type is not None:
@@ -720,7 +778,9 @@ class SchedulePlacementStrategyArgs:
              _setter: Callable[[Any, Any], None],
              field: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['SchedulePlacementStrategyType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if field is not None:
             _setter("field", field)
         if type is not None:
@@ -768,7 +828,13 @@ class ScheduleRetryPolicyArgs:
              _setter: Callable[[Any, Any], None],
              maximum_event_age_in_seconds: Optional[pulumi.Input[float]] = None,
              maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         if maximum_event_age_in_seconds is not None:
             _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -815,7 +881,11 @@ class ScheduleSageMakerPipelineParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleSageMakerPipelineParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineParameterList' in kwargs:
+            pipeline_parameter_list = kwargs['pipelineParameterList']
+
         if pipeline_parameter_list is not None:
             _setter("pipeline_parameter_list", pipeline_parameter_list)
 
@@ -852,7 +922,9 @@ class ScheduleSageMakerPipelineParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -897,7 +969,11 @@ class ScheduleSqsParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              message_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         if message_group_id is not None:
             _setter("message_group_id", message_group_id)
 
@@ -921,8 +997,10 @@ class ScheduleTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -970,7 +1048,25 @@ class ScheduleTargetArgs:
              retry_policy: Optional[pulumi.Input['ScheduleRetryPolicyArgs']] = None,
              sage_maker_pipeline_parameters: Optional[pulumi.Input['ScheduleSageMakerPipelineParametersArgs']] = None,
              sqs_parameters: Optional[pulumi.Input['ScheduleSqsParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if 'ecsParameters' in kwargs:
+            ecs_parameters = kwargs['ecsParameters']
+        if 'eventBridgeParameters' in kwargs:
+            event_bridge_parameters = kwargs['eventBridgeParameters']
+        if 'kinesisParameters' in kwargs:
+            kinesis_parameters = kwargs['kinesisParameters']
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if 'sageMakerPipelineParameters' in kwargs:
+            sage_maker_pipeline_parameters = kwargs['sageMakerPipelineParameters']
+        if 'sqsParameters' in kwargs:
+            sqs_parameters = kwargs['sqsParameters']
+
         _setter("arn", arn)
         _setter("role_arn", role_arn)
         if dead_letter_config is not None:

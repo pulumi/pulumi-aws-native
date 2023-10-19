@@ -43,7 +43,9 @@ class AclTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -84,7 +86,9 @@ class AuthenticationModeProperties(dict):
              _setter: Callable[[Any, Any], None],
              passwords: Optional[Sequence[str]] = None,
              type: Optional['UserAuthenticationModePropertiesType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if passwords is not None:
             _setter("passwords", passwords)
         if type is not None:
@@ -126,7 +130,9 @@ class ClusterEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if port is not None:
@@ -172,7 +178,9 @@ class ClusterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -216,7 +224,9 @@ class ParameterGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -260,7 +270,9 @@ class SubnetGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -304,7 +316,9 @@ class UserTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)

@@ -33,7 +33,13 @@ class ConfigurationSetEventDestinationArgs:
              _setter: Callable[[Any, Any], None],
              configuration_set_name: pulumi.Input[str],
              event_destination: pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if 'eventDestination' in kwargs:
+            event_destination = kwargs['eventDestination']
+
         _setter("configuration_set_name", configuration_set_name)
         _setter("event_destination", event_destination)
 

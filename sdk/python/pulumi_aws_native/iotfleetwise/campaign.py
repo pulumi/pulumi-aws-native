@@ -77,7 +77,31 @@ class CampaignArgs:
              spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionScheme' in kwargs:
+            collection_scheme = kwargs['collectionScheme']
+        if 'signalCatalogArn' in kwargs:
+            signal_catalog_arn = kwargs['signalCatalogArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'dataDestinationConfigs' in kwargs:
+            data_destination_configs = kwargs['dataDestinationConfigs']
+        if 'dataExtraDimensions' in kwargs:
+            data_extra_dimensions = kwargs['dataExtraDimensions']
+        if 'diagnosticsMode' in kwargs:
+            diagnostics_mode = kwargs['diagnosticsMode']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'postTriggerCollectionDuration' in kwargs:
+            post_trigger_collection_duration = kwargs['postTriggerCollectionDuration']
+        if 'signalsToCollect' in kwargs:
+            signals_to_collect = kwargs['signalsToCollect']
+        if 'spoolingMode' in kwargs:
+            spooling_mode = kwargs['spoolingMode']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("action", action)
         _setter("collection_scheme", collection_scheme)
         _setter("signal_catalog_arn", signal_catalog_arn)

@@ -43,7 +43,17 @@ class RunGroupArgs:
              max_runs: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['RunGroupTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCpus' in kwargs:
+            max_cpus = kwargs['maxCpus']
+        if 'maxDuration' in kwargs:
+            max_duration = kwargs['maxDuration']
+        if 'maxGpus' in kwargs:
+            max_gpus = kwargs['maxGpus']
+        if 'maxRuns' in kwargs:
+            max_runs = kwargs['maxRuns']
+
         if max_cpus is not None:
             _setter("max_cpus", max_cpus)
         if max_duration is not None:

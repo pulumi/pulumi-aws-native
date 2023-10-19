@@ -64,7 +64,29 @@ class EndpointGroupArgs:
              port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
              threshold_count: Optional[pulumi.Input[int]] = None,
              traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointGroupRegion' in kwargs:
+            endpoint_group_region = kwargs['endpointGroupRegion']
+        if 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if 'endpointConfigurations' in kwargs:
+            endpoint_configurations = kwargs['endpointConfigurations']
+        if 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if 'portOverrides' in kwargs:
+            port_overrides = kwargs['portOverrides']
+        if 'thresholdCount' in kwargs:
+            threshold_count = kwargs['thresholdCount']
+        if 'trafficDialPercentage' in kwargs:
+            traffic_dial_percentage = kwargs['trafficDialPercentage']
+
         _setter("endpoint_group_region", endpoint_group_region)
         _setter("listener_arn", listener_arn)
         if endpoint_configurations is not None:

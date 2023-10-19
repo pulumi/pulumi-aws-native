@@ -33,7 +33,13 @@ class StandardArgs:
              _setter: Callable[[Any, Any], None],
              standards_arn: pulumi.Input[str],
              disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'standardsArn' in kwargs:
+            standards_arn = kwargs['standardsArn']
+        if 'disabledStandardsControls' in kwargs:
+            disabled_standards_controls = kwargs['disabledStandardsControls']
+
         _setter("standards_arn", standards_arn)
         if disabled_standards_controls is not None:
             _setter("disabled_standards_controls", disabled_standards_controls)

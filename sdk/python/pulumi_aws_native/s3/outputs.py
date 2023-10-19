@@ -148,7 +148,17 @@ class AccessPointPublicAccessBlockConfiguration(dict):
              block_public_policy: Optional[bool] = None,
              ignore_public_acls: Optional[bool] = None,
              restrict_public_buckets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
         if block_public_acls is not None:
             _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -232,7 +242,11 @@ class AccessPointVpcConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if vpc_id is not None:
             _setter("vpc_id", vpc_id)
 
@@ -281,7 +295,11 @@ class BucketAbortIncompleteMultipartUpload(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              days_after_initiation: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysAfterInitiation' in kwargs:
+            days_after_initiation = kwargs['daysAfterInitiation']
+
         _setter("days_after_initiation", days_after_initiation)
 
     @property
@@ -325,7 +343,11 @@ class BucketAccelerateConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              acceleration_status: 'BucketAccelerateConfigurationAccelerationStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+
         _setter("acceleration_status", acceleration_status)
 
     @property
@@ -355,7 +377,9 @@ class BucketAccessControlTranslation(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              owner: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("owner", owner)
 
     @property
@@ -412,7 +436,13 @@ class BucketAnalyticsConfiguration(dict):
              storage_class_analysis: 'outputs.BucketStorageClassAnalysis',
              prefix: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageClassAnalysis' in kwargs:
+            storage_class_analysis = kwargs['storageClassAnalysis']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         _setter("id", id)
         _setter("storage_class_analysis", storage_class_analysis)
         if prefix is not None:
@@ -476,7 +506,11 @@ class BucketCorsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cors_rules: Sequence['outputs.BucketCorsRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+
         _setter("cors_rules", cors_rules)
 
     @property
@@ -549,7 +583,19 @@ class BucketCorsRule(dict):
              exposed_headers: Optional[Sequence[str]] = None,
              id: Optional[str] = None,
              max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -649,7 +695,11 @@ class BucketDataExport(dict):
              _setter: Callable[[Any, Any], None],
              destination: 'outputs.BucketDestination',
              output_schema_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputSchemaVersion' in kwargs:
+            output_schema_version = kwargs['outputSchemaVersion']
+
         _setter("destination", destination)
         _setter("output_schema_version", output_schema_version)
 
@@ -691,7 +741,9 @@ class BucketDefaultRetention(dict):
              days: Optional[int] = None,
              mode: Optional['BucketDefaultRetentionMode'] = None,
              years: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
         if mode is not None:
@@ -727,7 +779,9 @@ class BucketDeleteMarkerReplication(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: Optional['BucketDeleteMarkerReplicationStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is not None:
             _setter("status", status)
 
@@ -787,7 +841,13 @@ class BucketDestination(dict):
              format: 'BucketDestinationFormat',
              bucket_account_id: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'bucketAccountId' in kwargs:
+            bucket_account_id = kwargs['bucketAccountId']
+
         _setter("bucket_arn", bucket_arn)
         _setter("format", format)
         if bucket_account_id is not None:
@@ -864,7 +924,11 @@ class BucketEncryption(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              server_side_encryption_configuration: Sequence['outputs.BucketServerSideEncryptionRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+
         _setter("server_side_encryption_configuration", server_side_encryption_configuration)
 
     @property
@@ -912,7 +976,11 @@ class BucketEncryptionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              replica_kms_key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicaKmsKeyId' in kwargs:
+            replica_kms_key_id = kwargs['replicaKmsKeyId']
+
         _setter("replica_kms_key_id", replica_kms_key_id)
 
     @property
@@ -960,7 +1028,11 @@ class BucketEventBridgeConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_bridge_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBridgeEnabled' in kwargs:
+            event_bridge_enabled = kwargs['eventBridgeEnabled']
+
         _setter("event_bridge_enabled", event_bridge_enabled)
 
     @property
@@ -993,7 +1065,9 @@ class BucketFilterRule(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1056,7 +1130,11 @@ class BucketIntelligentTieringConfiguration(dict):
              tierings: Sequence['outputs.BucketTiering'],
              prefix: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         _setter("id", id)
         _setter("status", status)
         _setter("tierings", tierings)
@@ -1165,7 +1243,15 @@ class BucketInventoryConfiguration(dict):
              schedule_frequency: 'BucketInventoryConfigurationScheduleFrequency',
              optional_fields: Optional[Sequence['BucketInventoryConfigurationOptionalFieldsItem']] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedObjectVersions' in kwargs:
+            included_object_versions = kwargs['includedObjectVersions']
+        if 'scheduleFrequency' in kwargs:
+            schedule_frequency = kwargs['scheduleFrequency']
+        if 'optionalFields' in kwargs:
+            optional_fields = kwargs['optionalFields']
+
         _setter("destination", destination)
         _setter("enabled", enabled)
         _setter("id", id)
@@ -1257,7 +1343,9 @@ class BucketLambdaConfiguration(dict):
              event: str,
              function: str,
              filter: Optional['outputs.BucketNotificationFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("event", event)
         _setter("function", function)
         if filter is not None:
@@ -1303,7 +1391,9 @@ class BucketLifecycleConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: Sequence['outputs.BucketRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -1352,7 +1442,13 @@ class BucketLoggingConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              destination_bucket_name: Optional[str] = None,
              log_file_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationBucketName' in kwargs:
+            destination_bucket_name = kwargs['destinationBucketName']
+        if 'logFilePrefix' in kwargs:
+            log_file_prefix = kwargs['logFilePrefix']
+
         if destination_bucket_name is not None:
             _setter("destination_bucket_name", destination_bucket_name)
         if log_file_prefix is not None:
@@ -1404,7 +1500,11 @@ class BucketMetrics(dict):
              _setter: Callable[[Any, Any], None],
              status: 'BucketMetricsStatus',
              event_threshold: Optional['outputs.BucketReplicationTimeValue'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventThreshold' in kwargs:
+            event_threshold = kwargs['eventThreshold']
+
         _setter("status", status)
         if event_threshold is not None:
             _setter("event_threshold", event_threshold)
@@ -1460,7 +1560,13 @@ class BucketMetricsConfiguration(dict):
              access_point_arn: Optional[str] = None,
              prefix: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         _setter("id", id)
         if access_point_arn is not None:
             _setter("access_point_arn", access_point_arn)
@@ -1532,7 +1638,13 @@ class BucketNoncurrentVersionExpiration(dict):
              _setter: Callable[[Any, Any], None],
              noncurrent_days: int,
              newer_noncurrent_versions: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'noncurrentDays' in kwargs:
+            noncurrent_days = kwargs['noncurrentDays']
+        if 'newerNoncurrentVersions' in kwargs:
+            newer_noncurrent_versions = kwargs['newerNoncurrentVersions']
+
         _setter("noncurrent_days", noncurrent_days)
         if newer_noncurrent_versions is not None:
             _setter("newer_noncurrent_versions", newer_noncurrent_versions)
@@ -1602,7 +1714,15 @@ class BucketNoncurrentVersionTransition(dict):
              storage_class: 'BucketNoncurrentVersionTransitionStorageClass',
              transition_in_days: int,
              newer_noncurrent_versions: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if 'transitionInDays' in kwargs:
+            transition_in_days = kwargs['transitionInDays']
+        if 'newerNoncurrentVersions' in kwargs:
+            newer_noncurrent_versions = kwargs['newerNoncurrentVersions']
+
         _setter("storage_class", storage_class)
         _setter("transition_in_days", transition_in_days)
         if newer_noncurrent_versions is not None:
@@ -1683,7 +1803,17 @@ class BucketNotificationConfiguration(dict):
              lambda_configurations: Optional[Sequence['outputs.BucketLambdaConfiguration']] = None,
              queue_configurations: Optional[Sequence['outputs.BucketQueueConfiguration']] = None,
              topic_configurations: Optional[Sequence['outputs.BucketTopicConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBridgeConfiguration' in kwargs:
+            event_bridge_configuration = kwargs['eventBridgeConfiguration']
+        if 'lambdaConfigurations' in kwargs:
+            lambda_configurations = kwargs['lambdaConfigurations']
+        if 'queueConfigurations' in kwargs:
+            queue_configurations = kwargs['queueConfigurations']
+        if 'topicConfigurations' in kwargs:
+            topic_configurations = kwargs['topicConfigurations']
+
         if event_bridge_configuration is not None:
             _setter("event_bridge_configuration", event_bridge_configuration)
         if lambda_configurations is not None:
@@ -1749,7 +1879,11 @@ class BucketNotificationFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_key: 'outputs.BucketS3KeyFilter',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("s3_key", s3_key)
 
     @property
@@ -1790,7 +1924,11 @@ class BucketObjectLockConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              object_lock_enabled: Optional[str] = None,
              rule: Optional['outputs.BucketObjectLockRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+
         if object_lock_enabled is not None:
             _setter("object_lock_enabled", object_lock_enabled)
         if rule is not None:
@@ -1842,7 +1980,11 @@ class BucketObjectLockRule(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_retention: Optional['outputs.BucketDefaultRetention'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRetention' in kwargs:
+            default_retention = kwargs['defaultRetention']
+
         if default_retention is not None:
             _setter("default_retention", default_retention)
 
@@ -1864,7 +2006,9 @@ class BucketOwnershipControls(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: Sequence['outputs.BucketOwnershipControlsRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -1905,7 +2049,11 @@ class BucketOwnershipControlsRule(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object_ownership: Optional['BucketOwnershipControlsRuleObjectOwnership'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectOwnership' in kwargs:
+            object_ownership = kwargs['objectOwnership']
+
         if object_ownership is not None:
             _setter("object_ownership", object_ownership)
 
@@ -1978,7 +2126,17 @@ class BucketPublicAccessBlockConfiguration(dict):
              block_public_policy: Optional[bool] = None,
              ignore_public_acls: Optional[bool] = None,
              restrict_public_buckets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
         if block_public_acls is not None:
             _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -2054,7 +2212,9 @@ class BucketQueueConfiguration(dict):
              event: str,
              queue: str,
              filter: Optional['outputs.BucketNotificationFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("event", event)
         _setter("queue", queue)
         if filter is not None:
@@ -2125,7 +2285,11 @@ class BucketRedirectAllRequestsTo(dict):
              _setter: Callable[[Any, Any], None],
              host_name: str,
              protocol: Optional['BucketRedirectAllRequestsToProtocol'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+
         _setter("host_name", host_name)
         if protocol is not None:
             _setter("protocol", protocol)
@@ -2205,7 +2369,17 @@ class BucketRedirectRule(dict):
              protocol: Optional['BucketRedirectRuleProtocol'] = None,
              replace_key_prefix_with: Optional[str] = None,
              replace_key_with: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'httpRedirectCode' in kwargs:
+            http_redirect_code = kwargs['httpRedirectCode']
+        if 'replaceKeyPrefixWith' in kwargs:
+            replace_key_prefix_with = kwargs['replaceKeyPrefixWith']
+        if 'replaceKeyWith' in kwargs:
+            replace_key_with = kwargs['replaceKeyWith']
+
         if host_name is not None:
             _setter("host_name", host_name)
         if http_redirect_code is not None:
@@ -2273,7 +2447,9 @@ class BucketReplicaModifications(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: 'BucketReplicaModificationsStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -2308,7 +2484,9 @@ class BucketReplicationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              role: str,
              rules: Sequence['outputs.BucketReplicationRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("role", role)
         _setter("rules", rules)
 
@@ -2389,7 +2567,17 @@ class BucketReplicationDestination(dict):
              metrics: Optional['outputs.BucketMetrics'] = None,
              replication_time: Optional['outputs.BucketReplicationTime'] = None,
              storage_class: Optional['BucketReplicationDestinationStorageClass'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlTranslation' in kwargs:
+            access_control_translation = kwargs['accessControlTranslation']
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'replicationTime' in kwargs:
+            replication_time = kwargs['replicationTime']
+        if 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+
         _setter("bucket", bucket)
         if access_control_translation is not None:
             _setter("access_control_translation", access_control_translation)
@@ -2504,7 +2692,13 @@ class BucketReplicationRule(dict):
              prefix: Optional[str] = None,
              priority: Optional[int] = None,
              source_selection_criteria: Optional['outputs.BucketSourceSelectionCriteria'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteMarkerReplication' in kwargs:
+            delete_marker_replication = kwargs['deleteMarkerReplication']
+        if 'sourceSelectionCriteria' in kwargs:
+            source_selection_criteria = kwargs['sourceSelectionCriteria']
+
         _setter("destination", destination)
         _setter("status", status)
         if delete_marker_replication is not None:
@@ -2602,7 +2796,11 @@ class BucketReplicationRuleAndOperator(dict):
              _setter: Callable[[Any, Any], None],
              prefix: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if prefix is not None:
             _setter("prefix", prefix)
         if tag_filters is not None:
@@ -2656,7 +2854,13 @@ class BucketReplicationRuleFilter(dict):
              and_: Optional['outputs.BucketReplicationRuleAndOperator'] = None,
              prefix: Optional[str] = None,
              tag_filter: Optional['outputs.BucketTagFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'and' in kwargs:
+            and_ = kwargs['and']
+        if 'tagFilter' in kwargs:
+            tag_filter = kwargs['tagFilter']
+
         if and_ is not None:
             _setter("and_", and_)
         if prefix is not None:
@@ -2695,7 +2899,9 @@ class BucketReplicationTime(dict):
              _setter: Callable[[Any, Any], None],
              status: 'BucketReplicationTimeStatus',
              time: 'outputs.BucketReplicationTimeValue',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
         _setter("time", time)
 
@@ -2722,7 +2928,9 @@ class BucketReplicationTimeValue(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("minutes", minutes)
 
     @property
@@ -2772,7 +2980,13 @@ class BucketRoutingRule(dict):
              _setter: Callable[[Any, Any], None],
              redirect_rule: 'outputs.BucketRedirectRule',
              routing_rule_condition: Optional['outputs.BucketRoutingRuleCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redirectRule' in kwargs:
+            redirect_rule = kwargs['redirectRule']
+        if 'routingRuleCondition' in kwargs:
+            routing_rule_condition = kwargs['routingRuleCondition']
+
         _setter("redirect_rule", redirect_rule)
         if routing_rule_condition is not None:
             _setter("routing_rule_condition", routing_rule_condition)
@@ -2833,7 +3047,13 @@ class BucketRoutingRuleCondition(dict):
              _setter: Callable[[Any, Any], None],
              http_error_code_returned_equals: Optional[str] = None,
              key_prefix_equals: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpErrorCodeReturnedEquals' in kwargs:
+            http_error_code_returned_equals = kwargs['httpErrorCodeReturnedEquals']
+        if 'keyPrefixEquals' in kwargs:
+            key_prefix_equals = kwargs['keyPrefixEquals']
+
         if http_error_code_returned_equals is not None:
             _setter("http_error_code_returned_equals", http_error_code_returned_equals)
         if key_prefix_equals is not None:
@@ -2956,7 +3176,31 @@ class BucketRule(dict):
              tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
              transition: Optional['outputs.BucketTransition'] = None,
              transitions: Optional[Sequence['outputs.BucketTransition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abortIncompleteMultipartUpload' in kwargs:
+            abort_incomplete_multipart_upload = kwargs['abortIncompleteMultipartUpload']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+        if 'expiredObjectDeleteMarker' in kwargs:
+            expired_object_delete_marker = kwargs['expiredObjectDeleteMarker']
+        if 'noncurrentVersionExpiration' in kwargs:
+            noncurrent_version_expiration = kwargs['noncurrentVersionExpiration']
+        if 'noncurrentVersionExpirationInDays' in kwargs:
+            noncurrent_version_expiration_in_days = kwargs['noncurrentVersionExpirationInDays']
+        if 'noncurrentVersionTransition' in kwargs:
+            noncurrent_version_transition = kwargs['noncurrentVersionTransition']
+        if 'noncurrentVersionTransitions' in kwargs:
+            noncurrent_version_transitions = kwargs['noncurrentVersionTransitions']
+        if 'objectSizeGreaterThan' in kwargs:
+            object_size_greater_than = kwargs['objectSizeGreaterThan']
+        if 'objectSizeLessThan' in kwargs:
+            object_size_less_than = kwargs['objectSizeLessThan']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         _setter("status", status)
         if abort_incomplete_multipart_upload is not None:
             _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
@@ -3088,7 +3332,9 @@ class BucketS3KeyFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: Sequence['outputs.BucketFilterRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -3138,7 +3384,13 @@ class BucketServerSideEncryptionByDefault(dict):
              _setter: Callable[[Any, Any], None],
              sse_algorithm: 'BucketServerSideEncryptionByDefaultSseAlgorithm',
              kms_master_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseAlgorithm' in kwargs:
+            sse_algorithm = kwargs['sseAlgorithm']
+        if 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+
         _setter("sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
             _setter("kms_master_key_id", kms_master_key_id)
@@ -3198,7 +3450,13 @@ class BucketServerSideEncryptionRule(dict):
              _setter: Callable[[Any, Any], None],
              bucket_key_enabled: Optional[bool] = None,
              server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionByDefault'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketKeyEnabled' in kwargs:
+            bucket_key_enabled = kwargs['bucketKeyEnabled']
+        if 'serverSideEncryptionByDefault' in kwargs:
+            server_side_encryption_by_default = kwargs['serverSideEncryptionByDefault']
+
         if bucket_key_enabled is not None:
             _setter("bucket_key_enabled", bucket_key_enabled)
         if server_side_encryption_by_default is not None:
@@ -3260,7 +3518,13 @@ class BucketSourceSelectionCriteria(dict):
              _setter: Callable[[Any, Any], None],
              replica_modifications: Optional['outputs.BucketReplicaModifications'] = None,
              sse_kms_encrypted_objects: Optional['outputs.BucketSseKmsEncryptedObjects'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicaModifications' in kwargs:
+            replica_modifications = kwargs['replicaModifications']
+        if 'sseKmsEncryptedObjects' in kwargs:
+            sse_kms_encrypted_objects = kwargs['sseKmsEncryptedObjects']
+
         if replica_modifications is not None:
             _setter("replica_modifications", replica_modifications)
         if sse_kms_encrypted_objects is not None:
@@ -3302,7 +3566,9 @@ class BucketSseKmsEncryptedObjects(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: 'BucketSseKmsEncryptedObjectsStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -3349,7 +3615,11 @@ class BucketStorageClassAnalysis(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_export: Optional['outputs.BucketDataExport'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataExport' in kwargs:
+            data_export = kwargs['dataExport']
+
         if data_export is not None:
             _setter("data_export", data_export)
 
@@ -3374,7 +3644,9 @@ class BucketTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3410,7 +3682,9 @@ class BucketTagFilter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3461,7 +3735,11 @@ class BucketTiering(dict):
              _setter: Callable[[Any, Any], None],
              access_tier: 'BucketTieringAccessTier',
              days: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+
         _setter("access_tier", access_tier)
         _setter("days", days)
 
@@ -3509,7 +3787,9 @@ class BucketTopicConfiguration(dict):
              event: str,
              topic: str,
              filter: Optional['outputs.BucketNotificationFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("event", event)
         _setter("topic", topic)
         if filter is not None:
@@ -3585,7 +3865,15 @@ class BucketTransition(dict):
              storage_class: 'BucketTransitionStorageClass',
              transition_date: Optional[str] = None,
              transition_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if 'transitionDate' in kwargs:
+            transition_date = kwargs['transitionDate']
+        if 'transitionInDays' in kwargs:
+            transition_in_days = kwargs['transitionInDays']
+
         _setter("storage_class", storage_class)
         if transition_date is not None:
             _setter("transition_date", transition_date)
@@ -3627,7 +3915,9 @@ class BucketVersioningConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: 'BucketVersioningConfigurationStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -3691,7 +3981,17 @@ class BucketWebsiteConfiguration(dict):
              index_document: Optional[str] = None,
              redirect_all_requests_to: Optional['outputs.BucketRedirectAllRequestsTo'] = None,
              routing_rules: Optional[Sequence['outputs.BucketRoutingRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorDocument' in kwargs:
+            error_document = kwargs['errorDocument']
+        if 'indexDocument' in kwargs:
+            index_document = kwargs['indexDocument']
+        if 'redirectAllRequestsTo' in kwargs:
+            redirect_all_requests_to = kwargs['redirectAllRequestsTo']
+        if 'routingRules' in kwargs:
+            routing_rules = kwargs['routingRules']
+
         if error_document is not None:
             _setter("error_document", error_document)
         if index_document is not None:
@@ -3783,7 +4083,17 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
              block_public_policy: Optional[bool] = None,
              ignore_public_acls: Optional[bool] = None,
              restrict_public_buckets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
         if block_public_acls is not None:
             _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -3863,7 +4173,11 @@ class MultiRegionAccessPointRegion(dict):
              _setter: Callable[[Any, Any], None],
              bucket: str,
              bucket_account_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketAccountId' in kwargs:
+            bucket_account_id = kwargs['bucketAccountId']
+
         _setter("bucket", bucket)
         if bucket_account_id is not None:
             _setter("bucket_account_id", bucket_account_id)
@@ -3915,7 +4229,11 @@ class PolicyStatusProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_public: 'MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isPublic' in kwargs:
+            is_public = kwargs['isPublic']
+
         _setter("is_public", is_public)
 
     @property
@@ -3982,7 +4300,19 @@ class StorageLensAccountLevel(dict):
              advanced_cost_optimization_metrics: Optional['outputs.StorageLensAdvancedCostOptimizationMetrics'] = None,
              advanced_data_protection_metrics: Optional['outputs.StorageLensAdvancedDataProtectionMetrics'] = None,
              detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketLevel' in kwargs:
+            bucket_level = kwargs['bucketLevel']
+        if 'activityMetrics' in kwargs:
+            activity_metrics = kwargs['activityMetrics']
+        if 'advancedCostOptimizationMetrics' in kwargs:
+            advanced_cost_optimization_metrics = kwargs['advancedCostOptimizationMetrics']
+        if 'advancedDataProtectionMetrics' in kwargs:
+            advanced_data_protection_metrics = kwargs['advancedDataProtectionMetrics']
+        if 'detailedStatusCodesMetrics' in kwargs:
+            detailed_status_codes_metrics = kwargs['detailedStatusCodesMetrics']
+
         _setter("bucket_level", bucket_level)
         if activity_metrics is not None:
             _setter("activity_metrics", activity_metrics)
@@ -4055,7 +4385,11 @@ class StorageLensActivityMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if is_enabled is not None:
             _setter("is_enabled", is_enabled)
 
@@ -4104,7 +4438,11 @@ class StorageLensAdvancedCostOptimizationMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if is_enabled is not None:
             _setter("is_enabled", is_enabled)
 
@@ -4153,7 +4491,11 @@ class StorageLensAdvancedDataProtectionMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if is_enabled is not None:
             _setter("is_enabled", is_enabled)
 
@@ -4184,7 +4526,9 @@ class StorageLensAwsOrg(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -4248,7 +4592,19 @@ class StorageLensBucketLevel(dict):
              advanced_data_protection_metrics: Optional['outputs.StorageLensAdvancedDataProtectionMetrics'] = None,
              detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None,
              prefix_level: Optional['outputs.StorageLensPrefixLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activityMetrics' in kwargs:
+            activity_metrics = kwargs['activityMetrics']
+        if 'advancedCostOptimizationMetrics' in kwargs:
+            advanced_cost_optimization_metrics = kwargs['advancedCostOptimizationMetrics']
+        if 'advancedDataProtectionMetrics' in kwargs:
+            advanced_data_protection_metrics = kwargs['advancedDataProtectionMetrics']
+        if 'detailedStatusCodesMetrics' in kwargs:
+            detailed_status_codes_metrics = kwargs['detailedStatusCodesMetrics']
+        if 'prefixLevel' in kwargs:
+            prefix_level = kwargs['prefixLevel']
+
         if activity_metrics is not None:
             _setter("activity_metrics", activity_metrics)
         if advanced_cost_optimization_metrics is not None:
@@ -4307,7 +4663,9 @@ class StorageLensBucketsAndRegions(dict):
              _setter: Callable[[Any, Any], None],
              buckets: Optional[Sequence[str]] = None,
              regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if buckets is not None:
             _setter("buckets", buckets)
         if regions is not None:
@@ -4360,7 +4718,11 @@ class StorageLensCloudWatchMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         _setter("is_enabled", is_enabled)
 
     @property
@@ -4438,7 +4800,19 @@ class StorageLensConfiguration(dict):
              exclude: Optional['outputs.StorageLensBucketsAndRegions'] = None,
              include: Optional['outputs.StorageLensBucketsAndRegions'] = None,
              storage_lens_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLevel' in kwargs:
+            account_level = kwargs['accountLevel']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'awsOrg' in kwargs:
+            aws_org = kwargs['awsOrg']
+        if 'dataExport' in kwargs:
+            data_export = kwargs['dataExport']
+        if 'storageLensArn' in kwargs:
+            storage_lens_arn = kwargs['storageLensArn']
+
         _setter("account_level", account_level)
         _setter("id", id)
         _setter("is_enabled", is_enabled)
@@ -4540,7 +4914,13 @@ class StorageLensDataExport(dict):
              _setter: Callable[[Any, Any], None],
              cloud_watch_metrics: Optional['outputs.StorageLensCloudWatchMetrics'] = None,
              s3_bucket_destination: Optional['outputs.StorageLensS3BucketDestination'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchMetrics' in kwargs:
+            cloud_watch_metrics = kwargs['cloudWatchMetrics']
+        if 's3BucketDestination' in kwargs:
+            s3_bucket_destination = kwargs['s3BucketDestination']
+
         if cloud_watch_metrics is not None:
             _setter("cloud_watch_metrics", cloud_watch_metrics)
         if s3_bucket_destination is not None:
@@ -4593,7 +4973,11 @@ class StorageLensDetailedStatusCodesMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              is_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if is_enabled is not None:
             _setter("is_enabled", is_enabled)
 
@@ -4619,8 +5003,10 @@ class StorageLensEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -4658,7 +5044,11 @@ class StorageLensPrefixLevel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_metrics: 'outputs.StorageLensPrefixLevelStorageMetrics',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageMetrics' in kwargs:
+            storage_metrics = kwargs['storageMetrics']
+
         _setter("storage_metrics", storage_metrics)
 
     @property
@@ -4704,7 +5094,13 @@ class StorageLensPrefixLevelStorageMetrics(dict):
              _setter: Callable[[Any, Any], None],
              is_enabled: Optional[bool] = None,
              selection_criteria: Optional['outputs.StorageLensSelectionCriteria'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'selectionCriteria' in kwargs:
+            selection_criteria = kwargs['selectionCriteria']
+
         if is_enabled is not None:
             _setter("is_enabled", is_enabled)
         if selection_criteria is not None:
@@ -4781,7 +5177,13 @@ class StorageLensS3BucketDestination(dict):
              output_schema_version: 'StorageLensS3BucketDestinationOutputSchemaVersion',
              encryption: Optional['outputs.StorageLensEncryption'] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'outputSchemaVersion' in kwargs:
+            output_schema_version = kwargs['outputSchemaVersion']
+
         _setter("account_id", account_id)
         _setter("arn", arn)
         _setter("format", format)
@@ -4883,7 +5285,13 @@ class StorageLensSelectionCriteria(dict):
              delimiter: Optional[str] = None,
              max_depth: Optional[int] = None,
              min_storage_bytes_percentage: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxDepth' in kwargs:
+            max_depth = kwargs['maxDepth']
+        if 'minStorageBytesPercentage' in kwargs:
+            min_storage_bytes_percentage = kwargs['minStorageBytesPercentage']
+
         if delimiter is not None:
             _setter("delimiter", delimiter)
         if max_depth is not None:
@@ -4931,7 +5339,9 @@ class StorageLensTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

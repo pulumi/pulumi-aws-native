@@ -63,7 +63,21 @@ class ConfigurationTemplateArgs:
              platform_arn: Optional[pulumi.Input[str]] = None,
              solution_stack_name: Optional[pulumi.Input[str]] = None,
              source_configuration: Optional[pulumi.Input['ConfigurationTemplateSourceConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if 'platformArn' in kwargs:
+            platform_arn = kwargs['platformArn']
+        if 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+        if 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+
         _setter("application_name", application_name)
         if description is not None:
             _setter("description", description)

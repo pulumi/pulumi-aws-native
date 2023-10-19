@@ -37,7 +37,11 @@ class ApiGatewayManagedOverridesArgs:
              integration: Optional[pulumi.Input['ApiGatewayManagedOverridesIntegrationOverridesArgs']] = None,
              route: Optional[pulumi.Input['ApiGatewayManagedOverridesRouteOverridesArgs']] = None,
              stage: Optional[pulumi.Input['ApiGatewayManagedOverridesStageOverridesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         _setter("api_id", api_id)
         if integration is not None:
             _setter("integration", integration)

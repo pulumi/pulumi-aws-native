@@ -50,7 +50,19 @@ class ProvisioningTemplateArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningTemplateTagArgs']]]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
              template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisioningRoleArn' in kwargs:
+            provisioning_role_arn = kwargs['provisioningRoleArn']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if 'preProvisioningHook' in kwargs:
+            pre_provisioning_hook = kwargs['preProvisioningHook']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'templateType' in kwargs:
+            template_type = kwargs['templateType']
+
         _setter("provisioning_role_arn", provisioning_role_arn)
         _setter("template_body", template_body)
         if description is not None:

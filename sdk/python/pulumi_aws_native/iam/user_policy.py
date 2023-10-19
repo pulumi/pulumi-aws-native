@@ -35,7 +35,15 @@ class UserPolicyInitArgs:
              policy_name: pulumi.Input[str],
              user_name: pulumi.Input[str],
              policy_document: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("policy_name", policy_name)
         _setter("user_name", user_name)
         if policy_document is not None:

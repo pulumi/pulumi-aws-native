@@ -38,7 +38,11 @@ class PresetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'settingsJson' in kwargs:
+            settings_json = kwargs['settingsJson']
+
         _setter("settings_json", settings_json)
         if category is not None:
             _setter("category", category)

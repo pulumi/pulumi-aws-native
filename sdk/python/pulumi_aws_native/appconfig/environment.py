@@ -40,7 +40,11 @@ class EnvironmentArgs:
              monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorsArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
         _setter("application_id", application_id)
         if description is not None:
             _setter("description", description)

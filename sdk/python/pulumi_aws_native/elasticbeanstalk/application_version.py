@@ -37,7 +37,13 @@ class ApplicationVersionArgs:
              application_name: pulumi.Input[str],
              source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'sourceBundle' in kwargs:
+            source_bundle = kwargs['sourceBundle']
+
         _setter("application_name", application_name)
         _setter("source_bundle", source_bundle)
         if description is not None:

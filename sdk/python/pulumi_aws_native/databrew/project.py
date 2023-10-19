@@ -49,7 +49,15 @@ class ProjectArgs:
              name: Optional[pulumi.Input[str]] = None,
              sample: Optional[pulumi.Input['ProjectSampleArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if 'recipeName' in kwargs:
+            recipe_name = kwargs['recipeName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("dataset_name", dataset_name)
         _setter("recipe_name", recipe_name)
         _setter("role_arn", role_arn)

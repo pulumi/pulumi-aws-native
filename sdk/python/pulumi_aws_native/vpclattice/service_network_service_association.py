@@ -38,7 +38,15 @@ class ServiceNetworkServiceAssociationArgs:
              service_identifier: Optional[pulumi.Input[str]] = None,
              service_network_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsEntry' in kwargs:
+            dns_entry = kwargs['dnsEntry']
+        if 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+        if 'serviceNetworkIdentifier' in kwargs:
+            service_network_identifier = kwargs['serviceNetworkIdentifier']
+
         if dns_entry is not None:
             _setter("dns_entry", dns_entry)
         if service_identifier is not None:

@@ -50,7 +50,23 @@ class ApnsVoipChannelArgs:
              team_id: Optional[pulumi.Input[str]] = None,
              token_key: Optional[pulumi.Input[str]] = None,
              token_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'defaultAuthenticationMethod' in kwargs:
+            default_authentication_method = kwargs['defaultAuthenticationMethod']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'tokenKey' in kwargs:
+            token_key = kwargs['tokenKey']
+        if 'tokenKeyId' in kwargs:
+            token_key_id = kwargs['tokenKeyId']
+
         _setter("application_id", application_id)
         if bundle_id is not None:
             _setter("bundle_id", bundle_id)

@@ -42,7 +42,15 @@ class ProfileArgs:
              profile_type: pulumi.Input['ProfileType'],
              certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'as2Id' in kwargs:
+            as2_id = kwargs['as2Id']
+        if 'profileType' in kwargs:
+            profile_type = kwargs['profileType']
+        if 'certificateIds' in kwargs:
+            certificate_ids = kwargs['certificateIds']
+
         _setter("as2_id", as2_id)
         _setter("profile_type", profile_type)
         if certificate_ids is not None:

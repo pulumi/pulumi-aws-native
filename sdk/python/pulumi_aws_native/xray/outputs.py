@@ -57,7 +57,13 @@ class GroupInsightsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              insights_enabled: Optional[bool] = None,
              notifications_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insightsEnabled' in kwargs:
+            insights_enabled = kwargs['insightsEnabled']
+        if 'notificationsEnabled' in kwargs:
+            notifications_enabled = kwargs['notificationsEnabled']
+
         if insights_enabled is not None:
             _setter("insights_enabled", insights_enabled)
         if notifications_enabled is not None:
@@ -99,7 +105,9 @@ class GroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -214,7 +222,27 @@ class SamplingRule(dict):
              rule_arn: Optional[str] = None,
              rule_name: Optional[str] = None,
              version: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+        if 'ruleArn' in kwargs:
+            rule_arn = kwargs['ruleArn']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("fixed_rate", fixed_rate)
         _setter("host", host)
         _setter("http_method", http_method)
@@ -375,7 +403,15 @@ class SamplingRuleRecord(dict):
              created_at: Optional[str] = None,
              modified_at: Optional[str] = None,
              sampling_rule: Optional['outputs.SamplingRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'modifiedAt' in kwargs:
+            modified_at = kwargs['modifiedAt']
+        if 'samplingRule' in kwargs:
+            sampling_rule = kwargs['samplingRule']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if modified_at is not None:
@@ -424,7 +460,9 @@ class SamplingRuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -535,7 +573,27 @@ class SamplingRuleUpdate(dict):
              service_name: Optional[str] = None,
              service_type: Optional[str] = None,
              url_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'ruleArn' in kwargs:
+            rule_arn = kwargs['ruleArn']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+
         if attributes is not None:
             _setter("attributes", attributes)
         if fixed_rate is not None:

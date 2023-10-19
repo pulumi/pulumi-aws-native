@@ -31,7 +31,13 @@ class TransitGatewayRegistrationArgs:
              _setter: Callable[[Any, Any], None],
              global_network_id: pulumi.Input[str],
              transit_gateway_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+
         _setter("global_network_id", global_network_id)
         _setter("transit_gateway_arn", transit_gateway_arn)
 

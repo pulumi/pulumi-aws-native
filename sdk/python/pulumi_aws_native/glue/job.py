@@ -85,7 +85,35 @@ class JobArgs:
              tags: Optional[Any] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocatedCapacity' in kwargs:
+            allocated_capacity = kwargs['allocatedCapacity']
+        if 'defaultArguments' in kwargs:
+            default_arguments = kwargs['defaultArguments']
+        if 'executionClass' in kwargs:
+            execution_class = kwargs['executionClass']
+        if 'executionProperty' in kwargs:
+            execution_property = kwargs['executionProperty']
+        if 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if 'logUri' in kwargs:
+            log_uri = kwargs['logUri']
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'nonOverridableArguments' in kwargs:
+            non_overridable_arguments = kwargs['nonOverridableArguments']
+        if 'notificationProperty' in kwargs:
+            notification_property = kwargs['notificationProperty']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("command", command)
         _setter("role", role)
         if allocated_capacity is not None:

@@ -45,7 +45,11 @@ class IpSetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddressVersion' in kwargs:
+            ip_address_version = kwargs['ipAddressVersion']
+
         _setter("addresses", addresses)
         _setter("ip_address_version", ip_address_version)
         _setter("scope", scope)

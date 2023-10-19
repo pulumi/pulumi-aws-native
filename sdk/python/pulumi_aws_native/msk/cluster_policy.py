@@ -31,7 +31,11 @@ class ClusterPolicyArgs:
              _setter: Callable[[Any, Any], None],
              cluster_arn: pulumi.Input[str],
              policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+
         _setter("cluster_arn", cluster_arn)
         _setter("policy", policy)
 

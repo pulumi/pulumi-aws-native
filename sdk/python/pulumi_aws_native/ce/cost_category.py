@@ -42,7 +42,15 @@ class CostCategoryArgs:
              default_value: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              split_charge_rules: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'splitChargeRules' in kwargs:
+            split_charge_rules = kwargs['splitChargeRules']
+
         _setter("rule_version", rule_version)
         _setter("rules", rules)
         if default_value is not None:

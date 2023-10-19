@@ -79,7 +79,33 @@ class LoadBalancerArgs:
              source_security_group_owner_alias: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLoggingPolicy' in kwargs:
+            access_logging_policy = kwargs['accessLoggingPolicy']
+        if 'appCookieStickinessPolicy' in kwargs:
+            app_cookie_stickiness_policy = kwargs['appCookieStickinessPolicy']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'connectionDrainingPolicy' in kwargs:
+            connection_draining_policy = kwargs['connectionDrainingPolicy']
+        if 'connectionSettings' in kwargs:
+            connection_settings = kwargs['connectionSettings']
+        if 'crossZone' in kwargs:
+            cross_zone = kwargs['crossZone']
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if 'lbCookieStickinessPolicy' in kwargs:
+            lb_cookie_stickiness_policy = kwargs['lbCookieStickinessPolicy']
+        if 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sourceSecurityGroupGroupName' in kwargs:
+            source_security_group_group_name = kwargs['sourceSecurityGroupGroupName']
+        if 'sourceSecurityGroupOwnerAlias' in kwargs:
+            source_security_group_owner_alias = kwargs['sourceSecurityGroupOwnerAlias']
+
         _setter("listeners", listeners)
         if access_logging_policy is not None:
             _setter("access_logging_policy", access_logging_policy)

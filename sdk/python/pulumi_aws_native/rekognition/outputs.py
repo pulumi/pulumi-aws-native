@@ -46,7 +46,9 @@ class CollectionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -94,7 +96,9 @@ class StreamProcessorBoundingBox(dict):
              left: float,
              top: float,
              width: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("height", height)
         _setter("left", left)
         _setter("top", top)
@@ -160,7 +164,11 @@ class StreamProcessorConnectedHomeSettings(dict):
              _setter: Callable[[Any, Any], None],
              labels: Sequence[str],
              min_confidence: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minConfidence' in kwargs:
+            min_confidence = kwargs['minConfidence']
+
         _setter("labels", labels)
         if min_confidence is not None:
             _setter("min_confidence", min_confidence)
@@ -215,7 +223,11 @@ class StreamProcessorDataSharingPreference(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              opt_in: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optIn' in kwargs:
+            opt_in = kwargs['optIn']
+
         _setter("opt_in", opt_in)
 
     @property
@@ -269,7 +281,13 @@ class StreamProcessorFaceSearchSettings(dict):
              _setter: Callable[[Any, Any], None],
              collection_id: str,
              face_match_threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if 'faceMatchThreshold' in kwargs:
+            face_match_threshold = kwargs['faceMatchThreshold']
+
         _setter("collection_id", collection_id)
         if face_match_threshold is not None:
             _setter("face_match_threshold", face_match_threshold)
@@ -310,7 +328,9 @@ class StreamProcessorKinesisDataStream(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -341,7 +361,9 @@ class StreamProcessorKinesisVideoStream(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -372,7 +394,9 @@ class StreamProcessorNotificationChannel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -407,7 +431,9 @@ class StreamProcessorPoint(dict):
              _setter: Callable[[Any, Any], None],
              x: float,
              y: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("x", x)
         _setter("y", y)
 
@@ -470,7 +496,13 @@ class StreamProcessorS3Destination(dict):
              _setter: Callable[[Any, Any], None],
              bucket_name: str,
              object_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         if object_key_prefix is not None:
             _setter("object_key_prefix", object_key_prefix)
@@ -515,7 +547,9 @@ class StreamProcessorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

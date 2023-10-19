@@ -41,7 +41,9 @@ class TargetGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if config is not None:
             _setter("config", config)

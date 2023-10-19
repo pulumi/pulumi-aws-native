@@ -44,7 +44,13 @@ class DevicePoolArgs:
              max_devices: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if 'maxDevices' in kwargs:
+            max_devices = kwargs['maxDevices']
+
         _setter("project_arn", project_arn)
         _setter("rules", rules)
         if description is not None:

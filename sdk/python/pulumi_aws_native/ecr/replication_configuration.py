@@ -29,7 +29,11 @@ class ReplicationConfigurationInitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              replication_configuration: pulumi.Input['ReplicationConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+
         _setter("replication_configuration", replication_configuration)
 
     @property

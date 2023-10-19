@@ -38,7 +38,11 @@ class DocumentationPartArgs:
              location: pulumi.Input['DocumentationPartLocationArgs'],
              properties: pulumi.Input[str],
              rest_api_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+
         _setter("location", location)
         _setter("properties", properties)
         _setter("rest_api_id", rest_api_id)

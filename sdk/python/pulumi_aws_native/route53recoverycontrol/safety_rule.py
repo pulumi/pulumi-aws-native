@@ -46,7 +46,17 @@ class SafetyRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyRuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assertionRule' in kwargs:
+            assertion_rule = kwargs['assertionRule']
+        if 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+        if 'gatingRule' in kwargs:
+            gating_rule = kwargs['gatingRule']
+        if 'ruleConfig' in kwargs:
+            rule_config = kwargs['ruleConfig']
+
         if assertion_rule is not None:
             _setter("assertion_rule", assertion_rule)
         if control_panel_arn is not None:

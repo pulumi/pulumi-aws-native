@@ -32,7 +32,15 @@ class SecurityGroupIngressArgs:
              cache_security_group_name: pulumi.Input[str],
              ec2_security_group_name: pulumi.Input[str],
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheSecurityGroupName' in kwargs:
+            cache_security_group_name = kwargs['cacheSecurityGroupName']
+        if 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         _setter("cache_security_group_name", cache_security_group_name)
         _setter("ec2_security_group_name", ec2_security_group_name)
         if ec2_security_group_owner_id is not None:

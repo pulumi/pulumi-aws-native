@@ -39,7 +39,17 @@ class VpcEndpointConnectionNotificationArgs:
              connection_notification_arn: pulumi.Input[str],
              service_id: Optional[pulumi.Input[str]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionEvents' in kwargs:
+            connection_events = kwargs['connectionEvents']
+        if 'connectionNotificationArn' in kwargs:
+            connection_notification_arn = kwargs['connectionNotificationArn']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         _setter("connection_events", connection_events)
         _setter("connection_notification_arn", connection_notification_arn)
         if service_id is not None:

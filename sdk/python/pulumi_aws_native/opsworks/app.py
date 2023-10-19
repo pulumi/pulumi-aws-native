@@ -61,7 +61,19 @@ class AppArgs:
              name: Optional[pulumi.Input[str]] = None,
              shortname: Optional[pulumi.Input[str]] = None,
              ssl_configuration: Optional[pulumi.Input['AppSslConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'appSource' in kwargs:
+            app_source = kwargs['appSource']
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'enableSsl' in kwargs:
+            enable_ssl = kwargs['enableSsl']
+        if 'sslConfiguration' in kwargs:
+            ssl_configuration = kwargs['sslConfiguration']
+
         _setter("stack_id", stack_id)
         _setter("type", type)
         if app_source is not None:

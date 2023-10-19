@@ -46,7 +46,17 @@ class HookVersionArgs:
              type_name: pulumi.Input[str],
              execution_role_arn: Optional[pulumi.Input[str]] = None,
              logging_config: Optional[pulumi.Input['HookVersionLoggingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaHandlerPackage' in kwargs:
+            schema_handler_package = kwargs['schemaHandlerPackage']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+
         _setter("schema_handler_package", schema_handler_package)
         _setter("type_name", type_name)
         if execution_role_arn is not None:

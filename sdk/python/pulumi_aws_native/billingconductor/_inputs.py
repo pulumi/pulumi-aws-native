@@ -41,7 +41,13 @@ class BillingGroupAccountGroupingArgs:
              _setter: Callable[[Any, Any], None],
              linked_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              auto_associate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedAccountIds' in kwargs:
+            linked_account_ids = kwargs['linkedAccountIds']
+        if 'autoAssociate' in kwargs:
+            auto_associate = kwargs['autoAssociate']
+
         _setter("linked_account_ids", linked_account_ids)
         if auto_associate is not None:
             _setter("auto_associate", auto_associate)
@@ -80,7 +86,11 @@ class BillingGroupComputationPreferenceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pricing_plan_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pricingPlanArn' in kwargs:
+            pricing_plan_arn = kwargs['pricingPlanArn']
+
         _setter("pricing_plan_arn", pricing_plan_arn)
 
     @property
@@ -111,7 +121,9 @@ class BillingGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -149,7 +161,13 @@ class CustomLineItemBillingPeriodRangeArgs:
              _setter: Callable[[Any, Any], None],
              exclusive_end_billing_period: Optional[pulumi.Input[str]] = None,
              inclusive_start_billing_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exclusiveEndBillingPeriod' in kwargs:
+            exclusive_end_billing_period = kwargs['exclusiveEndBillingPeriod']
+        if 'inclusiveStartBillingPeriod' in kwargs:
+            inclusive_start_billing_period = kwargs['inclusiveStartBillingPeriod']
+
         if exclusive_end_billing_period is not None:
             _setter("exclusive_end_billing_period", exclusive_end_billing_period)
         if inclusive_start_billing_period is not None:
@@ -195,7 +213,11 @@ class CustomLineItemChargeDetailsArgs:
              flat: Optional[pulumi.Input['CustomLineItemFlatChargeDetailsArgs']] = None,
              line_item_filters: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterArgs']]]] = None,
              percentage: Optional[pulumi.Input['CustomLineItemPercentageChargeDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lineItemFilters' in kwargs:
+            line_item_filters = kwargs['lineItemFilters']
+
         _setter("type", type)
         if flat is not None:
             _setter("flat", flat)
@@ -253,7 +275,11 @@ class CustomLineItemFlatChargeDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              charge_value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chargeValue' in kwargs:
+            charge_value = kwargs['chargeValue']
+
         _setter("charge_value", charge_value)
 
     @property
@@ -284,7 +310,11 @@ class CustomLineItemLineItemFilterArgs:
              attribute: pulumi.Input['CustomLineItemLineItemFilterAttribute'],
              match_option: pulumi.Input['CustomLineItemLineItemFilterMatchOption'],
              values: pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchOption' in kwargs:
+            match_option = kwargs['matchOption']
+
         _setter("attribute", attribute)
         _setter("match_option", match_option)
         _setter("values", values)
@@ -332,7 +362,13 @@ class CustomLineItemPercentageChargeDetailsArgs:
              _setter: Callable[[Any, Any], None],
              percentage_value: pulumi.Input[float],
              child_associated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'percentageValue' in kwargs:
+            percentage_value = kwargs['percentageValue']
+        if 'childAssociatedResources' in kwargs:
+            child_associated_resources = kwargs['childAssociatedResources']
+
         _setter("percentage_value", percentage_value)
         if child_associated_resources is not None:
             _setter("child_associated_resources", child_associated_resources)
@@ -371,7 +407,9 @@ class CustomLineItemTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -409,7 +447,9 @@ class PricingPlanTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -447,7 +487,9 @@ class PricingRuleFreeTierArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              activated: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("activated", activated)
 
     @property
@@ -475,7 +517,9 @@ class PricingRuleTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -513,7 +557,11 @@ class TieringPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              free_tier: Optional[pulumi.Input['PricingRuleFreeTierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'freeTier' in kwargs:
+            free_tier = kwargs['freeTier']
+
         if free_tier is not None:
             _setter("free_tier", free_tier)
 

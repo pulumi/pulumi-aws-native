@@ -62,7 +62,19 @@ class QueueArgs:
              quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input['QueueStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hoursOfOperationArn' in kwargs:
+            hours_of_operation_arn = kwargs['hoursOfOperationArn']
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'maxContacts' in kwargs:
+            max_contacts = kwargs['maxContacts']
+        if 'outboundCallerConfig' in kwargs:
+            outbound_caller_config = kwargs['outboundCallerConfig']
+        if 'quickConnectArns' in kwargs:
+            quick_connect_arns = kwargs['quickConnectArns']
+
         _setter("hours_of_operation_arn", hours_of_operation_arn)
         _setter("instance_arn", instance_arn)
         if description is not None:

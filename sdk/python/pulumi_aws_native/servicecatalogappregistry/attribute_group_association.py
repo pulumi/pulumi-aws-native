@@ -31,7 +31,11 @@ class AttributeGroupAssociationArgs:
              _setter: Callable[[Any, Any], None],
              application: pulumi.Input[str],
              attribute_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeGroup' in kwargs:
+            attribute_group = kwargs['attributeGroup']
+
         _setter("application", application)
         _setter("attribute_group", attribute_group)
 

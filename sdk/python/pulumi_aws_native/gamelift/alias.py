@@ -38,7 +38,11 @@ class AliasArgs:
              routing_strategy: pulumi.Input['AliasRoutingStrategyArgs'],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingStrategy' in kwargs:
+            routing_strategy = kwargs['routingStrategy']
+
         _setter("routing_strategy", routing_strategy)
         if description is not None:
             _setter("description", description)

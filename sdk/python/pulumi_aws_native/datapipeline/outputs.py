@@ -61,7 +61,13 @@ class PipelineField(dict):
              key: str,
              ref_value: Optional[str] = None,
              string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         if ref_value is not None:
             _setter("ref_value", ref_value)
@@ -116,7 +122,9 @@ class PipelineObject(dict):
              fields: Sequence['outputs.PipelineField'],
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("fields", fields)
         _setter("id", id)
         _setter("name", name)
@@ -182,7 +190,11 @@ class PipelineParameterAttribute(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              string_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         _setter("string_value", string_value)
 
@@ -222,7 +234,9 @@ class PipelineParameterObject(dict):
              _setter: Callable[[Any, Any], None],
              attributes: Sequence['outputs.PipelineParameterAttribute'],
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("id", id)
 
@@ -279,7 +293,11 @@ class PipelineParameterValue(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              string_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("id", id)
         _setter("string_value", string_value)
 
@@ -319,7 +337,9 @@ class PipelineTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -66,7 +66,23 @@ class ScheduleArgs:
              schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['ScheduleState']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flexibleTimeWindow' in kwargs:
+            flexible_time_window = kwargs['flexibleTimeWindow']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'scheduleExpressionTimezone' in kwargs:
+            schedule_expression_timezone = kwargs['scheduleExpressionTimezone']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("flexible_time_window", flexible_time_window)
         _setter("schedule_expression", schedule_expression)
         _setter("target", target)

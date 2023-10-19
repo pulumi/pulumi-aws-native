@@ -46,7 +46,21 @@ class EndpointArgs:
              retain_all_variant_properties: Optional[pulumi.Input[bool]] = None,
              retain_deployment_config: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointConfigName' in kwargs:
+            endpoint_config_name = kwargs['endpointConfigName']
+        if 'deploymentConfig' in kwargs:
+            deployment_config = kwargs['deploymentConfig']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'excludeRetainedVariantProperties' in kwargs:
+            exclude_retained_variant_properties = kwargs['excludeRetainedVariantProperties']
+        if 'retainAllVariantProperties' in kwargs:
+            retain_all_variant_properties = kwargs['retainAllVariantProperties']
+        if 'retainDeploymentConfig' in kwargs:
+            retain_deployment_config = kwargs['retainDeploymentConfig']
+
         _setter("endpoint_config_name", endpoint_config_name)
         if deployment_config is not None:
             _setter("deployment_config", deployment_config)

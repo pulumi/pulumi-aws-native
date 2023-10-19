@@ -52,7 +52,21 @@ class NetworkAclEntryArgs:
              icmp: Optional[pulumi.Input['NetworkAclEntryIcmpArgs']] = None,
              ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
              port_range: Optional[pulumi.Input['NetworkAclEntryPortRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if 'ruleAction' in kwargs:
+            rule_action = kwargs['ruleAction']
+        if 'ruleNumber' in kwargs:
+            rule_number = kwargs['ruleNumber']
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("network_acl_id", network_acl_id)
         _setter("protocol", protocol)
         _setter("rule_action", rule_action)

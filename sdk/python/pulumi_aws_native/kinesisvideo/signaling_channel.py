@@ -42,7 +42,11 @@ class SignalingChannelArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalingChannelTagArgs']]]] = None,
              type: Optional[pulumi.Input['SignalingChannelType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageTtlSeconds' in kwargs:
+            message_ttl_seconds = kwargs['messageTtlSeconds']
+
         if message_ttl_seconds is not None:
             _setter("message_ttl_seconds", message_ttl_seconds)
         if name is not None:

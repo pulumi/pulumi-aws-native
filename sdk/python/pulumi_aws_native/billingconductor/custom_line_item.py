@@ -45,7 +45,15 @@ class CustomLineItemArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingGroupArn' in kwargs:
+            billing_group_arn = kwargs['billingGroupArn']
+        if 'billingPeriodRange' in kwargs:
+            billing_period_range = kwargs['billingPeriodRange']
+        if 'customLineItemChargeDetails' in kwargs:
+            custom_line_item_charge_details = kwargs['customLineItemChargeDetails']
+
         _setter("billing_group_arn", billing_group_arn)
         if billing_period_range is not None:
             _setter("billing_period_range", billing_period_range)

@@ -37,7 +37,11 @@ class TestGridProjectArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TestGridProjectTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

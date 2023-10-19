@@ -48,7 +48,21 @@ class RouteArgs:
              default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
              uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if 'routeType' in kwargs:
+            route_type = kwargs['routeType']
+        if 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+        if 'defaultRoute' in kwargs:
+            default_route = kwargs['defaultRoute']
+        if 'uriPathRoute' in kwargs:
+            uri_path_route = kwargs['uriPathRoute']
+
         _setter("application_identifier", application_identifier)
         _setter("environment_identifier", environment_identifier)
         _setter("route_type", route_type)

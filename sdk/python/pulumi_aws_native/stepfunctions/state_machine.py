@@ -56,7 +56,25 @@ class StateMachineArgs:
              state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]] = None,
              tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'definitionS3Location' in kwargs:
+            definition_s3_location = kwargs['definitionS3Location']
+        if 'definitionString' in kwargs:
+            definition_string = kwargs['definitionString']
+        if 'definitionSubstitutions' in kwargs:
+            definition_substitutions = kwargs['definitionSubstitutions']
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if 'stateMachineName' in kwargs:
+            state_machine_name = kwargs['stateMachineName']
+        if 'stateMachineType' in kwargs:
+            state_machine_type = kwargs['stateMachineType']
+        if 'tracingConfiguration' in kwargs:
+            tracing_configuration = kwargs['tracingConfiguration']
+
         _setter("role_arn", role_arn)
         if definition is not None:
             _setter("definition", definition)

@@ -54,7 +54,19 @@ class PartnerAccountArgs:
              sidewalk_response: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] = None,
              sidewalk_update: Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountLinked' in kwargs:
+            account_linked = kwargs['accountLinked']
+        if 'partnerAccountId' in kwargs:
+            partner_account_id = kwargs['partnerAccountId']
+        if 'partnerType' in kwargs:
+            partner_type = kwargs['partnerType']
+        if 'sidewalkResponse' in kwargs:
+            sidewalk_response = kwargs['sidewalkResponse']
+        if 'sidewalkUpdate' in kwargs:
+            sidewalk_update = kwargs['sidewalkUpdate']
+
         if account_linked is not None:
             _setter("account_linked", account_linked)
         if partner_account_id is not None:

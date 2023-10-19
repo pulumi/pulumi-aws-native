@@ -29,7 +29,13 @@ class TrackerConsumerArgs:
              _setter: Callable[[Any, Any], None],
              consumer_arn: pulumi.Input[str],
              tracker_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
         _setter("consumer_arn", consumer_arn)
         _setter("tracker_name", tracker_name)
 

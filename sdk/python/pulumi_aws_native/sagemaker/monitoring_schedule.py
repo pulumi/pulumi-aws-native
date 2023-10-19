@@ -51,7 +51,21 @@ class MonitoringScheduleArgs:
              monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
              monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitoringScheduleConfig' in kwargs:
+            monitoring_schedule_config = kwargs['monitoringScheduleConfig']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if 'lastMonitoringExecutionSummary' in kwargs:
+            last_monitoring_execution_summary = kwargs['lastMonitoringExecutionSummary']
+        if 'monitoringScheduleName' in kwargs:
+            monitoring_schedule_name = kwargs['monitoringScheduleName']
+        if 'monitoringScheduleStatus' in kwargs:
+            monitoring_schedule_status = kwargs['monitoringScheduleStatus']
+
         _setter("monitoring_schedule_config", monitoring_schedule_config)
         if endpoint_name is not None:
             _setter("endpoint_name", endpoint_name)

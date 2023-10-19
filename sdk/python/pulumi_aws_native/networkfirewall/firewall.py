@@ -52,7 +52,23 @@ class FirewallArgs:
              firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
              subnet_change_protection: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallPolicyArn' in kwargs:
+            firewall_policy_arn = kwargs['firewallPolicyArn']
+        if 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if 'firewallName' in kwargs:
+            firewall_name = kwargs['firewallName']
+        if 'firewallPolicyChangeProtection' in kwargs:
+            firewall_policy_change_protection = kwargs['firewallPolicyChangeProtection']
+        if 'subnetChangeProtection' in kwargs:
+            subnet_change_protection = kwargs['subnetChangeProtection']
+
         _setter("firewall_policy_arn", firewall_policy_arn)
         _setter("subnet_mappings", subnet_mappings)
         _setter("vpc_id", vpc_id)

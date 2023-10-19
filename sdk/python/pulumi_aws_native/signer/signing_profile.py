@@ -38,7 +38,13 @@ class SigningProfileArgs:
              platform_id: pulumi.Input['SigningProfilePlatformId'],
              signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'platformId' in kwargs:
+            platform_id = kwargs['platformId']
+        if 'signatureValidityPeriod' in kwargs:
+            signature_validity_period = kwargs['signatureValidityPeriod']
+
         _setter("platform_id", platform_id)
         if signature_validity_period is not None:
             _setter("signature_validity_period", signature_validity_period)

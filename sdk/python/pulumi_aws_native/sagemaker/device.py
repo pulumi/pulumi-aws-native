@@ -37,7 +37,11 @@ class DeviceInitArgs:
              device_fleet_name: pulumi.Input[str],
              device: Optional[pulumi.Input['DeviceArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+
         _setter("device_fleet_name", device_fleet_name)
         if device is not None:
             _setter("device", device)

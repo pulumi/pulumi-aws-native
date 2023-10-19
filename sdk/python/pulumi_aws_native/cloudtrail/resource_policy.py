@@ -31,7 +31,13 @@ class ResourcePolicyArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              resource_policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'resourcePolicy' in kwargs:
+            resource_policy = kwargs['resourcePolicy']
+
         _setter("resource_arn", resource_arn)
         _setter("resource_policy", resource_policy)
 

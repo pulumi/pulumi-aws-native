@@ -54,7 +54,19 @@ class SecurityProfileArgs:
              security_profile_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
              target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMetricsToRetainV2' in kwargs:
+            additional_metrics_to_retain_v2 = kwargs['additionalMetricsToRetainV2']
+        if 'alertTargets' in kwargs:
+            alert_targets = kwargs['alertTargets']
+        if 'securityProfileDescription' in kwargs:
+            security_profile_description = kwargs['securityProfileDescription']
+        if 'securityProfileName' in kwargs:
+            security_profile_name = kwargs['securityProfileName']
+        if 'targetArns' in kwargs:
+            target_arns = kwargs['targetArns']
+
         if additional_metrics_to_retain_v2 is not None:
             _setter("additional_metrics_to_retain_v2", additional_metrics_to_retain_v2)
         if alert_targets is not None:

@@ -47,7 +47,15 @@ class HostedZoneArgs:
              name: Optional[pulumi.Input[str]] = None,
              query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
              vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneConfig' in kwargs:
+            hosted_zone_config = kwargs['hostedZoneConfig']
+        if 'hostedZoneTags' in kwargs:
+            hosted_zone_tags = kwargs['hostedZoneTags']
+        if 'queryLoggingConfig' in kwargs:
+            query_logging_config = kwargs['queryLoggingConfig']
+
         if hosted_zone_config is not None:
             _setter("hosted_zone_config", hosted_zone_config)
         if hosted_zone_tags is not None:

@@ -57,7 +57,23 @@ class ImageArgs:
              image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
              infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRecipeArn' in kwargs:
+            container_recipe_arn = kwargs['containerRecipeArn']
+        if 'distributionConfigurationArn' in kwargs:
+            distribution_configuration_arn = kwargs['distributionConfigurationArn']
+        if 'enhancedImageMetadataEnabled' in kwargs:
+            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
+        if 'imageRecipeArn' in kwargs:
+            image_recipe_arn = kwargs['imageRecipeArn']
+        if 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if 'imageTestsConfiguration' in kwargs:
+            image_tests_configuration = kwargs['imageTestsConfiguration']
+        if 'infrastructureConfigurationArn' in kwargs:
+            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
+
         if container_recipe_arn is not None:
             _setter("container_recipe_arn", container_recipe_arn)
         if distribution_configuration_arn is not None:

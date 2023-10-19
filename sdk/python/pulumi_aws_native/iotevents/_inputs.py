@@ -79,7 +79,9 @@ class AlarmModelAcknowledgeFlowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -135,7 +137,21 @@ class AlarmModelAlarmActionArgs:
              lambda_: Optional[pulumi.Input['AlarmModelLambdaArgs']] = None,
              sns: Optional[pulumi.Input['AlarmModelSnsArgs']] = None,
              sqs: Optional[pulumi.Input['AlarmModelSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamoDBv2' in kwargs:
+            dynamo_d_bv2 = kwargs['dynamoDBv2']
+        if 'dynamoDb' in kwargs:
+            dynamo_db = kwargs['dynamoDb']
+        if 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if 'iotSiteWise' in kwargs:
+            iot_site_wise = kwargs['iotSiteWise']
+        if 'iotTopicPublish' in kwargs:
+            iot_topic_publish = kwargs['iotTopicPublish']
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
         if dynamo_d_bv2 is not None:
             _setter("dynamo_d_bv2", dynamo_d_bv2)
         if dynamo_db is not None:
@@ -255,7 +271,13 @@ class AlarmModelAlarmCapabilitiesArgs:
              _setter: Callable[[Any, Any], None],
              acknowledge_flow: Optional[pulumi.Input['AlarmModelAcknowledgeFlowArgs']] = None,
              initialization_configuration: Optional[pulumi.Input['AlarmModelInitializationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgeFlow' in kwargs:
+            acknowledge_flow = kwargs['acknowledgeFlow']
+        if 'initializationConfiguration' in kwargs:
+            initialization_configuration = kwargs['initializationConfiguration']
+
         if acknowledge_flow is not None:
             _setter("acknowledge_flow", acknowledge_flow)
         if initialization_configuration is not None:
@@ -295,7 +317,11 @@ class AlarmModelAlarmEventActionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmModelAlarmActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+
         if alarm_actions is not None:
             _setter("alarm_actions", alarm_actions)
 
@@ -324,7 +350,11 @@ class AlarmModelAlarmRuleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              simple_rule: Optional[pulumi.Input['AlarmModelSimpleRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'simpleRule' in kwargs:
+            simple_rule = kwargs['simpleRule']
+
         if simple_rule is not None:
             _setter("simple_rule", simple_rule)
 
@@ -358,7 +388,13 @@ class AlarmModelAssetPropertyTimestampArgs:
              _setter: Callable[[Any, Any], None],
              time_in_seconds: pulumi.Input[str],
              offset_in_nanos: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInSeconds' in kwargs:
+            time_in_seconds = kwargs['timeInSeconds']
+        if 'offsetInNanos' in kwargs:
+            offset_in_nanos = kwargs['offsetInNanos']
+
         _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             _setter("offset_in_nanos", offset_in_nanos)
@@ -410,7 +446,9 @@ class AlarmModelAssetPropertyValueArgs:
              value: pulumi.Input['AlarmModelAssetPropertyVariantArgs'],
              quality: Optional[pulumi.Input[str]] = None,
              timestamp: Optional[pulumi.Input['AlarmModelAssetPropertyTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if quality is not None:
             _setter("quality", quality)
@@ -476,7 +514,17 @@ class AlarmModelAssetPropertyVariantArgs:
              double_value: Optional[pulumi.Input[str]] = None,
              integer_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if 'integerValue' in kwargs:
+            integer_value = kwargs['integerValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -556,7 +604,11 @@ class AlarmModelDynamoDBv2Args:
              _setter: Callable[[Any, Any], None],
              table_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("table_name", table_name)
         if payload is not None:
             _setter("payload", payload)
@@ -656,7 +708,25 @@ class AlarmModelDynamoDbArgs:
              range_key_field: Optional[pulumi.Input[str]] = None,
              range_key_type: Optional[pulumi.Input[str]] = None,
              range_key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
         _setter("hash_key_field", hash_key_field)
         _setter("hash_key_value", hash_key_value)
         _setter("table_name", table_name)
@@ -838,7 +908,11 @@ class AlarmModelFirehoseArgs:
              delivery_stream_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
              separator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+
         _setter("delivery_stream_name", delivery_stream_name)
         if payload is not None:
             _setter("payload", payload)
@@ -895,7 +969,11 @@ class AlarmModelInitializationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              disabled_on_initialization: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledOnInitialization' in kwargs:
+            disabled_on_initialization = kwargs['disabledOnInitialization']
+
         _setter("disabled_on_initialization", disabled_on_initialization)
 
     @property
@@ -930,7 +1008,11 @@ class AlarmModelIotEventsArgs:
              _setter: Callable[[Any, Any], None],
              input_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+
         _setter("input_name", input_name)
         if payload is not None:
             _setter("payload", payload)
@@ -988,7 +1070,19 @@ class AlarmModelIotSiteWiseArgs:
              property_alias: Optional[pulumi.Input[str]] = None,
              property_id: Optional[pulumi.Input[str]] = None,
              property_value: Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'entryId' in kwargs:
+            entry_id = kwargs['entryId']
+        if 'propertyAlias' in kwargs:
+            property_alias = kwargs['propertyAlias']
+        if 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+        if 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+
         if asset_id is not None:
             _setter("asset_id", asset_id)
         if entry_id is not None:
@@ -1077,7 +1171,11 @@ class AlarmModelIotTopicPublishArgs:
              _setter: Callable[[Any, Any], None],
              mqtt_topic: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mqttTopic' in kwargs:
+            mqtt_topic = kwargs['mqttTopic']
+
         _setter("mqtt_topic", mqtt_topic)
         if payload is not None:
             _setter("payload", payload)
@@ -1122,7 +1220,11 @@ class AlarmModelLambdaArgs:
              _setter: Callable[[Any, Any], None],
              function_arn: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         _setter("function_arn", function_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -1171,7 +1273,11 @@ class AlarmModelPayloadArgs:
              _setter: Callable[[Any, Any], None],
              content_expression: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentExpression' in kwargs:
+            content_expression = kwargs['contentExpression']
+
         _setter("content_expression", content_expression)
         _setter("type", type)
 
@@ -1224,7 +1330,13 @@ class AlarmModelSimpleRuleArgs:
              comparison_operator: pulumi.Input['AlarmModelSimpleRuleComparisonOperator'],
              input_property: pulumi.Input[str],
              threshold: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'inputProperty' in kwargs:
+            input_property = kwargs['inputProperty']
+
         _setter("comparison_operator", comparison_operator)
         _setter("input_property", input_property)
         _setter("threshold", threshold)
@@ -1285,7 +1397,11 @@ class AlarmModelSnsArgs:
              _setter: Callable[[Any, Any], None],
              target_arn: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         _setter("target_arn", target_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -1334,7 +1450,13 @@ class AlarmModelSqsArgs:
              queue_url: pulumi.Input[str],
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
              use_base64: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
         _setter("queue_url", queue_url)
         if payload is not None:
             _setter("payload", payload)
@@ -1395,7 +1517,9 @@ class AlarmModelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1475,7 +1599,29 @@ class DetectorModelActionArgs:
              set_variable: Optional[pulumi.Input['DetectorModelSetVariableArgs']] = None,
              sns: Optional[pulumi.Input['DetectorModelSnsArgs']] = None,
              sqs: Optional[pulumi.Input['DetectorModelSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clearTimer' in kwargs:
+            clear_timer = kwargs['clearTimer']
+        if 'dynamoDBv2' in kwargs:
+            dynamo_d_bv2 = kwargs['dynamoDBv2']
+        if 'dynamoDb' in kwargs:
+            dynamo_db = kwargs['dynamoDb']
+        if 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if 'iotSiteWise' in kwargs:
+            iot_site_wise = kwargs['iotSiteWise']
+        if 'iotTopicPublish' in kwargs:
+            iot_topic_publish = kwargs['iotTopicPublish']
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if 'resetTimer' in kwargs:
+            reset_timer = kwargs['resetTimer']
+        if 'setTimer' in kwargs:
+            set_timer = kwargs['setTimer']
+        if 'setVariable' in kwargs:
+            set_variable = kwargs['setVariable']
+
         if clear_timer is not None:
             _setter("clear_timer", clear_timer)
         if dynamo_d_bv2 is not None:
@@ -1641,7 +1787,13 @@ class DetectorModelAssetPropertyTimestampArgs:
              _setter: Callable[[Any, Any], None],
              time_in_seconds: pulumi.Input[str],
              offset_in_nanos: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInSeconds' in kwargs:
+            time_in_seconds = kwargs['timeInSeconds']
+        if 'offsetInNanos' in kwargs:
+            offset_in_nanos = kwargs['offsetInNanos']
+
         _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             _setter("offset_in_nanos", offset_in_nanos)
@@ -1693,7 +1845,9 @@ class DetectorModelAssetPropertyValueArgs:
              value: pulumi.Input['DetectorModelAssetPropertyVariantArgs'],
              quality: Optional[pulumi.Input[str]] = None,
              timestamp: Optional[pulumi.Input['DetectorModelAssetPropertyTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if quality is not None:
             _setter("quality", quality)
@@ -1759,7 +1913,17 @@ class DetectorModelAssetPropertyVariantArgs:
              double_value: Optional[pulumi.Input[str]] = None,
              integer_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if 'integerValue' in kwargs:
+            integer_value = kwargs['integerValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -1833,7 +1997,11 @@ class DetectorModelClearTimerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timer_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+
         _setter("timer_name", timer_name)
 
     @property
@@ -1866,7 +2034,11 @@ class DetectorModelDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              initial_state_name: pulumi.Input[str],
              states: pulumi.Input[Sequence[pulumi.Input['DetectorModelStateArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initialStateName' in kwargs:
+            initial_state_name = kwargs['initialStateName']
+
         _setter("initial_state_name", initial_state_name)
         _setter("states", states)
 
@@ -1916,7 +2088,11 @@ class DetectorModelDynamoDBv2Args:
              _setter: Callable[[Any, Any], None],
              table_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("table_name", table_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2016,7 +2192,25 @@ class DetectorModelDynamoDbArgs:
              range_key_field: Optional[pulumi.Input[str]] = None,
              range_key_type: Optional[pulumi.Input[str]] = None,
              range_key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
         _setter("hash_key_field", hash_key_field)
         _setter("hash_key_value", hash_key_value)
         _setter("table_name", table_name)
@@ -2199,7 +2393,11 @@ class DetectorModelEventArgs:
              event_name: pulumi.Input[str],
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None,
              condition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+
         _setter("event_name", event_name)
         if actions is not None:
             _setter("actions", actions)
@@ -2266,7 +2464,11 @@ class DetectorModelFirehoseArgs:
              delivery_stream_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
              separator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+
         _setter("delivery_stream_name", delivery_stream_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2326,7 +2528,11 @@ class DetectorModelIotEventsArgs:
              _setter: Callable[[Any, Any], None],
              input_name: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+
         _setter("input_name", input_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2384,7 +2590,19 @@ class DetectorModelIotSiteWiseArgs:
              entry_id: Optional[pulumi.Input[str]] = None,
              property_alias: Optional[pulumi.Input[str]] = None,
              property_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'entryId' in kwargs:
+            entry_id = kwargs['entryId']
+        if 'propertyAlias' in kwargs:
+            property_alias = kwargs['propertyAlias']
+        if 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+
         _setter("property_value", property_value)
         if asset_id is not None:
             _setter("asset_id", asset_id)
@@ -2472,7 +2690,11 @@ class DetectorModelIotTopicPublishArgs:
              _setter: Callable[[Any, Any], None],
              mqtt_topic: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mqttTopic' in kwargs:
+            mqtt_topic = kwargs['mqttTopic']
+
         _setter("mqtt_topic", mqtt_topic)
         if payload is not None:
             _setter("payload", payload)
@@ -2517,7 +2739,11 @@ class DetectorModelLambdaArgs:
              _setter: Callable[[Any, Any], None],
              function_arn: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         _setter("function_arn", function_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -2560,7 +2786,9 @@ class DetectorModelOnEnterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
 
@@ -2593,7 +2821,9 @@ class DetectorModelOnExitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
 
@@ -2630,7 +2860,11 @@ class DetectorModelOnInputArgs:
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
              transition_events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitionEvents' in kwargs:
+            transition_events = kwargs['transitionEvents']
+
         if events is not None:
             _setter("events", events)
         if transition_events is not None:
@@ -2683,7 +2917,11 @@ class DetectorModelPayloadArgs:
              _setter: Callable[[Any, Any], None],
              content_expression: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentExpression' in kwargs:
+            content_expression = kwargs['contentExpression']
+
         _setter("content_expression", content_expression)
         _setter("type", type)
 
@@ -2728,7 +2966,11 @@ class DetectorModelResetTimerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timer_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+
         _setter("timer_name", timer_name)
 
     @property
@@ -2768,7 +3010,13 @@ class DetectorModelSetTimerArgs:
              timer_name: pulumi.Input[str],
              duration_expression: Optional[pulumi.Input[str]] = None,
              seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+        if 'durationExpression' in kwargs:
+            duration_expression = kwargs['durationExpression']
+
         _setter("timer_name", timer_name)
         if duration_expression is not None:
             _setter("duration_expression", duration_expression)
@@ -2832,7 +3080,11 @@ class DetectorModelSetVariableArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              variable_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+
         _setter("value", value)
         _setter("variable_name", variable_name)
 
@@ -2880,7 +3132,11 @@ class DetectorModelSnsArgs:
              _setter: Callable[[Any, Any], None],
              target_arn: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         _setter("target_arn", target_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -2929,7 +3185,13 @@ class DetectorModelSqsArgs:
              queue_url: pulumi.Input[str],
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
              use_base64: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
         _setter("queue_url", queue_url)
         if payload is not None:
             _setter("payload", payload)
@@ -2995,7 +3257,17 @@ class DetectorModelStateArgs:
              on_enter: Optional[pulumi.Input['DetectorModelOnEnterArgs']] = None,
              on_exit: Optional[pulumi.Input['DetectorModelOnExitArgs']] = None,
              on_input: Optional[pulumi.Input['DetectorModelOnInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stateName' in kwargs:
+            state_name = kwargs['stateName']
+        if 'onEnter' in kwargs:
+            on_enter = kwargs['onEnter']
+        if 'onExit' in kwargs:
+            on_exit = kwargs['onExit']
+        if 'onInput' in kwargs:
+            on_input = kwargs['onInput']
+
         _setter("state_name", state_name)
         if on_enter is not None:
             _setter("on_enter", on_enter)
@@ -3064,7 +3336,9 @@ class DetectorModelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3121,7 +3395,13 @@ class DetectorModelTransitionEventArgs:
              event_name: pulumi.Input[str],
              next_state: pulumi.Input[str],
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if 'nextState' in kwargs:
+            next_state = kwargs['nextState']
+
         _setter("condition", condition)
         _setter("event_name", event_name)
         _setter("next_state", next_state)
@@ -3195,7 +3475,11 @@ class InputAttributeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              json_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+
         _setter("json_path", json_path)
 
     @property
@@ -3229,7 +3513,9 @@ class InputDefinitionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attributes: pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
 
     @property
@@ -3265,7 +3551,9 @@ class InputTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

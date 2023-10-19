@@ -64,7 +64,13 @@ class HookVersionLoggingConfig(dict):
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[str] = None,
              log_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
@@ -105,7 +111,9 @@ class ManagedExecutionProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              active: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
 
@@ -153,7 +161,13 @@ class ResourceVersionLoggingConfig(dict):
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[str] = None,
              log_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
@@ -218,7 +232,15 @@ class StackOutput(dict):
              export_name: Optional[str] = None,
              output_key: Optional[str] = None,
              output_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportName' in kwargs:
+            export_name = kwargs['exportName']
+        if 'outputKey' in kwargs:
+            output_key = kwargs['outputKey']
+        if 'outputValue' in kwargs:
+            output_value = kwargs['outputValue']
+
         if description is not None:
             _setter("description", description)
         if export_name is not None:
@@ -285,7 +307,11 @@ class StackSetAutoDeployment(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              retain_stacks_on_account_removal: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retainStacksOnAccountRemoval' in kwargs:
+            retain_stacks_on_account_removal = kwargs['retainStacksOnAccountRemoval']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if retain_stacks_on_account_removal is not None:
@@ -360,7 +386,15 @@ class StackSetDeploymentTargets(dict):
              accounts: Optional[Sequence[str]] = None,
              accounts_url: Optional[str] = None,
              organizational_unit_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountFilterType' in kwargs:
+            account_filter_type = kwargs['accountFilterType']
+        if 'accountsUrl' in kwargs:
+            accounts_url = kwargs['accountsUrl']
+        if 'organizationalUnitIds' in kwargs:
+            organizational_unit_ids = kwargs['organizationalUnitIds']
+
         if account_filter_type is not None:
             _setter("account_filter_type", account_filter_type)
         if accounts is not None:
@@ -463,7 +497,21 @@ class StackSetOperationPreferences(dict):
              max_concurrent_percentage: Optional[int] = None,
              region_concurrency_type: Optional['StackSetRegionConcurrencyType'] = None,
              region_order: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureToleranceCount' in kwargs:
+            failure_tolerance_count = kwargs['failureToleranceCount']
+        if 'failureTolerancePercentage' in kwargs:
+            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
+        if 'maxConcurrentCount' in kwargs:
+            max_concurrent_count = kwargs['maxConcurrentCount']
+        if 'maxConcurrentPercentage' in kwargs:
+            max_concurrent_percentage = kwargs['maxConcurrentPercentage']
+        if 'regionConcurrencyType' in kwargs:
+            region_concurrency_type = kwargs['regionConcurrencyType']
+        if 'regionOrder' in kwargs:
+            region_order = kwargs['regionOrder']
+
         if failure_tolerance_count is not None:
             _setter("failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -546,7 +594,13 @@ class StackSetParameter(dict):
              _setter: Callable[[Any, Any], None],
              parameter_key: str,
              parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterKey' in kwargs:
+            parameter_key = kwargs['parameterKey']
+        if 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+
         _setter("parameter_key", parameter_key)
         _setter("parameter_value", parameter_value)
 
@@ -612,7 +666,13 @@ class StackSetStackInstances(dict):
              deployment_targets: 'outputs.StackSetDeploymentTargets',
              regions: Sequence[str],
              parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentTargets' in kwargs:
+            deployment_targets = kwargs['deploymentTargets']
+        if 'parameterOverrides' in kwargs:
+            parameter_overrides = kwargs['parameterOverrides']
+
         _setter("deployment_targets", deployment_targets)
         _setter("regions", regions)
         if parameter_overrides is not None:
@@ -663,7 +723,9 @@ class StackSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -699,7 +761,9 @@ class StackTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -752,7 +816,13 @@ class TypeActivationLoggingConfig(dict):
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[str] = None,
              log_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:

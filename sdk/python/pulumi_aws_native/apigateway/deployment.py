@@ -45,7 +45,17 @@ class DeploymentArgs:
              description: Optional[pulumi.Input[str]] = None,
              stage_description: Optional[pulumi.Input['DeploymentStageDescriptionArgs']] = None,
              stage_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'deploymentCanarySettings' in kwargs:
+            deployment_canary_settings = kwargs['deploymentCanarySettings']
+        if 'stageDescription' in kwargs:
+            stage_description = kwargs['stageDescription']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         _setter("rest_api_id", rest_api_id)
         if deployment_canary_settings is not None:
             _setter("deployment_canary_settings", deployment_canary_settings)

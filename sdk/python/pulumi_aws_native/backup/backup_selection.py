@@ -31,7 +31,13 @@ class BackupSelectionArgs:
              _setter: Callable[[Any, Any], None],
              backup_plan_id: pulumi.Input[str],
              backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPlanId' in kwargs:
+            backup_plan_id = kwargs['backupPlanId']
+        if 'backupSelection' in kwargs:
+            backup_selection = kwargs['backupSelection']
+
         _setter("backup_plan_id", backup_plan_id)
         _setter("backup_selection", backup_selection)
 

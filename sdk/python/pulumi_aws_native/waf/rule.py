@@ -34,7 +34,11 @@ class RuleArgs:
              metric_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RulePredicateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         if name is not None:
             _setter("name", name)

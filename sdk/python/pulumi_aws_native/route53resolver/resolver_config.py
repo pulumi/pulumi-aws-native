@@ -32,7 +32,13 @@ class ResolverConfigArgs:
              _setter: Callable[[Any, Any], None],
              autodefined_reverse_flag: pulumi.Input['ResolverConfigAutodefinedReverseFlag'],
              resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autodefinedReverseFlag' in kwargs:
+            autodefined_reverse_flag = kwargs['autodefinedReverseFlag']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("autodefined_reverse_flag", autodefined_reverse_flag)
         _setter("resource_id", resource_id)
 

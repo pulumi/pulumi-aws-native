@@ -39,7 +39,17 @@ class DestinationArgs:
              target_arn: pulumi.Input[str],
              destination_name: Optional[pulumi.Input[str]] = None,
              destination_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if 'destinationPolicy' in kwargs:
+            destination_policy = kwargs['destinationPolicy']
+
         _setter("role_arn", role_arn)
         _setter("target_arn", target_arn)
         if destination_name is not None:

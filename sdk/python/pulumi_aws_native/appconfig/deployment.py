@@ -49,7 +49,21 @@ class DeploymentArgs:
              description: Optional[pulumi.Input[str]] = None,
              kms_key_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if 'configurationVersion' in kwargs:
+            configuration_version = kwargs['configurationVersion']
+        if 'deploymentStrategyId' in kwargs:
+            deployment_strategy_id = kwargs['deploymentStrategyId']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         _setter("application_id", application_id)
         _setter("configuration_profile_id", configuration_profile_id)
         _setter("configuration_version", configuration_version)

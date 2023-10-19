@@ -81,7 +81,31 @@ class StageArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
              tracing_enabled: Optional[pulumi.Input[bool]] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'accessLogSetting' in kwargs:
+            access_log_setting = kwargs['accessLogSetting']
+        if 'cacheClusterEnabled' in kwargs:
+            cache_cluster_enabled = kwargs['cacheClusterEnabled']
+        if 'cacheClusterSize' in kwargs:
+            cache_cluster_size = kwargs['cacheClusterSize']
+        if 'canarySetting' in kwargs:
+            canary_setting = kwargs['canarySetting']
+        if 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if 'methodSettings' in kwargs:
+            method_settings = kwargs['methodSettings']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if 'tracingEnabled' in kwargs:
+            tracing_enabled = kwargs['tracingEnabled']
+
         _setter("rest_api_id", rest_api_id)
         if access_log_setting is not None:
             _setter("access_log_setting", access_log_setting)

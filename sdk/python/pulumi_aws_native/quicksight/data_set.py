@@ -82,7 +82,37 @@ class DataSetArgs:
              row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
              row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'columnGroups' in kwargs:
+            column_groups = kwargs['columnGroups']
+        if 'columnLevelPermissionRules' in kwargs:
+            column_level_permission_rules = kwargs['columnLevelPermissionRules']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if 'dataSetRefreshProperties' in kwargs:
+            data_set_refresh_properties = kwargs['dataSetRefreshProperties']
+        if 'dataSetUsageConfiguration' in kwargs:
+            data_set_usage_configuration = kwargs['dataSetUsageConfiguration']
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+        if 'fieldFolders' in kwargs:
+            field_folders = kwargs['fieldFolders']
+        if 'importMode' in kwargs:
+            import_mode = kwargs['importMode']
+        if 'ingestionWaitPolicy' in kwargs:
+            ingestion_wait_policy = kwargs['ingestionWaitPolicy']
+        if 'logicalTableMap' in kwargs:
+            logical_table_map = kwargs['logicalTableMap']
+        if 'physicalTableMap' in kwargs:
+            physical_table_map = kwargs['physicalTableMap']
+        if 'rowLevelPermissionDataSet' in kwargs:
+            row_level_permission_data_set = kwargs['rowLevelPermissionDataSet']
+        if 'rowLevelPermissionTagConfiguration' in kwargs:
+            row_level_permission_tag_configuration = kwargs['rowLevelPermissionTagConfiguration']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if column_groups is not None:

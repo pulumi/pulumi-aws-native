@@ -61,7 +61,17 @@ class TaskArgs:
              schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None,
              task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationLocationArn' in kwargs:
+            destination_location_arn = kwargs['destinationLocationArn']
+        if 'sourceLocationArn' in kwargs:
+            source_location_arn = kwargs['sourceLocationArn']
+        if 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if 'taskReportConfig' in kwargs:
+            task_report_config = kwargs['taskReportConfig']
+
         _setter("destination_location_arn", destination_location_arn)
         _setter("source_location_arn", source_location_arn)
         if cloud_watch_log_group_arn is not None:

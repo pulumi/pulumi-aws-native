@@ -65,7 +65,13 @@ class AlertAction(dict):
              _setter: Callable[[Any, Any], None],
              lambda_configuration: Optional['outputs.AlertLambdaConfiguration'] = None,
              sns_configuration: Optional['outputs.AlertSnsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaConfiguration' in kwargs:
+            lambda_configuration = kwargs['lambdaConfiguration']
+        if 'snsConfiguration' in kwargs:
+            sns_configuration = kwargs['snsConfiguration']
+
         if lambda_configuration is not None:
             _setter("lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
@@ -124,7 +130,13 @@ class AlertLambdaConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              lambda_arn: str,
              role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("lambda_arn", lambda_arn)
         _setter("role_arn", role_arn)
 
@@ -187,7 +199,13 @@ class AlertSnsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              role_arn: str,
              sns_topic_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("role_arn", role_arn)
         _setter("sns_topic_arn", sns_topic_arn)
 
@@ -242,7 +260,13 @@ class AnomalyDetectorAppFlowConfig(dict):
              _setter: Callable[[Any, Any], None],
              flow_name: str,
              role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowName' in kwargs:
+            flow_name = kwargs['flowName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("flow_name", flow_name)
         _setter("role_arn", role_arn)
 
@@ -286,7 +310,11 @@ class AnomalyDetectorCloudwatchConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("role_arn", role_arn)
 
     @property
@@ -327,7 +355,11 @@ class AnomalyDetectorConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              anomaly_detector_frequency: 'AnomalyDetectorFrequency',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anomalyDetectorFrequency' in kwargs:
+            anomaly_detector_frequency = kwargs['anomalyDetectorFrequency']
+
         _setter("anomaly_detector_frequency", anomaly_detector_frequency)
 
     @property
@@ -389,7 +421,17 @@ class AnomalyDetectorCsvFormatDescriptor(dict):
              file_compression: Optional['AnomalyDetectorCsvFormatDescriptorFileCompression'] = None,
              header_list: Optional[Sequence[str]] = None,
              quote_symbol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containsHeader' in kwargs:
+            contains_header = kwargs['containsHeader']
+        if 'fileCompression' in kwargs:
+            file_compression = kwargs['fileCompression']
+        if 'headerList' in kwargs:
+            header_list = kwargs['headerList']
+        if 'quoteSymbol' in kwargs:
+            quote_symbol = kwargs['quoteSymbol']
+
         if charset is not None:
             _setter("charset", charset)
         if contains_header is not None:
@@ -468,7 +510,13 @@ class AnomalyDetectorFileFormatDescriptor(dict):
              _setter: Callable[[Any, Any], None],
              csv_format_descriptor: Optional['outputs.AnomalyDetectorCsvFormatDescriptor'] = None,
              json_format_descriptor: Optional['outputs.AnomalyDetectorJsonFormatDescriptor'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvFormatDescriptor' in kwargs:
+            csv_format_descriptor = kwargs['csvFormatDescriptor']
+        if 'jsonFormatDescriptor' in kwargs:
+            json_format_descriptor = kwargs['jsonFormatDescriptor']
+
         if csv_format_descriptor is not None:
             _setter("csv_format_descriptor", csv_format_descriptor)
         if json_format_descriptor is not None:
@@ -517,7 +565,11 @@ class AnomalyDetectorJsonFormatDescriptor(dict):
              _setter: Callable[[Any, Any], None],
              charset: Optional[str] = None,
              file_compression: Optional['AnomalyDetectorJsonFormatDescriptorFileCompression'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileCompression' in kwargs:
+            file_compression = kwargs['fileCompression']
+
         if charset is not None:
             _setter("charset", charset)
         if file_compression is not None:
@@ -574,7 +626,13 @@ class AnomalyDetectorMetric(dict):
              aggregation_function: 'AnomalyDetectorMetricAggregationFunction',
              metric_name: str,
              namespace: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationFunction' in kwargs:
+            aggregation_function = kwargs['aggregationFunction']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("aggregation_function", aggregation_function)
         _setter("metric_name", metric_name)
         if namespace is not None:
@@ -672,7 +730,23 @@ class AnomalyDetectorMetricSet(dict):
              offset: Optional[int] = None,
              timestamp_column: Optional['outputs.AnomalyDetectorTimestampColumn'] = None,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricList' in kwargs:
+            metric_list = kwargs['metricList']
+        if 'metricSetName' in kwargs:
+            metric_set_name = kwargs['metricSetName']
+        if 'metricSource' in kwargs:
+            metric_source = kwargs['metricSource']
+        if 'dimensionList' in kwargs:
+            dimension_list = kwargs['dimensionList']
+        if 'metricSetDescription' in kwargs:
+            metric_set_description = kwargs['metricSetDescription']
+        if 'metricSetFrequency' in kwargs:
+            metric_set_frequency = kwargs['metricSetFrequency']
+        if 'timestampColumn' in kwargs:
+            timestamp_column = kwargs['timestampColumn']
+
         _setter("metric_list", metric_list)
         _setter("metric_set_name", metric_set_name)
         _setter("metric_source", metric_source)
@@ -802,7 +876,19 @@ class AnomalyDetectorMetricSource(dict):
              rds_source_config: Optional['outputs.AnomalyDetectorRdsSourceConfig'] = None,
              redshift_source_config: Optional['outputs.AnomalyDetectorRedshiftSourceConfig'] = None,
              s3_source_config: Optional['outputs.AnomalyDetectorS3SourceConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appFlowConfig' in kwargs:
+            app_flow_config = kwargs['appFlowConfig']
+        if 'cloudwatchConfig' in kwargs:
+            cloudwatch_config = kwargs['cloudwatchConfig']
+        if 'rdsSourceConfig' in kwargs:
+            rds_source_config = kwargs['rdsSourceConfig']
+        if 'redshiftSourceConfig' in kwargs:
+            redshift_source_config = kwargs['redshiftSourceConfig']
+        if 's3SourceConfig' in kwargs:
+            s3_source_config = kwargs['s3SourceConfig']
+
         if app_flow_config is not None:
             _setter("app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
@@ -904,7 +990,25 @@ class AnomalyDetectorRdsSourceConfig(dict):
              secret_manager_arn: str,
              table_name: str,
              vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("database_host", database_host)
         _setter("database_name", database_name)
         _setter("database_port", database_port)
@@ -1019,7 +1123,25 @@ class AnomalyDetectorRedshiftSourceConfig(dict):
              secret_manager_arn: str,
              table_name: str,
              vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("cluster_identifier", cluster_identifier)
         _setter("database_host", database_host)
         _setter("database_name", database_name)
@@ -1114,7 +1236,17 @@ class AnomalyDetectorS3SourceConfig(dict):
              role_arn: str,
              historical_data_path_list: Optional[Sequence[str]] = None,
              templated_path_list: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileFormatDescriptor' in kwargs:
+            file_format_descriptor = kwargs['fileFormatDescriptor']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'historicalDataPathList' in kwargs:
+            historical_data_path_list = kwargs['historicalDataPathList']
+        if 'templatedPathList' in kwargs:
+            templated_path_list = kwargs['templatedPathList']
+
         _setter("file_format_descriptor", file_format_descriptor)
         _setter("role_arn", role_arn)
         if historical_data_path_list is not None:
@@ -1180,7 +1312,13 @@ class AnomalyDetectorTimestampColumn(dict):
              _setter: Callable[[Any, Any], None],
              column_format: Optional[str] = None,
              column_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnFormat' in kwargs:
+            column_format = kwargs['columnFormat']
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         if column_format is not None:
             _setter("column_format", column_format)
         if column_name is not None:
@@ -1234,7 +1372,13 @@ class AnomalyDetectorVpcConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              security_group_id_list: Sequence[str],
              subnet_id_list: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIdList' in kwargs:
+            security_group_id_list = kwargs['securityGroupIdList']
+        if 'subnetIdList' in kwargs:
+            subnet_id_list = kwargs['subnetIdList']
+
         _setter("security_group_id_list", security_group_id_list)
         _setter("subnet_id_list", subnet_id_list)
 

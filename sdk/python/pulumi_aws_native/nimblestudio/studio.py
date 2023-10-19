@@ -48,7 +48,19 @@ class StudioArgs:
              studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
              studio_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['StudioTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRoleArn' in kwargs:
+            admin_role_arn = kwargs['adminRoleArn']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'userRoleArn' in kwargs:
+            user_role_arn = kwargs['userRoleArn']
+        if 'studioEncryptionConfiguration' in kwargs:
+            studio_encryption_configuration = kwargs['studioEncryptionConfiguration']
+        if 'studioName' in kwargs:
+            studio_name = kwargs['studioName']
+
         _setter("admin_role_arn", admin_role_arn)
         _setter("display_name", display_name)
         _setter("user_role_arn", user_role_arn)

@@ -56,7 +56,13 @@ class KeyspaceReplicationSpecification(dict):
              _setter: Callable[[Any, Any], None],
              region_list: Optional[Sequence['KeyspaceRegionListItem']] = None,
              replication_strategy: Optional['KeyspaceReplicationSpecificationReplicationStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionList' in kwargs:
+            region_list = kwargs['regionList']
+        if 'replicationStrategy' in kwargs:
+            replication_strategy = kwargs['replicationStrategy']
+
         if region_list is not None:
             _setter("region_list", region_list)
         if replication_strategy is not None:
@@ -88,7 +94,9 @@ class KeyspaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -135,7 +143,11 @@ class TableBillingMode(dict):
              _setter: Callable[[Any, Any], None],
              mode: 'TableMode',
              provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+
         _setter("mode", mode)
         if provisioned_throughput is not None:
             _setter("provisioned_throughput", provisioned_throughput)
@@ -183,7 +195,11 @@ class TableClusteringKeyColumn(dict):
              _setter: Callable[[Any, Any], None],
              column: 'outputs.TableColumn',
              order_by: Optional['TableClusteringKeyColumnOrderBy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+
         _setter("column", column)
         if order_by is not None:
             _setter("order_by", order_by)
@@ -233,7 +249,13 @@ class TableColumn(dict):
              _setter: Callable[[Any, Any], None],
              column_name: str,
              column_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if 'columnType' in kwargs:
+            column_type = kwargs['columnType']
+
         _setter("column_name", column_name)
         _setter("column_type", column_type)
 
@@ -288,7 +310,13 @@ class TableEncryptionSpecification(dict):
              _setter: Callable[[Any, Any], None],
              encryption_type: 'TableEncryptionType',
              kms_key_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         _setter("encryption_type", encryption_type)
         if kms_key_identifier is not None:
             _setter("kms_key_identifier", kms_key_identifier)
@@ -344,7 +372,13 @@ class TableProvisionedThroughput(dict):
              _setter: Callable[[Any, Any], None],
              read_capacity_units: int,
              write_capacity_units: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+
         _setter("read_capacity_units", read_capacity_units)
         _setter("write_capacity_units", write_capacity_units)
 
@@ -380,7 +414,9 @@ class TableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

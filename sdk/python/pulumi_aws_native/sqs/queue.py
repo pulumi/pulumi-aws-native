@@ -89,7 +89,39 @@ class QueueArgs:
              sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
              visibility_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentBasedDeduplication' in kwargs:
+            content_based_deduplication = kwargs['contentBasedDeduplication']
+        if 'deduplicationScope' in kwargs:
+            deduplication_scope = kwargs['deduplicationScope']
+        if 'delaySeconds' in kwargs:
+            delay_seconds = kwargs['delaySeconds']
+        if 'fifoQueue' in kwargs:
+            fifo_queue = kwargs['fifoQueue']
+        if 'fifoThroughputLimit' in kwargs:
+            fifo_throughput_limit = kwargs['fifoThroughputLimit']
+        if 'kmsDataKeyReusePeriodSeconds' in kwargs:
+            kms_data_key_reuse_period_seconds = kwargs['kmsDataKeyReusePeriodSeconds']
+        if 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if 'maximumMessageSize' in kwargs:
+            maximum_message_size = kwargs['maximumMessageSize']
+        if 'messageRetentionPeriod' in kwargs:
+            message_retention_period = kwargs['messageRetentionPeriod']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if 'receiveMessageWaitTimeSeconds' in kwargs:
+            receive_message_wait_time_seconds = kwargs['receiveMessageWaitTimeSeconds']
+        if 'redriveAllowPolicy' in kwargs:
+            redrive_allow_policy = kwargs['redriveAllowPolicy']
+        if 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if 'sqsManagedSseEnabled' in kwargs:
+            sqs_managed_sse_enabled = kwargs['sqsManagedSseEnabled']
+        if 'visibilityTimeout' in kwargs:
+            visibility_timeout = kwargs['visibilityTimeout']
+
         if content_based_deduplication is not None:
             _setter("content_based_deduplication", content_based_deduplication)
         if deduplication_scope is not None:

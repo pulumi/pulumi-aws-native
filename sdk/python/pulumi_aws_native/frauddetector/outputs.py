@@ -86,7 +86,13 @@ class DetectorEntityType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -220,7 +226,17 @@ class DetectorEventType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+        if 'eventVariables' in kwargs:
+            event_variables = kwargs['eventVariables']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -386,7 +402,21 @@ class DetectorEventVariable(dict):
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
              variable_type: Optional['DetectorEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -533,7 +563,13 @@ class DetectorLabel(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -615,7 +651,9 @@ class DetectorModel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -680,7 +718,13 @@ class DetectorOutcome(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -817,7 +861,19 @@ class DetectorRule(dict):
              rule_id: Optional[str] = None,
              rule_version: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -924,7 +980,9 @@ class DetectorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -954,7 +1012,9 @@ class EntityTypeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1024,7 +1084,13 @@ class EventTypeEntityType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1163,7 +1229,21 @@ class EventTypeEventVariable(dict):
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
              variable_type: Optional['EventTypeEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1310,7 +1390,13 @@ class EventTypeLabel(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1389,7 +1475,9 @@ class EventTypeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1419,7 +1507,9 @@ class LabelTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1457,7 +1547,9 @@ class ListTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1493,7 +1585,9 @@ class OutcomeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1523,7 +1617,9 @@ class VariableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -61,7 +61,21 @@ class IndexArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
              user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
              user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'capacityUnits' in kwargs:
+            capacity_units = kwargs['capacityUnits']
+        if 'documentMetadataConfigurations' in kwargs:
+            document_metadata_configurations = kwargs['documentMetadataConfigurations']
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if 'userContextPolicy' in kwargs:
+            user_context_policy = kwargs['userContextPolicy']
+        if 'userTokenConfigurations' in kwargs:
+            user_token_configurations = kwargs['userTokenConfigurations']
+
         _setter("edition", edition)
         _setter("role_arn", role_arn)
         if capacity_units is not None:

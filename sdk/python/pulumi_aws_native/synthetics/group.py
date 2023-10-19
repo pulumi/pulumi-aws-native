@@ -35,7 +35,11 @@ class GroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArns' in kwargs:
+            resource_arns = kwargs['resourceArns']
+
         if name is not None:
             _setter("name", name)
         if resource_arns is not None:

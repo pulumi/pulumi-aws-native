@@ -62,7 +62,11 @@ class ConfigurationSetDashboardOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              engagement_metrics: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engagementMetrics' in kwargs:
+            engagement_metrics = kwargs['engagementMetrics']
+
         _setter("engagement_metrics", engagement_metrics)
 
     @property
@@ -98,7 +102,13 @@ class ConfigurationSetDeliveryOptionsArgs:
              _setter: Callable[[Any, Any], None],
              sending_pool_name: Optional[pulumi.Input[str]] = None,
              tls_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendingPoolName' in kwargs:
+            sending_pool_name = kwargs['sendingPoolName']
+        if 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+
         if sending_pool_name is not None:
             _setter("sending_pool_name", sending_pool_name)
         if tls_policy is not None:
@@ -145,7 +155,11 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dimension_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dimensionConfigurations' in kwargs:
+            dimension_configurations = kwargs['dimensionConfigurations']
+
         if dimension_configurations is not None:
             _setter("dimension_configurations", dimension_configurations)
 
@@ -186,7 +200,15 @@ class ConfigurationSetEventDestinationDimensionConfigurationArgs:
              default_dimension_value: pulumi.Input[str],
              dimension_name: pulumi.Input[str],
              dimension_value_source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultDimensionValue' in kwargs:
+            default_dimension_value = kwargs['defaultDimensionValue']
+        if 'dimensionName' in kwargs:
+            dimension_name = kwargs['dimensionName']
+        if 'dimensionValueSource' in kwargs:
+            dimension_value_source = kwargs['dimensionValueSource']
+
         _setter("default_dimension_value", default_dimension_value)
         _setter("dimension_name", dimension_name)
         _setter("dimension_value_source", dimension_value_source)
@@ -263,7 +285,17 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
              kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchingEventTypes' in kwargs:
+            matching_event_types = kwargs['matchingEventTypes']
+        if 'cloudWatchDestination' in kwargs:
+            cloud_watch_destination = kwargs['cloudWatchDestination']
+        if 'kinesisFirehoseDestination' in kwargs:
+            kinesis_firehose_destination = kwargs['kinesisFirehoseDestination']
+        if 'snsDestination' in kwargs:
+            sns_destination = kwargs['snsDestination']
+
         _setter("matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
             _setter("cloud_watch_destination", cloud_watch_destination)
@@ -369,7 +401,13 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
              _setter: Callable[[Any, Any], None],
              delivery_stream_arn: pulumi.Input[str],
              iam_role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamArn' in kwargs:
+            delivery_stream_arn = kwargs['deliveryStreamArn']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+
         _setter("delivery_stream_arn", delivery_stream_arn)
         _setter("iam_role_arn", iam_role_arn)
 
@@ -413,7 +451,11 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("topic_arn", topic_arn)
 
     @property
@@ -442,7 +484,11 @@ class ConfigurationSetGuardianOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              optimized_shared_delivery: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optimizedSharedDelivery' in kwargs:
+            optimized_shared_delivery = kwargs['optimizedSharedDelivery']
+
         _setter("optimized_shared_delivery", optimized_shared_delivery)
 
     @property
@@ -474,7 +520,11 @@ class ConfigurationSetReputationOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reputationMetricsEnabled' in kwargs:
+            reputation_metrics_enabled = kwargs['reputationMetricsEnabled']
+
         if reputation_metrics_enabled is not None:
             _setter("reputation_metrics_enabled", reputation_metrics_enabled)
 
@@ -506,7 +556,11 @@ class ConfigurationSetSendingOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sending_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sendingEnabled' in kwargs:
+            sending_enabled = kwargs['sendingEnabled']
+
         if sending_enabled is not None:
             _setter("sending_enabled", sending_enabled)
 
@@ -536,7 +590,11 @@ class ConfigurationSetSuppressionOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'suppressedReasons' in kwargs:
+            suppressed_reasons = kwargs['suppressedReasons']
+
         if suppressed_reasons is not None:
             _setter("suppressed_reasons", suppressed_reasons)
 
@@ -569,7 +627,11 @@ class ConfigurationSetTrackingOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_redirect_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRedirectDomain' in kwargs:
+            custom_redirect_domain = kwargs['customRedirectDomain']
+
         if custom_redirect_domain is not None:
             _setter("custom_redirect_domain", custom_redirect_domain)
 
@@ -604,7 +666,13 @@ class ConfigurationSetVdmOptionsArgs:
              _setter: Callable[[Any, Any], None],
              dashboard_options: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']] = None,
              guardian_options: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardOptions' in kwargs:
+            dashboard_options = kwargs['dashboardOptions']
+        if 'guardianOptions' in kwargs:
+            guardian_options = kwargs['guardianOptions']
+
         if dashboard_options is not None:
             _setter("dashboard_options", dashboard_options)
         if guardian_options is not None:
@@ -644,7 +712,9 @@ class ContactListTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -693,7 +763,15 @@ class ContactListTopicArgs:
              display_name: pulumi.Input[str],
              topic_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultSubscriptionStatus' in kwargs:
+            default_subscription_status = kwargs['defaultSubscriptionStatus']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+
         _setter("default_subscription_status", default_subscription_status)
         _setter("display_name", display_name)
         _setter("topic_name", topic_name)
@@ -762,7 +840,11 @@ class EmailIdentityConfigurationSetAttributesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              configuration_set_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+
         if configuration_set_name is not None:
             _setter("configuration_set_name", configuration_set_name)
 
@@ -795,7 +877,11 @@ class EmailIdentityDkimAttributesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              signing_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signingEnabled' in kwargs:
+            signing_enabled = kwargs['signingEnabled']
+
         if signing_enabled is not None:
             _setter("signing_enabled", signing_enabled)
 
@@ -836,7 +922,15 @@ class EmailIdentityDkimSigningAttributesArgs:
              domain_signing_private_key: Optional[pulumi.Input[str]] = None,
              domain_signing_selector: Optional[pulumi.Input[str]] = None,
              next_signing_key_length: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainSigningPrivateKey' in kwargs:
+            domain_signing_private_key = kwargs['domainSigningPrivateKey']
+        if 'domainSigningSelector' in kwargs:
+            domain_signing_selector = kwargs['domainSigningSelector']
+        if 'nextSigningKeyLength' in kwargs:
+            next_signing_key_length = kwargs['nextSigningKeyLength']
+
         if domain_signing_private_key is not None:
             _setter("domain_signing_private_key", domain_signing_private_key)
         if domain_signing_selector is not None:
@@ -897,7 +991,11 @@ class EmailIdentityFeedbackAttributesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              email_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailForwardingEnabled' in kwargs:
+            email_forwarding_enabled = kwargs['emailForwardingEnabled']
+
         if email_forwarding_enabled is not None:
             _setter("email_forwarding_enabled", email_forwarding_enabled)
 
@@ -934,7 +1032,13 @@ class EmailIdentityMailFromAttributesArgs:
              _setter: Callable[[Any, Any], None],
              behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
              mail_from_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+        if 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+
         if behavior_on_mx_failure is not None:
             _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if mail_from_domain is not None:
@@ -980,7 +1084,11 @@ class ReceiptFilterFilterArgs:
              _setter: Callable[[Any, Any], None],
              ip_filter: pulumi.Input['ReceiptFilterIpFilterArgs'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipFilter' in kwargs:
+            ip_filter = kwargs['ipFilter']
+
         _setter("ip_filter", ip_filter)
         if name is not None:
             _setter("name", name)
@@ -1019,7 +1127,9 @@ class ReceiptFilterIpFilterArgs:
              _setter: Callable[[Any, Any], None],
              cidr: pulumi.Input[str],
              policy: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cidr", cidr)
         _setter("policy", policy)
 
@@ -1072,7 +1182,23 @@ class ReceiptRuleActionArgs:
              sns_action: Optional[pulumi.Input['ReceiptRuleSnsActionArgs']] = None,
              stop_action: Optional[pulumi.Input['ReceiptRuleStopActionArgs']] = None,
              workmail_action: Optional[pulumi.Input['ReceiptRuleWorkmailActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addHeaderAction' in kwargs:
+            add_header_action = kwargs['addHeaderAction']
+        if 'bounceAction' in kwargs:
+            bounce_action = kwargs['bounceAction']
+        if 'lambdaAction' in kwargs:
+            lambda_action = kwargs['lambdaAction']
+        if 's3Action' in kwargs:
+            s3_action = kwargs['s3Action']
+        if 'snsAction' in kwargs:
+            sns_action = kwargs['snsAction']
+        if 'stopAction' in kwargs:
+            stop_action = kwargs['stopAction']
+        if 'workmailAction' in kwargs:
+            workmail_action = kwargs['workmailAction']
+
         if add_header_action is not None:
             _setter("add_header_action", add_header_action)
         if bounce_action is not None:
@@ -1167,7 +1293,13 @@ class ReceiptRuleAddHeaderActionArgs:
              _setter: Callable[[Any, Any], None],
              header_name: pulumi.Input[str],
              header_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -1214,7 +1346,15 @@ class ReceiptRuleBounceActionArgs:
              smtp_reply_code: pulumi.Input[str],
              status_code: Optional[pulumi.Input[str]] = None,
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smtpReplyCode' in kwargs:
+            smtp_reply_code = kwargs['smtpReplyCode']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("message", message)
         _setter("sender", sender)
         _setter("smtp_reply_code", smtp_reply_code)
@@ -1287,7 +1427,15 @@ class ReceiptRuleLambdaActionArgs:
              function_arn: pulumi.Input[str],
              invocation_type: Optional[pulumi.Input[str]] = None,
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("function_arn", function_arn)
         if invocation_type is not None:
             _setter("invocation_type", invocation_type)
@@ -1349,7 +1497,13 @@ class ReceiptRuleRuleArgs:
              recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              scan_enabled: Optional[pulumi.Input[bool]] = None,
              tls_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scanEnabled' in kwargs:
+            scan_enabled = kwargs['scanEnabled']
+        if 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+
         if actions is not None:
             _setter("actions", actions)
         if enabled is not None:
@@ -1439,7 +1593,17 @@ class ReceiptRuleS3ActionArgs:
              kms_key_arn: Optional[pulumi.Input[str]] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("bucket_name", bucket_name)
         if kms_key_arn is not None:
             _setter("kms_key_arn", kms_key_arn)
@@ -1500,7 +1664,11 @@ class ReceiptRuleSnsActionArgs:
              _setter: Callable[[Any, Any], None],
              encoding: Optional[pulumi.Input[str]] = None,
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         if encoding is not None:
             _setter("encoding", encoding)
         if topic_arn is not None:
@@ -1540,7 +1708,11 @@ class ReceiptRuleStopActionArgs:
              _setter: Callable[[Any, Any], None],
              scope: pulumi.Input[str],
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("scope", scope)
         if topic_arn is not None:
             _setter("topic_arn", topic_arn)
@@ -1579,7 +1751,13 @@ class ReceiptRuleWorkmailActionArgs:
              _setter: Callable[[Any, Any], None],
              organization_arn: pulumi.Input[str],
              topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationArn' in kwargs:
+            organization_arn = kwargs['organizationArn']
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("organization_arn", organization_arn)
         if topic_arn is not None:
             _setter("topic_arn", topic_arn)
@@ -1631,7 +1809,17 @@ class TemplateArgs:
              html_part: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
              text_part: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectPart' in kwargs:
+            subject_part = kwargs['subjectPart']
+        if 'htmlPart' in kwargs:
+            html_part = kwargs['htmlPart']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'textPart' in kwargs:
+            text_part = kwargs['textPart']
+
         _setter("subject_part", subject_part)
         if html_part is not None:
             _setter("html_part", html_part)
@@ -1705,7 +1893,11 @@ class VdmAttributesDashboardAttributesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              engagement_metrics: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engagementMetrics' in kwargs:
+            engagement_metrics = kwargs['engagementMetrics']
+
         if engagement_metrics is not None:
             _setter("engagement_metrics", engagement_metrics)
 
@@ -1738,7 +1930,11 @@ class VdmAttributesGuardianAttributesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              optimized_shared_delivery: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optimizedSharedDelivery' in kwargs:
+            optimized_shared_delivery = kwargs['optimizedSharedDelivery']
+
         if optimized_shared_delivery is not None:
             _setter("optimized_shared_delivery", optimized_shared_delivery)
 

@@ -41,7 +41,19 @@ class LaunchRoleConstraintArgs:
              description: Optional[pulumi.Input[str]] = None,
              local_role_name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if 'localRoleName' in kwargs:
+            local_role_name = kwargs['localRoleName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)
         if accept_language is not None:

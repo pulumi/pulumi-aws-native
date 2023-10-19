@@ -66,7 +66,21 @@ class ExperimentMetricGoalObjectArgs:
              value_key: pulumi.Input[str],
              event_pattern: Optional[pulumi.Input[str]] = None,
              unit_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredChange' in kwargs:
+            desired_change = kwargs['desiredChange']
+        if 'entityIdKey' in kwargs:
+            entity_id_key = kwargs['entityIdKey']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+        if 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+
         _setter("desired_change", desired_change)
         _setter("entity_id_key", entity_id_key)
         _setter("metric_name", metric_name)
@@ -155,7 +169,13 @@ class ExperimentOnlineAbConfigObjectArgs:
              _setter: Callable[[Any, Any], None],
              control_treatment_name: Optional[pulumi.Input[str]] = None,
              treatment_weights: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlTreatmentName' in kwargs:
+            control_treatment_name = kwargs['controlTreatmentName']
+        if 'treatmentWeights' in kwargs:
+            treatment_weights = kwargs['treatmentWeights']
+
         if control_treatment_name is not None:
             _setter("control_treatment_name", control_treatment_name)
         if treatment_weights is not None:
@@ -207,7 +227,13 @@ class ExperimentRunningStatusObjectArgs:
              desired_state: Optional[pulumi.Input[str]] = None,
              reason: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'analysisCompleteTime' in kwargs:
+            analysis_complete_time = kwargs['analysisCompleteTime']
+        if 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+
         if analysis_complete_time is not None:
             _setter("analysis_complete_time", analysis_complete_time)
         if desired_state is not None:
@@ -286,7 +312,9 @@ class ExperimentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -336,7 +364,11 @@ class ExperimentTreatmentObjectArgs:
              treatment_name: pulumi.Input[str],
              variation: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'treatmentName' in kwargs:
+            treatment_name = kwargs['treatmentName']
+
         _setter("feature", feature)
         _setter("treatment_name", treatment_name)
         _setter("variation", variation)
@@ -395,7 +427,11 @@ class ExperimentTreatmentToWeightArgs:
              _setter: Callable[[Any, Any], None],
              split_weight: pulumi.Input[int],
              treatment: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'splitWeight' in kwargs:
+            split_weight = kwargs['splitWeight']
+
         _setter("split_weight", split_weight)
         _setter("treatment", treatment)
 
@@ -433,7 +469,11 @@ class FeatureEntityOverrideArgs:
              _setter: Callable[[Any, Any], None],
              entity_id: Optional[pulumi.Input[str]] = None,
              variation: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+
         if entity_id is not None:
             _setter("entity_id", entity_id)
         if variation is not None:
@@ -478,7 +518,9 @@ class FeatureTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -531,7 +573,19 @@ class FeatureVariationObjectArgs:
              long_value: Optional[pulumi.Input[float]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
              variation_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if 'longValue' in kwargs:
+            long_value = kwargs['longValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if 'variationName' in kwargs:
+            variation_name = kwargs['variationName']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -612,7 +666,11 @@ class LaunchExecutionStatusObjectArgs:
              status: pulumi.Input[str],
              desired_state: Optional[pulumi.Input[str]] = None,
              reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+
         _setter("status", status)
         if desired_state is not None:
             _setter("desired_state", desired_state)
@@ -677,7 +735,11 @@ class LaunchGroupObjectArgs:
              group_name: pulumi.Input[str],
              variation: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         _setter("feature", feature)
         _setter("group_name", group_name)
         _setter("variation", variation)
@@ -736,7 +798,13 @@ class LaunchGroupToWeightArgs:
              _setter: Callable[[Any, Any], None],
              group_name: pulumi.Input[str],
              split_weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'splitWeight' in kwargs:
+            split_weight = kwargs['splitWeight']
+
         _setter("group_name", group_name)
         _setter("split_weight", split_weight)
 
@@ -788,7 +856,19 @@ class LaunchMetricDefinitionObjectArgs:
              value_key: pulumi.Input[str],
              event_pattern: Optional[pulumi.Input[str]] = None,
              unit_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityIdKey' in kwargs:
+            entity_id_key = kwargs['entityIdKey']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+        if 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+
         _setter("entity_id_key", entity_id_key)
         _setter("metric_name", metric_name)
         _setter("value_key", value_key)
@@ -870,7 +950,11 @@ class LaunchSegmentOverrideArgs:
              evaluation_order: pulumi.Input[int],
              segment: pulumi.Input[str],
              weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluationOrder' in kwargs:
+            evaluation_order = kwargs['evaluationOrder']
+
         _setter("evaluation_order", evaluation_order)
         _setter("segment", segment)
         _setter("weights", weights)
@@ -921,7 +1005,15 @@ class LaunchStepConfigArgs:
              group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
              start_time: pulumi.Input[str],
              segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupWeights' in kwargs:
+            group_weights = kwargs['groupWeights']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'segmentOverrides' in kwargs:
+            segment_overrides = kwargs['segmentOverrides']
+
         _setter("group_weights", group_weights)
         _setter("start_time", start_time)
         if segment_overrides is not None:
@@ -975,7 +1067,9 @@ class LaunchTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1019,7 +1113,13 @@ class ProjectAppConfigResourceObjectArgs:
              _setter: Callable[[Any, Any], None],
              application_id: pulumi.Input[str],
              environment_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+
         _setter("application_id", application_id)
         _setter("environment_id", environment_id)
 
@@ -1060,7 +1160,11 @@ class ProjectDataDeliveryObjectArgs:
              _setter: Callable[[Any, Any], None],
              log_group: Optional[pulumi.Input[str]] = None,
              s3: Optional[pulumi.Input['ProjectS3DestinationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
             _setter("log_group", log_group)
         if s3 is not None:
@@ -1100,7 +1204,11 @@ class ProjectS3DestinationArgs:
              _setter: Callable[[Any, Any], None],
              bucket_name: pulumi.Input[str],
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+
         _setter("bucket_name", bucket_name)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -1144,7 +1252,9 @@ class ProjectTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1193,7 +1303,9 @@ class SegmentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

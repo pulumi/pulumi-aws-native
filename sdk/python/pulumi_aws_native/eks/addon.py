@@ -58,7 +58,23 @@ class AddonArgs:
              resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
              service_account_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'addonName' in kwargs:
+            addon_name = kwargs['addonName']
+        if 'addonVersion' in kwargs:
+            addon_version = kwargs['addonVersion']
+        if 'configurationValues' in kwargs:
+            configuration_values = kwargs['configurationValues']
+        if 'preserveOnDelete' in kwargs:
+            preserve_on_delete = kwargs['preserveOnDelete']
+        if 'resolveConflicts' in kwargs:
+            resolve_conflicts = kwargs['resolveConflicts']
+        if 'serviceAccountRoleArn' in kwargs:
+            service_account_role_arn = kwargs['serviceAccountRoleArn']
+
         _setter("cluster_name", cluster_name)
         if addon_name is not None:
             _setter("addon_name", addon_name)

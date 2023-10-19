@@ -45,7 +45,17 @@ class ApplicationArgs:
              api_gateway_proxy: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'apiGatewayProxy' in kwargs:
+            api_gateway_proxy = kwargs['apiGatewayProxy']
+
         _setter("environment_identifier", environment_identifier)
         _setter("proxy_type", proxy_type)
         _setter("vpc_id", vpc_id)

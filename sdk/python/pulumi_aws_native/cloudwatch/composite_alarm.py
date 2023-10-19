@@ -63,7 +63,29 @@ class CompositeAlarmArgs:
              alarm_name: Optional[pulumi.Input[str]] = None,
              insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmRule' in kwargs:
+            alarm_rule = kwargs['alarmRule']
+        if 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if 'actionsSuppressor' in kwargs:
+            actions_suppressor = kwargs['actionsSuppressor']
+        if 'actionsSuppressorExtensionPeriod' in kwargs:
+            actions_suppressor_extension_period = kwargs['actionsSuppressorExtensionPeriod']
+        if 'actionsSuppressorWaitPeriod' in kwargs:
+            actions_suppressor_wait_period = kwargs['actionsSuppressorWaitPeriod']
+        if 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+
         _setter("alarm_rule", alarm_rule)
         if actions_enabled is not None:
             _setter("actions_enabled", actions_enabled)

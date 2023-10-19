@@ -40,7 +40,13 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
              triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if code is not None:
             _setter("code", code)
         if repository_description is not None:

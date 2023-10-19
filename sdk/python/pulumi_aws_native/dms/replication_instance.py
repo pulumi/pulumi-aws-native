@@ -70,7 +70,37 @@ class ReplicationInstanceArgs:
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationInstanceTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicationInstanceClass' in kwargs:
+            replication_instance_class = kwargs['replicationInstanceClass']
+        if 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'multiAz' in kwargs:
+            multi_az = kwargs['multiAz']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'replicationInstanceIdentifier' in kwargs:
+            replication_instance_identifier = kwargs['replicationInstanceIdentifier']
+        if 'replicationSubnetGroupIdentifier' in kwargs:
+            replication_subnet_group_identifier = kwargs['replicationSubnetGroupIdentifier']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("replication_instance_class", replication_instance_class)
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)

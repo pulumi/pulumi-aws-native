@@ -54,7 +54,17 @@ class AnomalySubscriptionArgs:
              resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]] = None,
              threshold: Optional[pulumi.Input[float]] = None,
              threshold_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorArnList' in kwargs:
+            monitor_arn_list = kwargs['monitorArnList']
+        if 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'thresholdExpression' in kwargs:
+            threshold_expression = kwargs['thresholdExpression']
+
         _setter("frequency", frequency)
         _setter("monitor_arn_list", monitor_arn_list)
         _setter("subscribers", subscribers)

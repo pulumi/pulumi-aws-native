@@ -36,7 +36,9 @@ class CrlTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -66,7 +68,9 @@ class ProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -102,7 +106,9 @@ class TrustAnchorNotificationSetting(dict):
              event: 'TrustAnchorNotificationEvent',
              channel: Optional['TrustAnchorNotificationChannel'] = None,
              threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("event", event)
         if channel is not None:
@@ -165,7 +171,13 @@ class TrustAnchorSource(dict):
              _setter: Callable[[Any, Any], None],
              source_data: Optional[Any] = None,
              source_type: Optional['TrustAnchorType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceData' in kwargs:
+            source_data = kwargs['sourceData']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if source_data is not None:
             _setter("source_data", source_data)
         if source_type is not None:
@@ -211,7 +223,11 @@ class TrustAnchorSourceData0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              x509_certificate_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'x509CertificateData' in kwargs:
+            x509_certificate_data = kwargs['x509CertificateData']
+
         _setter("x509_certificate_data", x509_certificate_data)
 
     @property
@@ -249,7 +265,11 @@ class TrustAnchorSourceData1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              acm_pca_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acmPcaArn' in kwargs:
+            acm_pca_arn = kwargs['acmPcaArn']
+
         _setter("acm_pca_arn", acm_pca_arn)
 
     @property
@@ -273,7 +293,9 @@ class TrustAnchorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -44,7 +44,11 @@ class AccountExpiryEventsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
 
@@ -93,7 +97,15 @@ class CertificateDomainValidationOption(dict):
              domain_name: str,
              hosted_zone_id: Optional[str] = None,
              validation_domain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'validationDomain' in kwargs:
+            validation_domain = kwargs['validationDomain']
+
         _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
             _setter("hosted_zone_id", hosted_zone_id)
@@ -131,7 +143,9 @@ class CertificateTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

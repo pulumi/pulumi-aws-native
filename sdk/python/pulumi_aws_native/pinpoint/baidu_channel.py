@@ -35,7 +35,15 @@ class BaiduChannelArgs:
              application_id: pulumi.Input[str],
              secret_key: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         _setter("api_key", api_key)
         _setter("application_id", application_id)
         _setter("secret_key", secret_key)

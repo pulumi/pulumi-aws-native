@@ -49,7 +49,17 @@ class ConnectAttachmentArgs:
              transport_attachment_id: pulumi.Input[str],
              proposed_segment_change: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if 'transportAttachmentId' in kwargs:
+            transport_attachment_id = kwargs['transportAttachmentId']
+        if 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("edge_location", edge_location)
         _setter("options", options)

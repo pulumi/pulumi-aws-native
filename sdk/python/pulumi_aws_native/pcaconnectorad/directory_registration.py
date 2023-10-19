@@ -31,7 +31,11 @@ class DirectoryRegistrationArgs:
              _setter: Callable[[Any, Any], None],
              directory_id: pulumi.Input[str],
              tags: Optional[pulumi.Input['DirectoryRegistrationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+
         _setter("directory_id", directory_id)
         if tags is not None:
             _setter("tags", tags)

@@ -30,7 +30,11 @@ class ChannelPolicyArgs:
              _setter: Callable[[Any, Any], None],
              channel_name: pulumi.Input[str],
              policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
         _setter("channel_name", channel_name)
         _setter("policy", policy)
 

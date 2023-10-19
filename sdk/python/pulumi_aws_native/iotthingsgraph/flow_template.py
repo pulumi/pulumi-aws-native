@@ -31,7 +31,11 @@ class FlowTemplateArgs:
              _setter: Callable[[Any, Any], None],
              definition: pulumi.Input['FlowTemplateDefinitionDocumentArgs'],
              compatible_namespace_version: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compatibleNamespaceVersion' in kwargs:
+            compatible_namespace_version = kwargs['compatibleNamespaceVersion']
+
         _setter("definition", definition)
         if compatible_namespace_version is not None:
             _setter("compatible_namespace_version", compatible_namespace_version)

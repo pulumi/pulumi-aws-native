@@ -43,7 +43,15 @@ class MaintenanceWindowTargetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_information: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if 'ownerInformation' in kwargs:
+            owner_information = kwargs['ownerInformation']
+
         _setter("resource_type", resource_type)
         _setter("targets", targets)
         _setter("window_id", window_id)

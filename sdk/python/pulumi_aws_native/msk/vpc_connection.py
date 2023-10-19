@@ -45,7 +45,17 @@ class VpcConnectionArgs:
              target_cluster_arn: pulumi.Input[str],
              vpc_id: pulumi.Input[str],
              tags: Optional[pulumi.Input['VpcConnectionTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'targetClusterArn' in kwargs:
+            target_cluster_arn = kwargs['targetClusterArn']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("authentication", authentication)
         _setter("client_subnets", client_subnets)
         _setter("security_groups", security_groups)

@@ -47,7 +47,11 @@ class LifecyclePolicyActionArgs:
              _setter: Callable[[Any, Any], None],
              cross_region_copy: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyCrossRegionCopyActionArgs']]],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossRegionCopy' in kwargs:
+            cross_region_copy = kwargs['crossRegionCopy']
+
         _setter("cross_region_copy", cross_region_copy)
         _setter("name", name)
 
@@ -82,7 +86,11 @@ class LifecyclePolicyArchiveRetainRuleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              retention_archive_tier: pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionArchiveTier' in kwargs:
+            retention_archive_tier = kwargs['retentionArchiveTier']
+
         _setter("retention_archive_tier", retention_archive_tier)
 
     @property
@@ -107,7 +115,11 @@ class LifecyclePolicyArchiveRuleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              retain_rule: pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+
         _setter("retain_rule", retain_rule)
 
     @property
@@ -144,7 +156,13 @@ class LifecyclePolicyCreateRuleArgs:
              interval_unit: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExpression' in kwargs:
+            cron_expression = kwargs['cronExpression']
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if cron_expression is not None:
             _setter("cron_expression", cron_expression)
         if interval is not None:
@@ -220,7 +238,13 @@ class LifecyclePolicyCrossRegionCopyActionArgs:
              encryption_configuration: pulumi.Input['LifecyclePolicyEncryptionConfigurationArgs'],
              target: pulumi.Input[str],
              retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+
         _setter("encryption_configuration", encryption_configuration)
         _setter("target", target)
         if retain_rule is not None:
@@ -269,7 +293,11 @@ class LifecyclePolicyCrossRegionCopyDeprecateRuleArgs:
              _setter: Callable[[Any, Any], None],
              interval: pulumi.Input[int],
              interval_unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         _setter("interval", interval)
         _setter("interval_unit", interval_unit)
 
@@ -307,7 +335,11 @@ class LifecyclePolicyCrossRegionCopyRetainRuleArgs:
              _setter: Callable[[Any, Any], None],
              interval: pulumi.Input[int],
              interval_unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         _setter("interval", interval)
         _setter("interval_unit", interval_unit)
 
@@ -360,7 +392,19 @@ class LifecyclePolicyCrossRegionCopyRuleArgs:
              retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None,
              target: Optional[pulumi.Input[str]] = None,
              target_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cmkArn' in kwargs:
+            cmk_arn = kwargs['cmkArn']
+        if 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if 'deprecateRule' in kwargs:
+            deprecate_rule = kwargs['deprecateRule']
+        if 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+        if 'targetRegion' in kwargs:
+            target_region = kwargs['targetRegion']
+
         _setter("encrypted", encrypted)
         if cmk_arn is not None:
             _setter("cmk_arn", cmk_arn)
@@ -457,7 +501,11 @@ class LifecyclePolicyDeprecateRuleArgs:
              count: Optional[pulumi.Input[int]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -508,7 +556,11 @@ class LifecyclePolicyEncryptionConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              encrypted: pulumi.Input[bool],
              cmk_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cmkArn' in kwargs:
+            cmk_arn = kwargs['cmkArn']
+
         _setter("encrypted", encrypted)
         if cmk_arn is not None:
             _setter("cmk_arn", cmk_arn)
@@ -550,7 +602,15 @@ class LifecyclePolicyEventParametersArgs:
              event_type: pulumi.Input[str],
              snapshot_owner: pulumi.Input[Sequence[pulumi.Input[str]]],
              description_regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'snapshotOwner' in kwargs:
+            snapshot_owner = kwargs['snapshotOwner']
+        if 'descriptionRegex' in kwargs:
+            description_regex = kwargs['descriptionRegex']
+
         _setter("event_type", event_type)
         _setter("snapshot_owner", snapshot_owner)
         if description_regex is not None:
@@ -599,7 +659,9 @@ class LifecyclePolicyEventSourceArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              parameters: Optional[pulumi.Input['LifecyclePolicyEventParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -644,7 +706,13 @@ class LifecyclePolicyFastRestoreRuleArgs:
              count: Optional[pulumi.Input[int]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if availability_zones is not None:
             _setter("availability_zones", availability_zones)
         if count is not None:
@@ -709,7 +777,15 @@ class LifecyclePolicyParametersArgs:
              exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
              exclude_data_volume_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
              no_reboot: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludeBootVolume' in kwargs:
+            exclude_boot_volume = kwargs['excludeBootVolume']
+        if 'excludeDataVolumeTags' in kwargs:
+            exclude_data_volume_tags = kwargs['excludeDataVolumeTags']
+        if 'noReboot' in kwargs:
+            no_reboot = kwargs['noReboot']
+
         if exclude_boot_volume is not None:
             _setter("exclude_boot_volume", exclude_boot_volume)
         if exclude_data_volume_tags is not None:
@@ -778,7 +854,19 @@ class LifecyclePolicyPolicyDetailsArgs:
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyScheduleArgs']]]] = None,
              target_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'resourceLocations' in kwargs:
+            resource_locations = kwargs['resourceLocations']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if 'targetTags' in kwargs:
+            target_tags = kwargs['targetTags']
+
         if actions is not None:
             _setter("actions", actions)
         if event_source is not None:
@@ -887,7 +975,11 @@ class LifecyclePolicyRetainRuleArgs:
              count: Optional[pulumi.Input[int]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -941,7 +1033,11 @@ class LifecyclePolicyRetentionArchiveTierArgs:
              count: Optional[pulumi.Input[int]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -1019,7 +1115,29 @@ class LifecyclePolicyScheduleArgs:
              share_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyShareRuleArgs']]]] = None,
              tags_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
              variable_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveRule' in kwargs:
+            archive_rule = kwargs['archiveRule']
+        if 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if 'createRule' in kwargs:
+            create_rule = kwargs['createRule']
+        if 'crossRegionCopyRules' in kwargs:
+            cross_region_copy_rules = kwargs['crossRegionCopyRules']
+        if 'deprecateRule' in kwargs:
+            deprecate_rule = kwargs['deprecateRule']
+        if 'fastRestoreRule' in kwargs:
+            fast_restore_rule = kwargs['fastRestoreRule']
+        if 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+        if 'shareRules' in kwargs:
+            share_rules = kwargs['shareRules']
+        if 'tagsToAdd' in kwargs:
+            tags_to_add = kwargs['tagsToAdd']
+        if 'variableTags' in kwargs:
+            variable_tags = kwargs['variableTags']
+
         if archive_rule is not None:
             _setter("archive_rule", archive_rule)
         if copy_tags is not None:
@@ -1161,7 +1279,15 @@ class LifecyclePolicyShareRuleArgs:
              target_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              unshare_interval: Optional[pulumi.Input[int]] = None,
              unshare_interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetAccounts' in kwargs:
+            target_accounts = kwargs['targetAccounts']
+        if 'unshareInterval' in kwargs:
+            unshare_interval = kwargs['unshareInterval']
+        if 'unshareIntervalUnit' in kwargs:
+            unshare_interval_unit = kwargs['unshareIntervalUnit']
+
         if target_accounts is not None:
             _setter("target_accounts", target_accounts)
         if unshare_interval is not None:
@@ -1212,7 +1338,9 @@ class LifecyclePolicyTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

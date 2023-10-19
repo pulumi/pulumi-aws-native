@@ -64,7 +64,29 @@ class ImageBuilderArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if 'appstreamAgentVersion' in kwargs:
+            appstream_agent_version = kwargs['appstreamAgentVersion']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("instance_type", instance_type)
         if access_endpoints is not None:
             _setter("access_endpoints", access_endpoints)

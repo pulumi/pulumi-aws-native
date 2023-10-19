@@ -98,7 +98,27 @@ class AppAutoBranchCreationConfig(dict):
              framework: Optional[str] = None,
              pull_request_environment_name: Optional[str] = None,
              stage: Optional['AppAutoBranchCreationConfigStage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoBranchCreationPatterns' in kwargs:
+            auto_branch_creation_patterns = kwargs['autoBranchCreationPatterns']
+        if 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if 'enableAutoBranchCreation' in kwargs:
+            enable_auto_branch_creation = kwargs['enableAutoBranchCreation']
+        if 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+
         if auto_branch_creation_patterns is not None:
             _setter("auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
@@ -213,7 +233,11 @@ class AppBasicAuthConfig(dict):
              enable_basic_auth: Optional[bool] = None,
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+
         if enable_basic_auth is not None:
             _setter("enable_basic_auth", enable_basic_auth)
         if password is not None:
@@ -258,7 +282,9 @@ class AppCustomRule(dict):
              target: str,
              condition: Optional[str] = None,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("source", source)
         _setter("target", target)
         if condition is not None:
@@ -302,7 +328,9 @@ class AppEnvironmentVariable(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -332,7 +360,9 @@ class AppTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -382,7 +412,11 @@ class BranchBasicAuthConfig(dict):
              password: str,
              username: str,
              enable_basic_auth: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+
         _setter("password", password)
         _setter("username", username)
         if enable_basic_auth is not None:
@@ -419,7 +453,9 @@ class BranchEnvironmentVariable(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -449,7 +485,9 @@ class BranchTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -496,7 +534,11 @@ class DomainSubDomainSetting(dict):
              _setter: Callable[[Any, Any], None],
              branch_name: str,
              prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
         _setter("branch_name", branch_name)
         _setter("prefix", prefix)
 

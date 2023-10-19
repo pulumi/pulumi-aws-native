@@ -35,7 +35,13 @@ class DatastoreArgs:
              datastore_name: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['DatastoreTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if datastore_name is not None:
             _setter("datastore_name", datastore_name)
         if kms_key_arn is not None:

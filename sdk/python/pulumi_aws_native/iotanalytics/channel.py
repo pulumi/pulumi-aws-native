@@ -37,7 +37,15 @@ class ChannelArgs:
              channel_storage: Optional[pulumi.Input['ChannelStorageArgs']] = None,
              retention_period: Optional[pulumi.Input['ChannelRetentionPeriodArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'channelStorage' in kwargs:
+            channel_storage = kwargs['channelStorage']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
         if channel_name is not None:
             _setter("channel_name", channel_name)
         if channel_storage is not None:

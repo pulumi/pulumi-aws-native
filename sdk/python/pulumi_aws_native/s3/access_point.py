@@ -50,7 +50,15 @@ class AccessPointArgs:
              policy: Optional[Any] = None,
              public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketAccountId' in kwargs:
+            bucket_account_id = kwargs['bucketAccountId']
+        if 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("bucket", bucket)
         if bucket_account_id is not None:
             _setter("bucket_account_id", bucket_account_id)

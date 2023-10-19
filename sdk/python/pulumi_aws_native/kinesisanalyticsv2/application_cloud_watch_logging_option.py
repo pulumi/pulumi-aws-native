@@ -31,7 +31,13 @@ class ApplicationCloudWatchLoggingOptionArgs:
              _setter: Callable[[Any, Any], None],
              application_name: pulumi.Input[str],
              cloud_watch_logging_option: pulumi.Input['ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'cloudWatchLoggingOption' in kwargs:
+            cloud_watch_logging_option = kwargs['cloudWatchLoggingOption']
+
         _setter("application_name", application_name)
         _setter("cloud_watch_logging_option", cloud_watch_logging_option)
 

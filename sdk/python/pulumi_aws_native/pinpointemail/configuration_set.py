@@ -43,7 +43,17 @@ class ConfigurationSetArgs:
              sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetTagsArgs']]]] = None,
              tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if 'reputationOptions' in kwargs:
+            reputation_options = kwargs['reputationOptions']
+        if 'sendingOptions' in kwargs:
+            sending_options = kwargs['sendingOptions']
+        if 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+
         if delivery_options is not None:
             _setter("delivery_options", delivery_options)
         if name is not None:

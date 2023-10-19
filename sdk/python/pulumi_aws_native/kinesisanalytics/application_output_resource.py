@@ -31,7 +31,11 @@ class ApplicationOutputResourceArgs:
              _setter: Callable[[Any, Any], None],
              application_name: pulumi.Input[str],
              output: pulumi.Input['ApplicationOutputResourceOutputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+
         _setter("application_name", application_name)
         _setter("output", output)
 

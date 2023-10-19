@@ -45,7 +45,13 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
              _setter: Callable[[Any, Any], None],
              backup_options: Any,
              resource_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupOptions' in kwargs:
+            backup_options = kwargs['backupOptions']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("backup_options", backup_options)
         _setter("resource_type", resource_type)
 
@@ -107,7 +113,27 @@ class BackupPlanBackupRuleResourceTypeArgs:
              schedule_expression: Optional[pulumi.Input[str]] = None,
              schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
              start_window_minutes: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'targetBackupVault' in kwargs:
+            target_backup_vault = kwargs['targetBackupVault']
+        if 'completionWindowMinutes' in kwargs:
+            completion_window_minutes = kwargs['completionWindowMinutes']
+        if 'copyActions' in kwargs:
+            copy_actions = kwargs['copyActions']
+        if 'enableContinuousBackup' in kwargs:
+            enable_continuous_backup = kwargs['enableContinuousBackup']
+        if 'recoveryPointTags' in kwargs:
+            recovery_point_tags = kwargs['recoveryPointTags']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'scheduleExpressionTimezone' in kwargs:
+            schedule_expression_timezone = kwargs['scheduleExpressionTimezone']
+        if 'startWindowMinutes' in kwargs:
+            start_window_minutes = kwargs['startWindowMinutes']
+
         _setter("rule_name", rule_name)
         _setter("target_backup_vault", target_backup_vault)
         if completion_window_minutes is not None:
@@ -233,7 +259,11 @@ class BackupPlanCopyActionResourceTypeArgs:
              _setter: Callable[[Any, Any], None],
              destination_backup_vault_arn: pulumi.Input[str],
              lifecycle: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationBackupVaultArn' in kwargs:
+            destination_backup_vault_arn = kwargs['destinationBackupVaultArn']
+
         _setter("destination_backup_vault_arn", destination_backup_vault_arn)
         if lifecycle is not None:
             _setter("lifecycle", lifecycle)
@@ -272,7 +302,13 @@ class BackupPlanLifecycleResourceTypeArgs:
              _setter: Callable[[Any, Any], None],
              delete_after_days: Optional[pulumi.Input[float]] = None,
              move_to_cold_storage_after_days: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteAfterDays' in kwargs:
+            delete_after_days = kwargs['deleteAfterDays']
+        if 'moveToColdStorageAfterDays' in kwargs:
+            move_to_cold_storage_after_days = kwargs['moveToColdStorageAfterDays']
+
         if delete_after_days is not None:
             _setter("delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
@@ -315,7 +351,15 @@ class BackupPlanResourceTypeArgs:
              backup_plan_name: pulumi.Input[str],
              backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgs']]],
              advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPlanName' in kwargs:
+            backup_plan_name = kwargs['backupPlanName']
+        if 'backupPlanRule' in kwargs:
+            backup_plan_rule = kwargs['backupPlanRule']
+        if 'advancedBackupSettings' in kwargs:
+            advanced_backup_settings = kwargs['advancedBackupSettings']
+
         _setter("backup_plan_name", backup_plan_name)
         _setter("backup_plan_rule", backup_plan_rule)
         if advanced_backup_settings is not None:
@@ -364,7 +408,13 @@ class BackupSelectionConditionParameterArgs:
              _setter: Callable[[Any, Any], None],
              condition_key: Optional[pulumi.Input[str]] = None,
              condition_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionKey' in kwargs:
+            condition_key = kwargs['conditionKey']
+        if 'conditionValue' in kwargs:
+            condition_value = kwargs['conditionValue']
+
         if condition_key is not None:
             _setter("condition_key", condition_key)
         if condition_value is not None:
@@ -407,7 +457,15 @@ class BackupSelectionConditionResourceTypeArgs:
              condition_key: pulumi.Input[str],
              condition_type: pulumi.Input[str],
              condition_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionKey' in kwargs:
+            condition_key = kwargs['conditionKey']
+        if 'conditionType' in kwargs:
+            condition_type = kwargs['conditionType']
+        if 'conditionValue' in kwargs:
+            condition_value = kwargs['conditionValue']
+
         _setter("condition_key", condition_key)
         _setter("condition_type", condition_type)
         _setter("condition_value", condition_value)
@@ -461,7 +519,17 @@ class BackupSelectionResourceTypeConditionsPropertiesArgs:
              string_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
              string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
              string_not_like: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringEquals' in kwargs:
+            string_equals = kwargs['stringEquals']
+        if 'stringLike' in kwargs:
+            string_like = kwargs['stringLike']
+        if 'stringNotEquals' in kwargs:
+            string_not_equals = kwargs['stringNotEquals']
+        if 'stringNotLike' in kwargs:
+            string_not_like = kwargs['stringNotLike']
+
         if string_equals is not None:
             _setter("string_equals", string_equals)
         if string_like is not None:
@@ -535,7 +603,17 @@ class BackupSelectionResourceTypeArgs:
              list_of_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgs']]]] = None,
              not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'selectionName' in kwargs:
+            selection_name = kwargs['selectionName']
+        if 'listOfTags' in kwargs:
+            list_of_tags = kwargs['listOfTags']
+        if 'notResources' in kwargs:
+            not_resources = kwargs['notResources']
+
         _setter("iam_role_arn", iam_role_arn)
         _setter("selection_name", selection_name)
         if conditions is not None:
@@ -620,7 +698,15 @@ class BackupVaultLockConfigurationTypeArgs:
              min_retention_days: pulumi.Input[int],
              changeable_for_days: Optional[pulumi.Input[int]] = None,
              max_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minRetentionDays' in kwargs:
+            min_retention_days = kwargs['minRetentionDays']
+        if 'changeableForDays' in kwargs:
+            changeable_for_days = kwargs['changeableForDays']
+        if 'maxRetentionDays' in kwargs:
+            max_retention_days = kwargs['maxRetentionDays']
+
         _setter("min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             _setter("changeable_for_days", changeable_for_days)
@@ -670,7 +756,13 @@ class BackupVaultNotificationObjectTypeArgs:
              _setter: Callable[[Any, Any], None],
              backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
              sns_topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultEvents' in kwargs:
+            backup_vault_events = kwargs['backupVaultEvents']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("backup_vault_events", backup_vault_events)
         _setter("sns_topic_arn", sns_topic_arn)
 
@@ -717,7 +809,13 @@ class FrameworkControlControlScopePropertiesArgs:
              compliance_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'complianceResourceIds' in kwargs:
+            compliance_resource_ids = kwargs['complianceResourceIds']
+        if 'complianceResourceTypes' in kwargs:
+            compliance_resource_types = kwargs['complianceResourceTypes']
+
         if compliance_resource_ids is not None:
             _setter("compliance_resource_ids", compliance_resource_ids)
         if compliance_resource_types is not None:
@@ -777,7 +875,13 @@ class FrameworkControlInputParameterArgs:
              _setter: Callable[[Any, Any], None],
              parameter_name: pulumi.Input[str],
              parameter_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -823,7 +927,15 @@ class FrameworkControlArgs:
              control_name: pulumi.Input[str],
              control_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]] = None,
              control_scope: Optional[pulumi.Input['FrameworkControlControlScopePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlName' in kwargs:
+            control_name = kwargs['controlName']
+        if 'controlInputParameters' in kwargs:
+            control_input_parameters = kwargs['controlInputParameters']
+        if 'controlScope' in kwargs:
+            control_scope = kwargs['controlScope']
+
         _setter("control_name", control_name)
         if control_input_parameters is not None:
             _setter("control_input_parameters", control_input_parameters)
@@ -887,7 +999,9 @@ class FrameworkTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -942,7 +1056,13 @@ class ReportDeliveryChannelPropertiesArgs:
              s3_bucket_name: pulumi.Input[str],
              formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         _setter("s3_bucket_name", s3_bucket_name)
         if formats is not None:
             _setter("formats", formats)
@@ -1006,7 +1126,9 @@ class ReportPlanTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1069,7 +1191,15 @@ class ReportSettingPropertiesArgs:
              framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              organization_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportTemplate' in kwargs:
+            report_template = kwargs['reportTemplate']
+        if 'frameworkArns' in kwargs:
+            framework_arns = kwargs['frameworkArns']
+        if 'organizationUnits' in kwargs:
+            organization_units = kwargs['organizationUnits']
+
         _setter("report_template", report_template)
         if accounts is not None:
             _setter("accounts", accounts)

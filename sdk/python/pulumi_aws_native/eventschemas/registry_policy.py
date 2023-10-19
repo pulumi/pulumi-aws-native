@@ -32,7 +32,13 @@ class RegistryPolicyArgs:
              policy: Any,
              registry_name: pulumi.Input[str],
              revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'revisionId' in kwargs:
+            revision_id = kwargs['revisionId']
+
         _setter("policy", policy)
         _setter("registry_name", registry_name)
         if revision_id is not None:

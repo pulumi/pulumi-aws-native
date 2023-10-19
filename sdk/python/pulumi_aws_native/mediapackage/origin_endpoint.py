@@ -73,7 +73,25 @@ class OriginEndpointArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
              time_delay_seconds: Optional[pulumi.Input[int]] = None,
              whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'cmafPackage' in kwargs:
+            cmaf_package = kwargs['cmafPackage']
+        if 'dashPackage' in kwargs:
+            dash_package = kwargs['dashPackage']
+        if 'hlsPackage' in kwargs:
+            hls_package = kwargs['hlsPackage']
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'mssPackage' in kwargs:
+            mss_package = kwargs['mssPackage']
+        if 'startoverWindowSeconds' in kwargs:
+            startover_window_seconds = kwargs['startoverWindowSeconds']
+        if 'timeDelaySeconds' in kwargs:
+            time_delay_seconds = kwargs['timeDelaySeconds']
+
         _setter("channel_id", channel_id)
         if authorization is not None:
             _setter("authorization", authorization)

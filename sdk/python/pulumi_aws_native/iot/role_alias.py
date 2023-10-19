@@ -37,7 +37,15 @@ class RoleAliasArgs:
              credential_duration_seconds: Optional[pulumi.Input[int]] = None,
              role_alias: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAliasTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'credentialDurationSeconds' in kwargs:
+            credential_duration_seconds = kwargs['credentialDurationSeconds']
+        if 'roleAlias' in kwargs:
+            role_alias = kwargs['roleAlias']
+
         _setter("role_arn", role_arn)
         if credential_duration_seconds is not None:
             _setter("credential_duration_seconds", credential_duration_seconds)

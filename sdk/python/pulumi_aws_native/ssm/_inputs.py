@@ -52,7 +52,11 @@ class AssociationInstanceAssociationOutputLocationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_location: Optional[pulumi.Input['AssociationS3OutputLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+
         if s3_location is not None:
             _setter("s3_location", s3_location)
 
@@ -84,7 +88,15 @@ class AssociationS3OutputLocationArgs:
              output_s3_bucket_name: Optional[pulumi.Input[str]] = None,
              output_s3_key_prefix: Optional[pulumi.Input[str]] = None,
              output_s3_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputS3BucketName' in kwargs:
+            output_s3_bucket_name = kwargs['outputS3BucketName']
+        if 'outputS3KeyPrefix' in kwargs:
+            output_s3_key_prefix = kwargs['outputS3KeyPrefix']
+        if 'outputS3Region' in kwargs:
+            output_s3_region = kwargs['outputS3Region']
+
         if output_s3_bucket_name is not None:
             _setter("output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
@@ -135,7 +147,9 @@ class AssociationTargetArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -181,7 +195,9 @@ class DocumentAttachmentsSourceArgs:
              key: Optional[pulumi.Input['DocumentAttachmentsSourceKey']] = None,
              name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if name is not None:
@@ -245,7 +261,9 @@ class DocumentRequiresArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if version is not None:
@@ -295,7 +313,9 @@ class DocumentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -341,7 +361,9 @@ class MaintenanceWindowTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -379,7 +401,9 @@ class MaintenanceWindowTargetTargetsArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -417,7 +441,13 @@ class MaintenanceWindowTaskCloudWatchOutputConfigArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_group_name: Optional[pulumi.Input[str]] = None,
              cloud_watch_output_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogGroupName' in kwargs:
+            cloud_watch_log_group_name = kwargs['cloudWatchLogGroupName']
+        if 'cloudWatchOutputEnabled' in kwargs:
+            cloud_watch_output_enabled = kwargs['cloudWatchOutputEnabled']
+
         if cloud_watch_log_group_name is not None:
             _setter("cloud_watch_log_group_name", cloud_watch_log_group_name)
         if cloud_watch_output_enabled is not None:
@@ -460,7 +490,13 @@ class MaintenanceWindowTaskLoggingInfoArgs:
              region: pulumi.Input[str],
              s3_bucket: pulumi.Input[str],
              s3_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+
         _setter("region", region)
         _setter("s3_bucket", s3_bucket)
         if s3_prefix is not None:
@@ -509,7 +545,11 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs:
              _setter: Callable[[Any, Any], None],
              document_version: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+
         if document_version is not None:
             _setter("document_version", document_version)
         if parameters is not None:
@@ -552,7 +592,11 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs:
              client_context: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input[str]] = None,
              qualifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientContext' in kwargs:
+            client_context = kwargs['clientContext']
+
         if client_context is not None:
             _setter("client_context", client_context)
         if payload is not None:
@@ -630,7 +674,27 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs:
              parameters: Optional[Any] = None,
              service_role_arn: Optional[pulumi.Input[str]] = None,
              timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchOutputConfig' in kwargs:
+            cloud_watch_output_config = kwargs['cloudWatchOutputConfig']
+        if 'documentHash' in kwargs:
+            document_hash = kwargs['documentHash']
+        if 'documentHashType' in kwargs:
+            document_hash_type = kwargs['documentHashType']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if 'notificationConfig' in kwargs:
+            notification_config = kwargs['notificationConfig']
+        if 'outputS3BucketName' in kwargs:
+            output_s3_bucket_name = kwargs['outputS3BucketName']
+        if 'outputS3KeyPrefix' in kwargs:
+            output_s3_key_prefix = kwargs['outputS3KeyPrefix']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if cloud_watch_output_config is not None:
             _setter("cloud_watch_output_config", cloud_watch_output_config)
         if comment is not None:
@@ -769,7 +833,9 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs:
              _setter: Callable[[Any, Any], None],
              input: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if input is not None:
             _setter("input", input)
         if name is not None:
@@ -812,7 +878,15 @@ class MaintenanceWindowTaskNotificationConfigArgs:
              notification_arn: pulumi.Input[str],
              notification_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              notification_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationArn' in kwargs:
+            notification_arn = kwargs['notificationArn']
+        if 'notificationEvents' in kwargs:
+            notification_events = kwargs['notificationEvents']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+
         _setter("notification_arn", notification_arn)
         if notification_events is not None:
             _setter("notification_events", notification_events)
@@ -862,7 +936,9 @@ class MaintenanceWindowTaskTargetArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -906,7 +982,17 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
              maintenance_window_lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs']] = None,
              maintenance_window_run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs']] = None,
              maintenance_window_step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceWindowAutomationParameters' in kwargs:
+            maintenance_window_automation_parameters = kwargs['maintenanceWindowAutomationParameters']
+        if 'maintenanceWindowLambdaParameters' in kwargs:
+            maintenance_window_lambda_parameters = kwargs['maintenanceWindowLambdaParameters']
+        if 'maintenanceWindowRunCommandParameters' in kwargs:
+            maintenance_window_run_command_parameters = kwargs['maintenanceWindowRunCommandParameters']
+        if 'maintenanceWindowStepFunctionsParameters' in kwargs:
+            maintenance_window_step_functions_parameters = kwargs['maintenanceWindowStepFunctionsParameters']
+
         if maintenance_window_automation_parameters is not None:
             _setter("maintenance_window_automation_parameters", maintenance_window_automation_parameters)
         if maintenance_window_lambda_parameters is not None:
@@ -965,7 +1051,11 @@ class PatchBaselinePatchFilterGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              patch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patchFilters' in kwargs:
+            patch_filters = kwargs['patchFilters']
+
         if patch_filters is not None:
             _setter("patch_filters", patch_filters)
 
@@ -994,7 +1084,9 @@ class PatchBaselinePatchFilterArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if values is not None:
@@ -1037,7 +1129,9 @@ class PatchBaselinePatchSourceArgs:
              configuration: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              products: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if name is not None:
@@ -1080,8 +1174,10 @@ class PatchBaselinePatchStringDateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1096,7 +1192,11 @@ class PatchBaselineRuleGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              patch_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patchRules' in kwargs:
+            patch_rules = kwargs['patchRules']
+
         if patch_rules is not None:
             _setter("patch_rules", patch_rules)
 
@@ -1134,7 +1234,19 @@ class PatchBaselineRuleArgs:
              compliance_level: Optional[pulumi.Input[str]] = None,
              enable_non_security: Optional[pulumi.Input[bool]] = None,
              patch_filter_group: Optional[pulumi.Input['PatchBaselinePatchFilterGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approveAfterDays' in kwargs:
+            approve_after_days = kwargs['approveAfterDays']
+        if 'approveUntilDate' in kwargs:
+            approve_until_date = kwargs['approveUntilDate']
+        if 'complianceLevel' in kwargs:
+            compliance_level = kwargs['complianceLevel']
+        if 'enableNonSecurity' in kwargs:
+            enable_non_security = kwargs['enableNonSecurity']
+        if 'patchFilterGroup' in kwargs:
+            patch_filter_group = kwargs['patchFilterGroup']
+
         if approve_after_days is not None:
             _setter("approve_after_days", approve_after_days)
         if approve_until_date is not None:
@@ -1207,7 +1319,9 @@ class PatchBaselineTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1245,7 +1359,13 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
              _setter: Callable[[Any, Any], None],
              organization_source_type: pulumi.Input[str],
              organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationSourceType' in kwargs:
+            organization_source_type = kwargs['organizationSourceType']
+        if 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+
         _setter("organization_source_type", organization_source_type)
         if organizational_units is not None:
             _setter("organizational_units", organizational_units)
@@ -1293,7 +1413,19 @@ class ResourceDataSyncS3DestinationArgs:
              sync_format: pulumi.Input[str],
              bucket_prefix: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if 'syncFormat' in kwargs:
+            sync_format = kwargs['syncFormat']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("bucket_name", bucket_name)
         _setter("bucket_region", bucket_region)
         _setter("sync_format", sync_format)
@@ -1369,7 +1501,17 @@ class ResourceDataSyncSyncSourceArgs:
              source_type: pulumi.Input[str],
              aws_organizations_source: Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']] = None,
              include_future_regions: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceRegions' in kwargs:
+            source_regions = kwargs['sourceRegions']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'awsOrganizationsSource' in kwargs:
+            aws_organizations_source = kwargs['awsOrganizationsSource']
+        if 'includeFutureRegions' in kwargs:
+            include_future_regions = kwargs['includeFutureRegions']
+
         _setter("source_regions", source_regions)
         _setter("source_type", source_type)
         if aws_organizations_source is not None:

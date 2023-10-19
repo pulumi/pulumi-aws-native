@@ -31,7 +31,11 @@ class SizeConstraintSetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeConstraints' in kwargs:
+            size_constraints = kwargs['sizeConstraints']
+
         if name is not None:
             _setter("name", name)
         if size_constraints is not None:

@@ -35,7 +35,17 @@ class ResourceArgs:
              use_service_linked_role: pulumi.Input[bool],
              role_arn: Optional[pulumi.Input[str]] = None,
              with_federation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'useServiceLinkedRole' in kwargs:
+            use_service_linked_role = kwargs['useServiceLinkedRole']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'withFederation' in kwargs:
+            with_federation = kwargs['withFederation']
+
         _setter("resource_arn", resource_arn)
         _setter("use_service_linked_role", use_service_linked_role)
         if role_arn is not None:

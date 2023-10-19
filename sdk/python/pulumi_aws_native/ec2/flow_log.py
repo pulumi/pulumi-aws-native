@@ -73,7 +73,31 @@ class FlowLogArgs:
              max_aggregation_interval: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]] = None,
              traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'deliverCrossAccountRole' in kwargs:
+            deliver_cross_account_role = kwargs['deliverCrossAccountRole']
+        if 'deliverLogsPermissionArn' in kwargs:
+            deliver_logs_permission_arn = kwargs['deliverLogsPermissionArn']
+        if 'destinationOptions' in kwargs:
+            destination_options = kwargs['destinationOptions']
+        if 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'maxAggregationInterval' in kwargs:
+            max_aggregation_interval = kwargs['maxAggregationInterval']
+        if 'trafficType' in kwargs:
+            traffic_type = kwargs['trafficType']
+
         _setter("resource_id", resource_id)
         _setter("resource_type", resource_type)
         if deliver_cross_account_role is not None:

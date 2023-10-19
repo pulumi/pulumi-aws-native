@@ -34,7 +34,13 @@ class BotVersionArgs:
              bot_id: pulumi.Input[str],
              bot_version_locale_specification: pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botId' in kwargs:
+            bot_id = kwargs['botId']
+        if 'botVersionLocaleSpecification' in kwargs:
+            bot_version_locale_specification = kwargs['botVersionLocaleSpecification']
+
         _setter("bot_id", bot_id)
         _setter("bot_version_locale_specification", bot_version_locale_specification)
         if description is not None:

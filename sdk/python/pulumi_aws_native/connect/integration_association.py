@@ -33,7 +33,15 @@ class IntegrationAssociationArgs:
              instance_id: pulumi.Input[str],
              integration_arn: pulumi.Input[str],
              integration_type: pulumi.Input['IntegrationAssociationIntegrationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'integrationArn' in kwargs:
+            integration_arn = kwargs['integrationArn']
+        if 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+
         _setter("instance_id", instance_id)
         _setter("integration_arn", integration_arn)
         _setter("integration_type", integration_type)

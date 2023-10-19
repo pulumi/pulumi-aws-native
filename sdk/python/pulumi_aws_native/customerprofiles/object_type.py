@@ -70,7 +70,23 @@ class ObjectTypeArgs:
              source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
              template_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'allowProfileCreation' in kwargs:
+            allow_profile_creation = kwargs['allowProfileCreation']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'expirationDays' in kwargs:
+            expiration_days = kwargs['expirationDays']
+        if 'objectTypeName' in kwargs:
+            object_type_name = kwargs['objectTypeName']
+        if 'sourceLastUpdatedTimestampFormat' in kwargs:
+            source_last_updated_timestamp_format = kwargs['sourceLastUpdatedTimestampFormat']
+        if 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+
         _setter("domain_name", domain_name)
         if allow_profile_creation is not None:
             _setter("allow_profile_creation", allow_profile_creation)

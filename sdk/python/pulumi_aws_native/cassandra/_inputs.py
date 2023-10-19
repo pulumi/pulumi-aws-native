@@ -36,7 +36,13 @@ class KeyspaceReplicationSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
              replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionList' in kwargs:
+            region_list = kwargs['regionList']
+        if 'replicationStrategy' in kwargs:
+            replication_strategy = kwargs['replicationStrategy']
+
         if region_list is not None:
             _setter("region_list", region_list)
         if replication_strategy is not None:
@@ -76,7 +82,9 @@ class KeyspaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -114,7 +122,11 @@ class TableBillingModeArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input['TableMode'],
              provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+
         _setter("mode", mode)
         if provisioned_throughput is not None:
             _setter("provisioned_throughput", provisioned_throughput)
@@ -153,7 +165,11 @@ class TableClusteringKeyColumnArgs:
              _setter: Callable[[Any, Any], None],
              column: pulumi.Input['TableColumnArgs'],
              order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+
         _setter("column", column)
         if order_by is not None:
             _setter("order_by", order_by)
@@ -192,7 +208,13 @@ class TableColumnArgs:
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
              column_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if 'columnType' in kwargs:
+            column_type = kwargs['columnType']
+
         _setter("column_name", column_name)
         _setter("column_type", column_type)
 
@@ -233,7 +255,13 @@ class TableEncryptionSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              encryption_type: pulumi.Input['TableEncryptionType'],
              kms_key_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         _setter("encryption_type", encryption_type)
         if kms_key_identifier is not None:
             _setter("kms_key_identifier", kms_key_identifier)
@@ -275,7 +303,13 @@ class TableProvisionedThroughputArgs:
              _setter: Callable[[Any, Any], None],
              read_capacity_units: pulumi.Input[int],
              write_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+
         _setter("read_capacity_units", read_capacity_units)
         _setter("write_capacity_units", write_capacity_units)
 
@@ -316,7 +350,9 @@ class TableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

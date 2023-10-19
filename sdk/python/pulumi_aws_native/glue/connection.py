@@ -31,7 +31,13 @@ class ConnectionArgs:
              _setter: Callable[[Any, Any], None],
              catalog_id: pulumi.Input[str],
              connection_input: pulumi.Input['ConnectionInputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'connectionInput' in kwargs:
+            connection_input = kwargs['connectionInput']
+
         _setter("catalog_id", catalog_id)
         _setter("connection_input", connection_input)
 

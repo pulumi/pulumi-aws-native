@@ -29,7 +29,13 @@ class ClientVpnTargetNetworkAssociationArgs:
              _setter: Callable[[Any, Any], None],
              client_vpn_endpoint_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("subnet_id", subnet_id)
 

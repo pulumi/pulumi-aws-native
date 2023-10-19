@@ -54,7 +54,15 @@ class FlowEntitlementArgs:
              encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
              entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'dataTransferSubscriberFeePercent' in kwargs:
+            data_transfer_subscriber_fee_percent = kwargs['dataTransferSubscriberFeePercent']
+        if 'entitlementStatus' in kwargs:
+            entitlement_status = kwargs['entitlementStatus']
+
         _setter("description", description)
         _setter("flow_arn", flow_arn)
         _setter("subscribers", subscribers)

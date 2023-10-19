@@ -46,7 +46,15 @@ class ConfigurationArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'authenticationStrategy' in kwargs:
+            authentication_strategy = kwargs['authenticationStrategy']
+
         _setter("data", data)
         _setter("engine_type", engine_type)
         _setter("engine_version", engine_version)

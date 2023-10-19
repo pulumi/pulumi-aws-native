@@ -37,7 +37,11 @@ class ListenerRuleArgs:
              conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
              priority: pulumi.Input[int],
              listener_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+
         _setter("actions", actions)
         _setter("conditions", conditions)
         _setter("priority", priority)

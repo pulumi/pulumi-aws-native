@@ -43,7 +43,13 @@ class DataQualityRulesetArgs:
              ruleset: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              target_table: Optional[pulumi.Input['DataQualityRulesetDataQualityTargetTableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'targetTable' in kwargs:
+            target_table = kwargs['targetTable']
+
         if client_token is not None:
             _setter("client_token", client_token)
         if description is not None:

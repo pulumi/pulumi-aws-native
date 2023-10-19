@@ -228,7 +228,95 @@ class ClusterArgs:
              snapshot_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterType' in kwargs:
+            cluster_type = kwargs['clusterType']
+        if 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if 'allowVersionUpgrade' in kwargs:
+            allow_version_upgrade = kwargs['allowVersionUpgrade']
+        if 'aquaConfigurationStatus' in kwargs:
+            aqua_configuration_status = kwargs['aquaConfigurationStatus']
+        if 'automatedSnapshotRetentionPeriod' in kwargs:
+            automated_snapshot_retention_period = kwargs['automatedSnapshotRetentionPeriod']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'availabilityZoneRelocation' in kwargs:
+            availability_zone_relocation = kwargs['availabilityZoneRelocation']
+        if 'availabilityZoneRelocationStatus' in kwargs:
+            availability_zone_relocation_status = kwargs['availabilityZoneRelocationStatus']
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'clusterParameterGroupName' in kwargs:
+            cluster_parameter_group_name = kwargs['clusterParameterGroupName']
+        if 'clusterSecurityGroups' in kwargs:
+            cluster_security_groups = kwargs['clusterSecurityGroups']
+        if 'clusterSubnetGroupName' in kwargs:
+            cluster_subnet_group_name = kwargs['clusterSubnetGroupName']
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'deferMaintenance' in kwargs:
+            defer_maintenance = kwargs['deferMaintenance']
+        if 'deferMaintenanceDuration' in kwargs:
+            defer_maintenance_duration = kwargs['deferMaintenanceDuration']
+        if 'deferMaintenanceEndTime' in kwargs:
+            defer_maintenance_end_time = kwargs['deferMaintenanceEndTime']
+        if 'deferMaintenanceStartTime' in kwargs:
+            defer_maintenance_start_time = kwargs['deferMaintenanceStartTime']
+        if 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if 'elasticIp' in kwargs:
+            elastic_ip = kwargs['elasticIp']
+        if 'enhancedVpcRouting' in kwargs:
+            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
+        if 'hsmClientCertificateIdentifier' in kwargs:
+            hsm_client_certificate_identifier = kwargs['hsmClientCertificateIdentifier']
+        if 'hsmConfigurationIdentifier' in kwargs:
+            hsm_configuration_identifier = kwargs['hsmConfigurationIdentifier']
+        if 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'loggingProperties' in kwargs:
+            logging_properties = kwargs['loggingProperties']
+        if 'maintenanceTrackName' in kwargs:
+            maintenance_track_name = kwargs['maintenanceTrackName']
+        if 'manualSnapshotRetentionPeriod' in kwargs:
+            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
+        if 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'resourceAction' in kwargs:
+            resource_action = kwargs['resourceAction']
+        if 'revisionTarget' in kwargs:
+            revision_target = kwargs['revisionTarget']
+        if 'rotateEncryptionKey' in kwargs:
+            rotate_encryption_key = kwargs['rotateEncryptionKey']
+        if 'snapshotClusterIdentifier' in kwargs:
+            snapshot_cluster_identifier = kwargs['snapshotClusterIdentifier']
+        if 'snapshotCopyGrantName' in kwargs:
+            snapshot_copy_grant_name = kwargs['snapshotCopyGrantName']
+        if 'snapshotCopyManual' in kwargs:
+            snapshot_copy_manual = kwargs['snapshotCopyManual']
+        if 'snapshotCopyRetentionPeriod' in kwargs:
+            snapshot_copy_retention_period = kwargs['snapshotCopyRetentionPeriod']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("cluster_type", cluster_type)
         _setter("db_name", db_name)
         _setter("master_user_password", master_user_password)

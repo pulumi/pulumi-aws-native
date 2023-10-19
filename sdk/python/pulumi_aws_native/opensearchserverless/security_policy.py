@@ -39,7 +39,9 @@ class SecurityPolicyArgs:
              type: pulumi.Input['SecurityPolicyType'],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("policy", policy)
         _setter("type", type)
         if description is not None:

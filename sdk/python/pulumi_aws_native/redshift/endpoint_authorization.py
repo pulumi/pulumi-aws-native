@@ -39,7 +39,13 @@ class EndpointAuthorizationArgs:
              cluster_identifier: pulumi.Input[str],
              force: Optional[pulumi.Input[bool]] = None,
              vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'vpcIds' in kwargs:
+            vpc_ids = kwargs['vpcIds']
+
         _setter("account", account)
         _setter("cluster_identifier", cluster_identifier)
         if force is not None:

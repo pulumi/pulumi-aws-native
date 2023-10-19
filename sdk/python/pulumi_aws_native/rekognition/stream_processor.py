@@ -70,7 +70,31 @@ class StreamProcessorArgs:
              polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
              s3_destination: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kinesisVideoStream' in kwargs:
+            kinesis_video_stream = kwargs['kinesisVideoStream']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'boundingBoxRegionsOfInterest' in kwargs:
+            bounding_box_regions_of_interest = kwargs['boundingBoxRegionsOfInterest']
+        if 'connectedHomeSettings' in kwargs:
+            connected_home_settings = kwargs['connectedHomeSettings']
+        if 'dataSharingPreference' in kwargs:
+            data_sharing_preference = kwargs['dataSharingPreference']
+        if 'faceSearchSettings' in kwargs:
+            face_search_settings = kwargs['faceSearchSettings']
+        if 'kinesisDataStream' in kwargs:
+            kinesis_data_stream = kwargs['kinesisDataStream']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'notificationChannel' in kwargs:
+            notification_channel = kwargs['notificationChannel']
+        if 'polygonRegionsOfInterest' in kwargs:
+            polygon_regions_of_interest = kwargs['polygonRegionsOfInterest']
+        if 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         _setter("kinesis_video_stream", kinesis_video_stream)
         _setter("role_arn", role_arn)
         if bounding_box_regions_of_interest is not None:

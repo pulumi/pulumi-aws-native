@@ -28,7 +28,11 @@ class OriginAccessControlArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              origin_access_control_config: pulumi.Input['OriginAccessControlConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originAccessControlConfig' in kwargs:
+            origin_access_control_config = kwargs['originAccessControlConfig']
+
         _setter("origin_access_control_config", origin_access_control_config)
 
     @property

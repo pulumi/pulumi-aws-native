@@ -81,7 +81,11 @@ class ApplicationCatalogConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              glue_data_catalog_configuration: Optional[pulumi.Input['ApplicationGlueDataCatalogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'glueDataCatalogConfiguration' in kwargs:
+            glue_data_catalog_configuration = kwargs['glueDataCatalogConfiguration']
+
         if glue_data_catalog_configuration is not None:
             _setter("glue_data_catalog_configuration", glue_data_catalog_configuration)
 
@@ -126,7 +130,17 @@ class ApplicationCheckpointConfigurationArgs:
              checkpoint_interval: Optional[pulumi.Input[int]] = None,
              checkpointing_enabled: Optional[pulumi.Input[bool]] = None,
              min_pause_between_checkpoints: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationType' in kwargs:
+            configuration_type = kwargs['configurationType']
+        if 'checkpointInterval' in kwargs:
+            checkpoint_interval = kwargs['checkpointInterval']
+        if 'checkpointingEnabled' in kwargs:
+            checkpointing_enabled = kwargs['checkpointingEnabled']
+        if 'minPauseBetweenCheckpoints' in kwargs:
+            min_pause_between_checkpoints = kwargs['minPauseBetweenCheckpoints']
+
         _setter("configuration_type", configuration_type)
         if checkpoint_interval is not None:
             _setter("checkpoint_interval", checkpoint_interval)
@@ -196,7 +210,11 @@ class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreamArn' in kwargs:
+            log_stream_arn = kwargs['logStreamArn']
+
         _setter("log_stream_arn", log_stream_arn)
 
     @property
@@ -229,7 +247,13 @@ class ApplicationCodeConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              code_content: pulumi.Input['ApplicationCodeContentArgs'],
              code_content_type: pulumi.Input['ApplicationCodeConfigurationCodeContentType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeContent' in kwargs:
+            code_content = kwargs['codeContent']
+        if 'codeContentType' in kwargs:
+            code_content_type = kwargs['codeContentType']
+
         _setter("code_content", code_content)
         _setter("code_content_type", code_content_type)
 
@@ -282,7 +306,15 @@ class ApplicationCodeContentArgs:
              s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None,
              text_content: Optional[pulumi.Input[str]] = None,
              zip_file_content: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3ContentLocation' in kwargs:
+            s3_content_location = kwargs['s3ContentLocation']
+        if 'textContent' in kwargs:
+            text_content = kwargs['textContent']
+        if 'zipFileContent' in kwargs:
+            zip_file_content = kwargs['zipFileContent']
+
         if s3_content_location is not None:
             _setter("s3_content_location", s3_content_location)
         if text_content is not None:
@@ -367,7 +399,23 @@ class ApplicationConfigurationArgs:
              sql_application_configuration: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']] = None,
              vpc_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]]] = None,
              zeppelin_application_configuration: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationCodeConfiguration' in kwargs:
+            application_code_configuration = kwargs['applicationCodeConfiguration']
+        if 'applicationSnapshotConfiguration' in kwargs:
+            application_snapshot_configuration = kwargs['applicationSnapshotConfiguration']
+        if 'environmentProperties' in kwargs:
+            environment_properties = kwargs['environmentProperties']
+        if 'flinkApplicationConfiguration' in kwargs:
+            flink_application_configuration = kwargs['flinkApplicationConfiguration']
+        if 'sqlApplicationConfiguration' in kwargs:
+            sql_application_configuration = kwargs['sqlApplicationConfiguration']
+        if 'vpcConfigurations' in kwargs:
+            vpc_configurations = kwargs['vpcConfigurations']
+        if 'zeppelinApplicationConfiguration' in kwargs:
+            zeppelin_application_configuration = kwargs['zeppelinApplicationConfiguration']
+
         if application_code_configuration is not None:
             _setter("application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
@@ -490,7 +538,13 @@ class ApplicationCsvMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              record_column_delimiter: pulumi.Input[str],
              record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -543,7 +597,15 @@ class ApplicationCustomArtifactConfigurationArgs:
              artifact_type: pulumi.Input['ApplicationCustomArtifactConfigurationArtifactType'],
              maven_reference: Optional[pulumi.Input['ApplicationMavenReferenceArgs']] = None,
              s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactType' in kwargs:
+            artifact_type = kwargs['artifactType']
+        if 'mavenReference' in kwargs:
+            maven_reference = kwargs['mavenReference']
+        if 's3ContentLocation' in kwargs:
+            s3_content_location = kwargs['s3ContentLocation']
+
         _setter("artifact_type", artifact_type)
         if maven_reference is not None:
             _setter("maven_reference", maven_reference)
@@ -603,7 +665,11 @@ class ApplicationDeployAsApplicationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_content_location: pulumi.Input['ApplicationS3ContentBaseLocationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3ContentLocation' in kwargs:
+            s3_content_location = kwargs['s3ContentLocation']
+
         _setter("s3_content_location", s3_content_location)
 
     @property
@@ -635,7 +701,11 @@ class ApplicationEnvironmentPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              property_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPropertyGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyGroups' in kwargs:
+            property_groups = kwargs['propertyGroups']
+
         if property_groups is not None:
             _setter("property_groups", property_groups)
 
@@ -676,7 +746,15 @@ class ApplicationFlinkApplicationConfigurationArgs:
              checkpoint_configuration: Optional[pulumi.Input['ApplicationCheckpointConfigurationArgs']] = None,
              monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
              parallelism_configuration: Optional[pulumi.Input['ApplicationParallelismConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkpointConfiguration' in kwargs:
+            checkpoint_configuration = kwargs['checkpointConfiguration']
+        if 'monitoringConfiguration' in kwargs:
+            monitoring_configuration = kwargs['monitoringConfiguration']
+        if 'parallelismConfiguration' in kwargs:
+            parallelism_configuration = kwargs['parallelismConfiguration']
+
         if checkpoint_configuration is not None:
             _setter("checkpoint_configuration", checkpoint_configuration)
         if monitoring_configuration is not None:
@@ -737,7 +815,11 @@ class ApplicationFlinkRunConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allow_non_restored_state: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowNonRestoredState' in kwargs:
+            allow_non_restored_state = kwargs['allowNonRestoredState']
+
         if allow_non_restored_state is not None:
             _setter("allow_non_restored_state", allow_non_restored_state)
 
@@ -770,7 +852,11 @@ class ApplicationGlueDataCatalogConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              database_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseArn' in kwargs:
+            database_arn = kwargs['databaseArn']
+
         if database_arn is not None:
             _setter("database_arn", database_arn)
 
@@ -803,7 +889,11 @@ class ApplicationInputLambdaProcessorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -835,7 +925,9 @@ class ApplicationInputParallelismArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -868,7 +960,11 @@ class ApplicationInputProcessingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              input_lambda_processor: Optional[pulumi.Input['ApplicationInputLambdaProcessorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLambdaProcessor' in kwargs:
+            input_lambda_processor = kwargs['inputLambdaProcessor']
+
         if input_lambda_processor is not None:
             _setter("input_lambda_processor", input_lambda_processor)
 
@@ -909,7 +1005,15 @@ class ApplicationInputSchemaArgs:
              record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
              record_format: pulumi.Input['ApplicationRecordFormatArgs'],
              record_encoding: Optional[pulumi.Input['ApplicationInputSchemaRecordEncoding']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -988,7 +1092,21 @@ class ApplicationInputArgs:
              input_processing_configuration: Optional[pulumi.Input['ApplicationInputProcessingConfigurationArgs']] = None,
              kinesis_firehose_input: Optional[pulumi.Input['ApplicationKinesisFirehoseInputArgs']] = None,
              kinesis_streams_input: Optional[pulumi.Input['ApplicationKinesisStreamsInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'inputParallelism' in kwargs:
+            input_parallelism = kwargs['inputParallelism']
+        if 'inputProcessingConfiguration' in kwargs:
+            input_processing_configuration = kwargs['inputProcessingConfiguration']
+        if 'kinesisFirehoseInput' in kwargs:
+            kinesis_firehose_input = kwargs['kinesisFirehoseInput']
+        if 'kinesisStreamsInput' in kwargs:
+            kinesis_streams_input = kwargs['kinesisStreamsInput']
+
         _setter("input_schema", input_schema)
         _setter("name_prefix", name_prefix)
         if input_parallelism is not None:
@@ -1089,7 +1207,11 @@ class ApplicationJsonMappingParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -1121,7 +1243,11 @@ class ApplicationKinesisFirehoseInputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -1153,7 +1279,11 @@ class ApplicationKinesisStreamsInputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -1185,7 +1315,11 @@ class ApplicationMaintenanceConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              application_maintenance_window_start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationMaintenanceWindowStartTime' in kwargs:
+            application_maintenance_window_start_time = kwargs['applicationMaintenanceWindowStartTime']
+
         _setter("application_maintenance_window_start_time", application_maintenance_window_start_time)
 
     @property
@@ -1221,7 +1355,13 @@ class ApplicationMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
              json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -1276,7 +1416,13 @@ class ApplicationMavenReferenceArgs:
              artifact_id: pulumi.Input[str],
              group_id: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactId' in kwargs:
+            artifact_id = kwargs['artifactId']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+
         _setter("artifact_id", artifact_id)
         _setter("group_id", group_id)
         _setter("version", version)
@@ -1342,7 +1488,15 @@ class ApplicationMonitoringConfigurationArgs:
              configuration_type: pulumi.Input['ApplicationMonitoringConfigurationConfigurationType'],
              log_level: Optional[pulumi.Input['ApplicationMonitoringConfigurationLogLevel']] = None,
              metrics_level: Optional[pulumi.Input['ApplicationMonitoringConfigurationMetricsLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationType' in kwargs:
+            configuration_type = kwargs['configurationType']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'metricsLevel' in kwargs:
+            metrics_level = kwargs['metricsLevel']
+
         _setter("configuration_type", configuration_type)
         if log_level is not None:
             _setter("log_level", log_level)
@@ -1398,7 +1552,11 @@ class ApplicationOutputResourceDestinationSchemaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+
         if record_format_type is not None:
             _setter("record_format_type", record_format_type)
 
@@ -1424,7 +1582,11 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -1449,7 +1611,11 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -1474,7 +1640,11 @@ class ApplicationOutputResourceLambdaOutputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
 
     @property
@@ -1511,7 +1681,17 @@ class ApplicationOutputResourceOutputArgs:
              kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
              lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationSchema' in kwargs:
+            destination_schema = kwargs['destinationSchema']
+        if 'kinesisFirehoseOutput' in kwargs:
+            kinesis_firehose_output = kwargs['kinesisFirehoseOutput']
+        if 'kinesisStreamsOutput' in kwargs:
+            kinesis_streams_output = kwargs['kinesisStreamsOutput']
+        if 'lambdaOutput' in kwargs:
+            lambda_output = kwargs['lambdaOutput']
+
         _setter("destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
             _setter("kinesis_firehose_output", kinesis_firehose_output)
@@ -1596,7 +1776,15 @@ class ApplicationParallelismConfigurationArgs:
              auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
              parallelism: Optional[pulumi.Input[int]] = None,
              parallelism_per_kpu: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationType' in kwargs:
+            configuration_type = kwargs['configurationType']
+        if 'autoScalingEnabled' in kwargs:
+            auto_scaling_enabled = kwargs['autoScalingEnabled']
+        if 'parallelismPerKpu' in kwargs:
+            parallelism_per_kpu = kwargs['parallelismPerKpu']
+
         _setter("configuration_type", configuration_type)
         if auto_scaling_enabled is not None:
             _setter("auto_scaling_enabled", auto_scaling_enabled)
@@ -1674,7 +1862,13 @@ class ApplicationPropertyGroupArgs:
              _setter: Callable[[Any, Any], None],
              property_group_id: Optional[pulumi.Input[str]] = None,
              property_map: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyGroupId' in kwargs:
+            property_group_id = kwargs['propertyGroupId']
+        if 'propertyMap' in kwargs:
+            property_map = kwargs['propertyMap']
+
         if property_group_id is not None:
             _setter("property_group_id", property_group_id)
         if property_map is not None:
@@ -1730,7 +1924,11 @@ class ApplicationRecordColumnArgs:
              name: pulumi.Input[str],
              sql_type: pulumi.Input[str],
              mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -1793,7 +1991,13 @@ class ApplicationRecordFormatArgs:
              _setter: Callable[[Any, Any], None],
              record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType'],
              mapping_parameters: Optional[pulumi.Input['ApplicationMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -1838,7 +2042,13 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              record_column_delimiter: pulumi.Input[str],
              record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -1873,7 +2083,11 @@ class ApplicationReferenceDataSourceJsonMappingParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -1901,7 +2115,13 @@ class ApplicationReferenceDataSourceMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
              json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -1944,7 +2164,11 @@ class ApplicationReferenceDataSourceRecordColumnArgs:
              name: pulumi.Input[str],
              sql_type: pulumi.Input[str],
              mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -1993,7 +2217,13 @@ class ApplicationReferenceDataSourceRecordFormatArgs:
              _setter: Callable[[Any, Any], None],
              record_format_type: pulumi.Input[str],
              mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -2035,7 +2265,15 @@ class ApplicationReferenceDataSourceReferenceDataSourceArgs:
              reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
              s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referenceSchema' in kwargs:
+            reference_schema = kwargs['referenceSchema']
+        if 's3ReferenceDataSource' in kwargs:
+            s3_reference_data_source = kwargs['s3ReferenceDataSource']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("reference_schema", reference_schema)
         if s3_reference_data_source is not None:
             _setter("s3_reference_data_source", s3_reference_data_source)
@@ -2088,7 +2326,15 @@ class ApplicationReferenceDataSourceReferenceSchemaArgs:
              record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
              record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
              record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -2137,7 +2383,13 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
              _setter: Callable[[Any, Any], None],
              bucket_arn: pulumi.Input[str],
              file_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'fileKey' in kwargs:
+            file_key = kwargs['fileKey']
+
         _setter("bucket_arn", bucket_arn)
         _setter("file_key", file_key)
 
@@ -2180,7 +2432,13 @@ class ApplicationRestoreConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              application_restore_type: pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType'],
              snapshot_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationRestoreType' in kwargs:
+            application_restore_type = kwargs['applicationRestoreType']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+
         _setter("application_restore_type", application_restore_type)
         if snapshot_name is not None:
             _setter("snapshot_name", snapshot_name)
@@ -2230,7 +2488,13 @@ class ApplicationRunConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              application_restore_configuration: Optional[pulumi.Input['ApplicationRestoreConfigurationArgs']] = None,
              flink_run_configuration: Optional[pulumi.Input['ApplicationFlinkRunConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationRestoreConfiguration' in kwargs:
+            application_restore_configuration = kwargs['applicationRestoreConfiguration']
+        if 'flinkRunConfiguration' in kwargs:
+            flink_run_configuration = kwargs['flinkRunConfiguration']
+
         if application_restore_configuration is not None:
             _setter("application_restore_configuration", application_restore_configuration)
         if flink_run_configuration is not None:
@@ -2281,7 +2545,13 @@ class ApplicationS3ContentBaseLocationArgs:
              _setter: Callable[[Any, Any], None],
              bucket_arn: pulumi.Input[str],
              base_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+
         _setter("bucket_arn", bucket_arn)
         if base_path is not None:
             _setter("base_path", base_path)
@@ -2335,7 +2605,15 @@ class ApplicationS3ContentLocationArgs:
              bucket_arn: pulumi.Input[str],
              file_key: pulumi.Input[str],
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'fileKey' in kwargs:
+            file_key = kwargs['fileKey']
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket_arn", bucket_arn)
         _setter("file_key", file_key)
         if object_version is not None:
@@ -2394,7 +2672,11 @@ class ApplicationSnapshotConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              snapshots_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotsEnabled' in kwargs:
+            snapshots_enabled = kwargs['snapshotsEnabled']
+
         _setter("snapshots_enabled", snapshots_enabled)
 
     @property
@@ -2426,7 +2708,9 @@ class ApplicationSqlApplicationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              inputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if inputs is not None:
             _setter("inputs", inputs)
 
@@ -2463,7 +2747,9 @@ class ApplicationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2512,7 +2798,13 @@ class ApplicationVpcConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
 
@@ -2569,7 +2861,17 @@ class ApplicationZeppelinApplicationConfigurationArgs:
              custom_artifacts_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgs']]]] = None,
              deploy_as_application_configuration: Optional[pulumi.Input['ApplicationDeployAsApplicationConfigurationArgs']] = None,
              monitoring_configuration: Optional[pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogConfiguration' in kwargs:
+            catalog_configuration = kwargs['catalogConfiguration']
+        if 'customArtifactsConfiguration' in kwargs:
+            custom_artifacts_configuration = kwargs['customArtifactsConfiguration']
+        if 'deployAsApplicationConfiguration' in kwargs:
+            deploy_as_application_configuration = kwargs['deployAsApplicationConfiguration']
+        if 'monitoringConfiguration' in kwargs:
+            monitoring_configuration = kwargs['monitoringConfiguration']
+
         if catalog_configuration is not None:
             _setter("catalog_configuration", catalog_configuration)
         if custom_artifacts_configuration is not None:
@@ -2644,7 +2946,11 @@ class ApplicationZeppelinMonitoringConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_level: Optional[pulumi.Input['ApplicationZeppelinMonitoringConfigurationLogLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+
         if log_level is not None:
             _setter("log_level", log_level)
 

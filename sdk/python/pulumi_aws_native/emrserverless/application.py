@@ -72,7 +72,25 @@ class ApplicationArgs:
              network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
              worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if 'autoStartConfiguration' in kwargs:
+            auto_start_configuration = kwargs['autoStartConfiguration']
+        if 'autoStopConfiguration' in kwargs:
+            auto_stop_configuration = kwargs['autoStopConfiguration']
+        if 'imageConfiguration' in kwargs:
+            image_configuration = kwargs['imageConfiguration']
+        if 'initialCapacity' in kwargs:
+            initial_capacity = kwargs['initialCapacity']
+        if 'maximumCapacity' in kwargs:
+            maximum_capacity = kwargs['maximumCapacity']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'workerTypeSpecifications' in kwargs:
+            worker_type_specifications = kwargs['workerTypeSpecifications']
+
         _setter("release_label", release_label)
         _setter("type", type)
         if architecture is not None:

@@ -41,7 +41,13 @@ class PlacementGroupArgs:
              spread_level: Optional[pulumi.Input[str]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if 'spreadLevel' in kwargs:
+            spread_level = kwargs['spreadLevel']
+
         if partition_count is not None:
             _setter("partition_count", partition_count)
         if spread_level is not None:

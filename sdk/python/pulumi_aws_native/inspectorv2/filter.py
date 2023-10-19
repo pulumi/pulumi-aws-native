@@ -42,7 +42,13 @@ class FilterArgs:
              filter_criteria: pulumi.Input['FilterCriteriaArgs'],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterAction' in kwargs:
+            filter_action = kwargs['filterAction']
+        if 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+
         _setter("filter_action", filter_action)
         _setter("filter_criteria", filter_criteria)
         if description is not None:

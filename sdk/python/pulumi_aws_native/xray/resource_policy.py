@@ -35,7 +35,15 @@ class ResourcePolicyArgs:
              policy_document: pulumi.Input[str],
              policy_name: pulumi.Input[str],
              bypass_policy_lockout_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'bypassPolicyLockoutCheck' in kwargs:
+            bypass_policy_lockout_check = kwargs['bypassPolicyLockoutCheck']
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
         if bypass_policy_lockout_check is not None:

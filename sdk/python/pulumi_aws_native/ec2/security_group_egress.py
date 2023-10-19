@@ -50,7 +50,25 @@ class SecurityGroupEgressInitArgs:
              destination_security_group_id: Optional[pulumi.Input[str]] = None,
              from_port: Optional[pulumi.Input[int]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if 'destinationSecurityGroupId' in kwargs:
+            destination_security_group_id = kwargs['destinationSecurityGroupId']
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("group_id", group_id)
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:

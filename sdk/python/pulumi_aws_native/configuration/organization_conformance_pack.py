@@ -53,7 +53,23 @@ class OrganizationConformancePackArgs:
              organization_conformance_pack_name: Optional[pulumi.Input[str]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
              template_s3_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conformancePackInputParameters' in kwargs:
+            conformance_pack_input_parameters = kwargs['conformancePackInputParameters']
+        if 'deliveryS3Bucket' in kwargs:
+            delivery_s3_bucket = kwargs['deliveryS3Bucket']
+        if 'deliveryS3KeyPrefix' in kwargs:
+            delivery_s3_key_prefix = kwargs['deliveryS3KeyPrefix']
+        if 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if 'organizationConformancePackName' in kwargs:
+            organization_conformance_pack_name = kwargs['organizationConformancePackName']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if 'templateS3Uri' in kwargs:
+            template_s3_uri = kwargs['templateS3Uri']
+
         if conformance_pack_input_parameters is not None:
             _setter("conformance_pack_input_parameters", conformance_pack_input_parameters)
         if delivery_s3_bucket is not None:

@@ -35,7 +35,15 @@ class LoggingConfigurationInitArgs:
              firewall_arn: pulumi.Input[str],
              logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
              firewall_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallArn' in kwargs:
+            firewall_arn = kwargs['firewallArn']
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if 'firewallName' in kwargs:
+            firewall_name = kwargs['firewallName']
+
         _setter("firewall_arn", firewall_arn)
         _setter("logging_configuration", logging_configuration)
         if firewall_name is not None:

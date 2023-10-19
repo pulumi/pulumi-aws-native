@@ -85,7 +85,37 @@ class DatabaseArgs:
              relational_database_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]] = None,
              rotate_master_user_password: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'masterDatabaseName' in kwargs:
+            master_database_name = kwargs['masterDatabaseName']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'relationalDatabaseBlueprintId' in kwargs:
+            relational_database_blueprint_id = kwargs['relationalDatabaseBlueprintId']
+        if 'relationalDatabaseBundleId' in kwargs:
+            relational_database_bundle_id = kwargs['relationalDatabaseBundleId']
+        if 'relationalDatabaseName' in kwargs:
+            relational_database_name = kwargs['relationalDatabaseName']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'backupRetention' in kwargs:
+            backup_retention = kwargs['backupRetention']
+        if 'caCertificateIdentifier' in kwargs:
+            ca_certificate_identifier = kwargs['caCertificateIdentifier']
+        if 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'relationalDatabaseParameters' in kwargs:
+            relational_database_parameters = kwargs['relationalDatabaseParameters']
+        if 'rotateMasterUserPassword' in kwargs:
+            rotate_master_user_password = kwargs['rotateMasterUserPassword']
+
         _setter("master_database_name", master_database_name)
         _setter("master_username", master_username)
         _setter("relational_database_blueprint_id", relational_database_blueprint_id)

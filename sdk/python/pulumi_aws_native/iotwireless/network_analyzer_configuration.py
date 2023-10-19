@@ -50,7 +50,15 @@ class NetworkAnalyzerConfigurationArgs:
              trace_content: Optional[pulumi.Input['TraceContentPropertiesArgs']] = None,
              wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'traceContent' in kwargs:
+            trace_content = kwargs['traceContent']
+        if 'wirelessDevices' in kwargs:
+            wireless_devices = kwargs['wirelessDevices']
+        if 'wirelessGateways' in kwargs:
+            wireless_gateways = kwargs['wirelessGateways']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

@@ -40,7 +40,11 @@ class ExecutionPlanArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExecutionPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityUnits' in kwargs:
+            capacity_units = kwargs['capacityUnits']
+
         if capacity_units is not None:
             _setter("capacity_units", capacity_units)
         if description is not None:

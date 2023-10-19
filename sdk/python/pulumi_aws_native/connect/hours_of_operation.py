@@ -50,7 +50,13 @@ class HoursOfOperationArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("config", config)
         _setter("instance_arn", instance_arn)
         _setter("time_zone", time_zone)

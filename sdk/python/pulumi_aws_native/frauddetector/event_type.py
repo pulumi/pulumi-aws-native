@@ -47,7 +47,13 @@ class EventTypeArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+        if 'eventVariables' in kwargs:
+            event_variables = kwargs['eventVariables']
+
         _setter("entity_types", entity_types)
         _setter("event_variables", event_variables)
         _setter("labels", labels)

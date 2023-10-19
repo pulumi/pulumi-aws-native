@@ -40,7 +40,15 @@ class VirtualServiceArgs:
              mesh_owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualServiceTagArgs']]]] = None,
              virtual_service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if 'virtualServiceName' in kwargs:
+            virtual_service_name = kwargs['virtualServiceName']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         if mesh_owner is not None:

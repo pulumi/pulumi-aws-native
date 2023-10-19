@@ -47,7 +47,13 @@ class ProjectPlacementTemplate(dict):
              _setter: Callable[[Any, Any], None],
              default_attributes: Optional[Any] = None,
              device_templates: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAttributes' in kwargs:
+            default_attributes = kwargs['defaultAttributes']
+        if 'deviceTemplates' in kwargs:
+            device_templates = kwargs['deviceTemplates']
+
         if default_attributes is not None:
             _setter("default_attributes", default_attributes)
         if device_templates is not None:

@@ -35,7 +35,17 @@ class MountTargetArgs:
              security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_id: pulumi.Input[str],
              ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("file_system_id", file_system_id)
         _setter("security_groups", security_groups)
         _setter("subnet_id", subnet_id)

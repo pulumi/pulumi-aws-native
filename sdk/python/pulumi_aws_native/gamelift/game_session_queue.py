@@ -52,7 +52,21 @@ class GameSessionQueueArgs:
              priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if 'filterConfiguration' in kwargs:
+            filter_configuration = kwargs['filterConfiguration']
+        if 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+        if 'playerLatencyPolicies' in kwargs:
+            player_latency_policies = kwargs['playerLatencyPolicies']
+        if 'priorityConfiguration' in kwargs:
+            priority_configuration = kwargs['priorityConfiguration']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if custom_event_data is not None:
             _setter("custom_event_data", custom_event_data)
         if destinations is not None:

@@ -31,7 +31,9 @@ class ConfigurationAssociationArgs:
              _setter: Callable[[Any, Any], None],
              broker: pulumi.Input[str],
              configuration: pulumi.Input['ConfigurationAssociationConfigurationIdArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("broker", broker)
         _setter("configuration", configuration)
 

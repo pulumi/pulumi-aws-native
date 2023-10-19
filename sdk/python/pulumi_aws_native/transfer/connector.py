@@ -50,7 +50,17 @@ class ConnectorArgs:
              logging_role: Optional[pulumi.Input[str]] = None,
              sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRole' in kwargs:
+            access_role = kwargs['accessRole']
+        if 'as2Config' in kwargs:
+            as2_config = kwargs['as2Config']
+        if 'loggingRole' in kwargs:
+            logging_role = kwargs['loggingRole']
+        if 'sftpConfig' in kwargs:
+            sftp_config = kwargs['sftpConfig']
+
         _setter("access_role", access_role)
         _setter("url", url)
         if as2_config is not None:

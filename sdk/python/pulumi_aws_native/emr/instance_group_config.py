@@ -58,7 +58,25 @@ class InstanceGroupConfigArgs:
              ebs_configuration: Optional[pulumi.Input['InstanceGroupConfigEbsConfigurationArgs']] = None,
              market: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceRole' in kwargs:
+            instance_role = kwargs['instanceRole']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'jobFlowId' in kwargs:
+            job_flow_id = kwargs['jobFlowId']
+        if 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+
         _setter("instance_count", instance_count)
         _setter("instance_role", instance_role)
         _setter("instance_type", instance_type)

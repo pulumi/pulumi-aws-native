@@ -34,7 +34,13 @@ class ProjectArgs:
              placement_template: pulumi.Input['ProjectPlacementTemplateArgs'],
              description: Optional[pulumi.Input[str]] = None,
              project_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'placementTemplate' in kwargs:
+            placement_template = kwargs['placementTemplate']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
         _setter("placement_template", placement_template)
         if description is not None:
             _setter("description", description)

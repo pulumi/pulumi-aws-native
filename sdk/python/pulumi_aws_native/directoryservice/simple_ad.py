@@ -57,7 +57,17 @@ class SimpleAdArgs:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              short_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcSettings' in kwargs:
+            vpc_settings = kwargs['vpcSettings']
+        if 'createAlias' in kwargs:
+            create_alias = kwargs['createAlias']
+        if 'enableSso' in kwargs:
+            enable_sso = kwargs['enableSso']
+        if 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+
         _setter("size", size)
         _setter("vpc_settings", vpc_settings)
         if create_alias is not None:

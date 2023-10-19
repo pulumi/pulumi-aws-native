@@ -31,7 +31,9 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs
     def _configure(
              _setter: Callable[[Any, Any], None],
              source: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("source", source)
 
     @property
@@ -59,7 +61,9 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -97,7 +101,11 @@ class InstanceAccessControlAttributeConfigurationPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              access_control_attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlAttributes' in kwargs:
+            access_control_attributes = kwargs['accessControlAttributes']
+
         _setter("access_control_attributes", access_control_attributes)
 
     @property
@@ -125,7 +133,9 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if path is not None:
             _setter("path", path)
@@ -164,7 +174,13 @@ class PermissionSetPermissionsBoundaryArgs:
              _setter: Callable[[Any, Any], None],
              customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
              managed_policy_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedPolicyReference' in kwargs:
+            customer_managed_policy_reference = kwargs['customerManagedPolicyReference']
+        if 'managedPolicyArn' in kwargs:
+            managed_policy_arn = kwargs['managedPolicyArn']
+
         if customer_managed_policy_reference is not None:
             _setter("customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -207,7 +223,9 @@ class PermissionSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

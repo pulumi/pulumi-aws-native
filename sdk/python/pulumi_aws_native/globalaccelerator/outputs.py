@@ -40,7 +40,9 @@ class AcceleratorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -107,7 +109,13 @@ class EndpointGroupEndpointConfiguration(dict):
              endpoint_id: str,
              client_ip_preservation_enabled: Optional[bool] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if 'clientIpPreservationEnabled' in kwargs:
+            client_ip_preservation_enabled = kwargs['clientIpPreservationEnabled']
+
         _setter("endpoint_id", endpoint_id)
         if client_ip_preservation_enabled is not None:
             _setter("client_ip_preservation_enabled", client_ip_preservation_enabled)
@@ -179,7 +187,13 @@ class EndpointGroupPortOverride(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_port: int,
              listener_port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointPort' in kwargs:
+            endpoint_port = kwargs['endpointPort']
+        if 'listenerPort' in kwargs:
+            listener_port = kwargs['listenerPort']
+
         _setter("endpoint_port", endpoint_port)
         _setter("listener_port", listener_port)
 
@@ -234,7 +248,13 @@ class ListenerPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_port: int,
              to_port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 

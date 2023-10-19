@@ -57,7 +57,15 @@ class CustomActionTypeArgs:
              configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]] = None,
              settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputArtifactDetails' in kwargs:
+            input_artifact_details = kwargs['inputArtifactDetails']
+        if 'outputArtifactDetails' in kwargs:
+            output_artifact_details = kwargs['outputArtifactDetails']
+        if 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         _setter("category", category)
         _setter("input_artifact_details", input_artifact_details)
         _setter("output_artifact_details", output_artifact_details)

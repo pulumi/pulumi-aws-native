@@ -52,7 +52,11 @@ class AssistantAssociationAssociationData(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              knowledge_base_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'knowledgeBaseId' in kwargs:
+            knowledge_base_id = kwargs['knowledgeBaseId']
+
         _setter("knowledge_base_id", knowledge_base_id)
 
     @property
@@ -76,7 +80,9 @@ class AssistantAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -120,7 +126,11 @@ class AssistantServerSideEncryptionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -145,7 +155,9 @@ class AssistantTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -194,7 +206,13 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              app_integration_arn: str,
              object_fields: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appIntegrationArn' in kwargs:
+            app_integration_arn = kwargs['appIntegrationArn']
+        if 'objectFields' in kwargs:
+            object_fields = kwargs['objectFields']
+
         _setter("app_integration_arn", app_integration_arn)
         if object_fields is not None:
             _setter("object_fields", object_fields)
@@ -239,7 +257,11 @@ class KnowledgeBaseRenderingConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateUri' in kwargs:
+            template_uri = kwargs['templateUri']
+
         if template_uri is not None:
             _setter("template_uri", template_uri)
 
@@ -278,7 +300,11 @@ class KnowledgeBaseServerSideEncryptionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -317,7 +343,11 @@ class KnowledgeBaseSourceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              app_integrations: Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appIntegrations' in kwargs:
+            app_integrations = kwargs['appIntegrations']
+
         if app_integrations is not None:
             _setter("app_integrations", app_integrations)
 
@@ -342,7 +372,9 @@ class KnowledgeBaseTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

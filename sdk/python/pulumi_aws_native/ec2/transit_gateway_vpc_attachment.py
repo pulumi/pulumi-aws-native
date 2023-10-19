@@ -47,7 +47,19 @@ class TransitGatewayVpcAttachmentArgs:
              options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
              remove_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayVpcAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'addSubnetIds' in kwargs:
+            add_subnet_ids = kwargs['addSubnetIds']
+        if 'removeSubnetIds' in kwargs:
+            remove_subnet_ids = kwargs['removeSubnetIds']
+
         _setter("subnet_ids", subnet_ids)
         _setter("transit_gateway_id", transit_gateway_id)
         _setter("vpc_id", vpc_id)

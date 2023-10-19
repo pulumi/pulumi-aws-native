@@ -37,7 +37,15 @@ class NetworkSettingsArgs:
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              vpc_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)

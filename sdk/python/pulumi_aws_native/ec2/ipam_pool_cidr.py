@@ -35,7 +35,13 @@ class IpamPoolCidrArgs:
              ipam_pool_id: pulumi.Input[str],
              cidr: Optional[pulumi.Input[str]] = None,
              netmask_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
         _setter("ipam_pool_id", ipam_pool_id)
         if cidr is not None:
             _setter("cidr", cidr)

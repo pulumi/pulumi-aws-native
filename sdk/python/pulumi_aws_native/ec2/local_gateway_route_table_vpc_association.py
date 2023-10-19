@@ -37,7 +37,13 @@ class LocalGatewayRouteTableVpcAssociationArgs:
              local_gateway_route_table_id: pulumi.Input[str],
              vpc_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVpcAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("local_gateway_route_table_id", local_gateway_route_table_id)
         _setter("vpc_id", vpc_id)
         if tags is not None:

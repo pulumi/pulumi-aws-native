@@ -31,7 +31,11 @@ class IpSetArgs:
              _setter: Callable[[Any, Any], None],
              ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetDescriptors' in kwargs:
+            ip_set_descriptors = kwargs['ipSetDescriptors']
+
         if ip_set_descriptors is not None:
             _setter("ip_set_descriptors", ip_set_descriptors)
         if name is not None:

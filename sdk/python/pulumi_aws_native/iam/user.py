@@ -49,7 +49,17 @@ class UserArgs:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginProfile' in kwargs:
+            login_profile = kwargs['loginProfile']
+        if 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if groups is not None:
             _setter("groups", groups)
         if login_profile is not None:

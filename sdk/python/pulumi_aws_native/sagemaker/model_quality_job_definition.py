@@ -61,7 +61,29 @@ class ModelQualityJobDefinitionArgs:
              network_config: Optional[pulumi.Input['ModelQualityJobDefinitionNetworkConfigArgs']] = None,
              stopping_condition: Optional[pulumi.Input['ModelQualityJobDefinitionStoppingConditionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobResources' in kwargs:
+            job_resources = kwargs['jobResources']
+        if 'modelQualityAppSpecification' in kwargs:
+            model_quality_app_specification = kwargs['modelQualityAppSpecification']
+        if 'modelQualityJobInput' in kwargs:
+            model_quality_job_input = kwargs['modelQualityJobInput']
+        if 'modelQualityJobOutputConfig' in kwargs:
+            model_quality_job_output_config = kwargs['modelQualityJobOutputConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if 'modelQualityBaselineConfig' in kwargs:
+            model_quality_baseline_config = kwargs['modelQualityBaselineConfig']
+        if 'networkConfig' in kwargs:
+            network_config = kwargs['networkConfig']
+        if 'stoppingCondition' in kwargs:
+            stopping_condition = kwargs['stoppingCondition']
+
         _setter("job_resources", job_resources)
         _setter("model_quality_app_specification", model_quality_app_specification)
         _setter("model_quality_job_input", model_quality_job_input)

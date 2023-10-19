@@ -45,7 +45,17 @@ class DomainArgs:
              default_expiration_days: Optional[pulumi.Input[int]] = None,
              domain_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deadLetterQueueUrl' in kwargs:
+            dead_letter_queue_url = kwargs['deadLetterQueueUrl']
+        if 'defaultEncryptionKey' in kwargs:
+            default_encryption_key = kwargs['defaultEncryptionKey']
+        if 'defaultExpirationDays' in kwargs:
+            default_expiration_days = kwargs['defaultExpirationDays']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         if dead_letter_queue_url is not None:
             _setter("dead_letter_queue_url", dead_letter_queue_url)
         if default_encryption_key is not None:

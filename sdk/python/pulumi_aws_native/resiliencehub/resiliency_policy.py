@@ -48,7 +48,15 @@ class ResiliencyPolicyArgs:
              data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
              policy_description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'dataLocationConstraint' in kwargs:
+            data_location_constraint = kwargs['dataLocationConstraint']
+        if 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+
         _setter("policy", policy)
         _setter("policy_name", policy_name)
         _setter("tier", tier)

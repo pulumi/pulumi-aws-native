@@ -55,7 +55,25 @@ class SlackChannelConfigurationArgs:
              logging_level: Optional[pulumi.Input[str]] = None,
              sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_role_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'slackChannelId' in kwargs:
+            slack_channel_id = kwargs['slackChannelId']
+        if 'slackWorkspaceId' in kwargs:
+            slack_workspace_id = kwargs['slackWorkspaceId']
+        if 'guardrailPolicies' in kwargs:
+            guardrail_policies = kwargs['guardrailPolicies']
+        if 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if 'snsTopicArns' in kwargs:
+            sns_topic_arns = kwargs['snsTopicArns']
+        if 'userRoleRequired' in kwargs:
+            user_role_required = kwargs['userRoleRequired']
+
         _setter("configuration_name", configuration_name)
         _setter("iam_role_arn", iam_role_arn)
         _setter("slack_channel_id", slack_channel_id)

@@ -59,7 +59,21 @@ class DashboardArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
              theme_arn: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'dashboardId' in kwargs:
+            dashboard_id = kwargs['dashboardId']
+        if 'dashboardPublishOptions' in kwargs:
+            dashboard_publish_options = kwargs['dashboardPublishOptions']
+        if 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("aws_account_id", aws_account_id)
         _setter("dashboard_id", dashboard_id)
         if dashboard_publish_options is not None:

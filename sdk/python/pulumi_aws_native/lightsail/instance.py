@@ -70,7 +70,23 @@ class InstanceArgs:
              state: Optional[pulumi.Input['InstanceStateArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'addOns' in kwargs:
+            add_ons = kwargs['addOns']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'keyPairName' in kwargs:
+            key_pair_name = kwargs['keyPairName']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         _setter("blueprint_id", blueprint_id)
         _setter("bundle_id", bundle_id)
         if add_ons is not None:

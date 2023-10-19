@@ -55,7 +55,25 @@ class LifecycleHookArgs:
              notification_metadata: Optional[pulumi.Input[str]] = None,
              notification_target_arn: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if 'lifecycleTransition' in kwargs:
+            lifecycle_transition = kwargs['lifecycleTransition']
+        if 'defaultResult' in kwargs:
+            default_result = kwargs['defaultResult']
+        if 'heartbeatTimeout' in kwargs:
+            heartbeat_timeout = kwargs['heartbeatTimeout']
+        if 'lifecycleHookName' in kwargs:
+            lifecycle_hook_name = kwargs['lifecycleHookName']
+        if 'notificationMetadata' in kwargs:
+            notification_metadata = kwargs['notificationMetadata']
+        if 'notificationTargetArn' in kwargs:
+            notification_target_arn = kwargs['notificationTargetArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:

@@ -88,7 +88,41 @@ class InstanceArgs:
              time_based_auto_scaling: Optional[pulumi.Input['InstanceTimeBasedAutoScalingArgs']] = None,
              virtualization_type: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'layerIds' in kwargs:
+            layer_ids = kwargs['layerIds']
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'amiId' in kwargs:
+            ami_id = kwargs['amiId']
+        if 'autoScalingType' in kwargs:
+            auto_scaling_type = kwargs['autoScalingType']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'elasticIps' in kwargs:
+            elastic_ips = kwargs['elasticIps']
+        if 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if 'rootDeviceType' in kwargs:
+            root_device_type = kwargs['rootDeviceType']
+        if 'sshKeyName' in kwargs:
+            ssh_key_name = kwargs['sshKeyName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'timeBasedAutoScaling' in kwargs:
+            time_based_auto_scaling = kwargs['timeBasedAutoScaling']
+        if 'virtualizationType' in kwargs:
+            virtualization_type = kwargs['virtualizationType']
+
         _setter("instance_type", instance_type)
         _setter("layer_ids", layer_ids)
         _setter("stack_id", stack_id)

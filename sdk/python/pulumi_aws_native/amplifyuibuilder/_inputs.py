@@ -44,8 +44,10 @@ class ComponentBindingPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -72,7 +74,11 @@ class ComponentChildArgs:
              properties: pulumi.Input['ComponentPropertiesArgs'],
              children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
              events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+
         _setter("component_type", component_type)
         _setter("name", name)
         _setter("properties", properties)
@@ -134,8 +140,10 @@ class ComponentCollectionPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -145,8 +153,10 @@ class ComponentEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -156,8 +166,10 @@ class ComponentOverridesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -167,8 +179,10 @@ class ComponentPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -178,8 +192,10 @@ class ComponentTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -189,8 +205,10 @@ class ComponentVariantValuesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -208,7 +226,11 @@ class ComponentVariantArgs:
              _setter: Callable[[Any, Any], None],
              overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
              variant_values: Optional[pulumi.Input['ComponentVariantValuesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'variantValues' in kwargs:
+            variant_values = kwargs['variantValues']
+
         if overrides is not None:
             _setter("overrides", overrides)
         if variant_values is not None:
@@ -251,7 +273,9 @@ class FormButtonArgs:
              children: Optional[pulumi.Input[str]] = None,
              excluded: Optional[pulumi.Input[bool]] = None,
              position: Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if children is not None:
             _setter("children", children)
         if excluded is not None:
@@ -308,7 +332,9 @@ class FormCtaArgs:
              clear: Optional[pulumi.Input['FormButtonArgs']] = None,
              position: Optional[pulumi.Input['FormButtonsPosition']] = None,
              submit: Optional[pulumi.Input['FormButtonArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cancel is not None:
             _setter("cancel", cancel)
         if clear is not None:
@@ -370,7 +396,13 @@ class FormDataTypeConfigArgs:
              _setter: Callable[[Any, Any], None],
              data_source_type: pulumi.Input['FormDataSourceType'],
              data_type_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceType' in kwargs:
+            data_source_type = kwargs['dataSourceType']
+        if 'dataTypeName' in kwargs:
+            data_type_name = kwargs['dataTypeName']
+
         _setter("data_source_type", data_source_type)
         _setter("data_type_name", data_type_name)
 
@@ -405,7 +437,9 @@ class FormFieldPosition0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              fixed: pulumi.Input['FormFixedPosition'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("fixed", fixed)
 
     @property
@@ -430,7 +464,11 @@ class FormFieldPosition1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              right_of: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rightOf' in kwargs:
+            right_of = kwargs['rightOf']
+
         _setter("right_of", right_of)
 
     @property
@@ -455,7 +493,9 @@ class FormFieldPosition2PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              below: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("below", below)
 
     @property
@@ -475,8 +515,10 @@ class FormFieldsMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -486,8 +528,10 @@ class FormSectionalElementMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -502,7 +546,11 @@ class FormStyleConfig0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              token_reference: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tokenReference' in kwargs:
+            token_reference = kwargs['tokenReference']
+
         _setter("token_reference", token_reference)
 
     @property
@@ -527,7 +575,9 @@ class FormStyleConfig1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -558,7 +608,15 @@ class FormStyleArgs:
              horizontal_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
              outer_padding: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
              vertical_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'horizontalGap' in kwargs:
+            horizontal_gap = kwargs['horizontalGap']
+        if 'outerPadding' in kwargs:
+            outer_padding = kwargs['outerPadding']
+        if 'verticalGap' in kwargs:
+            vertical_gap = kwargs['verticalGap']
+
         if horizontal_gap is not None:
             _setter("horizontal_gap", horizontal_gap)
         if outer_padding is not None:
@@ -601,8 +659,10 @@ class FormTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -612,8 +672,10 @@ class ThemeTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -631,7 +693,9 @@ class ThemeValuesArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input['ThemeValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -671,7 +735,9 @@ class ThemeValueArgs:
              _setter: Callable[[Any, Any], None],
              children: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if children is not None:
             _setter("children", children)
         if value is not None:

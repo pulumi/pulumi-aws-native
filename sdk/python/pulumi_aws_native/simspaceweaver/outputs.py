@@ -51,7 +51,13 @@ class SimulationS3Location(dict):
              _setter: Callable[[Any, Any], None],
              bucket_name: str,
              object_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'objectKey' in kwargs:
+            object_key = kwargs['objectKey']
+
         _setter("bucket_name", bucket_name)
         _setter("object_key", object_key)
 

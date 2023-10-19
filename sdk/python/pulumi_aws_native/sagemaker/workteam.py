@@ -43,7 +43,17 @@ class WorkteamArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamTagArgs']]]] = None,
              workforce_name: Optional[pulumi.Input[str]] = None,
              workteam_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberDefinitions' in kwargs:
+            member_definitions = kwargs['memberDefinitions']
+        if 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if 'workteamName' in kwargs:
+            workteam_name = kwargs['workteamName']
+
         if description is not None:
             _setter("description", description)
         if member_definitions is not None:

@@ -45,7 +45,17 @@ class InstanceConnectEndpointArgs:
              preserve_client_ip: Optional[pulumi.Input[bool]] = None,
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'preserveClientIp' in kwargs:
+            preserve_client_ip = kwargs['preserveClientIp']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("subnet_id", subnet_id)
         if client_token is not None:
             _setter("client_token", client_token)

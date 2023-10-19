@@ -49,7 +49,23 @@ class EndpointConfigArgs:
              kms_key_id: Optional[pulumi.Input[str]] = None,
              shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productionVariants' in kwargs:
+            production_variants = kwargs['productionVariants']
+        if 'asyncInferenceConfig' in kwargs:
+            async_inference_config = kwargs['asyncInferenceConfig']
+        if 'dataCaptureConfig' in kwargs:
+            data_capture_config = kwargs['dataCaptureConfig']
+        if 'endpointConfigName' in kwargs:
+            endpoint_config_name = kwargs['endpointConfigName']
+        if 'explainerConfig' in kwargs:
+            explainer_config = kwargs['explainerConfig']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'shadowProductionVariants' in kwargs:
+            shadow_production_variants = kwargs['shadowProductionVariants']
+
         _setter("production_variants", production_variants)
         if async_inference_config is not None:
             _setter("async_inference_config", async_inference_config)

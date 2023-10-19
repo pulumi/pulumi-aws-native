@@ -43,7 +43,17 @@ class IpAccessSettingsArgs:
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("ip_rules", ip_rules)
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)

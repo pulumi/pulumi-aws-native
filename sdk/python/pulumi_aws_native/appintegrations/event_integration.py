@@ -45,7 +45,13 @@ class EventIntegrationArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBridgeBus' in kwargs:
+            event_bridge_bus = kwargs['eventBridgeBus']
+        if 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+
         _setter("event_bridge_bus", event_bridge_bus)
         _setter("event_filter", event_filter)
         if description is not None:

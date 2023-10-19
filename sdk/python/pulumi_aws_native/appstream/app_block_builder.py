@@ -58,7 +58,23 @@ class AppBlockBuilderArgs:
              iam_role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+        if 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if 'appBlockArns' in kwargs:
+            app_block_arns = kwargs['appBlockArns']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+
         _setter("instance_type", instance_type)
         _setter("platform", platform)
         _setter("vpc_config", vpc_config)

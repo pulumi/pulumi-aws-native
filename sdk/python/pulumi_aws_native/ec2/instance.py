@@ -145,7 +145,79 @@ class InstanceArgs:
              tenancy: Optional[pulumi.Input[str]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if 'elasticInferenceAccelerators' in kwargs:
+            elastic_inference_accelerators = kwargs['elasticInferenceAccelerators']
+        if 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'placementGroupName' in kwargs:
+            placement_group_name = kwargs['placementGroupName']
+        if 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'propagateTagsToVolumeOnCreation' in kwargs:
+            propagate_tags_to_volume_on_creation = kwargs['propagateTagsToVolumeOnCreation']
+        if 'ramdiskId' in kwargs:
+            ramdisk_id = kwargs['ramdiskId']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+        if 'ssmAssociations' in kwargs:
+            ssm_associations = kwargs['ssmAssociations']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if additional_info is not None:
             _setter("additional_info", additional_info)
         if affinity is not None:

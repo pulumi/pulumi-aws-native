@@ -37,7 +37,11 @@ class DeviceProfileArgs:
              lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+
         if lo_ra_wan is not None:
             _setter("lo_ra_wan", lo_ra_wan)
         if name is not None:

@@ -42,7 +42,15 @@ class InputArgs:
              input_description: Optional[pulumi.Input[str]] = None,
              input_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputDefinition' in kwargs:
+            input_definition = kwargs['inputDefinition']
+        if 'inputDescription' in kwargs:
+            input_description = kwargs['inputDescription']
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+
         _setter("input_definition", input_definition)
         if input_description is not None:
             _setter("input_description", input_description)

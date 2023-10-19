@@ -54,7 +54,17 @@ class LaunchArgs:
              name: Optional[pulumi.Input[str]] = None,
              randomization_salt: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduledSplitsConfig' in kwargs:
+            scheduled_splits_config = kwargs['scheduledSplitsConfig']
+        if 'executionStatus' in kwargs:
+            execution_status = kwargs['executionStatus']
+        if 'metricMonitors' in kwargs:
+            metric_monitors = kwargs['metricMonitors']
+        if 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+
         _setter("groups", groups)
         _setter("project", project)
         _setter("scheduled_splits_config", scheduled_splits_config)

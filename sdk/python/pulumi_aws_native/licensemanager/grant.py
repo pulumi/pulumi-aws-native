@@ -44,7 +44,17 @@ class GrantArgs:
              license_arn: Optional[pulumi.Input[str]] = None,
              principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if 'grantName' in kwargs:
+            grant_name = kwargs['grantName']
+        if 'homeRegion' in kwargs:
+            home_region = kwargs['homeRegion']
+        if 'licenseArn' in kwargs:
+            license_arn = kwargs['licenseArn']
+
         if allowed_operations is not None:
             _setter("allowed_operations", allowed_operations)
         if grant_name is not None:

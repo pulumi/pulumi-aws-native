@@ -37,7 +37,15 @@ class DbSecurityGroupArgs:
              group_description: pulumi.Input[str],
              ec2_vpc_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbSecurityGroupIngress' in kwargs:
+            db_security_group_ingress = kwargs['dbSecurityGroupIngress']
+        if 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if 'ec2VpcId' in kwargs:
+            ec2_vpc_id = kwargs['ec2VpcId']
+
         _setter("db_security_group_ingress", db_security_group_ingress)
         _setter("group_description", group_description)
         if ec2_vpc_id is not None:

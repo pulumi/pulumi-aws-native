@@ -40,7 +40,17 @@ class VpceConfigurationArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]] = None,
              vpce_configuration_description: Optional[pulumi.Input[str]] = None,
              vpce_configuration_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceDnsName' in kwargs:
+            service_dns_name = kwargs['serviceDnsName']
+        if 'vpceServiceName' in kwargs:
+            vpce_service_name = kwargs['vpceServiceName']
+        if 'vpceConfigurationDescription' in kwargs:
+            vpce_configuration_description = kwargs['vpceConfigurationDescription']
+        if 'vpceConfigurationName' in kwargs:
+            vpce_configuration_name = kwargs['vpceConfigurationName']
+
         _setter("service_dns_name", service_dns_name)
         _setter("vpce_service_name", vpce_service_name)
         if tags is not None:

@@ -84,7 +84,11 @@ class DataCellsFilterColumnWildcard(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -139,7 +143,13 @@ class DataCellsFilterRowFilter(dict):
              _setter: Callable[[Any, Any], None],
              all_rows_wildcard: Optional[Any] = None,
              filter_expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allRowsWildcard' in kwargs:
+            all_rows_wildcard = kwargs['allRowsWildcard']
+        if 'filterExpression' in kwargs:
+            filter_expression = kwargs['filterExpression']
+
         if all_rows_wildcard is not None:
             _setter("all_rows_wildcard", all_rows_wildcard)
         if filter_expression is not None:
@@ -169,8 +179,10 @@ class DataLakeSettingsAdmins(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -180,8 +192,10 @@ class DataLakeSettingsCreateDatabaseDefaultPermissions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -191,8 +205,10 @@ class DataLakeSettingsCreateTableDefaultPermissions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -202,8 +218,10 @@ class DataLakeSettingsExternalDataFilteringAllowList(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -235,7 +253,11 @@ class PermissionsColumnWildcard(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -274,7 +296,11 @@ class PermissionsDataLakePrincipal(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_lake_principal_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLakePrincipalIdentifier' in kwargs:
+            data_lake_principal_identifier = kwargs['dataLakePrincipalIdentifier']
+
         if data_lake_principal_identifier is not None:
             _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
@@ -318,7 +344,13 @@ class PermissionsDataLocationResource(dict):
              _setter: Callable[[Any, Any], None],
              catalog_id: Optional[str] = None,
              s3_resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 's3Resource' in kwargs:
+            s3_resource = kwargs['s3Resource']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if s3_resource is not None:
@@ -367,7 +399,11 @@ class PermissionsDatabaseResource(dict):
              _setter: Callable[[Any, Any], None],
              catalog_id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if name is not None:
@@ -428,7 +464,17 @@ class PermissionsResource(dict):
              database_resource: Optional['outputs.PermissionsDatabaseResource'] = None,
              table_resource: Optional['outputs.PermissionsTableResource'] = None,
              table_with_columns_resource: Optional['outputs.PermissionsTableWithColumnsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLocationResource' in kwargs:
+            data_location_resource = kwargs['dataLocationResource']
+        if 'databaseResource' in kwargs:
+            database_resource = kwargs['databaseResource']
+        if 'tableResource' in kwargs:
+            table_resource = kwargs['tableResource']
+        if 'tableWithColumnsResource' in kwargs:
+            table_with_columns_resource = kwargs['tableWithColumnsResource']
+
         if data_location_resource is not None:
             _setter("data_location_resource", data_location_resource)
         if database_resource is not None:
@@ -501,7 +547,15 @@ class PermissionsTableResource(dict):
              database_name: Optional[str] = None,
              name: Optional[str] = None,
              table_wildcard: Optional['outputs.PermissionsTableWildcard'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -539,8 +593,10 @@ class PermissionsTableWildcard(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -590,7 +646,17 @@ class PermissionsTableWithColumnsResource(dict):
              column_wildcard: Optional['outputs.PermissionsColumnWildcard'] = None,
              database_name: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'columnWildcard' in kwargs:
+            column_wildcard = kwargs['columnWildcard']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if column_names is not None:
@@ -635,8 +701,10 @@ class PrincipalPermissionsCatalogResource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -668,7 +736,11 @@ class PrincipalPermissionsColumnWildcard(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -720,7 +792,15 @@ class PrincipalPermissionsDataCellsFilterResource(dict):
              name: str,
              table_catalog_id: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableCatalogId' in kwargs:
+            table_catalog_id = kwargs['tableCatalogId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         _setter("name", name)
         _setter("table_catalog_id", table_catalog_id)
@@ -776,7 +856,11 @@ class PrincipalPermissionsDataLakePrincipal(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_lake_principal_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLakePrincipalIdentifier' in kwargs:
+            data_lake_principal_identifier = kwargs['dataLakePrincipalIdentifier']
+
         if data_lake_principal_identifier is not None:
             _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
@@ -820,7 +904,13 @@ class PrincipalPermissionsDataLocationResource(dict):
              _setter: Callable[[Any, Any], None],
              catalog_id: str,
              resource_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("catalog_id", catalog_id)
         _setter("resource_arn", resource_arn)
 
@@ -867,7 +957,11 @@ class PrincipalPermissionsDatabaseResource(dict):
              _setter: Callable[[Any, Any], None],
              catalog_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         _setter("catalog_id", catalog_id)
         _setter("name", name)
 
@@ -916,7 +1010,13 @@ class PrincipalPermissionsLfTag(dict):
              _setter: Callable[[Any, Any], None],
              tag_key: Optional[str] = None,
              tag_values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+
         if tag_key is not None:
             _setter("tag_key", tag_key)
         if tag_values is not None:
@@ -972,7 +1072,15 @@ class PrincipalPermissionsLfTagKeyResource(dict):
              catalog_id: str,
              tag_key: str,
              tag_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+
         _setter("catalog_id", catalog_id)
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
@@ -1030,7 +1138,13 @@ class PrincipalPermissionsLfTagPolicyResource(dict):
              catalog_id: str,
              expression: Sequence['outputs.PrincipalPermissionsLfTag'],
              resource_type: 'PrincipalPermissionsResourceType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("catalog_id", catalog_id)
         _setter("expression", expression)
         _setter("resource_type", resource_type)
@@ -1109,7 +1223,19 @@ class PrincipalPermissionsResource(dict):
              lf_tag_policy: Optional['outputs.PrincipalPermissionsLfTagPolicyResource'] = None,
              table: Optional['outputs.PrincipalPermissionsTableResource'] = None,
              table_with_columns: Optional['outputs.PrincipalPermissionsTableWithColumnsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCellsFilter' in kwargs:
+            data_cells_filter = kwargs['dataCellsFilter']
+        if 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if 'lfTag' in kwargs:
+            lf_tag = kwargs['lfTag']
+        if 'lfTagPolicy' in kwargs:
+            lf_tag_policy = kwargs['lfTagPolicy']
+        if 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog is not None:
             _setter("catalog", catalog)
         if data_cells_filter is not None:
@@ -1210,7 +1336,15 @@ class PrincipalPermissionsTableResource(dict):
              database_name: str,
              name: Optional[str] = None,
              table_wildcard: Optional['outputs.PrincipalPermissionsTableWildcard'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         if name is not None:
@@ -1246,8 +1380,10 @@ class PrincipalPermissionsTableWildcard(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1297,7 +1433,17 @@ class PrincipalPermissionsTableWithColumnsResource(dict):
              name: str,
              column_names: Optional[Sequence[str]] = None,
              column_wildcard: Optional['outputs.PrincipalPermissionsColumnWildcard'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'columnWildcard' in kwargs:
+            column_wildcard = kwargs['columnWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("name", name)
@@ -1339,8 +1485,10 @@ class TagAssociationCatalogResource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1375,7 +1523,11 @@ class TagAssociationDatabaseResource(dict):
              _setter: Callable[[Any, Any], None],
              catalog_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         _setter("catalog_id", catalog_id)
         _setter("name", name)
 
@@ -1429,7 +1581,15 @@ class TagAssociationLfTagPair(dict):
              catalog_id: str,
              tag_key: str,
              tag_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+
         _setter("catalog_id", catalog_id)
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
@@ -1488,7 +1648,11 @@ class TagAssociationResource(dict):
              database: Optional['outputs.TagAssociationDatabaseResource'] = None,
              table: Optional['outputs.TagAssociationTableResource'] = None,
              table_with_columns: Optional['outputs.TagAssociationTableWithColumnsResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog is not None:
             _setter("catalog", catalog)
         if database is not None:
@@ -1561,7 +1725,15 @@ class TagAssociationTableResource(dict):
              database_name: str,
              name: Optional[str] = None,
              table_wildcard: Optional['outputs.TagAssociationTableWildcard'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         if name is not None:
@@ -1597,8 +1769,10 @@ class TagAssociationTableWildcard(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1643,7 +1817,15 @@ class TagAssociationTableWithColumnsResource(dict):
              column_names: Sequence[str],
              database_name: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("catalog_id", catalog_id)
         _setter("column_names", column_names)
         _setter("database_name", database_name)

@@ -69,7 +69,29 @@ class DomainArgs:
              domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if 'defaultUserSettings' in kwargs:
+            default_user_settings = kwargs['defaultUserSettings']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'appNetworkAccessType' in kwargs:
+            app_network_access_type = kwargs['appNetworkAccessType']
+        if 'appSecurityGroupManagement' in kwargs:
+            app_security_group_management = kwargs['appSecurityGroupManagement']
+        if 'defaultSpaceSettings' in kwargs:
+            default_space_settings = kwargs['defaultSpaceSettings']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainSettings' in kwargs:
+            domain_settings = kwargs['domainSettings']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("auth_mode", auth_mode)
         _setter("default_user_settings", default_user_settings)
         _setter("subnet_ids", subnet_ids)

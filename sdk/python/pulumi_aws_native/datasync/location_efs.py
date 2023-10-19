@@ -53,7 +53,19 @@ class LocationEfsArgs:
              in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationEfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2Config' in kwargs:
+            ec2_config = kwargs['ec2Config']
+        if 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if 'efsFilesystemArn' in kwargs:
+            efs_filesystem_arn = kwargs['efsFilesystemArn']
+        if 'fileSystemAccessRoleArn' in kwargs:
+            file_system_access_role_arn = kwargs['fileSystemAccessRoleArn']
+        if 'inTransitEncryption' in kwargs:
+            in_transit_encryption = kwargs['inTransitEncryption']
+
         _setter("ec2_config", ec2_config)
         if access_point_arn is not None:
             _setter("access_point_arn", access_point_arn)

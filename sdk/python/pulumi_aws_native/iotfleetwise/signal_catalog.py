@@ -41,7 +41,11 @@ class SignalCatalogArgs:
              node_counts: Optional[pulumi.Input['SignalCatalogNodeCountsArgs']] = None,
              nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeCounts' in kwargs:
+            node_counts = kwargs['nodeCounts']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

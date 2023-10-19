@@ -62,7 +62,33 @@ class IdentityPoolArgs:
              push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
              saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              supported_login_providers: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowUnauthenticatedIdentities' in kwargs:
+            allow_unauthenticated_identities = kwargs['allowUnauthenticatedIdentities']
+        if 'allowClassicFlow' in kwargs:
+            allow_classic_flow = kwargs['allowClassicFlow']
+        if 'cognitoEvents' in kwargs:
+            cognito_events = kwargs['cognitoEvents']
+        if 'cognitoIdentityProviders' in kwargs:
+            cognito_identity_providers = kwargs['cognitoIdentityProviders']
+        if 'cognitoStreams' in kwargs:
+            cognito_streams = kwargs['cognitoStreams']
+        if 'developerProviderName' in kwargs:
+            developer_provider_name = kwargs['developerProviderName']
+        if 'identityPoolName' in kwargs:
+            identity_pool_name = kwargs['identityPoolName']
+        if 'identityPoolTags' in kwargs:
+            identity_pool_tags = kwargs['identityPoolTags']
+        if 'openIdConnectProviderArns' in kwargs:
+            open_id_connect_provider_arns = kwargs['openIdConnectProviderArns']
+        if 'pushSync' in kwargs:
+            push_sync = kwargs['pushSync']
+        if 'samlProviderArns' in kwargs:
+            saml_provider_arns = kwargs['samlProviderArns']
+        if 'supportedLoginProviders' in kwargs:
+            supported_login_providers = kwargs['supportedLoginProviders']
+
         _setter("allow_unauthenticated_identities", allow_unauthenticated_identities)
         if allow_classic_flow is not None:
             _setter("allow_classic_flow", allow_classic_flow)

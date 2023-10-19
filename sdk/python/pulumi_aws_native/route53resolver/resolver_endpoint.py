@@ -49,7 +49,19 @@ class ResolverEndpointArgs:
              preferred_instance_type: Optional[pulumi.Input[str]] = None,
              resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if 'preferredInstanceType' in kwargs:
+            preferred_instance_type = kwargs['preferredInstanceType']
+        if 'resolverEndpointType' in kwargs:
+            resolver_endpoint_type = kwargs['resolverEndpointType']
+
         _setter("direction", direction)
         _setter("ip_addresses", ip_addresses)
         _setter("security_group_ids", security_group_ids)

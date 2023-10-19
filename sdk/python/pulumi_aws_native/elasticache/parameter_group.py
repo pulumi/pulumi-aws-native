@@ -37,7 +37,11 @@ class ParameterGroupArgs:
              description: pulumi.Input[str],
              properties: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheParameterGroupFamily' in kwargs:
+            cache_parameter_group_family = kwargs['cacheParameterGroupFamily']
+
         _setter("cache_parameter_group_family", cache_parameter_group_family)
         _setter("description", description)
         if properties is not None:

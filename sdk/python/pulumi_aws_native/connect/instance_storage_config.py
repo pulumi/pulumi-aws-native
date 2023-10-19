@@ -48,7 +48,23 @@ class InstanceStorageConfigArgs:
              kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']] = None,
              kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']] = None,
              s3_config: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'kinesisFirehoseConfig' in kwargs:
+            kinesis_firehose_config = kwargs['kinesisFirehoseConfig']
+        if 'kinesisStreamConfig' in kwargs:
+            kinesis_stream_config = kwargs['kinesisStreamConfig']
+        if 'kinesisVideoStreamConfig' in kwargs:
+            kinesis_video_stream_config = kwargs['kinesisVideoStreamConfig']
+        if 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+
         _setter("instance_arn", instance_arn)
         _setter("resource_type", resource_type)
         _setter("storage_type", storage_type)

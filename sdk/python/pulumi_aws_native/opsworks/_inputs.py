@@ -50,7 +50,11 @@ class AppDataSourceArgs:
              arn: Optional[pulumi.Input[str]] = None,
              database_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if arn is not None:
             _setter("arn", arn)
         if database_name is not None:
@@ -104,7 +108,9 @@ class AppEnvironmentVariableArgs:
              key: pulumi.Input[str],
              value: pulumi.Input[str],
              secure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
         if secure is not None:
@@ -165,7 +171,11 @@ class AppSourceArgs:
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         if password is not None:
             _setter("password", password)
         if revision is not None:
@@ -252,7 +262,11 @@ class AppSslConfigurationArgs:
              certificate: Optional[pulumi.Input[str]] = None,
              chain: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if chain is not None:
@@ -309,7 +323,15 @@ class InstanceBlockDeviceMappingArgs:
              ebs: Optional[pulumi.Input['InstanceEbsBlockDeviceArgs']] = None,
              no_device: Optional[pulumi.Input[str]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -380,7 +402,17 @@ class InstanceEbsBlockDeviceArgs:
              snapshot_id: Optional[pulumi.Input[str]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
@@ -468,7 +500,9 @@ class InstanceTimeBasedAutoScalingArgs:
              thursday: Optional[Any] = None,
              tuesday: Optional[Any] = None,
              wednesday: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if friday is not None:
             _setter("friday", friday)
         if monday is not None:
@@ -575,7 +609,21 @@ class LayerAutoScalingThresholdsArgs:
              load_threshold: Optional[pulumi.Input[float]] = None,
              memory_threshold: Optional[pulumi.Input[float]] = None,
              thresholds_wait_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if cpu_threshold is not None:
             _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
@@ -656,7 +704,11 @@ class LayerLifecycleEventConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              shutdown_event_configuration: Optional[pulumi.Input['LayerShutdownEventConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shutdownEventConfiguration' in kwargs:
+            shutdown_event_configuration = kwargs['shutdownEventConfiguration']
+
         if shutdown_event_configuration is not None:
             _setter("shutdown_event_configuration", shutdown_event_configuration)
 
@@ -688,7 +740,13 @@ class LayerLoadBasedAutoScalingArgs:
              down_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None,
              enable: Optional[pulumi.Input[bool]] = None,
              up_scaling: Optional[pulumi.Input['LayerAutoScalingThresholdsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downScaling' in kwargs:
+            down_scaling = kwargs['downScaling']
+        if 'upScaling' in kwargs:
+            up_scaling = kwargs['upScaling']
+
         if down_scaling is not None:
             _setter("down_scaling", down_scaling)
         if enable is not None:
@@ -748,7 +806,9 @@ class LayerRecipesArgs:
              setup: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              shutdown: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              undeploy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configure is not None:
             _setter("configure", configure)
         if deploy is not None:
@@ -821,7 +881,13 @@ class LayerShutdownEventConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              delay_until_elb_connections_drained: Optional[pulumi.Input[bool]] = None,
              execution_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delayUntilElbConnectionsDrained' in kwargs:
+            delay_until_elb_connections_drained = kwargs['delayUntilElbConnectionsDrained']
+        if 'executionTimeout' in kwargs:
+            execution_timeout = kwargs['executionTimeout']
+
         if delay_until_elb_connections_drained is not None:
             _setter("delay_until_elb_connections_drained", delay_until_elb_connections_drained)
         if execution_timeout is not None:
@@ -861,7 +927,9 @@ class LayerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -914,7 +982,17 @@ class LayerVolumeConfigurationArgs:
              raid_level: Optional[pulumi.Input[int]] = None,
              size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if iops is not None:
@@ -1009,7 +1087,13 @@ class StackChefConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              berkshelf_version: Optional[pulumi.Input[str]] = None,
              manage_berkshelf: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'berkshelfVersion' in kwargs:
+            berkshelf_version = kwargs['berkshelfVersion']
+        if 'manageBerkshelf' in kwargs:
+            manage_berkshelf = kwargs['manageBerkshelf']
+
         if berkshelf_version is not None:
             _setter("berkshelf_version", berkshelf_version)
         if manage_berkshelf is not None:
@@ -1049,7 +1133,9 @@ class StackConfigurationManagerArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if version is not None:
@@ -1089,7 +1175,9 @@ class StackElasticIpArgs:
              _setter: Callable[[Any, Any], None],
              ip: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("ip", ip)
         if name is not None:
             _setter("name", name)
@@ -1131,7 +1219,15 @@ class StackRdsDbInstanceArgs:
              db_password: pulumi.Input[str],
              db_user: pulumi.Input[str],
              rds_db_instance_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbPassword' in kwargs:
+            db_password = kwargs['dbPassword']
+        if 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if 'rdsDbInstanceArn' in kwargs:
+            rds_db_instance_arn = kwargs['rdsDbInstanceArn']
+
         _setter("db_password", db_password)
         _setter("db_user", db_user)
         _setter("rds_db_instance_arn", rds_db_instance_arn)
@@ -1191,7 +1287,11 @@ class StackSourceArgs:
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         if password is not None:
             _setter("password", password)
         if revision is not None:
@@ -1275,7 +1375,9 @@ class StackTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

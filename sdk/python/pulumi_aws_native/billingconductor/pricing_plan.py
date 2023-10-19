@@ -37,7 +37,11 @@ class PricingPlanArgs:
              name: Optional[pulumi.Input[str]] = None,
              pricing_rule_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pricingRuleArns' in kwargs:
+            pricing_rule_arns = kwargs['pricingRuleArns']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

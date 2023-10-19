@@ -37,7 +37,11 @@ class LoggingConfigurationArgs:
              destination_configuration: pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+
         _setter("destination_configuration", destination_configuration)
         if name is not None:
             _setter("name", name)

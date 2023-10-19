@@ -41,7 +41,15 @@ class UserArgs:
              authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessString' in kwargs:
+            access_string = kwargs['accessString']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if access_string is not None:
             _setter("access_string", access_string)
         if authentication_mode is not None:

@@ -34,7 +34,11 @@ class SamlProviderArgs:
              saml_metadata_document: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samlMetadataDocument' in kwargs:
+            saml_metadata_document = kwargs['samlMetadataDocument']
+
         _setter("saml_metadata_document", saml_metadata_document)
         if name is not None:
             _setter("name", name)

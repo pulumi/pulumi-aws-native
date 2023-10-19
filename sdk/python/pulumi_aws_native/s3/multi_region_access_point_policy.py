@@ -33,7 +33,11 @@ class MultiRegionAccessPointPolicyArgs:
              _setter: Callable[[Any, Any], None],
              mrap_name: pulumi.Input[str],
              policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mrapName' in kwargs:
+            mrap_name = kwargs['mrapName']
+
         _setter("mrap_name", mrap_name)
         _setter("policy", policy)
 

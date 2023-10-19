@@ -35,7 +35,15 @@ class TagArgs:
              tag_key: pulumi.Input[str],
              tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
              catalog_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
         if catalog_id is not None:

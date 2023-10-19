@@ -41,7 +41,11 @@ class PrincipalPermissionsArgs:
              principal: pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'],
              resource: pulumi.Input['PrincipalPermissionsResourceArgs'],
              catalog: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'permissionsWithGrantOption' in kwargs:
+            permissions_with_grant_option = kwargs['permissionsWithGrantOption']
+
         _setter("permissions", permissions)
         _setter("permissions_with_grant_option", permissions_with_grant_option)
         _setter("principal", principal)

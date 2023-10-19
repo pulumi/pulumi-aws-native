@@ -42,7 +42,11 @@ class WorkflowArgs:
              description: Optional[pulumi.Input[str]] = None,
              on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onExceptionSteps' in kwargs:
+            on_exception_steps = kwargs['onExceptionSteps']
+
         _setter("steps", steps)
         if description is not None:
             _setter("description", description)

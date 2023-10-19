@@ -74,7 +74,11 @@ class AnalysisTemplateAnalysisParameter(dict):
              name: str,
              type: 'AnalysisTemplateAnalysisParameterType',
              default_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("name", name)
         _setter("type", type)
         if default_value is not None:
@@ -125,7 +129,11 @@ class AnalysisTemplateAnalysisSchema(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              referenced_tables: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referencedTables' in kwargs:
+            referenced_tables = kwargs['referencedTables']
+
         _setter("referenced_tables", referenced_tables)
 
     @property
@@ -146,7 +154,9 @@ class AnalysisTemplateAnalysisSource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("text", text)
 
     @property
@@ -170,7 +180,9 @@ class AnalysisTemplateTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -229,7 +241,17 @@ class CollaborationDataEncryptionMetadata(dict):
              allow_duplicates: bool,
              allow_joins_on_columns_with_different_names: bool,
              preserve_nulls: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCleartext' in kwargs:
+            allow_cleartext = kwargs['allowCleartext']
+        if 'allowDuplicates' in kwargs:
+            allow_duplicates = kwargs['allowDuplicates']
+        if 'allowJoinsOnColumnsWithDifferentNames' in kwargs:
+            allow_joins_on_columns_with_different_names = kwargs['allowJoinsOnColumnsWithDifferentNames']
+        if 'preserveNulls' in kwargs:
+            preserve_nulls = kwargs['preserveNulls']
+
         _setter("allow_cleartext", allow_cleartext)
         _setter("allow_duplicates", allow_duplicates)
         _setter("allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
@@ -295,7 +317,15 @@ class CollaborationMemberSpecification(dict):
              account_id: str,
              display_name: str,
              member_abilities: Sequence['CollaborationMemberAbility'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'memberAbilities' in kwargs:
+            member_abilities = kwargs['memberAbilities']
+
         _setter("account_id", account_id)
         _setter("display_name", display_name)
         _setter("member_abilities", member_abilities)
@@ -331,7 +361,9 @@ class CollaborationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -378,7 +410,11 @@ class ConfiguredTableAggregateColumn(dict):
              _setter: Callable[[Any, Any], None],
              column_names: Sequence[str],
              function: 'ConfiguredTableAggregateFunctionName',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+
         _setter("column_names", column_names)
         _setter("function", function)
 
@@ -428,7 +464,11 @@ class ConfiguredTableAggregationConstraint(dict):
              column_name: str,
              minimum: float,
              type: 'ConfiguredTableAggregationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
         _setter("minimum", minimum)
         _setter("type", type)
@@ -464,7 +504,9 @@ class ConfiguredTableAnalysisRule(dict):
              _setter: Callable[[Any, Any], None],
              policy: 'outputs.ConfiguredTableAnalysisRulePolicy',
              type: 'ConfiguredTableAnalysisRuleType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("policy", policy)
         _setter("type", type)
 
@@ -538,7 +580,23 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
              scalar_functions: Sequence['ConfiguredTableScalarFunctions'],
              allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
              join_required: Optional['ConfiguredTableJoinRequiredOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateColumns' in kwargs:
+            aggregate_columns = kwargs['aggregateColumns']
+        if 'dimensionColumns' in kwargs:
+            dimension_columns = kwargs['dimensionColumns']
+        if 'joinColumns' in kwargs:
+            join_columns = kwargs['joinColumns']
+        if 'outputConstraints' in kwargs:
+            output_constraints = kwargs['outputConstraints']
+        if 'scalarFunctions' in kwargs:
+            scalar_functions = kwargs['scalarFunctions']
+        if 'allowedJoinOperators' in kwargs:
+            allowed_join_operators = kwargs['allowedJoinOperators']
+        if 'joinRequired' in kwargs:
+            join_required = kwargs['joinRequired']
+
         _setter("aggregate_columns", aggregate_columns)
         _setter("dimension_columns", dimension_columns)
         _setter("join_columns", join_columns)
@@ -619,7 +677,13 @@ class ConfiguredTableAnalysisRuleCustom(dict):
              _setter: Callable[[Any, Any], None],
              allowed_analyses: Sequence[str],
              allowed_analysis_providers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedAnalyses' in kwargs:
+            allowed_analyses = kwargs['allowedAnalyses']
+        if 'allowedAnalysisProviders' in kwargs:
+            allowed_analysis_providers = kwargs['allowedAnalysisProviders']
+
         _setter("allowed_analyses", allowed_analyses)
         if allowed_analysis_providers is not None:
             _setter("allowed_analysis_providers", allowed_analysis_providers)
@@ -674,7 +738,15 @@ class ConfiguredTableAnalysisRuleList(dict):
              join_columns: Sequence[str],
              list_columns: Sequence[str],
              allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'joinColumns' in kwargs:
+            join_columns = kwargs['joinColumns']
+        if 'listColumns' in kwargs:
+            list_columns = kwargs['listColumns']
+        if 'allowedJoinOperators' in kwargs:
+            allowed_join_operators = kwargs['allowedJoinOperators']
+
         _setter("join_columns", join_columns)
         _setter("list_columns", list_columns)
         if allowed_join_operators is not None:
@@ -708,7 +780,9 @@ class ConfiguredTableAnalysisRulePolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              v1: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("v1", v1)
 
     @property
@@ -729,7 +803,9 @@ class ConfiguredTableAnalysisRulePolicyV10Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              list: 'outputs.ConfiguredTableAnalysisRuleList',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("list", list)
 
     @property
@@ -750,7 +826,9 @@ class ConfiguredTableAnalysisRulePolicyV11Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              aggregation: 'outputs.ConfiguredTableAnalysisRuleAggregation',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("aggregation", aggregation)
 
     @property
@@ -771,7 +849,9 @@ class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom: 'outputs.ConfiguredTableAnalysisRuleCustom',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("custom", custom)
 
     @property
@@ -795,7 +875,9 @@ class ConfiguredTableAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -844,7 +926,13 @@ class ConfiguredTableGlueTableReference(dict):
              _setter: Callable[[Any, Any], None],
              database_name: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
 
@@ -871,7 +959,9 @@ class ConfiguredTableTableReference(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              glue: 'outputs.ConfiguredTableGlueTableReference',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("glue", glue)
 
     @property
@@ -895,7 +985,9 @@ class ConfiguredTableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -922,7 +1014,9 @@ class MembershipProtectedQueryOutputConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("s3", s3)
 
     @property
@@ -965,7 +1059,13 @@ class MembershipProtectedQueryResultConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              output_configuration: 'outputs.MembershipProtectedQueryOutputConfiguration',
              role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputConfiguration' in kwargs:
+            output_configuration = kwargs['outputConfiguration']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("output_configuration", output_configuration)
         if role_arn is not None:
             _setter("role_arn", role_arn)
@@ -1018,7 +1118,13 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
              bucket: str,
              result_format: 'MembershipResultFormat',
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resultFormat' in kwargs:
+            result_format = kwargs['resultFormat']
+        if 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("result_format", result_format)
         if key_prefix is not None:
@@ -1055,7 +1161,9 @@ class MembershipTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

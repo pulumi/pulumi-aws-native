@@ -52,7 +52,13 @@ class ApplicationCsvMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              record_column_delimiter: pulumi.Input[str],
              record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -90,7 +96,13 @@ class ApplicationInputLambdaProcessorArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -125,7 +137,9 @@ class ApplicationInputParallelismArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -151,7 +165,11 @@ class ApplicationInputProcessingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              input_lambda_processor: Optional[pulumi.Input['ApplicationInputLambdaProcessorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLambdaProcessor' in kwargs:
+            input_lambda_processor = kwargs['inputLambdaProcessor']
+
         if input_lambda_processor is not None:
             _setter("input_lambda_processor", input_lambda_processor)
 
@@ -183,7 +201,15 @@ class ApplicationInputSchemaArgs:
              record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
              record_format: pulumi.Input['ApplicationRecordFormatArgs'],
              record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -244,7 +270,21 @@ class ApplicationInputArgs:
              input_processing_configuration: Optional[pulumi.Input['ApplicationInputProcessingConfigurationArgs']] = None,
              kinesis_firehose_input: Optional[pulumi.Input['ApplicationKinesisFirehoseInputArgs']] = None,
              kinesis_streams_input: Optional[pulumi.Input['ApplicationKinesisStreamsInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'inputParallelism' in kwargs:
+            input_parallelism = kwargs['inputParallelism']
+        if 'inputProcessingConfiguration' in kwargs:
+            input_processing_configuration = kwargs['inputProcessingConfiguration']
+        if 'kinesisFirehoseInput' in kwargs:
+            kinesis_firehose_input = kwargs['kinesisFirehoseInput']
+        if 'kinesisStreamsInput' in kwargs:
+            kinesis_streams_input = kwargs['kinesisStreamsInput']
+
         _setter("input_schema", input_schema)
         _setter("name_prefix", name_prefix)
         if input_parallelism is not None:
@@ -323,7 +363,11 @@ class ApplicationJsonMappingParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -351,7 +395,13 @@ class ApplicationKinesisFirehoseInputArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -389,7 +439,13 @@ class ApplicationKinesisStreamsInputArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -427,7 +483,13 @@ class ApplicationMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
              json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -464,7 +526,11 @@ class ApplicationOutputResourceDestinationSchemaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+
         if record_format_type is not None:
             _setter("record_format_type", record_format_type)
 
@@ -493,7 +559,13 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -531,7 +603,13 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -569,7 +647,13 @@ class ApplicationOutputResourceLambdaOutputArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -616,7 +700,17 @@ class ApplicationOutputResourceOutputArgs:
              kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
              lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationSchema' in kwargs:
+            destination_schema = kwargs['destinationSchema']
+        if 'kinesisFirehoseOutput' in kwargs:
+            kinesis_firehose_output = kwargs['kinesisFirehoseOutput']
+        if 'kinesisStreamsOutput' in kwargs:
+            kinesis_streams_output = kwargs['kinesisStreamsOutput']
+        if 'lambdaOutput' in kwargs:
+            lambda_output = kwargs['lambdaOutput']
+
         _setter("destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
             _setter("kinesis_firehose_output", kinesis_firehose_output)
@@ -691,7 +785,11 @@ class ApplicationRecordColumnArgs:
              name: pulumi.Input[str],
              sql_type: pulumi.Input[str],
              mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -740,7 +838,13 @@ class ApplicationRecordFormatArgs:
              _setter: Callable[[Any, Any], None],
              record_format_type: pulumi.Input[str],
              mapping_parameters: Optional[pulumi.Input['ApplicationMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -779,7 +883,13 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              record_column_delimiter: pulumi.Input[str],
              record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -814,7 +924,11 @@ class ApplicationReferenceDataSourceJsonMappingParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -842,7 +956,13 @@ class ApplicationReferenceDataSourceMappingParametersArgs:
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
              json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -885,7 +1005,11 @@ class ApplicationReferenceDataSourceRecordColumnArgs:
              name: pulumi.Input[str],
              sql_type: pulumi.Input[str],
              mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -934,7 +1058,13 @@ class ApplicationReferenceDataSourceRecordFormatArgs:
              _setter: Callable[[Any, Any], None],
              record_format_type: pulumi.Input[str],
              mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -976,7 +1106,15 @@ class ApplicationReferenceDataSourceReferenceDataSourceArgs:
              reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
              s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referenceSchema' in kwargs:
+            reference_schema = kwargs['referenceSchema']
+        if 's3ReferenceDataSource' in kwargs:
+            s3_reference_data_source = kwargs['s3ReferenceDataSource']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("reference_schema", reference_schema)
         if s3_reference_data_source is not None:
             _setter("s3_reference_data_source", s3_reference_data_source)
@@ -1029,7 +1167,15 @@ class ApplicationReferenceDataSourceReferenceSchemaArgs:
              record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
              record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
              record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -1081,7 +1227,15 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
              bucket_arn: pulumi.Input[str],
              file_key: pulumi.Input[str],
              reference_role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'fileKey' in kwargs:
+            file_key = kwargs['fileKey']
+        if 'referenceRoleArn' in kwargs:
+            reference_role_arn = kwargs['referenceRoleArn']
+
         _setter("bucket_arn", bucket_arn)
         _setter("file_key", file_key)
         _setter("reference_role_arn", reference_role_arn)

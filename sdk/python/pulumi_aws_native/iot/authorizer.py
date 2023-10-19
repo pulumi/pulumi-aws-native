@@ -50,7 +50,21 @@ class AuthorizerArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
              token_key_name: Optional[pulumi.Input[str]] = None,
              token_signing_public_keys: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizerFunctionArn' in kwargs:
+            authorizer_function_arn = kwargs['authorizerFunctionArn']
+        if 'authorizerName' in kwargs:
+            authorizer_name = kwargs['authorizerName']
+        if 'enableCachingForHttp' in kwargs:
+            enable_caching_for_http = kwargs['enableCachingForHttp']
+        if 'signingDisabled' in kwargs:
+            signing_disabled = kwargs['signingDisabled']
+        if 'tokenKeyName' in kwargs:
+            token_key_name = kwargs['tokenKeyName']
+        if 'tokenSigningPublicKeys' in kwargs:
+            token_signing_public_keys = kwargs['tokenSigningPublicKeys']
+
         _setter("authorizer_function_arn", authorizer_function_arn)
         if authorizer_name is not None:
             _setter("authorizer_name", authorizer_name)

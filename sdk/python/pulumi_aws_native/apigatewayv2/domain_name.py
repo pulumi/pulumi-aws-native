@@ -41,7 +41,15 @@ class DomainNameArgs:
              domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
              mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainNameConfigurations' in kwargs:
+            domain_name_configurations = kwargs['domainNameConfigurations']
+        if 'mutualTlsAuthentication' in kwargs:
+            mutual_tls_authentication = kwargs['mutualTlsAuthentication']
+
         _setter("domain_name", domain_name)
         if domain_name_configurations is not None:
             _setter("domain_name_configurations", domain_name_configurations)

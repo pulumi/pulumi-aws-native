@@ -74,7 +74,29 @@ class JobTemplateArgs:
              presigned_url_config: Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]] = None,
              timeout_config: Optional[pulumi.Input['TimeoutConfigPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobTemplateId' in kwargs:
+            job_template_id = kwargs['jobTemplateId']
+        if 'abortConfig' in kwargs:
+            abort_config = kwargs['abortConfig']
+        if 'destinationPackageVersions' in kwargs:
+            destination_package_versions = kwargs['destinationPackageVersions']
+        if 'documentSource' in kwargs:
+            document_source = kwargs['documentSource']
+        if 'jobArn' in kwargs:
+            job_arn = kwargs['jobArn']
+        if 'jobExecutionsRetryConfig' in kwargs:
+            job_executions_retry_config = kwargs['jobExecutionsRetryConfig']
+        if 'jobExecutionsRolloutConfig' in kwargs:
+            job_executions_rollout_config = kwargs['jobExecutionsRolloutConfig']
+        if 'maintenanceWindows' in kwargs:
+            maintenance_windows = kwargs['maintenanceWindows']
+        if 'presignedUrlConfig' in kwargs:
+            presigned_url_config = kwargs['presignedUrlConfig']
+        if 'timeoutConfig' in kwargs:
+            timeout_config = kwargs['timeoutConfig']
+
         _setter("description", description)
         _setter("job_template_id", job_template_id)
         if abort_config is not None:

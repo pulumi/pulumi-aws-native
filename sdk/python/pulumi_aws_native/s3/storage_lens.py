@@ -33,7 +33,11 @@ class StorageLensArgs:
              _setter: Callable[[Any, Any], None],
              storage_lens_configuration: pulumi.Input['StorageLensConfigurationArgs'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageLensConfiguration' in kwargs:
+            storage_lens_configuration = kwargs['storageLensConfiguration']
+
         _setter("storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
             _setter("tags", tags)

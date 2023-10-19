@@ -50,7 +50,17 @@ class StreamArgs:
              stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
              stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if 'shardCount' in kwargs:
+            shard_count = kwargs['shardCount']
+        if 'streamEncryption' in kwargs:
+            stream_encryption = kwargs['streamEncryption']
+        if 'streamModeDetails' in kwargs:
+            stream_mode_details = kwargs['streamModeDetails']
+
         if name is not None:
             _setter("name", name)
         if retention_period_hours is not None:

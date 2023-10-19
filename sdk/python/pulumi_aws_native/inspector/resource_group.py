@@ -28,7 +28,11 @@ class ResourceGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_group_tags: pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupTags' in kwargs:
+            resource_group_tags = kwargs['resourceGroupTags']
+
         _setter("resource_group_tags", resource_group_tags)
 
     @property

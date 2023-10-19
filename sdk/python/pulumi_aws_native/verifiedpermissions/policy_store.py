@@ -32,7 +32,11 @@ class PolicyStoreArgs:
              _setter: Callable[[Any, Any], None],
              validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
              schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+
         _setter("validation_settings", validation_settings)
         if schema is not None:
             _setter("schema", schema)

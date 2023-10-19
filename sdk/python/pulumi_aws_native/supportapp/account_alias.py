@@ -27,7 +27,11 @@ class AccountAliasArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              account_alias: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountAlias' in kwargs:
+            account_alias = kwargs['accountAlias']
+
         _setter("account_alias", account_alias)
 
     @property

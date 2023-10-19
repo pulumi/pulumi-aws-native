@@ -55,7 +55,25 @@ class TrafficMirrorFilterRuleArgs:
              destination_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
              protocol: Optional[pulumi.Input[int]] = None,
              source_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if 'ruleAction' in kwargs:
+            rule_action = kwargs['ruleAction']
+        if 'ruleNumber' in kwargs:
+            rule_number = kwargs['ruleNumber']
+        if 'sourceCidrBlock' in kwargs:
+            source_cidr_block = kwargs['sourceCidrBlock']
+        if 'trafficDirection' in kwargs:
+            traffic_direction = kwargs['trafficDirection']
+        if 'trafficMirrorFilterId' in kwargs:
+            traffic_mirror_filter_id = kwargs['trafficMirrorFilterId']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+
         _setter("destination_cidr_block", destination_cidr_block)
         _setter("rule_action", rule_action)
         _setter("rule_number", rule_number)

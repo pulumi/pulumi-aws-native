@@ -52,7 +52,19 @@ class StorageSystemArgs:
              name: Optional[pulumi.Input[str]] = None,
              server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'serverConfiguration' in kwargs:
+            server_configuration = kwargs['serverConfiguration']
+        if 'systemType' in kwargs:
+            system_type = kwargs['systemType']
+        if 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if 'serverCredentials' in kwargs:
+            server_credentials = kwargs['serverCredentials']
+
         _setter("agent_arns", agent_arns)
         _setter("server_configuration", server_configuration)
         _setter("system_type", system_type)

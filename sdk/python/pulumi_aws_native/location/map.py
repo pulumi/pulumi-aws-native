@@ -38,7 +38,13 @@ class MapArgs:
              description: Optional[pulumi.Input[str]] = None,
              map_name: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mapName' in kwargs:
+            map_name = kwargs['mapName']
+        if 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("configuration", configuration)
         if description is not None:
             _setter("description", description)

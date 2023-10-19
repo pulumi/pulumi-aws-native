@@ -48,7 +48,21 @@ class AssignmentArgs:
              principal_type: pulumi.Input['AssignmentPrincipalType'],
              target_id: pulumi.Input[str],
              target_type: pulumi.Input['AssignmentTargetType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("instance_arn", instance_arn)
         _setter("permission_set_arn", permission_set_arn)
         _setter("principal_id", principal_id)

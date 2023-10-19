@@ -42,7 +42,15 @@ class SourceApiAssociationArgs:
              merged_api_identifier: Optional[pulumi.Input[str]] = None,
              source_api_association_config: Optional[pulumi.Input['SourceApiAssociationConfigArgs']] = None,
              source_api_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mergedApiIdentifier' in kwargs:
+            merged_api_identifier = kwargs['mergedApiIdentifier']
+        if 'sourceApiAssociationConfig' in kwargs:
+            source_api_association_config = kwargs['sourceApiAssociationConfig']
+        if 'sourceApiIdentifier' in kwargs:
+            source_api_identifier = kwargs['sourceApiIdentifier']
+
         if description is not None:
             _setter("description", description)
         if merged_api_identifier is not None:

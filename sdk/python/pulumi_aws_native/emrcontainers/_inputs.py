@@ -28,7 +28,11 @@ class VirtualClusterContainerInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              eks_info: pulumi.Input['VirtualClusterEksInfoArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eksInfo' in kwargs:
+            eks_info = kwargs['eksInfo']
+
         _setter("eks_info", eks_info)
 
     @property
@@ -63,7 +67,9 @@ class VirtualClusterContainerProviderArgs:
              id: pulumi.Input[str],
              info: pulumi.Input['VirtualClusterContainerInfoArgs'],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("info", info)
         _setter("type", type)
@@ -114,7 +120,9 @@ class VirtualClusterEksInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
 
     @property
@@ -147,7 +155,9 @@ class VirtualClusterTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

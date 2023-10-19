@@ -48,7 +48,19 @@ class VpcPeeringConnectionArgs:
              peer_region: Optional[pulumi.Input[str]] = None,
              peer_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerVpcId' in kwargs:
+            peer_vpc_id = kwargs['peerVpcId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'peerOwnerId' in kwargs:
+            peer_owner_id = kwargs['peerOwnerId']
+        if 'peerRegion' in kwargs:
+            peer_region = kwargs['peerRegion']
+        if 'peerRoleArn' in kwargs:
+            peer_role_arn = kwargs['peerRoleArn']
+
         _setter("peer_vpc_id", peer_vpc_id)
         _setter("vpc_id", vpc_id)
         if peer_owner_id is not None:

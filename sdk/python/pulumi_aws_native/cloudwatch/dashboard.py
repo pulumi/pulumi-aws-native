@@ -29,7 +29,13 @@ class DashboardArgs:
              _setter: Callable[[Any, Any], None],
              dashboard_body: pulumi.Input[str],
              dashboard_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardBody' in kwargs:
+            dashboard_body = kwargs['dashboardBody']
+        if 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+
         _setter("dashboard_body", dashboard_body)
         if dashboard_name is not None:
             _setter("dashboard_name", dashboard_name)

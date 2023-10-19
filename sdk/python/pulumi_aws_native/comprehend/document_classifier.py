@@ -62,7 +62,29 @@ class DocumentClassifierArgs:
              version_name: Optional[pulumi.Input[str]] = None,
              volume_kms_key_id: Optional[pulumi.Input[str]] = None,
              vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'documentClassifierName' in kwargs:
+            document_classifier_name = kwargs['documentClassifierName']
+        if 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if 'modelPolicy' in kwargs:
+            model_policy = kwargs['modelPolicy']
+        if 'outputDataConfig' in kwargs:
+            output_data_config = kwargs['outputDataConfig']
+        if 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("data_access_role_arn", data_access_role_arn)
         _setter("input_data_config", input_data_config)
         _setter("language_code", language_code)

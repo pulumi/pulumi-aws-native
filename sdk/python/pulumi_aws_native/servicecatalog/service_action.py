@@ -41,7 +41,13 @@ class ServiceActionArgs:
              accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'definitionType' in kwargs:
+            definition_type = kwargs['definitionType']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("definition", definition)
         _setter("definition_type", definition_type)
         if accept_language is not None:

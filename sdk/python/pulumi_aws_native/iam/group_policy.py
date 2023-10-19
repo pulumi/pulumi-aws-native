@@ -35,7 +35,15 @@ class GroupPolicyInitArgs:
              group_name: pulumi.Input[str],
              policy_name: pulumi.Input[str],
              policy_document: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("group_name", group_name)
         _setter("policy_name", policy_name)
         if policy_document is not None:

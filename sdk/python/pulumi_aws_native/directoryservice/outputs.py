@@ -48,7 +48,13 @@ class MicrosoftAdVpcSettings(dict):
              _setter: Callable[[Any, Any], None],
              subnet_ids: Sequence[str],
              vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)
 
@@ -101,7 +107,13 @@ class SimpleAdVpcSettings(dict):
              _setter: Callable[[Any, Any], None],
              subnet_ids: Sequence[str],
              vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)
 

@@ -32,7 +32,15 @@ class ApplicationEntitlementAssociationArgs:
              application_identifier: pulumi.Input[str],
              entitlement_name: pulumi.Input[str],
              stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if 'entitlementName' in kwargs:
+            entitlement_name = kwargs['entitlementName']
+        if 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
         _setter("application_identifier", application_identifier)
         _setter("entitlement_name", entitlement_name)
         _setter("stack_name", stack_name)

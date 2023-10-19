@@ -53,7 +53,19 @@ class NetworkInsightsPathArgs:
              filter_at_source: Optional[pulumi.Input['NetworkInsightsPathPathFilterArgs']] = None,
              source_ip: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationIp' in kwargs:
+            destination_ip = kwargs['destinationIp']
+        if 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if 'filterAtDestination' in kwargs:
+            filter_at_destination = kwargs['filterAtDestination']
+        if 'filterAtSource' in kwargs:
+            filter_at_source = kwargs['filterAtSource']
+        if 'sourceIp' in kwargs:
+            source_ip = kwargs['sourceIp']
+
         _setter("protocol", protocol)
         _setter("source", source)
         if destination is not None:

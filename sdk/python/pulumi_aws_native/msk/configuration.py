@@ -40,7 +40,15 @@ class ConfigurationArgs:
              kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              latest_revision: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverProperties' in kwargs:
+            server_properties = kwargs['serverProperties']
+        if 'kafkaVersionsList' in kwargs:
+            kafka_versions_list = kwargs['kafkaVersionsList']
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+
         _setter("server_properties", server_properties)
         if description is not None:
             _setter("description", description)

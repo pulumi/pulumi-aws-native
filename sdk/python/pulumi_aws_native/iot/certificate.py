@@ -39,7 +39,17 @@ class CertificateArgs:
              certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
              certificate_pem: Optional[pulumi.Input[str]] = None,
              certificate_signing_request: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caCertificatePem' in kwargs:
+            ca_certificate_pem = kwargs['caCertificatePem']
+        if 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if 'certificatePem' in kwargs:
+            certificate_pem = kwargs['certificatePem']
+        if 'certificateSigningRequest' in kwargs:
+            certificate_signing_request = kwargs['certificateSigningRequest']
+
         _setter("status", status)
         if ca_certificate_pem is not None:
             _setter("ca_certificate_pem", ca_certificate_pem)

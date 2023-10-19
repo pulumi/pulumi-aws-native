@@ -24,8 +24,10 @@ class IndexTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -57,7 +59,11 @@ class ViewFilters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              filter_string: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterString' in kwargs:
+            filter_string = kwargs['filterString']
+
         _setter("filter_string", filter_string)
 
     @property
@@ -78,7 +84,9 @@ class ViewIncludedProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -94,7 +102,9 @@ class ViewTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

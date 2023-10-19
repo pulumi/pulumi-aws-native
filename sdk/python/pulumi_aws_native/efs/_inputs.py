@@ -44,7 +44,13 @@ class AccessPointCreationInfoArgs:
              owner_gid: pulumi.Input[str],
              owner_uid: pulumi.Input[str],
              permissions: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ownerGid' in kwargs:
+            owner_gid = kwargs['ownerGid']
+        if 'ownerUid' in kwargs:
+            owner_uid = kwargs['ownerUid']
+
         _setter("owner_gid", owner_gid)
         _setter("owner_uid", owner_uid)
         _setter("permissions", permissions)
@@ -109,7 +115,11 @@ class AccessPointPosixUserArgs:
              gid: pulumi.Input[str],
              uid: pulumi.Input[str],
              secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secondaryGids' in kwargs:
+            secondary_gids = kwargs['secondaryGids']
+
         _setter("gid", gid)
         _setter("uid", uid)
         if secondary_gids is not None:
@@ -171,7 +181,11 @@ class AccessPointRootDirectoryArgs:
              _setter: Callable[[Any, Any], None],
              creation_info: Optional[pulumi.Input['AccessPointCreationInfoArgs']] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationInfo' in kwargs:
+            creation_info = kwargs['creationInfo']
+
         if creation_info is not None:
             _setter("creation_info", creation_info)
         if path is not None:
@@ -217,7 +231,9 @@ class AccessPointTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -254,7 +270,9 @@ class FileSystemBackupPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -282,7 +300,9 @@ class FileSystemElasticFileSystemTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -320,7 +340,13 @@ class FileSystemLifecyclePolicyArgs:
              _setter: Callable[[Any, Any], None],
              transition_to_ia: Optional[pulumi.Input[str]] = None,
              transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitionToIa' in kwargs:
+            transition_to_ia = kwargs['transitionToIa']
+        if 'transitionToPrimaryStorageClass' in kwargs:
+            transition_to_primary_storage_class = kwargs['transitionToPrimaryStorageClass']
+
         if transition_to_ia is not None:
             _setter("transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
@@ -357,7 +383,9 @@ class FileSystemReplicationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              destinations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destinations is not None:
             _setter("destinations", destinations)
 
@@ -392,7 +420,15 @@ class FileSystemReplicationDestinationArgs:
              file_system_id: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZoneName' in kwargs:
+            availability_zone_name = kwargs['availabilityZoneName']
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if availability_zone_name is not None:
             _setter("availability_zone_name", availability_zone_name)
         if file_system_id is not None:

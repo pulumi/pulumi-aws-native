@@ -26,7 +26,11 @@ class ExecutionPlanCapacityUnitsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rescore_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rescoreCapacityUnits' in kwargs:
+            rescore_capacity_units = kwargs['rescoreCapacityUnits']
+
         _setter("rescore_capacity_units", rescore_capacity_units)
 
     @property
@@ -59,7 +63,9 @@ class ExecutionPlanTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

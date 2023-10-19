@@ -37,7 +37,13 @@ class RealtimeLogConfigArgs:
              fields: pulumi.Input[Sequence[pulumi.Input[str]]],
              sampling_rate: pulumi.Input[float],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPoints' in kwargs:
+            end_points = kwargs['endPoints']
+        if 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         _setter("end_points", end_points)
         _setter("fields", fields)
         _setter("sampling_rate", sampling_rate)

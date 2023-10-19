@@ -66,7 +66,23 @@ class FlowArgs:
              kms_arn: Optional[pulumi.Input[str]] = None,
              metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationFlowConfigList' in kwargs:
+            destination_flow_config_list = kwargs['destinationFlowConfigList']
+        if 'sourceFlowConfig' in kwargs:
+            source_flow_config = kwargs['sourceFlowConfig']
+        if 'triggerConfig' in kwargs:
+            trigger_config = kwargs['triggerConfig']
+        if 'flowName' in kwargs:
+            flow_name = kwargs['flowName']
+        if 'flowStatus' in kwargs:
+            flow_status = kwargs['flowStatus']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+        if 'metadataCatalogConfig' in kwargs:
+            metadata_catalog_config = kwargs['metadataCatalogConfig']
+
         _setter("destination_flow_config_list", destination_flow_config_list)
         _setter("source_flow_config", source_flow_config)
         _setter("tasks", tasks)

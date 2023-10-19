@@ -30,7 +30,9 @@ class SigningProfileSignatureValidityPeriodArgs:
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']] = None,
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if value is not None:
@@ -70,7 +72,9 @@ class SigningProfileTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

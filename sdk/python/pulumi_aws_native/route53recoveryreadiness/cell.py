@@ -37,7 +37,11 @@ class CellArgs:
              cell_name: Optional[pulumi.Input[str]] = None,
              cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cellName' in kwargs:
+            cell_name = kwargs['cellName']
+
         if cell_name is not None:
             _setter("cell_name", cell_name)
         if cells is not None:

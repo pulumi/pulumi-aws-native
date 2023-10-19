@@ -31,7 +31,13 @@ class AliasArgs:
              _setter: Callable[[Any, Any], None],
              target_key_id: pulumi.Input[str],
              alias_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetKeyId' in kwargs:
+            target_key_id = kwargs['targetKeyId']
+        if 'aliasName' in kwargs:
+            alias_name = kwargs['aliasName']
+
         _setter("target_key_id", target_key_id)
         if alias_name is not None:
             _setter("alias_name", alias_name)

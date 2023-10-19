@@ -48,7 +48,13 @@ class EnvironmentEc2Repository(dict):
              _setter: Callable[[Any, Any], None],
              path_component: str,
              repository_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathComponent' in kwargs:
+            path_component = kwargs['pathComponent']
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+
         _setter("path_component", path_component)
         _setter("repository_url", repository_url)
 
@@ -78,7 +84,9 @@ class EnvironmentEc2Tag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

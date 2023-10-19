@@ -62,7 +62,31 @@ class FileSystemArgs:
              provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
              replication_configuration: Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']] = None,
              throughput_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZoneName' in kwargs:
+            availability_zone_name = kwargs['availabilityZoneName']
+        if 'backupPolicy' in kwargs:
+            backup_policy = kwargs['backupPolicy']
+        if 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if 'fileSystemPolicy' in kwargs:
+            file_system_policy = kwargs['fileSystemPolicy']
+        if 'fileSystemTags' in kwargs:
+            file_system_tags = kwargs['fileSystemTags']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'lifecyclePolicies' in kwargs:
+            lifecycle_policies = kwargs['lifecyclePolicies']
+        if 'performanceMode' in kwargs:
+            performance_mode = kwargs['performanceMode']
+        if 'provisionedThroughputInMibps' in kwargs:
+            provisioned_throughput_in_mibps = kwargs['provisionedThroughputInMibps']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if 'throughputMode' in kwargs:
+            throughput_mode = kwargs['throughputMode']
+
         if availability_zone_name is not None:
             _setter("availability_zone_name", availability_zone_name)
         if backup_policy is not None:

@@ -45,7 +45,17 @@ class AutoScalingConfigurationArgs:
              max_size: Optional[pulumi.Input[int]] = None,
              min_size: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingConfigurationName' in kwargs:
+            auto_scaling_configuration_name = kwargs['autoScalingConfigurationName']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+
         if auto_scaling_configuration_name is not None:
             _setter("auto_scaling_configuration_name", auto_scaling_configuration_name)
         if max_concurrency is not None:

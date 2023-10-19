@@ -41,7 +41,15 @@ class ListenerArgs:
              port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
              protocol: pulumi.Input['ListenerProtocol'],
              client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+        if 'clientAffinity' in kwargs:
+            client_affinity = kwargs['clientAffinity']
+
         _setter("accelerator_arn", accelerator_arn)
         _setter("port_ranges", port_ranges)
         _setter("protocol", protocol)

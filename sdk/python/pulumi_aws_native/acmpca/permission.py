@@ -39,7 +39,13 @@ class PermissionArgs:
              certificate_authority_arn: pulumi.Input[str],
              principal: pulumi.Input[str],
              source_account: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if 'sourceAccount' in kwargs:
+            source_account = kwargs['sourceAccount']
+
         _setter("actions", actions)
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("principal", principal)

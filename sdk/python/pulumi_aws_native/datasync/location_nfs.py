@@ -44,7 +44,15 @@ class LocationNfsArgs:
              server_hostname: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onPremConfig' in kwargs:
+            on_prem_config = kwargs['onPremConfig']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+
         _setter("on_prem_config", on_prem_config)
         if mount_options is not None:
             _setter("mount_options", mount_options)

@@ -42,7 +42,17 @@ class MetricFilterArgs:
              log_group_name: pulumi.Input[str],
              metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
              filter_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'metricTransformations' in kwargs:
+            metric_transformations = kwargs['metricTransformations']
+        if 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+
         _setter("filter_pattern", filter_pattern)
         _setter("log_group_name", log_group_name)
         _setter("metric_transformations", metric_transformations)

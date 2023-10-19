@@ -33,7 +33,11 @@ class WalWorkspaceArgs:
              _setter: Callable[[Any, Any], None],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WalWorkspaceTagArgs']]]] = None,
              wal_workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'walWorkspaceName' in kwargs:
+            wal_workspace_name = kwargs['walWorkspaceName']
+
         if tags is not None:
             _setter("tags", tags)
         if wal_workspace_name is not None:

@@ -37,7 +37,13 @@ class PermissionsArgs:
              resource: pulumi.Input['PermissionsResourceArgs'],
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLakePrincipal' in kwargs:
+            data_lake_principal = kwargs['dataLakePrincipal']
+        if 'permissionsWithGrantOption' in kwargs:
+            permissions_with_grant_option = kwargs['permissionsWithGrantOption']
+
         _setter("data_lake_principal", data_lake_principal)
         _setter("resource", resource)
         if permissions is not None:

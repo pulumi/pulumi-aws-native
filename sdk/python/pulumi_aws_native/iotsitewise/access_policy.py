@@ -37,7 +37,15 @@ class AccessPolicyArgs:
              access_policy_identity: pulumi.Input['AccessPolicyIdentityArgs'],
              access_policy_permission: pulumi.Input[str],
              access_policy_resource: pulumi.Input['AccessPolicyResourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicyIdentity' in kwargs:
+            access_policy_identity = kwargs['accessPolicyIdentity']
+        if 'accessPolicyPermission' in kwargs:
+            access_policy_permission = kwargs['accessPolicyPermission']
+        if 'accessPolicyResource' in kwargs:
+            access_policy_resource = kwargs['accessPolicyResource']
+
         _setter("access_policy_identity", access_policy_identity)
         _setter("access_policy_permission", access_policy_permission)
         _setter("access_policy_resource", access_policy_resource)

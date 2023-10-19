@@ -38,7 +38,13 @@ class BridgeOutputResourceArgs:
              bridge_arn: pulumi.Input[str],
              network_output: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if 'networkOutput' in kwargs:
+            network_output = kwargs['networkOutput']
+
         _setter("bridge_arn", bridge_arn)
         _setter("network_output", network_output)
         if name is not None:

@@ -50,7 +50,19 @@ class PackagingConfigurationArgs:
              hls_package: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']] = None,
              mss_package: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packagingGroupId' in kwargs:
+            packaging_group_id = kwargs['packagingGroupId']
+        if 'cmafPackage' in kwargs:
+            cmaf_package = kwargs['cmafPackage']
+        if 'dashPackage' in kwargs:
+            dash_package = kwargs['dashPackage']
+        if 'hlsPackage' in kwargs:
+            hls_package = kwargs['hlsPackage']
+        if 'mssPackage' in kwargs:
+            mss_package = kwargs['mssPackage']
+
         _setter("packaging_group_id", packaging_group_id)
         if cmaf_package is not None:
             _setter("cmaf_package", cmaf_package)

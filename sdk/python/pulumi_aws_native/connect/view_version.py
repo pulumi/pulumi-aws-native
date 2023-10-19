@@ -35,7 +35,15 @@ class ViewVersionArgs:
              view_arn: pulumi.Input[str],
              version_description: Optional[pulumi.Input[str]] = None,
              view_content_sha256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'viewArn' in kwargs:
+            view_arn = kwargs['viewArn']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if 'viewContentSha256' in kwargs:
+            view_content_sha256 = kwargs['viewContentSha256']
+
         _setter("view_arn", view_arn)
         if version_description is not None:
             _setter("version_description", version_description)

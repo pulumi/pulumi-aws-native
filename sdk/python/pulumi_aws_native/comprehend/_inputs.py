@@ -45,7 +45,13 @@ class DocumentClassifierAugmentedManifestsListItemArgs:
              attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]],
              s3_uri: pulumi.Input[str],
              split: Optional[pulumi.Input['DocumentClassifierAugmentedManifestsListItemSplit']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeNames' in kwargs:
+            attribute_names = kwargs['attributeNames']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         _setter("attribute_names", attribute_names)
         _setter("s3_uri", s3_uri)
         if split is not None:
@@ -97,7 +103,15 @@ class DocumentClassifierDocumentReaderConfigArgs:
              document_read_action: pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadAction'],
              document_read_mode: Optional[pulumi.Input['DocumentClassifierDocumentReaderConfigDocumentReadMode']] = None,
              feature_types: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierDocumentReaderConfigFeatureTypesItem']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentReadAction' in kwargs:
+            document_read_action = kwargs['documentReadAction']
+        if 'documentReadMode' in kwargs:
+            document_read_mode = kwargs['documentReadMode']
+        if 'featureTypes' in kwargs:
+            feature_types = kwargs['featureTypes']
+
         _setter("document_read_action", document_read_action)
         if document_read_mode is not None:
             _setter("document_read_mode", document_read_mode)
@@ -147,7 +161,13 @@ class DocumentClassifierDocumentsArgs:
              _setter: Callable[[Any, Any], None],
              s3_uri: pulumi.Input[str],
              test_s3_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'testS3Uri' in kwargs:
+            test_s3_uri = kwargs['testS3Uri']
+
         _setter("s3_uri", s3_uri)
         if test_s3_uri is not None:
             _setter("test_s3_uri", test_s3_uri)
@@ -204,7 +224,23 @@ class DocumentClassifierInputDataConfigArgs:
              label_delimiter: Optional[pulumi.Input[str]] = None,
              s3_uri: Optional[pulumi.Input[str]] = None,
              test_s3_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'augmentedManifests' in kwargs:
+            augmented_manifests = kwargs['augmentedManifests']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'documentReaderConfig' in kwargs:
+            document_reader_config = kwargs['documentReaderConfig']
+        if 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if 'labelDelimiter' in kwargs:
+            label_delimiter = kwargs['labelDelimiter']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'testS3Uri' in kwargs:
+            test_s3_uri = kwargs['testS3Uri']
+
         if augmented_manifests is not None:
             _setter("augmented_manifests", augmented_manifests)
         if data_format is not None:
@@ -310,7 +346,13 @@ class DocumentClassifierOutputDataConfigArgs:
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
              s3_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if s3_uri is not None:
@@ -350,7 +392,9 @@ class DocumentClassifierTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -388,7 +432,11 @@ class DocumentClassifierVpcConfigArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -432,7 +480,17 @@ class FlywheelDataSecurityConfigArgs:
              model_kms_key_id: Optional[pulumi.Input[str]] = None,
              volume_kms_key_id: Optional[pulumi.Input[str]] = None,
              vpc_config: Optional[pulumi.Input['FlywheelVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLakeKmsKeyId' in kwargs:
+            data_lake_kms_key_id = kwargs['dataLakeKmsKeyId']
+        if 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if data_lake_kms_key_id is not None:
             _setter("data_lake_kms_key_id", data_lake_kms_key_id)
         if model_kms_key_id is not None:
@@ -494,7 +552,9 @@ class FlywheelDocumentClassificationConfigArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input['FlywheelDocumentClassificationConfigMode'],
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         if labels is not None:
             _setter("labels", labels)
@@ -530,7 +590,11 @@ class FlywheelEntityRecognitionConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelEntityTypesListItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+
         if entity_types is not None:
             _setter("entity_types", entity_types)
 
@@ -556,7 +620,9 @@ class FlywheelEntityTypesListItemArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -584,7 +650,9 @@ class FlywheelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -625,7 +693,15 @@ class FlywheelTaskConfigArgs:
              language_code: pulumi.Input['FlywheelTaskConfigLanguageCode'],
              document_classification_config: Optional[pulumi.Input['FlywheelDocumentClassificationConfigArgs']] = None,
              entity_recognition_config: Optional[pulumi.Input['FlywheelEntityRecognitionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'documentClassificationConfig' in kwargs:
+            document_classification_config = kwargs['documentClassificationConfig']
+        if 'entityRecognitionConfig' in kwargs:
+            entity_recognition_config = kwargs['entityRecognitionConfig']
+
         _setter("language_code", language_code)
         if document_classification_config is not None:
             _setter("document_classification_config", document_classification_config)
@@ -675,7 +751,11 @@ class FlywheelVpcConfigArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 

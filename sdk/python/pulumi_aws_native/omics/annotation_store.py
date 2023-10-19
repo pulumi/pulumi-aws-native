@@ -47,7 +47,15 @@ class AnnotationStoreArgs:
              sse_config: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']] = None,
              store_options: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
              tags: Optional[pulumi.Input['AnnotationStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storeFormat' in kwargs:
+            store_format = kwargs['storeFormat']
+        if 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+        if 'storeOptions' in kwargs:
+            store_options = kwargs['storeOptions']
+
         _setter("store_format", store_format)
         if description is not None:
             _setter("description", description)

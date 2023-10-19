@@ -53,7 +53,17 @@ class SecretArgs:
              replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
              secret_string: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'generateSecretString' in kwargs:
+            generate_secret_string = kwargs['generateSecretString']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'replicaRegions' in kwargs:
+            replica_regions = kwargs['replicaRegions']
+        if 'secretString' in kwargs:
+            secret_string = kwargs['secretString']
+
         if description is not None:
             _setter("description", description)
         if generate_secret_string is not None:

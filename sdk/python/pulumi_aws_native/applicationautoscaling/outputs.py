@@ -62,7 +62,13 @@ class ScalableTargetAction(dict):
              _setter: Callable[[Any, Any], None],
              max_capacity: Optional[int] = None,
              min_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         if max_capacity is not None:
             _setter("max_capacity", max_capacity)
         if min_capacity is not None:
@@ -135,7 +141,17 @@ class ScalableTargetScheduledAction(dict):
              scalable_target_action: Optional['outputs.ScalableTargetAction'] = None,
              start_time: Optional[str] = None,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduledActionName' in kwargs:
+            scheduled_action_name = kwargs['scheduledActionName']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'scalableTargetAction' in kwargs:
+            scalable_target_action = kwargs['scalableTargetAction']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("schedule", schedule)
         _setter("scheduled_action_name", scheduled_action_name)
         if end_time is not None:
@@ -223,7 +239,15 @@ class ScalableTargetSuspendedState(dict):
              dynamic_scaling_in_suspended: Optional[bool] = None,
              dynamic_scaling_out_suspended: Optional[bool] = None,
              scheduled_scaling_suspended: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicScalingInSuspended' in kwargs:
+            dynamic_scaling_in_suspended = kwargs['dynamicScalingInSuspended']
+        if 'dynamicScalingOutSuspended' in kwargs:
+            dynamic_scaling_out_suspended = kwargs['dynamicScalingOutSuspended']
+        if 'scheduledScalingSuspended' in kwargs:
+            scheduled_scaling_suspended = kwargs['scheduledScalingSuspended']
+
         if dynamic_scaling_in_suspended is not None:
             _setter("dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
         if dynamic_scaling_out_suspended is not None:
@@ -288,7 +312,11 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
              statistic: str,
              dimensions: Optional[Sequence['outputs.ScalingPolicyMetricDimension']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -338,7 +366,9 @@ class ScalingPolicyMetricDimension(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -387,7 +417,13 @@ class ScalingPolicyPredefinedMetricSpecification(dict):
              _setter: Callable[[Any, Any], None],
              predefined_metric_type: str,
              resource_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -442,7 +478,15 @@ class ScalingPolicyStepAdjustment(dict):
              scaling_adjustment: int,
              metric_interval_lower_bound: Optional[float] = None,
              metric_interval_upper_bound: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if 'metricIntervalLowerBound' in kwargs:
+            metric_interval_lower_bound = kwargs['metricIntervalLowerBound']
+        if 'metricIntervalUpperBound' in kwargs:
+            metric_interval_upper_bound = kwargs['metricIntervalUpperBound']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
             _setter("metric_interval_lower_bound", metric_interval_lower_bound)
@@ -512,7 +556,17 @@ class ScalingPolicyStepScalingPolicyConfiguration(dict):
              metric_aggregation_type: Optional[str] = None,
              min_adjustment_magnitude: Optional[int] = None,
              step_adjustments: Optional[Sequence['outputs.ScalingPolicyStepAdjustment']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if 'metricAggregationType' in kwargs:
+            metric_aggregation_type = kwargs['metricAggregationType']
+        if 'minAdjustmentMagnitude' in kwargs:
+            min_adjustment_magnitude = kwargs['minAdjustmentMagnitude']
+        if 'stepAdjustments' in kwargs:
+            step_adjustments = kwargs['stepAdjustments']
+
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
         if cooldown is not None:
@@ -604,7 +658,21 @@ class ScalingPolicyTargetTrackingScalingPolicyConfiguration(dict):
              predefined_metric_specification: Optional['outputs.ScalingPolicyPredefinedMetricSpecification'] = None,
              scale_in_cooldown: Optional[int] = None,
              scale_out_cooldown: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if 'customizedMetricSpecification' in kwargs:
+            customized_metric_specification = kwargs['customizedMetricSpecification']
+        if 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if 'predefinedMetricSpecification' in kwargs:
+            predefined_metric_specification = kwargs['predefinedMetricSpecification']
+        if 'scaleInCooldown' in kwargs:
+            scale_in_cooldown = kwargs['scaleInCooldown']
+        if 'scaleOutCooldown' in kwargs:
+            scale_out_cooldown = kwargs['scaleOutCooldown']
+
         _setter("target_value", target_value)
         if customized_metric_specification is not None:
             _setter("customized_metric_specification", customized_metric_specification)

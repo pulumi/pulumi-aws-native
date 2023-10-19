@@ -70,7 +70,33 @@ class MatchmakingConfigurationArgs:
              name: Optional[pulumi.Input[str]] = None,
              notification_target: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptanceRequired' in kwargs:
+            acceptance_required = kwargs['acceptanceRequired']
+        if 'requestTimeoutSeconds' in kwargs:
+            request_timeout_seconds = kwargs['requestTimeoutSeconds']
+        if 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+        if 'acceptanceTimeoutSeconds' in kwargs:
+            acceptance_timeout_seconds = kwargs['acceptanceTimeoutSeconds']
+        if 'additionalPlayerCount' in kwargs:
+            additional_player_count = kwargs['additionalPlayerCount']
+        if 'backfillMode' in kwargs:
+            backfill_mode = kwargs['backfillMode']
+        if 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if 'flexMatchMode' in kwargs:
+            flex_match_mode = kwargs['flexMatchMode']
+        if 'gameProperties' in kwargs:
+            game_properties = kwargs['gameProperties']
+        if 'gameSessionData' in kwargs:
+            game_session_data = kwargs['gameSessionData']
+        if 'gameSessionQueueArns' in kwargs:
+            game_session_queue_arns = kwargs['gameSessionQueueArns']
+        if 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+
         _setter("acceptance_required", acceptance_required)
         _setter("request_timeout_seconds", request_timeout_seconds)
         _setter("rule_set_name", rule_set_name)

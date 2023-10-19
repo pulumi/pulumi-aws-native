@@ -32,7 +32,11 @@ class GraphArgs:
              _setter: Callable[[Any, Any], None],
              auto_enable_members: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnableMembers' in kwargs:
+            auto_enable_members = kwargs['autoEnableMembers']
+
         if auto_enable_members is not None:
             _setter("auto_enable_members", auto_enable_members)
         if tags is not None:

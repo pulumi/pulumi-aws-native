@@ -35,7 +35,11 @@ class CampaignAgentlessDialerConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
 
@@ -68,7 +72,11 @@ class CampaignAnswerMachineDetectionConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_answer_machine_detection: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableAnswerMachineDetection' in kwargs:
+            enable_answer_machine_detection = kwargs['enableAnswerMachineDetection']
+
         _setter("enable_answer_machine_detection", enable_answer_machine_detection)
 
     @property
@@ -105,7 +113,15 @@ class CampaignDialerConfigArgs:
              agentless_dialer_config: Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']] = None,
              predictive_dialer_config: Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']] = None,
              progressive_dialer_config: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentlessDialerConfig' in kwargs:
+            agentless_dialer_config = kwargs['agentlessDialerConfig']
+        if 'predictiveDialerConfig' in kwargs:
+            predictive_dialer_config = kwargs['predictiveDialerConfig']
+        if 'progressiveDialerConfig' in kwargs:
+            progressive_dialer_config = kwargs['progressiveDialerConfig']
+
         if agentless_dialer_config is not None:
             _setter("agentless_dialer_config", agentless_dialer_config)
         if predictive_dialer_config is not None:
@@ -168,7 +184,17 @@ class CampaignOutboundCallConfigArgs:
              answer_machine_detection_config: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']] = None,
              connect_queue_arn: Optional[pulumi.Input[str]] = None,
              connect_source_phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectContactFlowArn' in kwargs:
+            connect_contact_flow_arn = kwargs['connectContactFlowArn']
+        if 'answerMachineDetectionConfig' in kwargs:
+            answer_machine_detection_config = kwargs['answerMachineDetectionConfig']
+        if 'connectQueueArn' in kwargs:
+            connect_queue_arn = kwargs['connectQueueArn']
+        if 'connectSourcePhoneNumber' in kwargs:
+            connect_source_phone_number = kwargs['connectSourcePhoneNumber']
+
         _setter("connect_contact_flow_arn", connect_contact_flow_arn)
         if answer_machine_detection_config is not None:
             _setter("answer_machine_detection_config", answer_machine_detection_config)
@@ -243,7 +269,13 @@ class CampaignPredictiveDialerConfigArgs:
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: pulumi.Input[float],
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -293,7 +325,13 @@ class CampaignProgressiveDialerConfigArgs:
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: pulumi.Input[float],
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -343,7 +381,9 @@ class CampaignTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

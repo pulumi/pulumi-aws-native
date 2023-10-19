@@ -37,7 +37,15 @@ class GroupMembershipArgs:
              group_id: pulumi.Input[str],
              identity_store_id: pulumi.Input[str],
              member_id: pulumi.Input['GroupMembershipMemberIdArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+        if 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+
         _setter("group_id", group_id)
         _setter("identity_store_id", identity_store_id)
         _setter("member_id", member_id)

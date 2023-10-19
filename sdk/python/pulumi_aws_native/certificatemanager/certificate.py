@@ -49,7 +49,23 @@ class CertificateArgs:
              subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
              validation_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if 'certificateTransparencyLoggingPreference' in kwargs:
+            certificate_transparency_logging_preference = kwargs['certificateTransparencyLoggingPreference']
+        if 'domainValidationOptions' in kwargs:
+            domain_validation_options = kwargs['domainValidationOptions']
+        if 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if 'validationMethod' in kwargs:
+            validation_method = kwargs['validationMethod']
+
         _setter("domain_name", domain_name)
         if certificate_authority_arn is not None:
             _setter("certificate_authority_arn", certificate_authority_arn)

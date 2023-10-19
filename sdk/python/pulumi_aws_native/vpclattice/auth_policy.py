@@ -30,7 +30,11 @@ class AuthPolicyArgs:
              _setter: Callable[[Any, Any], None],
              policy: Any,
              resource_identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         _setter("policy", policy)
         _setter("resource_identifier", resource_identifier)
 

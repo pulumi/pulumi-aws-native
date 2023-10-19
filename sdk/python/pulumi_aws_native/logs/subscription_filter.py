@@ -48,7 +48,19 @@ class SubscriptionFilterArgs:
              distribution: Optional[pulumi.Input['SubscriptionFilterDistribution']] = None,
              filter_name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("destination_arn", destination_arn)
         _setter("filter_pattern", filter_pattern)
         _setter("log_group_name", log_group_name)

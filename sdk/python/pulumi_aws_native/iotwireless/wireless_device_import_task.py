@@ -38,7 +38,11 @@ class WirelessDeviceImportTaskArgs:
              destination_name: pulumi.Input[str],
              sidewalk: pulumi.Input['SidewalkPropertiesArgs'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceImportTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+
         _setter("destination_name", destination_name)
         _setter("sidewalk", sidewalk)
         if tags is not None:

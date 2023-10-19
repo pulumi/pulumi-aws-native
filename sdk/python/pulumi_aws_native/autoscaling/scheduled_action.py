@@ -55,7 +55,23 @@ class ScheduledActionArgs:
              recurrence: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if desired_capacity is not None:
             _setter("desired_capacity", desired_capacity)

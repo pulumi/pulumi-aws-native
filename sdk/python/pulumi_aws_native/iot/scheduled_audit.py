@@ -50,7 +50,17 @@ class ScheduledAuditArgs:
              day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
              scheduled_audit_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetCheckNames' in kwargs:
+            target_check_names = kwargs['targetCheckNames']
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'scheduledAuditName' in kwargs:
+            scheduled_audit_name = kwargs['scheduledAuditName']
+
         _setter("frequency", frequency)
         _setter("target_check_names", target_check_names)
         if day_of_month is not None:

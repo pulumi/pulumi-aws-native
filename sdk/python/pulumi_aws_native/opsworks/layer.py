@@ -82,7 +82,35 @@ class LayerArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]] = None,
              use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
              volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LayerVolumeConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAssignElasticIps' in kwargs:
+            auto_assign_elastic_ips = kwargs['autoAssignElasticIps']
+        if 'autoAssignPublicIps' in kwargs:
+            auto_assign_public_ips = kwargs['autoAssignPublicIps']
+        if 'enableAutoHealing' in kwargs:
+            enable_auto_healing = kwargs['enableAutoHealing']
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'customInstanceProfileArn' in kwargs:
+            custom_instance_profile_arn = kwargs['customInstanceProfileArn']
+        if 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if 'customRecipes' in kwargs:
+            custom_recipes = kwargs['customRecipes']
+        if 'customSecurityGroupIds' in kwargs:
+            custom_security_group_ids = kwargs['customSecurityGroupIds']
+        if 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if 'lifecycleEventConfiguration' in kwargs:
+            lifecycle_event_configuration = kwargs['lifecycleEventConfiguration']
+        if 'loadBasedAutoScaling' in kwargs:
+            load_based_auto_scaling = kwargs['loadBasedAutoScaling']
+        if 'useEbsOptimizedInstances' in kwargs:
+            use_ebs_optimized_instances = kwargs['useEbsOptimizedInstances']
+        if 'volumeConfigurations' in kwargs:
+            volume_configurations = kwargs['volumeConfigurations']
+
         _setter("auto_assign_elastic_ips", auto_assign_elastic_ips)
         _setter("auto_assign_public_ips", auto_assign_public_ips)
         _setter("enable_auto_healing", enable_auto_healing)

@@ -32,7 +32,15 @@ class ServiceActionAssociationArgs:
              product_id: pulumi.Input[str],
              provisioning_artifact_id: pulumi.Input[str],
              service_action_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if 'serviceActionId' in kwargs:
+            service_action_id = kwargs['serviceActionId']
+
         _setter("product_id", product_id)
         _setter("provisioning_artifact_id", provisioning_artifact_id)
         _setter("service_action_id", service_action_id)

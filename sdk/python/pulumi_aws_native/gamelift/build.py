@@ -46,7 +46,15 @@ class BuildArgs:
              server_sdk_version: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if 'serverSdkVersion' in kwargs:
+            server_sdk_version = kwargs['serverSdkVersion']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+
         if name is not None:
             _setter("name", name)
         if operating_system is not None:

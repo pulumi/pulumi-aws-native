@@ -41,7 +41,17 @@ class PlaceIndexArgs:
              data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'dataSourceConfiguration' in kwargs:
+            data_source_configuration = kwargs['dataSourceConfiguration']
+        if 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("data_source", data_source)
         _setter("index_name", index_name)
         if data_source_configuration is not None:

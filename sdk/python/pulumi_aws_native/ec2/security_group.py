@@ -43,7 +43,19 @@ class SecurityGroupArgs:
              security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'securityGroupEgress' in kwargs:
+            security_group_egress = kwargs['securityGroupEgress']
+        if 'securityGroupIngress' in kwargs:
+            security_group_ingress = kwargs['securityGroupIngress']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("group_description", group_description)
         if group_name is not None:
             _setter("group_name", group_name)

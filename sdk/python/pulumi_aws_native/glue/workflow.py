@@ -38,7 +38,13 @@ class WorkflowArgs:
              max_concurrent_runs: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRunProperties' in kwargs:
+            default_run_properties = kwargs['defaultRunProperties']
+        if 'maxConcurrentRuns' in kwargs:
+            max_concurrent_runs = kwargs['maxConcurrentRuns']
+
         if default_run_properties is not None:
             _setter("default_run_properties", default_run_properties)
         if description is not None:

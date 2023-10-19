@@ -43,7 +43,21 @@ class DomainArgs:
              auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
              domain_name: Optional[pulumi.Input[str]] = None,
              enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'subDomainSettings' in kwargs:
+            sub_domain_settings = kwargs['subDomainSettings']
+        if 'autoSubDomainCreationPatterns' in kwargs:
+            auto_sub_domain_creation_patterns = kwargs['autoSubDomainCreationPatterns']
+        if 'autoSubDomainIamRole' in kwargs:
+            auto_sub_domain_iam_role = kwargs['autoSubDomainIamRole']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'enableAutoSubDomain' in kwargs:
+            enable_auto_sub_domain = kwargs['enableAutoSubDomain']
+
         _setter("app_id", app_id)
         _setter("sub_domain_settings", sub_domain_settings)
         if auto_sub_domain_creation_patterns is not None:

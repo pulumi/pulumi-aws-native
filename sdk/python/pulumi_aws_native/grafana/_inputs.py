@@ -55,7 +55,9 @@ class WorkspaceAssertionAttributesArgs:
              name: Optional[pulumi.Input[str]] = None,
              org: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if groups is not None:
@@ -162,7 +164,9 @@ class WorkspaceIdpMetadataArgs:
              _setter: Callable[[Any, Any], None],
              url: Optional[pulumi.Input[str]] = None,
              xml: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if url is not None:
             _setter("url", url)
         if xml is not None:
@@ -213,7 +217,13 @@ class WorkspaceNetworkAccessControlArgs:
              _setter: Callable[[Any, Any], None],
              prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'prefixListIds' in kwargs:
+            prefix_list_ids = kwargs['prefixListIds']
+        if 'vpceIds' in kwargs:
+            vpce_ids = kwargs['vpceIds']
+
         if prefix_list_ids is not None:
             _setter("prefix_list_ids", prefix_list_ids)
         if vpce_ids is not None:
@@ -264,7 +274,9 @@ class WorkspaceRoleValuesArgs:
              _setter: Callable[[Any, Any], None],
              admin: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              editor: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if admin is not None:
             _setter("admin", admin)
         if editor is not None:
@@ -324,7 +336,19 @@ class WorkspaceSamlConfigurationArgs:
              assertion_attributes: Optional[pulumi.Input['WorkspaceAssertionAttributesArgs']] = None,
              login_validity_duration: Optional[pulumi.Input[float]] = None,
              role_values: Optional[pulumi.Input['WorkspaceRoleValuesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idpMetadata' in kwargs:
+            idp_metadata = kwargs['idpMetadata']
+        if 'allowedOrganizations' in kwargs:
+            allowed_organizations = kwargs['allowedOrganizations']
+        if 'assertionAttributes' in kwargs:
+            assertion_attributes = kwargs['assertionAttributes']
+        if 'loginValidityDuration' in kwargs:
+            login_validity_duration = kwargs['loginValidityDuration']
+        if 'roleValues' in kwargs:
+            role_values = kwargs['roleValues']
+
         _setter("idp_metadata", idp_metadata)
         if allowed_organizations is not None:
             _setter("allowed_organizations", allowed_organizations)
@@ -407,7 +431,13 @@ class WorkspaceVpcConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
 

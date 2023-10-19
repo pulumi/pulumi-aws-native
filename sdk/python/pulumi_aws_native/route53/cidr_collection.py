@@ -33,7 +33,9 @@ class CidrCollectionArgs:
              _setter: Callable[[Any, Any], None],
              locations: Optional[pulumi.Input[Sequence[pulumi.Input['CidrCollectionLocationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if locations is not None:
             _setter("locations", locations)
         if name is not None:

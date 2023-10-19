@@ -84,7 +84,21 @@ class EnvironmentFederationParameters(dict):
              federation_urn: Optional[str] = None,
              saml_metadata_document: Optional[str] = None,
              saml_metadata_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationCallBackUrl' in kwargs:
+            application_call_back_url = kwargs['applicationCallBackUrl']
+        if 'attributeMap' in kwargs:
+            attribute_map = kwargs['attributeMap']
+        if 'federationProviderName' in kwargs:
+            federation_provider_name = kwargs['federationProviderName']
+        if 'federationUrn' in kwargs:
+            federation_urn = kwargs['federationUrn']
+        if 'samlMetadataDocument' in kwargs:
+            saml_metadata_document = kwargs['samlMetadataDocument']
+        if 'samlMetadataUrl' in kwargs:
+            saml_metadata_url = kwargs['samlMetadataUrl']
+
         if application_call_back_url is not None:
             _setter("application_call_back_url", application_call_back_url)
         if attribute_map is not None:
@@ -166,7 +180,9 @@ class EnvironmentFederationParametersAttributeMapItemProperties(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -237,7 +253,15 @@ class EnvironmentSuperuserParameters(dict):
              email_address: Optional[str] = None,
              first_name: Optional[str] = None,
              last_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         if email_address is not None:
             _setter("email_address", email_address)
         if first_name is not None:
@@ -293,7 +317,9 @@ class EnvironmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

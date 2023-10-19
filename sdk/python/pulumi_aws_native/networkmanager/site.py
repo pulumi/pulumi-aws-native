@@ -41,7 +41,11 @@ class SiteArgs:
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input['SiteLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+
         _setter("global_network_id", global_network_id)
         if description is not None:
             _setter("description", description)

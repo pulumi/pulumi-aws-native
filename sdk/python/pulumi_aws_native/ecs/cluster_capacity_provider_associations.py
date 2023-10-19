@@ -35,7 +35,13 @@ class ClusterCapacityProviderAssociationsArgs:
              capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]],
              cluster: pulumi.Input[str],
              default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProviders' in kwargs:
+            capacity_providers = kwargs['capacityProviders']
+        if 'defaultCapacityProviderStrategy' in kwargs:
+            default_capacity_provider_strategy = kwargs['defaultCapacityProviderStrategy']
+
         _setter("capacity_providers", capacity_providers)
         _setter("cluster", cluster)
         _setter("default_capacity_provider_strategy", default_capacity_provider_strategy)

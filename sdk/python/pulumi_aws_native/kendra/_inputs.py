@@ -87,7 +87,11 @@ class DataSourceAccessControlListConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyPath' in kwargs:
+            key_path = kwargs['keyPath']
+
         if key_path is not None:
             _setter("key_path", key_path)
 
@@ -113,7 +117,11 @@ class DataSourceAclConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_groups_column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedGroupsColumnName' in kwargs:
+            allowed_groups_column_name = kwargs['allowedGroupsColumnName']
+
         _setter("allowed_groups_column_name", allowed_groups_column_name)
 
     @property
@@ -150,7 +158,19 @@ class DataSourceColumnConfigurationArgs:
              document_id_column_name: pulumi.Input[str],
              document_title_column_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeDetectingColumns' in kwargs:
+            change_detecting_columns = kwargs['changeDetectingColumns']
+        if 'documentDataColumnName' in kwargs:
+            document_data_column_name = kwargs['documentDataColumnName']
+        if 'documentIdColumnName' in kwargs:
+            document_id_column_name = kwargs['documentIdColumnName']
+        if 'documentTitleColumnName' in kwargs:
+            document_title_column_name = kwargs['documentTitleColumnName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("change_detecting_columns", change_detecting_columns)
         _setter("document_data_column_name", document_data_column_name)
         _setter("document_id_column_name", document_id_column_name)
@@ -244,7 +264,29 @@ class DataSourceConfigurationArgs:
              share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
              web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
              work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confluenceConfiguration' in kwargs:
+            confluence_configuration = kwargs['confluenceConfiguration']
+        if 'databaseConfiguration' in kwargs:
+            database_configuration = kwargs['databaseConfiguration']
+        if 'googleDriveConfiguration' in kwargs:
+            google_drive_configuration = kwargs['googleDriveConfiguration']
+        if 'oneDriveConfiguration' in kwargs:
+            one_drive_configuration = kwargs['oneDriveConfiguration']
+        if 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if 'salesforceConfiguration' in kwargs:
+            salesforce_configuration = kwargs['salesforceConfiguration']
+        if 'serviceNowConfiguration' in kwargs:
+            service_now_configuration = kwargs['serviceNowConfiguration']
+        if 'sharePointConfiguration' in kwargs:
+            share_point_configuration = kwargs['sharePointConfiguration']
+        if 'webCrawlerConfiguration' in kwargs:
+            web_crawler_configuration = kwargs['webCrawlerConfiguration']
+        if 'workDocsConfiguration' in kwargs:
+            work_docs_configuration = kwargs['workDocsConfiguration']
+
         if confluence_configuration is not None:
             _setter("confluence_configuration", confluence_configuration)
         if database_configuration is not None:
@@ -372,7 +414,13 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              attachment_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentFieldMappings' in kwargs:
+            attachment_field_mappings = kwargs['attachmentFieldMappings']
+        if 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+
         if attachment_field_mappings is not None:
             _setter("attachment_field_mappings", attachment_field_mappings)
         if crawl_attachments is not None:
@@ -415,7 +463,15 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
              data_source_field_name: pulumi.Input['DataSourceConfluenceAttachmentFieldName'],
              index_field_name: pulumi.Input[str],
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -461,7 +517,11 @@ class DataSourceConfluenceBlogConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              blog_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blogFieldMappings' in kwargs:
+            blog_field_mappings = kwargs['blogFieldMappings']
+
         if blog_field_mappings is not None:
             _setter("blog_field_mappings", blog_field_mappings)
 
@@ -493,7 +553,15 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
              data_source_field_name: pulumi.Input['DataSourceConfluenceBlogFieldName'],
              index_field_name: pulumi.Input[str],
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -566,7 +634,27 @@ class DataSourceConfluenceConfigurationArgs:
              page_configuration: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']] = None,
              space_configuration: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+        if 'attachmentConfiguration' in kwargs:
+            attachment_configuration = kwargs['attachmentConfiguration']
+        if 'blogConfiguration' in kwargs:
+            blog_configuration = kwargs['blogConfiguration']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if 'pageConfiguration' in kwargs:
+            page_configuration = kwargs['pageConfiguration']
+        if 'spaceConfiguration' in kwargs:
+            space_configuration = kwargs['spaceConfiguration']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("secret_arn", secret_arn)
         _setter("server_url", server_url)
         _setter("version", version)
@@ -688,7 +776,11 @@ class DataSourceConfluencePageConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              page_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pageFieldMappings' in kwargs:
+            page_field_mappings = kwargs['pageFieldMappings']
+
         if page_field_mappings is not None:
             _setter("page_field_mappings", page_field_mappings)
 
@@ -720,7 +812,15 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
              data_source_field_name: pulumi.Input['DataSourceConfluencePageFieldName'],
              index_field_name: pulumi.Input[str],
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -778,7 +878,19 @@ class DataSourceConfluenceSpaceConfigurationArgs:
              exclude_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              include_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              space_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crawlArchivedSpaces' in kwargs:
+            crawl_archived_spaces = kwargs['crawlArchivedSpaces']
+        if 'crawlPersonalSpaces' in kwargs:
+            crawl_personal_spaces = kwargs['crawlPersonalSpaces']
+        if 'excludeSpaces' in kwargs:
+            exclude_spaces = kwargs['excludeSpaces']
+        if 'includeSpaces' in kwargs:
+            include_spaces = kwargs['includeSpaces']
+        if 'spaceFieldMappings' in kwargs:
+            space_field_mappings = kwargs['spaceFieldMappings']
+
         if crawl_archived_spaces is not None:
             _setter("crawl_archived_spaces", crawl_archived_spaces)
         if crawl_personal_spaces is not None:
@@ -854,7 +966,15 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
              data_source_field_name: pulumi.Input['DataSourceConfluenceSpaceFieldName'],
              index_field_name: pulumi.Input[str],
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -912,7 +1032,19 @@ class DataSourceConnectionConfigurationArgs:
              database_port: pulumi.Input[int],
              secret_arn: pulumi.Input[str],
              table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_host", database_host)
         _setter("database_name", database_name)
         _setter("database_port", database_port)
@@ -986,7 +1118,17 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
              post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
              pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inlineConfigurations' in kwargs:
+            inline_configurations = kwargs['inlineConfigurations']
+        if 'postExtractionHookConfiguration' in kwargs:
+            post_extraction_hook_configuration = kwargs['postExtractionHookConfiguration']
+        if 'preExtractionHookConfiguration' in kwargs:
+            pre_extraction_hook_configuration = kwargs['preExtractionHookConfiguration']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if inline_configurations is not None:
             _setter("inline_configurations", inline_configurations)
         if post_extraction_hook_configuration is not None:
@@ -1060,7 +1202,21 @@ class DataSourceDatabaseConfigurationArgs:
              acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
              sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnConfiguration' in kwargs:
+            column_configuration = kwargs['columnConfiguration']
+        if 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if 'databaseEngineType' in kwargs:
+            database_engine_type = kwargs['databaseEngineType']
+        if 'aclConfiguration' in kwargs:
+            acl_configuration = kwargs['aclConfiguration']
+        if 'sqlConfiguration' in kwargs:
+            sql_configuration = kwargs['sqlConfiguration']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("column_configuration", column_configuration)
         _setter("connection_configuration", connection_configuration)
         _setter("database_engine_type", database_engine_type)
@@ -1144,7 +1300,13 @@ class DataSourceDocumentAttributeConditionArgs:
              condition_document_attribute_key: pulumi.Input[str],
              operator: pulumi.Input['DataSourceConditionOperator'],
              condition_on_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionDocumentAttributeKey' in kwargs:
+            condition_document_attribute_key = kwargs['conditionDocumentAttributeKey']
+        if 'conditionOnValue' in kwargs:
+            condition_on_value = kwargs['conditionOnValue']
+
         _setter("condition_document_attribute_key", condition_document_attribute_key)
         _setter("operator", operator)
         if condition_on_value is not None:
@@ -1196,7 +1358,15 @@ class DataSourceDocumentAttributeTargetArgs:
              target_document_attribute_key: pulumi.Input[str],
              target_document_attribute_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
              target_document_attribute_value_deletion: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetDocumentAttributeKey' in kwargs:
+            target_document_attribute_key = kwargs['targetDocumentAttributeKey']
+        if 'targetDocumentAttributeValue' in kwargs:
+            target_document_attribute_value = kwargs['targetDocumentAttributeValue']
+        if 'targetDocumentAttributeValueDeletion' in kwargs:
+            target_document_attribute_value_deletion = kwargs['targetDocumentAttributeValueDeletion']
+
         _setter("target_document_attribute_key", target_document_attribute_key)
         if target_document_attribute_value is not None:
             _setter("target_document_attribute_value", target_document_attribute_value)
@@ -1252,7 +1422,17 @@ class DataSourceDocumentAttributeValueArgs:
              long_value: Optional[pulumi.Input[int]] = None,
              string_list_value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateValue' in kwargs:
+            date_value = kwargs['dateValue']
+        if 'longValue' in kwargs:
+            long_value = kwargs['longValue']
+        if 'stringListValue' in kwargs:
+            string_list_value = kwargs['stringListValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if date_value is not None:
             _setter("date_value", date_value)
         if long_value is not None:
@@ -1311,7 +1491,11 @@ class DataSourceDocumentsMetadataConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+
         if s3_prefix is not None:
             _setter("s3_prefix", s3_prefix)
 
@@ -1355,7 +1539,23 @@ class DataSourceGoogleDriveConfigurationArgs:
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'excludeMimeTypes' in kwargs:
+            exclude_mime_types = kwargs['excludeMimeTypes']
+        if 'excludeSharedDrives' in kwargs:
+            exclude_shared_drives = kwargs['excludeSharedDrives']
+        if 'excludeUserAccounts' in kwargs:
+            exclude_user_accounts = kwargs['excludeUserAccounts']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+
         _setter("secret_arn", secret_arn)
         if exclude_mime_types is not None:
             _setter("exclude_mime_types", exclude_mime_types)
@@ -1452,7 +1652,15 @@ class DataSourceHookConfigurationArgs:
              lambda_arn: pulumi.Input[str],
              s3_bucket: pulumi.Input[str],
              invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 'invocationCondition' in kwargs:
+            invocation_condition = kwargs['invocationCondition']
+
         _setter("lambda_arn", lambda_arn)
         _setter("s3_bucket", s3_bucket)
         if invocation_condition is not None:
@@ -1504,7 +1712,11 @@ class DataSourceInlineCustomDocumentEnrichmentConfigurationArgs:
              condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
              document_content_deletion: Optional[pulumi.Input[bool]] = None,
              target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentContentDeletion' in kwargs:
+            document_content_deletion = kwargs['documentContentDeletion']
+
         if condition is not None:
             _setter("condition", condition)
         if document_content_deletion is not None:
@@ -1570,7 +1782,23 @@ class DataSourceOneDriveConfigurationArgs:
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oneDriveUsers' in kwargs:
+            one_drive_users = kwargs['oneDriveUsers']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'tenantDomain' in kwargs:
+            tenant_domain = kwargs['tenantDomain']
+        if 'disableLocalGroups' in kwargs:
+            disable_local_groups = kwargs['disableLocalGroups']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+
         _setter("one_drive_users", one_drive_users)
         _setter("secret_arn", secret_arn)
         _setter("tenant_domain", tenant_domain)
@@ -1662,7 +1890,13 @@ class DataSourceOneDriveUsersArgs:
              _setter: Callable[[Any, Any], None],
              one_drive_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              one_drive_user_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oneDriveUserList' in kwargs:
+            one_drive_user_list = kwargs['oneDriveUserList']
+        if 'oneDriveUserS3Path' in kwargs:
+            one_drive_user_s3_path = kwargs['oneDriveUserS3Path']
+
         if one_drive_user_list is not None:
             _setter("one_drive_user_list", one_drive_user_list)
         if one_drive_user_s3_path is not None:
@@ -1705,7 +1939,9 @@ class DataSourceProxyConfigurationArgs:
              host: pulumi.Input[str],
              port: pulumi.Input[int],
              credentials: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("host", host)
         _setter("port", port)
         if credentials is not None:
@@ -1769,7 +2005,21 @@ class DataSourceS3DataSourceConfigurationArgs:
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'accessControlListConfiguration' in kwargs:
+            access_control_list_configuration = kwargs['accessControlListConfiguration']
+        if 'documentsMetadataConfiguration' in kwargs:
+            documents_metadata_configuration = kwargs['documentsMetadataConfiguration']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if 'inclusionPrefixes' in kwargs:
+            inclusion_prefixes = kwargs['inclusionPrefixes']
+
         _setter("bucket_name", bucket_name)
         if access_control_list_configuration is not None:
             _setter("access_control_list_configuration", access_control_list_configuration)
@@ -1852,7 +2102,9 @@ class DataSourceS3PathArgs:
              _setter: Callable[[Any, Any], None],
              bucket: pulumi.Input[str],
              key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         _setter("key", key)
 
@@ -1896,7 +2148,17 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'includeFilterTypes' in kwargs:
+            include_filter_types = kwargs['includeFilterTypes']
+
         _setter("document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
@@ -1978,7 +2240,27 @@ class DataSourceSalesforceConfigurationArgs:
              knowledge_article_configuration: Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']] = None,
              standard_object_attachment_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']] = None,
              standard_object_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+        if 'chatterFeedConfiguration' in kwargs:
+            chatter_feed_configuration = kwargs['chatterFeedConfiguration']
+        if 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+        if 'knowledgeArticleConfiguration' in kwargs:
+            knowledge_article_configuration = kwargs['knowledgeArticleConfiguration']
+        if 'standardObjectAttachmentConfiguration' in kwargs:
+            standard_object_attachment_configuration = kwargs['standardObjectAttachmentConfiguration']
+        if 'standardObjectConfigurations' in kwargs:
+            standard_object_configurations = kwargs['standardObjectConfigurations']
+
         _setter("secret_arn", secret_arn)
         _setter("server_url", server_url)
         if chatter_feed_configuration is not None:
@@ -2099,7 +2381,15 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
              name: pulumi.Input[str],
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         _setter("name", name)
         if document_title_field_name is not None:
@@ -2162,7 +2452,15 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
              included_states: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]],
              custom_knowledge_article_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
              standard_knowledge_article_type_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedStates' in kwargs:
+            included_states = kwargs['includedStates']
+        if 'customKnowledgeArticleTypeConfigurations' in kwargs:
+            custom_knowledge_article_type_configurations = kwargs['customKnowledgeArticleTypeConfigurations']
+        if 'standardKnowledgeArticleTypeConfiguration' in kwargs:
+            standard_knowledge_article_type_configuration = kwargs['standardKnowledgeArticleTypeConfiguration']
+
         _setter("included_states", included_states)
         if custom_knowledge_article_type_configurations is not None:
             _setter("custom_knowledge_article_type_configurations", custom_knowledge_article_type_configurations)
@@ -2215,7 +2513,15 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
              document_data_field_name: pulumi.Input[str],
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
@@ -2265,7 +2571,13 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
         if field_mappings is not None:
@@ -2311,7 +2623,15 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
              name: pulumi.Input['DataSourceSalesforceStandardObjectName'],
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         _setter("name", name)
         if document_title_field_name is not None:
@@ -2383,7 +2703,21 @@ class DataSourceServiceNowConfigurationArgs:
              authentication_type: Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']] = None,
              knowledge_article_configuration: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
              service_catalog_configuration: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostUrl' in kwargs:
+            host_url = kwargs['hostUrl']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'serviceNowBuildVersion' in kwargs:
+            service_now_build_version = kwargs['serviceNowBuildVersion']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'knowledgeArticleConfiguration' in kwargs:
+            knowledge_article_configuration = kwargs['knowledgeArticleConfiguration']
+        if 'serviceCatalogConfiguration' in kwargs:
+            service_catalog_configuration = kwargs['serviceCatalogConfiguration']
+
         _setter("host_url", host_url)
         _setter("secret_arn", secret_arn)
         _setter("service_now_build_version", service_now_build_version)
@@ -2479,7 +2813,23 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              filter_query: Optional[pulumi.Input[str]] = None,
              include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'filterQuery' in kwargs:
+            filter_query = kwargs['filterQuery']
+        if 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+
         _setter("document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             _setter("crawl_attachments", crawl_attachments)
@@ -2585,7 +2935,21 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
              exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+
         _setter("document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             _setter("crawl_attachments", crawl_attachments)
@@ -2701,7 +3065,31 @@ class DataSourceSharePointConfigurationArgs:
              ssl_certificate_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
              use_change_log: Optional[pulumi.Input[bool]] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'sharePointVersion' in kwargs:
+            share_point_version = kwargs['sharePointVersion']
+        if 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if 'disableLocalGroups' in kwargs:
+            disable_local_groups = kwargs['disableLocalGroups']
+        if 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if 'sslCertificateS3Path' in kwargs:
+            ssl_certificate_s3_path = kwargs['sslCertificateS3Path']
+        if 'useChangeLog' in kwargs:
+            use_change_log = kwargs['useChangeLog']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("secret_arn", secret_arn)
         _setter("share_point_version", share_point_version)
         _setter("urls", urls)
@@ -2845,7 +3233,11 @@ class DataSourceSqlConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              query_identifiers_enclosing_option: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryIdentifiersEnclosingOption' in kwargs:
+            query_identifiers_enclosing_option = kwargs['queryIdentifiersEnclosingOption']
+
         if query_identifiers_enclosing_option is not None:
             _setter("query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
@@ -2879,7 +3271,9 @@ class DataSourceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2926,7 +3320,15 @@ class DataSourceToIndexFieldMappingArgs:
              data_source_field_name: pulumi.Input[str],
              index_field_name: pulumi.Input[str],
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -2975,7 +3377,13 @@ class DataSourceVpcConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
 
@@ -3010,7 +3418,11 @@ class DataSourceWebCrawlerAuthenticationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              basic_authentication: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'basicAuthentication' in kwargs:
+            basic_authentication = kwargs['basicAuthentication']
+
         if basic_authentication is not None:
             _setter("basic_authentication", basic_authentication)
 
@@ -3042,7 +3454,9 @@ class DataSourceWebCrawlerBasicAuthenticationArgs:
              credentials: pulumi.Input[str],
              host: pulumi.Input[str],
              port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("credentials", credentials)
         _setter("host", host)
         _setter("port", port)
@@ -3111,7 +3525,25 @@ class DataSourceWebCrawlerConfigurationArgs:
              proxy_configuration: Optional[pulumi.Input['DataSourceProxyConfigurationArgs']] = None,
              url_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              url_inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'crawlDepth' in kwargs:
+            crawl_depth = kwargs['crawlDepth']
+        if 'maxContentSizePerPageInMegaBytes' in kwargs:
+            max_content_size_per_page_in_mega_bytes = kwargs['maxContentSizePerPageInMegaBytes']
+        if 'maxLinksPerPage' in kwargs:
+            max_links_per_page = kwargs['maxLinksPerPage']
+        if 'maxUrlsPerMinuteCrawlRate' in kwargs:
+            max_urls_per_minute_crawl_rate = kwargs['maxUrlsPerMinuteCrawlRate']
+        if 'proxyConfiguration' in kwargs:
+            proxy_configuration = kwargs['proxyConfiguration']
+        if 'urlExclusionPatterns' in kwargs:
+            url_exclusion_patterns = kwargs['urlExclusionPatterns']
+        if 'urlInclusionPatterns' in kwargs:
+            url_inclusion_patterns = kwargs['urlInclusionPatterns']
+
         _setter("urls", urls)
         if authentication_configuration is not None:
             _setter("authentication_configuration", authentication_configuration)
@@ -3227,7 +3659,13 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              seed_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
              web_crawler_mode: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'seedUrls' in kwargs:
+            seed_urls = kwargs['seedUrls']
+        if 'webCrawlerMode' in kwargs:
+            web_crawler_mode = kwargs['webCrawlerMode']
+
         _setter("seed_urls", seed_urls)
         if web_crawler_mode is not None:
             _setter("web_crawler_mode", web_crawler_mode)
@@ -3263,7 +3701,11 @@ class DataSourceWebCrawlerSiteMapsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              site_maps: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'siteMaps' in kwargs:
+            site_maps = kwargs['siteMaps']
+
         _setter("site_maps", site_maps)
 
     @property
@@ -3291,7 +3733,13 @@ class DataSourceWebCrawlerUrlsArgs:
              _setter: Callable[[Any, Any], None],
              seed_url_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']] = None,
              site_maps_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'seedUrlConfiguration' in kwargs:
+            seed_url_configuration = kwargs['seedUrlConfiguration']
+        if 'siteMapsConfiguration' in kwargs:
+            site_maps_configuration = kwargs['siteMapsConfiguration']
+
         if seed_url_configuration is not None:
             _setter("seed_url_configuration", seed_url_configuration)
         if site_maps_configuration is not None:
@@ -3343,7 +3791,21 @@ class DataSourceWorkDocsConfigurationArgs:
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_change_log: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if 'crawlComments' in kwargs:
+            crawl_comments = kwargs['crawlComments']
+        if 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if 'useChangeLog' in kwargs:
+            use_change_log = kwargs['useChangeLog']
+
         _setter("organization_id", organization_id)
         if crawl_comments is not None:
             _setter("crawl_comments", crawl_comments)
@@ -3426,7 +3888,9 @@ class FaqS3PathArgs:
              _setter: Callable[[Any, Any], None],
              bucket: pulumi.Input[str],
              key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         _setter("key", key)
 
@@ -3469,7 +3933,9 @@ class FaqTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3513,7 +3979,13 @@ class IndexCapacityUnitsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              query_capacity_units: pulumi.Input[int],
              storage_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryCapacityUnits' in kwargs:
+            query_capacity_units = kwargs['queryCapacityUnits']
+        if 'storageCapacityUnits' in kwargs:
+            storage_capacity_units = kwargs['storageCapacityUnits']
+
         _setter("query_capacity_units", query_capacity_units)
         _setter("storage_capacity_units", storage_capacity_units)
 
@@ -3557,7 +4029,9 @@ class IndexDocumentMetadataConfigurationArgs:
              type: pulumi.Input['IndexDocumentAttributeValueType'],
              relevance: Optional[pulumi.Input['IndexRelevanceArgs']] = None,
              search: Optional[pulumi.Input['IndexSearchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         if relevance is not None:
@@ -3617,7 +4091,13 @@ class IndexJsonTokenTypeConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              group_attribute_field: pulumi.Input[str],
              user_name_attribute_field: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupAttributeField' in kwargs:
+            group_attribute_field = kwargs['groupAttributeField']
+        if 'userNameAttributeField' in kwargs:
+            user_name_attribute_field = kwargs['userNameAttributeField']
+
         _setter("group_attribute_field", group_attribute_field)
         _setter("user_name_attribute_field", user_name_attribute_field)
 
@@ -3670,7 +4150,19 @@ class IndexJwtTokenTypeConfigurationArgs:
              secret_manager_arn: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              user_name_attribute_field: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyLocation' in kwargs:
+            key_location = kwargs['keyLocation']
+        if 'claimRegex' in kwargs:
+            claim_regex = kwargs['claimRegex']
+        if 'groupAttributeField' in kwargs:
+            group_attribute_field = kwargs['groupAttributeField']
+        if 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if 'userNameAttributeField' in kwargs:
+            user_name_attribute_field = kwargs['userNameAttributeField']
+
         _setter("key_location", key_location)
         if claim_regex is not None:
             _setter("claim_regex", claim_regex)
@@ -3773,7 +4265,13 @@ class IndexRelevanceArgs:
              importance: Optional[pulumi.Input[int]] = None,
              rank_order: Optional[pulumi.Input['IndexOrder']] = None,
              value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rankOrder' in kwargs:
+            rank_order = kwargs['rankOrder']
+        if 'valueImportanceItems' in kwargs:
+            value_importance_items = kwargs['valueImportanceItems']
+
         if duration is not None:
             _setter("duration", duration)
         if freshness is not None:
@@ -3852,7 +4350,9 @@ class IndexSearchArgs:
              facetable: Optional[pulumi.Input[bool]] = None,
              searchable: Optional[pulumi.Input[bool]] = None,
              sortable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if displayable is not None:
             _setter("displayable", displayable)
         if facetable is not None:
@@ -3911,7 +4411,11 @@ class IndexServerSideEncryptionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -3945,7 +4449,9 @@ class IndexTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3989,7 +4495,13 @@ class IndexUserTokenConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              json_token_type_configuration: Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']] = None,
              jwt_token_type_configuration: Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonTokenTypeConfiguration' in kwargs:
+            json_token_type_configuration = kwargs['jsonTokenTypeConfiguration']
+        if 'jwtTokenTypeConfiguration' in kwargs:
+            jwt_token_type_configuration = kwargs['jwtTokenTypeConfiguration']
+
         if json_token_type_configuration is not None:
             _setter("json_token_type_configuration", json_token_type_configuration)
         if jwt_token_type_configuration is not None:
@@ -4029,7 +4541,9 @@ class IndexValueImportanceItemArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

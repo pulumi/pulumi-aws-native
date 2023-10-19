@@ -58,7 +58,11 @@ class CampaignCollectionScheme0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeBasedCollectionScheme' in kwargs:
+            time_based_collection_scheme = kwargs['timeBasedCollectionScheme']
+
         _setter("time_based_collection_scheme", time_based_collection_scheme)
 
     @property
@@ -83,7 +87,11 @@ class CampaignCollectionScheme1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionBasedCollectionScheme' in kwargs:
+            condition_based_collection_scheme = kwargs['conditionBasedCollectionScheme']
+
         _setter("condition_based_collection_scheme", condition_based_collection_scheme)
 
     @property
@@ -117,7 +125,15 @@ class CampaignConditionBasedCollectionSchemeArgs:
              condition_language_version: Optional[pulumi.Input[int]] = None,
              minimum_trigger_interval_ms: Optional[pulumi.Input[float]] = None,
              trigger_mode: Optional[pulumi.Input['CampaignTriggerMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionLanguageVersion' in kwargs:
+            condition_language_version = kwargs['conditionLanguageVersion']
+        if 'minimumTriggerIntervalMs' in kwargs:
+            minimum_trigger_interval_ms = kwargs['minimumTriggerIntervalMs']
+        if 'triggerMode' in kwargs:
+            trigger_mode = kwargs['triggerMode']
+
         _setter("expression", expression)
         if condition_language_version is not None:
             _setter("condition_language_version", condition_language_version)
@@ -175,7 +191,11 @@ class CampaignDataDestinationConfig0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_config: pulumi.Input['CampaignS3ConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+
         _setter("s3_config", s3_config)
 
     @property
@@ -200,7 +220,11 @@ class CampaignDataDestinationConfig1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timestream_config: pulumi.Input['CampaignTimestreamConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timestreamConfig' in kwargs:
+            timestream_config = kwargs['timestreamConfig']
+
         _setter("timestream_config", timestream_config)
 
     @property
@@ -234,7 +258,15 @@ class CampaignS3ConfigArgs:
              data_format: Optional[pulumi.Input['CampaignDataFormat']] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              storage_compression_format: Optional[pulumi.Input['CampaignStorageCompressionFormat']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'storageCompressionFormat' in kwargs:
+            storage_compression_format = kwargs['storageCompressionFormat']
+
         _setter("bucket_arn", bucket_arn)
         if data_format is not None:
             _setter("data_format", data_format)
@@ -298,7 +330,13 @@ class CampaignSignalInformationArgs:
              name: pulumi.Input[str],
              max_sample_count: Optional[pulumi.Input[float]] = None,
              minimum_sampling_interval_ms: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSampleCount' in kwargs:
+            max_sample_count = kwargs['maxSampleCount']
+        if 'minimumSamplingIntervalMs' in kwargs:
+            minimum_sampling_interval_ms = kwargs['minimumSamplingIntervalMs']
+
         _setter("name", name)
         if max_sample_count is not None:
             _setter("max_sample_count", max_sample_count)
@@ -348,7 +386,9 @@ class CampaignTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -383,7 +423,11 @@ class CampaignTimeBasedCollectionSchemeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              period_ms: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'periodMs' in kwargs:
+            period_ms = kwargs['periodMs']
+
         _setter("period_ms", period_ms)
 
     @property
@@ -411,7 +455,13 @@ class CampaignTimestreamConfigArgs:
              _setter: Callable[[Any, Any], None],
              execution_role_arn: pulumi.Input[str],
              timestream_table_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'timestreamTableArn' in kwargs:
+            timestream_table_arn = kwargs['timestreamTableArn']
+
         _setter("execution_role_arn", execution_role_arn)
         _setter("timestream_table_arn", timestream_table_arn)
 
@@ -452,7 +502,13 @@ class DecoderManifestCanInterfaceArgs:
              name: pulumi.Input[str],
              protocol_name: Optional[pulumi.Input[str]] = None,
              protocol_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protocolName' in kwargs:
+            protocol_name = kwargs['protocolName']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+
         _setter("name", name)
         if protocol_name is not None:
             _setter("protocol_name", protocol_name)
@@ -505,7 +561,13 @@ class DecoderManifestCanNetworkInterfaceArgs:
              can_interface: pulumi.Input['DecoderManifestCanInterfaceArgs'],
              interface_id: pulumi.Input[str],
              type: pulumi.Input['DecoderManifestCanNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'canInterface' in kwargs:
+            can_interface = kwargs['canInterface']
+        if 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+
         _setter("can_interface", can_interface)
         _setter("interface_id", interface_id)
         _setter("type", type)
@@ -559,7 +621,15 @@ class DecoderManifestCanSignalDecoderArgs:
              fully_qualified_name: pulumi.Input[str],
              interface_id: pulumi.Input[str],
              type: pulumi.Input['DecoderManifestCanSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'canSignal' in kwargs:
+            can_signal = kwargs['canSignal']
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+
         _setter("can_signal", can_signal)
         _setter("fully_qualified_name", fully_qualified_name)
         _setter("interface_id", interface_id)
@@ -635,7 +705,17 @@ class DecoderManifestCanSignalArgs:
              offset: pulumi.Input[float],
              start_bit: pulumi.Input[int],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isBigEndian' in kwargs:
+            is_big_endian = kwargs['isBigEndian']
+        if 'isSigned' in kwargs:
+            is_signed = kwargs['isSigned']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'startBit' in kwargs:
+            start_bit = kwargs['startBit']
+
         _setter("factor", factor)
         _setter("is_big_endian", is_big_endian)
         _setter("is_signed", is_signed)
@@ -749,7 +829,21 @@ class DecoderManifestObdInterfaceArgs:
              obd_standard: Optional[pulumi.Input[str]] = None,
              pid_request_interval_seconds: Optional[pulumi.Input[int]] = None,
              use_extended_ids: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestMessageId' in kwargs:
+            request_message_id = kwargs['requestMessageId']
+        if 'dtcRequestIntervalSeconds' in kwargs:
+            dtc_request_interval_seconds = kwargs['dtcRequestIntervalSeconds']
+        if 'hasTransmissionEcu' in kwargs:
+            has_transmission_ecu = kwargs['hasTransmissionEcu']
+        if 'obdStandard' in kwargs:
+            obd_standard = kwargs['obdStandard']
+        if 'pidRequestIntervalSeconds' in kwargs:
+            pid_request_interval_seconds = kwargs['pidRequestIntervalSeconds']
+        if 'useExtendedIds' in kwargs:
+            use_extended_ids = kwargs['useExtendedIds']
+
         _setter("name", name)
         _setter("request_message_id", request_message_id)
         if dtc_request_interval_seconds is not None:
@@ -845,7 +939,13 @@ class DecoderManifestObdNetworkInterfaceArgs:
              interface_id: pulumi.Input[str],
              obd_interface: pulumi.Input['DecoderManifestObdInterfaceArgs'],
              type: pulumi.Input['DecoderManifestObdNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if 'obdInterface' in kwargs:
+            obd_interface = kwargs['obdInterface']
+
         _setter("interface_id", interface_id)
         _setter("obd_interface", obd_interface)
         _setter("type", type)
@@ -899,7 +999,15 @@ class DecoderManifestObdSignalDecoderArgs:
              interface_id: pulumi.Input[str],
              obd_signal: pulumi.Input['DecoderManifestObdSignalArgs'],
              type: pulumi.Input['DecoderManifestObdSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if 'obdSignal' in kwargs:
+            obd_signal = kwargs['obdSignal']
+
         _setter("fully_qualified_name", fully_qualified_name)
         _setter("interface_id", interface_id)
         _setter("obd_signal", obd_signal)
@@ -978,7 +1086,21 @@ class DecoderManifestObdSignalArgs:
              start_byte: pulumi.Input[int],
              bit_mask_length: Optional[pulumi.Input[int]] = None,
              bit_right_shift: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'byteLength' in kwargs:
+            byte_length = kwargs['byteLength']
+        if 'pidResponseLength' in kwargs:
+            pid_response_length = kwargs['pidResponseLength']
+        if 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if 'startByte' in kwargs:
+            start_byte = kwargs['startByte']
+        if 'bitMaskLength' in kwargs:
+            bit_mask_length = kwargs['bitMaskLength']
+        if 'bitRightShift' in kwargs:
+            bit_right_shift = kwargs['bitRightShift']
+
         _setter("byte_length", byte_length)
         _setter("offset", offset)
         _setter("pid", pid)
@@ -1088,7 +1210,9 @@ class DecoderManifestTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1126,7 +1250,9 @@ class FleetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1164,7 +1290,9 @@ class ModelManifestTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1220,7 +1348,17 @@ class SignalCatalogActuatorArgs:
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if 'assignedValue' in kwargs:
+            assigned_value = kwargs['assignedValue']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1345,7 +1483,19 @@ class SignalCatalogAttributeArgs:
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if 'assignedValue' in kwargs:
+            assigned_value = kwargs['assignedValue']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1460,7 +1610,11 @@ class SignalCatalogBranchArgs:
              _setter: Callable[[Any, Any], None],
              fully_qualified_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+
         _setter("fully_qualified_name", fully_qualified_name)
         if description is not None:
             _setter("description", description)
@@ -1496,7 +1650,9 @@ class SignalCatalogNode0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if branch is not None:
             _setter("branch", branch)
 
@@ -1522,7 +1678,9 @@ class SignalCatalogNode1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sensor is not None:
             _setter("sensor", sensor)
 
@@ -1548,7 +1706,9 @@ class SignalCatalogNode2PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if actuator is not None:
             _setter("actuator", actuator)
 
@@ -1574,7 +1734,9 @@ class SignalCatalogNode3PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attribute is not None:
             _setter("attribute", attribute)
 
@@ -1612,7 +1774,19 @@ class SignalCatalogNodeCountsArgs:
              total_branches: Optional[pulumi.Input[float]] = None,
              total_nodes: Optional[pulumi.Input[float]] = None,
              total_sensors: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'totalActuators' in kwargs:
+            total_actuators = kwargs['totalActuators']
+        if 'totalAttributes' in kwargs:
+            total_attributes = kwargs['totalAttributes']
+        if 'totalBranches' in kwargs:
+            total_branches = kwargs['totalBranches']
+        if 'totalNodes' in kwargs:
+            total_nodes = kwargs['totalNodes']
+        if 'totalSensors' in kwargs:
+            total_sensors = kwargs['totalSensors']
+
         if total_actuators is not None:
             _setter("total_actuators", total_actuators)
         if total_attributes is not None:
@@ -1700,7 +1874,15 @@ class SignalCatalogSensorArgs:
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1793,7 +1975,9 @@ class SignalCatalogTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1831,7 +2015,9 @@ class VehicleTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1861,7 +2047,9 @@ class VehicleattributesMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

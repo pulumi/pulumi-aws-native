@@ -74,7 +74,23 @@ class DataSourceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
              type: Optional[pulumi.Input['DataSourceType']] = None,
              vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternateDataSourceParameters' in kwargs:
+            alternate_data_source_parameters = kwargs['alternateDataSourceParameters']
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if 'dataSourceParameters' in kwargs:
+            data_source_parameters = kwargs['dataSourceParameters']
+        if 'errorInfo' in kwargs:
+            error_info = kwargs['errorInfo']
+        if 'sslProperties' in kwargs:
+            ssl_properties = kwargs['sslProperties']
+        if 'vpcConnectionProperties' in kwargs:
+            vpc_connection_properties = kwargs['vpcConnectionProperties']
+
         if alternate_data_source_parameters is not None:
             _setter("alternate_data_source_parameters", alternate_data_source_parameters)
         if aws_account_id is not None:

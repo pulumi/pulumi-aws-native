@@ -56,7 +56,21 @@ class PermissionArgs:
              principal_org_id: Optional[pulumi.Input[str]] = None,
              source_account: Optional[pulumi.Input[str]] = None,
              source_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'eventSourceToken' in kwargs:
+            event_source_token = kwargs['eventSourceToken']
+        if 'functionUrlAuthType' in kwargs:
+            function_url_auth_type = kwargs['functionUrlAuthType']
+        if 'principalOrgId' in kwargs:
+            principal_org_id = kwargs['principalOrgId']
+        if 'sourceAccount' in kwargs:
+            source_account = kwargs['sourceAccount']
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+
         _setter("action", action)
         _setter("function_name", function_name)
         _setter("principal", principal)

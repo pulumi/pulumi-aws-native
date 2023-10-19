@@ -65,7 +65,27 @@ class BotArgs:
              name: Optional[pulumi.Input[str]] = None,
              test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
              test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataPrivacy' in kwargs:
+            data_privacy = kwargs['dataPrivacy']
+        if 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'autoBuildBotLocales' in kwargs:
+            auto_build_bot_locales = kwargs['autoBuildBotLocales']
+        if 'botFileS3Location' in kwargs:
+            bot_file_s3_location = kwargs['botFileS3Location']
+        if 'botLocales' in kwargs:
+            bot_locales = kwargs['botLocales']
+        if 'botTags' in kwargs:
+            bot_tags = kwargs['botTags']
+        if 'testBotAliasSettings' in kwargs:
+            test_bot_alias_settings = kwargs['testBotAliasSettings']
+        if 'testBotAliasTags' in kwargs:
+            test_bot_alias_tags = kwargs['testBotAliasTags']
+
         _setter("data_privacy", data_privacy)
         _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         _setter("role_arn", role_arn)

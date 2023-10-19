@@ -41,7 +41,9 @@ class DataIntegrationFileConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              folders: Sequence[str],
              filters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("folders", folders)
         if filters is not None:
             _setter("filters", filters)
@@ -76,8 +78,10 @@ class DataIntegrationObjectConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -122,7 +126,13 @@ class DataIntegrationScheduleConfig(dict):
              schedule_expression: str,
              first_execution_from: Optional[str] = None,
              object: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+
         _setter("schedule_expression", schedule_expression)
         if first_execution_from is not None:
             _setter("first_execution_from", first_execution_from)
@@ -177,7 +187,9 @@ class DataIntegrationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -213,7 +225,9 @@ class EventIntegrationEventFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("source", source)
 
     @property
@@ -244,7 +258,9 @@ class EventIntegrationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

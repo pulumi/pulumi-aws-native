@@ -86,7 +86,19 @@ class EndpointDocDbSettings(dict):
              nesting_level: Optional[str] = None,
              secrets_manager_access_role_arn: Optional[str] = None,
              secrets_manager_secret_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'docsToInvestigate' in kwargs:
+            docs_to_investigate = kwargs['docsToInvestigate']
+        if 'extractDocId' in kwargs:
+            extract_doc_id = kwargs['extractDocId']
+        if 'nestingLevel' in kwargs:
+            nesting_level = kwargs['nestingLevel']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+
         if docs_to_investigate is not None:
             _setter("docs_to_investigate", docs_to_investigate)
         if extract_doc_id is not None:
@@ -153,7 +165,11 @@ class EndpointDynamoDbSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_access_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+
         if service_access_role_arn is not None:
             _setter("service_access_role_arn", service_access_role_arn)
 
@@ -207,7 +223,17 @@ class EndpointElasticsearchSettings(dict):
              error_retry_duration: Optional[int] = None,
              full_load_error_percentage: Optional[int] = None,
              service_access_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'errorRetryDuration' in kwargs:
+            error_retry_duration = kwargs['errorRetryDuration']
+        if 'fullLoadErrorPercentage' in kwargs:
+            full_load_error_percentage = kwargs['fullLoadErrorPercentage']
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+
         if endpoint_uri is not None:
             _setter("endpoint_uri", endpoint_uri)
         if error_retry_duration is not None:
@@ -321,7 +347,29 @@ class EndpointGcpMySqlSettings(dict):
              server_name: Optional[str] = None,
              server_timezone: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'afterConnectScript' in kwargs:
+            after_connect_script = kwargs['afterConnectScript']
+        if 'cleanSourceMetadataOnMismatch' in kwargs:
+            clean_source_metadata_on_mismatch = kwargs['cleanSourceMetadataOnMismatch']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'eventsPollInterval' in kwargs:
+            events_poll_interval = kwargs['eventsPollInterval']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'parallelLoadThreads' in kwargs:
+            parallel_load_threads = kwargs['parallelLoadThreads']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'serverTimezone' in kwargs:
+            server_timezone = kwargs['serverTimezone']
+
         if after_connect_script is not None:
             _setter("after_connect_script", after_connect_script)
         if clean_source_metadata_on_mismatch is not None:
@@ -464,7 +512,19 @@ class EndpointIbmDb2Settings(dict):
              secrets_manager_access_role_arn: Optional[str] = None,
              secrets_manager_secret_id: Optional[str] = None,
              set_data_capture_changes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentLsn' in kwargs:
+            current_lsn = kwargs['currentLsn']
+        if 'maxKBytesPerRead' in kwargs:
+            max_k_bytes_per_read = kwargs['maxKBytesPerRead']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'setDataCaptureChanges' in kwargs:
+            set_data_capture_changes = kwargs['setDataCaptureChanges']
+
         if current_lsn is not None:
             _setter("current_lsn", current_lsn)
         if max_k_bytes_per_read is not None:
@@ -612,7 +672,41 @@ class EndpointKafkaSettings(dict):
              ssl_client_key_arn: Optional[str] = None,
              ssl_client_key_password: Optional[str] = None,
              topic: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeControlDetails' in kwargs:
+            include_control_details = kwargs['includeControlDetails']
+        if 'includeNullAndEmpty' in kwargs:
+            include_null_and_empty = kwargs['includeNullAndEmpty']
+        if 'includePartitionValue' in kwargs:
+            include_partition_value = kwargs['includePartitionValue']
+        if 'includeTableAlterOperations' in kwargs:
+            include_table_alter_operations = kwargs['includeTableAlterOperations']
+        if 'includeTransactionDetails' in kwargs:
+            include_transaction_details = kwargs['includeTransactionDetails']
+        if 'messageFormat' in kwargs:
+            message_format = kwargs['messageFormat']
+        if 'messageMaxBytes' in kwargs:
+            message_max_bytes = kwargs['messageMaxBytes']
+        if 'noHexPrefix' in kwargs:
+            no_hex_prefix = kwargs['noHexPrefix']
+        if 'partitionIncludeSchemaTable' in kwargs:
+            partition_include_schema_table = kwargs['partitionIncludeSchemaTable']
+        if 'saslPassword' in kwargs:
+            sasl_password = kwargs['saslPassword']
+        if 'saslUserName' in kwargs:
+            sasl_user_name = kwargs['saslUserName']
+        if 'securityProtocol' in kwargs:
+            security_protocol = kwargs['securityProtocol']
+        if 'sslCaCertificateArn' in kwargs:
+            ssl_ca_certificate_arn = kwargs['sslCaCertificateArn']
+        if 'sslClientCertificateArn' in kwargs:
+            ssl_client_certificate_arn = kwargs['sslClientCertificateArn']
+        if 'sslClientKeyArn' in kwargs:
+            ssl_client_key_arn = kwargs['sslClientKeyArn']
+        if 'sslClientKeyPassword' in kwargs:
+            ssl_client_key_password = kwargs['sslClientKeyPassword']
+
         if broker is not None:
             _setter("broker", broker)
         if include_control_details is not None:
@@ -815,7 +909,29 @@ class EndpointKinesisSettings(dict):
              partition_include_schema_table: Optional[bool] = None,
              service_access_role_arn: Optional[str] = None,
              stream_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeControlDetails' in kwargs:
+            include_control_details = kwargs['includeControlDetails']
+        if 'includeNullAndEmpty' in kwargs:
+            include_null_and_empty = kwargs['includeNullAndEmpty']
+        if 'includePartitionValue' in kwargs:
+            include_partition_value = kwargs['includePartitionValue']
+        if 'includeTableAlterOperations' in kwargs:
+            include_table_alter_operations = kwargs['includeTableAlterOperations']
+        if 'includeTransactionDetails' in kwargs:
+            include_transaction_details = kwargs['includeTransactionDetails']
+        if 'messageFormat' in kwargs:
+            message_format = kwargs['messageFormat']
+        if 'noHexPrefix' in kwargs:
+            no_hex_prefix = kwargs['noHexPrefix']
+        if 'partitionIncludeSchemaTable' in kwargs:
+            partition_include_schema_table = kwargs['partitionIncludeSchemaTable']
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         if include_control_details is not None:
             _setter("include_control_details", include_control_details)
         if include_null_and_empty is not None:
@@ -991,7 +1107,37 @@ class EndpointMicrosoftSqlServerSettings(dict):
              use_bcp_full_load: Optional[bool] = None,
              use_third_party_backup_device: Optional[bool] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bcpPacketSize' in kwargs:
+            bcp_packet_size = kwargs['bcpPacketSize']
+        if 'controlTablesFileGroup' in kwargs:
+            control_tables_file_group = kwargs['controlTablesFileGroup']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'forceLobLookup' in kwargs:
+            force_lob_lookup = kwargs['forceLobLookup']
+        if 'querySingleAlwaysOnNode' in kwargs:
+            query_single_always_on_node = kwargs['querySingleAlwaysOnNode']
+        if 'readBackupOnly' in kwargs:
+            read_backup_only = kwargs['readBackupOnly']
+        if 'safeguardPolicy' in kwargs:
+            safeguard_policy = kwargs['safeguardPolicy']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'tlogAccessMode' in kwargs:
+            tlog_access_mode = kwargs['tlogAccessMode']
+        if 'trimSpaceInChar' in kwargs:
+            trim_space_in_char = kwargs['trimSpaceInChar']
+        if 'useBcpFullLoad' in kwargs:
+            use_bcp_full_load = kwargs['useBcpFullLoad']
+        if 'useThirdPartyBackupDevice' in kwargs:
+            use_third_party_backup_device = kwargs['useThirdPartyBackupDevice']
+
         if bcp_packet_size is not None:
             _setter("bcp_packet_size", bcp_packet_size)
         if control_tables_file_group is not None:
@@ -1196,7 +1342,29 @@ class EndpointMongoDbSettings(dict):
              secrets_manager_secret_id: Optional[str] = None,
              server_name: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authMechanism' in kwargs:
+            auth_mechanism = kwargs['authMechanism']
+        if 'authSource' in kwargs:
+            auth_source = kwargs['authSource']
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'docsToInvestigate' in kwargs:
+            docs_to_investigate = kwargs['docsToInvestigate']
+        if 'extractDocId' in kwargs:
+            extract_doc_id = kwargs['extractDocId']
+        if 'nestingLevel' in kwargs:
+            nesting_level = kwargs['nestingLevel']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+
         if auth_mechanism is not None:
             _setter("auth_mechanism", auth_mechanism)
         if auth_source is not None:
@@ -1359,7 +1527,27 @@ class EndpointMySqlSettings(dict):
              secrets_manager_secret_id: Optional[str] = None,
              server_timezone: Optional[str] = None,
              target_db_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'afterConnectScript' in kwargs:
+            after_connect_script = kwargs['afterConnectScript']
+        if 'cleanSourceMetadataOnMismatch' in kwargs:
+            clean_source_metadata_on_mismatch = kwargs['cleanSourceMetadataOnMismatch']
+        if 'eventsPollInterval' in kwargs:
+            events_poll_interval = kwargs['eventsPollInterval']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'parallelLoadThreads' in kwargs:
+            parallel_load_threads = kwargs['parallelLoadThreads']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'serverTimezone' in kwargs:
+            server_timezone = kwargs['serverTimezone']
+        if 'targetDbType' in kwargs:
+            target_db_type = kwargs['targetDbType']
+
         if after_connect_script is not None:
             _setter("after_connect_script", after_connect_script)
         if clean_source_metadata_on_mismatch is not None:
@@ -1484,7 +1672,23 @@ class EndpointNeptuneSettings(dict):
              s3_bucket_folder: Optional[str] = None,
              s3_bucket_name: Optional[str] = None,
              service_access_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorRetryDuration' in kwargs:
+            error_retry_duration = kwargs['errorRetryDuration']
+        if 'iamAuthEnabled' in kwargs:
+            iam_auth_enabled = kwargs['iamAuthEnabled']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'maxRetryCount' in kwargs:
+            max_retry_count = kwargs['maxRetryCount']
+        if 's3BucketFolder' in kwargs:
+            s3_bucket_folder = kwargs['s3BucketFolder']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+
         if error_retry_duration is not None:
             _setter("error_retry_duration", error_retry_duration)
         if iam_auth_enabled is not None:
@@ -1735,7 +1939,79 @@ class EndpointOracleSettings(dict):
              use_direct_path_full_load: Optional[bool] = None,
              use_logminer_reader: Optional[bool] = None,
              use_path_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessAlternateDirectly' in kwargs:
+            access_alternate_directly = kwargs['accessAlternateDirectly']
+        if 'addSupplementalLogging' in kwargs:
+            add_supplemental_logging = kwargs['addSupplementalLogging']
+        if 'additionalArchivedLogDestId' in kwargs:
+            additional_archived_log_dest_id = kwargs['additionalArchivedLogDestId']
+        if 'allowSelectNestedTables' in kwargs:
+            allow_select_nested_tables = kwargs['allowSelectNestedTables']
+        if 'archivedLogDestId' in kwargs:
+            archived_log_dest_id = kwargs['archivedLogDestId']
+        if 'archivedLogsOnly' in kwargs:
+            archived_logs_only = kwargs['archivedLogsOnly']
+        if 'asmPassword' in kwargs:
+            asm_password = kwargs['asmPassword']
+        if 'asmServer' in kwargs:
+            asm_server = kwargs['asmServer']
+        if 'asmUser' in kwargs:
+            asm_user = kwargs['asmUser']
+        if 'charLengthSemantics' in kwargs:
+            char_length_semantics = kwargs['charLengthSemantics']
+        if 'directPathNoLog' in kwargs:
+            direct_path_no_log = kwargs['directPathNoLog']
+        if 'directPathParallelLoad' in kwargs:
+            direct_path_parallel_load = kwargs['directPathParallelLoad']
+        if 'enableHomogenousTablespace' in kwargs:
+            enable_homogenous_tablespace = kwargs['enableHomogenousTablespace']
+        if 'extraArchivedLogDestIds' in kwargs:
+            extra_archived_log_dest_ids = kwargs['extraArchivedLogDestIds']
+        if 'failTasksOnLobTruncation' in kwargs:
+            fail_tasks_on_lob_truncation = kwargs['failTasksOnLobTruncation']
+        if 'numberDatatypeScale' in kwargs:
+            number_datatype_scale = kwargs['numberDatatypeScale']
+        if 'oraclePathPrefix' in kwargs:
+            oracle_path_prefix = kwargs['oraclePathPrefix']
+        if 'parallelAsmReadThreads' in kwargs:
+            parallel_asm_read_threads = kwargs['parallelAsmReadThreads']
+        if 'readAheadBlocks' in kwargs:
+            read_ahead_blocks = kwargs['readAheadBlocks']
+        if 'readTableSpaceName' in kwargs:
+            read_table_space_name = kwargs['readTableSpaceName']
+        if 'replacePathPrefix' in kwargs:
+            replace_path_prefix = kwargs['replacePathPrefix']
+        if 'retryInterval' in kwargs:
+            retry_interval = kwargs['retryInterval']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerOracleAsmAccessRoleArn' in kwargs:
+            secrets_manager_oracle_asm_access_role_arn = kwargs['secretsManagerOracleAsmAccessRoleArn']
+        if 'secretsManagerOracleAsmSecretId' in kwargs:
+            secrets_manager_oracle_asm_secret_id = kwargs['secretsManagerOracleAsmSecretId']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'securityDbEncryption' in kwargs:
+            security_db_encryption = kwargs['securityDbEncryption']
+        if 'securityDbEncryptionName' in kwargs:
+            security_db_encryption_name = kwargs['securityDbEncryptionName']
+        if 'spatialDataOptionToGeoJsonFunctionName' in kwargs:
+            spatial_data_option_to_geo_json_function_name = kwargs['spatialDataOptionToGeoJsonFunctionName']
+        if 'standbyDelayTime' in kwargs:
+            standby_delay_time = kwargs['standbyDelayTime']
+        if 'useAlternateFolderForOnline' in kwargs:
+            use_alternate_folder_for_online = kwargs['useAlternateFolderForOnline']
+        if 'useBFile' in kwargs:
+            use_b_file = kwargs['useBFile']
+        if 'useDirectPathFullLoad' in kwargs:
+            use_direct_path_full_load = kwargs['useDirectPathFullLoad']
+        if 'useLogminerReader' in kwargs:
+            use_logminer_reader = kwargs['useLogminerReader']
+        if 'usePathPrefix' in kwargs:
+            use_path_prefix = kwargs['usePathPrefix']
+
         if access_alternate_directly is not None:
             _setter("access_alternate_directly", access_alternate_directly)
         if add_supplemental_logging is not None:
@@ -2087,7 +2363,41 @@ class EndpointPostgreSqlSettings(dict):
              secrets_manager_access_role_arn: Optional[str] = None,
              secrets_manager_secret_id: Optional[str] = None,
              slot_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'afterConnectScript' in kwargs:
+            after_connect_script = kwargs['afterConnectScript']
+        if 'babelfishDatabaseName' in kwargs:
+            babelfish_database_name = kwargs['babelfishDatabaseName']
+        if 'captureDdls' in kwargs:
+            capture_ddls = kwargs['captureDdls']
+        if 'databaseMode' in kwargs:
+            database_mode = kwargs['databaseMode']
+        if 'ddlArtifactsSchema' in kwargs:
+            ddl_artifacts_schema = kwargs['ddlArtifactsSchema']
+        if 'executeTimeout' in kwargs:
+            execute_timeout = kwargs['executeTimeout']
+        if 'failTasksOnLobTruncation' in kwargs:
+            fail_tasks_on_lob_truncation = kwargs['failTasksOnLobTruncation']
+        if 'heartbeatEnable' in kwargs:
+            heartbeat_enable = kwargs['heartbeatEnable']
+        if 'heartbeatFrequency' in kwargs:
+            heartbeat_frequency = kwargs['heartbeatFrequency']
+        if 'heartbeatSchema' in kwargs:
+            heartbeat_schema = kwargs['heartbeatSchema']
+        if 'mapBooleanAsBoolean' in kwargs:
+            map_boolean_as_boolean = kwargs['mapBooleanAsBoolean']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'pluginName' in kwargs:
+            plugin_name = kwargs['pluginName']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+
         if after_connect_script is not None:
             _setter("after_connect_script", after_connect_script)
         if babelfish_database_name is not None:
@@ -2259,7 +2569,21 @@ class EndpointRedisSettings(dict):
              server_name: Optional[str] = None,
              ssl_ca_certificate_arn: Optional[str] = None,
              ssl_security_protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authPassword' in kwargs:
+            auth_password = kwargs['authPassword']
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'authUserName' in kwargs:
+            auth_user_name = kwargs['authUserName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'sslCaCertificateArn' in kwargs:
+            ssl_ca_certificate_arn = kwargs['sslCaCertificateArn']
+        if 'sslSecurityProtocol' in kwargs:
+            ssl_security_protocol = kwargs['sslSecurityProtocol']
+
         if auth_password is not None:
             _setter("auth_password", auth_password)
         if auth_type is not None:
@@ -2465,7 +2789,61 @@ class EndpointRedshiftSettings(dict):
              trim_blanks: Optional[bool] = None,
              truncate_columns: Optional[bool] = None,
              write_buffer_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptAnyDate' in kwargs:
+            accept_any_date = kwargs['acceptAnyDate']
+        if 'afterConnectScript' in kwargs:
+            after_connect_script = kwargs['afterConnectScript']
+        if 'bucketFolder' in kwargs:
+            bucket_folder = kwargs['bucketFolder']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'caseSensitiveNames' in kwargs:
+            case_sensitive_names = kwargs['caseSensitiveNames']
+        if 'compUpdate' in kwargs:
+            comp_update = kwargs['compUpdate']
+        if 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'emptyAsNull' in kwargs:
+            empty_as_null = kwargs['emptyAsNull']
+        if 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if 'explicitIds' in kwargs:
+            explicit_ids = kwargs['explicitIds']
+        if 'fileTransferUploadStreams' in kwargs:
+            file_transfer_upload_streams = kwargs['fileTransferUploadStreams']
+        if 'loadTimeout' in kwargs:
+            load_timeout = kwargs['loadTimeout']
+        if 'mapBooleanAsBoolean' in kwargs:
+            map_boolean_as_boolean = kwargs['mapBooleanAsBoolean']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'removeQuotes' in kwargs:
+            remove_quotes = kwargs['removeQuotes']
+        if 'replaceChars' in kwargs:
+            replace_chars = kwargs['replaceChars']
+        if 'replaceInvalidChars' in kwargs:
+            replace_invalid_chars = kwargs['replaceInvalidChars']
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+        if 'serverSideEncryptionKmsKeyId' in kwargs:
+            server_side_encryption_kms_key_id = kwargs['serverSideEncryptionKmsKeyId']
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if 'trimBlanks' in kwargs:
+            trim_blanks = kwargs['trimBlanks']
+        if 'truncateColumns' in kwargs:
+            truncate_columns = kwargs['truncateColumns']
+        if 'writeBufferSize' in kwargs:
+            write_buffer_size = kwargs['writeBufferSize']
+
         if accept_any_date is not None:
             _setter("accept_any_date", accept_any_date)
         if after_connect_script is not None:
@@ -2862,7 +3240,83 @@ class EndpointS3Settings(dict):
              timestamp_column_name: Optional[str] = None,
              use_csv_no_sup_value: Optional[bool] = None,
              use_task_start_time_for_full_load_timestamp: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addColumnName' in kwargs:
+            add_column_name = kwargs['addColumnName']
+        if 'bucketFolder' in kwargs:
+            bucket_folder = kwargs['bucketFolder']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'cannedAclForObjects' in kwargs:
+            canned_acl_for_objects = kwargs['cannedAclForObjects']
+        if 'cdcInsertsAndUpdates' in kwargs:
+            cdc_inserts_and_updates = kwargs['cdcInsertsAndUpdates']
+        if 'cdcInsertsOnly' in kwargs:
+            cdc_inserts_only = kwargs['cdcInsertsOnly']
+        if 'cdcMaxBatchInterval' in kwargs:
+            cdc_max_batch_interval = kwargs['cdcMaxBatchInterval']
+        if 'cdcMinFileSize' in kwargs:
+            cdc_min_file_size = kwargs['cdcMinFileSize']
+        if 'cdcPath' in kwargs:
+            cdc_path = kwargs['cdcPath']
+        if 'compressionType' in kwargs:
+            compression_type = kwargs['compressionType']
+        if 'csvDelimiter' in kwargs:
+            csv_delimiter = kwargs['csvDelimiter']
+        if 'csvNoSupValue' in kwargs:
+            csv_no_sup_value = kwargs['csvNoSupValue']
+        if 'csvNullValue' in kwargs:
+            csv_null_value = kwargs['csvNullValue']
+        if 'csvRowDelimiter' in kwargs:
+            csv_row_delimiter = kwargs['csvRowDelimiter']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'dataPageSize' in kwargs:
+            data_page_size = kwargs['dataPageSize']
+        if 'datePartitionDelimiter' in kwargs:
+            date_partition_delimiter = kwargs['datePartitionDelimiter']
+        if 'datePartitionEnabled' in kwargs:
+            date_partition_enabled = kwargs['datePartitionEnabled']
+        if 'datePartitionSequence' in kwargs:
+            date_partition_sequence = kwargs['datePartitionSequence']
+        if 'datePartitionTimezone' in kwargs:
+            date_partition_timezone = kwargs['datePartitionTimezone']
+        if 'dictPageSizeLimit' in kwargs:
+            dict_page_size_limit = kwargs['dictPageSizeLimit']
+        if 'enableStatistics' in kwargs:
+            enable_statistics = kwargs['enableStatistics']
+        if 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if 'externalTableDefinition' in kwargs:
+            external_table_definition = kwargs['externalTableDefinition']
+        if 'ignoreHeaderRows' in kwargs:
+            ignore_header_rows = kwargs['ignoreHeaderRows']
+        if 'includeOpForFullLoad' in kwargs:
+            include_op_for_full_load = kwargs['includeOpForFullLoad']
+        if 'maxFileSize' in kwargs:
+            max_file_size = kwargs['maxFileSize']
+        if 'parquetTimestampInMillisecond' in kwargs:
+            parquet_timestamp_in_millisecond = kwargs['parquetTimestampInMillisecond']
+        if 'parquetVersion' in kwargs:
+            parquet_version = kwargs['parquetVersion']
+        if 'preserveTransactions' in kwargs:
+            preserve_transactions = kwargs['preserveTransactions']
+        if 'rowGroupLength' in kwargs:
+            row_group_length = kwargs['rowGroupLength']
+        if 'serverSideEncryptionKmsKeyId' in kwargs:
+            server_side_encryption_kms_key_id = kwargs['serverSideEncryptionKmsKeyId']
+        if 'serviceAccessRoleArn' in kwargs:
+            service_access_role_arn = kwargs['serviceAccessRoleArn']
+        if 'timestampColumnName' in kwargs:
+            timestamp_column_name = kwargs['timestampColumnName']
+        if 'useCsvNoSupValue' in kwargs:
+            use_csv_no_sup_value = kwargs['useCsvNoSupValue']
+        if 'useTaskStartTimeForFullLoadTimestamp' in kwargs:
+            use_task_start_time_for_full_load_timestamp = kwargs['useTaskStartTimeForFullLoadTimestamp']
+
         if add_column_name is not None:
             _setter("add_column_name", add_column_name)
         if bucket_folder is not None:
@@ -3165,7 +3619,13 @@ class EndpointSybaseSettings(dict):
              _setter: Callable[[Any, Any], None],
              secrets_manager_access_role_arn: Optional[str] = None,
              secrets_manager_secret_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if 'secretsManagerSecretId' in kwargs:
+            secrets_manager_secret_id = kwargs['secretsManagerSecretId']
+
         if secrets_manager_access_role_arn is not None:
             _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_secret_id is not None:
@@ -3197,7 +3657,9 @@ class EndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3227,7 +3689,9 @@ class EventSubscriptionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3317,7 +3781,27 @@ class ReplicationConfigComputeConfig(dict):
              preferred_maintenance_window: Optional[str] = None,
              replication_subnet_group_id: Optional[str] = None,
              vpc_security_group_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacityUnits' in kwargs:
+            max_capacity_units = kwargs['maxCapacityUnits']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'dnsNameServers' in kwargs:
+            dns_name_servers = kwargs['dnsNameServers']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'minCapacityUnits' in kwargs:
+            min_capacity_units = kwargs['minCapacityUnits']
+        if 'multiAz' in kwargs:
+            multi_az = kwargs['multiAz']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'replicationSubnetGroupId' in kwargs:
+            replication_subnet_group_id = kwargs['replicationSubnetGroupId']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("max_capacity_units", max_capacity_units)
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
@@ -3407,7 +3891,9 @@ class ReplicationConfigTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3443,7 +3929,9 @@ class ReplicationInstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3473,7 +3961,9 @@ class ReplicationSubnetGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3503,7 +3993,9 @@ class ReplicationTaskTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

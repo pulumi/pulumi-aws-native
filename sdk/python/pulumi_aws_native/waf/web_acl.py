@@ -37,7 +37,13 @@ class WebAclArgs:
              metric_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclActivatedRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("default_action", default_action)
         _setter("metric_name", metric_name)
         if name is not None:

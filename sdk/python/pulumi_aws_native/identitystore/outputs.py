@@ -49,7 +49,11 @@ class GroupMembershipMemberId(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              user_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("user_id", user_id)
 
     @property

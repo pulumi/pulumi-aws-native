@@ -31,7 +31,13 @@ class ApplicationReferenceDataSourceArgs:
              _setter: Callable[[Any, Any], None],
              application_name: pulumi.Input[str],
              reference_data_source: pulumi.Input['ApplicationReferenceDataSourceReferenceDataSourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'referenceDataSource' in kwargs:
+            reference_data_source = kwargs['referenceDataSource']
+
         _setter("application_name", application_name)
         _setter("reference_data_source", reference_data_source)
 

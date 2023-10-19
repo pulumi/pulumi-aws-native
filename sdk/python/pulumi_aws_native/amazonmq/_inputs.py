@@ -36,7 +36,9 @@ class BrokerConfigurationIdArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -74,7 +76,13 @@ class BrokerEncryptionOptionsArgs:
              _setter: Callable[[Any, Any], None],
              use_aws_owned_key: pulumi.Input[bool],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("use_aws_owned_key", use_aws_owned_key)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -140,7 +148,29 @@ class BrokerLdapServerMetadataArgs:
              role_search_subtree: Optional[pulumi.Input[bool]] = None,
              user_role_name: Optional[pulumi.Input[str]] = None,
              user_search_subtree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
         _setter("hosts", hosts)
         _setter("role_base", role_base)
         _setter("role_search_matching", role_search_matching)
@@ -272,7 +302,9 @@ class BrokerLogListArgs:
              _setter: Callable[[Any, Any], None],
              audit: Optional[pulumi.Input[bool]] = None,
              general: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audit is not None:
             _setter("audit", audit)
         if general is not None:
@@ -315,7 +347,15 @@ class BrokerMaintenanceWindowArgs:
              day_of_week: pulumi.Input[str],
              time_of_day: pulumi.Input[str],
              time_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("day_of_week", day_of_week)
         _setter("time_of_day", time_of_day)
         _setter("time_zone", time_zone)
@@ -363,7 +403,9 @@ class BrokerTagsEntryArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -407,7 +449,11 @@ class BrokerUserArgs:
              username: pulumi.Input[str],
              console_access: Optional[pulumi.Input[bool]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+
         _setter("password", password)
         _setter("username", username)
         if console_access is not None:
@@ -467,7 +513,9 @@ class ConfigurationAssociationConfigurationIdArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -505,7 +553,9 @@ class ConfigurationTagsEntryArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

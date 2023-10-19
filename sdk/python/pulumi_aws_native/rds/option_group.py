@@ -49,7 +49,19 @@ class OptionGroupArgs:
              option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
              option_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if 'majorEngineVersion' in kwargs:
+            major_engine_version = kwargs['majorEngineVersion']
+        if 'optionGroupDescription' in kwargs:
+            option_group_description = kwargs['optionGroupDescription']
+        if 'optionConfigurations' in kwargs:
+            option_configurations = kwargs['optionConfigurations']
+        if 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+
         _setter("engine_name", engine_name)
         _setter("major_engine_version", major_engine_version)
         _setter("option_group_description", option_group_description)

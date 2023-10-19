@@ -69,7 +69,29 @@ class ReplicationConfigArgs:
              table_mappings: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]]] = None,
              target_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeConfig' in kwargs:
+            compute_config = kwargs['computeConfig']
+        if 'replicationConfigArn' in kwargs:
+            replication_config_arn = kwargs['replicationConfigArn']
+        if 'replicationConfigIdentifier' in kwargs:
+            replication_config_identifier = kwargs['replicationConfigIdentifier']
+        if 'replicationSettings' in kwargs:
+            replication_settings = kwargs['replicationSettings']
+        if 'replicationType' in kwargs:
+            replication_type = kwargs['replicationType']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if 'supplementalSettings' in kwargs:
+            supplemental_settings = kwargs['supplementalSettings']
+        if 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+
         if compute_config is not None:
             _setter("compute_config", compute_config)
         if replication_config_arn is not None:

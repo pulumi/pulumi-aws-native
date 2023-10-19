@@ -57,7 +57,15 @@ class LocationSmbArgs:
              server_hostname: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+
         _setter("agent_arns", agent_arns)
         _setter("user", user)
         if domain is not None:

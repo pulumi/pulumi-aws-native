@@ -37,7 +37,13 @@ class ReadinessCheckArgs:
              readiness_check_name: Optional[pulumi.Input[str]] = None,
              resource_set_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReadinessCheckTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readinessCheckName' in kwargs:
+            readiness_check_name = kwargs['readinessCheckName']
+        if 'resourceSetName' in kwargs:
+            resource_set_name = kwargs['resourceSetName']
+
         if readiness_check_name is not None:
             _setter("readiness_check_name", readiness_check_name)
         if resource_set_name is not None:

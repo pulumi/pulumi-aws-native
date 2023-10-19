@@ -66,7 +66,9 @@ class AutoScalingGroupAcceleratorCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -106,7 +108,9 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -146,7 +150,9 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -249,7 +255,55 @@ class AutoScalingGroupInstanceRequirementsArgs:
              spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
              total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None,
              v_cpu_count: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -532,7 +586,21 @@ class AutoScalingGroupInstancesDistributionArgs:
              spot_allocation_strategy: Optional[pulumi.Input[str]] = None,
              spot_instance_pools: Optional[pulumi.Input[int]] = None,
              spot_max_price: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDemandAllocationStrategy' in kwargs:
+            on_demand_allocation_strategy = kwargs['onDemandAllocationStrategy']
+        if 'onDemandBaseCapacity' in kwargs:
+            on_demand_base_capacity = kwargs['onDemandBaseCapacity']
+        if 'onDemandPercentageAboveBaseCapacity' in kwargs:
+            on_demand_percentage_above_base_capacity = kwargs['onDemandPercentageAboveBaseCapacity']
+        if 'spotAllocationStrategy' in kwargs:
+            spot_allocation_strategy = kwargs['spotAllocationStrategy']
+        if 'spotInstancePools' in kwargs:
+            spot_instance_pools = kwargs['spotInstancePools']
+        if 'spotMaxPrice' in kwargs:
+            spot_max_price = kwargs['spotMaxPrice']
+
         if on_demand_allocation_strategy is not None:
             _setter("on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
@@ -622,7 +690,17 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
              instance_type: Optional[pulumi.Input[str]] = None,
              launch_template_specification: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
              weighted_capacity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         if instance_requirements is not None:
             _setter("instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -687,7 +765,13 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
              version: pulumi.Input[str],
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -737,7 +821,11 @@ class AutoScalingGroupLaunchTemplateArgs:
              _setter: Callable[[Any, Any], None],
              launch_template_specification: pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'],
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+
         _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
             _setter("overrides", overrides)
@@ -791,7 +879,23 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
              notification_metadata: Optional[pulumi.Input[str]] = None,
              notification_target_arn: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lifecycleHookName' in kwargs:
+            lifecycle_hook_name = kwargs['lifecycleHookName']
+        if 'lifecycleTransition' in kwargs:
+            lifecycle_transition = kwargs['lifecycleTransition']
+        if 'defaultResult' in kwargs:
+            default_result = kwargs['defaultResult']
+        if 'heartbeatTimeout' in kwargs:
+            heartbeat_timeout = kwargs['heartbeatTimeout']
+        if 'notificationMetadata' in kwargs:
+            notification_metadata = kwargs['notificationMetadata']
+        if 'notificationTargetArn' in kwargs:
+            notification_target_arn = kwargs['notificationTargetArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("lifecycle_hook_name", lifecycle_hook_name)
         _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:
@@ -884,7 +988,9 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -924,7 +1030,9 @@ class AutoScalingGroupMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -964,7 +1072,9 @@ class AutoScalingGroupMetricsCollectionArgs:
              _setter: Callable[[Any, Any], None],
              granularity: pulumi.Input[str],
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("granularity", granularity)
         if metrics is not None:
             _setter("metrics", metrics)
@@ -1003,7 +1113,13 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
              _setter: Callable[[Any, Any], None],
              launch_template: pulumi.Input['AutoScalingGroupLaunchTemplateArgs'],
              instances_distribution: Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'instancesDistribution' in kwargs:
+            instances_distribution = kwargs['instancesDistribution']
+
         _setter("launch_template", launch_template)
         if instances_distribution is not None:
             _setter("instances_distribution", instances_distribution)
@@ -1042,7 +1158,9 @@ class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1082,7 +1200,9 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1122,7 +1242,13 @@ class AutoScalingGroupNotificationConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              topic_arn: pulumi.Input[str],
              notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if 'notificationTypes' in kwargs:
+            notification_types = kwargs['notificationTypes']
+
         _setter("topic_arn", topic_arn)
         if notification_types is not None:
             _setter("notification_types", notification_types)
@@ -1164,7 +1290,11 @@ class AutoScalingGroupTagPropertyArgs:
              key: pulumi.Input[str],
              propagate_at_launch: pulumi.Input[bool],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propagateAtLaunch' in kwargs:
+            propagate_at_launch = kwargs['propagateAtLaunch']
+
         _setter("key", key)
         _setter("propagate_at_launch", propagate_at_launch)
         _setter("value", value)
@@ -1212,7 +1342,9 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1252,7 +1384,9 @@ class AutoScalingGroupVCpuCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1305,7 +1439,15 @@ class LaunchConfigurationBlockDeviceMappingArgs:
              ebs: Optional[pulumi.Input['LaunchConfigurationBlockDeviceArgs']] = None,
              no_device: Optional[pulumi.Input[bool]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         _setter("device_name", device_name)
         if ebs is not None:
             _setter("ebs", ebs)
@@ -1403,7 +1545,17 @@ class LaunchConfigurationBlockDeviceArgs:
              throughput: Optional[pulumi.Input[int]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1528,7 +1680,15 @@ class LaunchConfigurationMetadataOptionsArgs:
              http_endpoint: Optional[pulumi.Input[str]] = None,
              http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
              http_tokens: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+
         if http_endpoint is not None:
             _setter("http_endpoint", http_endpoint)
         if http_put_response_hop_limit is not None:
@@ -1597,7 +1757,11 @@ class ScalingPolicyCustomizedMetricSpecificationArgs:
              statistic: pulumi.Input[str],
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -1676,7 +1840,13 @@ class ScalingPolicyMetricDataQueryArgs:
              label: Optional[pulumi.Input[str]] = None,
              metric_stat: Optional[pulumi.Input['ScalingPolicyMetricStatArgs']] = None,
              return_data: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
         _setter("id", id)
         if expression is not None:
             _setter("expression", expression)
@@ -1748,7 +1918,9 @@ class ScalingPolicyMetricDimensionArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1789,7 +1961,9 @@ class ScalingPolicyMetricStatArgs:
              metric: pulumi.Input['ScalingPolicyMetricArgs'],
              stat: pulumi.Input[str],
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("metric", metric)
         _setter("stat", stat)
         if unit is not None:
@@ -1841,7 +2015,11 @@ class ScalingPolicyMetricArgs:
              metric_name: pulumi.Input[str],
              namespace: pulumi.Input[str],
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDimensionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         if dimensions is not None:
@@ -1890,7 +2068,13 @@ class ScalingPolicyPredefinedMetricSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              predefined_metric_type: pulumi.Input[str],
              resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -1938,7 +2122,17 @@ class ScalingPolicyPredictiveScalingConfigurationArgs:
              max_capacity_buffer: Optional[pulumi.Input[int]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              scheduling_buffer_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricSpecifications' in kwargs:
+            metric_specifications = kwargs['metricSpecifications']
+        if 'maxCapacityBreachBehavior' in kwargs:
+            max_capacity_breach_behavior = kwargs['maxCapacityBreachBehavior']
+        if 'maxCapacityBuffer' in kwargs:
+            max_capacity_buffer = kwargs['maxCapacityBuffer']
+        if 'schedulingBufferTime' in kwargs:
+            scheduling_buffer_time = kwargs['schedulingBufferTime']
+
         _setter("metric_specifications", metric_specifications)
         if max_capacity_breach_behavior is not None:
             _setter("max_capacity_breach_behavior", max_capacity_breach_behavior)
@@ -2007,7 +2201,11 @@ class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDataQueries' in kwargs:
+            metric_data_queries = kwargs['metricDataQueries']
+
         _setter("metric_data_queries", metric_data_queries)
 
     @property
@@ -2032,7 +2230,11 @@ class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDataQueries' in kwargs:
+            metric_data_queries = kwargs['metricDataQueries']
+
         _setter("metric_data_queries", metric_data_queries)
 
     @property
@@ -2057,7 +2259,11 @@ class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyMetricDataQueryArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDataQueries' in kwargs:
+            metric_data_queries = kwargs['metricDataQueries']
+
         _setter("metric_data_queries", metric_data_queries)
 
     @property
@@ -2100,7 +2306,23 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
              predefined_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']] = None,
              predefined_metric_pair_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']] = None,
              predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if 'customizedCapacityMetricSpecification' in kwargs:
+            customized_capacity_metric_specification = kwargs['customizedCapacityMetricSpecification']
+        if 'customizedLoadMetricSpecification' in kwargs:
+            customized_load_metric_specification = kwargs['customizedLoadMetricSpecification']
+        if 'customizedScalingMetricSpecification' in kwargs:
+            customized_scaling_metric_specification = kwargs['customizedScalingMetricSpecification']
+        if 'predefinedLoadMetricSpecification' in kwargs:
+            predefined_load_metric_specification = kwargs['predefinedLoadMetricSpecification']
+        if 'predefinedMetricPairSpecification' in kwargs:
+            predefined_metric_pair_specification = kwargs['predefinedMetricPairSpecification']
+        if 'predefinedScalingMetricSpecification' in kwargs:
+            predefined_scaling_metric_specification = kwargs['predefinedScalingMetricSpecification']
+
         _setter("target_value", target_value)
         if customized_capacity_metric_specification is not None:
             _setter("customized_capacity_metric_specification", customized_capacity_metric_specification)
@@ -2194,7 +2416,13 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
              _setter: Callable[[Any, Any], None],
              predefined_metric_type: pulumi.Input[str],
              resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -2233,7 +2461,13 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
              _setter: Callable[[Any, Any], None],
              predefined_metric_type: pulumi.Input[str],
              resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -2272,7 +2506,13 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
              _setter: Callable[[Any, Any], None],
              predefined_metric_type: pulumi.Input[str],
              resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -2314,7 +2554,15 @@ class ScalingPolicyStepAdjustmentArgs:
              scaling_adjustment: pulumi.Input[int],
              metric_interval_lower_bound: Optional[pulumi.Input[float]] = None,
              metric_interval_upper_bound: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if 'metricIntervalLowerBound' in kwargs:
+            metric_interval_lower_bound = kwargs['metricIntervalLowerBound']
+        if 'metricIntervalUpperBound' in kwargs:
+            metric_interval_upper_bound = kwargs['metricIntervalUpperBound']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
             _setter("metric_interval_lower_bound", metric_interval_lower_bound)
@@ -2370,7 +2618,17 @@ class ScalingPolicyTargetTrackingConfigurationArgs:
              customized_metric_specification: Optional[pulumi.Input['ScalingPolicyCustomizedMetricSpecificationArgs']] = None,
              disable_scale_in: Optional[pulumi.Input[bool]] = None,
              predefined_metric_specification: Optional[pulumi.Input['ScalingPolicyPredefinedMetricSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if 'customizedMetricSpecification' in kwargs:
+            customized_metric_specification = kwargs['customizedMetricSpecification']
+        if 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if 'predefinedMetricSpecification' in kwargs:
+            predefined_metric_specification = kwargs['predefinedMetricSpecification']
+
         _setter("target_value", target_value)
         if customized_metric_specification is not None:
             _setter("customized_metric_specification", customized_metric_specification)
@@ -2428,7 +2686,11 @@ class WarmPoolInstanceReusePolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              reuse_on_scale_in: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reuseOnScaleIn' in kwargs:
+            reuse_on_scale_in = kwargs['reuseOnScaleIn']
+
         if reuse_on_scale_in is not None:
             _setter("reuse_on_scale_in", reuse_on_scale_in)
 

@@ -36,7 +36,11 @@ class SchedulingPolicyArgs:
              fairshare_policy: Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fairsharePolicy' in kwargs:
+            fairshare_policy = kwargs['fairsharePolicy']
+
         if fairshare_policy is not None:
             _setter("fairshare_policy", fairshare_policy)
         if name is not None:

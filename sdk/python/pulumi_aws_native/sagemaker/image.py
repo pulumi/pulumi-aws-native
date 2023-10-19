@@ -41,7 +41,17 @@ class ImageArgs:
              image_display_name: Optional[pulumi.Input[str]] = None,
              image_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageRoleArn' in kwargs:
+            image_role_arn = kwargs['imageRoleArn']
+        if 'imageDescription' in kwargs:
+            image_description = kwargs['imageDescription']
+        if 'imageDisplayName' in kwargs:
+            image_display_name = kwargs['imageDisplayName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+
         _setter("image_role_arn", image_role_arn)
         if image_description is not None:
             _setter("image_description", image_description)

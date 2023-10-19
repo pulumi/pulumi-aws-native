@@ -43,7 +43,11 @@ class IpSetArgs:
              location: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+
         _setter("activate", activate)
         _setter("detector_id", detector_id)
         _setter("format", format)

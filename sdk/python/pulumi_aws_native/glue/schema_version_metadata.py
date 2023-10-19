@@ -35,7 +35,11 @@ class SchemaVersionMetadataArgs:
              key: pulumi.Input[str],
              schema_version_id: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaVersionId' in kwargs:
+            schema_version_id = kwargs['schemaVersionId']
+
         _setter("key", key)
         _setter("schema_version_id", schema_version_id)
         _setter("value", value)

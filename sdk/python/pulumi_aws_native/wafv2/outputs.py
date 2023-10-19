@@ -169,7 +169,9 @@ class IpSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -224,7 +226,13 @@ class LoggingConfigurationCondition(dict):
              _setter: Callable[[Any, Any], None],
              action_condition: Optional['outputs.LoggingConfigurationConditionActionConditionProperties'] = None,
              label_name_condition: Optional['outputs.LoggingConfigurationConditionLabelNameConditionProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionCondition' in kwargs:
+            action_condition = kwargs['actionCondition']
+        if 'labelNameCondition' in kwargs:
+            label_name_condition = kwargs['labelNameCondition']
+
         if action_condition is not None:
             _setter("action_condition", action_condition)
         if label_name_condition is not None:
@@ -266,7 +274,9 @@ class LoggingConfigurationConditionActionConditionProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: 'LoggingConfigurationConditionActionConditionPropertiesAction',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
 
     @property
@@ -314,7 +324,11 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              label_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+
         _setter("label_name", label_name)
 
     @property
@@ -384,7 +398,17 @@ class LoggingConfigurationFieldToMatch(dict):
              query_string: Optional[Any] = None,
              single_header: Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if json_body is not None:
             _setter("json_body", json_body)
         if method is not None:
@@ -485,7 +509,15 @@ class LoggingConfigurationFieldToMatchJsonBodyProperties(dict):
              match_pattern: 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
              match_scope: 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
              invalid_fallback_behavior: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -556,7 +588,11 @@ class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties(d
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -598,7 +634,9 @@ class LoggingConfigurationFieldToMatchSingleHeaderProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -633,7 +671,9 @@ class LoggingConfigurationFilter(dict):
              behavior: 'LoggingConfigurationFilterBehavior',
              conditions: Sequence['outputs.LoggingConfigurationCondition'],
              requirement: 'LoggingConfigurationFilterRequirement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         _setter("conditions", conditions)
         _setter("requirement", requirement)
@@ -703,7 +743,11 @@ class LoggingFilterProperties(dict):
              _setter: Callable[[Any, Any], None],
              default_behavior: 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
              filters: Sequence['outputs.LoggingConfigurationFilter'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultBehavior' in kwargs:
+            default_behavior = kwargs['defaultBehavior']
+
         _setter("default_behavior", default_behavior)
         _setter("filters", filters)
 
@@ -739,7 +783,9 @@ class RegexPatternSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -791,7 +837,11 @@ class RuleGroupAllowAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -813,7 +863,9 @@ class RuleGroupAndStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -857,7 +909,11 @@ class RuleGroupBlockAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional['outputs.RuleGroupCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -902,7 +958,11 @@ class RuleGroupBody(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -967,7 +1027,19 @@ class RuleGroupByteMatchStatement(dict):
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
              search_string: Optional[str] = None,
              search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -1037,7 +1109,11 @@ class RuleGroupCaptchaAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1076,7 +1152,11 @@ class RuleGroupCaptchaConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -1121,7 +1201,11 @@ class RuleGroupChallengeAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1160,7 +1244,11 @@ class RuleGroupChallengeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -1214,7 +1302,13 @@ class RuleGroupCookieMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_cookies: Optional[Sequence[str]] = None,
              included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -1286,7 +1380,15 @@ class RuleGroupCookies(dict):
              match_pattern: 'outputs.RuleGroupCookieMatchPattern',
              match_scope: 'RuleGroupMapMatchScope',
              oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -1342,7 +1444,11 @@ class RuleGroupCountAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1373,7 +1479,9 @@ class RuleGroupCustomHttpHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1424,7 +1532,11 @@ class RuleGroupCustomRequestHandling(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              insert_headers: Sequence['outputs.RuleGroupCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -1483,7 +1595,15 @@ class RuleGroupCustomResponse(dict):
              response_code: int,
              custom_response_body_key: Optional[str] = None,
              response_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -1525,8 +1645,10 @@ class RuleGroupCustomResponseBodies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1606,7 +1728,21 @@ class RuleGroupFieldToMatch(dict):
              single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
              single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -1706,7 +1842,9 @@ class RuleGroupFieldToMatchSingleHeaderProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1733,7 +1871,9 @@ class RuleGroupFieldToMatchSingleQueryArgumentProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1776,7 +1916,13 @@ class RuleGroupForwardedIpConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              fallback_behavior: 'RuleGroupForwardedIpConfigurationFallbackBehavior',
              header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -1825,7 +1971,13 @@ class RuleGroupGeoMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[Sequence[str]] = None,
              forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -1886,7 +2038,13 @@ class RuleGroupHeaderMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_headers: Optional[Sequence[str]] = None,
              included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -1958,7 +2116,15 @@ class RuleGroupHeaders(dict):
              match_pattern: 'outputs.RuleGroupHeaderMatchPattern',
              match_scope: 'RuleGroupMapMatchScope',
              oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -2008,7 +2174,11 @@ class RuleGroupImmunityTimeProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -2054,7 +2224,13 @@ class RuleGroupIpSetForwardedIpConfiguration(dict):
              fallback_behavior: 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
              header_name: str,
              position: 'RuleGroupIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -2107,7 +2283,11 @@ class RuleGroupIpSetReferenceStatement(dict):
              _setter: Callable[[Any, Any], None],
              arn: str,
              ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -2173,7 +2353,17 @@ class RuleGroupJsonBody(dict):
              match_scope: 'RuleGroupJsonMatchScope',
              invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None,
              oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -2241,7 +2431,11 @@ class RuleGroupJsonMatchPattern(dict):
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -2273,7 +2467,9 @@ class RuleGroupLabel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2297,7 +2493,9 @@ class RuleGroupLabelMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              scope: 'RuleGroupLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -2324,7 +2522,9 @@ class RuleGroupLabelSummary(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -2346,7 +2546,9 @@ class RuleGroupNotStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statement: 'outputs.RuleGroupStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statement", statement)
 
     @property
@@ -2367,7 +2569,9 @@ class RuleGroupOrStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -2426,7 +2630,17 @@ class RuleGroupRateBasedStatement(dict):
              custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
              forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
              scope_down_statement: Optional['outputs.RuleGroupStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -2534,7 +2748,21 @@ class RuleGroupRateBasedStatementCustomKey(dict):
              query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
              query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
              uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -2639,7 +2867,11 @@ class RuleGroupRateLimitCookie(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2670,8 +2902,10 @@ class RuleGroupRateLimitForwardedIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2713,7 +2947,11 @@ class RuleGroupRateLimitHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2744,8 +2982,10 @@ class RuleGroupRateLimitHttpMethod(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2761,8 +3001,10 @@ class RuleGroupRateLimitIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2784,7 +3026,9 @@ class RuleGroupRateLimitLabelNamespace(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
 
     @property
@@ -2835,7 +3079,11 @@ class RuleGroupRateLimitQueryArgument(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2888,7 +3136,11 @@ class RuleGroupRateLimitQueryString(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2932,7 +3184,11 @@ class RuleGroupRateLimitUriPath(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2980,7 +3236,15 @@ class RuleGroupRegexMatchStatement(dict):
              field_to_match: 'outputs.RuleGroupFieldToMatch',
              regex_string: str,
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -3038,7 +3302,13 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
              arn: str,
              field_to_match: 'outputs.RuleGroupFieldToMatch',
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -3122,7 +3392,17 @@ class RuleGroupRule(dict):
              captcha_config: Optional['outputs.RuleGroupCaptchaConfig'] = None,
              challenge_config: Optional['outputs.RuleGroupChallengeConfig'] = None,
              rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -3210,7 +3490,9 @@ class RuleGroupRuleAction(dict):
              captcha: Optional['outputs.RuleGroupCaptchaAction'] = None,
              challenge: Optional['outputs.RuleGroupChallengeAction'] = None,
              count: Optional['outputs.RuleGroupCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -3296,7 +3578,15 @@ class RuleGroupSizeConstraintStatement(dict):
              field_to_match: 'outputs.RuleGroupFieldToMatch',
              size: float,
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -3368,7 +3658,15 @@ class RuleGroupSqliMatchStatement(dict):
              field_to_match: 'outputs.RuleGroupFieldToMatch',
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
              sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -3485,7 +3783,35 @@ class RuleGroupStatement(dict):
              size_constraint_statement: Optional['outputs.RuleGroupSizeConstraintStatement'] = None,
              sqli_match_statement: Optional['outputs.RuleGroupSqliMatchStatement'] = None,
              xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -3594,7 +3920,9 @@ class RuleGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3632,7 +3960,9 @@ class RuleGroupTextTransformation(dict):
              _setter: Callable[[Any, Any], None],
              priority: int,
              type: 'RuleGroupTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -3692,7 +4022,15 @@ class RuleGroupVisibilityConfig(dict):
              cloud_watch_metrics_enabled: bool,
              metric_name: str,
              sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -3753,7 +4091,13 @@ class RuleGroupXssMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              field_to_match: 'outputs.RuleGroupFieldToMatch',
              text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 
@@ -3803,7 +4147,11 @@ class WebAclAllowAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -3825,7 +4173,9 @@ class WebAclAndStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -3869,7 +4219,11 @@ class WebAclAssociationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              request_body: Optional['outputs.WebAclRequestBody'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestBody' in kwargs:
+            request_body = kwargs['requestBody']
+
         if request_body is not None:
             _setter("request_body", request_body)
 
@@ -3934,7 +4288,19 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
              request_inspection: 'outputs.WebAclRequestInspectionAcfp',
              enable_regex_in_path: Optional[bool] = None,
              response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationPath' in kwargs:
+            creation_path = kwargs['creationPath']
+        if 'registrationPagePath' in kwargs:
+            registration_page_path = kwargs['registrationPagePath']
+        if 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("creation_path", creation_path)
         _setter("registration_page_path", registration_page_path)
         _setter("request_inspection", request_inspection)
@@ -4019,7 +4385,17 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
              enable_regex_in_path: Optional[bool] = None,
              request_inspection: Optional['outputs.WebAclRequestInspection'] = None,
              response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("login_path", login_path)
         if enable_regex_in_path is not None:
             _setter("enable_regex_in_path", enable_regex_in_path)
@@ -4089,7 +4465,13 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
              _setter: Callable[[Any, Any], None],
              inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
              enable_machine_learning: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inspectionLevel' in kwargs:
+            inspection_level = kwargs['inspectionLevel']
+        if 'enableMachineLearning' in kwargs:
+            enable_machine_learning = kwargs['enableMachineLearning']
+
         _setter("inspection_level", inspection_level)
         if enable_machine_learning is not None:
             _setter("enable_machine_learning", enable_machine_learning)
@@ -4140,7 +4522,11 @@ class WebAclBlockAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional['outputs.WebAclCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -4185,7 +4571,11 @@ class WebAclBody(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -4250,7 +4640,19 @@ class WebAclByteMatchStatement(dict):
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
              search_string: Optional[str] = None,
              search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -4320,7 +4722,11 @@ class WebAclCaptchaAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4359,7 +4765,11 @@ class WebAclCaptchaConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -4404,7 +4814,11 @@ class WebAclChallengeAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4443,7 +4857,11 @@ class WebAclChallengeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -4497,7 +4915,13 @@ class WebAclCookieMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_cookies: Optional[Sequence[str]] = None,
              included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -4569,7 +4993,15 @@ class WebAclCookies(dict):
              match_pattern: 'outputs.WebAclCookieMatchPattern',
              match_scope: 'WebAclMapMatchScope',
              oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -4625,7 +5057,11 @@ class WebAclCountAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4656,7 +5092,9 @@ class WebAclCustomHttpHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -4707,7 +5145,11 @@ class WebAclCustomRequestHandling(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              insert_headers: Sequence['outputs.WebAclCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -4766,7 +5208,15 @@ class WebAclCustomResponse(dict):
              response_code: int,
              custom_response_body_key: Optional[str] = None,
              response_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -4808,8 +5258,10 @@ class WebAclCustomResponseBodies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -4833,7 +5285,9 @@ class WebAclDefaultAction(dict):
              _setter: Callable[[Any, Any], None],
              allow: Optional['outputs.WebAclAllowAction'] = None,
              block: Optional['outputs.WebAclBlockAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -4868,7 +5322,9 @@ class WebAclExcludedRule(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -4889,7 +5345,9 @@ class WebAclFieldIdentifier(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              identifier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("identifier", identifier)
 
     @property
@@ -4975,7 +5433,21 @@ class WebAclFieldToMatch(dict):
              single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
              single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -5075,7 +5547,9 @@ class WebAclFieldToMatchSingleHeaderProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -5102,7 +5576,9 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -5145,7 +5621,13 @@ class WebAclForwardedIpConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              fallback_behavior: 'WebAclForwardedIpConfigurationFallbackBehavior',
              header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -5194,7 +5676,13 @@ class WebAclGeoMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[Sequence[str]] = None,
              forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -5255,7 +5743,13 @@ class WebAclHeaderMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_headers: Optional[Sequence[str]] = None,
              included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -5327,7 +5821,15 @@ class WebAclHeaders(dict):
              match_pattern: 'outputs.WebAclHeaderMatchPattern',
              match_scope: 'WebAclMapMatchScope',
              oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -5377,7 +5879,11 @@ class WebAclImmunityTimeProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -5423,7 +5929,13 @@ class WebAclIpSetForwardedIpConfiguration(dict):
              fallback_behavior: 'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
              header_name: str,
              position: 'WebAclIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -5476,7 +5988,11 @@ class WebAclIpSetReferenceStatement(dict):
              _setter: Callable[[Any, Any], None],
              arn: str,
              ip_set_forwarded_ip_config: Optional['outputs.WebAclIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -5542,7 +6058,17 @@ class WebAclJsonBody(dict):
              match_scope: 'WebAclJsonMatchScope',
              invalid_fallback_behavior: Optional['WebAclBodyParsingFallbackBehavior'] = None,
              oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -5610,7 +6136,11 @@ class WebAclJsonMatchPattern(dict):
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -5642,7 +6172,9 @@ class WebAclLabel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -5666,7 +6198,9 @@ class WebAclLabelMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              scope: 'WebAclLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -5746,7 +6280,23 @@ class WebAclManagedRuleGroupConfig(dict):
              password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
              payload_type: Optional['WebAclManagedRuleGroupConfigPayloadType'] = None,
              username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsManagedRulesAcfpRuleSet' in kwargs:
+            aws_managed_rules_acfp_rule_set = kwargs['awsManagedRulesAcfpRuleSet']
+        if 'awsManagedRulesAtpRuleSet' in kwargs:
+            aws_managed_rules_atp_rule_set = kwargs['awsManagedRulesAtpRuleSet']
+        if 'awsManagedRulesBotControlRuleSet' in kwargs:
+            aws_managed_rules_bot_control_rule_set = kwargs['awsManagedRulesBotControlRuleSet']
+        if 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         if aws_managed_rules_acfp_rule_set is not None:
             _setter("aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
@@ -5857,7 +6407,19 @@ class WebAclManagedRuleGroupStatement(dict):
              rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
              scope_down_statement: Optional['outputs.WebAclStatement'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+        if 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if 'managedRuleGroupConfigs' in kwargs:
+            managed_rule_group_configs = kwargs['managedRuleGroupConfigs']
+        if 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("name", name)
         _setter("vendor_name", vendor_name)
         if excluded_rules is not None:
@@ -5925,7 +6487,9 @@ class WebAclNotStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statement: 'outputs.WebAclStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statement", statement)
 
     @property
@@ -5946,7 +6510,9 @@ class WebAclOrStatement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -5978,7 +6544,9 @@ class WebAclOverrideAction(dict):
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
              none: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if none is not None:
@@ -6051,7 +6619,17 @@ class WebAclRateBasedStatement(dict):
              custom_keys: Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']] = None,
              forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
              scope_down_statement: Optional['outputs.WebAclStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -6159,7 +6737,21 @@ class WebAclRateBasedStatementCustomKey(dict):
              query_argument: Optional['outputs.WebAclRateLimitQueryArgument'] = None,
              query_string: Optional['outputs.WebAclRateLimitQueryString'] = None,
              uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -6264,7 +6856,11 @@ class WebAclRateLimitCookie(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6295,8 +6891,10 @@ class WebAclRateLimitForwardedIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6338,7 +6936,11 @@ class WebAclRateLimitHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6369,8 +6971,10 @@ class WebAclRateLimitHttpMethod(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6386,8 +6990,10 @@ class WebAclRateLimitIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6409,7 +7015,9 @@ class WebAclRateLimitLabelNamespace(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
 
     @property
@@ -6460,7 +7068,11 @@ class WebAclRateLimitQueryArgument(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6513,7 +7125,11 @@ class WebAclRateLimitQueryString(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -6557,7 +7173,11 @@ class WebAclRateLimitUriPath(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -6605,7 +7225,15 @@ class WebAclRegexMatchStatement(dict):
              field_to_match: 'outputs.WebAclFieldToMatch',
              regex_string: str,
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -6663,7 +7291,13 @@ class WebAclRegexPatternSetReferenceStatement(dict):
              arn: str,
              field_to_match: 'outputs.WebAclFieldToMatch',
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -6697,8 +7331,10 @@ class WebAclRequestBody(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6746,7 +7382,15 @@ class WebAclRequestInspection(dict):
              password_field: 'outputs.WebAclFieldIdentifier',
              payload_type: 'WebAclRequestInspectionPayloadType',
              username_field: 'outputs.WebAclFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         _setter("password_field", password_field)
         _setter("payload_type", payload_type)
         _setter("username_field", username_field)
@@ -6827,7 +7471,21 @@ class WebAclRequestInspectionAcfp(dict):
              password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
              phone_number_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
              username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'addressFields' in kwargs:
+            address_fields = kwargs['addressFields']
+        if 'emailField' in kwargs:
+            email_field = kwargs['emailField']
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'phoneNumberFields' in kwargs:
+            phone_number_fields = kwargs['phoneNumberFields']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         _setter("payload_type", payload_type)
         if address_fields is not None:
             _setter("address_fields", address_fields)
@@ -6917,7 +7575,13 @@ class WebAclResponseInspection(dict):
              header: Optional['outputs.WebAclResponseInspectionHeader'] = None,
              json: Optional['outputs.WebAclResponseInspectionJson'] = None,
              status_code: Optional['outputs.WebAclResponseInspectionStatusCode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyContains' in kwargs:
+            body_contains = kwargs['bodyContains']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if body_contains is not None:
             _setter("body_contains", body_contains)
         if header is not None:
@@ -6988,7 +7652,13 @@ class WebAclResponseInspectionBodyContains(dict):
              _setter: Callable[[Any, Any], None],
              failure_strings: Sequence[str],
              success_strings: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureStrings' in kwargs:
+            failure_strings = kwargs['failureStrings']
+        if 'successStrings' in kwargs:
+            success_strings = kwargs['successStrings']
+
         _setter("failure_strings", failure_strings)
         _setter("success_strings", success_strings)
 
@@ -7046,7 +7716,13 @@ class WebAclResponseInspectionHeader(dict):
              failure_values: Sequence[str],
              name: str,
              success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+
         _setter("failure_values", failure_values)
         _setter("name", name)
         _setter("success_values", success_values)
@@ -7110,7 +7786,13 @@ class WebAclResponseInspectionJson(dict):
              failure_values: Sequence[str],
              identifier: str,
              success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+
         _setter("failure_values", failure_values)
         _setter("identifier", identifier)
         _setter("success_values", success_values)
@@ -7171,7 +7853,13 @@ class WebAclResponseInspectionStatusCode(dict):
              _setter: Callable[[Any, Any], None],
              failure_codes: Sequence[int],
              success_codes: Sequence[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCodes' in kwargs:
+            failure_codes = kwargs['failureCodes']
+        if 'successCodes' in kwargs:
+            success_codes = kwargs['successCodes']
+
         _setter("failure_codes", failure_codes)
         _setter("success_codes", success_codes)
 
@@ -7254,7 +7942,19 @@ class WebAclRule(dict):
              challenge_config: Optional['outputs.WebAclChallengeConfig'] = None,
              override_action: Optional['outputs.WebAclOverrideAction'] = None,
              rule_labels: Optional[Sequence['outputs.WebAclLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if 'overrideAction' in kwargs:
+            override_action = kwargs['overrideAction']
+        if 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -7349,7 +8049,9 @@ class WebAclRuleAction(dict):
              captcha: Optional['outputs.WebAclCaptchaAction'] = None,
              challenge: Optional['outputs.WebAclChallengeAction'] = None,
              count: Optional['outputs.WebAclCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -7425,7 +8127,11 @@ class WebAclRuleActionOverride(dict):
              _setter: Callable[[Any, Any], None],
              action_to_use: 'outputs.WebAclRuleAction',
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionToUse' in kwargs:
+            action_to_use = kwargs['actionToUse']
+
         _setter("action_to_use", action_to_use)
         _setter("name", name)
 
@@ -7480,7 +8186,13 @@ class WebAclRuleGroupReferenceStatement(dict):
              arn: str,
              excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
              rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+
         _setter("arn", arn)
         if excluded_rules is not None:
             _setter("excluded_rules", excluded_rules)
@@ -7554,7 +8266,15 @@ class WebAclSizeConstraintStatement(dict):
              field_to_match: 'outputs.WebAclFieldToMatch',
              size: float,
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -7626,7 +8346,15 @@ class WebAclSqliMatchStatement(dict):
              field_to_match: 'outputs.WebAclFieldToMatch',
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
              sensitivity_level: Optional['WebAclSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -7753,7 +8481,39 @@ class WebAclStatement(dict):
              size_constraint_statement: Optional['outputs.WebAclSizeConstraintStatement'] = None,
              sqli_match_statement: Optional['outputs.WebAclSqliMatchStatement'] = None,
              xss_match_statement: Optional['outputs.WebAclXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if 'managedRuleGroupStatement' in kwargs:
+            managed_rule_group_statement = kwargs['managedRuleGroupStatement']
+        if 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if 'ruleGroupReferenceStatement' in kwargs:
+            rule_group_reference_statement = kwargs['ruleGroupReferenceStatement']
+        if 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -7876,7 +8636,9 @@ class WebAclTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7914,7 +8676,9 @@ class WebAclTextTransformation(dict):
              _setter: Callable[[Any, Any], None],
              priority: int,
              type: 'WebAclTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -7974,7 +8738,15 @@ class WebAclVisibilityConfig(dict):
              cloud_watch_metrics_enabled: bool,
              metric_name: str,
              sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -8035,7 +8807,13 @@ class WebAclXssMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              field_to_match: 'outputs.WebAclFieldToMatch',
              text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 

@@ -29,7 +29,11 @@ class UserToGroupAdditionArgs:
              _setter: Callable[[Any, Any], None],
              group_name: pulumi.Input[str],
              users: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         _setter("group_name", group_name)
         _setter("users", users)
 

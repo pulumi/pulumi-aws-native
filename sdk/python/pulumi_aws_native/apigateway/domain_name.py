@@ -49,7 +49,23 @@ class DomainNameArgs:
              regional_certificate_arn: Optional[pulumi.Input[str]] = None,
              security_policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'endpointConfiguration' in kwargs:
+            endpoint_configuration = kwargs['endpointConfiguration']
+        if 'mutualTlsAuthentication' in kwargs:
+            mutual_tls_authentication = kwargs['mutualTlsAuthentication']
+        if 'ownershipVerificationCertificateArn' in kwargs:
+            ownership_verification_certificate_arn = kwargs['ownershipVerificationCertificateArn']
+        if 'regionalCertificateArn' in kwargs:
+            regional_certificate_arn = kwargs['regionalCertificateArn']
+        if 'securityPolicy' in kwargs:
+            security_policy = kwargs['securityPolicy']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
         if domain_name is not None:

@@ -79,7 +79,33 @@ class CampaignArgs:
              template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
              treatment_description: Optional[pulumi.Input[str]] = None,
              treatment_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'segmentId' in kwargs:
+            segment_id = kwargs['segmentId']
+        if 'additionalTreatments' in kwargs:
+            additional_treatments = kwargs['additionalTreatments']
+        if 'campaignHook' in kwargs:
+            campaign_hook = kwargs['campaignHook']
+        if 'customDeliveryConfiguration' in kwargs:
+            custom_delivery_configuration = kwargs['customDeliveryConfiguration']
+        if 'holdoutPercent' in kwargs:
+            holdout_percent = kwargs['holdoutPercent']
+        if 'isPaused' in kwargs:
+            is_paused = kwargs['isPaused']
+        if 'messageConfiguration' in kwargs:
+            message_configuration = kwargs['messageConfiguration']
+        if 'segmentVersion' in kwargs:
+            segment_version = kwargs['segmentVersion']
+        if 'templateConfiguration' in kwargs:
+            template_configuration = kwargs['templateConfiguration']
+        if 'treatmentDescription' in kwargs:
+            treatment_description = kwargs['treatmentDescription']
+        if 'treatmentName' in kwargs:
+            treatment_name = kwargs['treatmentName']
+
         _setter("application_id", application_id)
         _setter("schedule", schedule)
         _setter("segment_id", segment_id)

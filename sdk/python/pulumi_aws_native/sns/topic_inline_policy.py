@@ -31,7 +31,13 @@ class TopicInlinePolicyArgs:
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("policy_document", policy_document)
         _setter("topic_arn", topic_arn)
 

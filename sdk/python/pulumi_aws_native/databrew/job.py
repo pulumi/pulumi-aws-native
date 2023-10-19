@@ -101,7 +101,37 @@ class JobArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'dataCatalogOutputs' in kwargs:
+            data_catalog_outputs = kwargs['dataCatalogOutputs']
+        if 'databaseOutputs' in kwargs:
+            database_outputs = kwargs['databaseOutputs']
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if 'encryptionKeyArn' in kwargs:
+            encryption_key_arn = kwargs['encryptionKeyArn']
+        if 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if 'jobSample' in kwargs:
+            job_sample = kwargs['jobSample']
+        if 'logSubscription' in kwargs:
+            log_subscription = kwargs['logSubscription']
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if 'profileConfiguration' in kwargs:
+            profile_configuration = kwargs['profileConfiguration']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'validationConfigurations' in kwargs:
+            validation_configurations = kwargs['validationConfigurations']
+
         _setter("role_arn", role_arn)
         _setter("type", type)
         if data_catalog_outputs is not None:

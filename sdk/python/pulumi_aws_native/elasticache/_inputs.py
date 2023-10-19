@@ -52,7 +52,9 @@ class AuthenticationModePropertiesArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input['UserAuthenticationModePropertiesType'],
              passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if passwords is not None:
             _setter("passwords", passwords)
@@ -94,7 +96,11 @@ class CacheClusterCloudWatchLogsDestinationDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("log_group", log_group)
 
     @property
@@ -122,7 +128,13 @@ class CacheClusterDestinationDetailsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
              kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsDetails' in kwargs:
+            cloud_watch_logs_details = kwargs['cloudWatchLogsDetails']
+        if 'kinesisFirehoseDetails' in kwargs:
+            kinesis_firehose_details = kwargs['kinesisFirehoseDetails']
+
         if cloud_watch_logs_details is not None:
             _setter("cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
@@ -159,7 +171,11 @@ class CacheClusterKinesisFirehoseDestinationDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("delivery_stream", delivery_stream)
 
     @property
@@ -193,7 +209,17 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
              destination_type: pulumi.Input[str],
              log_format: pulumi.Input[str],
              log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationDetails' in kwargs:
+            destination_details = kwargs['destinationDetails']
+        if 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+
         _setter("destination_details", destination_details)
         _setter("destination_type", destination_type)
         _setter("log_format", log_format)
@@ -251,7 +277,9 @@ class CacheClusterTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,7 +325,13 @@ class GlobalReplicationGroupMemberArgs:
              replication_group_id: Optional[pulumi.Input[str]] = None,
              replication_group_region: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if 'replicationGroupRegion' in kwargs:
+            replication_group_region = kwargs['replicationGroupRegion']
+
         if replication_group_id is not None:
             _setter("replication_group_id", replication_group_id)
         if replication_group_region is not None:
@@ -365,7 +399,15 @@ class GlobalReplicationGroupRegionalConfigurationArgs:
              replication_group_id: Optional[pulumi.Input[str]] = None,
              replication_group_region: Optional[pulumi.Input[str]] = None,
              resharding_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if 'replicationGroupRegion' in kwargs:
+            replication_group_region = kwargs['replicationGroupRegion']
+        if 'reshardingConfigurations' in kwargs:
+            resharding_configurations = kwargs['reshardingConfigurations']
+
         if replication_group_id is not None:
             _setter("replication_group_id", replication_group_id)
         if replication_group_region is not None:
@@ -429,7 +471,13 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              node_group_id: Optional[pulumi.Input[str]] = None,
              preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeGroupId' in kwargs:
+            node_group_id = kwargs['nodeGroupId']
+        if 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+
         if node_group_id is not None:
             _setter("node_group_id", node_group_id)
         if preferred_availability_zones is not None:
@@ -475,7 +523,9 @@ class ParameterGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -510,7 +560,11 @@ class ReplicationGroupCloudWatchLogsDestinationDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("log_group", log_group)
 
     @property
@@ -538,7 +592,13 @@ class ReplicationGroupDestinationDetailsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
              kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsDetails' in kwargs:
+            cloud_watch_logs_details = kwargs['cloudWatchLogsDetails']
+        if 'kinesisFirehoseDetails' in kwargs:
+            kinesis_firehose_details = kwargs['kinesisFirehoseDetails']
+
         if cloud_watch_logs_details is not None:
             _setter("cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
@@ -575,7 +635,11 @@ class ReplicationGroupKinesisFirehoseDestinationDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("delivery_stream", delivery_stream)
 
     @property
@@ -609,7 +673,17 @@ class ReplicationGroupLogDeliveryConfigurationRequestArgs:
              destination_type: pulumi.Input[str],
              log_format: pulumi.Input[str],
              log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationDetails' in kwargs:
+            destination_details = kwargs['destinationDetails']
+        if 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+
         _setter("destination_details", destination_details)
         _setter("destination_type", destination_type)
         _setter("log_format", log_format)
@@ -676,7 +750,17 @@ class ReplicationGroupNodeGroupConfigurationArgs:
              replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replica_count: Optional[pulumi.Input[int]] = None,
              slots: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeGroupId' in kwargs:
+            node_group_id = kwargs['nodeGroupId']
+        if 'primaryAvailabilityZone' in kwargs:
+            primary_availability_zone = kwargs['primaryAvailabilityZone']
+        if 'replicaAvailabilityZones' in kwargs:
+            replica_availability_zones = kwargs['replicaAvailabilityZones']
+        if 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+
         if node_group_id is not None:
             _setter("node_group_id", node_group_id)
         if primary_availability_zone is not None:
@@ -749,7 +833,9 @@ class ReplicationGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -787,7 +873,9 @@ class SecurityGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -828,7 +916,9 @@ class SubnetGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -871,7 +961,9 @@ class UserGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -921,7 +1013,9 @@ class UserTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)

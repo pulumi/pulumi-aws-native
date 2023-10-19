@@ -71,7 +71,31 @@ class StackArgs:
              template_body: Optional[Any] = None,
              template_url: Optional[pulumi.Input[str]] = None,
              timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableRollback' in kwargs:
+            disable_rollback = kwargs['disableRollback']
+        if 'enableTerminationProtection' in kwargs:
+            enable_termination_protection = kwargs['enableTerminationProtection']
+        if 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if 'stackPolicyBody' in kwargs:
+            stack_policy_body = kwargs['stackPolicyBody']
+        if 'stackPolicyUrl' in kwargs:
+            stack_policy_url = kwargs['stackPolicyUrl']
+        if 'stackStatusReason' in kwargs:
+            stack_status_reason = kwargs['stackStatusReason']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if 'templateUrl' in kwargs:
+            template_url = kwargs['templateUrl']
+        if 'timeoutInMinutes' in kwargs:
+            timeout_in_minutes = kwargs['timeoutInMinutes']
+
         if capabilities is not None:
             _setter("capabilities", capabilities)
         if description is not None:

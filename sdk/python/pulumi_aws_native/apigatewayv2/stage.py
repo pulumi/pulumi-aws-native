@@ -61,7 +61,29 @@ class StageArgs:
              stage_name: Optional[pulumi.Input[str]] = None,
              stage_variables: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'accessLogSettings' in kwargs:
+            access_log_settings = kwargs['accessLogSettings']
+        if 'accessPolicyId' in kwargs:
+            access_policy_id = kwargs['accessPolicyId']
+        if 'autoDeploy' in kwargs:
+            auto_deploy = kwargs['autoDeploy']
+        if 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if 'defaultRouteSettings' in kwargs:
+            default_route_settings = kwargs['defaultRouteSettings']
+        if 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if 'routeSettings' in kwargs:
+            route_settings = kwargs['routeSettings']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if 'stageVariables' in kwargs:
+            stage_variables = kwargs['stageVariables']
+
         _setter("api_id", api_id)
         if access_log_settings is not None:
             _setter("access_log_settings", access_log_settings)

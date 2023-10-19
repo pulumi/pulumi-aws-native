@@ -41,7 +41,11 @@ class VariantStoreArgs:
              name: Optional[pulumi.Input[str]] = None,
              sse_config: Optional[pulumi.Input['VariantStoreSseConfigArgs']] = None,
              tags: Optional[pulumi.Input['VariantStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+
         _setter("reference", reference)
         if description is not None:
             _setter("description", description)

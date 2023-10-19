@@ -35,7 +35,13 @@ class DocumentationVersionArgs:
              documentation_version: pulumi.Input[str],
              rest_api_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+
         _setter("documentation_version", documentation_version)
         _setter("rest_api_id", rest_api_id)
         if description is not None:

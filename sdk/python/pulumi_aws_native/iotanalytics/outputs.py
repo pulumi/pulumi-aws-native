@@ -107,7 +107,13 @@ class ChannelCustomerManagedS3(dict):
              bucket: str,
              role_arn: str,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("role_arn", role_arn)
         if key_prefix is not None:
@@ -161,7 +167,11 @@ class ChannelRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -185,8 +195,10 @@ class ChannelServiceManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -223,7 +235,13 @@ class ChannelStorage(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_s3: Optional['outputs.ChannelCustomerManagedS3'] = None,
              service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedS3' in kwargs:
+            customer_managed_s3 = kwargs['customerManagedS3']
+        if 'serviceManagedS3' in kwargs:
+            service_managed_s3 = kwargs['serviceManagedS3']
+
         if customer_managed_s3 is not None:
             _setter("customer_managed_s3", customer_managed_s3)
         if service_managed_s3 is not None:
@@ -255,7 +273,9 @@ class ChannelTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -309,7 +329,15 @@ class DatasetAction(dict):
              action_name: str,
              container_action: Optional['outputs.DatasetContainerAction'] = None,
              query_action: Optional['outputs.DatasetQueryAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if 'containerAction' in kwargs:
+            container_action = kwargs['containerAction']
+        if 'queryAction' in kwargs:
+            query_action = kwargs['queryAction']
+
         _setter("action_name", action_name)
         if container_action is not None:
             _setter("container_action", container_action)
@@ -372,7 +400,13 @@ class DatasetContainerAction(dict):
              image: str,
              resource_configuration: 'outputs.DatasetResourceConfiguration',
              variables: Optional[Sequence['outputs.DatasetVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'resourceConfiguration' in kwargs:
+            resource_configuration = kwargs['resourceConfiguration']
+
         _setter("execution_role_arn", execution_role_arn)
         _setter("image", image)
         _setter("resource_configuration", resource_configuration)
@@ -432,7 +466,11 @@ class DatasetContentDeliveryRule(dict):
              _setter: Callable[[Any, Any], None],
              destination: 'outputs.DatasetContentDeliveryRuleDestination',
              entry_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entryName' in kwargs:
+            entry_name = kwargs['entryName']
+
         _setter("destination", destination)
         if entry_name is not None:
             _setter("entry_name", entry_name)
@@ -482,7 +520,13 @@ class DatasetContentDeliveryRuleDestination(dict):
              _setter: Callable[[Any, Any], None],
              iot_events_destination_configuration: Optional['outputs.DatasetIotEventsDestinationConfiguration'] = None,
              s3_destination_configuration: Optional['outputs.DatasetS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iotEventsDestinationConfiguration' in kwargs:
+            iot_events_destination_configuration = kwargs['iotEventsDestinationConfiguration']
+        if 's3DestinationConfiguration' in kwargs:
+            s3_destination_configuration = kwargs['s3DestinationConfiguration']
+
         if iot_events_destination_configuration is not None:
             _setter("iot_events_destination_configuration", iot_events_destination_configuration)
         if s3_destination_configuration is not None:
@@ -528,7 +572,11 @@ class DatasetContentVersionValue(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dataset_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+
         _setter("dataset_name", dataset_name)
 
     @property
@@ -571,7 +619,13 @@ class DatasetDeltaTime(dict):
              _setter: Callable[[Any, Any], None],
              offset_seconds: int,
              time_expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'offsetSeconds' in kwargs:
+            offset_seconds = kwargs['offsetSeconds']
+        if 'timeExpression' in kwargs:
+            time_expression = kwargs['timeExpression']
+
         _setter("offset_seconds", offset_seconds)
         _setter("time_expression", time_expression)
 
@@ -615,7 +669,11 @@ class DatasetDeltaTimeSessionWindowConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              timeout_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeoutInMinutes' in kwargs:
+            timeout_in_minutes = kwargs['timeoutInMinutes']
+
         _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
@@ -653,7 +711,11 @@ class DatasetFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delta_time: Optional['outputs.DatasetDeltaTime'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deltaTime' in kwargs:
+            delta_time = kwargs['deltaTime']
+
         if delta_time is not None:
             _setter("delta_time", delta_time)
 
@@ -697,7 +759,13 @@ class DatasetGlueConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              database_name: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
 
@@ -746,7 +814,13 @@ class DatasetIotEventsDestinationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              input_name: str,
              role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("input_name", input_name)
         _setter("role_arn", role_arn)
 
@@ -795,7 +869,13 @@ class DatasetLateDataRule(dict):
              _setter: Callable[[Any, Any], None],
              rule_configuration: 'outputs.DatasetLateDataRuleConfiguration',
              rule_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleConfiguration' in kwargs:
+            rule_configuration = kwargs['ruleConfiguration']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("rule_configuration", rule_configuration)
         if rule_name is not None:
             _setter("rule_name", rule_name)
@@ -840,7 +920,11 @@ class DatasetLateDataRuleConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delta_time_session_window_configuration: Optional['outputs.DatasetDeltaTimeSessionWindowConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deltaTimeSessionWindowConfiguration' in kwargs:
+            delta_time_session_window_configuration = kwargs['deltaTimeSessionWindowConfiguration']
+
         if delta_time_session_window_configuration is not None:
             _setter("delta_time_session_window_configuration", delta_time_session_window_configuration)
 
@@ -879,7 +963,11 @@ class DatasetOutputFileUriValue(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              file_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+
         _setter("file_name", file_name)
 
     @property
@@ -920,7 +1008,11 @@ class DatasetQueryAction(dict):
              _setter: Callable[[Any, Any], None],
              sql_query: str,
              filters: Optional[Sequence['outputs.DatasetFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlQuery' in kwargs:
+            sql_query = kwargs['sqlQuery']
+
         _setter("sql_query", sql_query)
         if filters is not None:
             _setter("filters", filters)
@@ -970,7 +1062,13 @@ class DatasetResourceConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              compute_type: 'DatasetResourceConfigurationComputeType',
              volume_size_in_gb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+
         _setter("compute_type", compute_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
 
@@ -1017,7 +1115,11 @@ class DatasetRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -1074,7 +1176,13 @@ class DatasetS3DestinationConfiguration(dict):
              key: str,
              role_arn: str,
              glue_configuration: Optional['outputs.DatasetGlueConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'glueConfiguration' in kwargs:
+            glue_configuration = kwargs['glueConfiguration']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -1131,7 +1239,11 @@ class DatasetSchedule(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -1155,7 +1267,9 @@ class DatasetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1202,7 +1316,11 @@ class DatasetTrigger(dict):
              _setter: Callable[[Any, Any], None],
              schedule: Optional['outputs.DatasetSchedule'] = None,
              triggering_dataset: Optional['outputs.DatasetTriggeringDataset'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'triggeringDataset' in kwargs:
+            triggering_dataset = kwargs['triggeringDataset']
+
         if schedule is not None:
             _setter("schedule", schedule)
         if triggering_dataset is not None:
@@ -1248,7 +1366,11 @@ class DatasetTriggeringDataset(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dataset_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+
         _setter("dataset_name", dataset_name)
 
     @property
@@ -1306,7 +1428,19 @@ class DatasetVariable(dict):
              double_value: Optional[float] = None,
              output_file_uri_value: Optional['outputs.DatasetOutputFileUriValue'] = None,
              string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if 'datasetContentVersionValue' in kwargs:
+            dataset_content_version_value = kwargs['datasetContentVersionValue']
+        if 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if 'outputFileUriValue' in kwargs:
+            output_file_uri_value = kwargs['outputFileUriValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("variable_name", variable_name)
         if dataset_content_version_value is not None:
             _setter("dataset_content_version_value", dataset_content_version_value)
@@ -1375,7 +1509,11 @@ class DatasetVersioningConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              max_versions: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxVersions' in kwargs:
+            max_versions = kwargs['maxVersions']
+
         if max_versions is not None:
             _setter("max_versions", max_versions)
         if unlimited is not None:
@@ -1407,7 +1545,9 @@ class DatastoreColumn(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1459,7 +1599,13 @@ class DatastoreCustomerManagedS3(dict):
              bucket: str,
              role_arn: str,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("role_arn", role_arn)
         if key_prefix is not None:
@@ -1513,7 +1659,11 @@ class DatastoreCustomerManagedS3Storage(dict):
              _setter: Callable[[Any, Any], None],
              bucket: str,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         if key_prefix is not None:
             _setter("key_prefix", key_prefix)
@@ -1563,7 +1713,13 @@ class DatastoreFileFormatConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              json_configuration: Optional['outputs.DatastoreJsonConfiguration'] = None,
              parquet_configuration: Optional['outputs.DatastoreParquetConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonConfiguration' in kwargs:
+            json_configuration = kwargs['jsonConfiguration']
+        if 'parquetConfiguration' in kwargs:
+            parquet_configuration = kwargs['parquetConfiguration']
+
         if json_configuration is not None:
             _setter("json_configuration", json_configuration)
         if parquet_configuration is not None:
@@ -1609,7 +1765,11 @@ class DatastoreIotSiteWiseMultiLayerStorage(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              customer_managed_s3_storage: Optional['outputs.DatastoreCustomerManagedS3Storage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedS3Storage' in kwargs:
+            customer_managed_s3_storage = kwargs['customerManagedS3Storage']
+
         if customer_managed_s3_storage is not None:
             _setter("customer_managed_s3_storage", customer_managed_s3_storage)
 
@@ -1626,8 +1786,10 @@ class DatastoreJsonConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1659,7 +1821,11 @@ class DatastoreParquetConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schema_definition: Optional['outputs.DatastoreSchemaDefinition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+
         if schema_definition is not None:
             _setter("schema_definition", schema_definition)
 
@@ -1701,7 +1867,11 @@ class DatastorePartition(dict):
              _setter: Callable[[Any, Any], None],
              partition: Optional['outputs.Partition'] = None,
              timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timestampPartition' in kwargs:
+            timestamp_partition = kwargs['timestampPartition']
+
         if partition is not None:
             _setter("partition", partition)
         if timestamp_partition is not None:
@@ -1730,7 +1900,9 @@ class DatastorePartitions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              partitions: Optional[Sequence['outputs.DatastorePartition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if partitions is not None:
             _setter("partitions", partitions)
 
@@ -1772,7 +1944,11 @@ class DatastoreRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -1801,7 +1977,9 @@ class DatastoreSchemaDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              columns: Optional[Sequence['outputs.DatastoreColumn']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if columns is not None:
             _setter("columns", columns)
 
@@ -1818,8 +1996,10 @@ class DatastoreServiceManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1861,7 +2041,15 @@ class DatastoreStorage(dict):
              customer_managed_s3: Optional['outputs.DatastoreCustomerManagedS3'] = None,
              iot_site_wise_multi_layer_storage: Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage'] = None,
              service_managed_s3: Optional['outputs.DatastoreServiceManagedS3'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedS3' in kwargs:
+            customer_managed_s3 = kwargs['customerManagedS3']
+        if 'iotSiteWiseMultiLayerStorage' in kwargs:
+            iot_site_wise_multi_layer_storage = kwargs['iotSiteWiseMultiLayerStorage']
+        if 'serviceManagedS3' in kwargs:
+            service_managed_s3 = kwargs['serviceManagedS3']
+
         if customer_managed_s3 is not None:
             _setter("customer_managed_s3", customer_managed_s3)
         if iot_site_wise_multi_layer_storage is not None:
@@ -1900,7 +2088,9 @@ class DatastoreTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1949,7 +2139,13 @@ class DatastoreTimestampPartition(dict):
              _setter: Callable[[Any, Any], None],
              attribute_name: str,
              timestamp_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'timestampFormat' in kwargs:
+            timestamp_format = kwargs['timestampFormat']
+
         _setter("attribute_name", attribute_name)
         if timestamp_format is not None:
             _setter("timestamp_format", timestamp_format)
@@ -1994,7 +2190,11 @@ class Partition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              attribute_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+
         _setter("attribute_name", attribute_name)
 
     @property
@@ -2069,7 +2269,21 @@ class PipelineActivity(dict):
              math: Optional['outputs.PipelineMath'] = None,
              remove_attributes: Optional['outputs.PipelineRemoveAttributes'] = None,
              select_attributes: Optional['outputs.PipelineSelectAttributes'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addAttributes' in kwargs:
+            add_attributes = kwargs['addAttributes']
+        if 'deviceRegistryEnrich' in kwargs:
+            device_registry_enrich = kwargs['deviceRegistryEnrich']
+        if 'deviceShadowEnrich' in kwargs:
+            device_shadow_enrich = kwargs['deviceShadowEnrich']
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if 'removeAttributes' in kwargs:
+            remove_attributes = kwargs['removeAttributes']
+        if 'selectAttributes' in kwargs:
+            select_attributes = kwargs['selectAttributes']
+
         if add_attributes is not None:
             _setter("add_attributes", add_attributes)
         if channel is not None:
@@ -2160,7 +2374,9 @@ class PipelineAddAttributes(dict):
              attributes: Any,
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2217,7 +2433,11 @@ class PipelineChannel(dict):
              channel_name: str,
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
         _setter("channel_name", channel_name)
         _setter("name", name)
         if next is not None:
@@ -2271,7 +2491,11 @@ class PipelineDatastore(dict):
              _setter: Callable[[Any, Any], None],
              datastore_name: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+
         _setter("datastore_name", datastore_name)
         _setter("name", name)
 
@@ -2329,7 +2553,13 @@ class PipelineDeviceRegistryEnrich(dict):
              role_arn: str,
              thing_name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         _setter("attribute", attribute)
         _setter("name", name)
         _setter("role_arn", role_arn)
@@ -2406,7 +2636,13 @@ class PipelineDeviceShadowEnrich(dict):
              role_arn: str,
              thing_name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         _setter("attribute", attribute)
         _setter("name", name)
         _setter("role_arn", role_arn)
@@ -2458,7 +2694,9 @@ class PipelineFilter(dict):
              filter: str,
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("filter", filter)
         _setter("name", name)
         if next is not None:
@@ -2520,7 +2758,13 @@ class PipelineLambda(dict):
              lambda_name: str,
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'lambdaName' in kwargs:
+            lambda_name = kwargs['lambdaName']
+
         _setter("batch_size", batch_size)
         _setter("lambda_name", lambda_name)
         _setter("name", name)
@@ -2569,7 +2813,9 @@ class PipelineMath(dict):
              math: str,
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attribute", attribute)
         _setter("math", math)
         _setter("name", name)
@@ -2615,7 +2861,9 @@ class PipelineRemoveAttributes(dict):
              attributes: Sequence[str],
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2655,7 +2903,9 @@ class PipelineSelectAttributes(dict):
              attributes: Sequence[str],
              name: str,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2692,7 +2942,9 @@ class PipelineTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

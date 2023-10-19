@@ -42,7 +42,15 @@ class InstanceArgs:
              identity_management_type: pulumi.Input['InstanceIdentityManagementType'],
              directory_id: Optional[pulumi.Input[str]] = None,
              instance_alias: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityManagementType' in kwargs:
+            identity_management_type = kwargs['identityManagementType']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'instanceAlias' in kwargs:
+            instance_alias = kwargs['instanceAlias']
+
         _setter("attributes", attributes)
         _setter("identity_management_type", identity_management_type)
         if directory_id is not None:

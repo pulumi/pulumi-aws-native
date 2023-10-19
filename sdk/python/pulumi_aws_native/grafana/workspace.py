@@ -85,7 +85,37 @@ class WorkspaceArgs:
              saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
              stack_set_name: Optional[pulumi.Input[str]] = None,
              vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountAccessType' in kwargs:
+            account_access_type = kwargs['accountAccessType']
+        if 'authenticationProviders' in kwargs:
+            authentication_providers = kwargs['authenticationProviders']
+        if 'permissionType' in kwargs:
+            permission_type = kwargs['permissionType']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'grafanaVersion' in kwargs:
+            grafana_version = kwargs['grafanaVersion']
+        if 'networkAccessControl' in kwargs:
+            network_access_control = kwargs['networkAccessControl']
+        if 'notificationDestinations' in kwargs:
+            notification_destinations = kwargs['notificationDestinations']
+        if 'organizationRoleName' in kwargs:
+            organization_role_name = kwargs['organizationRoleName']
+        if 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'samlConfiguration' in kwargs:
+            saml_configuration = kwargs['samlConfiguration']
+        if 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("account_access_type", account_access_type)
         _setter("authentication_providers", authentication_providers)
         _setter("permission_type", permission_type)

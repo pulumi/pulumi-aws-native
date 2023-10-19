@@ -101,7 +101,47 @@ class LaunchConfigurationArgs:
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              spot_price: Optional[pulumi.Input[str]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'classicLinkVpcId' in kwargs:
+            classic_link_vpc_id = kwargs['classicLinkVpcId']
+        if 'classicLinkVpcSecurityGroups' in kwargs:
+            classic_link_vpc_security_groups = kwargs['classicLinkVpcSecurityGroups']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'instanceMonitoring' in kwargs:
+            instance_monitoring = kwargs['instanceMonitoring']
+        if 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'launchConfigurationName' in kwargs:
+            launch_configuration_name = kwargs['launchConfigurationName']
+        if 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         _setter("image_id", image_id)
         _setter("instance_type", instance_type)
         if associate_public_ip_address is not None:

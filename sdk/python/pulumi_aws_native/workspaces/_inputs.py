@@ -31,7 +31,9 @@ class ConnectionAliasTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -78,7 +80,19 @@ class WorkspacePropertiesArgs:
              running_mode: Optional[pulumi.Input[str]] = None,
              running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              user_volume_size_gib: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeTypeName' in kwargs:
+            compute_type_name = kwargs['computeTypeName']
+        if 'rootVolumeSizeGib' in kwargs:
+            root_volume_size_gib = kwargs['rootVolumeSizeGib']
+        if 'runningMode' in kwargs:
+            running_mode = kwargs['runningMode']
+        if 'runningModeAutoStopTimeoutInMinutes' in kwargs:
+            running_mode_auto_stop_timeout_in_minutes = kwargs['runningModeAutoStopTimeoutInMinutes']
+        if 'userVolumeSizeGib' in kwargs:
+            user_volume_size_gib = kwargs['userVolumeSizeGib']
+
         if compute_type_name is not None:
             _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -151,7 +165,9 @@ class WorkspaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

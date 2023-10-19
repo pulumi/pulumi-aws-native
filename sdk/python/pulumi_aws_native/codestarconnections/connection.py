@@ -41,7 +41,15 @@ class ConnectionArgs:
              host_arn: Optional[pulumi.Input[str]] = None,
              provider_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if 'hostArn' in kwargs:
+            host_arn = kwargs['hostArn']
+        if 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if host_arn is not None:

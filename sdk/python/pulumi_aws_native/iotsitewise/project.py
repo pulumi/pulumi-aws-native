@@ -45,7 +45,17 @@ class ProjectArgs:
              project_description: Optional[pulumi.Input[str]] = None,
              project_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portalId' in kwargs:
+            portal_id = kwargs['portalId']
+        if 'assetIds' in kwargs:
+            asset_ids = kwargs['assetIds']
+        if 'projectDescription' in kwargs:
+            project_description = kwargs['projectDescription']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
         _setter("portal_id", portal_id)
         if asset_ids is not None:
             _setter("asset_ids", asset_ids)

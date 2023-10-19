@@ -35,7 +35,11 @@ class PrimaryTaskSetArgs:
              cluster: pulumi.Input[str],
              service: pulumi.Input[str],
              task_set_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskSetId' in kwargs:
+            task_set_id = kwargs['taskSetId']
+
         _setter("cluster", cluster)
         _setter("service", service)
         _setter("task_set_id", task_set_id)

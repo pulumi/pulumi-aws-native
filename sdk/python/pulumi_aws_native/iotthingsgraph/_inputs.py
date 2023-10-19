@@ -28,7 +28,9 @@ class FlowTemplateDefinitionDocumentArgs:
              _setter: Callable[[Any, Any], None],
              language: pulumi.Input[str],
              text: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("language", language)
         _setter("text", text)
 

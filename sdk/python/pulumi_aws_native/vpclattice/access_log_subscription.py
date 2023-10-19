@@ -34,7 +34,13 @@ class AccessLogSubscriptionArgs:
              destination_arn: pulumi.Input[str],
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessLogSubscriptionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         _setter("destination_arn", destination_arn)
         if resource_identifier is not None:
             _setter("resource_identifier", resource_identifier)

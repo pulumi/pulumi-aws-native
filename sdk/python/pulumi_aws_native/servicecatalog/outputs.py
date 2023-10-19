@@ -64,7 +64,13 @@ class CloudFormationProductCodeStarParameters(dict):
              branch: str,
              connection_arn: str,
              repository: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactPath' in kwargs:
+            artifact_path = kwargs['artifactPath']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("artifact_path", artifact_path)
         _setter("branch", branch)
         _setter("connection_arn", connection_arn)
@@ -120,7 +126,11 @@ class CloudFormationProductConnectionParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              code_star: Optional['outputs.CloudFormationProductCodeStarParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeStar' in kwargs:
+            code_star = kwargs['codeStar']
+
         if code_star is not None:
             _setter("code_star", code_star)
 
@@ -171,7 +181,11 @@ class CloudFormationProductProvisioningArtifactProperties(dict):
              disable_template_validation: Optional[bool] = None,
              name: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableTemplateValidation' in kwargs:
+            disable_template_validation = kwargs['disableTemplateValidation']
+
         _setter("info", info)
         if description is not None:
             _setter("description", description)
@@ -240,7 +254,11 @@ class CloudFormationProductSourceConnection(dict):
              _setter: Callable[[Any, Any], None],
              connection_parameters: 'outputs.CloudFormationProductConnectionParameters',
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionParameters' in kwargs:
+            connection_parameters = kwargs['connectionParameters']
+
         _setter("connection_parameters", connection_parameters)
         _setter("type", type)
 
@@ -270,7 +288,9 @@ class CloudFormationProductTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -300,7 +320,9 @@ class CloudFormationProvisionedProductProvisioningParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -374,7 +396,23 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
              stack_set_max_concurrency_percentage: Optional[int] = None,
              stack_set_operation_type: Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType'] = None,
              stack_set_regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackSetAccounts' in kwargs:
+            stack_set_accounts = kwargs['stackSetAccounts']
+        if 'stackSetFailureToleranceCount' in kwargs:
+            stack_set_failure_tolerance_count = kwargs['stackSetFailureToleranceCount']
+        if 'stackSetFailureTolerancePercentage' in kwargs:
+            stack_set_failure_tolerance_percentage = kwargs['stackSetFailureTolerancePercentage']
+        if 'stackSetMaxConcurrencyCount' in kwargs:
+            stack_set_max_concurrency_count = kwargs['stackSetMaxConcurrencyCount']
+        if 'stackSetMaxConcurrencyPercentage' in kwargs:
+            stack_set_max_concurrency_percentage = kwargs['stackSetMaxConcurrencyPercentage']
+        if 'stackSetOperationType' in kwargs:
+            stack_set_operation_type = kwargs['stackSetOperationType']
+        if 'stackSetRegions' in kwargs:
+            stack_set_regions = kwargs['stackSetRegions']
+
         if stack_set_accounts is not None:
             _setter("stack_set_accounts", stack_set_accounts)
         if stack_set_failure_tolerance_count is not None:
@@ -441,7 +479,9 @@ class CloudFormationProvisionedProductTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -471,7 +511,9 @@ class PortfolioTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -501,7 +543,9 @@ class ServiceActionDefinitionParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

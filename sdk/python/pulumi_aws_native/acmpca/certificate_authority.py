@@ -60,7 +60,21 @@ class CertificateAuthorityArgs:
              revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None,
              usage_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+        if 'csrExtensions' in kwargs:
+            csr_extensions = kwargs['csrExtensions']
+        if 'keyStorageSecurityStandard' in kwargs:
+            key_storage_security_standard = kwargs['keyStorageSecurityStandard']
+        if 'revocationConfiguration' in kwargs:
+            revocation_configuration = kwargs['revocationConfiguration']
+        if 'usageMode' in kwargs:
+            usage_mode = kwargs['usageMode']
+
         _setter("key_algorithm", key_algorithm)
         _setter("signing_algorithm", signing_algorithm)
         _setter("subject", subject)

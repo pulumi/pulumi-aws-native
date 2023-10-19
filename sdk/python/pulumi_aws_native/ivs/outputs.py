@@ -37,7 +37,9 @@ class ChannelTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -67,7 +69,9 @@ class PlaybackKeyPairTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -100,7 +104,9 @@ class RecordingConfigurationDestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if s3 is not None:
             _setter("s3", s3)
 
@@ -150,7 +156,11 @@ class RecordingConfigurationRenditionConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              rendition_selection: Optional['RecordingConfigurationRenditionConfigurationRenditionSelection'] = None,
              renditions: Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'renditionSelection' in kwargs:
+            rendition_selection = kwargs['renditionSelection']
+
         if rendition_selection is not None:
             _setter("rendition_selection", rendition_selection)
         if renditions is not None:
@@ -208,7 +218,11 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              bucket_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+
         _setter("bucket_name", bucket_name)
 
     @property
@@ -232,7 +246,9 @@ class RecordingConfigurationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,7 +313,13 @@ class RecordingConfigurationThumbnailConfiguration(dict):
              resolution: Optional['RecordingConfigurationThumbnailConfigurationResolution'] = None,
              storage: Optional[Sequence['RecordingConfigurationThumbnailConfigurationStorageItem']] = None,
              target_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordingMode' in kwargs:
+            recording_mode = kwargs['recordingMode']
+        if 'targetIntervalSeconds' in kwargs:
+            target_interval_seconds = kwargs['targetIntervalSeconds']
+
         if recording_mode is not None:
             _setter("recording_mode", recording_mode)
         if resolution is not None:
@@ -355,7 +377,9 @@ class StreamKeyTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -68,7 +68,29 @@ class ConnectorArgs:
              connector_name: Optional[pulumi.Input[str]] = None,
              log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
              worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorConfiguration' in kwargs:
+            connector_configuration = kwargs['connectorConfiguration']
+        if 'kafkaCluster' in kwargs:
+            kafka_cluster = kwargs['kafkaCluster']
+        if 'kafkaClusterClientAuthentication' in kwargs:
+            kafka_cluster_client_authentication = kwargs['kafkaClusterClientAuthentication']
+        if 'kafkaClusterEncryptionInTransit' in kwargs:
+            kafka_cluster_encryption_in_transit = kwargs['kafkaClusterEncryptionInTransit']
+        if 'kafkaConnectVersion' in kwargs:
+            kafka_connect_version = kwargs['kafkaConnectVersion']
+        if 'serviceExecutionRoleArn' in kwargs:
+            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
+        if 'connectorDescription' in kwargs:
+            connector_description = kwargs['connectorDescription']
+        if 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if 'logDelivery' in kwargs:
+            log_delivery = kwargs['logDelivery']
+        if 'workerConfiguration' in kwargs:
+            worker_configuration = kwargs['workerConfiguration']
+
         _setter("capacity", capacity)
         _setter("connector_configuration", connector_configuration)
         _setter("kafka_cluster", kafka_cluster)

@@ -36,7 +36,11 @@ class ResourceAssociationArgs:
              application: pulumi.Input[str],
              resource: pulumi.Input[str],
              resource_type: pulumi.Input['ResourceAssociationResourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("application", application)
         _setter("resource", resource)
         _setter("resource_type", resource_type)

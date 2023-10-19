@@ -37,7 +37,13 @@ class ProjectArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultJobTimeoutMinutes' in kwargs:
+            default_job_timeout_minutes = kwargs['defaultJobTimeoutMinutes']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if default_job_timeout_minutes is not None:
             _setter("default_job_timeout_minutes", default_job_timeout_minutes)
         if name is not None:

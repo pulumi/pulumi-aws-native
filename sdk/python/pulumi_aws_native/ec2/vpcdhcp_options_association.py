@@ -31,7 +31,13 @@ class VpcdhcpOptionsAssociationArgs:
              _setter: Callable[[Any, Any], None],
              dhcp_options_id: pulumi.Input[str],
              vpc_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dhcpOptionsId' in kwargs:
+            dhcp_options_id = kwargs['dhcpOptionsId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("dhcp_options_id", dhcp_options_id)
         _setter("vpc_id", vpc_id)
 

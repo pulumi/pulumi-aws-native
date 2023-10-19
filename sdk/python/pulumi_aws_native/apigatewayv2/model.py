@@ -43,7 +43,13 @@ class ModelArgs:
              content_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("api_id", api_id)
         _setter("schema", schema)
         if content_type is not None:

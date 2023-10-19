@@ -247,7 +247,107 @@ class DbClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'backtrackWindow' in kwargs:
+            backtrack_window = kwargs['backtrackWindow']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbClusterInstanceClass' in kwargs:
+            db_cluster_instance_class = kwargs['dbClusterInstanceClass']
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if 'dbInstanceParameterGroupName' in kwargs:
+            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'dbSystemId' in kwargs:
+            db_system_id = kwargs['dbSystemId']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'domainIamRoleName' in kwargs:
+            domain_iam_role_name = kwargs['domainIamRoleName']
+        if 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if 'enableHttpEndpoint' in kwargs:
+            enable_http_endpoint = kwargs['enableHttpEndpoint']
+        if 'enableIamDatabaseAuthentication' in kwargs:
+            enable_iam_database_authentication = kwargs['enableIamDatabaseAuthentication']
+        if 'engineMode' in kwargs:
+            engine_mode = kwargs['engineMode']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'manageMasterUserPassword' in kwargs:
+            manage_master_user_password = kwargs['manageMasterUserPassword']
+        if 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if 'masterUserSecret' in kwargs:
+            master_user_secret = kwargs['masterUserSecret']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'monitoringInterval' in kwargs:
+            monitoring_interval = kwargs['monitoringInterval']
+        if 'monitoringRoleArn' in kwargs:
+            monitoring_role_arn = kwargs['monitoringRoleArn']
+        if 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if 'performanceInsightsEnabled' in kwargs:
+            performance_insights_enabled = kwargs['performanceInsightsEnabled']
+        if 'performanceInsightsKmsKeyId' in kwargs:
+            performance_insights_kms_key_id = kwargs['performanceInsightsKmsKeyId']
+        if 'performanceInsightsRetentionPeriod' in kwargs:
+            performance_insights_retention_period = kwargs['performanceInsightsRetentionPeriod']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'readEndpoint' in kwargs:
+            read_endpoint = kwargs['readEndpoint']
+        if 'replicationSourceIdentifier' in kwargs:
+            replication_source_identifier = kwargs['replicationSourceIdentifier']
+        if 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if 'scalingConfiguration' in kwargs:
+            scaling_configuration = kwargs['scalingConfiguration']
+        if 'serverlessV2ScalingConfiguration' in kwargs:
+            serverless_v2_scaling_configuration = kwargs['serverlessV2ScalingConfiguration']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)
         if associated_roles is not None:

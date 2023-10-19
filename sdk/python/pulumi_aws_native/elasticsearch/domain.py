@@ -70,7 +70,37 @@ class DomainArgs:
              snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
              vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if 'advancedOptions' in kwargs:
+            advanced_options = kwargs['advancedOptions']
+        if 'advancedSecurityOptions' in kwargs:
+            advanced_security_options = kwargs['advancedSecurityOptions']
+        if 'cognitoOptions' in kwargs:
+            cognito_options = kwargs['cognitoOptions']
+        if 'domainEndpointOptions' in kwargs:
+            domain_endpoint_options = kwargs['domainEndpointOptions']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'ebsOptions' in kwargs:
+            ebs_options = kwargs['ebsOptions']
+        if 'elasticsearchClusterConfig' in kwargs:
+            elasticsearch_cluster_config = kwargs['elasticsearchClusterConfig']
+        if 'elasticsearchVersion' in kwargs:
+            elasticsearch_version = kwargs['elasticsearchVersion']
+        if 'encryptionAtRestOptions' in kwargs:
+            encryption_at_rest_options = kwargs['encryptionAtRestOptions']
+        if 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if 'nodeToNodeEncryptionOptions' in kwargs:
+            node_to_node_encryption_options = kwargs['nodeToNodeEncryptionOptions']
+        if 'snapshotOptions' in kwargs:
+            snapshot_options = kwargs['snapshotOptions']
+        if 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if access_policies is not None:
             _setter("access_policies", access_policies)
         if advanced_options is not None:

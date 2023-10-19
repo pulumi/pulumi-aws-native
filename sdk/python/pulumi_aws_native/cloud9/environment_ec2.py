@@ -55,7 +55,21 @@ class EnvironmentEc2Args:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'automaticStopTimeMinutes' in kwargs:
+            automatic_stop_time_minutes = kwargs['automaticStopTimeMinutes']
+        if 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'ownerArn' in kwargs:
+            owner_arn = kwargs['ownerArn']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
             _setter("automatic_stop_time_minutes", automatic_stop_time_minutes)

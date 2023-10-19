@@ -40,7 +40,13 @@ class KeySigningKeyArgs:
              key_management_service_arn: pulumi.Input[str],
              status: pulumi.Input['KeySigningKeyStatus'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'keyManagementServiceArn' in kwargs:
+            key_management_service_arn = kwargs['keyManagementServiceArn']
+
         _setter("hosted_zone_id", hosted_zone_id)
         _setter("key_management_service_arn", key_management_service_arn)
         _setter("status", status)

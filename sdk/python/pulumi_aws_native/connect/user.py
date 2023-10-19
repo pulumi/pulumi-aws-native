@@ -66,7 +66,23 @@ class UserArgs:
              identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if 'routingProfileArn' in kwargs:
+            routing_profile_arn = kwargs['routingProfileArn']
+        if 'securityProfileArns' in kwargs:
+            security_profile_arns = kwargs['securityProfileArns']
+        if 'directoryUserId' in kwargs:
+            directory_user_id = kwargs['directoryUserId']
+        if 'hierarchyGroupArn' in kwargs:
+            hierarchy_group_arn = kwargs['hierarchyGroupArn']
+        if 'identityInfo' in kwargs:
+            identity_info = kwargs['identityInfo']
+
         _setter("instance_arn", instance_arn)
         _setter("phone_config", phone_config)
         _setter("routing_profile_arn", routing_profile_arn)

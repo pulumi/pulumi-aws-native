@@ -39,7 +39,9 @@ class ActivityTagsEntryArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -93,7 +95,11 @@ class StateMachineAliasDeploymentPreferenceArgs:
              alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+
         _setter("state_machine_version_arn", state_machine_version_arn)
         _setter("type", type)
         if alarms is not None:
@@ -180,7 +186,11 @@ class StateMachineAliasRoutingConfigurationVersionArgs:
              _setter: Callable[[Any, Any], None],
              state_machine_version_arn: pulumi.Input[str],
              weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+
         _setter("state_machine_version_arn", state_machine_version_arn)
         _setter("weight", weight)
 
@@ -221,7 +231,11 @@ class StateMachineCloudWatchLogsLogGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+
         if log_group_arn is not None:
             _setter("log_group_arn", log_group_arn)
 
@@ -242,8 +256,10 @@ class StateMachineDefinitionSubstitutionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -253,8 +269,10 @@ class StateMachineDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -269,7 +287,11 @@ class StateMachineLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsLogGroup' in kwargs:
+            cloud_watch_logs_log_group = kwargs['cloudWatchLogsLogGroup']
+
         if cloud_watch_logs_log_group is not None:
             _setter("cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
@@ -301,7 +323,11 @@ class StateMachineLoggingConfigurationArgs:
              destinations: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
              include_execution_data: Optional[pulumi.Input[bool]] = None,
              level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeExecutionData' in kwargs:
+            include_execution_data = kwargs['includeExecutionData']
+
         if destinations is not None:
             _setter("destinations", destinations)
         if include_execution_data is not None:
@@ -355,7 +381,9 @@ class StateMachineS3LocationArgs:
              bucket: pulumi.Input[str],
              key: pulumi.Input[str],
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         _setter("key", key)
         if version is not None:
@@ -404,7 +432,9 @@ class StateMachineTagsEntryArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -439,7 +469,9 @@ class StateMachineTracingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 

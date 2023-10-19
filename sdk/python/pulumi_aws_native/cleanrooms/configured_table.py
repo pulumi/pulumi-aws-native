@@ -48,7 +48,17 @@ class ConfiguredTableArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedColumns' in kwargs:
+            allowed_columns = kwargs['allowedColumns']
+        if 'analysisMethod' in kwargs:
+            analysis_method = kwargs['analysisMethod']
+        if 'tableReference' in kwargs:
+            table_reference = kwargs['tableReference']
+        if 'analysisRules' in kwargs:
+            analysis_rules = kwargs['analysisRules']
+
         _setter("allowed_columns", allowed_columns)
         _setter("analysis_method", analysis_method)
         _setter("table_reference", table_reference)

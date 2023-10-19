@@ -40,7 +40,19 @@ class OrganizationConfigRuleArgs:
              organization_custom_policy_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']] = None,
              organization_custom_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']] = None,
              organization_managed_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if 'organizationConfigRuleName' in kwargs:
+            organization_config_rule_name = kwargs['organizationConfigRuleName']
+        if 'organizationCustomPolicyRuleMetadata' in kwargs:
+            organization_custom_policy_rule_metadata = kwargs['organizationCustomPolicyRuleMetadata']
+        if 'organizationCustomRuleMetadata' in kwargs:
+            organization_custom_rule_metadata = kwargs['organizationCustomRuleMetadata']
+        if 'organizationManagedRuleMetadata' in kwargs:
+            organization_managed_rule_metadata = kwargs['organizationManagedRuleMetadata']
+
         if excluded_accounts is not None:
             _setter("excluded_accounts", excluded_accounts)
         if organization_config_rule_name is not None:

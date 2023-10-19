@@ -49,7 +49,21 @@ class ModelArgs:
              primary_container: Optional[pulumi.Input['ModelContainerDefinitionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if 'inferenceExecutionConfig' in kwargs:
+            inference_execution_config = kwargs['inferenceExecutionConfig']
+        if 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if 'primaryContainer' in kwargs:
+            primary_container = kwargs['primaryContainer']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("execution_role_arn", execution_role_arn)
         if containers is not None:
             _setter("containers", containers)

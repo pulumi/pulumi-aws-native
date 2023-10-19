@@ -49,7 +49,17 @@ class VerifiedAccessInstanceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
              verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'loggingConfigurations' in kwargs:
+            logging_configurations = kwargs['loggingConfigurations']
+        if 'verifiedAccessTrustProviderIds' in kwargs:
+            verified_access_trust_provider_ids = kwargs['verifiedAccessTrustProviderIds']
+        if 'verifiedAccessTrustProviders' in kwargs:
+            verified_access_trust_providers = kwargs['verifiedAccessTrustProviders']
+
         if description is not None:
             _setter("description", description)
         if fips_enabled is not None:

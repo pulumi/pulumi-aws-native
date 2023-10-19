@@ -47,7 +47,19 @@ class DeploymentArgs:
              iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
              parent_target_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+        if 'deploymentPolicies' in kwargs:
+            deployment_policies = kwargs['deploymentPolicies']
+        if 'iotJobConfiguration' in kwargs:
+            iot_job_configuration = kwargs['iotJobConfiguration']
+        if 'parentTargetArn' in kwargs:
+            parent_target_arn = kwargs['parentTargetArn']
+
         _setter("target_arn", target_arn)
         if components is not None:
             _setter("components", components)

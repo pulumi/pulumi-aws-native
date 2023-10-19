@@ -31,7 +31,13 @@ class AccessPointPolicyArgs:
              _setter: Callable[[Any, Any], None],
              object_lambda_access_point: pulumi.Input[str],
              policy_document: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectLambdaAccessPoint' in kwargs:
+            object_lambda_access_point = kwargs['objectLambdaAccessPoint']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("object_lambda_access_point", object_lambda_access_point)
         _setter("policy_document", policy_document)
 

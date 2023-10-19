@@ -37,7 +37,11 @@ class UserPoolResourceServerArgs:
              user_pool_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         _setter("identifier", identifier)
         _setter("user_pool_id", user_pool_id)
         if name is not None:

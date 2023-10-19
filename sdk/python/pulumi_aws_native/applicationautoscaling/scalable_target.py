@@ -57,7 +57,25 @@ class ScalableTargetArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
              suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if 'suspendedState' in kwargs:
+            suspended_state = kwargs['suspendedState']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
         _setter("resource_id", resource_id)

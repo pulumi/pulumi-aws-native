@@ -62,7 +62,29 @@ class Ec2FleetArgs:
              type: Optional[pulumi.Input['Ec2FleetType']] = None,
              valid_from: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if 'targetCapacitySpecification' in kwargs:
+            target_capacity_specification = kwargs['targetCapacitySpecification']
+        if 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if 'onDemandOptions' in kwargs:
+            on_demand_options = kwargs['onDemandOptions']
+        if 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if 'spotOptions' in kwargs:
+            spot_options = kwargs['spotOptions']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         _setter("launch_template_configs", launch_template_configs)
         _setter("target_capacity_specification", target_capacity_specification)
         if context is not None:

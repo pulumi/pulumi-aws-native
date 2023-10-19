@@ -50,7 +50,15 @@ class FirewallRuleGroupAssociationArgs:
              mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallRuleGroupId' in kwargs:
+            firewall_rule_group_id = kwargs['firewallRuleGroupId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'mutationProtection' in kwargs:
+            mutation_protection = kwargs['mutationProtection']
+
         _setter("firewall_rule_group_id", firewall_rule_group_id)
         _setter("priority", priority)
         _setter("vpc_id", vpc_id)

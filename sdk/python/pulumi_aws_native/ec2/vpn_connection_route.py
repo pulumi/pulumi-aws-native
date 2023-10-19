@@ -31,7 +31,13 @@ class VpnConnectionRouteArgs:
              _setter: Callable[[Any, Any], None],
              destination_cidr_block: pulumi.Input[str],
              vpn_connection_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if 'vpnConnectionId' in kwargs:
+            vpn_connection_id = kwargs['vpnConnectionId']
+
         _setter("destination_cidr_block", destination_cidr_block)
         _setter("vpn_connection_id", vpn_connection_id)
 

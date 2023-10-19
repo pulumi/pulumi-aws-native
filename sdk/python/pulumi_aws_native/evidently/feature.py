@@ -51,7 +51,15 @@ class FeatureArgs:
              evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultVariation' in kwargs:
+            default_variation = kwargs['defaultVariation']
+        if 'entityOverrides' in kwargs:
+            entity_overrides = kwargs['entityOverrides']
+        if 'evaluationStrategy' in kwargs:
+            evaluation_strategy = kwargs['evaluationStrategy']
+
         _setter("project", project)
         _setter("variations", variations)
         if default_variation is not None:

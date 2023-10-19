@@ -41,7 +41,11 @@ class TrustAnchorArgs:
              name: Optional[pulumi.Input[str]] = None,
              notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+
         _setter("source", source)
         if enabled is not None:
             _setter("enabled", enabled)

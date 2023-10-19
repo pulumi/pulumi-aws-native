@@ -28,7 +28,11 @@ class CachePolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cache_policy_config: pulumi.Input['CachePolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cachePolicyConfig' in kwargs:
+            cache_policy_config = kwargs['cachePolicyConfig']
+
         _setter("cache_policy_config", cache_policy_config)
 
     @property

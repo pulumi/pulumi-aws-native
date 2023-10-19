@@ -106,7 +106,21 @@ class ListenerAction(dict):
              order: Optional[int] = None,
              redirect_config: Optional['outputs.ListenerRedirectConfig'] = None,
              target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticateCognitoConfig' in kwargs:
+            authenticate_cognito_config = kwargs['authenticateCognitoConfig']
+        if 'authenticateOidcConfig' in kwargs:
+            authenticate_oidc_config = kwargs['authenticateOidcConfig']
+        if 'fixedResponseConfig' in kwargs:
+            fixed_response_config = kwargs['fixedResponseConfig']
+        if 'forwardConfig' in kwargs:
+            forward_config = kwargs['forwardConfig']
+        if 'redirectConfig' in kwargs:
+            redirect_config = kwargs['redirectConfig']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         _setter("type", type)
         if authenticate_cognito_config is not None:
             _setter("authenticate_cognito_config", authenticate_cognito_config)
@@ -226,7 +240,23 @@ class ListenerAuthenticateCognitoConfig(dict):
              scope: Optional[str] = None,
              session_cookie_name: Optional[str] = None,
              session_timeout: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if 'userPoolClientId' in kwargs:
+            user_pool_client_id = kwargs['userPoolClientId']
+        if 'userPoolDomain' in kwargs:
+            user_pool_domain = kwargs['userPoolDomain']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
         _setter("user_pool_arn", user_pool_arn)
         _setter("user_pool_client_id", user_pool_client_id)
         _setter("user_pool_domain", user_pool_domain)
@@ -362,7 +392,29 @@ class ListenerAuthenticateOidcConfig(dict):
              session_cookie_name: Optional[str] = None,
              session_timeout: Optional[str] = None,
              use_existing_client_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+        if 'useExistingClientSecret' in kwargs:
+            use_existing_client_secret = kwargs['useExistingClientSecret']
+
         _setter("authorization_endpoint", authorization_endpoint)
         _setter("client_id", client_id)
         _setter("issuer", issuer)
@@ -473,7 +525,11 @@ class ListenerCertificate(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
 
@@ -512,7 +568,11 @@ class ListenerCertificateCertificate(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
 
@@ -561,7 +621,15 @@ class ListenerFixedResponseConfig(dict):
              status_code: str,
              content_type: Optional[str] = None,
              message_body: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'messageBody' in kwargs:
+            message_body = kwargs['messageBody']
+
         _setter("status_code", status_code)
         if content_type is not None:
             _setter("content_type", content_type)
@@ -618,7 +686,13 @@ class ListenerForwardConfig(dict):
              _setter: Callable[[Any, Any], None],
              target_group_stickiness_config: Optional['outputs.ListenerTargetGroupStickinessConfig'] = None,
              target_groups: Optional[Sequence['outputs.ListenerTargetGroupTuple']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupStickinessConfig' in kwargs:
+            target_group_stickiness_config = kwargs['targetGroupStickinessConfig']
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
         if target_group_stickiness_config is not None:
             _setter("target_group_stickiness_config", target_group_stickiness_config)
         if target_groups is not None:
@@ -679,7 +753,11 @@ class ListenerRedirectConfig(dict):
              port: Optional[str] = None,
              protocol: Optional[str] = None,
              query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("status_code", status_code)
         if host is not None:
             _setter("host", host)
@@ -783,7 +861,21 @@ class ListenerRuleAction(dict):
              order: Optional[int] = None,
              redirect_config: Optional['outputs.ListenerRuleRedirectConfig'] = None,
              target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticateCognitoConfig' in kwargs:
+            authenticate_cognito_config = kwargs['authenticateCognitoConfig']
+        if 'authenticateOidcConfig' in kwargs:
+            authenticate_oidc_config = kwargs['authenticateOidcConfig']
+        if 'fixedResponseConfig' in kwargs:
+            fixed_response_config = kwargs['fixedResponseConfig']
+        if 'forwardConfig' in kwargs:
+            forward_config = kwargs['forwardConfig']
+        if 'redirectConfig' in kwargs:
+            redirect_config = kwargs['redirectConfig']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         _setter("type", type)
         if authenticate_cognito_config is not None:
             _setter("authenticate_cognito_config", authenticate_cognito_config)
@@ -903,7 +995,23 @@ class ListenerRuleAuthenticateCognitoConfig(dict):
              scope: Optional[str] = None,
              session_cookie_name: Optional[str] = None,
              session_timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if 'userPoolClientId' in kwargs:
+            user_pool_client_id = kwargs['userPoolClientId']
+        if 'userPoolDomain' in kwargs:
+            user_pool_domain = kwargs['userPoolDomain']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
         _setter("user_pool_arn", user_pool_arn)
         _setter("user_pool_client_id", user_pool_client_id)
         _setter("user_pool_domain", user_pool_domain)
@@ -1039,7 +1147,29 @@ class ListenerRuleAuthenticateOidcConfig(dict):
              session_cookie_name: Optional[str] = None,
              session_timeout: Optional[int] = None,
              use_existing_client_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+        if 'useExistingClientSecret' in kwargs:
+            use_existing_client_secret = kwargs['useExistingClientSecret']
+
         _setter("authorization_endpoint", authorization_endpoint)
         _setter("client_id", client_id)
         _setter("issuer", issuer)
@@ -1160,7 +1290,15 @@ class ListenerRuleFixedResponseConfig(dict):
              status_code: str,
              content_type: Optional[str] = None,
              message_body: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'messageBody' in kwargs:
+            message_body = kwargs['messageBody']
+
         _setter("status_code", status_code)
         if content_type is not None:
             _setter("content_type", content_type)
@@ -1217,7 +1355,13 @@ class ListenerRuleForwardConfig(dict):
              _setter: Callable[[Any, Any], None],
              target_group_stickiness_config: Optional['outputs.ListenerRuleTargetGroupStickinessConfig'] = None,
              target_groups: Optional[Sequence['outputs.ListenerRuleTargetGroupTuple']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupStickinessConfig' in kwargs:
+            target_group_stickiness_config = kwargs['targetGroupStickinessConfig']
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
         if target_group_stickiness_config is not None:
             _setter("target_group_stickiness_config", target_group_stickiness_config)
         if target_groups is not None:
@@ -1246,7 +1390,9 @@ class ListenerRuleHostHeaderConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if values is not None:
             _setter("values", values)
 
@@ -1288,7 +1434,11 @@ class ListenerRuleHttpHeaderConfig(dict):
              _setter: Callable[[Any, Any], None],
              http_header_name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaderName' in kwargs:
+            http_header_name = kwargs['httpHeaderName']
+
         if http_header_name is not None:
             _setter("http_header_name", http_header_name)
         if values is not None:
@@ -1317,7 +1467,9 @@ class ListenerRuleHttpRequestMethodConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if values is not None:
             _setter("values", values)
 
@@ -1339,7 +1491,9 @@ class ListenerRulePathPatternConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if values is not None:
             _setter("values", values)
 
@@ -1361,7 +1515,9 @@ class ListenerRuleQueryStringConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              values: Optional[Sequence['outputs.ListenerRuleQueryStringKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if values is not None:
             _setter("values", values)
 
@@ -1386,7 +1542,9 @@ class ListenerRuleQueryStringKeyValue(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1447,7 +1605,11 @@ class ListenerRuleRedirectConfig(dict):
              port: Optional[str] = None,
              protocol: Optional[str] = None,
              query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("status_code", status_code)
         if host is not None:
             _setter("host", host)
@@ -1551,7 +1713,21 @@ class ListenerRuleRuleCondition(dict):
              query_string_config: Optional['outputs.ListenerRuleQueryStringConfig'] = None,
              source_ip_config: Optional['outputs.ListenerRuleSourceIpConfig'] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostHeaderConfig' in kwargs:
+            host_header_config = kwargs['hostHeaderConfig']
+        if 'httpHeaderConfig' in kwargs:
+            http_header_config = kwargs['httpHeaderConfig']
+        if 'httpRequestMethodConfig' in kwargs:
+            http_request_method_config = kwargs['httpRequestMethodConfig']
+        if 'pathPatternConfig' in kwargs:
+            path_pattern_config = kwargs['pathPatternConfig']
+        if 'queryStringConfig' in kwargs:
+            query_string_config = kwargs['queryStringConfig']
+        if 'sourceIpConfig' in kwargs:
+            source_ip_config = kwargs['sourceIpConfig']
+
         if field is not None:
             _setter("field", field)
         if host_header_config is not None:
@@ -1622,7 +1798,9 @@ class ListenerRuleSourceIpConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if values is not None:
             _setter("values", values)
 
@@ -1664,7 +1842,11 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
              _setter: Callable[[Any, Any], None],
              duration_seconds: Optional[int] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)
         if enabled is not None:
@@ -1713,7 +1895,11 @@ class ListenerRuleTargetGroupTuple(dict):
              _setter: Callable[[Any, Any], None],
              target_group_arn: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         if target_group_arn is not None:
             _setter("target_group_arn", target_group_arn)
         if weight is not None:
@@ -1762,7 +1948,11 @@ class ListenerTargetGroupStickinessConfig(dict):
              _setter: Callable[[Any, Any], None],
              duration_seconds: Optional[int] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)
         if enabled is not None:
@@ -1811,7 +2001,11 @@ class ListenerTargetGroupTuple(dict):
              _setter: Callable[[Any, Any], None],
              target_group_arn: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         if target_group_arn is not None:
             _setter("target_group_arn", target_group_arn)
         if weight is not None:
@@ -1843,7 +2037,9 @@ class LoadBalancerAttribute(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1904,7 +2100,17 @@ class LoadBalancerSubnetMapping(dict):
              allocation_id: Optional[str] = None,
              i_pv6_address: Optional[str] = None,
              private_i_pv4_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'iPv6Address' in kwargs:
+            i_pv6_address = kwargs['iPv6Address']
+        if 'privateIPv4Address' in kwargs:
+            private_i_pv4_address = kwargs['privateIPv4Address']
+
         _setter("subnet_id", subnet_id)
         if allocation_id is not None:
             _setter("allocation_id", allocation_id)
@@ -1949,7 +2155,9 @@ class LoadBalancerTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1984,7 +2192,9 @@ class TargetGroupAttribute(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -2045,7 +2255,13 @@ class TargetGroupMatcher(dict):
              _setter: Callable[[Any, Any], None],
              grpc_code: Optional[str] = None,
              http_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'grpcCode' in kwargs:
+            grpc_code = kwargs['grpcCode']
+        if 'httpCode' in kwargs:
+            http_code = kwargs['httpCode']
+
         if grpc_code is not None:
             _setter("grpc_code", grpc_code)
         if http_code is not None:
@@ -2087,7 +2303,9 @@ class TargetGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2148,7 +2366,11 @@ class TargetGroupTargetDescription(dict):
              id: str,
              availability_zone: Optional[str] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
         _setter("id", id)
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)

@@ -40,7 +40,15 @@ class BridgeSourceInitArgs:
              flow_source: Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_source: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if 'flowSource' in kwargs:
+            flow_source = kwargs['flowSource']
+        if 'networkSource' in kwargs:
+            network_source = kwargs['networkSource']
+
         _setter("bridge_arn", bridge_arn)
         if flow_source is not None:
             _setter("flow_source", flow_source)

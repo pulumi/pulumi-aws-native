@@ -50,7 +50,19 @@ class AssetModelArgs:
              asset_model_name: Optional[pulumi.Input[str]] = None,
              asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetModelCompositeModels' in kwargs:
+            asset_model_composite_models = kwargs['assetModelCompositeModels']
+        if 'assetModelDescription' in kwargs:
+            asset_model_description = kwargs['assetModelDescription']
+        if 'assetModelHierarchies' in kwargs:
+            asset_model_hierarchies = kwargs['assetModelHierarchies']
+        if 'assetModelName' in kwargs:
+            asset_model_name = kwargs['assetModelName']
+        if 'assetModelProperties' in kwargs:
+            asset_model_properties = kwargs['assetModelProperties']
+
         if asset_model_composite_models is not None:
             _setter("asset_model_composite_models", asset_model_composite_models)
         if asset_model_description is not None:

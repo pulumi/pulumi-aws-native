@@ -53,7 +53,23 @@ class SubscriptionArgs:
              redrive_policy: Optional[Any] = None,
              region: Optional[pulumi.Input[str]] = None,
              subscription_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if 'filterPolicy' in kwargs:
+            filter_policy = kwargs['filterPolicy']
+        if 'filterPolicyScope' in kwargs:
+            filter_policy_scope = kwargs['filterPolicyScope']
+        if 'rawMessageDelivery' in kwargs:
+            raw_message_delivery = kwargs['rawMessageDelivery']
+        if 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if 'subscriptionRoleArn' in kwargs:
+            subscription_role_arn = kwargs['subscriptionRoleArn']
+
         _setter("protocol", protocol)
         _setter("topic_arn", topic_arn)
         if delivery_policy is not None:

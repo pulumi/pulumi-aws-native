@@ -55,7 +55,25 @@ class RemediationConfigurationArgs:
              resource_type: Optional[pulumi.Input[str]] = None,
              retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
              target_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if 'executionControls' in kwargs:
+            execution_controls = kwargs['executionControls']
+        if 'maximumAutomaticAttempts' in kwargs:
+            maximum_automatic_attempts = kwargs['maximumAutomaticAttempts']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'retryAttemptSeconds' in kwargs:
+            retry_attempt_seconds = kwargs['retryAttemptSeconds']
+        if 'targetVersion' in kwargs:
+            target_version = kwargs['targetVersion']
+
         _setter("config_rule_name", config_rule_name)
         _setter("target_id", target_id)
         _setter("target_type", target_type)

@@ -41,7 +41,9 @@ class NotificationChannelConfig(dict):
              _setter: Callable[[Any, Any], None],
              filters: Optional['outputs.NotificationChannelNotificationFilterConfig'] = None,
              sns: Optional['outputs.NotificationChannelSnsChannelConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if filters is not None:
             _setter("filters", filters)
         if sns is not None:
@@ -96,7 +98,11 @@ class NotificationChannelNotificationFilterConfig(dict):
              _setter: Callable[[Any, Any], None],
              message_types: Optional[Sequence['NotificationChannelNotificationMessageType']] = None,
              severities: Optional[Sequence['NotificationChannelInsightSeverity']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageTypes' in kwargs:
+            message_types = kwargs['messageTypes']
+
         if message_types is not None:
             _setter("message_types", message_types)
         if severities is not None:
@@ -148,7 +154,11 @@ class NotificationChannelSnsChannelConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         if topic_arn is not None:
             _setter("topic_arn", topic_arn)
 
@@ -194,7 +204,11 @@ class ResourceCollectionCloudFormationCollectionFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              stack_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackNames' in kwargs:
+            stack_names = kwargs['stackNames']
+
         if stack_names is not None:
             _setter("stack_names", stack_names)
 
@@ -245,7 +259,11 @@ class ResourceCollectionFilter(dict):
              _setter: Callable[[Any, Any], None],
              cloud_formation: Optional['outputs.ResourceCollectionCloudFormationCollectionFilter'] = None,
              tags: Optional[Sequence['outputs.ResourceCollectionTagCollection']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudFormation' in kwargs:
+            cloud_formation = kwargs['cloudFormation']
+
         if cloud_formation is not None:
             _setter("cloud_formation", cloud_formation)
         if tags is not None:
@@ -304,7 +322,13 @@ class ResourceCollectionTagCollection(dict):
              _setter: Callable[[Any, Any], None],
              app_boundary_key: Optional[str] = None,
              tag_values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appBoundaryKey' in kwargs:
+            app_boundary_key = kwargs['appBoundaryKey']
+        if 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+
         if app_boundary_key is not None:
             _setter("app_boundary_key", app_boundary_key)
         if tag_values is not None:

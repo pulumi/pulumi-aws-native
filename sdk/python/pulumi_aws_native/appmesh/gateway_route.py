@@ -43,7 +43,17 @@ class GatewayRouteArgs:
              gateway_route_name: Optional[pulumi.Input[str]] = None,
              mesh_owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if 'virtualGatewayName' in kwargs:
+            virtual_gateway_name = kwargs['virtualGatewayName']
+        if 'gatewayRouteName' in kwargs:
+            gateway_route_name = kwargs['gatewayRouteName']
+        if 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         _setter("virtual_gateway_name", virtual_gateway_name)

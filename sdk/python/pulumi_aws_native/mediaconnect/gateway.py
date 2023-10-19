@@ -38,7 +38,11 @@ class GatewayArgs:
              egress_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
              networks: pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressCidrBlocks' in kwargs:
+            egress_cidr_blocks = kwargs['egressCidrBlocks']
+
         _setter("egress_cidr_blocks", egress_cidr_blocks)
         _setter("networks", networks)
         if name is not None:

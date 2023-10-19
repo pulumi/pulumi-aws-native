@@ -35,7 +35,11 @@ class CapacityProviderArgs:
              auto_scaling_group_provider: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupProvider' in kwargs:
+            auto_scaling_group_provider = kwargs['autoScalingGroupProvider']
+
         _setter("auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
             _setter("name", name)

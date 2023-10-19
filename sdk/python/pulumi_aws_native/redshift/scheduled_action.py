@@ -58,7 +58,21 @@ class ScheduledActionArgs:
              scheduled_action_name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              target_action: Optional[pulumi.Input['ScheduledActionTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if 'scheduledActionDescription' in kwargs:
+            scheduled_action_description = kwargs['scheduledActionDescription']
+        if 'scheduledActionName' in kwargs:
+            scheduled_action_name = kwargs['scheduledActionName']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+
         if enable is not None:
             _setter("enable", enable)
         if end_time is not None:

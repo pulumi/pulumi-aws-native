@@ -29,7 +29,11 @@ class ThingPrincipalAttachmentArgs:
              _setter: Callable[[Any, Any], None],
              principal: pulumi.Input[str],
              thing_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         _setter("principal", principal)
         _setter("thing_name", thing_name)
 

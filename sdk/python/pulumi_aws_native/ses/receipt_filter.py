@@ -28,7 +28,9 @@ class ReceiptFilterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              filter: pulumi.Input['ReceiptFilterFilterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("filter", filter)
 
     @property

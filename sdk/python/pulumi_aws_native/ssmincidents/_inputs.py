@@ -43,7 +43,11 @@ class ReplicationSetRegionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sse_kms_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseKmsKeyId' in kwargs:
+            sse_kms_key_id = kwargs['sseKmsKeyId']
+
         _setter("sse_kms_key_id", sse_kms_key_id)
 
     @property
@@ -74,7 +78,13 @@ class ReplicationSetReplicationRegionArgs:
              _setter: Callable[[Any, Any], None],
              region_configuration: Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']] = None,
              region_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionConfiguration' in kwargs:
+            region_configuration = kwargs['regionConfiguration']
+        if 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+
         if region_configuration is not None:
             _setter("region_configuration", region_configuration)
         if region_name is not None:
@@ -117,7 +127,9 @@ class ReplicationSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -155,7 +167,11 @@ class ResponsePlanActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ssmAutomation' in kwargs:
+            ssm_automation = kwargs['ssmAutomation']
+
         if ssm_automation is not None:
             _setter("ssm_automation", ssm_automation)
 
@@ -184,7 +200,11 @@ class ResponsePlanChatChannelArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chatbotSns' in kwargs:
+            chatbot_sns = kwargs['chatbotSns']
+
         if chatbot_sns is not None:
             _setter("chatbot_sns", chatbot_sns)
 
@@ -213,7 +233,9 @@ class ResponsePlanDynamicSsmParameterValueArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if variable is not None:
             _setter("variable", variable)
 
@@ -245,7 +267,9 @@ class ResponsePlanDynamicSsmParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -304,7 +328,15 @@ class ResponsePlanIncidentTemplateArgs:
              incident_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
              notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]] = None,
              summary: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedupeString' in kwargs:
+            dedupe_string = kwargs['dedupeString']
+        if 'incidentTags' in kwargs:
+            incident_tags = kwargs['incidentTags']
+        if 'notificationTargets' in kwargs:
+            notification_targets = kwargs['notificationTargets']
+
         _setter("impact", impact)
         _setter("title", title)
         if dedupe_string is not None:
@@ -401,7 +433,11 @@ class ResponsePlanIntegrationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pagerDutyConfiguration' in kwargs:
+            pager_duty_configuration = kwargs['pagerDutyConfiguration']
+
         if pager_duty_configuration is not None:
             _setter("pager_duty_configuration", pager_duty_configuration)
 
@@ -430,7 +466,11 @@ class ResponsePlanNotificationTargetItemArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         if sns_topic_arn is not None:
             _setter("sns_topic_arn", sns_topic_arn)
 
@@ -467,7 +507,13 @@ class ResponsePlanPagerDutyConfigurationArgs:
              name: pulumi.Input[str],
              pager_duty_incident_configuration: pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs'],
              secret_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pagerDutyIncidentConfiguration' in kwargs:
+            pager_duty_incident_configuration = kwargs['pagerDutyIncidentConfiguration']
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+
         _setter("name", name)
         _setter("pager_duty_incident_configuration", pager_duty_incident_configuration)
         _setter("secret_id", secret_id)
@@ -522,7 +568,11 @@ class ResponsePlanPagerDutyIncidentConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         _setter("service_id", service_id)
 
     @property
@@ -574,7 +624,19 @@ class ResponsePlanSsmAutomationArgs:
              dynamic_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
              target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if 'dynamicParameters' in kwargs:
+            dynamic_parameters = kwargs['dynamicParameters']
+        if 'targetAccount' in kwargs:
+            target_account = kwargs['targetAccount']
+
         _setter("document_name", document_name)
         _setter("role_arn", role_arn)
         if document_version is not None:
@@ -677,7 +739,9 @@ class ResponsePlanSsmParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -718,7 +782,9 @@ class ResponsePlanTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

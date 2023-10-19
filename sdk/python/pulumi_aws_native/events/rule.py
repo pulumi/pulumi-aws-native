@@ -59,7 +59,17 @@ class RuleArgs:
              schedule_expression: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['RuleState']] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+        if 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         if description is not None:
             _setter("description", description)
         if event_bus_name is not None:

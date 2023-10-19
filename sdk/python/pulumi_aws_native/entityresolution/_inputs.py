@@ -45,7 +45,15 @@ class MatchingWorkflowInputSourceArgs:
              input_source_arn: pulumi.Input[str],
              schema_arn: pulumi.Input[str],
              apply_normalization: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputSourceArn' in kwargs:
+            input_source_arn = kwargs['inputSourceArn']
+        if 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if 'applyNormalization' in kwargs:
+            apply_normalization = kwargs['applyNormalization']
+
         _setter("input_source_arn", input_source_arn)
         _setter("schema_arn", schema_arn)
         if apply_normalization is not None:
@@ -97,7 +105,11 @@ class MatchingWorkflowIntermediateSourceConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              intermediate_s3_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intermediateS3Path' in kwargs:
+            intermediate_s3_path = kwargs['intermediateS3Path']
+
         _setter("intermediate_s3_path", intermediate_s3_path)
 
     @property
@@ -128,7 +140,9 @@ class MatchingWorkflowOutputAttributeArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              hashed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if hashed is not None:
             _setter("hashed", hashed)
@@ -176,7 +190,15 @@ class MatchingWorkflowOutputSourceArgs:
              output_s3_path: pulumi.Input[str],
              apply_normalization: Optional[pulumi.Input[bool]] = None,
              kms_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputS3Path' in kwargs:
+            output_s3_path = kwargs['outputS3Path']
+        if 'applyNormalization' in kwargs:
+            apply_normalization = kwargs['applyNormalization']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         _setter("output", output)
         _setter("output_s3_path", output_s3_path)
         if apply_normalization is not None:
@@ -246,7 +268,15 @@ class MatchingWorkflowProviderPropertiesArgs:
              provider_service_arn: pulumi.Input[str],
              intermediate_source_configuration: Optional[pulumi.Input['MatchingWorkflowIntermediateSourceConfigurationArgs']] = None,
              provider_configuration: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerServiceArn' in kwargs:
+            provider_service_arn = kwargs['providerServiceArn']
+        if 'intermediateSourceConfiguration' in kwargs:
+            intermediate_source_configuration = kwargs['intermediateSourceConfiguration']
+        if 'providerConfiguration' in kwargs:
+            provider_configuration = kwargs['providerConfiguration']
+
         _setter("provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
             _setter("intermediate_source_configuration", intermediate_source_configuration)
@@ -305,7 +335,15 @@ class MatchingWorkflowResolutionTechniquesArgs:
              provider_properties: Optional[pulumi.Input['MatchingWorkflowProviderPropertiesArgs']] = None,
              resolution_type: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesResolutionType']] = None,
              rule_based_properties: Optional[pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerProperties' in kwargs:
+            provider_properties = kwargs['providerProperties']
+        if 'resolutionType' in kwargs:
+            resolution_type = kwargs['resolutionType']
+        if 'ruleBasedProperties' in kwargs:
+            rule_based_properties = kwargs['ruleBasedProperties']
+
         if provider_properties is not None:
             _setter("provider_properties", provider_properties)
         if resolution_type is not None:
@@ -356,7 +394,11 @@ class MatchingWorkflowRuleBasedPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              attribute_matching_model: pulumi.Input['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'],
              rules: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeMatchingModel' in kwargs:
+            attribute_matching_model = kwargs['attributeMatchingModel']
+
         _setter("attribute_matching_model", attribute_matching_model)
         _setter("rules", rules)
 
@@ -394,7 +436,13 @@ class MatchingWorkflowRuleArgs:
              _setter: Callable[[Any, Any], None],
              matching_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
              rule_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchingKeys' in kwargs:
+            matching_keys = kwargs['matchingKeys']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("matching_keys", matching_keys)
         _setter("rule_name", rule_name)
 
@@ -437,7 +485,9 @@ class MatchingWorkflowTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -493,7 +543,17 @@ class SchemaMappingSchemaInputAttributeArgs:
              group_name: Optional[pulumi.Input[str]] = None,
              match_key: Optional[pulumi.Input[str]] = None,
              sub_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'matchKey' in kwargs:
+            match_key = kwargs['matchKey']
+        if 'subType' in kwargs:
+            sub_type = kwargs['subType']
+
         _setter("field_name", field_name)
         _setter("type", type)
         if group_name is not None:
@@ -572,7 +632,9 @@ class SchemaMappingTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

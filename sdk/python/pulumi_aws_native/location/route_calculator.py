@@ -36,7 +36,15 @@ class RouteCalculatorArgs:
              data_source: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'calculatorName' in kwargs:
+            calculator_name = kwargs['calculatorName']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("calculator_name", calculator_name)
         _setter("data_source", data_source)
         if description is not None:

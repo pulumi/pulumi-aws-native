@@ -49,7 +49,13 @@ class PhoneNumberArgs:
              description: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         _setter("country_code", country_code)
         _setter("target_arn", target_arn)
         _setter("type", type)

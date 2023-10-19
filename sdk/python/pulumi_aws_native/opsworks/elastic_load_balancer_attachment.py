@@ -29,7 +29,13 @@ class ElasticLoadBalancerAttachmentArgs:
              _setter: Callable[[Any, Any], None],
              elastic_load_balancer_name: pulumi.Input[str],
              layer_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'elasticLoadBalancerName' in kwargs:
+            elastic_load_balancer_name = kwargs['elasticLoadBalancerName']
+        if 'layerId' in kwargs:
+            layer_id = kwargs['layerId']
+
         _setter("elastic_load_balancer_name", elastic_load_balancer_name)
         _setter("layer_id", layer_id)
 

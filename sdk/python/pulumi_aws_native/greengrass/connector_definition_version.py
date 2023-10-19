@@ -31,7 +31,11 @@ class ConnectorDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              connector_definition_id: pulumi.Input[str],
              connectors: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionVersionConnectorArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorDefinitionId' in kwargs:
+            connector_definition_id = kwargs['connectorDefinitionId']
+
         _setter("connector_definition_id", connector_definition_id)
         _setter("connectors", connectors)
 

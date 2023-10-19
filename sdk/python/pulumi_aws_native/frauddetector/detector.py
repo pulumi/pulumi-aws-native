@@ -56,7 +56,19 @@ class DetectorArgs:
              detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
              rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'associatedModels' in kwargs:
+            associated_models = kwargs['associatedModels']
+        if 'detectorVersionStatus' in kwargs:
+            detector_version_status = kwargs['detectorVersionStatus']
+        if 'ruleExecutionMode' in kwargs:
+            rule_execution_mode = kwargs['ruleExecutionMode']
+
         _setter("detector_id", detector_id)
         _setter("event_type", event_type)
         _setter("rules", rules)

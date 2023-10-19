@@ -35,7 +35,11 @@ class SoftwarePackageArgs:
              description: Optional[pulumi.Input[str]] = None,
              package_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwarePackageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+
         if description is not None:
             _setter("description", description)
         if package_name is not None:

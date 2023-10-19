@@ -46,7 +46,13 @@ class QuickConnectArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'quickConnectConfig' in kwargs:
+            quick_connect_config = kwargs['quickConnectConfig']
+
         _setter("instance_arn", instance_arn)
         _setter("quick_connect_config", quick_connect_config)
         if description is not None:

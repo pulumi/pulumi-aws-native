@@ -39,7 +39,13 @@ class DbClusterDbClusterRoleArgs:
              _setter: Callable[[Any, Any], None],
              role_arn: pulumi.Input[str],
              feature_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+
         _setter("role_arn", role_arn)
         if feature_name is not None:
             _setter("feature_name", feature_name)
@@ -84,7 +90,9 @@ class DbClusterParameterGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -127,7 +135,13 @@ class DbClusterServerlessScalingConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              max_capacity: pulumi.Input[float],
              min_capacity: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -176,7 +190,9 @@ class DbClusterTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -221,7 +237,9 @@ class DbInstanceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -259,7 +277,9 @@ class DbParameterGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,7 +317,9 @@ class DbSubnetGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -31,7 +31,13 @@ class VdmAttributesArgs:
              _setter: Callable[[Any, Any], None],
              dashboard_attributes: Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']] = None,
              guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardAttributes' in kwargs:
+            dashboard_attributes = kwargs['dashboardAttributes']
+        if 'guardianAttributes' in kwargs:
+            guardian_attributes = kwargs['guardianAttributes']
+
         if dashboard_attributes is not None:
             _setter("dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:

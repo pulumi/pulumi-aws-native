@@ -71,7 +71,29 @@ class AppArgs:
              platform: Optional[pulumi.Input['AppPlatform']] = None,
              repository: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'autoBranchCreationConfig' in kwargs:
+            auto_branch_creation_config = kwargs['autoBranchCreationConfig']
+        if 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if 'enableBranchAutoDeletion' in kwargs:
+            enable_branch_auto_deletion = kwargs['enableBranchAutoDeletion']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'iamServiceRole' in kwargs:
+            iam_service_role = kwargs['iamServiceRole']
+        if 'oauthToken' in kwargs:
+            oauth_token = kwargs['oauthToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if auto_branch_creation_config is not None:

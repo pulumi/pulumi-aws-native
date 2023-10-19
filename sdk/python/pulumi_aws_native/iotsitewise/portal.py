@@ -57,7 +57,21 @@ class PortalArgs:
              portal_description: Optional[pulumi.Input[str]] = None,
              portal_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portalContactEmail' in kwargs:
+            portal_contact_email = kwargs['portalContactEmail']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if 'portalAuthMode' in kwargs:
+            portal_auth_mode = kwargs['portalAuthMode']
+        if 'portalDescription' in kwargs:
+            portal_description = kwargs['portalDescription']
+        if 'portalName' in kwargs:
+            portal_name = kwargs['portalName']
+
         _setter("portal_contact_email", portal_contact_email)
         _setter("role_arn", role_arn)
         if alarms is not None:

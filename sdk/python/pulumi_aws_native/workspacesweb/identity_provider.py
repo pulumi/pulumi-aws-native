@@ -38,7 +38,17 @@ class IdentityProviderArgs:
              identity_provider_type: pulumi.Input['IdentityProviderType'],
              identity_provider_name: Optional[pulumi.Input[str]] = None,
              portal_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityProviderDetails' in kwargs:
+            identity_provider_details = kwargs['identityProviderDetails']
+        if 'identityProviderType' in kwargs:
+            identity_provider_type = kwargs['identityProviderType']
+        if 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if 'portalArn' in kwargs:
+            portal_arn = kwargs['portalArn']
+
         _setter("identity_provider_details", identity_provider_details)
         _setter("identity_provider_type", identity_provider_type)
         if identity_provider_name is not None:

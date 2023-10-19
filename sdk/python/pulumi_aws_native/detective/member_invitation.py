@@ -43,7 +43,17 @@ class MemberInvitationArgs:
              member_id: pulumi.Input[str],
              disable_email_notification: Optional[pulumi.Input[bool]] = None,
              message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graphArn' in kwargs:
+            graph_arn = kwargs['graphArn']
+        if 'memberEmailAddress' in kwargs:
+            member_email_address = kwargs['memberEmailAddress']
+        if 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if 'disableEmailNotification' in kwargs:
+            disable_email_notification = kwargs['disableEmailNotification']
+
         _setter("graph_arn", graph_arn)
         _setter("member_email_address", member_email_address)
         _setter("member_id", member_id)

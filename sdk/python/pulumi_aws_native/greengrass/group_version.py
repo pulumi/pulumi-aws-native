@@ -47,7 +47,25 @@ class GroupVersionInitArgs:
              logger_definition_version_arn: Optional[pulumi.Input[str]] = None,
              resource_definition_version_arn: Optional[pulumi.Input[str]] = None,
              subscription_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'connectorDefinitionVersionArn' in kwargs:
+            connector_definition_version_arn = kwargs['connectorDefinitionVersionArn']
+        if 'coreDefinitionVersionArn' in kwargs:
+            core_definition_version_arn = kwargs['coreDefinitionVersionArn']
+        if 'deviceDefinitionVersionArn' in kwargs:
+            device_definition_version_arn = kwargs['deviceDefinitionVersionArn']
+        if 'functionDefinitionVersionArn' in kwargs:
+            function_definition_version_arn = kwargs['functionDefinitionVersionArn']
+        if 'loggerDefinitionVersionArn' in kwargs:
+            logger_definition_version_arn = kwargs['loggerDefinitionVersionArn']
+        if 'resourceDefinitionVersionArn' in kwargs:
+            resource_definition_version_arn = kwargs['resourceDefinitionVersionArn']
+        if 'subscriptionDefinitionVersionArn' in kwargs:
+            subscription_definition_version_arn = kwargs['subscriptionDefinitionVersionArn']
+
         _setter("group_id", group_id)
         if connector_definition_version_arn is not None:
             _setter("connector_definition_version_arn", connector_definition_version_arn)

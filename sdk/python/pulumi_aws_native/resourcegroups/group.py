@@ -46,7 +46,11 @@ class GroupArgs:
              resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceQuery' in kwargs:
+            resource_query = kwargs['resourceQuery']
+
         if configuration is not None:
             _setter("configuration", configuration)
         if description is not None:

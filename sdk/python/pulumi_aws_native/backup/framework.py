@@ -41,7 +41,17 @@ class FrameworkArgs:
              framework_description: Optional[pulumi.Input[str]] = None,
              framework_name: Optional[pulumi.Input[str]] = None,
              framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameworkControls' in kwargs:
+            framework_controls = kwargs['frameworkControls']
+        if 'frameworkDescription' in kwargs:
+            framework_description = kwargs['frameworkDescription']
+        if 'frameworkName' in kwargs:
+            framework_name = kwargs['frameworkName']
+        if 'frameworkTags' in kwargs:
+            framework_tags = kwargs['frameworkTags']
+
         _setter("framework_controls", framework_controls)
         if framework_description is not None:
             _setter("framework_description", framework_description)

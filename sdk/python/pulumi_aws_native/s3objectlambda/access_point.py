@@ -33,7 +33,11 @@ class AccessPointArgs:
              _setter: Callable[[Any, Any], None],
              object_lambda_configuration: pulumi.Input['AccessPointObjectLambdaConfigurationArgs'],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectLambdaConfiguration' in kwargs:
+            object_lambda_configuration = kwargs['objectLambdaConfiguration']
+
         _setter("object_lambda_configuration", object_lambda_configuration)
         if name is not None:
             _setter("name", name)

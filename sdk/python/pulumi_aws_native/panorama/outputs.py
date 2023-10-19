@@ -47,7 +47,11 @@ class ApplicationInstanceManifestOverridesPayload(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              payload_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'payloadData' in kwargs:
+            payload_data = kwargs['payloadData']
+
         if payload_data is not None:
             _setter("payload_data", payload_data)
 
@@ -86,7 +90,11 @@ class ApplicationInstanceManifestPayload(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              payload_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'payloadData' in kwargs:
+            payload_data = kwargs['payloadData']
+
         if payload_data is not None:
             _setter("payload_data", payload_data)
 
@@ -115,7 +123,9 @@ class ApplicationInstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -183,7 +193,17 @@ class PackageStorageLocation(dict):
              generated_prefix_location: Optional[str] = None,
              manifest_prefix_location: Optional[str] = None,
              repo_prefix_location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'binaryPrefixLocation' in kwargs:
+            binary_prefix_location = kwargs['binaryPrefixLocation']
+        if 'generatedPrefixLocation' in kwargs:
+            generated_prefix_location = kwargs['generatedPrefixLocation']
+        if 'manifestPrefixLocation' in kwargs:
+            manifest_prefix_location = kwargs['manifestPrefixLocation']
+        if 'repoPrefixLocation' in kwargs:
+            repo_prefix_location = kwargs['repoPrefixLocation']
+
         if binary_prefix_location is not None:
             _setter("binary_prefix_location", binary_prefix_location)
         if bucket is not None:
@@ -236,7 +256,9 @@ class PackageTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -41,7 +41,11 @@ class VpcLinkArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArns' in kwargs:
+            target_arns = kwargs['targetArns']
+
         _setter("target_arns", target_arns)
         if description is not None:
             _setter("description", description)

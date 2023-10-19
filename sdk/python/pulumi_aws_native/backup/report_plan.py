@@ -45,7 +45,19 @@ class ReportPlanArgs:
              report_plan_description: Optional[pulumi.Input[str]] = None,
              report_plan_name: Optional[pulumi.Input[str]] = None,
              report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportDeliveryChannel' in kwargs:
+            report_delivery_channel = kwargs['reportDeliveryChannel']
+        if 'reportSetting' in kwargs:
+            report_setting = kwargs['reportSetting']
+        if 'reportPlanDescription' in kwargs:
+            report_plan_description = kwargs['reportPlanDescription']
+        if 'reportPlanName' in kwargs:
+            report_plan_name = kwargs['reportPlanName']
+        if 'reportPlanTags' in kwargs:
+            report_plan_tags = kwargs['reportPlanTags']
+
         _setter("report_delivery_channel", report_delivery_channel)
         _setter("report_setting", report_setting)
         if report_plan_description is not None:

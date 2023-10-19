@@ -48,7 +48,11 @@ class ApplicationDefinition0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_location: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+
         _setter("s3_location", s3_location)
 
     @property
@@ -69,7 +73,9 @@ class ApplicationDefinition1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              content: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
 
     @property
@@ -85,8 +91,10 @@ class ApplicationTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -124,7 +132,11 @@ class EnvironmentHighAvailabilityConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              desired_capacity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+
         _setter("desired_capacity", desired_capacity)
 
     @property
@@ -146,8 +158,10 @@ class EnvironmentStorageConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -163,7 +177,9 @@ class EnvironmentTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

@@ -31,7 +31,11 @@ class ListenerCertificateInitArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['ListenerCertificateCertificateArgs']]],
              listener_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+
         _setter("certificates", certificates)
         _setter("listener_arn", listener_arn)
 

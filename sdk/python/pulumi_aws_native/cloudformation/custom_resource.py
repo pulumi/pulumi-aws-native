@@ -26,7 +26,11 @@ class CustomResourceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceToken' in kwargs:
+            service_token = kwargs['serviceToken']
+
         _setter("service_token", service_token)
 
     @property

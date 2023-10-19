@@ -35,7 +35,13 @@ class ComponentVersionArgs:
              inline_recipe: Optional[pulumi.Input[str]] = None,
              lambda_function: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inlineRecipe' in kwargs:
+            inline_recipe = kwargs['inlineRecipe']
+        if 'lambdaFunction' in kwargs:
+            lambda_function = kwargs['lambdaFunction']
+
         if inline_recipe is not None:
             _setter("inline_recipe", inline_recipe)
         if lambda_function is not None:

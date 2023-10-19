@@ -45,7 +45,13 @@ class ClusterParameterGroupArgs:
              parameter_group_name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterGroupFamily' in kwargs:
+            parameter_group_family = kwargs['parameterGroupFamily']
+        if 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+
         _setter("description", description)
         _setter("parameter_group_family", parameter_group_family)
         if parameter_group_name is not None:

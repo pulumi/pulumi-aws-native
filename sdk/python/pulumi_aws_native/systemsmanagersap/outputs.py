@@ -54,7 +54,15 @@ class ApplicationCredential(dict):
              credential_type: Optional['ApplicationCredentialCredentialType'] = None,
              database_name: Optional[str] = None,
              secret_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'credentialType' in kwargs:
+            credential_type = kwargs['credentialType']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+
         if credential_type is not None:
             _setter("credential_type", credential_type)
         if database_name is not None:
@@ -101,7 +109,9 @@ class ApplicationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

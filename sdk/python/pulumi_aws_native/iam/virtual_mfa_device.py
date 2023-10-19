@@ -37,7 +37,11 @@ class VirtualMfaDeviceArgs:
              path: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMfaDeviceTagArgs']]]] = None,
              virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualMfaDeviceName' in kwargs:
+            virtual_mfa_device_name = kwargs['virtualMfaDeviceName']
+
         _setter("users", users)
         if path is not None:
             _setter("path", path)

@@ -37,7 +37,13 @@ class AppImageConfigArgs:
              app_image_config_name: Optional[pulumi.Input[str]] = None,
              kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appImageConfigName' in kwargs:
+            app_image_config_name = kwargs['appImageConfigName']
+        if 'kernelGatewayImageConfig' in kwargs:
+            kernel_gateway_image_config = kwargs['kernelGatewayImageConfig']
+
         if app_image_config_name is not None:
             _setter("app_image_config_name", app_image_config_name)
         if kernel_gateway_image_config is not None:

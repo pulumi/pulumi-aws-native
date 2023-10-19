@@ -46,7 +46,15 @@ class AccountPolicyArgs:
              policy_name: pulumi.Input[str],
              policy_type: pulumi.Input['AccountPolicyPolicyType'],
              scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)

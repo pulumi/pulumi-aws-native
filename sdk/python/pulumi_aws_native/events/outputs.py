@@ -85,7 +85,13 @@ class ConnectionApiKeyAuthParameters(dict):
              _setter: Callable[[Any, Any], None],
              api_key_name: str,
              api_key_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKeyName' in kwargs:
+            api_key_name = kwargs['apiKeyName']
+        if 'apiKeyValue' in kwargs:
+            api_key_value = kwargs['apiKeyValue']
+
         _setter("api_key_name", api_key_name)
         _setter("api_key_value", api_key_value)
 
@@ -144,7 +150,17 @@ class ConnectionAuthParameters(dict):
              basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
              invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
              o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKeyAuthParameters' in kwargs:
+            api_key_auth_parameters = kwargs['apiKeyAuthParameters']
+        if 'basicAuthParameters' in kwargs:
+            basic_auth_parameters = kwargs['basicAuthParameters']
+        if 'invocationHttpParameters' in kwargs:
+            invocation_http_parameters = kwargs['invocationHttpParameters']
+        if 'oAuthParameters' in kwargs:
+            o_auth_parameters = kwargs['oAuthParameters']
+
         if api_key_auth_parameters is not None:
             _setter("api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
@@ -190,7 +206,9 @@ class ConnectionBasicAuthParameters(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -239,7 +257,13 @@ class ConnectionClientParameters(dict):
              _setter: Callable[[Any, Any], None],
              client_id: str,
              client_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
 
@@ -293,7 +317,15 @@ class ConnectionHttpParameters(dict):
              body_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
              header_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
              query_string_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyParameters' in kwargs:
+            body_parameters = kwargs['bodyParameters']
+        if 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if body_parameters is not None:
             _setter("body_parameters", body_parameters)
         if header_parameters is not None:
@@ -361,7 +393,17 @@ class ConnectionOAuthParameters(dict):
              client_parameters: 'outputs.ConnectionClientParameters',
              http_method: 'ConnectionOAuthParametersHttpMethod',
              o_auth_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientParameters' in kwargs:
+            client_parameters = kwargs['clientParameters']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'oAuthHttpParameters' in kwargs:
+            o_auth_http_parameters = kwargs['oAuthHttpParameters']
+
         _setter("authorization_endpoint", authorization_endpoint)
         _setter("client_parameters", client_parameters)
         _setter("http_method", http_method)
@@ -424,7 +466,11 @@ class ConnectionParameter(dict):
              key: str,
              value: str,
              is_value_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         _setter("key", key)
         _setter("value", value)
         if is_value_secret is not None:
@@ -475,7 +521,11 @@ class EndpointEventBus(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_bus_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBusArn' in kwargs:
+            event_bus_arn = kwargs['eventBusArn']
+
         _setter("event_bus_arn", event_bus_arn)
 
     @property
@@ -499,7 +549,9 @@ class EndpointFailoverConfig(dict):
              _setter: Callable[[Any, Any], None],
              primary: 'outputs.EndpointPrimary',
              secondary: 'outputs.EndpointSecondary',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("primary", primary)
         _setter("secondary", secondary)
 
@@ -543,7 +595,11 @@ class EndpointPrimary(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              health_check: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+
         _setter("health_check", health_check)
 
     @property
@@ -564,7 +620,9 @@ class EndpointReplicationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              state: 'EndpointReplicationState',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("state", state)
 
     @property
@@ -602,7 +660,11 @@ class EndpointRoutingConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              failover_config: 'outputs.EndpointFailoverConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverConfig' in kwargs:
+            failover_config = kwargs['failoverConfig']
+
         _setter("failover_config", failover_config)
 
     @property
@@ -623,7 +685,9 @@ class EndpointSecondary(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              route: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("route", route)
 
     @property
@@ -650,7 +714,9 @@ class EventBusPolicyCondition(dict):
              key: Optional[str] = None,
              type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if type is not None:
@@ -689,7 +755,9 @@ class EventBusTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -741,7 +809,13 @@ class RuleAwsVpcConfiguration(dict):
              subnets: Sequence[str],
              assign_public_ip: Optional[str] = None,
              security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -776,7 +850,9 @@ class RuleBatchArrayProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if size is not None:
             _setter("size", size)
 
@@ -830,7 +906,17 @@ class RuleBatchParameters(dict):
              job_name: str,
              array_properties: Optional['outputs.RuleBatchArrayProperties'] = None,
              retry_strategy: Optional['outputs.RuleBatchRetryStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobDefinition' in kwargs:
+            job_definition = kwargs['jobDefinition']
+        if 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if 'arrayProperties' in kwargs:
+            array_properties = kwargs['arrayProperties']
+        if 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+
         _setter("job_definition", job_definition)
         _setter("job_name", job_name)
         if array_properties is not None:
@@ -871,7 +957,9 @@ class RuleBatchRetryStrategy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attempts is not None:
             _setter("attempts", attempts)
 
@@ -916,7 +1004,11 @@ class RuleCapacityProviderStrategyItem(dict):
              capacity_provider: str,
              base: Optional[int] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -951,7 +1043,9 @@ class RuleDeadLetterConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -1053,7 +1147,35 @@ class RuleEcsParameters(dict):
              reference_id: Optional[str] = None,
              tag_list: Optional[Sequence['outputs.RuleTag']] = None,
              task_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'placementStrategies' in kwargs:
+            placement_strategies = kwargs['placementStrategies']
+        if 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if 'tagList' in kwargs:
+            tag_list = kwargs['tagList']
+        if 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
         _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
@@ -1192,7 +1314,15 @@ class RuleHttpParameters(dict):
              header_parameters: Optional[Any] = None,
              path_parameter_values: Optional[Sequence[str]] = None,
              query_string_parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
             _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -1250,7 +1380,13 @@ class RuleInputTransformer(dict):
              _setter: Callable[[Any, Any], None],
              input_template: str,
              input_paths_map: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+        if 'inputPathsMap' in kwargs:
+            input_paths_map = kwargs['inputPathsMap']
+
         _setter("input_template", input_template)
         if input_paths_map is not None:
             _setter("input_paths_map", input_paths_map)
@@ -1295,7 +1431,11 @@ class RuleKinesisParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              partition_key_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKeyPath' in kwargs:
+            partition_key_path = kwargs['partitionKeyPath']
+
         _setter("partition_key_path", partition_key_path)
 
     @property
@@ -1333,7 +1473,11 @@ class RuleNetworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              aws_vpc_configuration: Optional['outputs.RuleAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsVpcConfiguration' in kwargs:
+            aws_vpc_configuration = kwargs['awsVpcConfiguration']
+
         if aws_vpc_configuration is not None:
             _setter("aws_vpc_configuration", aws_vpc_configuration)
 
@@ -1358,7 +1502,9 @@ class RulePlacementConstraint(dict):
              _setter: Callable[[Any, Any], None],
              expression: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if expression is not None:
             _setter("expression", expression)
         if type is not None:
@@ -1390,7 +1536,9 @@ class RulePlacementStrategy(dict):
              _setter: Callable[[Any, Any], None],
              field: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if field is not None:
             _setter("field", field)
         if type is not None:
@@ -1460,7 +1608,17 @@ class RuleRedshiftDataParameters(dict):
              sqls: Optional[Sequence[str]] = None,
              statement_name: Optional[str] = None,
              with_event: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+
         _setter("database", database)
         if db_user is not None:
             _setter("db_user", db_user)
@@ -1545,7 +1703,13 @@ class RuleRetryPolicy(dict):
              _setter: Callable[[Any, Any], None],
              maximum_event_age_in_seconds: Optional[int] = None,
              maximum_retry_attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         if maximum_event_age_in_seconds is not None:
             _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -1591,7 +1755,11 @@ class RuleRunCommandParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              run_command_targets: Sequence['outputs.RuleRunCommandTarget'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runCommandTargets' in kwargs:
+            run_command_targets = kwargs['runCommandTargets']
+
         _setter("run_command_targets", run_command_targets)
 
     @property
@@ -1615,7 +1783,9 @@ class RuleRunCommandTarget(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -1645,7 +1815,9 @@ class RuleSageMakerPipelineParameter(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1689,7 +1861,11 @@ class RuleSageMakerPipelineParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_parameter_list: Optional[Sequence['outputs.RuleSageMakerPipelineParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineParameterList' in kwargs:
+            pipeline_parameter_list = kwargs['pipelineParameterList']
+
         if pipeline_parameter_list is not None:
             _setter("pipeline_parameter_list", pipeline_parameter_list)
 
@@ -1728,7 +1904,11 @@ class RuleSqsParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              message_group_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         _setter("message_group_id", message_group_id)
 
     @property
@@ -1752,7 +1932,9 @@ class RuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1867,7 +2049,35 @@ class RuleTarget(dict):
              run_command_parameters: Optional['outputs.RuleRunCommandParameters'] = None,
              sage_maker_pipeline_parameters: Optional['outputs.RuleSageMakerPipelineParameters'] = None,
              sqs_parameters: Optional['outputs.RuleSqsParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchParameters' in kwargs:
+            batch_parameters = kwargs['batchParameters']
+        if 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if 'ecsParameters' in kwargs:
+            ecs_parameters = kwargs['ecsParameters']
+        if 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if 'inputPath' in kwargs:
+            input_path = kwargs['inputPath']
+        if 'inputTransformer' in kwargs:
+            input_transformer = kwargs['inputTransformer']
+        if 'kinesisParameters' in kwargs:
+            kinesis_parameters = kwargs['kinesisParameters']
+        if 'redshiftDataParameters' in kwargs:
+            redshift_data_parameters = kwargs['redshiftDataParameters']
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'runCommandParameters' in kwargs:
+            run_command_parameters = kwargs['runCommandParameters']
+        if 'sageMakerPipelineParameters' in kwargs:
+            sage_maker_pipeline_parameters = kwargs['sageMakerPipelineParameters']
+        if 'sqsParameters' in kwargs:
+            sqs_parameters = kwargs['sqsParameters']
+
         _setter("arn", arn)
         _setter("id", id)
         if batch_parameters is not None:

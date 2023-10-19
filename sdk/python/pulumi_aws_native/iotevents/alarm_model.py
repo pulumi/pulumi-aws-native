@@ -63,7 +63,21 @@ class AlarmModelArgs:
              key: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmModelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmRule' in kwargs:
+            alarm_rule = kwargs['alarmRule']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'alarmCapabilities' in kwargs:
+            alarm_capabilities = kwargs['alarmCapabilities']
+        if 'alarmEventActions' in kwargs:
+            alarm_event_actions = kwargs['alarmEventActions']
+        if 'alarmModelDescription' in kwargs:
+            alarm_model_description = kwargs['alarmModelDescription']
+        if 'alarmModelName' in kwargs:
+            alarm_model_name = kwargs['alarmModelName']
+
         _setter("alarm_rule", alarm_rule)
         _setter("role_arn", role_arn)
         if alarm_capabilities is not None:

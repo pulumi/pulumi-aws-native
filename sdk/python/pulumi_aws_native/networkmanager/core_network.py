@@ -41,7 +41,13 @@ class CoreNetworkArgs:
              description: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("global_network_id", global_network_id)
         if description is not None:
             _setter("description", description)

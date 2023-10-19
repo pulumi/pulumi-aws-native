@@ -42,7 +42,17 @@ class LoggingConfigurationArgs:
              resource_arn: pulumi.Input[str],
              logging_filter: Optional[pulumi.Input['LoggingFilterPropertiesArgs']] = None,
              redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDestinationConfigs' in kwargs:
+            log_destination_configs = kwargs['logDestinationConfigs']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'loggingFilter' in kwargs:
+            logging_filter = kwargs['loggingFilter']
+        if 'redactedFields' in kwargs:
+            redacted_fields = kwargs['redactedFields']
+
         _setter("log_destination_configs", log_destination_configs)
         _setter("resource_arn", resource_arn)
         if logging_filter is not None:

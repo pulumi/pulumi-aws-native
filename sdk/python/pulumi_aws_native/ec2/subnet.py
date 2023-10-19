@@ -61,7 +61,31 @@ class SubnetArgs:
              outpost_arn: Optional[pulumi.Input[str]] = None,
              private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'assignIpv6AddressOnCreation' in kwargs:
+            assign_ipv6_address_on_creation = kwargs['assignIpv6AddressOnCreation']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if 'enableDns64' in kwargs:
+            enable_dns64 = kwargs['enableDns64']
+        if 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if 'ipv6Native' in kwargs:
+            ipv6_native = kwargs['ipv6Native']
+        if 'mapPublicIpOnLaunch' in kwargs:
+            map_public_ip_on_launch = kwargs['mapPublicIpOnLaunch']
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if 'privateDnsNameOptionsOnLaunch' in kwargs:
+            private_dns_name_options_on_launch = kwargs['privateDnsNameOptionsOnLaunch']
+
         _setter("vpc_id", vpc_id)
         if assign_ipv6_address_on_creation is not None:
             _setter("assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)

@@ -43,7 +43,15 @@ class CampaignArgs:
              outbound_call_config: pulumi.Input['CampaignOutboundCallConfigArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectInstanceArn' in kwargs:
+            connect_instance_arn = kwargs['connectInstanceArn']
+        if 'dialerConfig' in kwargs:
+            dialer_config = kwargs['dialerConfig']
+        if 'outboundCallConfig' in kwargs:
+            outbound_call_config = kwargs['outboundCallConfig']
+
         _setter("connect_instance_arn", connect_instance_arn)
         _setter("dialer_config", dialer_config)
         _setter("outbound_call_config", outbound_call_config)

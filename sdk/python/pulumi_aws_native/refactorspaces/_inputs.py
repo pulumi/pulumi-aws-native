@@ -37,7 +37,13 @@ class ApplicationApiGatewayProxyInputArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_type: Optional[pulumi.Input['ApplicationApiGatewayEndpointType']] = None,
              stage_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if endpoint_type is not None:
             _setter("endpoint_type", endpoint_type)
         if stage_name is not None:
@@ -82,7 +88,9 @@ class ApplicationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -131,7 +139,9 @@ class EnvironmentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -172,7 +182,11 @@ class RouteDefaultRouteInputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              activation_state: pulumi.Input['RouteActivationState'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+
         _setter("activation_state", activation_state)
 
     @property
@@ -205,7 +219,9 @@ class RouteTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -258,7 +274,17 @@ class RouteUriPathRouteInputArgs:
              include_child_paths: Optional[pulumi.Input[bool]] = None,
              methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
              source_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if 'appendSourcePath' in kwargs:
+            append_source_path = kwargs['appendSourcePath']
+        if 'includeChildPaths' in kwargs:
+            include_child_paths = kwargs['includeChildPaths']
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         _setter("activation_state", activation_state)
         if append_source_path is not None:
             _setter("append_source_path", append_source_path)
@@ -327,7 +353,9 @@ class ServiceLambdaEndpointInputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -360,7 +388,9 @@ class ServiceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -404,7 +434,11 @@ class ServiceUrlEndpointInputArgs:
              _setter: Callable[[Any, Any], None],
              url: pulumi.Input[str],
              health_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthUrl' in kwargs:
+            health_url = kwargs['healthUrl']
+
         _setter("url", url)
         if health_url is not None:
             _setter("health_url", health_url)

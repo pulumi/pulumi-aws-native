@@ -43,7 +43,13 @@ class WorkspaceArgs:
              workspace_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("role", role)
         _setter("s3_location", s3_location)
         _setter("workspace_id", workspace_id)

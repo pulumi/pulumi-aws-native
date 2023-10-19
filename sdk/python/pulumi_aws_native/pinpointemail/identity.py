@@ -40,7 +40,15 @@ class IdentityArgs:
              mail_from_attributes: Optional[pulumi.Input['IdentityMailFromAttributesArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dkimSigningEnabled' in kwargs:
+            dkim_signing_enabled = kwargs['dkimSigningEnabled']
+        if 'feedbackForwardingEnabled' in kwargs:
+            feedback_forwarding_enabled = kwargs['feedbackForwardingEnabled']
+        if 'mailFromAttributes' in kwargs:
+            mail_from_attributes = kwargs['mailFromAttributes']
+
         if dkim_signing_enabled is not None:
             _setter("dkim_signing_enabled", dkim_signing_enabled)
         if feedback_forwarding_enabled is not None:

@@ -53,7 +53,13 @@ class ProtectionGroupArgs:
              members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_type: Optional[pulumi.Input['ProtectionGroupResourceType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protectionGroupId' in kwargs:
+            protection_group_id = kwargs['protectionGroupId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("aggregation", aggregation)
         _setter("pattern", pattern)
         _setter("protection_group_id", protection_group_id)

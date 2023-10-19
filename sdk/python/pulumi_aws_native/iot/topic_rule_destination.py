@@ -38,7 +38,13 @@ class TopicRuleDestinationArgs:
              http_url_properties: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
              status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
              vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpUrlProperties' in kwargs:
+            http_url_properties = kwargs['httpUrlProperties']
+        if 'vpcProperties' in kwargs:
+            vpc_properties = kwargs['vpcProperties']
+
         if http_url_properties is not None:
             _setter("http_url_properties", http_url_properties)
         if status is not None:

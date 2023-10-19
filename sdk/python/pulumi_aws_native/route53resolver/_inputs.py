@@ -42,7 +42,9 @@ class FirewallDomainListTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -91,7 +93,9 @@ class FirewallRuleGroupAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -160,7 +164,19 @@ class FirewallRuleGroupFirewallRuleArgs:
              block_override_domain: Optional[pulumi.Input[str]] = None,
              block_override_ttl: Optional[pulumi.Input[int]] = None,
              block_response: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDomainListId' in kwargs:
+            firewall_domain_list_id = kwargs['firewallDomainListId']
+        if 'blockOverrideDnsType' in kwargs:
+            block_override_dns_type = kwargs['blockOverrideDnsType']
+        if 'blockOverrideDomain' in kwargs:
+            block_override_domain = kwargs['blockOverrideDomain']
+        if 'blockOverrideTtl' in kwargs:
+            block_override_ttl = kwargs['blockOverrideTtl']
+        if 'blockResponse' in kwargs:
+            block_response = kwargs['blockResponse']
+
         _setter("action", action)
         _setter("firewall_domain_list_id", firewall_domain_list_id)
         _setter("priority", priority)
@@ -278,7 +294,9 @@ class FirewallRuleGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -327,7 +345,9 @@ class OutpostResolverTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -374,7 +394,11 @@ class ResolverEndpointIpAddressRequestArgs:
              subnet_id: pulumi.Input[str],
              ip: Optional[pulumi.Input[str]] = None,
              ipv6: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
         if ip is not None:
             _setter("ip", ip)
@@ -424,7 +448,9 @@ class ResolverEndpointTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -466,7 +492,9 @@ class ResolverRuleTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -518,7 +546,9 @@ class ResolverRuleTargetAddressArgs:
              ip: Optional[pulumi.Input[str]] = None,
              ipv6: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ip is not None:
             _setter("ip", ip)
         if ipv6 is not None:

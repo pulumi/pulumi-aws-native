@@ -41,7 +41,17 @@ class EmailChannelArgs:
              configuration_set: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("application_id", application_id)
         _setter("from_address", from_address)
         _setter("identity", identity)

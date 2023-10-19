@@ -29,7 +29,13 @@ class EnvironmentEc2RepositoryArgs:
              _setter: Callable[[Any, Any], None],
              path_component: pulumi.Input[str],
              repository_url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathComponent' in kwargs:
+            path_component = kwargs['pathComponent']
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+
         _setter("path_component", path_component)
         _setter("repository_url", repository_url)
 
@@ -67,7 +73,9 @@ class EnvironmentEc2TagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

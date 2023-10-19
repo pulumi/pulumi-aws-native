@@ -52,7 +52,21 @@ class BucketArgs:
              read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'objectVersioning' in kwargs:
+            object_versioning = kwargs['objectVersioning']
+        if 'readOnlyAccessAccounts' in kwargs:
+            read_only_access_accounts = kwargs['readOnlyAccessAccounts']
+        if 'resourcesReceivingAccess' in kwargs:
+            resources_receiving_access = kwargs['resourcesReceivingAccess']
+
         _setter("bundle_id", bundle_id)
         if access_rules is not None:
             _setter("access_rules", access_rules)

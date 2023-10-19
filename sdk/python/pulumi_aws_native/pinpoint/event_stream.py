@@ -32,7 +32,15 @@ class EventStreamArgs:
              application_id: pulumi.Input[str],
              destination_stream_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'destinationStreamArn' in kwargs:
+            destination_stream_arn = kwargs['destinationStreamArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("application_id", application_id)
         _setter("destination_stream_arn", destination_stream_arn)
         _setter("role_arn", role_arn)

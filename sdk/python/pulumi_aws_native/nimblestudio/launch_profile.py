@@ -59,7 +59,19 @@ class LaunchProfileArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2SubnetIds' in kwargs:
+            ec2_subnet_ids = kwargs['ec2SubnetIds']
+        if 'launchProfileProtocolVersions' in kwargs:
+            launch_profile_protocol_versions = kwargs['launchProfileProtocolVersions']
+        if 'streamConfiguration' in kwargs:
+            stream_configuration = kwargs['streamConfiguration']
+        if 'studioComponentIds' in kwargs:
+            studio_component_ids = kwargs['studioComponentIds']
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+
         _setter("ec2_subnet_ids", ec2_subnet_ids)
         _setter("launch_profile_protocol_versions", launch_profile_protocol_versions)
         _setter("stream_configuration", stream_configuration)

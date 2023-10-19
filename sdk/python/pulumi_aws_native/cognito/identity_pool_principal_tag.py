@@ -35,7 +35,17 @@ class IdentityPoolPrincipalTagArgs:
              identity_provider_name: pulumi.Input[str],
              principal_tags: Optional[Any] = None,
              use_defaults: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if 'principalTags' in kwargs:
+            principal_tags = kwargs['principalTags']
+        if 'useDefaults' in kwargs:
+            use_defaults = kwargs['useDefaults']
+
         _setter("identity_pool_id", identity_pool_id)
         _setter("identity_provider_name", identity_provider_name)
         if principal_tags is not None:

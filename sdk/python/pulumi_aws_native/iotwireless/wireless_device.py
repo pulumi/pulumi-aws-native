@@ -58,7 +58,17 @@ class WirelessDeviceArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]] = None,
              thing_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if 'lastUplinkReceivedAt' in kwargs:
+            last_uplink_received_at = kwargs['lastUplinkReceivedAt']
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+
         _setter("destination_name", destination_name)
         _setter("type", type)
         if description is not None:

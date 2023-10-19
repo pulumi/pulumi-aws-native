@@ -40,7 +40,17 @@ class RateBasedRuleArgs:
              rate_limit: pulumi.Input[int],
              match_predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'rateKey' in kwargs:
+            rate_key = kwargs['rateKey']
+        if 'rateLimit' in kwargs:
+            rate_limit = kwargs['rateLimit']
+        if 'matchPredicates' in kwargs:
+            match_predicates = kwargs['matchPredicates']
+
         _setter("metric_name", metric_name)
         _setter("rate_key", rate_key)
         _setter("rate_limit", rate_limit)

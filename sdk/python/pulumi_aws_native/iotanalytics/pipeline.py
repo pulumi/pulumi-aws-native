@@ -34,7 +34,13 @@ class PipelineArgs:
              pipeline_activities: pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]],
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineActivities' in kwargs:
+            pipeline_activities = kwargs['pipelineActivities']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+
         _setter("pipeline_activities", pipeline_activities)
         if pipeline_name is not None:
             _setter("pipeline_name", pipeline_name)

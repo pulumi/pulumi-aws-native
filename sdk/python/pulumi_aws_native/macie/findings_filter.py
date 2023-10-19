@@ -50,7 +50,11 @@ class FindingsFilterArgs:
              name: Optional[pulumi.Input[str]] = None,
              position: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+
         _setter("finding_criteria", finding_criteria)
         if action is not None:
             _setter("action", action)

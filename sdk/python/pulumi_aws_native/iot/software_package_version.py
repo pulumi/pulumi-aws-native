@@ -42,7 +42,13 @@ class SoftwarePackageVersionArgs:
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwarePackageVersionTagArgs']]]] = None,
              version_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
         _setter("package_name", package_name)
         if attributes is not None:
             _setter("attributes", attributes)

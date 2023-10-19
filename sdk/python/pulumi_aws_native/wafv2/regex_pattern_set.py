@@ -44,7 +44,11 @@ class RegexPatternSetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regularExpressionList' in kwargs:
+            regular_expression_list = kwargs['regularExpressionList']
+
         _setter("regular_expression_list", regular_expression_list)
         _setter("scope", scope)
         if description is not None:

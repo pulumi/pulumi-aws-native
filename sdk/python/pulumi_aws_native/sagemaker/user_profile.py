@@ -50,7 +50,19 @@ class UserProfileArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]] = None,
              user_profile_name: Optional[pulumi.Input[str]] = None,
              user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'singleSignOnUserIdentifier' in kwargs:
+            single_sign_on_user_identifier = kwargs['singleSignOnUserIdentifier']
+        if 'singleSignOnUserValue' in kwargs:
+            single_sign_on_user_value = kwargs['singleSignOnUserValue']
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         _setter("domain_id", domain_id)
         if single_sign_on_user_identifier is not None:
             _setter("single_sign_on_user_identifier", single_sign_on_user_identifier)

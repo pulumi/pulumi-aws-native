@@ -40,7 +40,19 @@ class RotationScheduleArgs:
              rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
              rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
              rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'hostedRotationLambda' in kwargs:
+            hosted_rotation_lambda = kwargs['hostedRotationLambda']
+        if 'rotateImmediatelyOnUpdate' in kwargs:
+            rotate_immediately_on_update = kwargs['rotateImmediatelyOnUpdate']
+        if 'rotationLambdaArn' in kwargs:
+            rotation_lambda_arn = kwargs['rotationLambdaArn']
+        if 'rotationRules' in kwargs:
+            rotation_rules = kwargs['rotationRules']
+
         _setter("secret_id", secret_id)
         if hosted_rotation_lambda is not None:
             _setter("hosted_rotation_lambda", hosted_rotation_lambda)

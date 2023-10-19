@@ -43,7 +43,17 @@ class AliasArgs:
              name: Optional[pulumi.Input[str]] = None,
              provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
              routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'functionVersion' in kwargs:
+            function_version = kwargs['functionVersion']
+        if 'provisionedConcurrencyConfig' in kwargs:
+            provisioned_concurrency_config = kwargs['provisionedConcurrencyConfig']
+        if 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+
         _setter("function_name", function_name)
         _setter("function_version", function_version)
         if description is not None:

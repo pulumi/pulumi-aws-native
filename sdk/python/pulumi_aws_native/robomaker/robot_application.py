@@ -48,7 +48,13 @@ class RobotApplicationArgs:
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]] = None,
              tags: Optional[pulumi.Input['RobotApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'robotSoftwareSuite' in kwargs:
+            robot_software_suite = kwargs['robotSoftwareSuite']
+        if 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+
         _setter("robot_software_suite", robot_software_suite)
         if current_revision_id is not None:
             _setter("current_revision_id", current_revision_id)

@@ -62,7 +62,17 @@ class CustomDbEngineVersionArgs:
              manifest: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseInstallationFilesS3BucketName' in kwargs:
+            database_installation_files_s3_bucket_name = kwargs['databaseInstallationFilesS3BucketName']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'databaseInstallationFilesS3Prefix' in kwargs:
+            database_installation_files_s3_prefix = kwargs['databaseInstallationFilesS3Prefix']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         _setter("engine", engine)
         _setter("engine_version", engine_version)

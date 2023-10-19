@@ -55,7 +55,25 @@ class DataLakeSettingsArgs:
              mutation_type: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowExternalDataFiltering' in kwargs:
+            allow_external_data_filtering = kwargs['allowExternalDataFiltering']
+        if 'allowFullTableExternalDataAccess' in kwargs:
+            allow_full_table_external_data_access = kwargs['allowFullTableExternalDataAccess']
+        if 'authorizedSessionTagValueList' in kwargs:
+            authorized_session_tag_value_list = kwargs['authorizedSessionTagValueList']
+        if 'createDatabaseDefaultPermissions' in kwargs:
+            create_database_default_permissions = kwargs['createDatabaseDefaultPermissions']
+        if 'createTableDefaultPermissions' in kwargs:
+            create_table_default_permissions = kwargs['createTableDefaultPermissions']
+        if 'externalDataFilteringAllowList' in kwargs:
+            external_data_filtering_allow_list = kwargs['externalDataFilteringAllowList']
+        if 'mutationType' in kwargs:
+            mutation_type = kwargs['mutationType']
+        if 'trustedResourceOwners' in kwargs:
+            trusted_resource_owners = kwargs['trustedResourceOwners']
+
         if admins is not None:
             _setter("admins", admins)
         if allow_external_data_filtering is not None:

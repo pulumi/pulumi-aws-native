@@ -53,7 +53,15 @@ class WorkflowArgs:
              parameter_template: Optional[pulumi.Input['WorkflowParameterTemplateArgs']] = None,
              storage_capacity: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input['WorkflowTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'definitionUri' in kwargs:
+            definition_uri = kwargs['definitionUri']
+        if 'parameterTemplate' in kwargs:
+            parameter_template = kwargs['parameterTemplate']
+        if 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+
         if accelerators is not None:
             _setter("accelerators", accelerators)
         if definition_uri is not None:

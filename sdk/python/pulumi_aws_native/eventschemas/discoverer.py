@@ -37,7 +37,13 @@ class DiscovererArgs:
              cross_account: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if 'crossAccount' in kwargs:
+            cross_account = kwargs['crossAccount']
+
         _setter("source_arn", source_arn)
         if cross_account is not None:
             _setter("cross_account", cross_account)

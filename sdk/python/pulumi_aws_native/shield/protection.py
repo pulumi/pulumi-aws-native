@@ -45,7 +45,15 @@ class ProtectionArgs:
              health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'applicationLayerAutomaticResponseConfiguration' in kwargs:
+            application_layer_automatic_response_configuration = kwargs['applicationLayerAutomaticResponseConfiguration']
+        if 'healthCheckArns' in kwargs:
+            health_check_arns = kwargs['healthCheckArns']
+
         _setter("resource_arn", resource_arn)
         if application_layer_automatic_response_configuration is not None:
             _setter("application_layer_automatic_response_configuration", application_layer_automatic_response_configuration)

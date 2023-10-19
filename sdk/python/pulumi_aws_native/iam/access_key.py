@@ -32,7 +32,11 @@ class AccessKeyArgs:
              user_name: pulumi.Input[str],
              serial: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("user_name", user_name)
         if serial is not None:
             _setter("serial", serial)

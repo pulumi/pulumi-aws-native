@@ -59,7 +59,23 @@ class VerifiedAccessTrustProviderArgs:
              sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]] = None,
              user_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyReferenceName' in kwargs:
+            policy_reference_name = kwargs['policyReferenceName']
+        if 'trustProviderType' in kwargs:
+            trust_provider_type = kwargs['trustProviderType']
+        if 'deviceOptions' in kwargs:
+            device_options = kwargs['deviceOptions']
+        if 'deviceTrustProviderType' in kwargs:
+            device_trust_provider_type = kwargs['deviceTrustProviderType']
+        if 'oidcOptions' in kwargs:
+            oidc_options = kwargs['oidcOptions']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if 'userTrustProviderType' in kwargs:
+            user_trust_provider_type = kwargs['userTrustProviderType']
+
         _setter("policy_reference_name", policy_reference_name)
         _setter("trust_provider_type", trust_provider_type)
         if description is not None:

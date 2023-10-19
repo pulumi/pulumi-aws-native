@@ -45,7 +45,13 @@ class PromptArgs:
              name: Optional[pulumi.Input[str]] = None,
              s3_uri: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PromptTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         _setter("instance_arn", instance_arn)
         if description is not None:
             _setter("description", description)

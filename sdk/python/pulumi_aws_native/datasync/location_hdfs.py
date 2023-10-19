@@ -77,7 +77,31 @@ class LocationHdfsArgs:
              simple_user: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'nameNodes' in kwargs:
+            name_nodes = kwargs['nameNodes']
+        if 'blockSize' in kwargs:
+            block_size = kwargs['blockSize']
+        if 'kerberosKeytab' in kwargs:
+            kerberos_keytab = kwargs['kerberosKeytab']
+        if 'kerberosKrb5Conf' in kwargs:
+            kerberos_krb5_conf = kwargs['kerberosKrb5Conf']
+        if 'kerberosPrincipal' in kwargs:
+            kerberos_principal = kwargs['kerberosPrincipal']
+        if 'kmsKeyProviderUri' in kwargs:
+            kms_key_provider_uri = kwargs['kmsKeyProviderUri']
+        if 'qopConfiguration' in kwargs:
+            qop_configuration = kwargs['qopConfiguration']
+        if 'replicationFactor' in kwargs:
+            replication_factor = kwargs['replicationFactor']
+        if 'simpleUser' in kwargs:
+            simple_user = kwargs['simpleUser']
+
         _setter("agent_arns", agent_arns)
         _setter("authentication_type", authentication_type)
         _setter("name_nodes", name_nodes)

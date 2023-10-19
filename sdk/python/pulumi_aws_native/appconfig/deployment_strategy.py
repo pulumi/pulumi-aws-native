@@ -49,7 +49,19 @@ class DeploymentStrategyArgs:
              growth_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentStrategyTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentDurationInMinutes' in kwargs:
+            deployment_duration_in_minutes = kwargs['deploymentDurationInMinutes']
+        if 'growthFactor' in kwargs:
+            growth_factor = kwargs['growthFactor']
+        if 'replicateTo' in kwargs:
+            replicate_to = kwargs['replicateTo']
+        if 'finalBakeTimeInMinutes' in kwargs:
+            final_bake_time_in_minutes = kwargs['finalBakeTimeInMinutes']
+        if 'growthType' in kwargs:
+            growth_type = kwargs['growthType']
+
         _setter("deployment_duration_in_minutes", deployment_duration_in_minutes)
         _setter("growth_factor", growth_factor)
         _setter("replicate_to", replicate_to)

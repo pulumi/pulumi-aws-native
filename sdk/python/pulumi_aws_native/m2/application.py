@@ -48,7 +48,15 @@ class ApplicationArgs:
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ApplicationTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("definition", definition)
         _setter("engine_type", engine_type)
         if description is not None:

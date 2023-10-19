@@ -49,7 +49,23 @@ class DbInstanceArgs:
              enable_performance_insights: Optional[pulumi.Input[bool]] = None,
              preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if 'enablePerformanceInsights' in kwargs:
+            enable_performance_insights = kwargs['enablePerformanceInsights']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+
         _setter("db_cluster_identifier", db_cluster_identifier)
         _setter("db_instance_class", db_instance_class)
         if auto_minor_version_upgrade is not None:

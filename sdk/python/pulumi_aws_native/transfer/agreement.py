@@ -58,7 +58,19 @@ class AgreementArgs:
              description: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['AgreementStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRole' in kwargs:
+            access_role = kwargs['accessRole']
+        if 'baseDirectory' in kwargs:
+            base_directory = kwargs['baseDirectory']
+        if 'localProfileId' in kwargs:
+            local_profile_id = kwargs['localProfileId']
+        if 'partnerProfileId' in kwargs:
+            partner_profile_id = kwargs['partnerProfileId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("access_role", access_role)
         _setter("base_directory", base_directory)
         _setter("local_profile_id", local_profile_id)

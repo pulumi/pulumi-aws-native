@@ -38,7 +38,17 @@ class DbSecurityGroupIngressInitArgs:
              ec2_security_group_id: Optional[pulumi.Input[str]] = None,
              ec2_security_group_name: Optional[pulumi.Input[str]] = None,
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbSecurityGroupName' in kwargs:
+            db_security_group_name = kwargs['dbSecurityGroupName']
+        if 'ec2SecurityGroupId' in kwargs:
+            ec2_security_group_id = kwargs['ec2SecurityGroupId']
+        if 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         _setter("db_security_group_name", db_security_group_name)
         if cidrip is not None:
             _setter("cidrip", cidrip)

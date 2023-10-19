@@ -40,7 +40,17 @@ class FunctionArgs:
              auto_publish: Optional[pulumi.Input[bool]] = None,
              function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionCode' in kwargs:
+            function_code = kwargs['functionCode']
+        if 'functionConfig' in kwargs:
+            function_config = kwargs['functionConfig']
+        if 'autoPublish' in kwargs:
+            auto_publish = kwargs['autoPublish']
+        if 'functionMetadata' in kwargs:
+            function_metadata = kwargs['functionMetadata']
+
         _setter("function_code", function_code)
         _setter("function_config", function_config)
         if auto_publish is not None:

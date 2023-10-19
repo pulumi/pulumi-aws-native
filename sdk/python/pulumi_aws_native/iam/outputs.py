@@ -56,7 +56,13 @@ class GroupPolicy(dict):
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -94,7 +100,9 @@ class OidcProviderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -157,7 +165,13 @@ class RolePolicy(dict):
              _setter: Callable[[Any, Any], None],
              policy_document: str,
              policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -201,7 +215,9 @@ class RoleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -245,7 +261,9 @@ class SamlProviderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -289,7 +307,9 @@ class ServerCertificateTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -342,7 +362,11 @@ class UserLoginProfile(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              password_reset_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordResetRequired' in kwargs:
+            password_reset_required = kwargs['passwordResetRequired']
+
         _setter("password", password)
         if password_reset_required is not None:
             _setter("password_reset_required", password_reset_required)
@@ -392,7 +416,13 @@ class UserPolicy(dict):
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -422,7 +452,9 @@ class UserTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -460,7 +492,9 @@ class VirtualMfaDeviceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

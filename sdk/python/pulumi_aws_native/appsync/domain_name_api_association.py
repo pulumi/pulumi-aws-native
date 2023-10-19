@@ -29,7 +29,13 @@ class DomainNameApiAssociationArgs:
              _setter: Callable[[Any, Any], None],
              api_id: pulumi.Input[str],
              domain_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         _setter("api_id", api_id)
         _setter("domain_name", domain_name)
 

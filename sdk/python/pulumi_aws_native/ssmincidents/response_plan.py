@@ -56,7 +56,15 @@ class ResponsePlanArgs:
              integrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'incidentTemplate' in kwargs:
+            incident_template = kwargs['incidentTemplate']
+        if 'chatChannel' in kwargs:
+            chat_channel = kwargs['chatChannel']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("incident_template", incident_template)
         if actions is not None:
             _setter("actions", actions)

@@ -57,7 +57,19 @@ class ClusterArgs:
              outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourcesVpcConfig' in kwargs:
+            resources_vpc_config = kwargs['resourcesVpcConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+        if 'kubernetesNetworkConfig' in kwargs:
+            kubernetes_network_config = kwargs['kubernetesNetworkConfig']
+        if 'outpostConfig' in kwargs:
+            outpost_config = kwargs['outpostConfig']
+
         _setter("resources_vpc_config", resources_vpc_config)
         _setter("role_arn", role_arn)
         if encryption_config is not None:

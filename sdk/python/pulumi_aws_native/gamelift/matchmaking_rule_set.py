@@ -34,7 +34,11 @@ class MatchmakingRuleSetArgs:
              rule_set_body: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleSetBody' in kwargs:
+            rule_set_body = kwargs['ruleSetBody']
+
         _setter("rule_set_body", rule_set_body)
         if name is not None:
             _setter("name", name)

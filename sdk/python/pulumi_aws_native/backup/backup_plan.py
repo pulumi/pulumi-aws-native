@@ -31,7 +31,13 @@ class BackupPlanArgs:
              _setter: Callable[[Any, Any], None],
              backup_plan: pulumi.Input['BackupPlanResourceTypeArgs'],
              backup_plan_tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPlan' in kwargs:
+            backup_plan = kwargs['backupPlan']
+        if 'backupPlanTags' in kwargs:
+            backup_plan_tags = kwargs['backupPlanTags']
+
         _setter("backup_plan", backup_plan)
         if backup_plan_tags is not None:
             _setter("backup_plan_tags", backup_plan_tags)

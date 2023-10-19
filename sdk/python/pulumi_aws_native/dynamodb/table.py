@@ -76,7 +76,41 @@ class TableArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
              time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if 'attributeDefinitions' in kwargs:
+            attribute_definitions = kwargs['attributeDefinitions']
+        if 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if 'contributorInsightsSpecification' in kwargs:
+            contributor_insights_specification = kwargs['contributorInsightsSpecification']
+        if 'deletionProtectionEnabled' in kwargs:
+            deletion_protection_enabled = kwargs['deletionProtectionEnabled']
+        if 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if 'importSourceSpecification' in kwargs:
+            import_source_specification = kwargs['importSourceSpecification']
+        if 'kinesisStreamSpecification' in kwargs:
+            kinesis_stream_specification = kwargs['kinesisStreamSpecification']
+        if 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if 'pointInTimeRecoverySpecification' in kwargs:
+            point_in_time_recovery_specification = kwargs['pointInTimeRecoverySpecification']
+        if 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if 'streamSpecification' in kwargs:
+            stream_specification = kwargs['streamSpecification']
+        if 'tableClass' in kwargs:
+            table_class = kwargs['tableClass']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'timeToLiveSpecification' in kwargs:
+            time_to_live_specification = kwargs['timeToLiveSpecification']
+
         _setter("key_schema", key_schema)
         if attribute_definitions is not None:
             _setter("attribute_definitions", attribute_definitions)

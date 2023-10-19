@@ -34,7 +34,13 @@ class ConfigurationRecorderArgs:
              role_arn: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              recording_group: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'recordingGroup' in kwargs:
+            recording_group = kwargs['recordingGroup']
+
         _setter("role_arn", role_arn)
         if name is not None:
             _setter("name", name)

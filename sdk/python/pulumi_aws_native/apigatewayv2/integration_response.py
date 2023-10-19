@@ -54,7 +54,23 @@ class IntegrationResponseArgs:
              response_parameters: Optional[Any] = None,
              response_templates: Optional[Any] = None,
              template_selection_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if 'integrationResponseKey' in kwargs:
+            integration_response_key = kwargs['integrationResponseKey']
+        if 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+
         _setter("api_id", api_id)
         _setter("integration_id", integration_id)
         _setter("integration_response_key", integration_response_key)

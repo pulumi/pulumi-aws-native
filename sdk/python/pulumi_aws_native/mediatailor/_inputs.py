@@ -66,7 +66,17 @@ class ChannelDashPlaylistSettingsArgs:
              min_buffer_time_seconds: Optional[pulumi.Input[float]] = None,
              min_update_period_seconds: Optional[pulumi.Input[float]] = None,
              suggested_presentation_delay_seconds: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if 'minBufferTimeSeconds' in kwargs:
+            min_buffer_time_seconds = kwargs['minBufferTimeSeconds']
+        if 'minUpdatePeriodSeconds' in kwargs:
+            min_update_period_seconds = kwargs['minUpdatePeriodSeconds']
+        if 'suggestedPresentationDelaySeconds' in kwargs:
+            suggested_presentation_delay_seconds = kwargs['suggestedPresentationDelaySeconds']
+
         if manifest_window_seconds is not None:
             _setter("manifest_window_seconds", manifest_window_seconds)
         if min_buffer_time_seconds is not None:
@@ -145,7 +155,13 @@ class ChannelHlsPlaylistSettingsArgs:
              _setter: Callable[[Any, Any], None],
              ad_markup_type: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]] = None,
              manifest_window_seconds: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adMarkupType' in kwargs:
+            ad_markup_type = kwargs['adMarkupType']
+        if 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+
         if ad_markup_type is not None:
             _setter("ad_markup_type", ad_markup_type)
         if manifest_window_seconds is not None:
@@ -192,7 +208,11 @@ class ChannelLogConfigurationForChannelArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_types: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logTypes' in kwargs:
+            log_types = kwargs['logTypes']
+
         if log_types is not None:
             _setter("log_types", log_types)
 
@@ -235,7 +255,17 @@ class ChannelRequestOutputItemArgs:
              source_group: pulumi.Input[str],
              dash_playlist_settings: Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']] = None,
              hls_playlist_settings: Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+        if 'dashPlaylistSettings' in kwargs:
+            dash_playlist_settings = kwargs['dashPlaylistSettings']
+        if 'hlsPlaylistSettings' in kwargs:
+            hls_playlist_settings = kwargs['hlsPlaylistSettings']
+
         _setter("manifest_name", manifest_name)
         _setter("source_group", source_group)
         if dash_playlist_settings is not None:
@@ -306,7 +336,13 @@ class ChannelSlateSourceArgs:
              _setter: Callable[[Any, Any], None],
              source_location_name: Optional[pulumi.Input[str]] = None,
              vod_source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if 'vodSourceName' in kwargs:
+            vod_source_name = kwargs['vodSourceName']
+
         if source_location_name is not None:
             _setter("source_location_name", source_location_name)
         if vod_source_name is not None:
@@ -352,7 +388,9 @@ class ChannelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -398,7 +436,11 @@ class LiveSourceHttpPackageConfigurationArgs:
              path: pulumi.Input[str],
              source_group: pulumi.Input[str],
              type: pulumi.Input['LiveSourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+
         _setter("path", path)
         _setter("source_group", source_group)
         _setter("type", type)
@@ -452,7 +494,9 @@ class LiveSourceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -491,7 +535,9 @@ class PlaybackConfigurationAdMarkerPassthroughArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -528,7 +574,9 @@ class PlaybackConfigurationAvailSuppressionArgs:
              _setter: Callable[[Any, Any], None],
              mode: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
         if value is not None:
@@ -579,7 +627,13 @@ class PlaybackConfigurationBumperArgs:
              _setter: Callable[[Any, Any], None],
              end_url: Optional[pulumi.Input[str]] = None,
              start_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endUrl' in kwargs:
+            end_url = kwargs['endUrl']
+        if 'startUrl' in kwargs:
+            start_url = kwargs['startUrl']
+
         if end_url is not None:
             _setter("end_url", end_url)
         if start_url is not None:
@@ -630,7 +684,13 @@ class PlaybackConfigurationCdnConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ad_segment_url_prefix: Optional[pulumi.Input[str]] = None,
              content_segment_url_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adSegmentUrlPrefix' in kwargs:
+            ad_segment_url_prefix = kwargs['adSegmentUrlPrefix']
+        if 'contentSegmentUrlPrefix' in kwargs:
+            content_segment_url_prefix = kwargs['contentSegmentUrlPrefix']
+
         if ad_segment_url_prefix is not None:
             _setter("ad_segment_url_prefix", ad_segment_url_prefix)
         if content_segment_url_prefix is not None:
@@ -685,7 +745,15 @@ class PlaybackConfigurationDashConfigurationArgs:
              manifest_endpoint_prefix: Optional[pulumi.Input[str]] = None,
              mpd_location: Optional[pulumi.Input[str]] = None,
              origin_manifest_type: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationOriginManifestType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestEndpointPrefix' in kwargs:
+            manifest_endpoint_prefix = kwargs['manifestEndpointPrefix']
+        if 'mpdLocation' in kwargs:
+            mpd_location = kwargs['mpdLocation']
+        if 'originManifestType' in kwargs:
+            origin_manifest_type = kwargs['originManifestType']
+
         if manifest_endpoint_prefix is not None:
             _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
         if mpd_location is not None:
@@ -745,7 +813,11 @@ class PlaybackConfigurationHlsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              manifest_endpoint_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'manifestEndpointPrefix' in kwargs:
+            manifest_endpoint_prefix = kwargs['manifestEndpointPrefix']
+
         if manifest_endpoint_prefix is not None:
             _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
 
@@ -782,7 +854,13 @@ class PlaybackConfigurationLivePreRollConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ad_decision_server_url: Optional[pulumi.Input[str]] = None,
              max_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adDecisionServerUrl' in kwargs:
+            ad_decision_server_url = kwargs['adDecisionServerUrl']
+        if 'maxDurationSeconds' in kwargs:
+            max_duration_seconds = kwargs['maxDurationSeconds']
+
         if ad_decision_server_url is not None:
             _setter("ad_decision_server_url", ad_decision_server_url)
         if max_duration_seconds is not None:
@@ -829,7 +907,11 @@ class PlaybackConfigurationManifestProcessingRulesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ad_marker_passthrough: Optional[pulumi.Input['PlaybackConfigurationAdMarkerPassthroughArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adMarkerPassthrough' in kwargs:
+            ad_marker_passthrough = kwargs['adMarkerPassthrough']
+
         if ad_marker_passthrough is not None:
             _setter("ad_marker_passthrough", ad_marker_passthrough)
 
@@ -861,7 +943,9 @@ class PlaybackConfigurationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -902,7 +986,13 @@ class SourceLocationAccessConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              access_type: Optional[pulumi.Input['SourceLocationAccessType']] = None,
              secrets_manager_access_token_configuration: Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if 'secretsManagerAccessTokenConfiguration' in kwargs:
+            secrets_manager_access_token_configuration = kwargs['secretsManagerAccessTokenConfiguration']
+
         if access_type is not None:
             _setter("access_type", access_type)
         if secrets_manager_access_token_configuration is not None:
@@ -943,7 +1033,11 @@ class SourceLocationDefaultSegmentDeliveryConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              base_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+
         if base_url is not None:
             _setter("base_url", base_url)
 
@@ -976,7 +1070,11 @@ class SourceLocationHttpConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              base_url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+
         _setter("base_url", base_url)
 
     @property
@@ -1016,7 +1114,15 @@ class SourceLocationSecretsManagerAccessTokenConfigurationArgs:
              header_name: Optional[pulumi.Input[str]] = None,
              secret_arn: Optional[pulumi.Input[str]] = None,
              secret_string_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'secretStringKey' in kwargs:
+            secret_string_key = kwargs['secretStringKey']
+
         if header_name is not None:
             _setter("header_name", header_name)
         if secret_arn is not None:
@@ -1081,7 +1187,11 @@ class SourceLocationSegmentDeliveryConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              base_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+
         if base_url is not None:
             _setter("base_url", base_url)
         if name is not None:
@@ -1127,7 +1237,9 @@ class SourceLocationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1173,7 +1285,11 @@ class VodSourceHttpPackageConfigurationArgs:
              path: pulumi.Input[str],
              source_group: pulumi.Input[str],
              type: pulumi.Input['VodSourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+
         _setter("path", path)
         _setter("source_group", source_group)
         _setter("type", type)
@@ -1227,7 +1343,9 @@ class VodSourceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

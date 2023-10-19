@@ -97,7 +97,39 @@ class ProjectArgs:
              triggers: Optional[pulumi.Input['ProjectTriggersArgs']] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'badgeEnabled' in kwargs:
+            badge_enabled = kwargs['badgeEnabled']
+        if 'buildBatchConfig' in kwargs:
+            build_batch_config = kwargs['buildBatchConfig']
+        if 'concurrentBuildLimit' in kwargs:
+            concurrent_build_limit = kwargs['concurrentBuildLimit']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'fileSystemLocations' in kwargs:
+            file_system_locations = kwargs['fileSystemLocations']
+        if 'logsConfig' in kwargs:
+            logs_config = kwargs['logsConfig']
+        if 'queuedTimeoutInMinutes' in kwargs:
+            queued_timeout_in_minutes = kwargs['queuedTimeoutInMinutes']
+        if 'resourceAccessRole' in kwargs:
+            resource_access_role = kwargs['resourceAccessRole']
+        if 'secondaryArtifacts' in kwargs:
+            secondary_artifacts = kwargs['secondaryArtifacts']
+        if 'secondarySourceVersions' in kwargs:
+            secondary_source_versions = kwargs['secondarySourceVersions']
+        if 'secondarySources' in kwargs:
+            secondary_sources = kwargs['secondarySources']
+        if 'sourceVersion' in kwargs:
+            source_version = kwargs['sourceVersion']
+        if 'timeoutInMinutes' in kwargs:
+            timeout_in_minutes = kwargs['timeoutInMinutes']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("artifacts", artifacts)
         _setter("environment", environment)
         _setter("service_role", service_role)

@@ -49,7 +49,13 @@ class AnalysisTemplateArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'membershipIdentifier' in kwargs:
+            membership_identifier = kwargs['membershipIdentifier']
+        if 'analysisParameters' in kwargs:
+            analysis_parameters = kwargs['analysisParameters']
+
         _setter("format", format)
         _setter("membership_identifier", membership_identifier)
         _setter("source", source)

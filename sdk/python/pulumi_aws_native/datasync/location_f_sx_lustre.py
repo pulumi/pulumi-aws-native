@@ -41,7 +41,13 @@ class LocationFSxLustreArgs:
              fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxLustreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+
         _setter("security_group_arns", security_group_arns)
         if fsx_filesystem_arn is not None:
             _setter("fsx_filesystem_arn", fsx_filesystem_arn)

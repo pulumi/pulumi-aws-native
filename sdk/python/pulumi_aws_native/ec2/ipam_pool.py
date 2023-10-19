@@ -85,7 +85,33 @@ class IpamPoolArgs:
              publicly_advertisable: Optional[pulumi.Input[bool]] = None,
              source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'ipamScopeId' in kwargs:
+            ipam_scope_id = kwargs['ipamScopeId']
+        if 'allocationDefaultNetmaskLength' in kwargs:
+            allocation_default_netmask_length = kwargs['allocationDefaultNetmaskLength']
+        if 'allocationMaxNetmaskLength' in kwargs:
+            allocation_max_netmask_length = kwargs['allocationMaxNetmaskLength']
+        if 'allocationMinNetmaskLength' in kwargs:
+            allocation_min_netmask_length = kwargs['allocationMinNetmaskLength']
+        if 'allocationResourceTags' in kwargs:
+            allocation_resource_tags = kwargs['allocationResourceTags']
+        if 'autoImport' in kwargs:
+            auto_import = kwargs['autoImport']
+        if 'awsService' in kwargs:
+            aws_service = kwargs['awsService']
+        if 'provisionedCidrs' in kwargs:
+            provisioned_cidrs = kwargs['provisionedCidrs']
+        if 'publicIpSource' in kwargs:
+            public_ip_source = kwargs['publicIpSource']
+        if 'publiclyAdvertisable' in kwargs:
+            publicly_advertisable = kwargs['publiclyAdvertisable']
+        if 'sourceIpamPoolId' in kwargs:
+            source_ipam_pool_id = kwargs['sourceIpamPoolId']
+
         _setter("address_family", address_family)
         _setter("ipam_scope_id", ipam_scope_id)
         if allocation_default_netmask_length is not None:

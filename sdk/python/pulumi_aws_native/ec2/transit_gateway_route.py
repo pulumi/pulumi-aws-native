@@ -35,7 +35,15 @@ class TransitGatewayRouteArgs:
              blackhole: Optional[pulumi.Input[bool]] = None,
              destination_cidr_block: Optional[pulumi.Input[str]] = None,
              transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+
         _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
         if blackhole is not None:
             _setter("blackhole", blackhole)

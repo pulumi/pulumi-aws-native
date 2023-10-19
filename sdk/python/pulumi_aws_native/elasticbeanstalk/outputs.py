@@ -65,7 +65,13 @@ class ApplicationMaxAgeRule(dict):
              delete_source_from_s3: Optional[bool] = None,
              enabled: Optional[bool] = None,
              max_age_in_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteSourceFromS3' in kwargs:
+            delete_source_from_s3 = kwargs['deleteSourceFromS3']
+        if 'maxAgeInDays' in kwargs:
+            max_age_in_days = kwargs['maxAgeInDays']
+
         if delete_source_from_s3 is not None:
             _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -140,7 +146,13 @@ class ApplicationMaxCountRule(dict):
              delete_source_from_s3: Optional[bool] = None,
              enabled: Optional[bool] = None,
              max_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteSourceFromS3' in kwargs:
+            delete_source_from_s3 = kwargs['deleteSourceFromS3']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+
         if delete_source_from_s3 is not None:
             _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -211,7 +223,13 @@ class ApplicationResourceLifecycleConfig(dict):
              _setter: Callable[[Any, Any], None],
              service_role: Optional[str] = None,
              version_lifecycle_config: Optional['outputs.ApplicationVersionLifecycleConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'versionLifecycleConfig' in kwargs:
+            version_lifecycle_config = kwargs['versionLifecycleConfig']
+
         if service_role is not None:
             _setter("service_role", service_role)
         if version_lifecycle_config is not None:
@@ -272,7 +290,13 @@ class ApplicationVersionLifecycleConfig(dict):
              _setter: Callable[[Any, Any], None],
              max_age_rule: Optional['outputs.ApplicationMaxAgeRule'] = None,
              max_count_rule: Optional['outputs.ApplicationMaxCountRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxAgeRule' in kwargs:
+            max_age_rule = kwargs['maxAgeRule']
+        if 'maxCountRule' in kwargs:
+            max_count_rule = kwargs['maxCountRule']
+
         if max_age_rule is not None:
             _setter("max_age_rule", max_age_rule)
         if max_count_rule is not None:
@@ -333,7 +357,13 @@ class ApplicationVersionSourceBundle(dict):
              _setter: Callable[[Any, Any], None],
              s3_bucket: str,
              s3_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
 
@@ -400,7 +430,13 @@ class ConfigurationTemplateConfigurationOptionSetting(dict):
              option_name: str,
              resource_name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         _setter("namespace", namespace)
         _setter("option_name", option_name)
         if resource_name is not None:
@@ -479,7 +515,13 @@ class ConfigurationTemplateSourceConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              application_name: str,
              template_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         _setter("application_name", application_name)
         _setter("template_name", template_name)
 
@@ -546,7 +588,13 @@ class EnvironmentOptionSetting(dict):
              option_name: str,
              resource_name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         _setter("namespace", namespace)
         _setter("option_name", option_name)
         if resource_name is not None:
@@ -606,7 +654,9 @@ class EnvironmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -650,7 +700,9 @@ class EnvironmentTier(dict):
              name: Optional[str] = None,
              type: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if type is not None:

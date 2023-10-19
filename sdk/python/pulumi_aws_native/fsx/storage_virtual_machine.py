@@ -43,7 +43,17 @@ class StorageVirtualMachineArgs:
              root_volume_security_style: Optional[pulumi.Input[str]] = None,
              svm_admin_password: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageVirtualMachineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'activeDirectoryConfiguration' in kwargs:
+            active_directory_configuration = kwargs['activeDirectoryConfiguration']
+        if 'rootVolumeSecurityStyle' in kwargs:
+            root_volume_security_style = kwargs['rootVolumeSecurityStyle']
+        if 'svmAdminPassword' in kwargs:
+            svm_admin_password = kwargs['svmAdminPassword']
+
         _setter("file_system_id", file_system_id)
         if active_directory_configuration is not None:
             _setter("active_directory_configuration", active_directory_configuration)

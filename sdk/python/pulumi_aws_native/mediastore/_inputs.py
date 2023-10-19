@@ -40,7 +40,19 @@ class ContainerCorsRuleArgs:
              allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              max_age_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if 'maxAgeSeconds' in kwargs:
+            max_age_seconds = kwargs['maxAgeSeconds']
+
         if allowed_headers is not None:
             _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
@@ -113,7 +125,13 @@ class ContainerMetricPolicyRuleArgs:
              _setter: Callable[[Any, Any], None],
              object_group: pulumi.Input[str],
              object_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectGroup' in kwargs:
+            object_group = kwargs['objectGroup']
+        if 'objectGroupName' in kwargs:
+            object_group_name = kwargs['objectGroupName']
+
         _setter("object_group", object_group)
         _setter("object_group_name", object_group_name)
 
@@ -151,7 +169,13 @@ class ContainerMetricPolicyArgs:
              _setter: Callable[[Any, Any], None],
              container_level_metrics: pulumi.Input[str],
              metric_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerMetricPolicyRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerLevelMetrics' in kwargs:
+            container_level_metrics = kwargs['containerLevelMetrics']
+        if 'metricPolicyRules' in kwargs:
+            metric_policy_rules = kwargs['metricPolicyRules']
+
         _setter("container_level_metrics", container_level_metrics)
         if metric_policy_rules is not None:
             _setter("metric_policy_rules", metric_policy_rules)
@@ -190,7 +214,9 @@ class ContainerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

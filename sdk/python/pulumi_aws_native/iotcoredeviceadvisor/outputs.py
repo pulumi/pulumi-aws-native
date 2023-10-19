@@ -63,7 +63,17 @@ class SuiteDefinitionConfigurationProperties(dict):
              devices: Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']] = None,
              intended_for_qualification: Optional[bool] = None,
              suite_definition_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devicePermissionRoleArn' in kwargs:
+            device_permission_role_arn = kwargs['devicePermissionRoleArn']
+        if 'rootGroup' in kwargs:
+            root_group = kwargs['rootGroup']
+        if 'intendedForQualification' in kwargs:
+            intended_for_qualification = kwargs['intendedForQualification']
+        if 'suiteDefinitionName' in kwargs:
+            suite_definition_name = kwargs['suiteDefinitionName']
+
         _setter("device_permission_role_arn", device_permission_role_arn)
         _setter("root_group", root_group)
         if devices is not None:
@@ -133,7 +143,13 @@ class SuiteDefinitionDeviceUnderTest(dict):
              _setter: Callable[[Any, Any], None],
              certificate_arn: Optional[str] = None,
              thing_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
         if thing_arn is not None:
@@ -173,7 +189,9 @@ class SuiteDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

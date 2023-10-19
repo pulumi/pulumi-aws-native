@@ -36,7 +36,15 @@ class LoggingArgs:
              account_id: pulumi.Input[str],
              default_log_level: pulumi.Input['LoggingDefaultLogLevel'],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'defaultLogLevel' in kwargs:
+            default_log_level = kwargs['defaultLogLevel']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("account_id", account_id)
         _setter("default_log_level", default_log_level)
         _setter("role_arn", role_arn)

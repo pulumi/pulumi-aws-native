@@ -32,7 +32,13 @@ class UserPoolUiCustomizationAttachmentArgs:
              client_id: pulumi.Input[str],
              user_pool_id: pulumi.Input[str],
              css: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         _setter("client_id", client_id)
         _setter("user_pool_id", user_pool_id)
         if css is not None:

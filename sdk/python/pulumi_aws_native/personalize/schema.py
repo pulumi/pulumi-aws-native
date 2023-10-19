@@ -36,7 +36,9 @@ class SchemaArgs:
              schema: pulumi.Input[str],
              domain: Optional[pulumi.Input['SchemaDomain']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("schema", schema)
         if domain is not None:
             _setter("domain", domain)

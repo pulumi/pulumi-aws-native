@@ -46,7 +46,13 @@ class FilterArgs:
              rank: pulumi.Input[int],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+
         _setter("action", action)
         _setter("description", description)
         _setter("detector_id", detector_id)

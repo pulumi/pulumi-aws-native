@@ -58,7 +58,13 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              user_pool_arn: str,
              client_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if 'clientIds' in kwargs:
+            client_ids = kwargs['clientIds']
+
         _setter("user_pool_arn", user_pool_arn)
         if client_ids is not None:
             _setter("client_ids", client_ids)
@@ -103,7 +109,11 @@ class IdentitySourceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitoUserPoolConfiguration' in kwargs:
+            cognito_user_pool_configuration = kwargs['cognitoUserPoolConfiguration']
+
         _setter("cognito_user_pool_configuration", cognito_user_pool_configuration)
 
     @property
@@ -156,7 +166,17 @@ class IdentitySourceDetails(dict):
              discovery_url: Optional[str] = None,
              open_id_issuer: Optional['IdentitySourceOpenIdIssuer'] = None,
              user_pool_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientIds' in kwargs:
+            client_ids = kwargs['clientIds']
+        if 'discoveryUrl' in kwargs:
+            discovery_url = kwargs['discoveryUrl']
+        if 'openIdIssuer' in kwargs:
+            open_id_issuer = kwargs['openIdIssuer']
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+
         if client_ids is not None:
             _setter("client_ids", client_ids)
         if discovery_url is not None:
@@ -199,7 +219,9 @@ class PolicyDefinition0Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              static: 'outputs.PolicyStaticPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("static", static)
 
     @property
@@ -237,7 +259,11 @@ class PolicyDefinition1Properties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_linked: 'outputs.PolicyTemplateLinkedPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateLinked' in kwargs:
+            template_linked = kwargs['templateLinked']
+
         _setter("template_linked", template_linked)
 
     @property
@@ -280,7 +306,13 @@ class PolicyEntityIdentifier(dict):
              _setter: Callable[[Any, Any], None],
              entity_id: str,
              entity_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+
         _setter("entity_id", entity_id)
         _setter("entity_type", entity_type)
 
@@ -310,7 +342,9 @@ class PolicyStaticPolicyDefinition(dict):
              _setter: Callable[[Any, Any], None],
              statement: str,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statement", statement)
         if description is not None:
             _setter("description", description)
@@ -355,7 +389,11 @@ class PolicyStoreSchemaDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cedar_json: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cedarJson' in kwargs:
+            cedar_json = kwargs['cedarJson']
+
         if cedar_json is not None:
             _setter("cedar_json", cedar_json)
 
@@ -377,7 +415,9 @@ class PolicyStoreValidationSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: 'PolicyStoreValidationMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
 
     @property
@@ -421,7 +461,11 @@ class PolicyTemplateLinkedPolicyDefinition(dict):
              policy_template_id: str,
              principal: Optional['outputs.PolicyEntityIdentifier'] = None,
              resource: Optional['outputs.PolicyEntityIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyTemplateId' in kwargs:
+            policy_template_id = kwargs['policyTemplateId']
+
         _setter("policy_template_id", policy_template_id)
         if principal is not None:
             _setter("principal", principal)

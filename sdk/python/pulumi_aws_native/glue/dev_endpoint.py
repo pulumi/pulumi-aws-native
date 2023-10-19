@@ -68,7 +68,35 @@ class DevEndpointArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'extraJarsS3Path' in kwargs:
+            extra_jars_s3_path = kwargs['extraJarsS3Path']
+        if 'extraPythonLibsS3Path' in kwargs:
+            extra_python_libs_s3_path = kwargs['extraPythonLibsS3Path']
+        if 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+        if 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("role_arn", role_arn)
         if arguments is not None:
             _setter("arguments", arguments)

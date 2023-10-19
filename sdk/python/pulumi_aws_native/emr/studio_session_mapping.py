@@ -40,7 +40,17 @@ class StudioSessionMappingArgs:
              identity_type: pulumi.Input['StudioSessionMappingIdentityType'],
              session_policy_arn: pulumi.Input[str],
              studio_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityName' in kwargs:
+            identity_name = kwargs['identityName']
+        if 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if 'sessionPolicyArn' in kwargs:
+            session_policy_arn = kwargs['sessionPolicyArn']
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+
         _setter("identity_name", identity_name)
         _setter("identity_type", identity_type)
         _setter("session_policy_arn", session_policy_arn)

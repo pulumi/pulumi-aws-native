@@ -71,7 +71,31 @@ class RouteArgs:
              request_parameters: Optional[Any] = None,
              route_response_selection_expression: Optional[pulumi.Input[str]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if 'apiKeyRequired' in kwargs:
+            api_key_required = kwargs['apiKeyRequired']
+        if 'authorizationScopes' in kwargs:
+            authorization_scopes = kwargs['authorizationScopes']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'authorizerId' in kwargs:
+            authorizer_id = kwargs['authorizerId']
+        if 'modelSelectionExpression' in kwargs:
+            model_selection_expression = kwargs['modelSelectionExpression']
+        if 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if 'requestModels' in kwargs:
+            request_models = kwargs['requestModels']
+        if 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if 'routeResponseSelectionExpression' in kwargs:
+            route_response_selection_expression = kwargs['routeResponseSelectionExpression']
+
         _setter("api_id", api_id)
         _setter("route_key", route_key)
         if api_key_required is not None:

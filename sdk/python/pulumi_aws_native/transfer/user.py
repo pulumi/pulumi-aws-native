@@ -55,7 +55,23 @@ class UserArgs:
              ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UserSshPublicKeyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'homeDirectoryMappings' in kwargs:
+            home_directory_mappings = kwargs['homeDirectoryMappings']
+        if 'homeDirectoryType' in kwargs:
+            home_directory_type = kwargs['homeDirectoryType']
+        if 'posixProfile' in kwargs:
+            posix_profile = kwargs['posixProfile']
+        if 'sshPublicKeys' in kwargs:
+            ssh_public_keys = kwargs['sshPublicKeys']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("role", role)
         _setter("server_id", server_id)
         if home_directory is not None:

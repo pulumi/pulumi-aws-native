@@ -35,7 +35,13 @@ class TopicRuleArgs:
              topic_rule_payload: pulumi.Input['TopicRulePayloadArgs'],
              rule_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicRulePayload' in kwargs:
+            topic_rule_payload = kwargs['topicRulePayload']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("topic_rule_payload", topic_rule_payload)
         if rule_name is not None:
             _setter("rule_name", rule_name)

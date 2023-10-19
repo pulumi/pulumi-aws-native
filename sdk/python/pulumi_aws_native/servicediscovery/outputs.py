@@ -42,7 +42,9 @@ class HttpNamespaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -69,7 +71,9 @@ class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional['outputs.PrivateDnsNamespaceSoa'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -108,7 +112,11 @@ class PrivateDnsNamespaceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional['outputs.PrivateDnsNamespacePrivateDnsPropertiesMutable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -130,7 +138,9 @@ class PrivateDnsNamespaceSoa(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -155,7 +165,9 @@ class PrivateDnsNamespaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -199,7 +211,11 @@ class PublicDnsNamespaceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional['outputs.PublicDnsNamespacePublicDnsPropertiesMutable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -221,7 +237,9 @@ class PublicDnsNamespacePublicDnsPropertiesMutable(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional['outputs.PublicDnsNamespaceSoa'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -243,7 +261,9 @@ class PublicDnsNamespaceSoa(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -268,7 +288,9 @@ class PublicDnsNamespaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -322,7 +344,15 @@ class ServiceDnsConfig(dict):
              dns_records: Sequence['outputs.ServiceDnsRecord'],
              namespace_id: Optional[str] = None,
              routing_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'routingPolicy' in kwargs:
+            routing_policy = kwargs['routingPolicy']
+
         _setter("dns_records", dns_records)
         if namespace_id is not None:
             _setter("namespace_id", namespace_id)
@@ -360,7 +390,9 @@ class ServiceDnsRecord(dict):
              _setter: Callable[[Any, Any], None],
              ttl: float,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("ttl", ttl)
         _setter("type", type)
 
@@ -412,7 +444,13 @@ class ServiceHealthCheckConfig(dict):
              type: str,
              failure_threshold: Optional[float] = None,
              resource_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+
         _setter("type", type)
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
@@ -464,7 +502,11 @@ class ServiceHealthCheckCustomConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              failure_threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
 
@@ -489,7 +531,9 @@ class ServiceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

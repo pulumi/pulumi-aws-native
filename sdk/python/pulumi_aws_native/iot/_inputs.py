@@ -125,7 +125,11 @@ class AbortConfigPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              criteria_list: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'criteriaList' in kwargs:
+            criteria_list = kwargs['criteriaList']
+
         _setter("criteria_list", criteria_list)
 
     @property
@@ -198,7 +202,41 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
              revoked_ca_certificate_still_active_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
              revoked_device_certificate_still_active_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
              unauthenticated_cognito_role_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticatedCognitoRoleOverlyPermissiveCheck' in kwargs:
+            authenticated_cognito_role_overly_permissive_check = kwargs['authenticatedCognitoRoleOverlyPermissiveCheck']
+        if 'caCertificateExpiringCheck' in kwargs:
+            ca_certificate_expiring_check = kwargs['caCertificateExpiringCheck']
+        if 'caCertificateKeyQualityCheck' in kwargs:
+            ca_certificate_key_quality_check = kwargs['caCertificateKeyQualityCheck']
+        if 'conflictingClientIdsCheck' in kwargs:
+            conflicting_client_ids_check = kwargs['conflictingClientIdsCheck']
+        if 'deviceCertificateExpiringCheck' in kwargs:
+            device_certificate_expiring_check = kwargs['deviceCertificateExpiringCheck']
+        if 'deviceCertificateKeyQualityCheck' in kwargs:
+            device_certificate_key_quality_check = kwargs['deviceCertificateKeyQualityCheck']
+        if 'deviceCertificateSharedCheck' in kwargs:
+            device_certificate_shared_check = kwargs['deviceCertificateSharedCheck']
+        if 'intermediateCaRevokedForActiveDeviceCertificatesCheck' in kwargs:
+            intermediate_ca_revoked_for_active_device_certificates_check = kwargs['intermediateCaRevokedForActiveDeviceCertificatesCheck']
+        if 'ioTPolicyPotentialMisConfigurationCheck' in kwargs:
+            io_t_policy_potential_mis_configuration_check = kwargs['ioTPolicyPotentialMisConfigurationCheck']
+        if 'iotPolicyOverlyPermissiveCheck' in kwargs:
+            iot_policy_overly_permissive_check = kwargs['iotPolicyOverlyPermissiveCheck']
+        if 'iotRoleAliasAllowsAccessToUnusedServicesCheck' in kwargs:
+            iot_role_alias_allows_access_to_unused_services_check = kwargs['iotRoleAliasAllowsAccessToUnusedServicesCheck']
+        if 'iotRoleAliasOverlyPermissiveCheck' in kwargs:
+            iot_role_alias_overly_permissive_check = kwargs['iotRoleAliasOverlyPermissiveCheck']
+        if 'loggingDisabledCheck' in kwargs:
+            logging_disabled_check = kwargs['loggingDisabledCheck']
+        if 'revokedCaCertificateStillActiveCheck' in kwargs:
+            revoked_ca_certificate_still_active_check = kwargs['revokedCaCertificateStillActiveCheck']
+        if 'revokedDeviceCertificateStillActiveCheck' in kwargs:
+            revoked_device_certificate_still_active_check = kwargs['revokedDeviceCertificateStillActiveCheck']
+        if 'unauthenticatedCognitoRoleOverlyPermissiveCheck' in kwargs:
+            unauthenticated_cognito_role_overly_permissive_check = kwargs['unauthenticatedCognitoRoleOverlyPermissiveCheck']
+
         if authenticated_cognito_role_overly_permissive_check is not None:
             _setter("authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
         if ca_certificate_expiring_check is not None:
@@ -393,7 +431,9 @@ class AccountAuditConfigurationAuditCheckConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -425,7 +465,9 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sns: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sns is not None:
             _setter("sns", sns)
 
@@ -462,7 +504,13 @@ class AccountAuditConfigurationAuditNotificationTargetArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              target_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if role_arn is not None:
@@ -522,7 +570,9 @@ class AuthorizerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -557,7 +607,11 @@ class BillingGroupPropertiesPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              billing_group_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingGroupDescription' in kwargs:
+            billing_group_description = kwargs['billingGroupDescription']
+
         if billing_group_description is not None:
             _setter("billing_group_description", billing_group_description)
 
@@ -591,7 +645,9 @@ class BillingGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -638,7 +694,15 @@ class CaCertificateRegistrationConfigArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         if role_arn is not None:
             _setter("role_arn", role_arn)
         if template_body is not None:
@@ -694,7 +758,9 @@ class CaCertificateTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -743,7 +809,9 @@ class CustomMetricTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -792,7 +860,9 @@ class DimensionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -836,7 +906,13 @@ class DomainConfigurationAuthorizerConfigArgs:
              _setter: Callable[[Any, Any], None],
              allow_authorizer_override: Optional[pulumi.Input[bool]] = None,
              default_authorizer_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAuthorizerOverride' in kwargs:
+            allow_authorizer_override = kwargs['allowAuthorizerOverride']
+        if 'defaultAuthorizerName' in kwargs:
+            default_authorizer_name = kwargs['defaultAuthorizerName']
+
         if allow_authorizer_override is not None:
             _setter("allow_authorizer_override", allow_authorizer_override)
         if default_authorizer_name is not None:
@@ -876,7 +952,9 @@ class DomainConfigurationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -911,7 +989,11 @@ class DomainConfigurationTlsConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              security_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityPolicy' in kwargs:
+            security_policy = kwargs['securityPolicy']
+
         if security_policy is not None:
             _setter("security_policy", security_policy)
 
@@ -945,7 +1027,9 @@ class FleetMetricAggregationTypeArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
 
@@ -994,7 +1078,9 @@ class FleetMetricTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1035,7 +1121,11 @@ class JobExecutionsRetryConfigPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              retry_criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retryCriteriaList' in kwargs:
+            retry_criteria_list = kwargs['retryCriteriaList']
+
         if retry_criteria_list is not None:
             _setter("retry_criteria_list", retry_criteria_list)
 
@@ -1069,7 +1159,13 @@ class JobExecutionsRolloutConfigPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              exponential_rollout_rate: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']] = None,
              maximum_per_minute: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exponentialRolloutRate' in kwargs:
+            exponential_rollout_rate = kwargs['exponentialRolloutRate']
+        if 'maximumPerMinute' in kwargs:
+            maximum_per_minute = kwargs['maximumPerMinute']
+
         if exponential_rollout_rate is not None:
             _setter("exponential_rollout_rate", exponential_rollout_rate)
         if maximum_per_minute is not None:
@@ -1128,7 +1224,15 @@ class JobTemplateAbortCriteriaArgs:
              failure_type: pulumi.Input['JobTemplateFailureType'],
              min_number_of_executed_things: pulumi.Input[int],
              threshold_percentage: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureType' in kwargs:
+            failure_type = kwargs['failureType']
+        if 'minNumberOfExecutedThings' in kwargs:
+            min_number_of_executed_things = kwargs['minNumberOfExecutedThings']
+        if 'thresholdPercentage' in kwargs:
+            threshold_percentage = kwargs['thresholdPercentage']
+
         _setter("action", action)
         _setter("failure_type", failure_type)
         _setter("min_number_of_executed_things", min_number_of_executed_things)
@@ -1207,7 +1311,15 @@ class JobTemplateExponentialRolloutRateArgs:
              base_rate_per_minute: pulumi.Input[int],
              increment_factor: pulumi.Input[float],
              rate_increase_criteria: pulumi.Input['JobTemplateRateIncreaseCriteriaArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseRatePerMinute' in kwargs:
+            base_rate_per_minute = kwargs['baseRatePerMinute']
+        if 'incrementFactor' in kwargs:
+            increment_factor = kwargs['incrementFactor']
+        if 'rateIncreaseCriteria' in kwargs:
+            rate_increase_criteria = kwargs['rateIncreaseCriteria']
+
         _setter("base_rate_per_minute", base_rate_per_minute)
         _setter("increment_factor", increment_factor)
         _setter("rate_increase_criteria", rate_increase_criteria)
@@ -1267,7 +1379,13 @@ class JobTemplateMaintenanceWindowArgs:
              _setter: Callable[[Any, Any], None],
              duration_in_minutes: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if duration_in_minutes is not None:
             _setter("duration_in_minutes", duration_in_minutes)
         if start_time is not None:
@@ -1307,7 +1425,13 @@ class JobTemplateRateIncreaseCriteriaArgs:
              _setter: Callable[[Any, Any], None],
              number_of_notified_things: Optional[pulumi.Input[int]] = None,
              number_of_succeeded_things: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numberOfNotifiedThings' in kwargs:
+            number_of_notified_things = kwargs['numberOfNotifiedThings']
+        if 'numberOfSucceededThings' in kwargs:
+            number_of_succeeded_things = kwargs['numberOfSucceededThings']
+
         if number_of_notified_things is not None:
             _setter("number_of_notified_things", number_of_notified_things)
         if number_of_succeeded_things is not None:
@@ -1350,7 +1474,13 @@ class JobTemplateRetryCriteriaArgs:
              _setter: Callable[[Any, Any], None],
              failure_type: Optional[pulumi.Input['JobTemplateJobRetryFailureType']] = None,
              number_of_retries: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureType' in kwargs:
+            failure_type = kwargs['failureType']
+        if 'numberOfRetries' in kwargs:
+            number_of_retries = kwargs['numberOfRetries']
+
         if failure_type is not None:
             _setter("failure_type", failure_type)
         if number_of_retries is not None:
@@ -1395,7 +1525,9 @@ class JobTemplateTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1454,7 +1586,21 @@ class MitigationActionActionParamsArgs:
              replace_default_policy_version_params: Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']] = None,
              update_ca_certificate_params: Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']] = None,
              update_device_certificate_params: Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addThingsToThingGroupParams' in kwargs:
+            add_things_to_thing_group_params = kwargs['addThingsToThingGroupParams']
+        if 'enableIoTLoggingParams' in kwargs:
+            enable_io_t_logging_params = kwargs['enableIoTLoggingParams']
+        if 'publishFindingToSnsParams' in kwargs:
+            publish_finding_to_sns_params = kwargs['publishFindingToSnsParams']
+        if 'replaceDefaultPolicyVersionParams' in kwargs:
+            replace_default_policy_version_params = kwargs['replaceDefaultPolicyVersionParams']
+        if 'updateCaCertificateParams' in kwargs:
+            update_ca_certificate_params = kwargs['updateCaCertificateParams']
+        if 'updateDeviceCertificateParams' in kwargs:
+            update_device_certificate_params = kwargs['updateDeviceCertificateParams']
+
         if add_things_to_thing_group_params is not None:
             _setter("add_things_to_thing_group_params", add_things_to_thing_group_params)
         if enable_io_t_logging_params is not None:
@@ -1543,7 +1689,13 @@ class MitigationActionAddThingsToThingGroupParamsArgs:
              _setter: Callable[[Any, Any], None],
              thing_group_names: pulumi.Input[Sequence[pulumi.Input[str]]],
              override_dynamic_groups: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thingGroupNames' in kwargs:
+            thing_group_names = kwargs['thingGroupNames']
+        if 'overrideDynamicGroups' in kwargs:
+            override_dynamic_groups = kwargs['overrideDynamicGroups']
+
         _setter("thing_group_names", thing_group_names)
         if override_dynamic_groups is not None:
             _setter("override_dynamic_groups", override_dynamic_groups)
@@ -1593,7 +1745,13 @@ class MitigationActionEnableIoTLoggingParamsArgs:
              _setter: Callable[[Any, Any], None],
              log_level: pulumi.Input['MitigationActionEnableIoTLoggingParamsLogLevel'],
              role_arn_for_logging: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'roleArnForLogging' in kwargs:
+            role_arn_for_logging = kwargs['roleArnForLogging']
+
         _setter("log_level", log_level)
         _setter("role_arn_for_logging", role_arn_for_logging)
 
@@ -1638,7 +1796,11 @@ class MitigationActionPublishFindingToSnsParamsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("topic_arn", topic_arn)
 
     @property
@@ -1669,7 +1831,11 @@ class MitigationActionReplaceDefaultPolicyVersionParamsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_name: pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsTemplateName'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         _setter("template_name", template_name)
 
     @property
@@ -1702,7 +1868,9 @@ class MitigationActionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1746,7 +1914,9 @@ class MitigationActionUpdateCaCertificateParamsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['MitigationActionUpdateCaCertificateParamsAction'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
 
     @property
@@ -1774,7 +1944,9 @@ class MitigationActionUpdateDeviceCertificateParamsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
 
     @property
@@ -1805,7 +1977,13 @@ class PresignedUrlConfigPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              role_arn: pulumi.Input[str],
              expires_in_sec: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'expiresInSec' in kwargs:
+            expires_in_sec = kwargs['expiresInSec']
+
         _setter("role_arn", role_arn)
         if expires_in_sec is not None:
             _setter("expires_in_sec", expires_in_sec)
@@ -1844,7 +2022,13 @@ class ProvisioningTemplateProvisioningHookArgs:
              _setter: Callable[[Any, Any], None],
              payload_version: Optional[pulumi.Input[str]] = None,
              target_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'payloadVersion' in kwargs:
+            payload_version = kwargs['payloadVersion']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         if payload_version is not None:
             _setter("payload_version", payload_version)
         if target_arn is not None:
@@ -1884,7 +2068,9 @@ class ProvisioningTemplateTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1927,7 +2113,9 @@ class RoleAliasTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1976,7 +2164,9 @@ class ScheduledAuditTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2042,7 +2232,21 @@ class SecurityProfileBehaviorCriteriaArgs:
              ml_detection_config: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs']] = None,
              statistical_threshold: Optional[pulumi.Input['SecurityProfileStatisticalThresholdArgs']] = None,
              value: Optional[pulumi.Input['SecurityProfileMetricValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'consecutiveDatapointsToAlarm' in kwargs:
+            consecutive_datapoints_to_alarm = kwargs['consecutiveDatapointsToAlarm']
+        if 'consecutiveDatapointsToClear' in kwargs:
+            consecutive_datapoints_to_clear = kwargs['consecutiveDatapointsToClear']
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'mlDetectionConfig' in kwargs:
+            ml_detection_config = kwargs['mlDetectionConfig']
+        if 'statisticalThreshold' in kwargs:
+            statistical_threshold = kwargs['statisticalThreshold']
+
         if comparison_operator is not None:
             _setter("comparison_operator", comparison_operator)
         if consecutive_datapoints_to_alarm is not None:
@@ -2164,7 +2368,13 @@ class SecurityProfileBehaviorArgs:
              metric: Optional[pulumi.Input[str]] = None,
              metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None,
              suppress_alerts: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDimension' in kwargs:
+            metric_dimension = kwargs['metricDimension']
+        if 'suppressAlerts' in kwargs:
+            suppress_alerts = kwargs['suppressAlerts']
+
         _setter("name", name)
         if criteria is not None:
             _setter("criteria", criteria)
@@ -2246,7 +2456,11 @@ class SecurityProfileMachineLearningDetectionConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              confidence_level: Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confidenceLevel' in kwargs:
+            confidence_level = kwargs['confidenceLevel']
+
         if confidence_level is not None:
             _setter("confidence_level", confidence_level)
 
@@ -2283,7 +2497,11 @@ class SecurityProfileMetricDimensionArgs:
              _setter: Callable[[Any, Any], None],
              dimension_name: pulumi.Input[str],
              operator: Optional[pulumi.Input['SecurityProfileMetricDimensionOperator']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dimensionName' in kwargs:
+            dimension_name = kwargs['dimensionName']
+
         _setter("dimension_name", dimension_name)
         if operator is not None:
             _setter("operator", operator)
@@ -2332,7 +2550,11 @@ class SecurityProfileMetricToRetainArgs:
              _setter: Callable[[Any, Any], None],
              metric: pulumi.Input[str],
              metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDimension' in kwargs:
+            metric_dimension = kwargs['metricDimension']
+
         _setter("metric", metric)
         if metric_dimension is not None:
             _setter("metric_dimension", metric_dimension)
@@ -2395,7 +2617,9 @@ class SecurityProfileMetricValueArgs:
              numbers: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cidrs is not None:
             _setter("cidrs", cidrs)
         if count is not None:
@@ -2498,7 +2722,9 @@ class SecurityProfileStatisticalThresholdArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statistic: Optional[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if statistic is not None:
             _setter("statistic", statistic)
 
@@ -2535,7 +2761,9 @@ class SecurityProfileTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2584,7 +2812,9 @@ class SoftwarePackageTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2620,8 +2850,10 @@ class SoftwarePackageVersionResourceAttributesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2644,7 +2876,9 @@ class SoftwarePackageVersionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2685,7 +2919,9 @@ class ThingAttributePayloadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attributes: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
             _setter("attributes", attributes)
 
@@ -2711,7 +2947,9 @@ class ThingGroupAttributePayloadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attributes: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
             _setter("attributes", attributes)
 
@@ -2740,7 +2978,13 @@ class ThingGroupPropertiesPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              attribute_payload: Optional[pulumi.Input['ThingGroupAttributePayloadArgs']] = None,
              thing_group_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributePayload' in kwargs:
+            attribute_payload = kwargs['attributePayload']
+        if 'thingGroupDescription' in kwargs:
+            thing_group_description = kwargs['thingGroupDescription']
+
         if attribute_payload is not None:
             _setter("attribute_payload", attribute_payload)
         if thing_group_description is not None:
@@ -2785,7 +3029,9 @@ class ThingGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2829,7 +3075,13 @@ class ThingTypePropertiesPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              thing_type_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'searchableAttributes' in kwargs:
+            searchable_attributes = kwargs['searchableAttributes']
+        if 'thingTypeDescription' in kwargs:
+            thing_type_description = kwargs['thingTypeDescription']
+
         if searchable_attributes is not None:
             _setter("searchable_attributes", searchable_attributes)
         if thing_type_description is not None:
@@ -2874,7 +3126,9 @@ class ThingTypeTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2918,7 +3172,11 @@ class TimeoutConfigPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              in_progress_timeout_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inProgressTimeoutInMinutes' in kwargs:
+            in_progress_timeout_in_minutes = kwargs['inProgressTimeoutInMinutes']
+
         _setter("in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
     @property
@@ -3006,7 +3264,31 @@ class TopicRuleActionArgs:
              sqs: Optional[pulumi.Input['TopicRuleSqsActionArgs']] = None,
              step_functions: Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']] = None,
              timestream: Optional[pulumi.Input['TopicRuleTimestreamActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchAlarm' in kwargs:
+            cloudwatch_alarm = kwargs['cloudwatchAlarm']
+        if 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+        if 'cloudwatchMetric' in kwargs:
+            cloudwatch_metric = kwargs['cloudwatchMetric']
+        if 'dynamoDBv2' in kwargs:
+            dynamo_d_bv2 = kwargs['dynamoDBv2']
+        if 'dynamoDb' in kwargs:
+            dynamo_db = kwargs['dynamoDb']
+        if 'iotAnalytics' in kwargs:
+            iot_analytics = kwargs['iotAnalytics']
+        if 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if 'iotSiteWise' in kwargs:
+            iot_site_wise = kwargs['iotSiteWise']
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if 'openSearch' in kwargs:
+            open_search = kwargs['openSearch']
+        if 'stepFunctions' in kwargs:
+            step_functions = kwargs['stepFunctions']
+
         if cloudwatch_alarm is not None:
             _setter("cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
@@ -3266,7 +3548,13 @@ class TopicRuleAssetPropertyTimestampArgs:
              _setter: Callable[[Any, Any], None],
              time_in_seconds: pulumi.Input[str],
              offset_in_nanos: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInSeconds' in kwargs:
+            time_in_seconds = kwargs['timeInSeconds']
+        if 'offsetInNanos' in kwargs:
+            offset_in_nanos = kwargs['offsetInNanos']
+
         _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             _setter("offset_in_nanos", offset_in_nanos)
@@ -3308,7 +3596,9 @@ class TopicRuleAssetPropertyValueArgs:
              timestamp: pulumi.Input['TopicRuleAssetPropertyTimestampArgs'],
              value: pulumi.Input['TopicRuleAssetPropertyVariantArgs'],
              quality: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("timestamp", timestamp)
         _setter("value", value)
         if quality is not None:
@@ -3363,7 +3653,17 @@ class TopicRuleAssetPropertyVariantArgs:
              double_value: Optional[pulumi.Input[str]] = None,
              integer_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if 'integerValue' in kwargs:
+            integer_value = kwargs['integerValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -3431,7 +3731,17 @@ class TopicRuleCloudwatchAlarmActionArgs:
              role_arn: pulumi.Input[str],
              state_reason: pulumi.Input[str],
              state_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateReason' in kwargs:
+            state_reason = kwargs['stateReason']
+        if 'stateValue' in kwargs:
+            state_value = kwargs['stateValue']
+
         _setter("alarm_name", alarm_name)
         _setter("role_arn", role_arn)
         _setter("state_reason", state_reason)
@@ -3492,7 +3802,15 @@ class TopicRuleCloudwatchLogsActionArgs:
              log_group_name: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              batch_mode: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
         _setter("log_group_name", log_group_name)
         _setter("role_arn", role_arn)
         if batch_mode is not None:
@@ -3553,7 +3871,21 @@ class TopicRuleCloudwatchMetricActionArgs:
              metric_value: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              metric_timestamp: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'metricUnit' in kwargs:
+            metric_unit = kwargs['metricUnit']
+        if 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'metricTimestamp' in kwargs:
+            metric_timestamp = kwargs['metricTimestamp']
+
         _setter("metric_name", metric_name)
         _setter("metric_namespace", metric_namespace)
         _setter("metric_unit", metric_unit)
@@ -3629,7 +3961,11 @@ class TopicRuleDestinationHttpUrlDestinationSummaryArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              confirmation_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confirmationUrl' in kwargs:
+            confirmation_url = kwargs['confirmationUrl']
+
         if confirmation_url is not None:
             _setter("confirmation_url", confirmation_url)
 
@@ -3664,7 +4000,17 @@ class TopicRuleDestinationVpcDestinationPropertiesArgs:
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if role_arn is not None:
             _setter("role_arn", role_arn)
         if security_groups is not None:
@@ -3726,7 +4072,13 @@ class TopicRuleDynamoDBv2ActionArgs:
              _setter: Callable[[Any, Any], None],
              put_item: Optional[pulumi.Input['TopicRulePutItemInputArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'putItem' in kwargs:
+            put_item = kwargs['putItem']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if put_item is not None:
             _setter("put_item", put_item)
         if role_arn is not None:
@@ -3787,7 +4139,27 @@ class TopicRuleDynamoDbActionArgs:
              range_key_field: Optional[pulumi.Input[str]] = None,
              range_key_type: Optional[pulumi.Input[str]] = None,
              range_key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
         _setter("hash_key_field", hash_key_field)
         _setter("hash_key_value", hash_key_value)
         _setter("role_arn", role_arn)
@@ -3909,7 +4281,11 @@ class TopicRuleElasticsearchActionArgs:
              index: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("endpoint", endpoint)
         _setter("id", id)
         _setter("index", index)
@@ -3983,7 +4359,15 @@ class TopicRuleFirehoseActionArgs:
              role_arn: pulumi.Input[str],
              batch_mode: Optional[pulumi.Input[bool]] = None,
              separator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
         _setter("delivery_stream_name", delivery_stream_name)
         _setter("role_arn", role_arn)
         if batch_mode is not None:
@@ -4043,7 +4427,9 @@ class TopicRuleHttpActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4087,7 +4473,11 @@ class TopicRuleHttpActionArgs:
              auth: Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']] = None,
              confirmation_url: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confirmationUrl' in kwargs:
+            confirmation_url = kwargs['confirmationUrl']
+
         _setter("url", url)
         if auth is not None:
             _setter("auth", auth)
@@ -4145,7 +4535,9 @@ class TopicRuleHttpAuthorizationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sigv4: Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if sigv4 is not None:
             _setter("sigv4", sigv4)
 
@@ -4177,7 +4569,15 @@ class TopicRuleIotAnalyticsActionArgs:
              channel_name: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              batch_mode: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
         _setter("channel_name", channel_name)
         _setter("role_arn", role_arn)
         if batch_mode is not None:
@@ -4232,7 +4632,17 @@ class TopicRuleIotEventsActionArgs:
              role_arn: pulumi.Input[str],
              batch_mode: Optional[pulumi.Input[bool]] = None,
              message_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+
         _setter("input_name", input_name)
         _setter("role_arn", role_arn)
         if batch_mode is not None:
@@ -4292,7 +4702,13 @@ class TopicRuleIotSiteWiseActionArgs:
              _setter: Callable[[Any, Any], None],
              put_asset_property_value_entries: pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'putAssetPropertyValueEntries' in kwargs:
+            put_asset_property_value_entries = kwargs['putAssetPropertyValueEntries']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("put_asset_property_value_entries", put_asset_property_value_entries)
         _setter("role_arn", role_arn)
 
@@ -4330,7 +4746,9 @@ class TopicRuleKafkaActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4380,7 +4798,13 @@ class TopicRuleKafkaActionArgs:
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]] = None,
              key: Optional[pulumi.Input[str]] = None,
              partition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientProperties' in kwargs:
+            client_properties = kwargs['clientProperties']
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         _setter("client_properties", client_properties)
         _setter("destination_arn", destination_arn)
         _setter("topic", topic)
@@ -4464,7 +4888,15 @@ class TopicRuleKinesisActionArgs:
              role_arn: pulumi.Input[str],
              stream_name: pulumi.Input[str],
              partition_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
         _setter("role_arn", role_arn)
         _setter("stream_name", stream_name)
         if partition_key is not None:
@@ -4510,7 +4942,11 @@ class TopicRuleLambdaActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              function_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         if function_arn is not None:
             _setter("function_arn", function_arn)
 
@@ -4551,7 +4987,15 @@ class TopicRuleLocationActionArgs:
              role_arn: pulumi.Input[str],
              tracker_name: pulumi.Input[str],
              timestamp: Optional[pulumi.Input['TopicRuleTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
         _setter("device_id", device_id)
         _setter("latitude", latitude)
         _setter("longitude", longitude)
@@ -4639,7 +5083,11 @@ class TopicRuleOpenSearchActionArgs:
              index: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("endpoint", endpoint)
         _setter("id", id)
         _setter("index", index)
@@ -4719,7 +5167,15 @@ class TopicRulePayloadArgs:
              description: Optional[pulumi.Input[str]] = None,
              error_action: Optional[pulumi.Input['TopicRuleActionArgs']] = None,
              rule_disabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsIotSqlVersion' in kwargs:
+            aws_iot_sql_version = kwargs['awsIotSqlVersion']
+        if 'errorAction' in kwargs:
+            error_action = kwargs['errorAction']
+        if 'ruleDisabled' in kwargs:
+            rule_disabled = kwargs['ruleDisabled']
+
         _setter("actions", actions)
         _setter("sql", sql)
         if aws_iot_sql_version is not None:
@@ -4810,7 +5266,19 @@ class TopicRulePutAssetPropertyValueEntryArgs:
              entry_id: Optional[pulumi.Input[str]] = None,
              property_alias: Optional[pulumi.Input[str]] = None,
              property_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyValues' in kwargs:
+            property_values = kwargs['propertyValues']
+        if 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if 'entryId' in kwargs:
+            entry_id = kwargs['entryId']
+        if 'propertyAlias' in kwargs:
+            property_alias = kwargs['propertyAlias']
+        if 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+
         _setter("property_values", property_values)
         if asset_id is not None:
             _setter("asset_id", asset_id)
@@ -4879,7 +5347,11 @@ class TopicRulePutItemInputArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("table_name", table_name)
 
     @property
@@ -4919,7 +5391,21 @@ class TopicRuleRepublishActionHeadersArgs:
              payload_format_indicator: Optional[pulumi.Input[str]] = None,
              response_topic: Optional[pulumi.Input[str]] = None,
              user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleUserPropertyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'correlationData' in kwargs:
+            correlation_data = kwargs['correlationData']
+        if 'messageExpiry' in kwargs:
+            message_expiry = kwargs['messageExpiry']
+        if 'payloadFormatIndicator' in kwargs:
+            payload_format_indicator = kwargs['payloadFormatIndicator']
+        if 'responseTopic' in kwargs:
+            response_topic = kwargs['responseTopic']
+        if 'userProperties' in kwargs:
+            user_properties = kwargs['userProperties']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if correlation_data is not None:
@@ -5009,7 +5495,11 @@ class TopicRuleRepublishActionArgs:
              topic: pulumi.Input[str],
              headers: Optional[pulumi.Input['TopicRuleRepublishActionHeadersArgs']] = None,
              qos: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("role_arn", role_arn)
         _setter("topic", topic)
         if headers is not None:
@@ -5075,7 +5565,15 @@ class TopicRuleS3ActionArgs:
              key: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              canned_acl: Optional[pulumi.Input['TopicRuleCannedAccessControlList']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
         _setter("bucket_name", bucket_name)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -5137,7 +5635,15 @@ class TopicRuleSigV4AuthorizationArgs:
              role_arn: pulumi.Input[str],
              service_name: pulumi.Input[str],
              signing_region: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+
         _setter("role_arn", role_arn)
         _setter("service_name", service_name)
         _setter("signing_region", signing_region)
@@ -5188,7 +5694,15 @@ class TopicRuleSnsActionArgs:
              role_arn: pulumi.Input[str],
              target_arn: pulumi.Input[str],
              message_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'messageFormat' in kwargs:
+            message_format = kwargs['messageFormat']
+
         _setter("role_arn", role_arn)
         _setter("target_arn", target_arn)
         if message_format is not None:
@@ -5240,7 +5754,15 @@ class TopicRuleSqsActionArgs:
              queue_url: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              use_base64: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
         _setter("queue_url", queue_url)
         _setter("role_arn", role_arn)
         if use_base64 is not None:
@@ -5292,7 +5814,15 @@ class TopicRuleStepFunctionsActionArgs:
              role_arn: pulumi.Input[str],
              state_machine_name: pulumi.Input[str],
              execution_name_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateMachineName' in kwargs:
+            state_machine_name = kwargs['stateMachineName']
+        if 'executionNamePrefix' in kwargs:
+            execution_name_prefix = kwargs['executionNamePrefix']
+
         _setter("role_arn", role_arn)
         _setter("state_machine_name", state_machine_name)
         if execution_name_prefix is not None:
@@ -5341,7 +5871,9 @@ class TopicRuleTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -5379,7 +5911,9 @@ class TopicRuleTimestampArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if unit is not None:
             _setter("unit", unit)
@@ -5427,7 +5961,15 @@ class TopicRuleTimestreamActionArgs:
              role_arn: pulumi.Input[str],
              table_name: pulumi.Input[str],
              timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         _setter("dimensions", dimensions)
         _setter("role_arn", role_arn)
@@ -5496,7 +6038,9 @@ class TopicRuleTimestreamDimensionArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -5534,7 +6078,9 @@ class TopicRuleTimestreamTimestampArgs:
              _setter: Callable[[Any, Any], None],
              unit: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -5572,7 +6118,9 @@ class TopicRuleUserPropertyArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

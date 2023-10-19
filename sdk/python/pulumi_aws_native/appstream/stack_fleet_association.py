@@ -29,7 +29,13 @@ class StackFleetAssociationArgs:
              _setter: Callable[[Any, Any], None],
              fleet_name: pulumi.Input[str],
              stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
         _setter("fleet_name", fleet_name)
         _setter("stack_name", stack_name)
 

@@ -34,7 +34,11 @@ class LoggerDefinitionArgs:
              initial_version: Optional[pulumi.Input['LoggerDefinitionVersionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initialVersion' in kwargs:
+            initial_version = kwargs['initialVersion']
+
         if initial_version is not None:
             _setter("initial_version", initial_version)
         if name is not None:

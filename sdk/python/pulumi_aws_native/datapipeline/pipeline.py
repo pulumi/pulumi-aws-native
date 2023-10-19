@@ -53,7 +53,17 @@ class PipelineArgs:
              parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]] = None,
              pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]] = None,
              pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterObjects' in kwargs:
+            parameter_objects = kwargs['parameterObjects']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'pipelineObjects' in kwargs:
+            pipeline_objects = kwargs['pipelineObjects']
+        if 'pipelineTags' in kwargs:
+            pipeline_tags = kwargs['pipelineTags']
+
         if activate is not None:
             _setter("activate", activate)
         if description is not None:

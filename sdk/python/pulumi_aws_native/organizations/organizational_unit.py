@@ -37,7 +37,11 @@ class OrganizationalUnitArgs:
              parent_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+
         _setter("parent_id", parent_id)
         if name is not None:
             _setter("name", name)

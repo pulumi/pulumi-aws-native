@@ -78,7 +78,29 @@ class StudioArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]] = None,
              user_role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if 'defaultS3Location' in kwargs:
+            default_s3_location = kwargs['defaultS3Location']
+        if 'engineSecurityGroupId' in kwargs:
+            engine_security_group_id = kwargs['engineSecurityGroupId']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+        if 'idpAuthUrl' in kwargs:
+            idp_auth_url = kwargs['idpAuthUrl']
+        if 'idpRelayStateParameterName' in kwargs:
+            idp_relay_state_parameter_name = kwargs['idpRelayStateParameterName']
+        if 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+
         _setter("auth_mode", auth_mode)
         _setter("default_s3_location", default_s3_location)
         _setter("engine_security_group_id", engine_security_group_id)

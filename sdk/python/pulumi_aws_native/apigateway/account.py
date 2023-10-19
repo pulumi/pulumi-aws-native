@@ -27,7 +27,11 @@ class AccountArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchRoleArn' in kwargs:
+            cloud_watch_role_arn = kwargs['cloudWatchRoleArn']
+
         if cloud_watch_role_arn is not None:
             _setter("cloud_watch_role_arn", cloud_watch_role_arn)
 

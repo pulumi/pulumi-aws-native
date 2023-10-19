@@ -130,7 +130,53 @@ class ClusterArgs:
              subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aclName' in kwargs:
+            acl_name = kwargs['aclName']
+        if 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'dataTiering' in kwargs:
+            data_tiering = kwargs['dataTiering']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'numReplicasPerShard' in kwargs:
+            num_replicas_per_shard = kwargs['numReplicasPerShard']
+        if 'numShards' in kwargs:
+            num_shards = kwargs['numShards']
+        if 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if 'snsTopicStatus' in kwargs:
+            sns_topic_status = kwargs['snsTopicStatus']
+        if 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         _setter("acl_name", acl_name)
         _setter("node_type", node_type)
         if auto_minor_version_upgrade is not None:

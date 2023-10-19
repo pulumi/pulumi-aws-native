@@ -43,7 +43,19 @@ class DeliveryChannelArgs:
              s3_key_prefix: Optional[pulumi.Input[str]] = None,
              s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
              sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'configSnapshotDeliveryProperties' in kwargs:
+            config_snapshot_delivery_properties = kwargs['configSnapshotDeliveryProperties']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if 's3KmsKeyArn' in kwargs:
+            s3_kms_key_arn = kwargs['s3KmsKeyArn']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("s3_bucket_name", s3_bucket_name)
         if config_snapshot_delivery_properties is not None:
             _setter("config_snapshot_delivery_properties", config_snapshot_delivery_properties)

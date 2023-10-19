@@ -47,7 +47,15 @@ class AppMonitorArgs:
              cw_log_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appMonitorConfiguration' in kwargs:
+            app_monitor_configuration = kwargs['appMonitorConfiguration']
+        if 'customEvents' in kwargs:
+            custom_events = kwargs['customEvents']
+        if 'cwLogEnabled' in kwargs:
+            cw_log_enabled = kwargs['cwLogEnabled']
+
         _setter("domain", domain)
         if app_monitor_configuration is not None:
             _setter("app_monitor_configuration", app_monitor_configuration)

@@ -50,7 +50,19 @@ class GlobalClusterArgs:
              global_cluster_identifier: Optional[pulumi.Input[str]] = None,
              source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
              storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+
         if deletion_protection is not None:
             _setter("deletion_protection", deletion_protection)
         if engine is not None:

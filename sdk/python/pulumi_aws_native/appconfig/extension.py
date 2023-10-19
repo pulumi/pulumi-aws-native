@@ -46,7 +46,11 @@ class ExtensionArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'latestVersionNumber' in kwargs:
+            latest_version_number = kwargs['latestVersionNumber']
+
         _setter("actions", actions)
         if description is not None:
             _setter("description", description)

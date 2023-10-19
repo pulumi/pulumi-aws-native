@@ -45,7 +45,15 @@ class ChannelArgs:
              hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
              ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressAccessLogs' in kwargs:
+            egress_access_logs = kwargs['egressAccessLogs']
+        if 'hlsIngest' in kwargs:
+            hls_ingest = kwargs['hlsIngest']
+        if 'ingressAccessLogs' in kwargs:
+            ingress_access_logs = kwargs['ingressAccessLogs']
+
         if description is not None:
             _setter("description", description)
         if egress_access_logs is not None:

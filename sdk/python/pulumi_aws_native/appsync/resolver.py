@@ -73,7 +73,35 @@ class ResolverArgs:
              response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
              runtime: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']] = None,
              sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'cachingConfig' in kwargs:
+            caching_config = kwargs['cachingConfig']
+        if 'codeS3Location' in kwargs:
+            code_s3_location = kwargs['codeS3Location']
+        if 'dataSourceName' in kwargs:
+            data_source_name = kwargs['dataSourceName']
+        if 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if 'pipelineConfig' in kwargs:
+            pipeline_config = kwargs['pipelineConfig']
+        if 'requestMappingTemplate' in kwargs:
+            request_mapping_template = kwargs['requestMappingTemplate']
+        if 'requestMappingTemplateS3Location' in kwargs:
+            request_mapping_template_s3_location = kwargs['requestMappingTemplateS3Location']
+        if 'responseMappingTemplate' in kwargs:
+            response_mapping_template = kwargs['responseMappingTemplate']
+        if 'responseMappingTemplateS3Location' in kwargs:
+            response_mapping_template_s3_location = kwargs['responseMappingTemplateS3Location']
+        if 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
         _setter("api_id", api_id)
         _setter("field_name", field_name)
         _setter("type_name", type_name)

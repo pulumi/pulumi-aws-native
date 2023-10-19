@@ -58,7 +58,29 @@ class DbInstanceArgs:
              db_subnet_group_name: Optional[pulumi.Input[str]] = None,
              preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if 'dbParameterGroupName' in kwargs:
+            db_parameter_group_name = kwargs['dbParameterGroupName']
+        if 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+
         _setter("db_instance_class", db_instance_class)
         if allow_major_version_upgrade is not None:
             _setter("allow_major_version_upgrade", allow_major_version_upgrade)

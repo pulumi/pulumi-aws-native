@@ -28,7 +28,11 @@ class KeyGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_group_config: pulumi.Input['KeyGroupConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyGroupConfig' in kwargs:
+            key_group_config = kwargs['keyGroupConfig']
+
         _setter("key_group_config", key_group_config)
 
     @property

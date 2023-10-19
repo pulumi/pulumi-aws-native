@@ -49,7 +49,19 @@ class AssetArgs:
              egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packagingGroupId' in kwargs:
+            packaging_group_id = kwargs['packagingGroupId']
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if 'sourceRoleArn' in kwargs:
+            source_role_arn = kwargs['sourceRoleArn']
+        if 'egressEndpoints' in kwargs:
+            egress_endpoints = kwargs['egressEndpoints']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("packaging_group_id", packaging_group_id)
         _setter("source_arn", source_arn)
         _setter("source_role_arn", source_role_arn)

@@ -37,7 +37,15 @@ class ReplicationSubnetGroupArgs:
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              replication_subnet_group_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replicationSubnetGroupDescription' in kwargs:
+            replication_subnet_group_description = kwargs['replicationSubnetGroupDescription']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'replicationSubnetGroupIdentifier' in kwargs:
+            replication_subnet_group_identifier = kwargs['replicationSubnetGroupIdentifier']
+
         _setter("replication_subnet_group_description", replication_subnet_group_description)
         _setter("subnet_ids", subnet_ids)
         if replication_subnet_group_identifier is not None:

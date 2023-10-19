@@ -31,7 +31,11 @@ class TrustStoreArgs:
              _setter: Callable[[Any, Any], None],
              certificate_list: pulumi.Input[Sequence[pulumi.Input[str]]],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateList' in kwargs:
+            certificate_list = kwargs['certificateList']
+
         _setter("certificate_list", certificate_list)
         if tags is not None:
             _setter("tags", tags)

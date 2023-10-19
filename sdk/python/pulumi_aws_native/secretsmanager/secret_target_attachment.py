@@ -32,7 +32,15 @@ class SecretTargetAttachmentArgs:
              secret_id: pulumi.Input[str],
              target_id: pulumi.Input[str],
              target_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("secret_id", secret_id)
         _setter("target_id", target_id)
         _setter("target_type", target_type)

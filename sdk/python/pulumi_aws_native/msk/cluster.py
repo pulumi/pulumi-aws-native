@@ -67,7 +67,33 @@ class ClusterArgs:
              open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
              storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'brokerNodeGroupInfo' in kwargs:
+            broker_node_group_info = kwargs['brokerNodeGroupInfo']
+        if 'kafkaVersion' in kwargs:
+            kafka_version = kwargs['kafkaVersion']
+        if 'numberOfBrokerNodes' in kwargs:
+            number_of_broker_nodes = kwargs['numberOfBrokerNodes']
+        if 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'configurationInfo' in kwargs:
+            configuration_info = kwargs['configurationInfo']
+        if 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if 'encryptionInfo' in kwargs:
+            encryption_info = kwargs['encryptionInfo']
+        if 'enhancedMonitoring' in kwargs:
+            enhanced_monitoring = kwargs['enhancedMonitoring']
+        if 'loggingInfo' in kwargs:
+            logging_info = kwargs['loggingInfo']
+        if 'openMonitoring' in kwargs:
+            open_monitoring = kwargs['openMonitoring']
+        if 'storageMode' in kwargs:
+            storage_mode = kwargs['storageMode']
+
         _setter("broker_node_group_info", broker_node_group_info)
         _setter("kafka_version", kafka_version)
         _setter("number_of_broker_nodes", number_of_broker_nodes)

@@ -38,7 +38,15 @@ class UserPoolGroupArgs:
              group_name: Optional[pulumi.Input[str]] = None,
              precedence: Optional[pulumi.Input[float]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("user_pool_id", user_pool_id)
         if description is not None:
             _setter("description", description)

@@ -37,7 +37,17 @@ class MemberArgs:
              invitation_id: Optional[pulumi.Input[str]] = None,
              network_configuration: Optional[pulumi.Input['MemberNetworkConfigurationArgs']] = None,
              network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberConfiguration' in kwargs:
+            member_configuration = kwargs['memberConfiguration']
+        if 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+
         _setter("member_configuration", member_configuration)
         if invitation_id is not None:
             _setter("invitation_id", invitation_id)

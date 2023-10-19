@@ -43,7 +43,13 @@ class ThemeArgs:
              name: Optional[pulumi.Input[str]] = None,
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
              tags: Optional[pulumi.Input['ThemeTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+
         _setter("values", values)
         if app_id is not None:
             _setter("app_id", app_id)

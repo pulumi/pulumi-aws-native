@@ -26,7 +26,11 @@ class ProjectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              project_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
         if project_name is not None:
             _setter("project_name", project_name)
 

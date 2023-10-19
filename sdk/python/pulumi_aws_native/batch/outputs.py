@@ -168,7 +168,39 @@ class ComputeEnvironmentComputeResources(dict):
              spot_iam_fleet_role: Optional[str] = None,
              tags: Optional[Any] = None,
              update_to_latest_image_version: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxvCpus' in kwargs:
+            maxv_cpus = kwargs['maxvCpus']
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'bidPercentage' in kwargs:
+            bid_percentage = kwargs['bidPercentage']
+        if 'desiredvCpus' in kwargs:
+            desiredv_cpus = kwargs['desiredvCpus']
+        if 'ec2Configuration' in kwargs:
+            ec2_configuration = kwargs['ec2Configuration']
+        if 'ec2KeyPair' in kwargs:
+            ec2_key_pair = kwargs['ec2KeyPair']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceRole' in kwargs:
+            instance_role = kwargs['instanceRole']
+        if 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'minvCpus' in kwargs:
+            minv_cpus = kwargs['minvCpus']
+        if 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'spotIamFleetRole' in kwargs:
+            spot_iam_fleet_role = kwargs['spotIamFleetRole']
+        if 'updateToLatestImageVersion' in kwargs:
+            update_to_latest_image_version = kwargs['updateToLatestImageVersion']
+
         _setter("maxv_cpus", maxv_cpus)
         _setter("subnets", subnets)
         _setter("type", type)
@@ -336,7 +368,15 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
              image_type: str,
              image_id_override: Optional[str] = None,
              image_kubernetes_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageType' in kwargs:
+            image_type = kwargs['imageType']
+        if 'imageIdOverride' in kwargs:
+            image_id_override = kwargs['imageIdOverride']
+        if 'imageKubernetesVersion' in kwargs:
+            image_kubernetes_version = kwargs['imageKubernetesVersion']
+
         _setter("image_type", image_type)
         if image_id_override is not None:
             _setter("image_id_override", image_id_override)
@@ -393,7 +433,13 @@ class ComputeEnvironmentEksConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              eks_cluster_arn: str,
              kubernetes_namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eksClusterArn' in kwargs:
+            eks_cluster_arn = kwargs['eksClusterArn']
+        if 'kubernetesNamespace' in kwargs:
+            kubernetes_namespace = kwargs['kubernetesNamespace']
+
         _setter("eks_cluster_arn", eks_cluster_arn)
         _setter("kubernetes_namespace", kubernetes_namespace)
 
@@ -445,7 +491,13 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
              launch_template_id: Optional[str] = None,
              launch_template_name: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -503,7 +555,13 @@ class ComputeEnvironmentUpdatePolicy(dict):
              _setter: Callable[[Any, Any], None],
              job_execution_timeout_minutes: Optional[int] = None,
              terminate_jobs_on_update: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobExecutionTimeoutMinutes' in kwargs:
+            job_execution_timeout_minutes = kwargs['jobExecutionTimeoutMinutes']
+        if 'terminateJobsOnUpdate' in kwargs:
+            terminate_jobs_on_update = kwargs['terminateJobsOnUpdate']
+
         if job_execution_timeout_minutes is not None:
             _setter("job_execution_timeout_minutes", job_execution_timeout_minutes)
         if terminate_jobs_on_update is not None:
@@ -552,7 +610,11 @@ class JobDefinitionAuthorizationConfig(dict):
              _setter: Callable[[Any, Any], None],
              access_point_id: Optional[str] = None,
              iam: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPointId' in kwargs:
+            access_point_id = kwargs['accessPointId']
+
         if access_point_id is not None:
             _setter("access_point_id", access_point_id)
         if iam is not None:
@@ -683,7 +745,33 @@ class JobDefinitionContainerProperties(dict):
              user: Optional[str] = None,
              vcpus: Optional[int] = None,
              volumes: Optional[Sequence['outputs.JobDefinitionVolumes']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'fargatePlatformConfiguration' in kwargs:
+            fargate_platform_configuration = kwargs['fargatePlatformConfiguration']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'jobRoleArn' in kwargs:
+            job_role_arn = kwargs['jobRoleArn']
+        if 'linuxParameters' in kwargs:
+            linux_parameters = kwargs['linuxParameters']
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+        if 'mountPoints' in kwargs:
+            mount_points = kwargs['mountPoints']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'readonlyRootFilesystem' in kwargs:
+            readonly_root_filesystem = kwargs['readonlyRootFilesystem']
+        if 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+        if 'runtimePlatform' in kwargs:
+            runtime_platform = kwargs['runtimePlatform']
+
         _setter("image", image)
         if command is not None:
             _setter("command", command)
@@ -876,7 +964,13 @@ class JobDefinitionDevice(dict):
              container_path: Optional[str] = None,
              host_path: Optional[str] = None,
              permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'hostPath' in kwargs:
+            host_path = kwargs['hostPath']
+
         if container_path is not None:
             _setter("container_path", container_path)
         if host_path is not None:
@@ -949,7 +1043,19 @@ class JobDefinitionEfsVolumeConfiguration(dict):
              root_directory: Optional[str] = None,
              transit_encryption: Optional[str] = None,
              transit_encryption_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+        if 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+        if 'transitEncryption' in kwargs:
+            transit_encryption = kwargs['transitEncryption']
+        if 'transitEncryptionPort' in kwargs:
+            transit_encryption_port = kwargs['transitEncryptionPort']
+
         _setter("file_system_id", file_system_id)
         if authorization_config is not None:
             _setter("authorization_config", authorization_config)
@@ -1043,7 +1149,15 @@ class JobDefinitionEksContainer(dict):
              resources: Optional['outputs.JobDefinitionEksContainerResourceRequirements'] = None,
              security_context: Optional['outputs.JobDefinitionEksContainerSecurityContext'] = None,
              volume_mounts: Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imagePullPolicy' in kwargs:
+            image_pull_policy = kwargs['imagePullPolicy']
+        if 'securityContext' in kwargs:
+            security_context = kwargs['securityContext']
+        if 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
         _setter("image", image)
         if args is not None:
             _setter("args", args)
@@ -1123,7 +1237,9 @@ class JobDefinitionEksContainerEnvironmentVariable(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if value is not None:
             _setter("value", value)
@@ -1154,7 +1270,9 @@ class JobDefinitionEksContainerResourceRequirements(dict):
              _setter: Callable[[Any, Any], None],
              limits: Optional[Any] = None,
              requests: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if limits is not None:
             _setter("limits", limits)
         if requests is not None:
@@ -1218,7 +1336,17 @@ class JobDefinitionEksContainerSecurityContext(dict):
              run_as_group: Optional[int] = None,
              run_as_non_root: Optional[bool] = None,
              run_as_user: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readOnlyRootFilesystem' in kwargs:
+            read_only_root_filesystem = kwargs['readOnlyRootFilesystem']
+        if 'runAsGroup' in kwargs:
+            run_as_group = kwargs['runAsGroup']
+        if 'runAsNonRoot' in kwargs:
+            run_as_non_root = kwargs['runAsNonRoot']
+        if 'runAsUser' in kwargs:
+            run_as_user = kwargs['runAsUser']
+
         if privileged is not None:
             _setter("privileged", privileged)
         if read_only_root_filesystem is not None:
@@ -1293,7 +1421,13 @@ class JobDefinitionEksContainerVolumeMount(dict):
              mount_path: Optional[str] = None,
              name: Optional[str] = None,
              read_only: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+
         if mount_path is not None:
             _setter("mount_path", mount_path)
         if name is not None:
@@ -1349,7 +1483,11 @@ class JobDefinitionEksEmptyDir(dict):
              _setter: Callable[[Any, Any], None],
              medium: Optional[str] = None,
              size_limit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeLimit' in kwargs:
+            size_limit = kwargs['sizeLimit']
+
         if medium is not None:
             _setter("medium", medium)
         if size_limit is not None:
@@ -1378,7 +1516,9 @@ class JobDefinitionEksHostPath(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
 
@@ -1417,7 +1557,11 @@ class JobDefinitionEksProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'podProperties' in kwargs:
+            pod_properties = kwargs['podProperties']
+
         if pod_properties is not None:
             _setter("pod_properties", pod_properties)
 
@@ -1459,7 +1603,11 @@ class JobDefinitionEksSecret(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              optional: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("secret_name", secret_name)
         if optional is not None:
             _setter("optional", optional)
@@ -1515,7 +1663,13 @@ class JobDefinitionEksVolume(dict):
              empty_dir: Optional['outputs.JobDefinitionEksEmptyDir'] = None,
              host_path: Optional['outputs.JobDefinitionEksHostPath'] = None,
              secret: Optional['outputs.JobDefinitionEksSecret'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emptyDir' in kwargs:
+            empty_dir = kwargs['emptyDir']
+        if 'hostPath' in kwargs:
+            host_path = kwargs['hostPath']
+
         _setter("name", name)
         if empty_dir is not None:
             _setter("empty_dir", empty_dir)
@@ -1560,7 +1714,9 @@ class JobDefinitionEnvironment(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -1606,7 +1762,11 @@ class JobDefinitionEphemeralStorage(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              size_in_gi_b: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGiB' in kwargs:
+            size_in_gi_b = kwargs['sizeInGiB']
+
         _setter("size_in_gi_b", size_in_gi_b)
 
     @property
@@ -1657,7 +1817,15 @@ class JobDefinitionEvaluateOnExit(dict):
              on_exit_code: Optional[str] = None,
              on_reason: Optional[str] = None,
              on_status_reason: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onExitCode' in kwargs:
+            on_exit_code = kwargs['onExitCode']
+        if 'onReason' in kwargs:
+            on_reason = kwargs['onReason']
+        if 'onStatusReason' in kwargs:
+            on_status_reason = kwargs['onStatusReason']
+
         _setter("action", action)
         if on_exit_code is not None:
             _setter("on_exit_code", on_exit_code)
@@ -1716,7 +1884,11 @@ class JobDefinitionFargatePlatformConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              platform_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+
         if platform_version is not None:
             _setter("platform_version", platform_version)
 
@@ -1774,7 +1946,15 @@ class JobDefinitionLinuxParameters(dict):
              shared_memory_size: Optional[int] = None,
              swappiness: Optional[int] = None,
              tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initProcessEnabled' in kwargs:
+            init_process_enabled = kwargs['initProcessEnabled']
+        if 'maxSwap' in kwargs:
+            max_swap = kwargs['maxSwap']
+        if 'sharedMemorySize' in kwargs:
+            shared_memory_size = kwargs['sharedMemorySize']
+
         if devices is not None:
             _setter("devices", devices)
         if init_process_enabled is not None:
@@ -1856,7 +2036,13 @@ class JobDefinitionLogConfiguration(dict):
              log_driver: str,
              options: Optional[Any] = None,
              secret_options: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDriver' in kwargs:
+            log_driver = kwargs['logDriver']
+        if 'secretOptions' in kwargs:
+            secret_options = kwargs['secretOptions']
+
         _setter("log_driver", log_driver)
         if options is not None:
             _setter("options", options)
@@ -1891,7 +2077,9 @@ class JobDefinitionMetadata(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              labels: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if labels is not None:
             _setter("labels", labels)
 
@@ -1940,7 +2128,15 @@ class JobDefinitionMountPoints(dict):
              container_path: Optional[str] = None,
              read_only: Optional[bool] = None,
              source_volume: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'sourceVolume' in kwargs:
+            source_volume = kwargs['sourceVolume']
+
         if container_path is not None:
             _setter("container_path", container_path)
         if read_only is not None:
@@ -1993,7 +2189,11 @@ class JobDefinitionNetworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              assign_public_ip: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
 
@@ -2042,7 +2242,15 @@ class JobDefinitionNodeProperties(dict):
              main_node: int,
              node_range_properties: Sequence['outputs.JobDefinitionNodeRangeProperty'],
              num_nodes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mainNode' in kwargs:
+            main_node = kwargs['mainNode']
+        if 'nodeRangeProperties' in kwargs:
+            node_range_properties = kwargs['nodeRangeProperties']
+        if 'numNodes' in kwargs:
+            num_nodes = kwargs['numNodes']
+
         _setter("main_node", main_node)
         _setter("node_range_properties", node_range_properties)
         _setter("num_nodes", num_nodes)
@@ -2095,7 +2303,11 @@ class JobDefinitionNodeRangeProperty(dict):
              _setter: Callable[[Any, Any], None],
              target_nodes: str,
              container: Optional['outputs.JobDefinitionContainerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetNodes' in kwargs:
+            target_nodes = kwargs['targetNodes']
+
         _setter("target_nodes", target_nodes)
         if container is not None:
             _setter("container", container)
@@ -2159,7 +2371,15 @@ class JobDefinitionPodProperties(dict):
              metadata: Optional['outputs.JobDefinitionMetadata'] = None,
              service_account_name: Optional[str] = None,
              volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsPolicy' in kwargs:
+            dns_policy = kwargs['dnsPolicy']
+        if 'hostNetwork' in kwargs:
+            host_network = kwargs['hostNetwork']
+        if 'serviceAccountName' in kwargs:
+            service_account_name = kwargs['serviceAccountName']
+
         if containers is not None:
             _setter("containers", containers)
         if dns_policy is not None:
@@ -2219,7 +2439,9 @@ class JobDefinitionResourceRequirement(dict):
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if value is not None:
@@ -2268,7 +2490,11 @@ class JobDefinitionRetryStrategy(dict):
              _setter: Callable[[Any, Any], None],
              attempts: Optional[int] = None,
              evaluate_on_exit: Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluateOnExit' in kwargs:
+            evaluate_on_exit = kwargs['evaluateOnExit']
+
         if attempts is not None:
             _setter("attempts", attempts)
         if evaluate_on_exit is not None:
@@ -2319,7 +2545,13 @@ class JobDefinitionRuntimePlatform(dict):
              _setter: Callable[[Any, Any], None],
              cpu_architecture: Optional[str] = None,
              operating_system_family: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuArchitecture' in kwargs:
+            cpu_architecture = kwargs['cpuArchitecture']
+        if 'operatingSystemFamily' in kwargs:
+            operating_system_family = kwargs['operatingSystemFamily']
+
         if cpu_architecture is not None:
             _setter("cpu_architecture", cpu_architecture)
         if operating_system_family is not None:
@@ -2368,7 +2600,11 @@ class JobDefinitionSecret(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueFrom' in kwargs:
+            value_from = kwargs['valueFrom']
+
         _setter("name", name)
         _setter("value_from", value_from)
 
@@ -2412,7 +2648,11 @@ class JobDefinitionTimeout(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              attempt_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attemptDurationSeconds' in kwargs:
+            attempt_duration_seconds = kwargs['attemptDurationSeconds']
+
         if attempt_duration_seconds is not None:
             _setter("attempt_duration_seconds", attempt_duration_seconds)
 
@@ -2459,7 +2699,13 @@ class JobDefinitionTmpfs(dict):
              container_path: str,
              size: int,
              mount_options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("container_path", container_path)
         _setter("size", size)
         if mount_options is not None:
@@ -2518,7 +2764,13 @@ class JobDefinitionUlimit(dict):
              hard_limit: int,
              name: str,
              soft_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hardLimit' in kwargs:
+            hard_limit = kwargs['hardLimit']
+        if 'softLimit' in kwargs:
+            soft_limit = kwargs['softLimit']
+
         _setter("hard_limit", hard_limit)
         _setter("name", name)
         _setter("soft_limit", soft_limit)
@@ -2574,7 +2826,11 @@ class JobDefinitionVolumes(dict):
              efs_volume_configuration: Optional['outputs.JobDefinitionEfsVolumeConfiguration'] = None,
              host: Optional['outputs.JobDefinitionVolumesHost'] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'efsVolumeConfiguration' in kwargs:
+            efs_volume_configuration = kwargs['efsVolumeConfiguration']
+
         if efs_volume_configuration is not None:
             _setter("efs_volume_configuration", efs_volume_configuration)
         if host is not None:
@@ -2627,7 +2883,11 @@ class JobDefinitionVolumesHost(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         if source_path is not None:
             _setter("source_path", source_path)
 
@@ -2669,7 +2929,11 @@ class JobQueueComputeEnvironmentOrder(dict):
              _setter: Callable[[Any, Any], None],
              compute_environment: str,
              order: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeEnvironment' in kwargs:
+            compute_environment = kwargs['computeEnvironment']
+
         _setter("compute_environment", compute_environment)
         _setter("order", order)
 
@@ -2730,7 +2994,15 @@ class SchedulingPolicyFairsharePolicy(dict):
              compute_reservation: Optional[float] = None,
              share_decay_seconds: Optional[float] = None,
              share_distribution: Optional[Sequence['outputs.SchedulingPolicyShareAttributes']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeReservation' in kwargs:
+            compute_reservation = kwargs['computeReservation']
+        if 'shareDecaySeconds' in kwargs:
+            share_decay_seconds = kwargs['shareDecaySeconds']
+        if 'shareDistribution' in kwargs:
+            share_distribution = kwargs['shareDistribution']
+
         if compute_reservation is not None:
             _setter("compute_reservation", compute_reservation)
         if share_decay_seconds is not None:
@@ -2791,7 +3063,13 @@ class SchedulingPolicyShareAttributes(dict):
              _setter: Callable[[Any, Any], None],
              share_identifier: Optional[str] = None,
              weight_factor: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'shareIdentifier' in kwargs:
+            share_identifier = kwargs['shareIdentifier']
+        if 'weightFactor' in kwargs:
+            weight_factor = kwargs['weightFactor']
+
         if share_identifier is not None:
             _setter("share_identifier", share_identifier)
         if weight_factor is not None:

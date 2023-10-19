@@ -49,7 +49,23 @@ class GitHubRepositoryArgs:
              is_private: Optional[pulumi.Input[bool]] = None,
              repository_access_token: Optional[pulumi.Input[str]] = None,
              repository_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'repositoryOwner' in kwargs:
+            repository_owner = kwargs['repositoryOwner']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if 'enableIssues' in kwargs:
+            enable_issues = kwargs['enableIssues']
+        if 'isPrivate' in kwargs:
+            is_private = kwargs['isPrivate']
+        if 'repositoryAccessToken' in kwargs:
+            repository_access_token = kwargs['repositoryAccessToken']
+        if 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+
         _setter("repository_name", repository_name)
         _setter("repository_owner", repository_owner)
         if code is not None:

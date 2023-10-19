@@ -50,7 +50,17 @@ class CalculatedAttributeDefinitionArgs:
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeDetails' in kwargs:
+            attribute_details = kwargs['attributeDetails']
+        if 'calculatedAttributeName' in kwargs:
+            calculated_attribute_name = kwargs['calculatedAttributeName']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("attribute_details", attribute_details)
         _setter("calculated_attribute_name", calculated_attribute_name)
         _setter("domain_name", domain_name)

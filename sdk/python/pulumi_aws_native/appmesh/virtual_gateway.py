@@ -40,7 +40,15 @@ class VirtualGatewayArgs:
              mesh_owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayTagArgs']]]] = None,
              virtual_gateway_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if 'virtualGatewayName' in kwargs:
+            virtual_gateway_name = kwargs['virtualGatewayName']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         if mesh_owner is not None:

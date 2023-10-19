@@ -60,7 +60,13 @@ class PipelineLogPublishingOptions(dict):
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_destination: Optional['outputs.PipelineLogPublishingOptionsCloudWatchLogDestinationProperties'] = None,
              is_logging_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogDestination' in kwargs:
+            cloud_watch_log_destination = kwargs['cloudWatchLogDestination']
+        if 'isLoggingEnabled' in kwargs:
+            is_logging_enabled = kwargs['isLoggingEnabled']
+
         if cloud_watch_log_destination is not None:
             _setter("cloud_watch_log_destination", cloud_watch_log_destination)
         if is_logging_enabled is not None:
@@ -118,7 +124,11 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
             _setter("log_group", log_group)
 
@@ -151,7 +161,9 @@ class PipelineTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -219,7 +231,15 @@ class PipelineVpcEndpoint(dict):
              vpc_endpoint_id: Optional[str] = None,
              vpc_id: Optional[str] = None,
              vpc_options: Optional['outputs.PipelineVpcOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if vpc_endpoint_id is not None:
             _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
@@ -291,7 +311,13 @@ class PipelineVpcOptions(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:

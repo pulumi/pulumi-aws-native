@@ -41,7 +41,13 @@ class SubnetGroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+
         _setter("subnet_ids", subnet_ids)
         if description is not None:
             _setter("description", description)

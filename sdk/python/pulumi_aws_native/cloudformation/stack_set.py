@@ -85,7 +85,31 @@ class StackSetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
              template_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if 'administrationRoleArn' in kwargs:
+            administration_role_arn = kwargs['administrationRoleArn']
+        if 'autoDeployment' in kwargs:
+            auto_deployment = kwargs['autoDeployment']
+        if 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if 'executionRoleName' in kwargs:
+            execution_role_name = kwargs['executionRoleName']
+        if 'managedExecution' in kwargs:
+            managed_execution = kwargs['managedExecution']
+        if 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if 'stackInstancesGroup' in kwargs:
+            stack_instances_group = kwargs['stackInstancesGroup']
+        if 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if 'templateUrl' in kwargs:
+            template_url = kwargs['templateUrl']
+
         _setter("permission_model", permission_model)
         if administration_role_arn is not None:
             _setter("administration_role_arn", administration_role_arn)

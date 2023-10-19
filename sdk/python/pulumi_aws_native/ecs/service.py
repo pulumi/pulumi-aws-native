@@ -92,7 +92,47 @@ class ServiceArgs:
              service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
              task_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if 'deploymentConfiguration' in kwargs:
+            deployment_configuration = kwargs['deploymentConfiguration']
+        if 'deploymentController' in kwargs:
+            deployment_controller = kwargs['deploymentController']
+        if 'desiredCount' in kwargs:
+            desired_count = kwargs['desiredCount']
+        if 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if 'healthCheckGracePeriodSeconds' in kwargs:
+            health_check_grace_period_seconds = kwargs['healthCheckGracePeriodSeconds']
+        if 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if 'placementStrategies' in kwargs:
+            placement_strategies = kwargs['placementStrategies']
+        if 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if 'schedulingStrategy' in kwargs:
+            scheduling_strategy = kwargs['schedulingStrategy']
+        if 'serviceConnectConfiguration' in kwargs:
+            service_connect_configuration = kwargs['serviceConnectConfiguration']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceRegistries' in kwargs:
+            service_registries = kwargs['serviceRegistries']
+        if 'taskDefinition' in kwargs:
+            task_definition = kwargs['taskDefinition']
+
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
         if cluster is not None:

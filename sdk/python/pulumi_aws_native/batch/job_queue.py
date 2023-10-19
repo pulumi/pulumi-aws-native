@@ -45,7 +45,15 @@ class JobQueueArgs:
              scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['JobQueueState']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeEnvironmentOrder' in kwargs:
+            compute_environment_order = kwargs['computeEnvironmentOrder']
+        if 'jobQueueName' in kwargs:
+            job_queue_name = kwargs['jobQueueName']
+        if 'schedulingPolicyArn' in kwargs:
+            scheduling_policy_arn = kwargs['schedulingPolicyArn']
+
         _setter("compute_environment_order", compute_environment_order)
         _setter("priority", priority)
         if job_queue_name is not None:

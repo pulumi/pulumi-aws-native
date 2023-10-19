@@ -45,7 +45,13 @@ class StreamingImageArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['StreamingImageTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2ImageId' in kwargs:
+            ec2_image_id = kwargs['ec2ImageId']
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+
         _setter("ec2_image_id", ec2_image_id)
         _setter("studio_id", studio_id)
         if description is not None:

@@ -37,7 +37,13 @@ class ApplicationArgs:
              application_name: Optional[pulumi.Input[str]] = None,
              compute_platform: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+
         if application_name is not None:
             _setter("application_name", application_name)
         if compute_platform is not None:

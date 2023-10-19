@@ -62,7 +62,11 @@ class AliasRoutingStrategyArgs:
              type: pulumi.Input['AliasRoutingStrategyType'],
              fleet_id: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fleetId' in kwargs:
+            fleet_id = kwargs['fleetId']
+
         _setter("type", type)
         if fleet_id is not None:
             _setter("fleet_id", fleet_id)
@@ -133,7 +137,13 @@ class BuildStorageLocationArgs:
              key: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -205,7 +215,9 @@ class FleetAnywhereConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cost: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cost", cost)
 
     @property
@@ -236,7 +248,11 @@ class FleetCertificateConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_type: pulumi.Input['FleetCertificateConfigurationCertificateType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+
         _setter("certificate_type", certificate_type)
 
     @property
@@ -277,7 +293,15 @@ class FleetIpPermissionArgs:
              ip_range: pulumi.Input[str],
              protocol: pulumi.Input['FleetIpPermissionProtocol'],
              to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("from_port", from_port)
         _setter("ip_range", ip_range)
         _setter("protocol", protocol)
@@ -356,7 +380,15 @@ class FleetLocationCapacityArgs:
              desired_ec2_instances: pulumi.Input[int],
              max_size: pulumi.Input[int],
              min_size: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredEc2Instances' in kwargs:
+            desired_ec2_instances = kwargs['desiredEc2Instances']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+
         _setter("desired_ec2_instances", desired_ec2_instances)
         _setter("max_size", max_size)
         _setter("min_size", min_size)
@@ -416,7 +448,11 @@ class FleetLocationConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              location: pulumi.Input[str],
              location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationCapacity' in kwargs:
+            location_capacity = kwargs['locationCapacity']
+
         _setter("location", location)
         if location_capacity is not None:
             _setter("location_capacity", location_capacity)
@@ -462,7 +498,13 @@ class FleetResourceCreationLimitPolicyArgs:
              _setter: Callable[[Any, Any], None],
              new_game_sessions_per_creator: Optional[pulumi.Input[int]] = None,
              policy_period_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'newGameSessionsPerCreator' in kwargs:
+            new_game_sessions_per_creator = kwargs['newGameSessionsPerCreator']
+        if 'policyPeriodInMinutes' in kwargs:
+            policy_period_in_minutes = kwargs['policyPeriodInMinutes']
+
         if new_game_sessions_per_creator is not None:
             _setter("new_game_sessions_per_creator", new_game_sessions_per_creator)
         if policy_period_in_minutes is not None:
@@ -521,7 +563,15 @@ class FleetRuntimeConfigurationArgs:
              game_session_activation_timeout_seconds: Optional[pulumi.Input[int]] = None,
              max_concurrent_game_session_activations: Optional[pulumi.Input[int]] = None,
              server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetServerProcessArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gameSessionActivationTimeoutSeconds' in kwargs:
+            game_session_activation_timeout_seconds = kwargs['gameSessionActivationTimeoutSeconds']
+        if 'maxConcurrentGameSessionActivations' in kwargs:
+            max_concurrent_game_session_activations = kwargs['maxConcurrentGameSessionActivations']
+        if 'serverProcesses' in kwargs:
+            server_processes = kwargs['serverProcesses']
+
         if game_session_activation_timeout_seconds is not None:
             _setter("game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
         if max_concurrent_game_session_activations is not None:
@@ -594,7 +644,13 @@ class FleetServerProcessArgs:
              concurrent_executions: pulumi.Input[int],
              launch_path: pulumi.Input[str],
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentExecutions' in kwargs:
+            concurrent_executions = kwargs['concurrentExecutions']
+        if 'launchPath' in kwargs:
+            launch_path = kwargs['launchPath']
+
         _setter("concurrent_executions", concurrent_executions)
         _setter("launch_path", launch_path)
         if parameters is not None:
@@ -659,7 +715,13 @@ class GameServerGroupAutoScalingPolicyArgs:
              _setter: Callable[[Any, Any], None],
              target_tracking_configuration: pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs'],
              estimated_instance_warmup: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetTrackingConfiguration' in kwargs:
+            target_tracking_configuration = kwargs['targetTrackingConfiguration']
+        if 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+
         _setter("target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
             _setter("estimated_instance_warmup", estimated_instance_warmup)
@@ -701,7 +763,13 @@ class GameServerGroupInstanceDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              instance_type: pulumi.Input[str],
              weighted_capacity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if weighted_capacity is not None:
             _setter("weighted_capacity", weighted_capacity)
@@ -746,7 +814,13 @@ class GameServerGroupLaunchTemplateArgs:
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -801,7 +875,9 @@ class GameServerGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -847,7 +923,11 @@ class GameServerGroupTargetTrackingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+
         _setter("target_value", target_value)
 
     @property
@@ -872,7 +952,11 @@ class GameSessionQueueDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
 
@@ -898,7 +982,11 @@ class GameSessionQueueFilterConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedLocations' in kwargs:
+            allowed_locations = kwargs['allowedLocations']
+
         if allowed_locations is not None:
             _setter("allowed_locations", allowed_locations)
 
@@ -927,7 +1015,13 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
              _setter: Callable[[Any, Any], None],
              maximum_individual_player_latency_milliseconds: Optional[pulumi.Input[int]] = None,
              policy_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumIndividualPlayerLatencyMilliseconds' in kwargs:
+            maximum_individual_player_latency_milliseconds = kwargs['maximumIndividualPlayerLatencyMilliseconds']
+        if 'policyDurationSeconds' in kwargs:
+            policy_duration_seconds = kwargs['policyDurationSeconds']
+
         if maximum_individual_player_latency_milliseconds is not None:
             _setter("maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
@@ -967,7 +1061,13 @@ class GameSessionQueuePriorityConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              location_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              priority_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'locationOrder' in kwargs:
+            location_order = kwargs['locationOrder']
+        if 'priorityOrder' in kwargs:
+            priority_order = kwargs['priorityOrder']
+
         if location_order is not None:
             _setter("location_order", location_order)
         if priority_order is not None:
@@ -1007,7 +1107,9 @@ class GameSessionQueueTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1050,7 +1152,9 @@ class LocationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1094,7 +1198,9 @@ class MatchmakingConfigurationGamePropertyArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1132,7 +1238,9 @@ class MatchmakingConfigurationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1170,7 +1278,9 @@ class MatchmakingRuleSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1214,7 +1324,13 @@ class ScriptS3LocationArgs:
              key: pulumi.Input[str],
              role_arn: pulumi.Input[str],
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -1273,7 +1389,9 @@ class ScriptTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -32,7 +32,11 @@ class PolicyTemplateArgs:
              statement: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              policy_store_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyStoreId' in kwargs:
+            policy_store_id = kwargs['policyStoreId']
+
         _setter("statement", statement)
         if description is not None:
             _setter("description", description)

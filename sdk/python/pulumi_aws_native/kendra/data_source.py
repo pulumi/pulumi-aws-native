@@ -57,7 +57,19 @@ class DataSourceArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if 'customDocumentEnrichmentConfiguration' in kwargs:
+            custom_document_enrichment_configuration = kwargs['customDocumentEnrichmentConfiguration']
+        if 'dataSourceConfiguration' in kwargs:
+            data_source_configuration = kwargs['dataSourceConfiguration']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("index_id", index_id)
         _setter("type", type)
         if custom_document_enrichment_configuration is not None:

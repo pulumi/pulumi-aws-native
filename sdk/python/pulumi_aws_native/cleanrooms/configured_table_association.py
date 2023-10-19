@@ -44,7 +44,15 @@ class ConfiguredTableAssociationArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configuredTableIdentifier' in kwargs:
+            configured_table_identifier = kwargs['configuredTableIdentifier']
+        if 'membershipIdentifier' in kwargs:
+            membership_identifier = kwargs['membershipIdentifier']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("configured_table_identifier", configured_table_identifier)
         _setter("membership_identifier", membership_identifier)
         _setter("role_arn", role_arn)

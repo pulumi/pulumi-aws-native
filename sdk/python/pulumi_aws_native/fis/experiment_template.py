@@ -46,7 +46,15 @@ class ExperimentTemplateArgs:
              targets: pulumi.Input['ExperimentTemplateTargetMapArgs'],
              actions: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']] = None,
              log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stopConditions' in kwargs:
+            stop_conditions = kwargs['stopConditions']
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         _setter("description", description)
         _setter("role_arn", role_arn)
         _setter("stop_conditions", stop_conditions)

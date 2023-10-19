@@ -36,7 +36,9 @@ class BrokerConfigurationId(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              revision: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -85,7 +87,13 @@ class BrokerEncryptionOptions(dict):
              _setter: Callable[[Any, Any], None],
              use_aws_owned_key: bool,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("use_aws_owned_key", use_aws_owned_key)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -178,7 +186,29 @@ class BrokerLdapServerMetadata(dict):
              role_search_subtree: Optional[bool] = None,
              user_role_name: Optional[str] = None,
              user_search_subtree: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
         _setter("hosts", hosts)
         _setter("role_base", role_base)
         _setter("role_search_matching", role_search_matching)
@@ -266,7 +296,9 @@ class BrokerLogList(dict):
              _setter: Callable[[Any, Any], None],
              audit: Optional[bool] = None,
              general: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audit is not None:
             _setter("audit", audit)
         if general is not None:
@@ -322,7 +354,15 @@ class BrokerMaintenanceWindow(dict):
              day_of_week: str,
              time_of_day: str,
              time_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("day_of_week", day_of_week)
         _setter("time_of_day", time_of_day)
         _setter("time_zone", time_zone)
@@ -358,7 +398,9 @@ class BrokerTagsEntry(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -411,7 +453,11 @@ class BrokerUser(dict):
              username: str,
              console_access: Optional[bool] = None,
              groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+
         _setter("password", password)
         _setter("username", username)
         if console_access is not None:
@@ -455,7 +501,9 @@ class ConfigurationAssociationConfigurationId(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              revision: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -485,7 +533,9 @@ class ConfigurationTagsEntry(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -35,7 +35,9 @@ class RuleGroupsNamespaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -80,7 +82,11 @@ class WorkspaceLoggingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+
         if log_group_arn is not None:
             _setter("log_group_arn", log_group_arn)
 
@@ -117,7 +123,9 @@ class WorkspaceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

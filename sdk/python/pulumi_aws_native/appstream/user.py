@@ -38,7 +38,19 @@ class UserArgs:
              last_name: Optional[pulumi.Input[str]] = None,
              message_action: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("authentication_type", authentication_type)
         if first_name is not None:
             _setter("first_name", first_name)

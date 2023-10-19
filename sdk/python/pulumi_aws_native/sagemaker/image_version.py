@@ -57,7 +57,23 @@ class ImageVersionArgs:
              programming_lang: Optional[pulumi.Input[str]] = None,
              release_notes: Optional[pulumi.Input[str]] = None,
              vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseImage' in kwargs:
+            base_image = kwargs['baseImage']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if 'mlFramework' in kwargs:
+            ml_framework = kwargs['mlFramework']
+        if 'programmingLang' in kwargs:
+            programming_lang = kwargs['programmingLang']
+        if 'releaseNotes' in kwargs:
+            release_notes = kwargs['releaseNotes']
+        if 'vendorGuidance' in kwargs:
+            vendor_guidance = kwargs['vendorGuidance']
+
         _setter("base_image", base_image)
         _setter("image_name", image_name)
         if alias is not None:

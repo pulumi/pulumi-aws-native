@@ -38,7 +38,13 @@ class CodeSigningConfigArgs:
              allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
              code_signing_policies: Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedPublishers' in kwargs:
+            allowed_publishers = kwargs['allowedPublishers']
+        if 'codeSigningPolicies' in kwargs:
+            code_signing_policies = kwargs['codeSigningPolicies']
+
         _setter("allowed_publishers", allowed_publishers)
         if code_signing_policies is not None:
             _setter("code_signing_policies", code_signing_policies)

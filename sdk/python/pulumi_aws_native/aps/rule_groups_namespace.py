@@ -41,7 +41,9 @@ class RuleGroupsNamespaceArgs:
              workspace: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("data", data)
         _setter("workspace", workspace)
         if name is not None:

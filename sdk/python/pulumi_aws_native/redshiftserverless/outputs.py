@@ -99,7 +99,29 @@ class Namespace(dict):
              namespace_id: Optional[str] = None,
              namespace_name: Optional[str] = None,
              status: Optional['NamespaceStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'logExports' in kwargs:
+            log_exports = kwargs['logExports']
+        if 'namespaceArn' in kwargs:
+            namespace_arn = kwargs['namespaceArn']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+
         if admin_username is not None:
             _setter("admin_username", admin_username)
         if creation_date is not None:
@@ -194,7 +216,9 @@ class NamespaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -294,7 +318,31 @@ class Workgroup(dict):
              workgroup_arn: Optional[str] = None,
              workgroup_id: Optional[str] = None,
              workgroup_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseCapacity' in kwargs:
+            base_capacity = kwargs['baseCapacity']
+        if 'configParameters' in kwargs:
+            config_parameters = kwargs['configParameters']
+        if 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if 'enhancedVpcRouting' in kwargs:
+            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'workgroupArn' in kwargs:
+            workgroup_arn = kwargs['workgroupArn']
+        if 'workgroupId' in kwargs:
+            workgroup_id = kwargs['workgroupId']
+        if 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
         if base_capacity is not None:
             _setter("base_capacity", base_capacity)
         if config_parameters is not None:
@@ -422,7 +470,13 @@ class WorkgroupConfigParameter(dict):
              _setter: Callable[[Any, Any], None],
              parameter_key: Optional[str] = None,
              parameter_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parameterKey' in kwargs:
+            parameter_key = kwargs['parameterKey']
+        if 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+
         if parameter_key is not None:
             _setter("parameter_key", parameter_key)
         if parameter_value is not None:
@@ -474,7 +528,11 @@ class WorkgroupEndpoint(dict):
              address: Optional[str] = None,
              port: Optional[int] = None,
              vpc_endpoints: Optional[Sequence['outputs.WorkgroupVpcEndpoint']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcEndpoints' in kwargs:
+            vpc_endpoints = kwargs['vpcEndpoints']
+
         if address is not None:
             _setter("address", address)
         if port is not None:
@@ -542,7 +600,17 @@ class WorkgroupNetworkInterface(dict):
              network_interface_id: Optional[str] = None,
              private_ip_address: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -588,7 +656,9 @@ class WorkgroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -642,7 +712,15 @@ class WorkgroupVpcEndpoint(dict):
              network_interfaces: Optional[Sequence['outputs.WorkgroupNetworkInterface']] = None,
              vpc_endpoint_id: Optional[str] = None,
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if network_interfaces is not None:
             _setter("network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:

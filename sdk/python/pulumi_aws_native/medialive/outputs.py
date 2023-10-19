@@ -239,7 +239,21 @@ class ChannelAacSettings(dict):
              sample_rate: Optional[float] = None,
              spec: Optional[str] = None,
              vbr_quality: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'inputType' in kwargs:
+            input_type = kwargs['inputType']
+        if 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if 'rawFormat' in kwargs:
+            raw_format = kwargs['rawFormat']
+        if 'sampleRate' in kwargs:
+            sample_rate = kwargs['sampleRate']
+        if 'vbrQuality' in kwargs:
+            vbr_quality = kwargs['vbrQuality']
+
         if bitrate is not None:
             _setter("bitrate", bitrate)
         if coding_mode is not None:
@@ -365,7 +379,21 @@ class ChannelAc3Settings(dict):
              drc_profile: Optional[str] = None,
              lfe_filter: Optional[str] = None,
              metadata_control: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attenuationControl' in kwargs:
+            attenuation_control = kwargs['attenuationControl']
+        if 'bitstreamMode' in kwargs:
+            bitstream_mode = kwargs['bitstreamMode']
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'drcProfile' in kwargs:
+            drc_profile = kwargs['drcProfile']
+        if 'lfeFilter' in kwargs:
+            lfe_filter = kwargs['lfeFilter']
+        if 'metadataControl' in kwargs:
+            metadata_control = kwargs['metadataControl']
+
         if attenuation_control is not None:
             _setter("attenuation_control", attenuation_control)
         if bitrate is not None:
@@ -453,7 +481,11 @@ class ChannelAncillarySourceSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_ancillary_channel_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceAncillaryChannelNumber' in kwargs:
+            source_ancillary_channel_number = kwargs['sourceAncillaryChannelNumber']
+
         if source_ancillary_channel_number is not None:
             _setter("source_ancillary_channel_number", source_ancillary_channel_number)
 
@@ -492,7 +524,11 @@ class ChannelArchiveCdnSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              archive_s3_settings: Optional['outputs.ChannelArchiveS3Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveS3Settings' in kwargs:
+            archive_s3_settings = kwargs['archiveS3Settings']
+
         if archive_s3_settings is not None:
             _setter("archive_s3_settings", archive_s3_settings)
 
@@ -536,7 +572,13 @@ class ChannelArchiveContainerSettings(dict):
              _setter: Callable[[Any, Any], None],
              m2ts_settings: Optional['outputs.ChannelM2tsSettings'] = None,
              raw_settings: Optional['outputs.ChannelRawSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'm2tsSettings' in kwargs:
+            m2ts_settings = kwargs['m2tsSettings']
+        if 'rawSettings' in kwargs:
+            raw_settings = kwargs['rawSettings']
+
         if m2ts_settings is not None:
             _setter("m2ts_settings", m2ts_settings)
         if raw_settings is not None:
@@ -590,7 +632,13 @@ class ChannelArchiveGroupSettings(dict):
              archive_cdn_settings: Optional['outputs.ChannelArchiveCdnSettings'] = None,
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
              rollover_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveCdnSettings' in kwargs:
+            archive_cdn_settings = kwargs['archiveCdnSettings']
+        if 'rolloverInterval' in kwargs:
+            rollover_interval = kwargs['rolloverInterval']
+
         if archive_cdn_settings is not None:
             _setter("archive_cdn_settings", archive_cdn_settings)
         if destination is not None:
@@ -651,7 +699,13 @@ class ChannelArchiveOutputSettings(dict):
              container_settings: Optional['outputs.ChannelArchiveContainerSettings'] = None,
              extension: Optional[str] = None,
              name_modifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerSettings' in kwargs:
+            container_settings = kwargs['containerSettings']
+        if 'nameModifier' in kwargs:
+            name_modifier = kwargs['nameModifier']
+
         if container_settings is not None:
             _setter("container_settings", container_settings)
         if extension is not None:
@@ -704,7 +758,11 @@ class ChannelArchiveS3Settings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              canned_acl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
         if canned_acl is not None:
             _setter("canned_acl", canned_acl)
 
@@ -721,8 +779,10 @@ class ChannelAribDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -732,8 +792,10 @@ class ChannelAribSourceSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -770,7 +832,13 @@ class ChannelAudioChannelMapping(dict):
              _setter: Callable[[Any, Any], None],
              input_channel_levels: Optional[Sequence['outputs.ChannelInputChannelLevel']] = None,
              output_channel: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputChannelLevels' in kwargs:
+            input_channel_levels = kwargs['inputChannelLevels']
+        if 'outputChannel' in kwargs:
+            output_channel = kwargs['outputChannel']
+
         if input_channel_levels is not None:
             _setter("input_channel_levels", input_channel_levels)
         if output_channel is not None:
@@ -846,7 +914,23 @@ class ChannelAudioCodecSettings(dict):
              mp2_settings: Optional['outputs.ChannelMp2Settings'] = None,
              pass_through_settings: Optional['outputs.ChannelPassThroughSettings'] = None,
              wav_settings: Optional['outputs.ChannelWavSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aacSettings' in kwargs:
+            aac_settings = kwargs['aacSettings']
+        if 'ac3Settings' in kwargs:
+            ac3_settings = kwargs['ac3Settings']
+        if 'eac3AtmosSettings' in kwargs:
+            eac3_atmos_settings = kwargs['eac3AtmosSettings']
+        if 'eac3Settings' in kwargs:
+            eac3_settings = kwargs['eac3Settings']
+        if 'mp2Settings' in kwargs:
+            mp2_settings = kwargs['mp2Settings']
+        if 'passThroughSettings' in kwargs:
+            pass_through_settings = kwargs['passThroughSettings']
+        if 'wavSettings' in kwargs:
+            wav_settings = kwargs['wavSettings']
+
         if aac_settings is not None:
             _setter("aac_settings", aac_settings)
         if ac3_settings is not None:
@@ -975,7 +1059,29 @@ class ChannelAudioDescription(dict):
              name: Optional[str] = None,
              remix_settings: Optional['outputs.ChannelRemixSettings'] = None,
              stream_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioNormalizationSettings' in kwargs:
+            audio_normalization_settings = kwargs['audioNormalizationSettings']
+        if 'audioSelectorName' in kwargs:
+            audio_selector_name = kwargs['audioSelectorName']
+        if 'audioType' in kwargs:
+            audio_type = kwargs['audioType']
+        if 'audioTypeControl' in kwargs:
+            audio_type_control = kwargs['audioTypeControl']
+        if 'audioWatermarkingSettings' in kwargs:
+            audio_watermarking_settings = kwargs['audioWatermarkingSettings']
+        if 'codecSettings' in kwargs:
+            codec_settings = kwargs['codecSettings']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'languageCodeControl' in kwargs:
+            language_code_control = kwargs['languageCodeControl']
+        if 'remixSettings' in kwargs:
+            remix_settings = kwargs['remixSettings']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         if audio_normalization_settings is not None:
             _setter("audio_normalization_settings", audio_normalization_settings)
         if audio_selector_name is not None:
@@ -1084,7 +1190,11 @@ class ChannelAudioDolbyEDecode(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              program_selection: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'programSelection' in kwargs:
+            program_selection = kwargs['programSelection']
+
         if program_selection is not None:
             _setter("program_selection", program_selection)
 
@@ -1126,7 +1236,11 @@ class ChannelAudioHlsRenditionSelection(dict):
              _setter: Callable[[Any, Any], None],
              group_id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+
         if group_id is not None:
             _setter("group_id", group_id)
         if name is not None:
@@ -1177,7 +1291,13 @@ class ChannelAudioLanguageSelection(dict):
              _setter: Callable[[Any, Any], None],
              language_code: Optional[str] = None,
              language_selection_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'languageSelectionPolicy' in kwargs:
+            language_selection_policy = kwargs['languageSelectionPolicy']
+
         if language_code is not None:
             _setter("language_code", language_code)
         if language_selection_policy is not None:
@@ -1231,7 +1351,13 @@ class ChannelAudioNormalizationSettings(dict):
              algorithm: Optional[str] = None,
              algorithm_control: Optional[str] = None,
              target_lkfs: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'algorithmControl' in kwargs:
+            algorithm_control = kwargs['algorithmControl']
+        if 'targetLkfs' in kwargs:
+            target_lkfs = kwargs['targetLkfs']
+
         if algorithm is not None:
             _setter("algorithm", algorithm)
         if algorithm_control is not None:
@@ -1299,7 +1425,17 @@ class ChannelAudioOnlyHlsSettings(dict):
              audio_only_image: Optional['outputs.ChannelInputLocation'] = None,
              audio_track_type: Optional[str] = None,
              segment_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioGroupId' in kwargs:
+            audio_group_id = kwargs['audioGroupId']
+        if 'audioOnlyImage' in kwargs:
+            audio_only_image = kwargs['audioOnlyImage']
+        if 'audioTrackType' in kwargs:
+            audio_track_type = kwargs['audioTrackType']
+        if 'segmentType' in kwargs:
+            segment_type = kwargs['segmentType']
+
         if audio_group_id is not None:
             _setter("audio_group_id", audio_group_id)
         if audio_only_image is not None:
@@ -1342,7 +1478,9 @@ class ChannelAudioPidSelection(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if pid is not None:
             _setter("pid", pid)
 
@@ -1384,7 +1522,11 @@ class ChannelAudioSelector(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              selector_settings: Optional['outputs.ChannelAudioSelectorSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'selectorSettings' in kwargs:
+            selector_settings = kwargs['selectorSettings']
+
         if name is not None:
             _setter("name", name)
         if selector_settings is not None:
@@ -1445,7 +1587,17 @@ class ChannelAudioSelectorSettings(dict):
              audio_language_selection: Optional['outputs.ChannelAudioLanguageSelection'] = None,
              audio_pid_selection: Optional['outputs.ChannelAudioPidSelection'] = None,
              audio_track_selection: Optional['outputs.ChannelAudioTrackSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioHlsRenditionSelection' in kwargs:
+            audio_hls_rendition_selection = kwargs['audioHlsRenditionSelection']
+        if 'audioLanguageSelection' in kwargs:
+            audio_language_selection = kwargs['audioLanguageSelection']
+        if 'audioPidSelection' in kwargs:
+            audio_pid_selection = kwargs['audioPidSelection']
+        if 'audioTrackSelection' in kwargs:
+            audio_track_selection = kwargs['audioTrackSelection']
+
         if audio_hls_rendition_selection is not None:
             _setter("audio_hls_rendition_selection", audio_hls_rendition_selection)
         if audio_language_selection is not None:
@@ -1510,7 +1662,13 @@ class ChannelAudioSilenceFailoverSettings(dict):
              _setter: Callable[[Any, Any], None],
              audio_selector_name: Optional[str] = None,
              audio_silence_threshold_msec: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioSelectorName' in kwargs:
+            audio_selector_name = kwargs['audioSelectorName']
+        if 'audioSilenceThresholdMsec' in kwargs:
+            audio_silence_threshold_msec = kwargs['audioSilenceThresholdMsec']
+
         if audio_selector_name is not None:
             _setter("audio_selector_name", audio_selector_name)
         if audio_silence_threshold_msec is not None:
@@ -1539,7 +1697,9 @@ class ChannelAudioTrack(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              track: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if track is not None:
             _setter("track", track)
 
@@ -1581,7 +1741,11 @@ class ChannelAudioTrackSelection(dict):
              _setter: Callable[[Any, Any], None],
              dolby_e_decode: Optional['outputs.ChannelAudioDolbyEDecode'] = None,
              tracks: Optional[Sequence['outputs.ChannelAudioTrack']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dolbyEDecode' in kwargs:
+            dolby_e_decode = kwargs['dolbyEDecode']
+
         if dolby_e_decode is not None:
             _setter("dolby_e_decode", dolby_e_decode)
         if tracks is not None:
@@ -1627,7 +1791,11 @@ class ChannelAudioWatermarkSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              nielsen_watermarks_settings: Optional['outputs.ChannelNielsenWatermarksSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nielsenWatermarksSettings' in kwargs:
+            nielsen_watermarks_settings = kwargs['nielsenWatermarksSettings']
+
         if nielsen_watermarks_settings is not None:
             _setter("nielsen_watermarks_settings", nielsen_watermarks_settings)
 
@@ -1681,7 +1849,17 @@ class ChannelAutomaticInputFailoverSettings(dict):
              failover_conditions: Optional[Sequence['outputs.ChannelFailoverCondition']] = None,
              input_preference: Optional[str] = None,
              secondary_input_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorClearTimeMsec' in kwargs:
+            error_clear_time_msec = kwargs['errorClearTimeMsec']
+        if 'failoverConditions' in kwargs:
+            failover_conditions = kwargs['failoverConditions']
+        if 'inputPreference' in kwargs:
+            input_preference = kwargs['inputPreference']
+        if 'secondaryInputId' in kwargs:
+            secondary_input_id = kwargs['secondaryInputId']
+
         if error_clear_time_msec is not None:
             _setter("error_clear_time_msec", error_clear_time_msec)
         if failover_conditions is not None:
@@ -1744,7 +1922,11 @@ class ChannelAvailBlanking(dict):
              _setter: Callable[[Any, Any], None],
              avail_blanking_image: Optional['outputs.ChannelInputLocation'] = None,
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availBlankingImage' in kwargs:
+            avail_blanking_image = kwargs['availBlankingImage']
+
         if avail_blanking_image is not None:
             _setter("avail_blanking_image", avail_blanking_image)
         if state is not None:
@@ -1790,7 +1972,11 @@ class ChannelAvailConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              avail_settings: Optional['outputs.ChannelAvailSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availSettings' in kwargs:
+            avail_settings = kwargs['availSettings']
+
         if avail_settings is not None:
             _setter("avail_settings", avail_settings)
 
@@ -1837,7 +2023,13 @@ class ChannelAvailSettings(dict):
              esam: Optional['outputs.ChannelEsam'] = None,
              scte35_splice_insert: Optional['outputs.ChannelScte35SpliceInsert'] = None,
              scte35_time_signal_apos: Optional['outputs.ChannelScte35TimeSignalApos'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scte35SpliceInsert' in kwargs:
+            scte35_splice_insert = kwargs['scte35SpliceInsert']
+        if 'scte35TimeSignalApos' in kwargs:
+            scte35_time_signal_apos = kwargs['scte35TimeSignalApos']
+
         if esam is not None:
             _setter("esam", esam)
         if scte35_splice_insert is not None:
@@ -1908,7 +2100,17 @@ class ChannelBlackoutSlate(dict):
              network_end_blackout_image: Optional['outputs.ChannelInputLocation'] = None,
              network_id: Optional[str] = None,
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blackoutSlateImage' in kwargs:
+            blackout_slate_image = kwargs['blackoutSlateImage']
+        if 'networkEndBlackout' in kwargs:
+            network_end_blackout = kwargs['networkEndBlackout']
+        if 'networkEndBlackoutImage' in kwargs:
+            network_end_blackout_image = kwargs['networkEndBlackoutImage']
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+
         if blackout_slate_image is not None:
             _setter("blackout_slate_image", blackout_slate_image)
         if network_end_blackout is not None:
@@ -2051,7 +2253,39 @@ class ChannelBurnInDestinationSettings(dict):
              teletext_grid_control: Optional[str] = None,
              x_position: Optional[int] = None,
              y_position: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if 'backgroundOpacity' in kwargs:
+            background_opacity = kwargs['backgroundOpacity']
+        if 'fontColor' in kwargs:
+            font_color = kwargs['fontColor']
+        if 'fontOpacity' in kwargs:
+            font_opacity = kwargs['fontOpacity']
+        if 'fontResolution' in kwargs:
+            font_resolution = kwargs['fontResolution']
+        if 'fontSize' in kwargs:
+            font_size = kwargs['fontSize']
+        if 'outlineColor' in kwargs:
+            outline_color = kwargs['outlineColor']
+        if 'outlineSize' in kwargs:
+            outline_size = kwargs['outlineSize']
+        if 'shadowColor' in kwargs:
+            shadow_color = kwargs['shadowColor']
+        if 'shadowOpacity' in kwargs:
+            shadow_opacity = kwargs['shadowOpacity']
+        if 'shadowXOffset' in kwargs:
+            shadow_x_offset = kwargs['shadowXOffset']
+        if 'shadowYOffset' in kwargs:
+            shadow_y_offset = kwargs['shadowYOffset']
+        if 'teletextGridControl' in kwargs:
+            teletext_grid_control = kwargs['teletextGridControl']
+        if 'xPosition' in kwargs:
+            x_position = kwargs['xPosition']
+        if 'yPosition' in kwargs:
+            y_position = kwargs['yPosition']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if background_color is not None:
@@ -2223,7 +2457,17 @@ class ChannelCaptionDescription(dict):
              language_code: Optional[str] = None,
              language_description: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captionSelectorName' in kwargs:
+            caption_selector_name = kwargs['captionSelectorName']
+        if 'destinationSettings' in kwargs:
+            destination_settings = kwargs['destinationSettings']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'languageDescription' in kwargs:
+            language_description = kwargs['languageDescription']
+
         if accessibility is not None:
             _setter("accessibility", accessibility)
         if caption_selector_name is not None:
@@ -2357,7 +2601,35 @@ class ChannelCaptionDestinationSettings(dict):
              teletext_destination_settings: Optional['outputs.ChannelTeletextDestinationSettings'] = None,
              ttml_destination_settings: Optional['outputs.ChannelTtmlDestinationSettings'] = None,
              webvtt_destination_settings: Optional['outputs.ChannelWebvttDestinationSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aribDestinationSettings' in kwargs:
+            arib_destination_settings = kwargs['aribDestinationSettings']
+        if 'burnInDestinationSettings' in kwargs:
+            burn_in_destination_settings = kwargs['burnInDestinationSettings']
+        if 'dvbSubDestinationSettings' in kwargs:
+            dvb_sub_destination_settings = kwargs['dvbSubDestinationSettings']
+        if 'ebuTtDDestinationSettings' in kwargs:
+            ebu_tt_d_destination_settings = kwargs['ebuTtDDestinationSettings']
+        if 'embeddedDestinationSettings' in kwargs:
+            embedded_destination_settings = kwargs['embeddedDestinationSettings']
+        if 'embeddedPlusScte20DestinationSettings' in kwargs:
+            embedded_plus_scte20_destination_settings = kwargs['embeddedPlusScte20DestinationSettings']
+        if 'rtmpCaptionInfoDestinationSettings' in kwargs:
+            rtmp_caption_info_destination_settings = kwargs['rtmpCaptionInfoDestinationSettings']
+        if 'scte20PlusEmbeddedDestinationSettings' in kwargs:
+            scte20_plus_embedded_destination_settings = kwargs['scte20PlusEmbeddedDestinationSettings']
+        if 'scte27DestinationSettings' in kwargs:
+            scte27_destination_settings = kwargs['scte27DestinationSettings']
+        if 'smpteTtDestinationSettings' in kwargs:
+            smpte_tt_destination_settings = kwargs['smpteTtDestinationSettings']
+        if 'teletextDestinationSettings' in kwargs:
+            teletext_destination_settings = kwargs['teletextDestinationSettings']
+        if 'ttmlDestinationSettings' in kwargs:
+            ttml_destination_settings = kwargs['ttmlDestinationSettings']
+        if 'webvttDestinationSettings' in kwargs:
+            webvtt_destination_settings = kwargs['webvttDestinationSettings']
+
         if arib_destination_settings is not None:
             _setter("arib_destination_settings", arib_destination_settings)
         if burn_in_destination_settings is not None:
@@ -2490,7 +2762,15 @@ class ChannelCaptionLanguageMapping(dict):
              caption_channel: Optional[int] = None,
              language_code: Optional[str] = None,
              language_description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captionChannel' in kwargs:
+            caption_channel = kwargs['captionChannel']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'languageDescription' in kwargs:
+            language_description = kwargs['languageDescription']
+
         if caption_channel is not None:
             _setter("caption_channel", caption_channel)
         if language_code is not None:
@@ -2554,7 +2834,13 @@ class ChannelCaptionRectangle(dict):
              left_offset: Optional[float] = None,
              top_offset: Optional[float] = None,
              width: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'leftOffset' in kwargs:
+            left_offset = kwargs['leftOffset']
+        if 'topOffset' in kwargs:
+            top_offset = kwargs['topOffset']
+
         if height is not None:
             _setter("height", height)
         if left_offset is not None:
@@ -2622,7 +2908,13 @@ class ChannelCaptionSelector(dict):
              language_code: Optional[str] = None,
              name: Optional[str] = None,
              selector_settings: Optional['outputs.ChannelCaptionSelectorSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'selectorSettings' in kwargs:
+            selector_settings = kwargs['selectorSettings']
+
         if language_code is not None:
             _setter("language_code", language_code)
         if name is not None:
@@ -2705,7 +2997,23 @@ class ChannelCaptionSelectorSettings(dict):
              scte20_source_settings: Optional['outputs.ChannelScte20SourceSettings'] = None,
              scte27_source_settings: Optional['outputs.ChannelScte27SourceSettings'] = None,
              teletext_source_settings: Optional['outputs.ChannelTeletextSourceSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ancillarySourceSettings' in kwargs:
+            ancillary_source_settings = kwargs['ancillarySourceSettings']
+        if 'aribSourceSettings' in kwargs:
+            arib_source_settings = kwargs['aribSourceSettings']
+        if 'dvbSubSourceSettings' in kwargs:
+            dvb_sub_source_settings = kwargs['dvbSubSourceSettings']
+        if 'embeddedSourceSettings' in kwargs:
+            embedded_source_settings = kwargs['embeddedSourceSettings']
+        if 'scte20SourceSettings' in kwargs:
+            scte20_source_settings = kwargs['scte20SourceSettings']
+        if 'scte27SourceSettings' in kwargs:
+            scte27_source_settings = kwargs['scte27SourceSettings']
+        if 'teletextSourceSettings' in kwargs:
+            teletext_source_settings = kwargs['teletextSourceSettings']
+
         if ancillary_source_settings is not None:
             _setter("ancillary_source_settings", ancillary_source_settings)
         if arib_source_settings is not None:
@@ -2769,7 +3077,9 @@ class ChannelCdiInputSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              resolution: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if resolution is not None:
             _setter("resolution", resolution)
 
@@ -2786,8 +3096,10 @@ class ChannelColorSpacePassthroughSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2797,8 +3109,10 @@ class ChannelDolbyVision81Settings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2840,7 +3154,15 @@ class ChannelDvbNitSettings(dict):
              network_id: Optional[int] = None,
              network_name: Optional[str] = None,
              rep_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if 'repInterval' in kwargs:
+            rep_interval = kwargs['repInterval']
+
         if network_id is not None:
             _setter("network_id", network_id)
         if network_name is not None:
@@ -2908,7 +3230,17 @@ class ChannelDvbSdtSettings(dict):
              rep_interval: Optional[int] = None,
              service_name: Optional[str] = None,
              service_provider_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputSdt' in kwargs:
+            output_sdt = kwargs['outputSdt']
+        if 'repInterval' in kwargs:
+            rep_interval = kwargs['repInterval']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+
         if output_sdt is not None:
             _setter("output_sdt", output_sdt)
         if rep_interval is not None:
@@ -3044,7 +3376,39 @@ class ChannelDvbSubDestinationSettings(dict):
              teletext_grid_control: Optional[str] = None,
              x_position: Optional[int] = None,
              y_position: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if 'backgroundOpacity' in kwargs:
+            background_opacity = kwargs['backgroundOpacity']
+        if 'fontColor' in kwargs:
+            font_color = kwargs['fontColor']
+        if 'fontOpacity' in kwargs:
+            font_opacity = kwargs['fontOpacity']
+        if 'fontResolution' in kwargs:
+            font_resolution = kwargs['fontResolution']
+        if 'fontSize' in kwargs:
+            font_size = kwargs['fontSize']
+        if 'outlineColor' in kwargs:
+            outline_color = kwargs['outlineColor']
+        if 'outlineSize' in kwargs:
+            outline_size = kwargs['outlineSize']
+        if 'shadowColor' in kwargs:
+            shadow_color = kwargs['shadowColor']
+        if 'shadowOpacity' in kwargs:
+            shadow_opacity = kwargs['shadowOpacity']
+        if 'shadowXOffset' in kwargs:
+            shadow_x_offset = kwargs['shadowXOffset']
+        if 'shadowYOffset' in kwargs:
+            shadow_y_offset = kwargs['shadowYOffset']
+        if 'teletextGridControl' in kwargs:
+            teletext_grid_control = kwargs['teletextGridControl']
+        if 'xPosition' in kwargs:
+            x_position = kwargs['xPosition']
+        if 'yPosition' in kwargs:
+            y_position = kwargs['yPosition']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if background_color is not None:
@@ -3198,7 +3562,11 @@ class ChannelDvbSubSourceSettings(dict):
              _setter: Callable[[Any, Any], None],
              ocr_language: Optional[str] = None,
              pid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ocrLanguage' in kwargs:
+            ocr_language = kwargs['ocrLanguage']
+
         if ocr_language is not None:
             _setter("ocr_language", ocr_language)
         if pid is not None:
@@ -3244,7 +3612,11 @@ class ChannelDvbTdtSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rep_interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repInterval' in kwargs:
+            rep_interval = kwargs['repInterval']
+
         if rep_interval is not None:
             _setter("rep_interval", rep_interval)
 
@@ -3309,7 +3681,19 @@ class ChannelEac3AtmosSettings(dict):
              drc_rf: Optional[str] = None,
              height_trim: Optional[float] = None,
              surround_trim: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'drcLine' in kwargs:
+            drc_line = kwargs['drcLine']
+        if 'drcRf' in kwargs:
+            drc_rf = kwargs['drcRf']
+        if 'heightTrim' in kwargs:
+            height_trim = kwargs['heightTrim']
+        if 'surroundTrim' in kwargs:
+            surround_trim = kwargs['surroundTrim']
+
         if bitrate is not None:
             _setter("bitrate", bitrate)
         if coding_mode is not None:
@@ -3481,7 +3865,45 @@ class ChannelEac3Settings(dict):
              stereo_downmix: Optional[str] = None,
              surround_ex_mode: Optional[str] = None,
              surround_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attenuationControl' in kwargs:
+            attenuation_control = kwargs['attenuationControl']
+        if 'bitstreamMode' in kwargs:
+            bitstream_mode = kwargs['bitstreamMode']
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'dcFilter' in kwargs:
+            dc_filter = kwargs['dcFilter']
+        if 'drcLine' in kwargs:
+            drc_line = kwargs['drcLine']
+        if 'drcRf' in kwargs:
+            drc_rf = kwargs['drcRf']
+        if 'lfeControl' in kwargs:
+            lfe_control = kwargs['lfeControl']
+        if 'lfeFilter' in kwargs:
+            lfe_filter = kwargs['lfeFilter']
+        if 'loRoCenterMixLevel' in kwargs:
+            lo_ro_center_mix_level = kwargs['loRoCenterMixLevel']
+        if 'loRoSurroundMixLevel' in kwargs:
+            lo_ro_surround_mix_level = kwargs['loRoSurroundMixLevel']
+        if 'ltRtCenterMixLevel' in kwargs:
+            lt_rt_center_mix_level = kwargs['ltRtCenterMixLevel']
+        if 'ltRtSurroundMixLevel' in kwargs:
+            lt_rt_surround_mix_level = kwargs['ltRtSurroundMixLevel']
+        if 'metadataControl' in kwargs:
+            metadata_control = kwargs['metadataControl']
+        if 'passthroughControl' in kwargs:
+            passthrough_control = kwargs['passthroughControl']
+        if 'phaseControl' in kwargs:
+            phase_control = kwargs['phaseControl']
+        if 'stereoDownmix' in kwargs:
+            stereo_downmix = kwargs['stereoDownmix']
+        if 'surroundExMode' in kwargs:
+            surround_ex_mode = kwargs['surroundExMode']
+        if 'surroundMode' in kwargs:
+            surround_mode = kwargs['surroundMode']
+
         if attenuation_control is not None:
             _setter("attenuation_control", attenuation_control)
         if bitrate is not None:
@@ -3668,7 +4090,17 @@ class ChannelEbuTtDDestinationSettings(dict):
              fill_line_gap: Optional[str] = None,
              font_family: Optional[str] = None,
              style_control: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyrightHolder' in kwargs:
+            copyright_holder = kwargs['copyrightHolder']
+        if 'fillLineGap' in kwargs:
+            fill_line_gap = kwargs['fillLineGap']
+        if 'fontFamily' in kwargs:
+            font_family = kwargs['fontFamily']
+        if 'styleControl' in kwargs:
+            style_control = kwargs['styleControl']
+
         if copyright_holder is not None:
             _setter("copyright_holder", copyright_holder)
         if fill_line_gap is not None:
@@ -3706,8 +4138,10 @@ class ChannelEmbeddedDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3717,8 +4151,10 @@ class ChannelEmbeddedPlusScte20DestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3765,7 +4201,17 @@ class ChannelEmbeddedSourceSettings(dict):
              scte20_detection: Optional[str] = None,
              source608_channel_number: Optional[int] = None,
              source608_track_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'convert608To708' in kwargs:
+            convert608_to708 = kwargs['convert608To708']
+        if 'scte20Detection' in kwargs:
+            scte20_detection = kwargs['scte20Detection']
+        if 'source608ChannelNumber' in kwargs:
+            source608_channel_number = kwargs['source608ChannelNumber']
+        if 'source608TrackNumber' in kwargs:
+            source608_track_number = kwargs['source608TrackNumber']
+
         if convert608_to708 is not None:
             _setter("convert608_to708", convert608_to708)
         if scte20_detection is not None:
@@ -3885,7 +4331,35 @@ class ChannelEncoderSettings(dict):
              thumbnail_configuration: Optional['outputs.ChannelThumbnailConfiguration'] = None,
              timecode_config: Optional['outputs.ChannelTimecodeConfig'] = None,
              video_descriptions: Optional[Sequence['outputs.ChannelVideoDescription']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioDescriptions' in kwargs:
+            audio_descriptions = kwargs['audioDescriptions']
+        if 'availBlanking' in kwargs:
+            avail_blanking = kwargs['availBlanking']
+        if 'availConfiguration' in kwargs:
+            avail_configuration = kwargs['availConfiguration']
+        if 'blackoutSlate' in kwargs:
+            blackout_slate = kwargs['blackoutSlate']
+        if 'captionDescriptions' in kwargs:
+            caption_descriptions = kwargs['captionDescriptions']
+        if 'featureActivations' in kwargs:
+            feature_activations = kwargs['featureActivations']
+        if 'globalConfiguration' in kwargs:
+            global_configuration = kwargs['globalConfiguration']
+        if 'motionGraphicsConfiguration' in kwargs:
+            motion_graphics_configuration = kwargs['motionGraphicsConfiguration']
+        if 'nielsenConfiguration' in kwargs:
+            nielsen_configuration = kwargs['nielsenConfiguration']
+        if 'outputGroups' in kwargs:
+            output_groups = kwargs['outputGroups']
+        if 'thumbnailConfiguration' in kwargs:
+            thumbnail_configuration = kwargs['thumbnailConfiguration']
+        if 'timecodeConfig' in kwargs:
+            timecode_config = kwargs['timecodeConfig']
+        if 'videoDescriptions' in kwargs:
+            video_descriptions = kwargs['videoDescriptions']
+
         if audio_descriptions is not None:
             _setter("audio_descriptions", audio_descriptions)
         if avail_blanking is not None:
@@ -4031,7 +4505,19 @@ class ChannelEsam(dict):
              pois_endpoint: Optional[str] = None,
              username: Optional[str] = None,
              zone_identity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acquisitionPointId' in kwargs:
+            acquisition_point_id = kwargs['acquisitionPointId']
+        if 'adAvailOffset' in kwargs:
+            ad_avail_offset = kwargs['adAvailOffset']
+        if 'passwordParam' in kwargs:
+            password_param = kwargs['passwordParam']
+        if 'poisEndpoint' in kwargs:
+            pois_endpoint = kwargs['poisEndpoint']
+        if 'zoneIdentity' in kwargs:
+            zone_identity = kwargs['zoneIdentity']
+
         if acquisition_point_id is not None:
             _setter("acquisition_point_id", acquisition_point_id)
         if ad_avail_offset is not None:
@@ -4105,7 +4591,11 @@ class ChannelFailoverCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              failover_condition_settings: Optional['outputs.ChannelFailoverConditionSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverConditionSettings' in kwargs:
+            failover_condition_settings = kwargs['failoverConditionSettings']
+
         if failover_condition_settings is not None:
             _setter("failover_condition_settings", failover_condition_settings)
 
@@ -4154,7 +4644,15 @@ class ChannelFailoverConditionSettings(dict):
              audio_silence_settings: Optional['outputs.ChannelAudioSilenceFailoverSettings'] = None,
              input_loss_settings: Optional['outputs.ChannelInputLossFailoverSettings'] = None,
              video_black_settings: Optional['outputs.ChannelVideoBlackFailoverSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioSilenceSettings' in kwargs:
+            audio_silence_settings = kwargs['audioSilenceSettings']
+        if 'inputLossSettings' in kwargs:
+            input_loss_settings = kwargs['inputLossSettings']
+        if 'videoBlackSettings' in kwargs:
+            video_black_settings = kwargs['videoBlackSettings']
+
         if audio_silence_settings is not None:
             _setter("audio_silence_settings", audio_silence_settings)
         if input_loss_settings is not None:
@@ -4207,7 +4705,11 @@ class ChannelFeatureActivations(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              input_prepare_schedule_actions: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputPrepareScheduleActions' in kwargs:
+            input_prepare_schedule_actions = kwargs['inputPrepareScheduleActions']
+
         if input_prepare_schedule_actions is not None:
             _setter("input_prepare_schedule_actions", input_prepare_schedule_actions)
 
@@ -4256,7 +4758,15 @@ class ChannelFecOutputSettings(dict):
              column_depth: Optional[int] = None,
              include_fec: Optional[str] = None,
              row_length: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnDepth' in kwargs:
+            column_depth = kwargs['columnDepth']
+        if 'includeFec' in kwargs:
+            include_fec = kwargs['includeFec']
+        if 'rowLength' in kwargs:
+            row_length = kwargs['rowLength']
+
         if column_depth is not None:
             _setter("column_depth", column_depth)
         if include_fec is not None:
@@ -4319,7 +4829,15 @@ class ChannelFmp4HlsSettings(dict):
              audio_rendition_sets: Optional[str] = None,
              nielsen_id3_behavior: Optional[str] = None,
              timed_metadata_behavior: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioRenditionSets' in kwargs:
+            audio_rendition_sets = kwargs['audioRenditionSets']
+        if 'nielsenId3Behavior' in kwargs:
+            nielsen_id3_behavior = kwargs['nielsenId3Behavior']
+        if 'timedMetadataBehavior' in kwargs:
+            timed_metadata_behavior = kwargs['timedMetadataBehavior']
+
         if audio_rendition_sets is not None:
             _setter("audio_rendition_sets", audio_rendition_sets)
         if nielsen_id3_behavior is not None:
@@ -4372,7 +4890,11 @@ class ChannelFrameCaptureCdnSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              frame_capture_s3_settings: Optional['outputs.ChannelFrameCaptureS3Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameCaptureS3Settings' in kwargs:
+            frame_capture_s3_settings = kwargs['frameCaptureS3Settings']
+
         if frame_capture_s3_settings is not None:
             _setter("frame_capture_s3_settings", frame_capture_s3_settings)
 
@@ -4414,7 +4936,11 @@ class ChannelFrameCaptureGroupSettings(dict):
              _setter: Callable[[Any, Any], None],
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
              frame_capture_cdn_settings: Optional['outputs.ChannelFrameCaptureCdnSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameCaptureCdnSettings' in kwargs:
+            frame_capture_cdn_settings = kwargs['frameCaptureCdnSettings']
+
         if destination is not None:
             _setter("destination", destination)
         if frame_capture_cdn_settings is not None:
@@ -4438,8 +4964,10 @@ class ChannelFrameCaptureHlsSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -4471,7 +4999,11 @@ class ChannelFrameCaptureOutputSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name_modifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nameModifier' in kwargs:
+            name_modifier = kwargs['nameModifier']
+
         if name_modifier is not None:
             _setter("name_modifier", name_modifier)
 
@@ -4510,7 +5042,11 @@ class ChannelFrameCaptureS3Settings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              canned_acl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
         if canned_acl is not None:
             _setter("canned_acl", canned_acl)
 
@@ -4559,7 +5095,15 @@ class ChannelFrameCaptureSettings(dict):
              capture_interval: Optional[int] = None,
              capture_interval_units: Optional[str] = None,
              timecode_burnin_settings: Optional['outputs.ChannelTimecodeBurninSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captureInterval' in kwargs:
+            capture_interval = kwargs['captureInterval']
+        if 'captureIntervalUnits' in kwargs:
+            capture_interval_units = kwargs['captureIntervalUnits']
+        if 'timecodeBurninSettings' in kwargs:
+            timecode_burnin_settings = kwargs['timecodeBurninSettings']
+
         if capture_interval is not None:
             _setter("capture_interval", capture_interval)
         if capture_interval_units is not None:
@@ -4637,7 +5181,21 @@ class ChannelGlobalConfiguration(dict):
              output_locking_mode: Optional[str] = None,
              output_timing_source: Optional[str] = None,
              support_low_framerate_inputs: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initialAudioGain' in kwargs:
+            initial_audio_gain = kwargs['initialAudioGain']
+        if 'inputEndAction' in kwargs:
+            input_end_action = kwargs['inputEndAction']
+        if 'inputLossBehavior' in kwargs:
+            input_loss_behavior = kwargs['inputLossBehavior']
+        if 'outputLockingMode' in kwargs:
+            output_locking_mode = kwargs['outputLockingMode']
+        if 'outputTimingSource' in kwargs:
+            output_timing_source = kwargs['outputTimingSource']
+        if 'supportLowFramerateInputs' in kwargs:
+            support_low_framerate_inputs = kwargs['supportLowFramerateInputs']
+
         if initial_audio_gain is not None:
             _setter("initial_audio_gain", initial_audio_gain)
         if input_end_action is not None:
@@ -4721,7 +5279,15 @@ class ChannelH264ColorSpaceSettings(dict):
              color_space_passthrough_settings: Optional['outputs.ChannelColorSpacePassthroughSettings'] = None,
              rec601_settings: Optional['outputs.ChannelRec601Settings'] = None,
              rec709_settings: Optional['outputs.ChannelRec709Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'colorSpacePassthroughSettings' in kwargs:
+            color_space_passthrough_settings = kwargs['colorSpacePassthroughSettings']
+        if 'rec601Settings' in kwargs:
+            rec601_settings = kwargs['rec601Settings']
+        if 'rec709Settings' in kwargs:
+            rec709_settings = kwargs['rec709Settings']
+
         if color_space_passthrough_settings is not None:
             _setter("color_space_passthrough_settings", color_space_passthrough_settings)
         if rec601_settings is not None:
@@ -4774,7 +5340,11 @@ class ChannelH264FilterSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              temporal_filter_settings: Optional['outputs.ChannelTemporalFilterSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'temporalFilterSettings' in kwargs:
+            temporal_filter_settings = kwargs['temporalFilterSettings']
+
         if temporal_filter_settings is not None:
             _setter("temporal_filter_settings", temporal_filter_settings)
 
@@ -5006,7 +5576,81 @@ class ChannelH264Settings(dict):
              temporal_aq: Optional[str] = None,
              timecode_burnin_settings: Optional['outputs.ChannelTimecodeBurninSettings'] = None,
              timecode_insertion: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adaptiveQuantization' in kwargs:
+            adaptive_quantization = kwargs['adaptiveQuantization']
+        if 'afdSignaling' in kwargs:
+            afd_signaling = kwargs['afdSignaling']
+        if 'bufFillPct' in kwargs:
+            buf_fill_pct = kwargs['bufFillPct']
+        if 'bufSize' in kwargs:
+            buf_size = kwargs['bufSize']
+        if 'colorMetadata' in kwargs:
+            color_metadata = kwargs['colorMetadata']
+        if 'colorSpaceSettings' in kwargs:
+            color_space_settings = kwargs['colorSpaceSettings']
+        if 'entropyEncoding' in kwargs:
+            entropy_encoding = kwargs['entropyEncoding']
+        if 'filterSettings' in kwargs:
+            filter_settings = kwargs['filterSettings']
+        if 'fixedAfd' in kwargs:
+            fixed_afd = kwargs['fixedAfd']
+        if 'flickerAq' in kwargs:
+            flicker_aq = kwargs['flickerAq']
+        if 'forceFieldPictures' in kwargs:
+            force_field_pictures = kwargs['forceFieldPictures']
+        if 'framerateControl' in kwargs:
+            framerate_control = kwargs['framerateControl']
+        if 'framerateDenominator' in kwargs:
+            framerate_denominator = kwargs['framerateDenominator']
+        if 'framerateNumerator' in kwargs:
+            framerate_numerator = kwargs['framerateNumerator']
+        if 'gopBReference' in kwargs:
+            gop_b_reference = kwargs['gopBReference']
+        if 'gopClosedCadence' in kwargs:
+            gop_closed_cadence = kwargs['gopClosedCadence']
+        if 'gopNumBFrames' in kwargs:
+            gop_num_b_frames = kwargs['gopNumBFrames']
+        if 'gopSize' in kwargs:
+            gop_size = kwargs['gopSize']
+        if 'gopSizeUnits' in kwargs:
+            gop_size_units = kwargs['gopSizeUnits']
+        if 'lookAheadRateControl' in kwargs:
+            look_ahead_rate_control = kwargs['lookAheadRateControl']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'minIInterval' in kwargs:
+            min_i_interval = kwargs['minIInterval']
+        if 'numRefFrames' in kwargs:
+            num_ref_frames = kwargs['numRefFrames']
+        if 'parControl' in kwargs:
+            par_control = kwargs['parControl']
+        if 'parDenominator' in kwargs:
+            par_denominator = kwargs['parDenominator']
+        if 'parNumerator' in kwargs:
+            par_numerator = kwargs['parNumerator']
+        if 'qualityLevel' in kwargs:
+            quality_level = kwargs['qualityLevel']
+        if 'qvbrQualityLevel' in kwargs:
+            qvbr_quality_level = kwargs['qvbrQualityLevel']
+        if 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+        if 'sceneChangeDetect' in kwargs:
+            scene_change_detect = kwargs['sceneChangeDetect']
+        if 'spatialAq' in kwargs:
+            spatial_aq = kwargs['spatialAq']
+        if 'subgopLength' in kwargs:
+            subgop_length = kwargs['subgopLength']
+        if 'temporalAq' in kwargs:
+            temporal_aq = kwargs['temporalAq']
+        if 'timecodeBurninSettings' in kwargs:
+            timecode_burnin_settings = kwargs['timecodeBurninSettings']
+        if 'timecodeInsertion' in kwargs:
+            timecode_insertion = kwargs['timecodeInsertion']
+
         if adaptive_quantization is not None:
             _setter("adaptive_quantization", adaptive_quantization)
         if afd_signaling is not None:
@@ -5352,7 +5996,19 @@ class ChannelH265ColorSpaceSettings(dict):
              hdr10_settings: Optional['outputs.ChannelHdr10Settings'] = None,
              rec601_settings: Optional['outputs.ChannelRec601Settings'] = None,
              rec709_settings: Optional['outputs.ChannelRec709Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'colorSpacePassthroughSettings' in kwargs:
+            color_space_passthrough_settings = kwargs['colorSpacePassthroughSettings']
+        if 'dolbyVision81Settings' in kwargs:
+            dolby_vision81_settings = kwargs['dolbyVision81Settings']
+        if 'hdr10Settings' in kwargs:
+            hdr10_settings = kwargs['hdr10Settings']
+        if 'rec601Settings' in kwargs:
+            rec601_settings = kwargs['rec601Settings']
+        if 'rec709Settings' in kwargs:
+            rec709_settings = kwargs['rec709Settings']
+
         if color_space_passthrough_settings is not None:
             _setter("color_space_passthrough_settings", color_space_passthrough_settings)
         if dolby_vision81_settings is not None:
@@ -5419,7 +6075,11 @@ class ChannelH265FilterSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              temporal_filter_settings: Optional['outputs.ChannelTemporalFilterSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'temporalFilterSettings' in kwargs:
+            temporal_filter_settings = kwargs['temporalFilterSettings']
+
         if temporal_filter_settings is not None:
             _setter("temporal_filter_settings", temporal_filter_settings)
 
@@ -5593,7 +6253,59 @@ class ChannelH265Settings(dict):
              tier: Optional[str] = None,
              timecode_burnin_settings: Optional['outputs.ChannelTimecodeBurninSettings'] = None,
              timecode_insertion: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adaptiveQuantization' in kwargs:
+            adaptive_quantization = kwargs['adaptiveQuantization']
+        if 'afdSignaling' in kwargs:
+            afd_signaling = kwargs['afdSignaling']
+        if 'alternativeTransferFunction' in kwargs:
+            alternative_transfer_function = kwargs['alternativeTransferFunction']
+        if 'bufSize' in kwargs:
+            buf_size = kwargs['bufSize']
+        if 'colorMetadata' in kwargs:
+            color_metadata = kwargs['colorMetadata']
+        if 'colorSpaceSettings' in kwargs:
+            color_space_settings = kwargs['colorSpaceSettings']
+        if 'filterSettings' in kwargs:
+            filter_settings = kwargs['filterSettings']
+        if 'fixedAfd' in kwargs:
+            fixed_afd = kwargs['fixedAfd']
+        if 'flickerAq' in kwargs:
+            flicker_aq = kwargs['flickerAq']
+        if 'framerateDenominator' in kwargs:
+            framerate_denominator = kwargs['framerateDenominator']
+        if 'framerateNumerator' in kwargs:
+            framerate_numerator = kwargs['framerateNumerator']
+        if 'gopClosedCadence' in kwargs:
+            gop_closed_cadence = kwargs['gopClosedCadence']
+        if 'gopSize' in kwargs:
+            gop_size = kwargs['gopSize']
+        if 'gopSizeUnits' in kwargs:
+            gop_size_units = kwargs['gopSizeUnits']
+        if 'lookAheadRateControl' in kwargs:
+            look_ahead_rate_control = kwargs['lookAheadRateControl']
+        if 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if 'minIInterval' in kwargs:
+            min_i_interval = kwargs['minIInterval']
+        if 'parDenominator' in kwargs:
+            par_denominator = kwargs['parDenominator']
+        if 'parNumerator' in kwargs:
+            par_numerator = kwargs['parNumerator']
+        if 'qvbrQualityLevel' in kwargs:
+            qvbr_quality_level = kwargs['qvbrQualityLevel']
+        if 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+        if 'sceneChangeDetect' in kwargs:
+            scene_change_detect = kwargs['sceneChangeDetect']
+        if 'timecodeBurninSettings' in kwargs:
+            timecode_burnin_settings = kwargs['timecodeBurninSettings']
+        if 'timecodeInsertion' in kwargs:
+            timecode_insertion = kwargs['timecodeInsertion']
+
         if adaptive_quantization is not None:
             _setter("adaptive_quantization", adaptive_quantization)
         if afd_signaling is not None:
@@ -5840,7 +6552,13 @@ class ChannelHdr10Settings(dict):
              _setter: Callable[[Any, Any], None],
              max_cll: Optional[int] = None,
              max_fall: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCll' in kwargs:
+            max_cll = kwargs['maxCll']
+        if 'maxFall' in kwargs:
+            max_fall = kwargs['maxFall']
+
         if max_cll is not None:
             _setter("max_cll", max_cll)
         if max_fall is not None:
@@ -5912,7 +6630,19 @@ class ChannelHlsAkamaiSettings(dict):
              restart_delay: Optional[int] = None,
              salt: Optional[str] = None,
              token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'filecacheDuration' in kwargs:
+            filecache_duration = kwargs['filecacheDuration']
+        if 'httpTransferMode' in kwargs:
+            http_transfer_mode = kwargs['httpTransferMode']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+
         if connection_retry_interval is not None:
             _setter("connection_retry_interval", connection_retry_interval)
         if filecache_duration is not None:
@@ -6008,7 +6738,17 @@ class ChannelHlsBasicPutSettings(dict):
              filecache_duration: Optional[int] = None,
              num_retries: Optional[int] = None,
              restart_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'filecacheDuration' in kwargs:
+            filecache_duration = kwargs['filecacheDuration']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+
         if connection_retry_interval is not None:
             _setter("connection_retry_interval", connection_retry_interval)
         if filecache_duration is not None:
@@ -6088,7 +6828,19 @@ class ChannelHlsCdnSettings(dict):
              hls_media_store_settings: Optional['outputs.ChannelHlsMediaStoreSettings'] = None,
              hls_s3_settings: Optional['outputs.ChannelHlsS3Settings'] = None,
              hls_webdav_settings: Optional['outputs.ChannelHlsWebdavSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hlsAkamaiSettings' in kwargs:
+            hls_akamai_settings = kwargs['hlsAkamaiSettings']
+        if 'hlsBasicPutSettings' in kwargs:
+            hls_basic_put_settings = kwargs['hlsBasicPutSettings']
+        if 'hlsMediaStoreSettings' in kwargs:
+            hls_media_store_settings = kwargs['hlsMediaStoreSettings']
+        if 'hlsS3Settings' in kwargs:
+            hls_s3_settings = kwargs['hlsS3Settings']
+        if 'hlsWebdavSettings' in kwargs:
+            hls_webdav_settings = kwargs['hlsWebdavSettings']
+
         if hls_akamai_settings is not None:
             _setter("hls_akamai_settings", hls_akamai_settings)
         if hls_basic_put_settings is not None:
@@ -6361,7 +7113,91 @@ class ChannelHlsGroupSettings(dict):
              timed_metadata_id3_period: Optional[int] = None,
              timestamp_delta_milliseconds: Optional[int] = None,
              ts_file_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adMarkers' in kwargs:
+            ad_markers = kwargs['adMarkers']
+        if 'baseUrlContent' in kwargs:
+            base_url_content = kwargs['baseUrlContent']
+        if 'baseUrlContent1' in kwargs:
+            base_url_content1 = kwargs['baseUrlContent1']
+        if 'baseUrlManifest' in kwargs:
+            base_url_manifest = kwargs['baseUrlManifest']
+        if 'baseUrlManifest1' in kwargs:
+            base_url_manifest1 = kwargs['baseUrlManifest1']
+        if 'captionLanguageMappings' in kwargs:
+            caption_language_mappings = kwargs['captionLanguageMappings']
+        if 'captionLanguageSetting' in kwargs:
+            caption_language_setting = kwargs['captionLanguageSetting']
+        if 'clientCache' in kwargs:
+            client_cache = kwargs['clientCache']
+        if 'codecSpecification' in kwargs:
+            codec_specification = kwargs['codecSpecification']
+        if 'constantIv' in kwargs:
+            constant_iv = kwargs['constantIv']
+        if 'directoryStructure' in kwargs:
+            directory_structure = kwargs['directoryStructure']
+        if 'discontinuityTags' in kwargs:
+            discontinuity_tags = kwargs['discontinuityTags']
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'hlsCdnSettings' in kwargs:
+            hls_cdn_settings = kwargs['hlsCdnSettings']
+        if 'hlsId3SegmentTagging' in kwargs:
+            hls_id3_segment_tagging = kwargs['hlsId3SegmentTagging']
+        if 'iFrameOnlyPlaylists' in kwargs:
+            i_frame_only_playlists = kwargs['iFrameOnlyPlaylists']
+        if 'incompleteSegmentBehavior' in kwargs:
+            incomplete_segment_behavior = kwargs['incompleteSegmentBehavior']
+        if 'indexNSegments' in kwargs:
+            index_n_segments = kwargs['indexNSegments']
+        if 'inputLossAction' in kwargs:
+            input_loss_action = kwargs['inputLossAction']
+        if 'ivInManifest' in kwargs:
+            iv_in_manifest = kwargs['ivInManifest']
+        if 'ivSource' in kwargs:
+            iv_source = kwargs['ivSource']
+        if 'keepSegments' in kwargs:
+            keep_segments = kwargs['keepSegments']
+        if 'keyFormat' in kwargs:
+            key_format = kwargs['keyFormat']
+        if 'keyFormatVersions' in kwargs:
+            key_format_versions = kwargs['keyFormatVersions']
+        if 'keyProviderSettings' in kwargs:
+            key_provider_settings = kwargs['keyProviderSettings']
+        if 'manifestCompression' in kwargs:
+            manifest_compression = kwargs['manifestCompression']
+        if 'manifestDurationFormat' in kwargs:
+            manifest_duration_format = kwargs['manifestDurationFormat']
+        if 'minSegmentLength' in kwargs:
+            min_segment_length = kwargs['minSegmentLength']
+        if 'outputSelection' in kwargs:
+            output_selection = kwargs['outputSelection']
+        if 'programDateTime' in kwargs:
+            program_date_time = kwargs['programDateTime']
+        if 'programDateTimeClock' in kwargs:
+            program_date_time_clock = kwargs['programDateTimeClock']
+        if 'programDateTimePeriod' in kwargs:
+            program_date_time_period = kwargs['programDateTimePeriod']
+        if 'redundantManifest' in kwargs:
+            redundant_manifest = kwargs['redundantManifest']
+        if 'segmentLength' in kwargs:
+            segment_length = kwargs['segmentLength']
+        if 'segmentationMode' in kwargs:
+            segmentation_mode = kwargs['segmentationMode']
+        if 'segmentsPerSubdirectory' in kwargs:
+            segments_per_subdirectory = kwargs['segmentsPerSubdirectory']
+        if 'streamInfResolution' in kwargs:
+            stream_inf_resolution = kwargs['streamInfResolution']
+        if 'timedMetadataId3Frame' in kwargs:
+            timed_metadata_id3_frame = kwargs['timedMetadataId3Frame']
+        if 'timedMetadataId3Period' in kwargs:
+            timed_metadata_id3_period = kwargs['timedMetadataId3Period']
+        if 'timestampDeltaMilliseconds' in kwargs:
+            timestamp_delta_milliseconds = kwargs['timestampDeltaMilliseconds']
+        if 'tsFileMode' in kwargs:
+            ts_file_mode = kwargs['tsFileMode']
+
         if ad_markers is not None:
             _setter("ad_markers", ad_markers)
         if base_url_content is not None:
@@ -6710,7 +7546,15 @@ class ChannelHlsInputSettings(dict):
              retries: Optional[int] = None,
              retry_interval: Optional[int] = None,
              scte35_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bufferSegments' in kwargs:
+            buffer_segments = kwargs['bufferSegments']
+        if 'retryInterval' in kwargs:
+            retry_interval = kwargs['retryInterval']
+        if 'scte35Source' in kwargs:
+            scte35_source = kwargs['scte35Source']
+
         if bandwidth is not None:
             _setter("bandwidth", bandwidth)
         if buffer_segments is not None:
@@ -6797,7 +7641,19 @@ class ChannelHlsMediaStoreSettings(dict):
              media_store_storage_class: Optional[str] = None,
              num_retries: Optional[int] = None,
              restart_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'filecacheDuration' in kwargs:
+            filecache_duration = kwargs['filecacheDuration']
+        if 'mediaStoreStorageClass' in kwargs:
+            media_store_storage_class = kwargs['mediaStoreStorageClass']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+
         if connection_retry_interval is not None:
             _setter("connection_retry_interval", connection_retry_interval)
         if filecache_duration is not None:
@@ -6879,7 +7735,17 @@ class ChannelHlsOutputSettings(dict):
              hls_settings: Optional['outputs.ChannelHlsSettings'] = None,
              name_modifier: Optional[str] = None,
              segment_modifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'h265PackagingType' in kwargs:
+            h265_packaging_type = kwargs['h265PackagingType']
+        if 'hlsSettings' in kwargs:
+            hls_settings = kwargs['hlsSettings']
+        if 'nameModifier' in kwargs:
+            name_modifier = kwargs['nameModifier']
+        if 'segmentModifier' in kwargs:
+            segment_modifier = kwargs['segmentModifier']
+
         if h265_packaging_type is not None:
             _setter("h265_packaging_type", h265_packaging_type)
         if hls_settings is not None:
@@ -6939,7 +7805,11 @@ class ChannelHlsS3Settings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              canned_acl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
         if canned_acl is not None:
             _setter("canned_acl", canned_acl)
 
@@ -6993,7 +7863,17 @@ class ChannelHlsSettings(dict):
              fmp4_hls_settings: Optional['outputs.ChannelFmp4HlsSettings'] = None,
              frame_capture_hls_settings: Optional['outputs.ChannelFrameCaptureHlsSettings'] = None,
              standard_hls_settings: Optional['outputs.ChannelStandardHlsSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioOnlyHlsSettings' in kwargs:
+            audio_only_hls_settings = kwargs['audioOnlyHlsSettings']
+        if 'fmp4HlsSettings' in kwargs:
+            fmp4_hls_settings = kwargs['fmp4HlsSettings']
+        if 'frameCaptureHlsSettings' in kwargs:
+            frame_capture_hls_settings = kwargs['frameCaptureHlsSettings']
+        if 'standardHlsSettings' in kwargs:
+            standard_hls_settings = kwargs['standardHlsSettings']
+
         if audio_only_hls_settings is not None:
             _setter("audio_only_hls_settings", audio_only_hls_settings)
         if fmp4_hls_settings is not None:
@@ -7073,7 +7953,19 @@ class ChannelHlsWebdavSettings(dict):
              http_transfer_mode: Optional[str] = None,
              num_retries: Optional[int] = None,
              restart_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'filecacheDuration' in kwargs:
+            filecache_duration = kwargs['filecacheDuration']
+        if 'httpTransferMode' in kwargs:
+            http_transfer_mode = kwargs['httpTransferMode']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+
         if connection_retry_interval is not None:
             _setter("connection_retry_interval", connection_retry_interval)
         if filecache_duration is not None:
@@ -7118,8 +8010,10 @@ class ChannelHtmlMotionGraphicsSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -7166,7 +8060,17 @@ class ChannelInputAttachment(dict):
              input_attachment_name: Optional[str] = None,
              input_id: Optional[str] = None,
              input_settings: Optional['outputs.ChannelInputSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticInputFailoverSettings' in kwargs:
+            automatic_input_failover_settings = kwargs['automaticInputFailoverSettings']
+        if 'inputAttachmentName' in kwargs:
+            input_attachment_name = kwargs['inputAttachmentName']
+        if 'inputId' in kwargs:
+            input_id = kwargs['inputId']
+        if 'inputSettings' in kwargs:
+            input_settings = kwargs['inputSettings']
+
         if automatic_input_failover_settings is not None:
             _setter("automatic_input_failover_settings", automatic_input_failover_settings)
         if input_attachment_name is not None:
@@ -7229,7 +8133,11 @@ class ChannelInputChannelLevel(dict):
              _setter: Callable[[Any, Any], None],
              gain: Optional[int] = None,
              input_channel: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputChannel' in kwargs:
+            input_channel = kwargs['inputChannel']
+
         if gain is not None:
             _setter("gain", gain)
         if input_channel is not None:
@@ -7281,7 +8189,11 @@ class ChannelInputLocation(dict):
              password_param: Optional[str] = None,
              uri: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordParam' in kwargs:
+            password_param = kwargs['passwordParam']
+
         if password_param is not None:
             _setter("password_param", password_param)
         if uri is not None:
@@ -7354,7 +8266,19 @@ class ChannelInputLossBehavior(dict):
              input_loss_image_slate: Optional['outputs.ChannelInputLocation'] = None,
              input_loss_image_type: Optional[str] = None,
              repeat_frame_msec: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blackFrameMsec' in kwargs:
+            black_frame_msec = kwargs['blackFrameMsec']
+        if 'inputLossImageColor' in kwargs:
+            input_loss_image_color = kwargs['inputLossImageColor']
+        if 'inputLossImageSlate' in kwargs:
+            input_loss_image_slate = kwargs['inputLossImageSlate']
+        if 'inputLossImageType' in kwargs:
+            input_loss_image_type = kwargs['inputLossImageType']
+        if 'repeatFrameMsec' in kwargs:
+            repeat_frame_msec = kwargs['repeatFrameMsec']
+
         if black_frame_msec is not None:
             _setter("black_frame_msec", black_frame_msec)
         if input_loss_image_color is not None:
@@ -7421,7 +8345,11 @@ class ChannelInputLossFailoverSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              input_loss_threshold_msec: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLossThresholdMsec' in kwargs:
+            input_loss_threshold_msec = kwargs['inputLossThresholdMsec']
+
         if input_loss_threshold_msec is not None:
             _setter("input_loss_threshold_msec", input_loss_threshold_msec)
 
@@ -7510,7 +8438,31 @@ class ChannelInputSettings(dict):
              smpte2038_data_preference: Optional[str] = None,
              source_end_behavior: Optional[str] = None,
              video_selector: Optional['outputs.ChannelVideoSelector'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioSelectors' in kwargs:
+            audio_selectors = kwargs['audioSelectors']
+        if 'captionSelectors' in kwargs:
+            caption_selectors = kwargs['captionSelectors']
+        if 'deblockFilter' in kwargs:
+            deblock_filter = kwargs['deblockFilter']
+        if 'denoiseFilter' in kwargs:
+            denoise_filter = kwargs['denoiseFilter']
+        if 'filterStrength' in kwargs:
+            filter_strength = kwargs['filterStrength']
+        if 'inputFilter' in kwargs:
+            input_filter = kwargs['inputFilter']
+        if 'networkInputSettings' in kwargs:
+            network_input_settings = kwargs['networkInputSettings']
+        if 'scte35Pid' in kwargs:
+            scte35_pid = kwargs['scte35Pid']
+        if 'smpte2038DataPreference' in kwargs:
+            smpte2038_data_preference = kwargs['smpte2038DataPreference']
+        if 'sourceEndBehavior' in kwargs:
+            source_end_behavior = kwargs['sourceEndBehavior']
+        if 'videoSelector' in kwargs:
+            video_selector = kwargs['videoSelector']
+
         if audio_selectors is not None:
             _setter("audio_selectors", audio_selectors)
         if caption_selectors is not None:
@@ -7625,7 +8577,11 @@ class ChannelInputSpecification(dict):
              codec: Optional[str] = None,
              maximum_bitrate: Optional[str] = None,
              resolution: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumBitrate' in kwargs:
+            maximum_bitrate = kwargs['maximumBitrate']
+
         if codec is not None:
             _setter("codec", codec)
         if maximum_bitrate is not None:
@@ -7678,7 +8634,11 @@ class ChannelKeyProviderSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              static_key_settings: Optional['outputs.ChannelStaticKeySettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'staticKeySettings' in kwargs:
+            static_key_settings = kwargs['staticKeySettings']
+
         if static_key_settings is not None:
             _setter("static_key_settings", static_key_settings)
 
@@ -7944,7 +8904,97 @@ class ChannelM2tsSettings(dict):
              timed_metadata_pid: Optional[str] = None,
              transport_stream_id: Optional[int] = None,
              video_pid: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'absentInputAudioBehavior' in kwargs:
+            absent_input_audio_behavior = kwargs['absentInputAudioBehavior']
+        if 'aribCaptionsPid' in kwargs:
+            arib_captions_pid = kwargs['aribCaptionsPid']
+        if 'aribCaptionsPidControl' in kwargs:
+            arib_captions_pid_control = kwargs['aribCaptionsPidControl']
+        if 'audioBufferModel' in kwargs:
+            audio_buffer_model = kwargs['audioBufferModel']
+        if 'audioFramesPerPes' in kwargs:
+            audio_frames_per_pes = kwargs['audioFramesPerPes']
+        if 'audioPids' in kwargs:
+            audio_pids = kwargs['audioPids']
+        if 'audioStreamType' in kwargs:
+            audio_stream_type = kwargs['audioStreamType']
+        if 'bufferModel' in kwargs:
+            buffer_model = kwargs['bufferModel']
+        if 'ccDescriptor' in kwargs:
+            cc_descriptor = kwargs['ccDescriptor']
+        if 'dvbNitSettings' in kwargs:
+            dvb_nit_settings = kwargs['dvbNitSettings']
+        if 'dvbSdtSettings' in kwargs:
+            dvb_sdt_settings = kwargs['dvbSdtSettings']
+        if 'dvbSubPids' in kwargs:
+            dvb_sub_pids = kwargs['dvbSubPids']
+        if 'dvbTdtSettings' in kwargs:
+            dvb_tdt_settings = kwargs['dvbTdtSettings']
+        if 'dvbTeletextPid' in kwargs:
+            dvb_teletext_pid = kwargs['dvbTeletextPid']
+        if 'ebpAudioInterval' in kwargs:
+            ebp_audio_interval = kwargs['ebpAudioInterval']
+        if 'ebpLookaheadMs' in kwargs:
+            ebp_lookahead_ms = kwargs['ebpLookaheadMs']
+        if 'ebpPlacement' in kwargs:
+            ebp_placement = kwargs['ebpPlacement']
+        if 'ecmPid' in kwargs:
+            ecm_pid = kwargs['ecmPid']
+        if 'esRateInPes' in kwargs:
+            es_rate_in_pes = kwargs['esRateInPes']
+        if 'etvPlatformPid' in kwargs:
+            etv_platform_pid = kwargs['etvPlatformPid']
+        if 'etvSignalPid' in kwargs:
+            etv_signal_pid = kwargs['etvSignalPid']
+        if 'fragmentTime' in kwargs:
+            fragment_time = kwargs['fragmentTime']
+        if 'klvDataPids' in kwargs:
+            klv_data_pids = kwargs['klvDataPids']
+        if 'nielsenId3Behavior' in kwargs:
+            nielsen_id3_behavior = kwargs['nielsenId3Behavior']
+        if 'nullPacketBitrate' in kwargs:
+            null_packet_bitrate = kwargs['nullPacketBitrate']
+        if 'patInterval' in kwargs:
+            pat_interval = kwargs['patInterval']
+        if 'pcrControl' in kwargs:
+            pcr_control = kwargs['pcrControl']
+        if 'pcrPeriod' in kwargs:
+            pcr_period = kwargs['pcrPeriod']
+        if 'pcrPid' in kwargs:
+            pcr_pid = kwargs['pcrPid']
+        if 'pmtInterval' in kwargs:
+            pmt_interval = kwargs['pmtInterval']
+        if 'pmtPid' in kwargs:
+            pmt_pid = kwargs['pmtPid']
+        if 'programNum' in kwargs:
+            program_num = kwargs['programNum']
+        if 'rateMode' in kwargs:
+            rate_mode = kwargs['rateMode']
+        if 'scte27Pids' in kwargs:
+            scte27_pids = kwargs['scte27Pids']
+        if 'scte35Control' in kwargs:
+            scte35_control = kwargs['scte35Control']
+        if 'scte35Pid' in kwargs:
+            scte35_pid = kwargs['scte35Pid']
+        if 'scte35PrerollPullupMilliseconds' in kwargs:
+            scte35_preroll_pullup_milliseconds = kwargs['scte35PrerollPullupMilliseconds']
+        if 'segmentationMarkers' in kwargs:
+            segmentation_markers = kwargs['segmentationMarkers']
+        if 'segmentationStyle' in kwargs:
+            segmentation_style = kwargs['segmentationStyle']
+        if 'segmentationTime' in kwargs:
+            segmentation_time = kwargs['segmentationTime']
+        if 'timedMetadataBehavior' in kwargs:
+            timed_metadata_behavior = kwargs['timedMetadataBehavior']
+        if 'timedMetadataPid' in kwargs:
+            timed_metadata_pid = kwargs['timedMetadataPid']
+        if 'transportStreamId' in kwargs:
+            transport_stream_id = kwargs['transportStreamId']
+        if 'videoPid' in kwargs:
+            video_pid = kwargs['videoPid']
+
         if absent_input_audio_behavior is not None:
             _setter("absent_input_audio_behavior", absent_input_audio_behavior)
         if arib is not None:
@@ -8402,7 +9452,47 @@ class ChannelM3u8Settings(dict):
              timed_metadata_pid: Optional[str] = None,
              transport_stream_id: Optional[int] = None,
              video_pid: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioFramesPerPes' in kwargs:
+            audio_frames_per_pes = kwargs['audioFramesPerPes']
+        if 'audioPids' in kwargs:
+            audio_pids = kwargs['audioPids']
+        if 'ecmPid' in kwargs:
+            ecm_pid = kwargs['ecmPid']
+        if 'klvBehavior' in kwargs:
+            klv_behavior = kwargs['klvBehavior']
+        if 'klvDataPids' in kwargs:
+            klv_data_pids = kwargs['klvDataPids']
+        if 'nielsenId3Behavior' in kwargs:
+            nielsen_id3_behavior = kwargs['nielsenId3Behavior']
+        if 'patInterval' in kwargs:
+            pat_interval = kwargs['patInterval']
+        if 'pcrControl' in kwargs:
+            pcr_control = kwargs['pcrControl']
+        if 'pcrPeriod' in kwargs:
+            pcr_period = kwargs['pcrPeriod']
+        if 'pcrPid' in kwargs:
+            pcr_pid = kwargs['pcrPid']
+        if 'pmtInterval' in kwargs:
+            pmt_interval = kwargs['pmtInterval']
+        if 'pmtPid' in kwargs:
+            pmt_pid = kwargs['pmtPid']
+        if 'programNum' in kwargs:
+            program_num = kwargs['programNum']
+        if 'scte35Behavior' in kwargs:
+            scte35_behavior = kwargs['scte35Behavior']
+        if 'scte35Pid' in kwargs:
+            scte35_pid = kwargs['scte35Pid']
+        if 'timedMetadataBehavior' in kwargs:
+            timed_metadata_behavior = kwargs['timedMetadataBehavior']
+        if 'timedMetadataPid' in kwargs:
+            timed_metadata_pid = kwargs['timedMetadataPid']
+        if 'transportStreamId' in kwargs:
+            transport_stream_id = kwargs['transportStreamId']
+        if 'videoPid' in kwargs:
+            video_pid = kwargs['videoPid']
+
         if audio_frames_per_pes is not None:
             _setter("audio_frames_per_pes", audio_frames_per_pes)
         if audio_pids is not None:
@@ -8572,7 +9662,13 @@ class ChannelMaintenanceCreateSettings(dict):
              _setter: Callable[[Any, Any], None],
              maintenance_day: Optional[str] = None,
              maintenance_start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceDay' in kwargs:
+            maintenance_day = kwargs['maintenanceDay']
+        if 'maintenanceStartTime' in kwargs:
+            maintenance_start_time = kwargs['maintenanceStartTime']
+
         if maintenance_day is not None:
             _setter("maintenance_day", maintenance_day)
         if maintenance_start_time is not None:
@@ -8601,7 +9697,9 @@ class ChannelMediaPackageGroupSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destination is not None:
             _setter("destination", destination)
 
@@ -8640,7 +9738,11 @@ class ChannelMediaPackageOutputDestinationSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              channel_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+
         if channel_id is not None:
             _setter("channel_id", channel_id)
 
@@ -8657,8 +9759,10 @@ class ChannelMediaPackageOutputSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -8695,7 +9799,13 @@ class ChannelMotionGraphicsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              motion_graphics_insertion: Optional[str] = None,
              motion_graphics_settings: Optional['outputs.ChannelMotionGraphicsSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'motionGraphicsInsertion' in kwargs:
+            motion_graphics_insertion = kwargs['motionGraphicsInsertion']
+        if 'motionGraphicsSettings' in kwargs:
+            motion_graphics_settings = kwargs['motionGraphicsSettings']
+
         if motion_graphics_insertion is not None:
             _setter("motion_graphics_insertion", motion_graphics_insertion)
         if motion_graphics_settings is not None:
@@ -8741,7 +9851,11 @@ class ChannelMotionGraphicsSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              html_motion_graphics_settings: Optional['outputs.ChannelHtmlMotionGraphicsSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'htmlMotionGraphicsSettings' in kwargs:
+            html_motion_graphics_settings = kwargs['htmlMotionGraphicsSettings']
+
         if html_motion_graphics_settings is not None:
             _setter("html_motion_graphics_settings", html_motion_graphics_settings)
 
@@ -8788,7 +9902,13 @@ class ChannelMp2Settings(dict):
              bitrate: Optional[float] = None,
              coding_mode: Optional[str] = None,
              sample_rate: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'sampleRate' in kwargs:
+            sample_rate = kwargs['sampleRate']
+
         if bitrate is not None:
             _setter("bitrate", bitrate)
         if coding_mode is not None:
@@ -8841,7 +9961,11 @@ class ChannelMpeg2FilterSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              temporal_filter_settings: Optional['outputs.ChannelTemporalFilterSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'temporalFilterSettings' in kwargs:
+            temporal_filter_settings = kwargs['temporalFilterSettings']
+
         if temporal_filter_settings is not None:
             _setter("temporal_filter_settings", temporal_filter_settings)
 
@@ -8960,7 +10084,43 @@ class ChannelMpeg2Settings(dict):
              subgop_length: Optional[str] = None,
              timecode_burnin_settings: Optional['outputs.ChannelTimecodeBurninSettings'] = None,
              timecode_insertion: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adaptiveQuantization' in kwargs:
+            adaptive_quantization = kwargs['adaptiveQuantization']
+        if 'afdSignaling' in kwargs:
+            afd_signaling = kwargs['afdSignaling']
+        if 'colorMetadata' in kwargs:
+            color_metadata = kwargs['colorMetadata']
+        if 'colorSpace' in kwargs:
+            color_space = kwargs['colorSpace']
+        if 'displayAspectRatio' in kwargs:
+            display_aspect_ratio = kwargs['displayAspectRatio']
+        if 'filterSettings' in kwargs:
+            filter_settings = kwargs['filterSettings']
+        if 'fixedAfd' in kwargs:
+            fixed_afd = kwargs['fixedAfd']
+        if 'framerateDenominator' in kwargs:
+            framerate_denominator = kwargs['framerateDenominator']
+        if 'framerateNumerator' in kwargs:
+            framerate_numerator = kwargs['framerateNumerator']
+        if 'gopClosedCadence' in kwargs:
+            gop_closed_cadence = kwargs['gopClosedCadence']
+        if 'gopNumBFrames' in kwargs:
+            gop_num_b_frames = kwargs['gopNumBFrames']
+        if 'gopSize' in kwargs:
+            gop_size = kwargs['gopSize']
+        if 'gopSizeUnits' in kwargs:
+            gop_size_units = kwargs['gopSizeUnits']
+        if 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+        if 'subgopLength' in kwargs:
+            subgop_length = kwargs['subgopLength']
+        if 'timecodeBurninSettings' in kwargs:
+            timecode_burnin_settings = kwargs['timecodeBurninSettings']
+        if 'timecodeInsertion' in kwargs:
+            timecode_insertion = kwargs['timecodeInsertion']
+
         if adaptive_quantization is not None:
             _setter("adaptive_quantization", adaptive_quantization)
         if afd_signaling is not None:
@@ -9199,7 +10359,45 @@ class ChannelMsSmoothGroupSettings(dict):
              stream_manifest_behavior: Optional[str] = None,
              timestamp_offset: Optional[str] = None,
              timestamp_offset_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acquisitionPointId' in kwargs:
+            acquisition_point_id = kwargs['acquisitionPointId']
+        if 'audioOnlyTimecodeControl' in kwargs:
+            audio_only_timecode_control = kwargs['audioOnlyTimecodeControl']
+        if 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'eventId' in kwargs:
+            event_id = kwargs['eventId']
+        if 'eventIdMode' in kwargs:
+            event_id_mode = kwargs['eventIdMode']
+        if 'eventStopBehavior' in kwargs:
+            event_stop_behavior = kwargs['eventStopBehavior']
+        if 'filecacheDuration' in kwargs:
+            filecache_duration = kwargs['filecacheDuration']
+        if 'fragmentLength' in kwargs:
+            fragment_length = kwargs['fragmentLength']
+        if 'inputLossAction' in kwargs:
+            input_loss_action = kwargs['inputLossAction']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+        if 'segmentationMode' in kwargs:
+            segmentation_mode = kwargs['segmentationMode']
+        if 'sendDelayMs' in kwargs:
+            send_delay_ms = kwargs['sendDelayMs']
+        if 'sparseTrackType' in kwargs:
+            sparse_track_type = kwargs['sparseTrackType']
+        if 'streamManifestBehavior' in kwargs:
+            stream_manifest_behavior = kwargs['streamManifestBehavior']
+        if 'timestampOffset' in kwargs:
+            timestamp_offset = kwargs['timestampOffset']
+        if 'timestampOffsetMode' in kwargs:
+            timestamp_offset_mode = kwargs['timestampOffsetMode']
+
         if acquisition_point_id is not None:
             _setter("acquisition_point_id", acquisition_point_id)
         if audio_only_timecode_control is not None:
@@ -9369,7 +10567,13 @@ class ChannelMsSmoothOutputSettings(dict):
              _setter: Callable[[Any, Any], None],
              h265_packaging_type: Optional[str] = None,
              name_modifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'h265PackagingType' in kwargs:
+            h265_packaging_type = kwargs['h265PackagingType']
+        if 'nameModifier' in kwargs:
+            name_modifier = kwargs['nameModifier']
+
         if h265_packaging_type is not None:
             _setter("h265_packaging_type", h265_packaging_type)
         if name_modifier is not None:
@@ -9393,8 +10597,10 @@ class ChannelMultiplexGroupSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -9409,7 +10615,9 @@ class ChannelMultiplexOutputSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destination is not None:
             _setter("destination", destination)
 
@@ -9453,7 +10661,13 @@ class ChannelMultiplexProgramChannelDestinationSettings(dict):
              _setter: Callable[[Any, Any], None],
              multiplex_id: Optional[str] = None,
              program_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multiplexId' in kwargs:
+            multiplex_id = kwargs['multiplexId']
+        if 'programName' in kwargs:
+            program_name = kwargs['programName']
+
         if multiplex_id is not None:
             _setter("multiplex_id", multiplex_id)
         if program_name is not None:
@@ -9504,7 +10718,13 @@ class ChannelNetworkInputSettings(dict):
              _setter: Callable[[Any, Any], None],
              hls_input_settings: Optional['outputs.ChannelHlsInputSettings'] = None,
              server_validation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hlsInputSettings' in kwargs:
+            hls_input_settings = kwargs['hlsInputSettings']
+        if 'serverValidation' in kwargs:
+            server_validation = kwargs['serverValidation']
+
         if hls_input_settings is not None:
             _setter("hls_input_settings", hls_input_settings)
         if server_validation is not None:
@@ -9558,7 +10778,13 @@ class ChannelNielsenCbet(dict):
              cbet_check_digit_string: Optional[str] = None,
              cbet_stepaside: Optional[str] = None,
              csid: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cbetCheckDigitString' in kwargs:
+            cbet_check_digit_string = kwargs['cbetCheckDigitString']
+        if 'cbetStepaside' in kwargs:
+            cbet_stepaside = kwargs['cbetStepaside']
+
         if cbet_check_digit_string is not None:
             _setter("cbet_check_digit_string", cbet_check_digit_string)
         if cbet_stepaside is not None:
@@ -9616,7 +10842,13 @@ class ChannelNielsenConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              distributor_id: Optional[str] = None,
              nielsen_pcm_to_id3_tagging: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'distributorId' in kwargs:
+            distributor_id = kwargs['distributorId']
+        if 'nielsenPcmToId3Tagging' in kwargs:
+            nielsen_pcm_to_id3_tagging = kwargs['nielsenPcmToId3Tagging']
+
         if distributor_id is not None:
             _setter("distributor_id", distributor_id)
         if nielsen_pcm_to_id3_tagging is not None:
@@ -9668,7 +10900,11 @@ class ChannelNielsenNaesIiNw(dict):
              check_digit_string: Optional[str] = None,
              sid: Optional[float] = None,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkDigitString' in kwargs:
+            check_digit_string = kwargs['checkDigitString']
+
         if check_digit_string is not None:
             _setter("check_digit_string", check_digit_string)
         if sid is not None:
@@ -9731,7 +10967,15 @@ class ChannelNielsenWatermarksSettings(dict):
              nielsen_cbet_settings: Optional['outputs.ChannelNielsenCbet'] = None,
              nielsen_distribution_type: Optional[str] = None,
              nielsen_naes_ii_nw_settings: Optional['outputs.ChannelNielsenNaesIiNw'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nielsenCbetSettings' in kwargs:
+            nielsen_cbet_settings = kwargs['nielsenCbetSettings']
+        if 'nielsenDistributionType' in kwargs:
+            nielsen_distribution_type = kwargs['nielsenDistributionType']
+        if 'nielsenNaesIiNwSettings' in kwargs:
+            nielsen_naes_ii_nw_settings = kwargs['nielsenNaesIiNwSettings']
+
         if nielsen_cbet_settings is not None:
             _setter("nielsen_cbet_settings", nielsen_cbet_settings)
         if nielsen_distribution_type is not None:
@@ -9804,7 +11048,19 @@ class ChannelOutput(dict):
              output_name: Optional[str] = None,
              output_settings: Optional['outputs.ChannelOutputSettings'] = None,
              video_description_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioDescriptionNames' in kwargs:
+            audio_description_names = kwargs['audioDescriptionNames']
+        if 'captionDescriptionNames' in kwargs:
+            caption_description_names = kwargs['captionDescriptionNames']
+        if 'outputName' in kwargs:
+            output_name = kwargs['outputName']
+        if 'outputSettings' in kwargs:
+            output_settings = kwargs['outputSettings']
+        if 'videoDescriptionName' in kwargs:
+            video_description_name = kwargs['videoDescriptionName']
+
         if audio_description_names is not None:
             _setter("audio_description_names", audio_description_names)
         if caption_description_names is not None:
@@ -9882,7 +11138,13 @@ class ChannelOutputDestination(dict):
              media_package_settings: Optional[Sequence['outputs.ChannelMediaPackageOutputDestinationSettings']] = None,
              multiplex_settings: Optional['outputs.ChannelMultiplexProgramChannelDestinationSettings'] = None,
              settings: Optional[Sequence['outputs.ChannelOutputDestinationSettings']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaPackageSettings' in kwargs:
+            media_package_settings = kwargs['mediaPackageSettings']
+        if 'multiplexSettings' in kwargs:
+            multiplex_settings = kwargs['multiplexSettings']
+
         if id is not None:
             _setter("id", id)
         if media_package_settings is not None:
@@ -9953,7 +11215,13 @@ class ChannelOutputDestinationSettings(dict):
              stream_name: Optional[str] = None,
              url: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordParam' in kwargs:
+            password_param = kwargs['passwordParam']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         if password_param is not None:
             _setter("password_param", password_param)
         if stream_name is not None:
@@ -10019,7 +11287,11 @@ class ChannelOutputGroup(dict):
              name: Optional[str] = None,
              output_group_settings: Optional['outputs.ChannelOutputGroupSettings'] = None,
              outputs: Optional[Sequence['outputs.ChannelOutput']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputGroupSettings' in kwargs:
+            output_group_settings = kwargs['outputGroupSettings']
+
         if name is not None:
             _setter("name", name)
         if output_group_settings is not None:
@@ -10107,7 +11379,25 @@ class ChannelOutputGroupSettings(dict):
              multiplex_group_settings: Optional['outputs.ChannelMultiplexGroupSettings'] = None,
              rtmp_group_settings: Optional['outputs.ChannelRtmpGroupSettings'] = None,
              udp_group_settings: Optional['outputs.ChannelUdpGroupSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveGroupSettings' in kwargs:
+            archive_group_settings = kwargs['archiveGroupSettings']
+        if 'frameCaptureGroupSettings' in kwargs:
+            frame_capture_group_settings = kwargs['frameCaptureGroupSettings']
+        if 'hlsGroupSettings' in kwargs:
+            hls_group_settings = kwargs['hlsGroupSettings']
+        if 'mediaPackageGroupSettings' in kwargs:
+            media_package_group_settings = kwargs['mediaPackageGroupSettings']
+        if 'msSmoothGroupSettings' in kwargs:
+            ms_smooth_group_settings = kwargs['msSmoothGroupSettings']
+        if 'multiplexGroupSettings' in kwargs:
+            multiplex_group_settings = kwargs['multiplexGroupSettings']
+        if 'rtmpGroupSettings' in kwargs:
+            rtmp_group_settings = kwargs['rtmpGroupSettings']
+        if 'udpGroupSettings' in kwargs:
+            udp_group_settings = kwargs['udpGroupSettings']
+
         if archive_group_settings is not None:
             _setter("archive_group_settings", archive_group_settings)
         if frame_capture_group_settings is not None:
@@ -10195,7 +11485,11 @@ class ChannelOutputLocationRef(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination_ref_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationRefId' in kwargs:
+            destination_ref_id = kwargs['destinationRefId']
+
         if destination_ref_id is not None:
             _setter("destination_ref_id", destination_ref_id)
 
@@ -10269,7 +11563,25 @@ class ChannelOutputSettings(dict):
              multiplex_output_settings: Optional['outputs.ChannelMultiplexOutputSettings'] = None,
              rtmp_output_settings: Optional['outputs.ChannelRtmpOutputSettings'] = None,
              udp_output_settings: Optional['outputs.ChannelUdpOutputSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveOutputSettings' in kwargs:
+            archive_output_settings = kwargs['archiveOutputSettings']
+        if 'frameCaptureOutputSettings' in kwargs:
+            frame_capture_output_settings = kwargs['frameCaptureOutputSettings']
+        if 'hlsOutputSettings' in kwargs:
+            hls_output_settings = kwargs['hlsOutputSettings']
+        if 'mediaPackageOutputSettings' in kwargs:
+            media_package_output_settings = kwargs['mediaPackageOutputSettings']
+        if 'msSmoothOutputSettings' in kwargs:
+            ms_smooth_output_settings = kwargs['msSmoothOutputSettings']
+        if 'multiplexOutputSettings' in kwargs:
+            multiplex_output_settings = kwargs['multiplexOutputSettings']
+        if 'rtmpOutputSettings' in kwargs:
+            rtmp_output_settings = kwargs['rtmpOutputSettings']
+        if 'udpOutputSettings' in kwargs:
+            udp_output_settings = kwargs['udpOutputSettings']
+
         if archive_output_settings is not None:
             _setter("archive_output_settings", archive_output_settings)
         if frame_capture_output_settings is not None:
@@ -10335,8 +11647,10 @@ class ChannelPassThroughSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10346,8 +11660,10 @@ class ChannelRawSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10357,8 +11673,10 @@ class ChannelRec601Settings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10368,8 +11686,10 @@ class ChannelRec709Settings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10411,7 +11731,15 @@ class ChannelRemixSettings(dict):
              channel_mappings: Optional[Sequence['outputs.ChannelAudioChannelMapping']] = None,
              channels_in: Optional[int] = None,
              channels_out: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelMappings' in kwargs:
+            channel_mappings = kwargs['channelMappings']
+        if 'channelsIn' in kwargs:
+            channels_in = kwargs['channelsIn']
+        if 'channelsOut' in kwargs:
+            channels_out = kwargs['channelsOut']
+
         if channel_mappings is not None:
             _setter("channel_mappings", channel_mappings)
         if channels_in is not None:
@@ -10442,8 +11770,10 @@ class ChannelRtmpCaptionInfoDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10510,7 +11840,25 @@ class ChannelRtmpGroupSettings(dict):
              include_filler_nal_units: Optional[str] = None,
              input_loss_action: Optional[str] = None,
              restart_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adMarkers' in kwargs:
+            ad_markers = kwargs['adMarkers']
+        if 'authenticationScheme' in kwargs:
+            authentication_scheme = kwargs['authenticationScheme']
+        if 'cacheFullBehavior' in kwargs:
+            cache_full_behavior = kwargs['cacheFullBehavior']
+        if 'cacheLength' in kwargs:
+            cache_length = kwargs['cacheLength']
+        if 'captionData' in kwargs:
+            caption_data = kwargs['captionData']
+        if 'includeFillerNalUnits' in kwargs:
+            include_filler_nal_units = kwargs['includeFillerNalUnits']
+        if 'inputLossAction' in kwargs:
+            input_loss_action = kwargs['inputLossAction']
+        if 'restartDelay' in kwargs:
+            restart_delay = kwargs['restartDelay']
+
         if ad_markers is not None:
             _setter("ad_markers", ad_markers)
         if authentication_scheme is not None:
@@ -10611,7 +11959,15 @@ class ChannelRtmpOutputSettings(dict):
              connection_retry_interval: Optional[int] = None,
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
              num_retries: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if 'connectionRetryInterval' in kwargs:
+            connection_retry_interval = kwargs['connectionRetryInterval']
+        if 'numRetries' in kwargs:
+            num_retries = kwargs['numRetries']
+
         if certificate_mode is not None:
             _setter("certificate_mode", certificate_mode)
         if connection_retry_interval is not None:
@@ -10649,8 +12005,10 @@ class ChannelScte20PlusEmbeddedDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10687,7 +12045,13 @@ class ChannelScte20SourceSettings(dict):
              _setter: Callable[[Any, Any], None],
              convert608_to708: Optional[str] = None,
              source608_channel_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'convert608To708' in kwargs:
+            convert608_to708 = kwargs['convert608To708']
+        if 'source608ChannelNumber' in kwargs:
+            source608_channel_number = kwargs['source608ChannelNumber']
+
         if convert608_to708 is not None:
             _setter("convert608_to708", convert608_to708)
         if source608_channel_number is not None:
@@ -10711,8 +12075,10 @@ class ChannelScte27DestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10747,7 +12113,11 @@ class ChannelScte27SourceSettings(dict):
              _setter: Callable[[Any, Any], None],
              ocr_language: Optional[str] = None,
              pid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ocrLanguage' in kwargs:
+            ocr_language = kwargs['ocrLanguage']
+
         if ocr_language is not None:
             _setter("ocr_language", ocr_language)
         if pid is not None:
@@ -10803,7 +12173,15 @@ class ChannelScte35SpliceInsert(dict):
              ad_avail_offset: Optional[int] = None,
              no_regional_blackout_flag: Optional[str] = None,
              web_delivery_allowed_flag: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adAvailOffset' in kwargs:
+            ad_avail_offset = kwargs['adAvailOffset']
+        if 'noRegionalBlackoutFlag' in kwargs:
+            no_regional_blackout_flag = kwargs['noRegionalBlackoutFlag']
+        if 'webDeliveryAllowedFlag' in kwargs:
+            web_delivery_allowed_flag = kwargs['webDeliveryAllowedFlag']
+
         if ad_avail_offset is not None:
             _setter("ad_avail_offset", ad_avail_offset)
         if no_regional_blackout_flag is not None:
@@ -10866,7 +12244,15 @@ class ChannelScte35TimeSignalApos(dict):
              ad_avail_offset: Optional[int] = None,
              no_regional_blackout_flag: Optional[str] = None,
              web_delivery_allowed_flag: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adAvailOffset' in kwargs:
+            ad_avail_offset = kwargs['adAvailOffset']
+        if 'noRegionalBlackoutFlag' in kwargs:
+            no_regional_blackout_flag = kwargs['noRegionalBlackoutFlag']
+        if 'webDeliveryAllowedFlag' in kwargs:
+            web_delivery_allowed_flag = kwargs['webDeliveryAllowedFlag']
+
         if ad_avail_offset is not None:
             _setter("ad_avail_offset", ad_avail_offset)
         if no_regional_blackout_flag is not None:
@@ -10897,8 +12283,10 @@ class ChannelSmpteTtDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -10935,7 +12323,13 @@ class ChannelStandardHlsSettings(dict):
              _setter: Callable[[Any, Any], None],
              audio_rendition_sets: Optional[str] = None,
              m3u8_settings: Optional['outputs.ChannelM3u8Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioRenditionSets' in kwargs:
+            audio_rendition_sets = kwargs['audioRenditionSets']
+        if 'm3u8Settings' in kwargs:
+            m3u8_settings = kwargs['m3u8Settings']
+
         if audio_rendition_sets is not None:
             _setter("audio_rendition_sets", audio_rendition_sets)
         if m3u8_settings is not None:
@@ -10986,7 +12380,13 @@ class ChannelStaticKeySettings(dict):
              _setter: Callable[[Any, Any], None],
              key_provider_server: Optional['outputs.ChannelInputLocation'] = None,
              static_key_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyProviderServer' in kwargs:
+            key_provider_server = kwargs['keyProviderServer']
+        if 'staticKeyValue' in kwargs:
+            static_key_value = kwargs['staticKeyValue']
+
         if key_provider_server is not None:
             _setter("key_provider_server", key_provider_server)
         if static_key_value is not None:
@@ -11010,8 +12410,10 @@ class ChannelTeletextDestinationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -11048,7 +12450,13 @@ class ChannelTeletextSourceSettings(dict):
              _setter: Callable[[Any, Any], None],
              output_rectangle: Optional['outputs.ChannelCaptionRectangle'] = None,
              page_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputRectangle' in kwargs:
+            output_rectangle = kwargs['outputRectangle']
+        if 'pageNumber' in kwargs:
+            page_number = kwargs['pageNumber']
+
         if output_rectangle is not None:
             _setter("output_rectangle", output_rectangle)
         if page_number is not None:
@@ -11097,7 +12505,11 @@ class ChannelTemporalFilterSettings(dict):
              _setter: Callable[[Any, Any], None],
              post_filter_sharpening: Optional[str] = None,
              strength: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postFilterSharpening' in kwargs:
+            post_filter_sharpening = kwargs['postFilterSharpening']
+
         if post_filter_sharpening is not None:
             _setter("post_filter_sharpening", post_filter_sharpening)
         if strength is not None:
@@ -11126,7 +12538,9 @@ class ChannelThumbnailConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if state is not None:
             _setter("state", state)
 
@@ -11171,7 +12585,11 @@ class ChannelTimecodeBurninSettings(dict):
              font_size: Optional[str] = None,
              position: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fontSize' in kwargs:
+            font_size = kwargs['fontSize']
+
         if font_size is not None:
             _setter("font_size", font_size)
         if position is not None:
@@ -11227,7 +12645,11 @@ class ChannelTimecodeConfig(dict):
              _setter: Callable[[Any, Any], None],
              source: Optional[str] = None,
              sync_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'syncThreshold' in kwargs:
+            sync_threshold = kwargs['syncThreshold']
+
         if source is not None:
             _setter("source", source)
         if sync_threshold is not None:
@@ -11273,7 +12695,11 @@ class ChannelTtmlDestinationSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              style_control: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'styleControl' in kwargs:
+            style_control = kwargs['styleControl']
+
         if style_control is not None:
             _setter("style_control", style_control)
 
@@ -11312,7 +12738,11 @@ class ChannelUdpContainerSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              m2ts_settings: Optional['outputs.ChannelM2tsSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'm2tsSettings' in kwargs:
+            m2ts_settings = kwargs['m2tsSettings']
+
         if m2ts_settings is not None:
             _setter("m2ts_settings", m2ts_settings)
 
@@ -11361,7 +12791,15 @@ class ChannelUdpGroupSettings(dict):
              input_loss_action: Optional[str] = None,
              timed_metadata_id3_frame: Optional[str] = None,
              timed_metadata_id3_period: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputLossAction' in kwargs:
+            input_loss_action = kwargs['inputLossAction']
+        if 'timedMetadataId3Frame' in kwargs:
+            timed_metadata_id3_frame = kwargs['timedMetadataId3Frame']
+        if 'timedMetadataId3Period' in kwargs:
+            timed_metadata_id3_period = kwargs['timedMetadataId3Period']
+
         if input_loss_action is not None:
             _setter("input_loss_action", input_loss_action)
         if timed_metadata_id3_frame is not None:
@@ -11427,7 +12865,15 @@ class ChannelUdpOutputSettings(dict):
              container_settings: Optional['outputs.ChannelUdpContainerSettings'] = None,
              destination: Optional['outputs.ChannelOutputLocationRef'] = None,
              fec_output_settings: Optional['outputs.ChannelFecOutputSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bufferMsec' in kwargs:
+            buffer_msec = kwargs['bufferMsec']
+        if 'containerSettings' in kwargs:
+            container_settings = kwargs['containerSettings']
+        if 'fecOutputSettings' in kwargs:
+            fec_output_settings = kwargs['fecOutputSettings']
+
         if buffer_msec is not None:
             _setter("buffer_msec", buffer_msec)
         if container_settings is not None:
@@ -11492,7 +12938,13 @@ class ChannelVideoBlackFailoverSettings(dict):
              _setter: Callable[[Any, Any], None],
              black_detect_threshold: Optional[float] = None,
              video_black_threshold_msec: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blackDetectThreshold' in kwargs:
+            black_detect_threshold = kwargs['blackDetectThreshold']
+        if 'videoBlackThresholdMsec' in kwargs:
+            video_black_threshold_msec = kwargs['videoBlackThresholdMsec']
+
         if black_detect_threshold is not None:
             _setter("black_detect_threshold", black_detect_threshold)
         if video_black_threshold_msec is not None:
@@ -11553,7 +13005,17 @@ class ChannelVideoCodecSettings(dict):
              h264_settings: Optional['outputs.ChannelH264Settings'] = None,
              h265_settings: Optional['outputs.ChannelH265Settings'] = None,
              mpeg2_settings: Optional['outputs.ChannelMpeg2Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameCaptureSettings' in kwargs:
+            frame_capture_settings = kwargs['frameCaptureSettings']
+        if 'h264Settings' in kwargs:
+            h264_settings = kwargs['h264Settings']
+        if 'h265Settings' in kwargs:
+            h265_settings = kwargs['h265Settings']
+        if 'mpeg2Settings' in kwargs:
+            mpeg2_settings = kwargs['mpeg2Settings']
+
         if frame_capture_settings is not None:
             _setter("frame_capture_settings", frame_capture_settings)
         if h264_settings is not None:
@@ -11635,7 +13097,15 @@ class ChannelVideoDescription(dict):
              scaling_behavior: Optional[str] = None,
              sharpness: Optional[int] = None,
              width: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codecSettings' in kwargs:
+            codec_settings = kwargs['codecSettings']
+        if 'respondToAfd' in kwargs:
+            respond_to_afd = kwargs['respondToAfd']
+        if 'scalingBehavior' in kwargs:
+            scaling_behavior = kwargs['scalingBehavior']
+
         if codec_settings is not None:
             _setter("codec_settings", codec_settings)
         if height is not None:
@@ -11731,7 +13201,17 @@ class ChannelVideoSelector(dict):
              color_space_settings: Optional['outputs.ChannelVideoSelectorColorSpaceSettings'] = None,
              color_space_usage: Optional[str] = None,
              selector_settings: Optional['outputs.ChannelVideoSelectorSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'colorSpace' in kwargs:
+            color_space = kwargs['colorSpace']
+        if 'colorSpaceSettings' in kwargs:
+            color_space_settings = kwargs['colorSpaceSettings']
+        if 'colorSpaceUsage' in kwargs:
+            color_space_usage = kwargs['colorSpaceUsage']
+        if 'selectorSettings' in kwargs:
+            selector_settings = kwargs['selectorSettings']
+
         if color_space is not None:
             _setter("color_space", color_space)
         if color_space_settings is not None:
@@ -11791,7 +13271,11 @@ class ChannelVideoSelectorColorSpaceSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              hdr10_settings: Optional['outputs.ChannelHdr10Settings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hdr10Settings' in kwargs:
+            hdr10_settings = kwargs['hdr10Settings']
+
         if hdr10_settings is not None:
             _setter("hdr10_settings", hdr10_settings)
 
@@ -11813,7 +13297,9 @@ class ChannelVideoSelectorPid(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if pid is not None:
             _setter("pid", pid)
 
@@ -11852,7 +13338,11 @@ class ChannelVideoSelectorProgramId(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              program_id: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'programId' in kwargs:
+            program_id = kwargs['programId']
+
         if program_id is not None:
             _setter("program_id", program_id)
 
@@ -11896,7 +13386,13 @@ class ChannelVideoSelectorSettings(dict):
              _setter: Callable[[Any, Any], None],
              video_selector_pid: Optional['outputs.ChannelVideoSelectorPid'] = None,
              video_selector_program_id: Optional['outputs.ChannelVideoSelectorProgramId'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'videoSelectorPid' in kwargs:
+            video_selector_pid = kwargs['videoSelectorPid']
+        if 'videoSelectorProgramId' in kwargs:
+            video_selector_program_id = kwargs['videoSelectorProgramId']
+
         if video_selector_pid is not None:
             _setter("video_selector_pid", video_selector_pid)
         if video_selector_program_id is not None:
@@ -11952,7 +13448,15 @@ class ChannelVpcOutputSettings(dict):
              public_address_allocation_ids: Optional[Sequence[str]] = None,
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicAddressAllocationIds' in kwargs:
+            public_address_allocation_ids = kwargs['publicAddressAllocationIds']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if public_address_allocation_ids is not None:
             _setter("public_address_allocation_ids", public_address_allocation_ids)
         if security_group_ids is not None:
@@ -12015,7 +13519,15 @@ class ChannelWavSettings(dict):
              bit_depth: Optional[float] = None,
              coding_mode: Optional[str] = None,
              sample_rate: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bitDepth' in kwargs:
+            bit_depth = kwargs['bitDepth']
+        if 'codingMode' in kwargs:
+            coding_mode = kwargs['codingMode']
+        if 'sampleRate' in kwargs:
+            sample_rate = kwargs['sampleRate']
+
         if bit_depth is not None:
             _setter("bit_depth", bit_depth)
         if coding_mode is not None:
@@ -12068,7 +13580,11 @@ class ChannelWebvttDestinationSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              style_control: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'styleControl' in kwargs:
+            style_control = kwargs['styleControl']
+
         if style_control is not None:
             _setter("style_control", style_control)
 
@@ -12107,7 +13623,11 @@ class InputDestinationRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         if stream_name is not None:
             _setter("stream_name", stream_name)
 
@@ -12129,7 +13649,9 @@ class InputDeviceSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -12168,7 +13690,11 @@ class InputMediaConnectFlowRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              flow_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+
         if flow_arn is not None:
             _setter("flow_arn", flow_arn)
 
@@ -12190,7 +13716,9 @@ class InputSecurityGroupInputWhitelistRuleCidr(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cidr is not None:
             _setter("cidr", cidr)
 
@@ -12235,7 +13763,11 @@ class InputSourceRequest(dict):
              password_param: Optional[str] = None,
              url: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordParam' in kwargs:
+            password_param = kwargs['passwordParam']
+
         if password_param is not None:
             _setter("password_param", password_param)
         if url is not None:
@@ -12293,7 +13825,13 @@ class InputVpcRequest(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:

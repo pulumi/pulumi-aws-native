@@ -46,7 +46,15 @@ class AccountArgs:
              parent_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'parentIds' in kwargs:
+            parent_ids = kwargs['parentIds']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         _setter("email", email)
         if account_name is not None:
             _setter("account_name", account_name)

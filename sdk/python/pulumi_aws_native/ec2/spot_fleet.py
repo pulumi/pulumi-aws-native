@@ -29,7 +29,11 @@ class SpotFleetArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'spotFleetRequestConfigData' in kwargs:
+            spot_fleet_request_config_data = kwargs['spotFleetRequestConfigData']
+
         _setter("spot_fleet_request_config_data", spot_fleet_request_config_data)
 
     @property

@@ -40,7 +40,11 @@ class ResourceSetArgs:
              name: Optional[pulumi.Input[str]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceTypeList' in kwargs:
+            resource_type_list = kwargs['resourceTypeList']
+
         _setter("resource_type_list", resource_type_list)
         if description is not None:
             _setter("description", description)

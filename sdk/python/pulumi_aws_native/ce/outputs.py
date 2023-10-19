@@ -39,7 +39,9 @@ class AnomalyMonitorResourceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -83,7 +85,9 @@ class AnomalySubscriptionResourceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -122,7 +126,9 @@ class AnomalySubscriptionSubscriber(dict):
              address: str,
              type: 'AnomalySubscriptionSubscriberType',
              status: Optional['AnomalySubscriptionSubscriberStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("address", address)
         _setter("type", type)
         if status is not None:

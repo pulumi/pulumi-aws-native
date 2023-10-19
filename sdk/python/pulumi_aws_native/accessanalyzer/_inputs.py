@@ -34,7 +34,11 @@ class AnalyzerArchiveRuleArgs:
              _setter: Callable[[Any, Any], None],
              filter: pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]],
              rule_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("filter", filter)
         _setter("rule_name", rule_name)
 
@@ -84,7 +88,9 @@ class AnalyzerFilterArgs:
              eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exists: Optional[pulumi.Input[bool]] = None,
              neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("property", property)
         if contains is not None:
             _setter("contains", contains)
@@ -161,7 +167,9 @@ class AnalyzerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

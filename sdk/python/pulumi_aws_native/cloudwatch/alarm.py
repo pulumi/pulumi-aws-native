@@ -109,7 +109,37 @@ class AlarmArgs:
              threshold_metric_id: Optional[pulumi.Input[str]] = None,
              treat_missing_data: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if 'evaluateLowSampleCountPercentile' in kwargs:
+            evaluate_low_sample_count_percentile = kwargs['evaluateLowSampleCountPercentile']
+        if 'extendedStatistic' in kwargs:
+            extended_statistic = kwargs['extendedStatistic']
+        if 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+        if 'thresholdMetricId' in kwargs:
+            threshold_metric_id = kwargs['thresholdMetricId']
+        if 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
         _setter("comparison_operator", comparison_operator)
         _setter("evaluation_periods", evaluation_periods)
         if actions_enabled is not None:

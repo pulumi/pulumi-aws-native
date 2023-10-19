@@ -67,7 +67,13 @@ class CidrCollectionLocation(dict):
              _setter: Callable[[Any, Any], None],
              cidr_list: Sequence[str],
              location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cidrList' in kwargs:
+            cidr_list = kwargs['cidrList']
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+
         _setter("cidr_list", cidr_list)
         _setter("location_name", location_name)
 
@@ -111,7 +117,9 @@ class HealthCheckAlarmIdentifier(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("region", region)
 
@@ -239,7 +247,35 @@ class HealthCheckConfigProperties(dict):
              resource_path: Optional[str] = None,
              routing_control_arn: Optional[str] = None,
              search_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmIdentifier' in kwargs:
+            alarm_identifier = kwargs['alarmIdentifier']
+        if 'childHealthChecks' in kwargs:
+            child_health_checks = kwargs['childHealthChecks']
+        if 'enableSni' in kwargs:
+            enable_sni = kwargs['enableSni']
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if 'healthThreshold' in kwargs:
+            health_threshold = kwargs['healthThreshold']
+        if 'insufficientDataHealthStatus' in kwargs:
+            insufficient_data_health_status = kwargs['insufficientDataHealthStatus']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'measureLatency' in kwargs:
+            measure_latency = kwargs['measureLatency']
+        if 'requestInterval' in kwargs:
+            request_interval = kwargs['requestInterval']
+        if 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if 'routingControlArn' in kwargs:
+            routing_control_arn = kwargs['routingControlArn']
+        if 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+
         _setter("type", type)
         if alarm_identifier is not None:
             _setter("alarm_identifier", alarm_identifier)
@@ -383,7 +419,9 @@ class HealthCheckTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -427,7 +465,9 @@ class HostedZoneConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comment is not None:
             _setter("comment", comment)
 
@@ -476,7 +516,11 @@ class HostedZoneQueryLoggingConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_log_group_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsLogGroupArn' in kwargs:
+            cloud_watch_logs_log_group_arn = kwargs['cloudWatchLogsLogGroupArn']
+
         _setter("cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
     @property
@@ -511,7 +555,9 @@ class HostedZoneTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -574,7 +620,13 @@ class HostedZoneVpc(dict):
              _setter: Callable[[Any, Any], None],
              vpc_id: str,
              vpc_region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'vpcRegion' in kwargs:
+            vpc_region = kwargs['vpcRegion']
+
         _setter("vpc_id", vpc_id)
         _setter("vpc_region", vpc_region)
 
@@ -634,7 +686,15 @@ class RecordSetAliasTarget(dict):
              dns_name: str,
              hosted_zone_id: str,
              evaluate_target_health: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'evaluateTargetHealth' in kwargs:
+            evaluate_target_health = kwargs['evaluateTargetHealth']
+
         _setter("dns_name", dns_name)
         _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
@@ -690,7 +750,13 @@ class RecordSetCidrRoutingConfig(dict):
              _setter: Callable[[Any, Any], None],
              collection_id: str,
              location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+
         _setter("collection_id", collection_id)
         _setter("location_name", location_name)
 
@@ -744,7 +810,15 @@ class RecordSetGeoLocation(dict):
              continent_code: Optional[str] = None,
              country_code: Optional[str] = None,
              subdivision_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'continentCode' in kwargs:
+            continent_code = kwargs['continentCode']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'subdivisionCode' in kwargs:
+            subdivision_code = kwargs['subdivisionCode']
+
         if continent_code is not None:
             _setter("continent_code", continent_code)
         if country_code is not None:
@@ -807,7 +881,15 @@ class RecordSetGroupAliasTarget(dict):
              dns_name: str,
              hosted_zone_id: str,
              evaluate_target_health: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'evaluateTargetHealth' in kwargs:
+            evaluate_target_health = kwargs['evaluateTargetHealth']
+
         _setter("dns_name", dns_name)
         _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
@@ -863,7 +945,13 @@ class RecordSetGroupCidrRoutingConfig(dict):
              _setter: Callable[[Any, Any], None],
              collection_id: str,
              location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+
         _setter("collection_id", collection_id)
         _setter("location_name", location_name)
 
@@ -917,7 +1005,15 @@ class RecordSetGroupGeoLocation(dict):
              continent_code: Optional[str] = None,
              country_code: Optional[str] = None,
              subdivision_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'continentCode' in kwargs:
+            continent_code = kwargs['continentCode']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'subdivisionCode' in kwargs:
+            subdivision_code = kwargs['subdivisionCode']
+
         if continent_code is not None:
             _setter("continent_code", continent_code)
         if country_code is not None:
@@ -1028,7 +1124,27 @@ class RecordSetGroupRecordSet(dict):
              set_identifier: Optional[str] = None,
              ttl: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aliasTarget' in kwargs:
+            alias_target = kwargs['aliasTarget']
+        if 'cidrRoutingConfig' in kwargs:
+            cidr_routing_config = kwargs['cidrRoutingConfig']
+        if 'geoLocation' in kwargs:
+            geo_location = kwargs['geoLocation']
+        if 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'hostedZoneName' in kwargs:
+            hosted_zone_name = kwargs['hostedZoneName']
+        if 'multiValueAnswer' in kwargs:
+            multi_value_answer = kwargs['multiValueAnswer']
+        if 'resourceRecords' in kwargs:
+            resource_records = kwargs['resourceRecords']
+        if 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+
         _setter("name", name)
         _setter("type", type)
         if alias_target is not None:

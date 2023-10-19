@@ -53,7 +53,17 @@ class EntityArgs:
              entity_name: Optional[pulumi.Input[str]] = None,
              parent_entity_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if 'parentEntityId' in kwargs:
+            parent_entity_id = kwargs['parentEntityId']
+
         _setter("workspace_id", workspace_id)
         if components is not None:
             _setter("components", components)

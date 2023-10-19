@@ -85,7 +85,35 @@ class NetworkInterfaceArgs:
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              source_dest_check: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'groupSet' in kwargs:
+            group_set = kwargs['groupSet']
+        if 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+
         _setter("subnet_id", subnet_id)
         if description is not None:
             _setter("description", description)

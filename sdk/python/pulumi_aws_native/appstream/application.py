@@ -61,7 +61,25 @@ class ApplicationArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appBlockArn' in kwargs:
+            app_block_arn = kwargs['appBlockArn']
+        if 'iconS3Location' in kwargs:
+            icon_s3_location = kwargs['iconS3Location']
+        if 'instanceFamilies' in kwargs:
+            instance_families = kwargs['instanceFamilies']
+        if 'launchPath' in kwargs:
+            launch_path = kwargs['launchPath']
+        if 'attributesToDelete' in kwargs:
+            attributes_to_delete = kwargs['attributesToDelete']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'launchParameters' in kwargs:
+            launch_parameters = kwargs['launchParameters']
+        if 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("app_block_arn", app_block_arn)
         _setter("icon_s3_location", icon_s3_location)
         _setter("instance_families", instance_families)

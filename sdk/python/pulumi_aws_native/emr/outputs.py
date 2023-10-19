@@ -107,7 +107,11 @@ class ClusterApplication(dict):
              args: Optional[Sequence[str]] = None,
              name: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
         if additional_info is not None:
             _setter("additional_info", additional_info)
         if args is not None:
@@ -153,7 +157,9 @@ class ClusterAutoScalingPolicy(dict):
              _setter: Callable[[Any, Any], None],
              constraints: 'outputs.ClusterScalingConstraints',
              rules: Sequence['outputs.ClusterScalingRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("constraints", constraints)
         _setter("rules", rules)
 
@@ -197,7 +203,11 @@ class ClusterAutoTerminationPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle_timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         if idle_timeout is not None:
             _setter("idle_timeout", idle_timeout)
 
@@ -239,7 +249,11 @@ class ClusterBootstrapActionConfig(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              script_bootstrap_action: 'outputs.ClusterScriptBootstrapActionConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scriptBootstrapAction' in kwargs:
+            script_bootstrap_action = kwargs['scriptBootstrapAction']
+
         _setter("name", name)
         _setter("script_bootstrap_action", script_bootstrap_action)
 
@@ -311,7 +325,15 @@ class ClusterCloudWatchAlarmDefinition(dict):
              namespace: Optional[str] = None,
              statistic: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+
         _setter("comparison_operator", comparison_operator)
         _setter("metric_name", metric_name)
         _setter("period", period)
@@ -422,7 +444,19 @@ class ClusterComputeLimits(dict):
              unit_type: str,
              maximum_core_capacity_units: Optional[int] = None,
              maximum_on_demand_capacity_units: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumCapacityUnits' in kwargs:
+            maximum_capacity_units = kwargs['maximumCapacityUnits']
+        if 'minimumCapacityUnits' in kwargs:
+            minimum_capacity_units = kwargs['minimumCapacityUnits']
+        if 'unitType' in kwargs:
+            unit_type = kwargs['unitType']
+        if 'maximumCoreCapacityUnits' in kwargs:
+            maximum_core_capacity_units = kwargs['maximumCoreCapacityUnits']
+        if 'maximumOnDemandCapacityUnits' in kwargs:
+            maximum_on_demand_capacity_units = kwargs['maximumOnDemandCapacityUnits']
+
         _setter("maximum_capacity_units", maximum_capacity_units)
         _setter("minimum_capacity_units", minimum_capacity_units)
         _setter("unit_type", unit_type)
@@ -492,7 +526,11 @@ class ClusterConfiguration(dict):
              classification: Optional[str] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -550,7 +588,13 @@ class ClusterEbsBlockDeviceConfig(dict):
              _setter: Callable[[Any, Any], None],
              volume_specification: 'outputs.ClusterVolumeSpecification',
              volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -600,7 +644,13 @@ class ClusterEbsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[Sequence['outputs.ClusterEbsBlockDeviceConfig']] = None,
              ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -657,7 +707,13 @@ class ClusterHadoopJarStepConfig(dict):
              args: Optional[Sequence[str]] = None,
              main_class: Optional[str] = None,
              step_properties: Optional[Sequence['outputs.ClusterKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mainClass' in kwargs:
+            main_class = kwargs['mainClass']
+        if 'stepProperties' in kwargs:
+            step_properties = kwargs['stepProperties']
+
         _setter("jar", jar)
         if args is not None:
             _setter("args", args)
@@ -734,7 +790,17 @@ class ClusterInstanceFleetConfig(dict):
              name: Optional[str] = None,
              target_on_demand_capacity: Optional[int] = None,
              target_spot_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         if instance_type_configs is not None:
             _setter("instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
@@ -806,7 +872,13 @@ class ClusterInstanceFleetProvisioningSpecifications(dict):
              _setter: Callable[[Any, Any], None],
              on_demand_specification: Optional['outputs.ClusterOnDemandProvisioningSpecification'] = None,
              spot_specification: Optional['outputs.ClusterSpotProvisioningSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDemandSpecification' in kwargs:
+            on_demand_specification = kwargs['onDemandSpecification']
+        if 'spotSpecification' in kwargs:
+            spot_specification = kwargs['spotSpecification']
+
         if on_demand_specification is not None:
             _setter("on_demand_specification", on_demand_specification)
         if spot_specification is not None:
@@ -886,7 +958,21 @@ class ClusterInstanceGroupConfig(dict):
              ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
              market: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         if auto_scaling_policy is not None:
@@ -1007,7 +1093,21 @@ class ClusterInstanceTypeConfig(dict):
              custom_ami_id: Optional[str] = None,
              ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
              weighted_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if bid_price is not None:
             _setter("bid_price", bid_price)
@@ -1170,7 +1270,43 @@ class ClusterJobFlowInstancesConfig(dict):
              task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
              task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
              termination_protected: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMasterSecurityGroups' in kwargs:
+            additional_master_security_groups = kwargs['additionalMasterSecurityGroups']
+        if 'additionalSlaveSecurityGroups' in kwargs:
+            additional_slave_security_groups = kwargs['additionalSlaveSecurityGroups']
+        if 'coreInstanceFleet' in kwargs:
+            core_instance_fleet = kwargs['coreInstanceFleet']
+        if 'coreInstanceGroup' in kwargs:
+            core_instance_group = kwargs['coreInstanceGroup']
+        if 'ec2KeyName' in kwargs:
+            ec2_key_name = kwargs['ec2KeyName']
+        if 'ec2SubnetId' in kwargs:
+            ec2_subnet_id = kwargs['ec2SubnetId']
+        if 'ec2SubnetIds' in kwargs:
+            ec2_subnet_ids = kwargs['ec2SubnetIds']
+        if 'emrManagedMasterSecurityGroup' in kwargs:
+            emr_managed_master_security_group = kwargs['emrManagedMasterSecurityGroup']
+        if 'emrManagedSlaveSecurityGroup' in kwargs:
+            emr_managed_slave_security_group = kwargs['emrManagedSlaveSecurityGroup']
+        if 'hadoopVersion' in kwargs:
+            hadoop_version = kwargs['hadoopVersion']
+        if 'keepJobFlowAliveWhenNoSteps' in kwargs:
+            keep_job_flow_alive_when_no_steps = kwargs['keepJobFlowAliveWhenNoSteps']
+        if 'masterInstanceFleet' in kwargs:
+            master_instance_fleet = kwargs['masterInstanceFleet']
+        if 'masterInstanceGroup' in kwargs:
+            master_instance_group = kwargs['masterInstanceGroup']
+        if 'serviceAccessSecurityGroup' in kwargs:
+            service_access_security_group = kwargs['serviceAccessSecurityGroup']
+        if 'taskInstanceFleets' in kwargs:
+            task_instance_fleets = kwargs['taskInstanceFleets']
+        if 'taskInstanceGroups' in kwargs:
+            task_instance_groups = kwargs['taskInstanceGroups']
+        if 'terminationProtected' in kwargs:
+            termination_protected = kwargs['terminationProtected']
+
         if additional_master_security_groups is not None:
             _setter("additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
@@ -1346,7 +1482,17 @@ class ClusterKerberosAttributes(dict):
              ad_domain_join_password: Optional[str] = None,
              ad_domain_join_user: Optional[str] = None,
              cross_realm_trust_principal_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kdcAdminPassword' in kwargs:
+            kdc_admin_password = kwargs['kdcAdminPassword']
+        if 'adDomainJoinPassword' in kwargs:
+            ad_domain_join_password = kwargs['adDomainJoinPassword']
+        if 'adDomainJoinUser' in kwargs:
+            ad_domain_join_user = kwargs['adDomainJoinUser']
+        if 'crossRealmTrustPrincipalPassword' in kwargs:
+            cross_realm_trust_principal_password = kwargs['crossRealmTrustPrincipalPassword']
+
         _setter("kdc_admin_password", kdc_admin_password)
         _setter("realm", realm)
         if ad_domain_join_password is not None:
@@ -1397,7 +1543,9 @@ class ClusterKeyValue(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1443,7 +1591,11 @@ class ClusterManagedScalingPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              compute_limits: Optional['outputs.ClusterComputeLimits'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeLimits' in kwargs:
+            compute_limits = kwargs['computeLimits']
+
         if compute_limits is not None:
             _setter("compute_limits", compute_limits)
 
@@ -1468,7 +1620,9 @@ class ClusterMetricDimension(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1512,7 +1666,11 @@ class ClusterOnDemandProvisioningSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              allocation_strategy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+
         _setter("allocation_strategy", allocation_strategy)
 
     @property
@@ -1550,7 +1708,11 @@ class ClusterPlacementType(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              availability_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
         _setter("availability_zone", availability_zone)
 
     @property
@@ -1591,7 +1753,11 @@ class ClusterScalingAction(dict):
              _setter: Callable[[Any, Any], None],
              simple_scaling_policy_configuration: 'outputs.ClusterSimpleScalingPolicyConfiguration',
              market: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'simpleScalingPolicyConfiguration' in kwargs:
+            simple_scaling_policy_configuration = kwargs['simpleScalingPolicyConfiguration']
+
         _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
             _setter("market", market)
@@ -1641,7 +1807,13 @@ class ClusterScalingConstraints(dict):
              _setter: Callable[[Any, Any], None],
              max_capacity: int,
              min_capacity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -1677,7 +1849,9 @@ class ClusterScalingRule(dict):
              name: str,
              trigger: 'outputs.ClusterScalingTrigger',
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("trigger", trigger)
@@ -1734,7 +1908,11 @@ class ClusterScalingTrigger(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_alarm_definition: 'outputs.ClusterCloudWatchAlarmDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchAlarmDefinition' in kwargs:
+            cloud_watch_alarm_definition = kwargs['cloudWatchAlarmDefinition']
+
         _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
@@ -1758,7 +1936,9 @@ class ClusterScriptBootstrapActionConfig(dict):
              _setter: Callable[[Any, Any], None],
              path: str,
              args: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
         if args is not None:
             _setter("args", args)
@@ -1813,7 +1993,15 @@ class ClusterSimpleScalingPolicyConfiguration(dict):
              scaling_adjustment: int,
              adjustment_type: Optional[str] = None,
              cool_down: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if 'coolDown' in kwargs:
+            cool_down = kwargs['coolDown']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
@@ -1880,7 +2068,17 @@ class ClusterSpotProvisioningSpecification(dict):
              timeout_duration_minutes: int,
              allocation_strategy: Optional[str] = None,
              block_duration_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
         _setter("timeout_action", timeout_action)
         _setter("timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
@@ -1946,7 +2144,13 @@ class ClusterStepConfig(dict):
              hadoop_jar_step: 'outputs.ClusterHadoopJarStepConfig',
              name: str,
              action_on_failure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hadoopJarStep' in kwargs:
+            hadoop_jar_step = kwargs['hadoopJarStep']
+        if 'actionOnFailure' in kwargs:
+            action_on_failure = kwargs['actionOnFailure']
+
         _setter("hadoop_jar_step", hadoop_jar_step)
         _setter("name", name)
         if action_on_failure is not None:
@@ -1983,7 +2187,9 @@ class ClusterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2038,7 +2244,13 @@ class ClusterVolumeSpecification(dict):
              volume_type: str,
              iops: Optional[int] = None,
              throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -2102,7 +2314,11 @@ class InstanceFleetConfigConfiguration(dict):
              classification: Optional[str] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -2160,7 +2376,13 @@ class InstanceFleetConfigEbsBlockDeviceConfig(dict):
              _setter: Callable[[Any, Any], None],
              volume_specification: 'outputs.InstanceFleetConfigVolumeSpecification',
              volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -2210,7 +2432,13 @@ class InstanceFleetConfigEbsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[Sequence['outputs.InstanceFleetConfigEbsBlockDeviceConfig']] = None,
              ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -2261,7 +2489,13 @@ class InstanceFleetConfigInstanceFleetProvisioningSpecifications(dict):
              _setter: Callable[[Any, Any], None],
              on_demand_specification: Optional['outputs.InstanceFleetConfigOnDemandProvisioningSpecification'] = None,
              spot_specification: Optional['outputs.InstanceFleetConfigSpotProvisioningSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDemandSpecification' in kwargs:
+            on_demand_specification = kwargs['onDemandSpecification']
+        if 'spotSpecification' in kwargs:
+            spot_specification = kwargs['spotSpecification']
+
         if on_demand_specification is not None:
             _setter("on_demand_specification", on_demand_specification)
         if spot_specification is not None:
@@ -2335,7 +2569,21 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
              custom_ami_id: Optional[str] = None,
              ebs_configuration: Optional['outputs.InstanceFleetConfigEbsConfiguration'] = None,
              weighted_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if bid_price is not None:
             _setter("bid_price", bid_price)
@@ -2415,7 +2663,11 @@ class InstanceFleetConfigOnDemandProvisioningSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              allocation_strategy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+
         _setter("allocation_strategy", allocation_strategy)
 
     @property
@@ -2468,7 +2720,17 @@ class InstanceFleetConfigSpotProvisioningSpecification(dict):
              timeout_duration_minutes: int,
              allocation_strategy: Optional[str] = None,
              block_duration_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
         _setter("timeout_action", timeout_action)
         _setter("timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
@@ -2537,7 +2799,13 @@ class InstanceFleetConfigVolumeSpecification(dict):
              volume_type: str,
              iops: Optional[int] = None,
              throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -2581,7 +2849,9 @@ class InstanceGroupConfigAutoScalingPolicy(dict):
              _setter: Callable[[Any, Any], None],
              constraints: 'outputs.InstanceGroupConfigScalingConstraints',
              rules: Sequence['outputs.InstanceGroupConfigScalingRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("constraints", constraints)
         _setter("rules", rules)
 
@@ -2653,7 +2923,15 @@ class InstanceGroupConfigCloudWatchAlarmDefinition(dict):
              namespace: Optional[str] = None,
              statistic: Optional[str] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+
         _setter("comparison_operator", comparison_operator)
         _setter("metric_name", metric_name)
         _setter("period", period)
@@ -2750,7 +3028,11 @@ class InstanceGroupConfigConfiguration(dict):
              classification: Optional[str] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[Sequence['outputs.InstanceGroupConfigConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -2808,7 +3090,13 @@ class InstanceGroupConfigEbsBlockDeviceConfig(dict):
              _setter: Callable[[Any, Any], None],
              volume_specification: 'outputs.InstanceGroupConfigVolumeSpecification',
              volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -2858,7 +3146,13 @@ class InstanceGroupConfigEbsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[Sequence['outputs.InstanceGroupConfigEbsBlockDeviceConfig']] = None,
              ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -2890,7 +3184,9 @@ class InstanceGroupConfigMetricDimension(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2937,7 +3233,11 @@ class InstanceGroupConfigScalingAction(dict):
              _setter: Callable[[Any, Any], None],
              simple_scaling_policy_configuration: 'outputs.InstanceGroupConfigSimpleScalingPolicyConfiguration',
              market: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'simpleScalingPolicyConfiguration' in kwargs:
+            simple_scaling_policy_configuration = kwargs['simpleScalingPolicyConfiguration']
+
         _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
             _setter("market", market)
@@ -2987,7 +3287,13 @@ class InstanceGroupConfigScalingConstraints(dict):
              _setter: Callable[[Any, Any], None],
              max_capacity: int,
              min_capacity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -3023,7 +3329,9 @@ class InstanceGroupConfigScalingRule(dict):
              name: str,
              trigger: 'outputs.InstanceGroupConfigScalingTrigger',
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("trigger", trigger)
@@ -3080,7 +3388,11 @@ class InstanceGroupConfigScalingTrigger(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_alarm_definition: 'outputs.InstanceGroupConfigCloudWatchAlarmDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchAlarmDefinition' in kwargs:
+            cloud_watch_alarm_definition = kwargs['cloudWatchAlarmDefinition']
+
         _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
@@ -3128,7 +3440,15 @@ class InstanceGroupConfigSimpleScalingPolicyConfiguration(dict):
              scaling_adjustment: int,
              adjustment_type: Optional[str] = None,
              cool_down: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if 'coolDown' in kwargs:
+            cool_down = kwargs['coolDown']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
@@ -3191,7 +3511,13 @@ class InstanceGroupConfigVolumeSpecification(dict):
              volume_type: str,
              iops: Optional[int] = None,
              throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -3260,7 +3586,13 @@ class StepHadoopJarStepConfig(dict):
              args: Optional[Sequence[str]] = None,
              main_class: Optional[str] = None,
              step_properties: Optional[Sequence['outputs.StepKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mainClass' in kwargs:
+            main_class = kwargs['mainClass']
+        if 'stepProperties' in kwargs:
+            step_properties = kwargs['stepProperties']
+
         _setter("jar", jar)
         if args is not None:
             _setter("args", args)
@@ -3305,7 +3637,9 @@ class StepKeyValue(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3345,7 +3679,9 @@ class StudioTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3389,7 +3725,9 @@ class WalWorkspaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

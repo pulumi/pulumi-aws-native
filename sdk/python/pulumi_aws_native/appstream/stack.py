@@ -67,7 +67,31 @@ class StackArgs:
              streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
              user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if 'applicationSettings' in kwargs:
+            application_settings = kwargs['applicationSettings']
+        if 'attributesToDelete' in kwargs:
+            attributes_to_delete = kwargs['attributesToDelete']
+        if 'deleteStorageConnectors' in kwargs:
+            delete_storage_connectors = kwargs['deleteStorageConnectors']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'embedHostDomains' in kwargs:
+            embed_host_domains = kwargs['embedHostDomains']
+        if 'feedbackUrl' in kwargs:
+            feedback_url = kwargs['feedbackUrl']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if 'storageConnectors' in kwargs:
+            storage_connectors = kwargs['storageConnectors']
+        if 'streamingExperienceSettings' in kwargs:
+            streaming_experience_settings = kwargs['streamingExperienceSettings']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         if access_endpoints is not None:
             _setter("access_endpoints", access_endpoints)
         if application_settings is not None:

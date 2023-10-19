@@ -49,7 +49,23 @@ class WorkspaceArgs:
              user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              volume_encryption_key: Optional[pulumi.Input[str]] = None,
              workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'rootVolumeEncryptionEnabled' in kwargs:
+            root_volume_encryption_enabled = kwargs['rootVolumeEncryptionEnabled']
+        if 'userVolumeEncryptionEnabled' in kwargs:
+            user_volume_encryption_enabled = kwargs['userVolumeEncryptionEnabled']
+        if 'volumeEncryptionKey' in kwargs:
+            volume_encryption_key = kwargs['volumeEncryptionKey']
+        if 'workspaceProperties' in kwargs:
+            workspace_properties = kwargs['workspaceProperties']
+
         _setter("bundle_id", bundle_id)
         _setter("directory_id", directory_id)
         _setter("user_name", user_name)

@@ -50,7 +50,21 @@ class ConnectorProfileArgs:
              connector_profile_config: Optional[pulumi.Input['ConnectorProfileConfigArgs']] = None,
              connector_profile_name: Optional[pulumi.Input[str]] = None,
              kms_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+        if 'connectorProfileConfig' in kwargs:
+            connector_profile_config = kwargs['connectorProfileConfig']
+        if 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         _setter("connection_mode", connection_mode)
         _setter("connector_type", connector_type)
         if connector_label is not None:

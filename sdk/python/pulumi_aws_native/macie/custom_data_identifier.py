@@ -53,7 +53,13 @@ class CustomDataIdentifierArgs:
              maximum_match_distance: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreWords' in kwargs:
+            ignore_words = kwargs['ignoreWords']
+        if 'maximumMatchDistance' in kwargs:
+            maximum_match_distance = kwargs['maximumMatchDistance']
+
         _setter("regex", regex)
         if description is not None:
             _setter("description", description)

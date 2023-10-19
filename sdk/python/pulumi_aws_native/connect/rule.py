@@ -54,7 +54,15 @@ class RuleArgs:
              trigger_event_source: pulumi.Input['RuleTriggerEventSourceArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'publishStatus' in kwargs:
+            publish_status = kwargs['publishStatus']
+        if 'triggerEventSource' in kwargs:
+            trigger_event_source = kwargs['triggerEventSource']
+
         _setter("actions", actions)
         _setter("function", function)
         _setter("instance_arn", instance_arn)

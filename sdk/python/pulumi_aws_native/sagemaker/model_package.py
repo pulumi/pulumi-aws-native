@@ -99,7 +99,51 @@ class ModelPackageArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
              task: Optional[pulumi.Input[str]] = None,
              validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalInferenceSpecifications' in kwargs:
+            additional_inference_specifications = kwargs['additionalInferenceSpecifications']
+        if 'additionalInferenceSpecificationsToAdd' in kwargs:
+            additional_inference_specifications_to_add = kwargs['additionalInferenceSpecificationsToAdd']
+        if 'approvalDescription' in kwargs:
+            approval_description = kwargs['approvalDescription']
+        if 'certifyForMarketplace' in kwargs:
+            certify_for_marketplace = kwargs['certifyForMarketplace']
+        if 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if 'customerMetadataProperties' in kwargs:
+            customer_metadata_properties = kwargs['customerMetadataProperties']
+        if 'driftCheckBaselines' in kwargs:
+            drift_check_baselines = kwargs['driftCheckBaselines']
+        if 'inferenceSpecification' in kwargs:
+            inference_specification = kwargs['inferenceSpecification']
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'metadataProperties' in kwargs:
+            metadata_properties = kwargs['metadataProperties']
+        if 'modelApprovalStatus' in kwargs:
+            model_approval_status = kwargs['modelApprovalStatus']
+        if 'modelMetrics' in kwargs:
+            model_metrics = kwargs['modelMetrics']
+        if 'modelPackageDescription' in kwargs:
+            model_package_description = kwargs['modelPackageDescription']
+        if 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if 'modelPackageName' in kwargs:
+            model_package_name = kwargs['modelPackageName']
+        if 'modelPackageStatusDetails' in kwargs:
+            model_package_status_details = kwargs['modelPackageStatusDetails']
+        if 'modelPackageVersion' in kwargs:
+            model_package_version = kwargs['modelPackageVersion']
+        if 'samplePayloadUrl' in kwargs:
+            sample_payload_url = kwargs['samplePayloadUrl']
+        if 'skipModelValidation' in kwargs:
+            skip_model_validation = kwargs['skipModelValidation']
+        if 'sourceAlgorithmSpecification' in kwargs:
+            source_algorithm_specification = kwargs['sourceAlgorithmSpecification']
+        if 'validationSpecification' in kwargs:
+            validation_specification = kwargs['validationSpecification']
+
         if additional_inference_specifications is not None:
             _setter("additional_inference_specifications", additional_inference_specifications)
         if additional_inference_specifications_to_add is not None:

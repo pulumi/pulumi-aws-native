@@ -31,7 +31,11 @@ class SubscriptionDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              subscription_definition_id: pulumi.Input[str],
              subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionVersionSubscriptionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionDefinitionId' in kwargs:
+            subscription_definition_id = kwargs['subscriptionDefinitionId']
+
         _setter("subscription_definition_id", subscription_definition_id)
         _setter("subscriptions", subscriptions)
 

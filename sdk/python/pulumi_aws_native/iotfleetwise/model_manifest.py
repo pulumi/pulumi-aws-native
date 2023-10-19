@@ -44,7 +44,11 @@ class ModelManifestArgs:
              nodes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input['ModelManifestManifestStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelManifestTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signalCatalogArn' in kwargs:
+            signal_catalog_arn = kwargs['signalCatalogArn']
+
         _setter("signal_catalog_arn", signal_catalog_arn)
         if description is not None:
             _setter("description", description)

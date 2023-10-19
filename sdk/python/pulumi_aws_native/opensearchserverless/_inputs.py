@@ -35,7 +35,9 @@ class CollectionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -92,7 +94,15 @@ class SecurityConfigSamlConfigOptionsArgs:
              group_attribute: Optional[pulumi.Input[str]] = None,
              session_timeout: Optional[pulumi.Input[int]] = None,
              user_attribute: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupAttribute' in kwargs:
+            group_attribute = kwargs['groupAttribute']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+        if 'userAttribute' in kwargs:
+            user_attribute = kwargs['userAttribute']
+
         _setter("metadata", metadata)
         if group_attribute is not None:
             _setter("group_attribute", group_attribute)

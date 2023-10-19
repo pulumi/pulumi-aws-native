@@ -41,7 +41,15 @@ class GatewayArgs:
              gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
              gateway_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayPlatform' in kwargs:
+            gateway_platform = kwargs['gatewayPlatform']
+        if 'gatewayCapabilitySummaries' in kwargs:
+            gateway_capability_summaries = kwargs['gatewayCapabilitySummaries']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+
         _setter("gateway_platform", gateway_platform)
         if gateway_capability_summaries is not None:
             _setter("gateway_capability_summaries", gateway_capability_summaries)

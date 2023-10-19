@@ -45,7 +45,11 @@ class RulesetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         _setter("rules", rules)
         _setter("target_arn", target_arn)
         if description is not None:

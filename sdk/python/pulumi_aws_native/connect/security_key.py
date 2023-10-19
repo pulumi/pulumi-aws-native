@@ -29,7 +29,11 @@ class SecurityKeyArgs:
              _setter: Callable[[Any, Any], None],
              instance_id: pulumi.Input[str],
              key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+
         _setter("instance_id", instance_id)
         _setter("key", key)
 

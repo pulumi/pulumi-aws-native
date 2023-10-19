@@ -28,7 +28,11 @@ class OriginRequestPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              origin_request_policy_config: pulumi.Input['OriginRequestPolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'originRequestPolicyConfig' in kwargs:
+            origin_request_policy_config = kwargs['originRequestPolicyConfig']
+
         _setter("origin_request_policy_config", origin_request_policy_config)
 
     @property

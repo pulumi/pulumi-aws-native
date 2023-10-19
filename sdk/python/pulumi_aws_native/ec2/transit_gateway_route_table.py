@@ -33,7 +33,11 @@ class TransitGatewayRouteTableArgs:
              _setter: Callable[[Any, Any], None],
              transit_gateway_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+
         _setter("transit_gateway_id", transit_gateway_id)
         if tags is not None:
             _setter("tags", tags)

@@ -54,7 +54,13 @@ class LicenseBorrowConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              allow_early_check_in: bool,
              max_time_to_live_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowEarlyCheckIn' in kwargs:
+            allow_early_check_in = kwargs['allowEarlyCheckIn']
+        if 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+
         _setter("allow_early_check_in", allow_early_check_in)
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
@@ -108,7 +114,15 @@ class LicenseConsumptionConfiguration(dict):
              borrow_configuration: Optional['outputs.LicenseBorrowConfiguration'] = None,
              provisional_configuration: Optional['outputs.LicenseProvisionalConfiguration'] = None,
              renew_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'borrowConfiguration' in kwargs:
+            borrow_configuration = kwargs['borrowConfiguration']
+        if 'provisionalConfiguration' in kwargs:
+            provisional_configuration = kwargs['provisionalConfiguration']
+        if 'renewType' in kwargs:
+            renew_type = kwargs['renewType']
+
         if borrow_configuration is not None:
             _setter("borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -178,7 +192,13 @@ class LicenseEntitlement(dict):
              max_count: Optional[int] = None,
              overage: Optional[bool] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCheckIn' in kwargs:
+            allow_check_in = kwargs['allowCheckIn']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+
         _setter("name", name)
         _setter("unit", unit)
         if allow_check_in is not None:
@@ -253,7 +273,11 @@ class LicenseIssuerData(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              sign_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signKey' in kwargs:
+            sign_key = kwargs['signKey']
+
         _setter("name", name)
         if sign_key is not None:
             _setter("sign_key", sign_key)
@@ -284,7 +308,9 @@ class LicenseMetadata(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -328,7 +354,11 @@ class LicenseProvisionalConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_time_to_live_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
@@ -356,7 +386,9 @@ class LicenseValidityDateFormat(dict):
              _setter: Callable[[Any, Any], None],
              begin: str,
              end: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("begin", begin)
         _setter("end", end)
 

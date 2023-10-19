@@ -35,7 +35,15 @@ class AdmChannelArgs:
              client_id: pulumi.Input[str],
              client_secret: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("application_id", application_id)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)

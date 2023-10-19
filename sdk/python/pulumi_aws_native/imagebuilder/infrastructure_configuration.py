@@ -78,7 +78,27 @@ class InfrastructureConfigurationArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceProfileName' in kwargs:
+            instance_profile_name = kwargs['instanceProfileName']
+        if 'instanceMetadataOptions' in kwargs:
+            instance_metadata_options = kwargs['instanceMetadataOptions']
+        if 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'terminateInstanceOnFailure' in kwargs:
+            terminate_instance_on_failure = kwargs['terminateInstanceOnFailure']
+
         _setter("instance_profile_name", instance_profile_name)
         if description is not None:
             _setter("description", description)

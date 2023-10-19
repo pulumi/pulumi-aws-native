@@ -46,7 +46,11 @@ class AutomationRuleDateFilterArgs:
              date_range: Optional[pulumi.Input['AutomationRuleDateRangeArgs']] = None,
              end: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateRange' in kwargs:
+            date_range = kwargs['dateRange']
+
         if date_range is not None:
             _setter("date_range", date_range)
         if end is not None:
@@ -97,7 +101,9 @@ class AutomationRuleDateRangeArgs:
              _setter: Callable[[Any, Any], None],
              unit: pulumi.Input['AutomationRuleDateRangeUnit'],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -138,7 +144,9 @@ class AutomationRuleMapFilterArgs:
              comparison: pulumi.Input['AutomationRuleMapFilterComparison'],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         _setter("key", key)
         _setter("value", value)
@@ -186,7 +194,11 @@ class AutomationRuleNoteUpdateArgs:
              _setter: Callable[[Any, Any], None],
              text: pulumi.Input[str],
              updated_by: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'updatedBy' in kwargs:
+            updated_by = kwargs['updatedBy']
+
         _setter("text", text)
         _setter("updated_by", updated_by)
 
@@ -227,7 +239,9 @@ class AutomationRuleNumberFilterArgs:
              eq: Optional[pulumi.Input[float]] = None,
              gte: Optional[pulumi.Input[float]] = None,
              lte: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if eq is not None:
             _setter("eq", eq)
         if gte is not None:
@@ -278,7 +292,11 @@ class AutomationRuleRelatedFindingArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              product_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+
         _setter("id", id)
         _setter("product_arn", product_arn)
 
@@ -319,7 +337,9 @@ class AutomationRuleSeverityUpdateArgs:
              label: Optional[pulumi.Input['AutomationRuleSeverityUpdateLabel']] = None,
              normalized: Optional[pulumi.Input[int]] = None,
              product: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if label is not None:
             _setter("label", label)
         if normalized is not None:
@@ -370,7 +390,9 @@ class AutomationRuleStringFilterArgs:
              _setter: Callable[[Any, Any], None],
              comparison: pulumi.Input['AutomationRuleStringFilterComparison'],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         _setter("value", value)
 
@@ -403,8 +425,10 @@ class AutomationRuleTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -419,7 +443,9 @@ class AutomationRuleWorkflowUpdateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: pulumi.Input['AutomationRuleWorkflowUpdateStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
 
     @property
@@ -439,8 +465,10 @@ class AutomationRulemapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -458,7 +486,11 @@ class AutomationRulesActionArgs:
              _setter: Callable[[Any, Any], None],
              finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'],
              type: pulumi.Input['AutomationRulesActionType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'findingFieldsUpdate' in kwargs:
+            finding_fields_update = kwargs['findingFieldsUpdate']
+
         _setter("finding_fields_update", finding_fields_update)
         _setter("type", type)
 
@@ -522,7 +554,15 @@ class AutomationRulesFindingFieldsUpdateArgs:
              user_defined_fields: Optional[pulumi.Input['AutomationRulemapArgs']] = None,
              verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
              workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relatedFindings' in kwargs:
+            related_findings = kwargs['relatedFindings']
+        if 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+
         if confidence is not None:
             _setter("confidence", confidence)
         if criticality is not None:
@@ -747,7 +787,67 @@ class AutomationRulesFindingFiltersArgs:
              user_defined_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
              verification_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
              workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'complianceAssociatedStandardsId' in kwargs:
+            compliance_associated_standards_id = kwargs['complianceAssociatedStandardsId']
+        if 'complianceSecurityControlId' in kwargs:
+            compliance_security_control_id = kwargs['complianceSecurityControlId']
+        if 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'firstObservedAt' in kwargs:
+            first_observed_at = kwargs['firstObservedAt']
+        if 'generatorId' in kwargs:
+            generator_id = kwargs['generatorId']
+        if 'lastObservedAt' in kwargs:
+            last_observed_at = kwargs['lastObservedAt']
+        if 'noteText' in kwargs:
+            note_text = kwargs['noteText']
+        if 'noteUpdatedAt' in kwargs:
+            note_updated_at = kwargs['noteUpdatedAt']
+        if 'noteUpdatedBy' in kwargs:
+            note_updated_by = kwargs['noteUpdatedBy']
+        if 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+        if 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if 'recordState' in kwargs:
+            record_state = kwargs['recordState']
+        if 'relatedFindingsId' in kwargs:
+            related_findings_id = kwargs['relatedFindingsId']
+        if 'relatedFindingsProductArn' in kwargs:
+            related_findings_product_arn = kwargs['relatedFindingsProductArn']
+        if 'resourceDetailsOther' in kwargs:
+            resource_details_other = kwargs['resourceDetailsOther']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourcePartition' in kwargs:
+            resource_partition = kwargs['resourcePartition']
+        if 'resourceRegion' in kwargs:
+            resource_region = kwargs['resourceRegion']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'severityLabel' in kwargs:
+            severity_label = kwargs['severityLabel']
+        if 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+        if 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+        if 'workflowStatus' in kwargs:
+            workflow_status = kwargs['workflowStatus']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if company_name is not None:
@@ -1155,7 +1255,11 @@ class StandardsControlArgs:
              _setter: Callable[[Any, Any], None],
              standards_control_arn: pulumi.Input[str],
              reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'standardsControlArn' in kwargs:
+            standards_control_arn = kwargs['standardsControlArn']
+
         _setter("standards_control_arn", standards_control_arn)
         if reason is not None:
             _setter("reason", reason)

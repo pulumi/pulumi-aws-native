@@ -47,7 +47,15 @@ class FargateProfileArgs:
              fargate_profile_name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'podExecutionRoleArn' in kwargs:
+            pod_execution_role_arn = kwargs['podExecutionRoleArn']
+        if 'fargateProfileName' in kwargs:
+            fargate_profile_name = kwargs['fargateProfileName']
+
         _setter("cluster_name", cluster_name)
         _setter("pod_execution_role_arn", pod_execution_role_arn)
         _setter("selectors", selectors)

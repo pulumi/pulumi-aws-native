@@ -47,7 +47,21 @@ class ConfigurationSetArgs:
              suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
              tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
              vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if 'reputationOptions' in kwargs:
+            reputation_options = kwargs['reputationOptions']
+        if 'sendingOptions' in kwargs:
+            sending_options = kwargs['sendingOptions']
+        if 'suppressionOptions' in kwargs:
+            suppression_options = kwargs['suppressionOptions']
+        if 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+        if 'vdmOptions' in kwargs:
+            vdm_options = kwargs['vdmOptions']
+
         if delivery_options is not None:
             _setter("delivery_options", delivery_options)
         if name is not None:

@@ -35,7 +35,9 @@ class CrlTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -73,7 +75,9 @@ class ProfileTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -117,7 +121,9 @@ class TrustAnchorNotificationSettingArgs:
              event: pulumi.Input['TrustAnchorNotificationEvent'],
              channel: Optional[pulumi.Input['TrustAnchorNotificationChannel']] = None,
              threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("event", event)
         if channel is not None:
@@ -174,7 +180,11 @@ class TrustAnchorSourceData0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              x509_certificate_data: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'x509CertificateData' in kwargs:
+            x509_certificate_data = kwargs['x509CertificateData']
+
         _setter("x509_certificate_data", x509_certificate_data)
 
     @property
@@ -199,7 +209,11 @@ class TrustAnchorSourceData1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              acm_pca_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acmPcaArn' in kwargs:
+            acm_pca_arn = kwargs['acmPcaArn']
+
         _setter("acm_pca_arn", acm_pca_arn)
 
     @property
@@ -227,7 +241,13 @@ class TrustAnchorSourceArgs:
              _setter: Callable[[Any, Any], None],
              source_data: Optional[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgs', 'TrustAnchorSourceData1PropertiesArgs']]] = None,
              source_type: Optional[pulumi.Input['TrustAnchorType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceData' in kwargs:
+            source_data = kwargs['sourceData']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if source_data is not None:
             _setter("source_data", source_data)
         if source_type is not None:
@@ -267,7 +287,9 @@ class TrustAnchorTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

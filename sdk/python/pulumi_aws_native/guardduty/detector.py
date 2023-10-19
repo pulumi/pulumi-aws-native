@@ -41,7 +41,13 @@ class DetectorArgs:
              features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]] = None,
              finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+
         _setter("enable", enable)
         if data_sources is not None:
             _setter("data_sources", data_sources)

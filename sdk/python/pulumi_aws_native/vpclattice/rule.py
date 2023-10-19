@@ -47,7 +47,13 @@ class RuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              service_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'listenerIdentifier' in kwargs:
+            listener_identifier = kwargs['listenerIdentifier']
+        if 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+
         _setter("action", action)
         _setter("match", match)
         _setter("priority", priority)

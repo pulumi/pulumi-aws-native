@@ -116,7 +116,11 @@ class BotAdvancedRecognitionSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              audio_recognition_strategy: Optional[pulumi.Input['BotAudioRecognitionStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioRecognitionStrategy' in kwargs:
+            audio_recognition_strategy = kwargs['audioRecognitionStrategy']
+
         if audio_recognition_strategy is not None:
             _setter("audio_recognition_strategy", audio_recognition_strategy)
 
@@ -145,7 +149,11 @@ class BotAliasAudioLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_bucket: pulumi.Input['BotAliasS3BucketLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+
         _setter("s3_bucket", s3_bucket)
 
     @property
@@ -176,7 +184,9 @@ class BotAliasAudioLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination: pulumi.Input['BotAliasAudioLogDestinationArgs'],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -218,7 +228,13 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_group_arn: pulumi.Input[str],
              log_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+
         _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         _setter("log_prefix", log_prefix)
 
@@ -262,7 +278,11 @@ class BotAliasCodeHookSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_code_hook: pulumi.Input['BotAliasLambdaCodeHookArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaCodeHook' in kwargs:
+            lambda_code_hook = kwargs['lambdaCodeHook']
+
         _setter("lambda_code_hook", lambda_code_hook)
 
     @property
@@ -293,7 +313,13 @@ class BotAliasConversationLogSettingsArgs:
              _setter: Callable[[Any, Any], None],
              audio_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgs']]]] = None,
              text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioLogSettings' in kwargs:
+            audio_log_settings = kwargs['audioLogSettings']
+        if 'textLogSettings' in kwargs:
+            text_log_settings = kwargs['textLogSettings']
+
         if audio_log_settings is not None:
             _setter("audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
@@ -338,7 +364,13 @@ class BotAliasLambdaCodeHookArgs:
              _setter: Callable[[Any, Any], None],
              code_hook_interface_version: pulumi.Input[str],
              lambda_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeHookInterfaceVersion' in kwargs:
+            code_hook_interface_version = kwargs['codeHookInterfaceVersion']
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         _setter("code_hook_interface_version", code_hook_interface_version)
         _setter("lambda_arn", lambda_arn)
 
@@ -386,7 +418,13 @@ class BotAliasLocaleSettingsItemArgs:
              _setter: Callable[[Any, Any], None],
              bot_alias_locale_setting: pulumi.Input['BotAliasLocaleSettingsArgs'],
              locale_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botAliasLocaleSetting' in kwargs:
+            bot_alias_locale_setting = kwargs['botAliasLocaleSetting']
+        if 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+
         _setter("bot_alias_locale_setting", bot_alias_locale_setting)
         _setter("locale_id", locale_id)
 
@@ -431,7 +469,11 @@ class BotAliasLocaleSettingsArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              code_hook_specification: Optional[pulumi.Input['BotAliasCodeHookSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeHookSpecification' in kwargs:
+            code_hook_specification = kwargs['codeHookSpecification']
+
         _setter("enabled", enabled)
         if code_hook_specification is not None:
             _setter("code_hook_specification", code_hook_specification)
@@ -482,7 +524,15 @@ class BotAliasS3BucketLogDestinationArgs:
              log_prefix: pulumi.Input[str],
              s3_bucket_arn: pulumi.Input[str],
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("log_prefix", log_prefix)
         _setter("s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
@@ -545,7 +595,9 @@ class BotAliasTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -589,7 +641,11 @@ class BotAliasTextLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatch' in kwargs:
+            cloud_watch = kwargs['cloudWatch']
+
         _setter("cloud_watch", cloud_watch)
 
     @property
@@ -620,7 +676,9 @@ class BotAliasTextLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination: pulumi.Input['BotAliasTextLogDestinationArgs'],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -658,7 +716,11 @@ class BotAudioLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+
         _setter("s3_bucket", s3_bucket)
 
     @property
@@ -689,7 +751,9 @@ class BotAudioLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination: pulumi.Input['BotAudioLogDestinationArgs'],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -732,7 +796,9 @@ class BotButtonArgs:
              _setter: Callable[[Any, Any], None],
              text: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("text", text)
         _setter("value", value)
 
@@ -780,7 +846,13 @@ class BotCloudWatchLogGroupLogDestinationArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_group_arn: pulumi.Input[str],
              log_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+
         _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         _setter("log_prefix", log_prefix)
 
@@ -837,7 +909,11 @@ class BotConditionalBranchArgs:
              name: pulumi.Input[str],
              next_step: pulumi.Input['BotDialogStateArgs'],
              response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         _setter("condition", condition)
         _setter("name", name)
         _setter("next_step", next_step)
@@ -917,7 +993,15 @@ class BotConditionalSpecificationArgs:
              conditional_branches: pulumi.Input[Sequence[pulumi.Input['BotConditionalBranchArgs']]],
              default_branch: pulumi.Input['BotDefaultConditionalBranchArgs'],
              is_active: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionalBranches' in kwargs:
+            conditional_branches = kwargs['conditionalBranches']
+        if 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+
         _setter("conditional_branches", conditional_branches)
         _setter("default_branch", default_branch)
         _setter("is_active", is_active)
@@ -975,7 +1059,11 @@ class BotConditionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression_string: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressionString' in kwargs:
+            expression_string = kwargs['expressionString']
+
         _setter("expression_string", expression_string)
 
     @property
@@ -1009,7 +1097,13 @@ class BotConversationLogSettingsArgs:
              _setter: Callable[[Any, Any], None],
              audio_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]] = None,
              text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'audioLogSettings' in kwargs:
+            audio_log_settings = kwargs['audioLogSettings']
+        if 'textLogSettings' in kwargs:
+            text_log_settings = kwargs['textLogSettings']
+
         if audio_log_settings is not None:
             _setter("audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
@@ -1050,7 +1144,9 @@ class BotCustomPayloadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -1090,7 +1186,11 @@ class BotCustomVocabularyItemArgs:
              phrase: pulumi.Input[str],
              display_as: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayAs' in kwargs:
+            display_as = kwargs['displayAs']
+
         _setter("phrase", phrase)
         if display_as is not None:
             _setter("display_as", display_as)
@@ -1149,7 +1249,11 @@ class BotCustomVocabularyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customVocabularyItems' in kwargs:
+            custom_vocabulary_items = kwargs['customVocabularyItems']
+
         _setter("custom_vocabulary_items", custom_vocabulary_items)
 
     @property
@@ -1182,7 +1286,11 @@ class BotDefaultConditionalBranchArgs:
              _setter: Callable[[Any, Any], None],
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if next_step is not None:
             _setter("next_step", next_step)
         if response is not None:
@@ -1237,7 +1345,13 @@ class BotDialogActionArgs:
              type: pulumi.Input['BotDialogActionType'],
              slot_to_elicit: Optional[pulumi.Input[str]] = None,
              suppress_next_message: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotToElicit' in kwargs:
+            slot_to_elicit = kwargs['slotToElicit']
+        if 'suppressNextMessage' in kwargs:
+            suppress_next_message = kwargs['suppressNextMessage']
+
         _setter("type", type)
         if slot_to_elicit is not None:
             _setter("slot_to_elicit", slot_to_elicit)
@@ -1309,7 +1423,17 @@ class BotDialogCodeHookInvocationSettingArgs:
              is_active: pulumi.Input[bool],
              post_code_hook_specification: pulumi.Input['BotPostDialogCodeHookInvocationSpecificationArgs'],
              invocation_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableCodeHookInvocation' in kwargs:
+            enable_code_hook_invocation = kwargs['enableCodeHookInvocation']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if 'postCodeHookSpecification' in kwargs:
+            post_code_hook_specification = kwargs['postCodeHookSpecification']
+        if 'invocationLabel' in kwargs:
+            invocation_label = kwargs['invocationLabel']
+
         _setter("enable_code_hook_invocation", enable_code_hook_invocation)
         _setter("is_active", is_active)
         _setter("post_code_hook_specification", post_code_hook_specification)
@@ -1380,7 +1504,9 @@ class BotDialogCodeHookSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1417,7 +1543,13 @@ class BotDialogStateArgs:
              dialog_action: Optional[pulumi.Input['BotDialogActionArgs']] = None,
              intent: Optional[pulumi.Input['BotIntentOverrideArgs']] = None,
              session_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['BotSessionAttributeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dialogAction' in kwargs:
+            dialog_action = kwargs['dialogAction']
+        if 'sessionAttributes' in kwargs:
+            session_attributes = kwargs['sessionAttributes']
+
         if dialog_action is not None:
             _setter("dialog_action", dialog_action)
         if intent is not None:
@@ -1482,7 +1614,13 @@ class BotElicitationCodeHookInvocationSettingArgs:
              _setter: Callable[[Any, Any], None],
              enable_code_hook_invocation: pulumi.Input[bool],
              invocation_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableCodeHookInvocation' in kwargs:
+            enable_code_hook_invocation = kwargs['enableCodeHookInvocation']
+        if 'invocationLabel' in kwargs:
+            invocation_label = kwargs['invocationLabel']
+
         _setter("enable_code_hook_invocation", enable_code_hook_invocation)
         if invocation_label is not None:
             _setter("invocation_label", invocation_label)
@@ -1527,7 +1665,11 @@ class BotExternalSourceSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              grammar_slot_type_setting: Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'grammarSlotTypeSetting' in kwargs:
+            grammar_slot_type_setting = kwargs['grammarSlotTypeSetting']
+
         if grammar_slot_type_setting is not None:
             _setter("grammar_slot_type_setting", grammar_slot_type_setting)
 
@@ -1566,7 +1708,15 @@ class BotFulfillmentCodeHookSettingArgs:
              fulfillment_updates_specification: Optional[pulumi.Input['BotFulfillmentUpdatesSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
              post_fulfillment_status_specification: Optional[pulumi.Input['BotPostFulfillmentStatusSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fulfillmentUpdatesSpecification' in kwargs:
+            fulfillment_updates_specification = kwargs['fulfillmentUpdatesSpecification']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if 'postFulfillmentStatusSpecification' in kwargs:
+            post_fulfillment_status_specification = kwargs['postFulfillmentStatusSpecification']
+
         _setter("enabled", enabled)
         if fulfillment_updates_specification is not None:
             _setter("fulfillment_updates_specification", fulfillment_updates_specification)
@@ -1638,7 +1788,15 @@ class BotFulfillmentStartResponseSpecificationArgs:
              delay_in_seconds: pulumi.Input[int],
              message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delayInSeconds' in kwargs:
+            delay_in_seconds = kwargs['delayInSeconds']
+        if 'messageGroups' in kwargs:
+            message_groups = kwargs['messageGroups']
+        if 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("delay_in_seconds", delay_in_seconds)
         _setter("message_groups", message_groups)
         if allow_interrupt is not None:
@@ -1701,7 +1859,15 @@ class BotFulfillmentUpdateResponseSpecificationArgs:
              frequency_in_seconds: pulumi.Input[int],
              message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInSeconds' in kwargs:
+            frequency_in_seconds = kwargs['frequencyInSeconds']
+        if 'messageGroups' in kwargs:
+            message_groups = kwargs['messageGroups']
+        if 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("frequency_in_seconds", frequency_in_seconds)
         _setter("message_groups", message_groups)
         if allow_interrupt is not None:
@@ -1767,7 +1933,15 @@ class BotFulfillmentUpdatesSpecificationArgs:
              start_response: Optional[pulumi.Input['BotFulfillmentStartResponseSpecificationArgs']] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              update_response: Optional[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startResponse' in kwargs:
+            start_response = kwargs['startResponse']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'updateResponse' in kwargs:
+            update_response = kwargs['updateResponse']
+
         _setter("active", active)
         if start_response is not None:
             _setter("start_response", start_response)
@@ -1834,7 +2008,9 @@ class BotGrammarSlotTypeSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              source: Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if source is not None:
             _setter("source", source)
 
@@ -1872,7 +2048,15 @@ class BotGrammarSlotTypeSourceArgs:
              s3_bucket_name: pulumi.Input[str],
              s3_object_key: pulumi.Input[str],
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3ObjectKey' in kwargs:
+            s3_object_key = kwargs['s3ObjectKey']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("s3_bucket_name", s3_bucket_name)
         _setter("s3_object_key", s3_object_key)
         if kms_key_arn is not None:
@@ -1943,7 +2127,11 @@ class BotImageResponseCardArgs:
              buttons: Optional[pulumi.Input[Sequence[pulumi.Input['BotButtonArgs']]]] = None,
              image_url: Optional[pulumi.Input[str]] = None,
              subtitle: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+
         _setter("title", title)
         if buttons is not None:
             _setter("buttons", buttons)
@@ -2029,7 +2217,15 @@ class BotInitialResponseSettingArgs:
              conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              initial_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if 'initialResponse' in kwargs:
+            initial_response = kwargs['initialResponse']
+        if 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if code_hook is not None:
             _setter("code_hook", code_hook)
         if conditional is not None:
@@ -2104,7 +2300,9 @@ class BotInputContextArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2148,7 +2346,15 @@ class BotIntentClosingSettingArgs:
              conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'closingResponse' in kwargs:
+            closing_response = kwargs['closingResponse']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if closing_response is not None:
             _setter("closing_response", closing_response)
         if conditional is not None:
@@ -2271,7 +2477,35 @@ class BotIntentConfirmationSettingArgs:
              failure_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              failure_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promptSpecification' in kwargs:
+            prompt_specification = kwargs['promptSpecification']
+        if 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if 'confirmationConditional' in kwargs:
+            confirmation_conditional = kwargs['confirmationConditional']
+        if 'confirmationNextStep' in kwargs:
+            confirmation_next_step = kwargs['confirmationNextStep']
+        if 'confirmationResponse' in kwargs:
+            confirmation_response = kwargs['confirmationResponse']
+        if 'declinationConditional' in kwargs:
+            declination_conditional = kwargs['declinationConditional']
+        if 'declinationNextStep' in kwargs:
+            declination_next_step = kwargs['declinationNextStep']
+        if 'declinationResponse' in kwargs:
+            declination_response = kwargs['declinationResponse']
+        if 'elicitationCodeHook' in kwargs:
+            elicitation_code_hook = kwargs['elicitationCodeHook']
+        if 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+
         _setter("prompt_specification", prompt_specification)
         if code_hook is not None:
             _setter("code_hook", code_hook)
@@ -2475,7 +2709,9 @@ class BotIntentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideMapArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if slots is not None:
@@ -2565,7 +2801,31 @@ class BotIntentArgs:
              sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
              slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgs']]]] = None,
              slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dialogCodeHook' in kwargs:
+            dialog_code_hook = kwargs['dialogCodeHook']
+        if 'fulfillmentCodeHook' in kwargs:
+            fulfillment_code_hook = kwargs['fulfillmentCodeHook']
+        if 'initialResponseSetting' in kwargs:
+            initial_response_setting = kwargs['initialResponseSetting']
+        if 'inputContexts' in kwargs:
+            input_contexts = kwargs['inputContexts']
+        if 'intentClosingSetting' in kwargs:
+            intent_closing_setting = kwargs['intentClosingSetting']
+        if 'intentConfirmationSetting' in kwargs:
+            intent_confirmation_setting = kwargs['intentConfirmationSetting']
+        if 'kendraConfiguration' in kwargs:
+            kendra_configuration = kwargs['kendraConfiguration']
+        if 'outputContexts' in kwargs:
+            output_contexts = kwargs['outputContexts']
+        if 'parentIntentSignature' in kwargs:
+            parent_intent_signature = kwargs['parentIntentSignature']
+        if 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+        if 'slotPriorities' in kwargs:
+            slot_priorities = kwargs['slotPriorities']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2758,7 +3018,15 @@ class BotKendraConfigurationArgs:
              kendra_index: pulumi.Input[str],
              query_filter_string: Optional[pulumi.Input[str]] = None,
              query_filter_string_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kendraIndex' in kwargs:
+            kendra_index = kwargs['kendraIndex']
+        if 'queryFilterString' in kwargs:
+            query_filter_string = kwargs['queryFilterString']
+        if 'queryFilterStringEnabled' in kwargs:
+            query_filter_string_enabled = kwargs['queryFilterStringEnabled']
+
         _setter("kendra_index", kendra_index)
         if query_filter_string is not None:
             _setter("query_filter_string", query_filter_string)
@@ -2831,7 +3099,19 @@ class BotLocaleArgs:
              intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
              slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
              voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+        if 'nluConfidenceThreshold' in kwargs:
+            nlu_confidence_threshold = kwargs['nluConfidenceThreshold']
+        if 'customVocabulary' in kwargs:
+            custom_vocabulary = kwargs['customVocabulary']
+        if 'slotTypes' in kwargs:
+            slot_types = kwargs['slotTypes']
+        if 'voiceSettings' in kwargs:
+            voice_settings = kwargs['voiceSettings']
+
         _setter("locale_id", locale_id)
         _setter("nlu_confidence_threshold", nlu_confidence_threshold)
         if custom_vocabulary is not None:
@@ -2934,7 +3214,9 @@ class BotMessageGroupArgs:
              _setter: Callable[[Any, Any], None],
              message: pulumi.Input['BotMessageArgs'],
              variations: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("message", message)
         if variations is not None:
             _setter("variations", variations)
@@ -2985,7 +3267,17 @@ class BotMessageArgs:
              image_response_card: Optional[pulumi.Input['BotImageResponseCardArgs']] = None,
              plain_text_message: Optional[pulumi.Input['BotPlainTextMessageArgs']] = None,
              ssml_message: Optional[pulumi.Input['BotSsmlMessageArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPayload' in kwargs:
+            custom_payload = kwargs['customPayload']
+        if 'imageResponseCard' in kwargs:
+            image_response_card = kwargs['imageResponseCard']
+        if 'plainTextMessage' in kwargs:
+            plain_text_message = kwargs['plainTextMessage']
+        if 'ssmlMessage' in kwargs:
+            ssml_message = kwargs['ssmlMessage']
+
         if custom_payload is not None:
             _setter("custom_payload", custom_payload)
         if image_response_card is not None:
@@ -3047,7 +3339,11 @@ class BotMultipleValuesSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allow_multiple_values: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowMultipleValues' in kwargs:
+            allow_multiple_values = kwargs['allowMultipleValues']
+
         if allow_multiple_values is not None:
             _setter("allow_multiple_values", allow_multiple_values)
 
@@ -3077,7 +3373,11 @@ class BotObfuscationSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              obfuscation_setting_type: pulumi.Input['BotObfuscationSettingObfuscationSettingType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'obfuscationSettingType' in kwargs:
+            obfuscation_setting_type = kwargs['obfuscationSettingType']
+
         _setter("obfuscation_setting_type", obfuscation_setting_type)
 
     @property
@@ -3114,7 +3414,13 @@ class BotOutputContextArgs:
              name: pulumi.Input[str],
              time_to_live_in_seconds: pulumi.Input[int],
              turns_to_live: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeToLiveInSeconds' in kwargs:
+            time_to_live_in_seconds = kwargs['timeToLiveInSeconds']
+        if 'turnsToLive' in kwargs:
+            turns_to_live = kwargs['turnsToLive']
+
         _setter("name", name)
         _setter("time_to_live_in_seconds", time_to_live_in_seconds)
         _setter("turns_to_live", turns_to_live)
@@ -3163,7 +3469,9 @@ class BotPlainTextMessageArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -3227,7 +3535,27 @@ class BotPostDialogCodeHookInvocationSpecificationArgs:
              timeout_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              timeout_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              timeout_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if 'successConditional' in kwargs:
+            success_conditional = kwargs['successConditional']
+        if 'successNextStep' in kwargs:
+            success_next_step = kwargs['successNextStep']
+        if 'successResponse' in kwargs:
+            success_response = kwargs['successResponse']
+        if 'timeoutConditional' in kwargs:
+            timeout_conditional = kwargs['timeoutConditional']
+        if 'timeoutNextStep' in kwargs:
+            timeout_next_step = kwargs['timeoutNextStep']
+        if 'timeoutResponse' in kwargs:
+            timeout_response = kwargs['timeoutResponse']
+
         if failure_conditional is not None:
             _setter("failure_conditional", failure_conditional)
         if failure_next_step is not None:
@@ -3404,7 +3732,27 @@ class BotPostFulfillmentStatusSpecificationArgs:
              timeout_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              timeout_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              timeout_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if 'successConditional' in kwargs:
+            success_conditional = kwargs['successConditional']
+        if 'successNextStep' in kwargs:
+            success_next_step = kwargs['successNextStep']
+        if 'successResponse' in kwargs:
+            success_response = kwargs['successResponse']
+        if 'timeoutConditional' in kwargs:
+            timeout_conditional = kwargs['timeoutConditional']
+        if 'timeoutNextStep' in kwargs:
+            timeout_next_step = kwargs['timeoutNextStep']
+        if 'timeoutResponse' in kwargs:
+            timeout_response = kwargs['timeoutResponse']
+
         if failure_conditional is not None:
             _setter("failure_conditional", failure_conditional)
         if failure_next_step is not None:
@@ -3562,7 +3910,19 @@ class BotPromptSpecificationArgs:
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
              message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None,
              prompt_attempts_specification: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+        if 'messageSelectionStrategy' in kwargs:
+            message_selection_strategy = kwargs['messageSelectionStrategy']
+        if 'promptAttemptsSpecification' in kwargs:
+            prompt_attempts_specification = kwargs['promptAttemptsSpecification']
+
         _setter("max_retries", max_retries)
         _setter("message_groups_list", message_groups_list)
         if allow_interrupt is not None:
@@ -3643,7 +4003,13 @@ class BotResponseSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("message_groups_list", message_groups_list)
         if allow_interrupt is not None:
             _setter("allow_interrupt", allow_interrupt)
@@ -3694,7 +4060,15 @@ class BotS3BucketLogDestinationArgs:
              log_prefix: pulumi.Input[str],
              s3_bucket_arn: pulumi.Input[str],
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("log_prefix", log_prefix)
         _setter("s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
@@ -3761,7 +4135,15 @@ class BotS3LocationArgs:
              s3_bucket: pulumi.Input[str],
              s3_object_key: pulumi.Input[str],
              s3_object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3ObjectKey' in kwargs:
+            s3_object_key = kwargs['s3ObjectKey']
+        if 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_object_key", s3_object_key)
         if s3_object_version is not None:
@@ -3819,7 +4201,9 @@ class BotSampleUtteranceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              utterance: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("utterance", utterance)
 
     @property
@@ -3848,7 +4232,9 @@ class BotSampleValueArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -3882,7 +4268,9 @@ class BotSessionAttributeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -3950,7 +4338,25 @@ class BotSlotCaptureSettingArgs:
              failure_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              failure_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              failure_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'captureConditional' in kwargs:
+            capture_conditional = kwargs['captureConditional']
+        if 'captureNextStep' in kwargs:
+            capture_next_step = kwargs['captureNextStep']
+        if 'captureResponse' in kwargs:
+            capture_response = kwargs['captureResponse']
+        if 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if 'elicitationCodeHook' in kwargs:
+            elicitation_code_hook = kwargs['elicitationCodeHook']
+        if 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+
         if capture_conditional is not None:
             _setter("capture_conditional", capture_conditional)
         if capture_next_step is not None:
@@ -4081,7 +4487,11 @@ class BotSlotDefaultValueSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_value_list: pulumi.Input[Sequence[pulumi.Input['BotSlotDefaultValueArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValueList' in kwargs:
+            default_value_list = kwargs['defaultValueList']
+
         _setter("default_value_list", default_value_list)
 
     @property
@@ -4113,7 +4523,11 @@ class BotSlotDefaultValueArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("default_value", default_value)
 
     @property
@@ -4148,7 +4562,11 @@ class BotSlotPriorityArgs:
              _setter: Callable[[Any, Any], None],
              priority: pulumi.Input[int],
              slot_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+
         _setter("priority", priority)
         _setter("slot_name", slot_name)
 
@@ -4192,7 +4610,11 @@ class BotSlotTypeValueArgs:
              _setter: Callable[[Any, Any], None],
              sample_value: pulumi.Input['BotSampleValueArgs'],
              synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sampleValue' in kwargs:
+            sample_value = kwargs['sampleValue']
+
         _setter("sample_value", sample_value)
         if synonyms is not None:
             _setter("synonyms", synonyms)
@@ -4246,7 +4668,17 @@ class BotSlotTypeArgs:
              parent_slot_type_signature: Optional[pulumi.Input[str]] = None,
              slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]] = None,
              value_selection_setting: Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalSourceSetting' in kwargs:
+            external_source_setting = kwargs['externalSourceSetting']
+        if 'parentSlotTypeSignature' in kwargs:
+            parent_slot_type_signature = kwargs['parentSlotTypeSignature']
+        if 'slotTypeValues' in kwargs:
+            slot_type_values = kwargs['slotTypeValues']
+        if 'valueSelectionSetting' in kwargs:
+            value_selection_setting = kwargs['valueSelectionSetting']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -4350,7 +4782,21 @@ class BotSlotValueElicitationSettingArgs:
              sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
              slot_capture_setting: Optional[pulumi.Input['BotSlotCaptureSettingArgs']] = None,
              wait_and_continue_specification: Optional[pulumi.Input['BotWaitAndContinueSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotConstraint' in kwargs:
+            slot_constraint = kwargs['slotConstraint']
+        if 'defaultValueSpecification' in kwargs:
+            default_value_specification = kwargs['defaultValueSpecification']
+        if 'promptSpecification' in kwargs:
+            prompt_specification = kwargs['promptSpecification']
+        if 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+        if 'slotCaptureSetting' in kwargs:
+            slot_capture_setting = kwargs['slotCaptureSetting']
+        if 'waitAndContinueSpecification' in kwargs:
+            wait_and_continue_specification = kwargs['waitAndContinueSpecification']
+
         _setter("slot_constraint", slot_constraint)
         if default_value_specification is not None:
             _setter("default_value_specification", default_value_specification)
@@ -4454,7 +4900,13 @@ class BotSlotValueOverrideMapArgs:
              _setter: Callable[[Any, Any], None],
              slot_name: Optional[pulumi.Input[str]] = None,
              slot_value_override: Optional[pulumi.Input['BotSlotValueOverrideArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+        if 'slotValueOverride' in kwargs:
+            slot_value_override = kwargs['slotValueOverride']
+
         if slot_name is not None:
             _setter("slot_name", slot_name)
         if slot_value_override is not None:
@@ -4503,7 +4955,9 @@ class BotSlotValueOverrideArgs:
              shape: Optional[pulumi.Input['BotSlotShape']] = None,
              value: Optional[pulumi.Input['BotSlotValueArgs']] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if shape is not None:
             _setter("shape", shape)
         if value is not None:
@@ -4564,7 +5018,9 @@ class BotSlotValueRegexFilterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pattern: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("pattern", pattern)
 
     @property
@@ -4601,7 +5057,15 @@ class BotSlotValueSelectionSettingArgs:
              resolution_strategy: pulumi.Input['BotSlotValueResolutionStrategy'],
              advanced_recognition_setting: Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']] = None,
              regex_filter: Optional[pulumi.Input['BotSlotValueRegexFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resolutionStrategy' in kwargs:
+            resolution_strategy = kwargs['resolutionStrategy']
+        if 'advancedRecognitionSetting' in kwargs:
+            advanced_recognition_setting = kwargs['advancedRecognitionSetting']
+        if 'regexFilter' in kwargs:
+            regex_filter = kwargs['regexFilter']
+
         _setter("resolution_strategy", resolution_strategy)
         if advanced_recognition_setting is not None:
             _setter("advanced_recognition_setting", advanced_recognition_setting)
@@ -4652,7 +5116,11 @@ class BotSlotValueArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              interpreted_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interpretedValue' in kwargs:
+            interpreted_value = kwargs['interpretedValue']
+
         if interpreted_value is not None:
             _setter("interpreted_value", interpreted_value)
 
@@ -4699,7 +5167,17 @@ class BotSlotArgs:
              description: Optional[pulumi.Input[str]] = None,
              multiple_values_setting: Optional[pulumi.Input['BotMultipleValuesSettingArgs']] = None,
              obfuscation_setting: Optional[pulumi.Input['BotObfuscationSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotTypeName' in kwargs:
+            slot_type_name = kwargs['slotTypeName']
+        if 'valueElicitationSetting' in kwargs:
+            value_elicitation_setting = kwargs['valueElicitationSetting']
+        if 'multipleValuesSetting' in kwargs:
+            multiple_values_setting = kwargs['multipleValuesSetting']
+        if 'obfuscationSetting' in kwargs:
+            obfuscation_setting = kwargs['obfuscationSetting']
+
         _setter("name", name)
         _setter("slot_type_name", slot_type_name)
         _setter("value_elicitation_setting", value_elicitation_setting)
@@ -4781,7 +5259,9 @@ class BotSsmlMessageArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -4822,7 +5302,17 @@ class BotStillWaitingResponseSpecificationArgs:
              message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
              timeout_in_seconds: pulumi.Input[int],
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInSeconds' in kwargs:
+            frequency_in_seconds = kwargs['frequencyInSeconds']
+        if 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("frequency_in_seconds", frequency_in_seconds)
         _setter("message_groups_list", message_groups_list)
         _setter("timeout_in_seconds", timeout_in_seconds)
@@ -4889,7 +5379,9 @@ class BotTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4934,7 +5426,11 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              detect_sentiment: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+
         _setter("detect_sentiment", detect_sentiment)
 
     @property
@@ -4975,7 +5471,15 @@ class BotTestBotAliasSettingsArgs:
              conversation_log_settings: Optional[pulumi.Input['BotConversationLogSettingsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              sentiment_analysis_settings: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botAliasLocaleSettings' in kwargs:
+            bot_alias_locale_settings = kwargs['botAliasLocaleSettings']
+        if 'conversationLogSettings' in kwargs:
+            conversation_log_settings = kwargs['conversationLogSettings']
+        if 'sentimentAnalysisSettings' in kwargs:
+            sentiment_analysis_settings = kwargs['sentimentAnalysisSettings']
+
         if bot_alias_locale_settings is not None:
             _setter("bot_alias_locale_settings", bot_alias_locale_settings)
         if conversation_log_settings is not None:
@@ -5040,7 +5544,11 @@ class BotTextLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatch' in kwargs:
+            cloud_watch = kwargs['cloudWatch']
+
         _setter("cloud_watch", cloud_watch)
 
     @property
@@ -5071,7 +5579,9 @@ class BotTextLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination: pulumi.Input['BotTextLogDestinationArgs'],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -5109,7 +5619,11 @@ class BotVersionLocaleDetailsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_bot_version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceBotVersion' in kwargs:
+            source_bot_version = kwargs['sourceBotVersion']
+
         _setter("source_bot_version", source_bot_version)
 
     @property
@@ -5137,7 +5651,13 @@ class BotVersionLocaleSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              bot_version_locale_details: pulumi.Input['BotVersionLocaleDetailsArgs'],
              locale_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botVersionLocaleDetails' in kwargs:
+            bot_version_locale_details = kwargs['botVersionLocaleDetails']
+        if 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+
         _setter("bot_version_locale_details", bot_version_locale_details)
         _setter("locale_id", locale_id)
 
@@ -5180,7 +5700,11 @@ class BotVoiceSettingsArgs:
              _setter: Callable[[Any, Any], None],
              voice_id: pulumi.Input[str],
              engine: Optional[pulumi.Input['BotVoiceSettingsEngine']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'voiceId' in kwargs:
+            voice_id = kwargs['voiceId']
+
         _setter("voice_id", voice_id)
         if engine is not None:
             _setter("engine", engine)
@@ -5238,7 +5762,17 @@ class BotWaitAndContinueSpecificationArgs:
              waiting_response: pulumi.Input['BotResponseSpecificationArgs'],
              is_active: Optional[pulumi.Input[bool]] = None,
              still_waiting_response: Optional[pulumi.Input['BotStillWaitingResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'continueResponse' in kwargs:
+            continue_response = kwargs['continueResponse']
+        if 'waitingResponse' in kwargs:
+            waiting_response = kwargs['waitingResponse']
+        if 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if 'stillWaitingResponse' in kwargs:
+            still_waiting_response = kwargs['stillWaitingResponse']
+
         _setter("continue_response", continue_response)
         _setter("waiting_response", waiting_response)
         if is_active is not None:
@@ -5310,7 +5844,11 @@ class DataPrivacyPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              child_directed: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'childDirected' in kwargs:
+            child_directed = kwargs['childDirected']
+
         _setter("child_directed", child_directed)
 
     @property
@@ -5333,8 +5871,10 @@ class ResourcePolicyPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -5353,7 +5893,11 @@ class SentimentAnalysisSettingsPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              detect_sentiment: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+
         _setter("detect_sentiment", detect_sentiment)
 
     @property

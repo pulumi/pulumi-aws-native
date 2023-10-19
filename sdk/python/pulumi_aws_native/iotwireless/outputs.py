@@ -61,7 +61,9 @@ class DestinationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -197,7 +199,47 @@ class DeviceProfileLoRaWanDeviceProfile(dict):
              supports_class_b: Optional[bool] = None,
              supports_class_c: Optional[bool] = None,
              supports_join: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classBTimeout' in kwargs:
+            class_b_timeout = kwargs['classBTimeout']
+        if 'classCTimeout' in kwargs:
+            class_c_timeout = kwargs['classCTimeout']
+        if 'factoryPresetFreqsList' in kwargs:
+            factory_preset_freqs_list = kwargs['factoryPresetFreqsList']
+        if 'macVersion' in kwargs:
+            mac_version = kwargs['macVersion']
+        if 'maxDutyCycle' in kwargs:
+            max_duty_cycle = kwargs['maxDutyCycle']
+        if 'maxEirp' in kwargs:
+            max_eirp = kwargs['maxEirp']
+        if 'pingSlotDr' in kwargs:
+            ping_slot_dr = kwargs['pingSlotDr']
+        if 'pingSlotFreq' in kwargs:
+            ping_slot_freq = kwargs['pingSlotFreq']
+        if 'pingSlotPeriod' in kwargs:
+            ping_slot_period = kwargs['pingSlotPeriod']
+        if 'regParamsRevision' in kwargs:
+            reg_params_revision = kwargs['regParamsRevision']
+        if 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if 'rxDataRate2' in kwargs:
+            rx_data_rate2 = kwargs['rxDataRate2']
+        if 'rxDelay1' in kwargs:
+            rx_delay1 = kwargs['rxDelay1']
+        if 'rxDrOffset1' in kwargs:
+            rx_dr_offset1 = kwargs['rxDrOffset1']
+        if 'rxFreq2' in kwargs:
+            rx_freq2 = kwargs['rxFreq2']
+        if 'supports32BitFCnt' in kwargs:
+            supports32_bit_f_cnt = kwargs['supports32BitFCnt']
+        if 'supportsClassB' in kwargs:
+            supports_class_b = kwargs['supportsClassB']
+        if 'supportsClassC' in kwargs:
+            supports_class_c = kwargs['supportsClassC']
+        if 'supportsJoin' in kwargs:
+            supports_join = kwargs['supportsJoin']
+
         if class_b_timeout is not None:
             _setter("class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
@@ -348,7 +390,9 @@ class DeviceProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -403,7 +447,13 @@ class FuotaTaskLoRaWan(dict):
              _setter: Callable[[Any, Any], None],
              rf_region: str,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("rf_region", rf_region)
         if start_time is not None:
             _setter("start_time", start_time)
@@ -440,7 +490,9 @@ class FuotaTaskTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -507,7 +559,17 @@ class MulticastGroupLoRaWan(dict):
              rf_region: str,
              number_of_devices_in_group: Optional[int] = None,
              number_of_devices_requested: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dlClass' in kwargs:
+            dl_class = kwargs['dlClass']
+        if 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if 'numberOfDevicesInGroup' in kwargs:
+            number_of_devices_in_group = kwargs['numberOfDevicesInGroup']
+        if 'numberOfDevicesRequested' in kwargs:
+            number_of_devices_requested = kwargs['numberOfDevicesRequested']
+
         _setter("dl_class", dl_class)
         _setter("rf_region", rf_region)
         if number_of_devices_in_group is not None:
@@ -563,7 +625,9 @@ class MulticastGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -603,7 +667,9 @@ class NetworkAnalyzerConfigurationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -653,7 +719,11 @@ class PartnerAccountSidewalkAccountInfo(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              app_server_private_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServerPrivateKey' in kwargs:
+            app_server_private_key = kwargs['appServerPrivateKey']
+
         _setter("app_server_private_key", app_server_private_key)
 
     @property
@@ -697,7 +767,11 @@ class PartnerAccountSidewalkAccountInfoWithFingerprint(dict):
              amazon_id: Optional[str] = None,
              arn: Optional[str] = None,
              fingerprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amazonId' in kwargs:
+            amazon_id = kwargs['amazonId']
+
         if amazon_id is not None:
             _setter("amazon_id", amazon_id)
         if arn is not None:
@@ -750,7 +824,11 @@ class PartnerAccountSidewalkUpdateAccount(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              app_server_private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServerPrivateKey' in kwargs:
+            app_server_private_key = kwargs['appServerPrivateKey']
+
         if app_server_private_key is not None:
             _setter("app_server_private_key", app_server_private_key)
 
@@ -775,7 +853,9 @@ class PartnerAccountTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -911,7 +991,47 @@ class ServiceProfileLoRaWanServiceProfile(dict):
              ul_bucket_size: Optional[int] = None,
              ul_rate: Optional[int] = None,
              ul_rate_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addGwMetadata' in kwargs:
+            add_gw_metadata = kwargs['addGwMetadata']
+        if 'channelMask' in kwargs:
+            channel_mask = kwargs['channelMask']
+        if 'devStatusReqFreq' in kwargs:
+            dev_status_req_freq = kwargs['devStatusReqFreq']
+        if 'dlBucketSize' in kwargs:
+            dl_bucket_size = kwargs['dlBucketSize']
+        if 'dlRate' in kwargs:
+            dl_rate = kwargs['dlRate']
+        if 'dlRatePolicy' in kwargs:
+            dl_rate_policy = kwargs['dlRatePolicy']
+        if 'drMax' in kwargs:
+            dr_max = kwargs['drMax']
+        if 'drMin' in kwargs:
+            dr_min = kwargs['drMin']
+        if 'hrAllowed' in kwargs:
+            hr_allowed = kwargs['hrAllowed']
+        if 'minGwDiversity' in kwargs:
+            min_gw_diversity = kwargs['minGwDiversity']
+        if 'nwkGeoLoc' in kwargs:
+            nwk_geo_loc = kwargs['nwkGeoLoc']
+        if 'prAllowed' in kwargs:
+            pr_allowed = kwargs['prAllowed']
+        if 'raAllowed' in kwargs:
+            ra_allowed = kwargs['raAllowed']
+        if 'reportDevStatusBattery' in kwargs:
+            report_dev_status_battery = kwargs['reportDevStatusBattery']
+        if 'reportDevStatusMargin' in kwargs:
+            report_dev_status_margin = kwargs['reportDevStatusMargin']
+        if 'targetPer' in kwargs:
+            target_per = kwargs['targetPer']
+        if 'ulBucketSize' in kwargs:
+            ul_bucket_size = kwargs['ulBucketSize']
+        if 'ulRate' in kwargs:
+            ul_rate = kwargs['ulRate']
+        if 'ulRatePolicy' in kwargs:
+            ul_rate_policy = kwargs['ulRatePolicy']
+
         if add_gw_metadata is not None:
             _setter("add_gw_metadata", add_gw_metadata)
         if channel_mask is not None:
@@ -1062,7 +1182,9 @@ class ServiceProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1127,7 +1249,15 @@ class SidewalkProperties(dict):
              device_creation_file_list: Optional[Sequence[str]] = None,
              role: Optional[str] = None,
              sidewalk_manufacturing_sn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceCreationFile' in kwargs:
+            device_creation_file = kwargs['deviceCreationFile']
+        if 'deviceCreationFileList' in kwargs:
+            device_creation_file_list = kwargs['deviceCreationFileList']
+        if 'sidewalkManufacturingSn' in kwargs:
+            sidewalk_manufacturing_sn = kwargs['sidewalkManufacturingSn']
+
         if device_creation_file is not None:
             _setter("device_creation_file", device_creation_file)
         if device_creation_file_list is not None:
@@ -1193,7 +1323,11 @@ class TaskDefinitionLoRaWanGatewayVersion(dict):
              model: Optional[str] = None,
              package_version: Optional[str] = None,
              station: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageVersion' in kwargs:
+            package_version = kwargs['packageVersion']
+
         if model is not None:
             _setter("model", model)
         if package_version is not None:
@@ -1261,7 +1395,17 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
              sig_key_crc: Optional[int] = None,
              update_signature: Optional[str] = None,
              update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if 'sigKeyCrc' in kwargs:
+            sig_key_crc = kwargs['sigKeyCrc']
+        if 'updateSignature' in kwargs:
+            update_signature = kwargs['updateSignature']
+        if 'updateVersion' in kwargs:
+            update_version = kwargs['updateVersion']
+
         if current_version is not None:
             _setter("current_version", current_version)
         if sig_key_crc is not None:
@@ -1326,7 +1470,13 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
              _setter: Callable[[Any, Any], None],
              current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
              update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if 'updateVersion' in kwargs:
+            update_version = kwargs['updateVersion']
+
         if current_version is not None:
             _setter("current_version", current_version)
         if update_version is not None:
@@ -1358,7 +1508,9 @@ class TaskDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1414,7 +1566,15 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
              lo_ra_wan: Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate'] = None,
              update_data_role: Optional[str] = None,
              update_data_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if 'updateDataRole' in kwargs:
+            update_data_role = kwargs['updateDataRole']
+        if 'updateDataSource' in kwargs:
+            update_data_source = kwargs['updateDataSource']
+
         if lo_ra_wan is not None:
             _setter("lo_ra_wan", lo_ra_wan)
         if update_data_role is not None:
@@ -1478,7 +1638,13 @@ class TraceContentProperties(dict):
              _setter: Callable[[Any, Any], None],
              log_level: Optional['NetworkAnalyzerConfigurationLogLevel'] = None,
              wireless_device_frame_info: Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'wirelessDeviceFrameInfo' in kwargs:
+            wireless_device_frame_info = kwargs['wirelessDeviceFrameInfo']
+
         if log_level is not None:
             _setter("log_level", log_level)
         if wireless_device_frame_info is not None:
@@ -1529,7 +1695,13 @@ class WirelessDeviceAbpV10x(dict):
              _setter: Callable[[Any, Any], None],
              dev_addr: str,
              session_keys: 'outputs.WirelessDeviceSessionKeysAbpV10x',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devAddr' in kwargs:
+            dev_addr = kwargs['devAddr']
+        if 'sessionKeys' in kwargs:
+            session_keys = kwargs['sessionKeys']
+
         _setter("dev_addr", dev_addr)
         _setter("session_keys", session_keys)
 
@@ -1578,7 +1750,13 @@ class WirelessDeviceAbpV11(dict):
              _setter: Callable[[Any, Any], None],
              dev_addr: str,
              session_keys: 'outputs.WirelessDeviceSessionKeysAbpV11',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'devAddr' in kwargs:
+            dev_addr = kwargs['devAddr']
+        if 'sessionKeys' in kwargs:
+            session_keys = kwargs['sessionKeys']
+
         _setter("dev_addr", dev_addr)
         _setter("session_keys", session_keys)
 
@@ -1616,7 +1794,9 @@ class WirelessDeviceImportTaskTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1696,7 +1876,23 @@ class WirelessDeviceLoRaWanDevice(dict):
              otaa_v10x: Optional['outputs.WirelessDeviceOtaaV10x'] = None,
              otaa_v11: Optional['outputs.WirelessDeviceOtaaV11'] = None,
              service_profile_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abpV10x' in kwargs:
+            abp_v10x = kwargs['abpV10x']
+        if 'abpV11' in kwargs:
+            abp_v11 = kwargs['abpV11']
+        if 'devEui' in kwargs:
+            dev_eui = kwargs['devEui']
+        if 'deviceProfileId' in kwargs:
+            device_profile_id = kwargs['deviceProfileId']
+        if 'otaaV10x' in kwargs:
+            otaa_v10x = kwargs['otaaV10x']
+        if 'otaaV11' in kwargs:
+            otaa_v11 = kwargs['otaaV11']
+        if 'serviceProfileId' in kwargs:
+            service_profile_id = kwargs['serviceProfileId']
+
         if abp_v10x is not None:
             _setter("abp_v10x", abp_v10x)
         if abp_v11 is not None:
@@ -1782,7 +1978,13 @@ class WirelessDeviceOtaaV10x(dict):
              _setter: Callable[[Any, Any], None],
              app_eui: str,
              app_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appEui' in kwargs:
+            app_eui = kwargs['appEui']
+        if 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+
         _setter("app_eui", app_eui)
         _setter("app_key", app_key)
 
@@ -1836,7 +2038,15 @@ class WirelessDeviceOtaaV11(dict):
              app_key: str,
              join_eui: str,
              nwk_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if 'joinEui' in kwargs:
+            join_eui = kwargs['joinEui']
+        if 'nwkKey' in kwargs:
+            nwk_key = kwargs['nwkKey']
+
         _setter("app_key", app_key)
         _setter("join_eui", join_eui)
         _setter("nwk_key", nwk_key)
@@ -1891,7 +2101,13 @@ class WirelessDeviceSessionKeysAbpV10x(dict):
              _setter: Callable[[Any, Any], None],
              app_s_key: str,
              nwk_s_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSKey' in kwargs:
+            app_s_key = kwargs['appSKey']
+        if 'nwkSKey' in kwargs:
+            nwk_s_key = kwargs['nwkSKey']
+
         _setter("app_s_key", app_s_key)
         _setter("nwk_s_key", nwk_s_key)
 
@@ -1950,7 +2166,17 @@ class WirelessDeviceSessionKeysAbpV11(dict):
              f_nwk_s_int_key: str,
              nwk_s_enc_key: str,
              s_nwk_s_int_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSKey' in kwargs:
+            app_s_key = kwargs['appSKey']
+        if 'fNwkSIntKey' in kwargs:
+            f_nwk_s_int_key = kwargs['fNwkSIntKey']
+        if 'nwkSEncKey' in kwargs:
+            nwk_s_enc_key = kwargs['nwkSEncKey']
+        if 'sNwkSIntKey' in kwargs:
+            s_nwk_s_int_key = kwargs['sNwkSIntKey']
+
         _setter("app_s_key", app_s_key)
         _setter("f_nwk_s_int_key", f_nwk_s_int_key)
         _setter("nwk_s_enc_key", nwk_s_enc_key)
@@ -1992,7 +2218,9 @@ class WirelessDeviceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -2043,7 +2271,13 @@ class WirelessGatewayLoRaWanGateway(dict):
              _setter: Callable[[Any, Any], None],
              gateway_eui: str,
              rf_region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayEui' in kwargs:
+            gateway_eui = kwargs['gatewayEui']
+        if 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+
         _setter("gateway_eui", gateway_eui)
         _setter("rf_region", rf_region)
 
@@ -2073,7 +2307,9 @@ class WirelessGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

@@ -54,7 +54,15 @@ class WorkGroupArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]] = None,
              work_group_configuration: Optional[pulumi.Input['WorkGroupConfigurationArgs']] = None,
              work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recursiveDeleteOption' in kwargs:
+            recursive_delete_option = kwargs['recursiveDeleteOption']
+        if 'workGroupConfiguration' in kwargs:
+            work_group_configuration = kwargs['workGroupConfiguration']
+        if 'workGroupConfigurationUpdates' in kwargs:
+            work_group_configuration_updates = kwargs['workGroupConfigurationUpdates']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

@@ -40,7 +40,13 @@ class WorkspaceArgs:
              alias: Optional[pulumi.Input[str]] = None,
              logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertManagerDefinition' in kwargs:
+            alert_manager_definition = kwargs['alertManagerDefinition']
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+
         if alert_manager_definition is not None:
             _setter("alert_manager_definition", alert_manager_definition)
         if alias is not None:

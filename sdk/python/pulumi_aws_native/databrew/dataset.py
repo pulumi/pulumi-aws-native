@@ -49,7 +49,13 @@ class DatasetArgs:
              name: Optional[pulumi.Input[str]] = None,
              path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'formatOptions' in kwargs:
+            format_options = kwargs['formatOptions']
+        if 'pathOptions' in kwargs:
+            path_options = kwargs['pathOptions']
+
         _setter("input", input)
         if format is not None:
             _setter("format", format)

@@ -44,7 +44,17 @@ class ServiceArgs:
              dns_entry: Optional[pulumi.Input['ServiceDnsEntryArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'customDomainName' in kwargs:
+            custom_domain_name = kwargs['customDomainName']
+        if 'dnsEntry' in kwargs:
+            dns_entry = kwargs['dnsEntry']
+
         if auth_type is not None:
             _setter("auth_type", auth_type)
         if certificate_arn is not None:

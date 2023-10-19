@@ -29,7 +29,11 @@ class PolicyPrincipalAttachmentArgs:
              _setter: Callable[[Any, Any], None],
              policy_name: pulumi.Input[str],
              principal: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_name", policy_name)
         _setter("principal", principal)
 

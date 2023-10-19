@@ -59,7 +59,9 @@ class AddonTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -116,7 +118,11 @@ class ClusterControlPlanePlacement(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         if group_name is not None:
             _setter("group_name", group_name)
 
@@ -152,7 +158,9 @@ class ClusterEncryptionConfig(dict):
              _setter: Callable[[Any, Any], None],
              provider: Optional['outputs.ClusterProvider'] = None,
              resources: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if provider is not None:
             _setter("provider", provider)
         if resources is not None:
@@ -223,7 +231,15 @@ class ClusterKubernetesNetworkConfig(dict):
              ip_family: Optional['ClusterKubernetesNetworkConfigIpFamily'] = None,
              service_ipv4_cidr: Optional[str] = None,
              service_ipv6_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipFamily' in kwargs:
+            ip_family = kwargs['ipFamily']
+        if 'serviceIpv4Cidr' in kwargs:
+            service_ipv4_cidr = kwargs['serviceIpv4Cidr']
+        if 'serviceIpv6Cidr' in kwargs:
+            service_ipv6_cidr = kwargs['serviceIpv6Cidr']
+
         if ip_family is not None:
             _setter("ip_family", ip_family)
         if service_ipv4_cidr is not None:
@@ -291,7 +307,11 @@ class ClusterLoggingEnabledTypes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enabledTypes' in kwargs:
+            enabled_types = kwargs['enabledTypes']
+
         if enabled_types is not None:
             _setter("enabled_types", enabled_types)
 
@@ -320,7 +340,9 @@ class ClusterLoggingTypeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional['ClusterLoggingTypeConfigType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -381,7 +403,15 @@ class ClusterOutpostConfig(dict):
              control_plane_instance_type: str,
              outpost_arns: Sequence[str],
              control_plane_placement: Optional['outputs.ClusterControlPlanePlacement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlPlaneInstanceType' in kwargs:
+            control_plane_instance_type = kwargs['controlPlaneInstanceType']
+        if 'outpostArns' in kwargs:
+            outpost_arns = kwargs['outpostArns']
+        if 'controlPlanePlacement' in kwargs:
+            control_plane_placement = kwargs['controlPlanePlacement']
+
         _setter("control_plane_instance_type", control_plane_instance_type)
         _setter("outpost_arns", outpost_arns)
         if control_plane_placement is not None:
@@ -444,7 +474,11 @@ class ClusterProvider(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         if key_arn is not None:
             _setter("key_arn", key_arn)
 
@@ -517,7 +551,19 @@ class ClusterResourcesVpcConfig(dict):
              endpoint_public_access: Optional[bool] = None,
              public_access_cidrs: Optional[Sequence[str]] = None,
              security_group_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'endpointPrivateAccess' in kwargs:
+            endpoint_private_access = kwargs['endpointPrivateAccess']
+        if 'endpointPublicAccess' in kwargs:
+            endpoint_public_access = kwargs['endpointPublicAccess']
+        if 'publicAccessCidrs' in kwargs:
+            public_access_cidrs = kwargs['publicAccessCidrs']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("subnet_ids", subnet_ids)
         if endpoint_private_access is not None:
             _setter("endpoint_private_access", endpoint_private_access)
@@ -592,7 +638,9 @@ class ClusterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -636,7 +684,9 @@ class FargateProfileLabel(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -672,7 +722,9 @@ class FargateProfileSelector(dict):
              _setter: Callable[[Any, Any], None],
              namespace: str,
              labels: Optional[Sequence['outputs.FargateProfileLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
         if labels is not None:
             _setter("labels", labels)
@@ -711,7 +763,9 @@ class FargateProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -803,7 +857,23 @@ class IdentityProviderConfigOidcIdentityProviderConfig(dict):
              required_claims: Optional[Sequence['outputs.IdentityProviderConfigRequiredClaim']] = None,
              username_claim: Optional[str] = None,
              username_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'issuerUrl' in kwargs:
+            issuer_url = kwargs['issuerUrl']
+        if 'groupsClaim' in kwargs:
+            groups_claim = kwargs['groupsClaim']
+        if 'groupsPrefix' in kwargs:
+            groups_prefix = kwargs['groupsPrefix']
+        if 'requiredClaims' in kwargs:
+            required_claims = kwargs['requiredClaims']
+        if 'usernameClaim' in kwargs:
+            username_claim = kwargs['usernameClaim']
+        if 'usernamePrefix' in kwargs:
+            username_prefix = kwargs['usernamePrefix']
+
         _setter("client_id", client_id)
         _setter("issuer_url", issuer_url)
         if groups_claim is not None:
@@ -894,7 +964,9 @@ class IdentityProviderConfigRequiredClaim(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -938,7 +1010,9 @@ class IdentityProviderConfigTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -995,7 +1069,11 @@ class Logging(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cluster_logging: Optional['outputs.ClusterLoggingEnabledTypes'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterLogging' in kwargs:
+            cluster_logging = kwargs['clusterLogging']
+
         if cluster_logging is not None:
             _setter("cluster_logging", cluster_logging)
 
@@ -1032,7 +1110,9 @@ class NodegroupLaunchTemplateSpecification(dict):
              id: Optional[str] = None,
              name: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -1096,7 +1176,13 @@ class NodegroupRemoteAccess(dict):
              _setter: Callable[[Any, Any], None],
              ec2_ssh_key: str,
              source_security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2SshKey' in kwargs:
+            ec2_ssh_key = kwargs['ec2SshKey']
+        if 'sourceSecurityGroups' in kwargs:
+            source_security_groups = kwargs['sourceSecurityGroups']
+
         _setter("ec2_ssh_key", ec2_ssh_key)
         if source_security_groups is not None:
             _setter("source_security_groups", source_security_groups)
@@ -1157,7 +1243,15 @@ class NodegroupScalingConfig(dict):
              desired_size: Optional[int] = None,
              max_size: Optional[int] = None,
              min_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredSize' in kwargs:
+            desired_size = kwargs['desiredSize']
+        if 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+
         if desired_size is not None:
             _setter("desired_size", desired_size)
         if max_size is not None:
@@ -1205,7 +1299,9 @@ class NodegroupTaint(dict):
              effect: Optional[str] = None,
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if effect is not None:
             _setter("effect", effect)
         if key is not None:
@@ -1271,7 +1367,13 @@ class NodegroupUpdateConfig(dict):
              _setter: Callable[[Any, Any], None],
              max_unavailable: Optional[float] = None,
              max_unavailable_percentage: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxUnavailable' in kwargs:
+            max_unavailable = kwargs['maxUnavailable']
+        if 'maxUnavailablePercentage' in kwargs:
+            max_unavailable_percentage = kwargs['maxUnavailablePercentage']
+
         if max_unavailable is not None:
             _setter("max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:

@@ -29,7 +29,13 @@ class TransitGatewayRouteTableAssociationArgs:
              _setter: Callable[[Any, Any], None],
              transit_gateway_attachment_id: pulumi.Input[str],
              transit_gateway_route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+
         _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 

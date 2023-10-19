@@ -32,7 +32,9 @@ class TagOptionArgs:
              key: pulumi.Input[str],
              value: pulumi.Input[str],
              active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
         if active is not None:

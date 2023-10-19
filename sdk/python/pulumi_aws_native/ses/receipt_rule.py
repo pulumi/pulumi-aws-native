@@ -34,7 +34,11 @@ class ReceiptRuleArgs:
              rule: pulumi.Input['ReceiptRuleRuleArgs'],
              rule_set_name: pulumi.Input[str],
              after: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+
         _setter("rule", rule)
         _setter("rule_set_name", rule_set_name)
         if after is not None:

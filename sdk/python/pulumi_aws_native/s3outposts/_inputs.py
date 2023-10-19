@@ -37,7 +37,11 @@ class AccessPointVpcConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if vpc_id is not None:
             _setter("vpc_id", vpc_id)
 
@@ -70,7 +74,11 @@ class BucketAbortIncompleteMultipartUploadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              days_after_initiation: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysAfterInitiation' in kwargs:
+            days_after_initiation = kwargs['daysAfterInitiation']
+
         _setter("days_after_initiation", days_after_initiation)
 
     @property
@@ -105,7 +113,9 @@ class BucketFilterAndOperatorPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              tags: pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgs']]],
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tags", tags)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -153,7 +163,9 @@ class BucketFilterTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -191,7 +203,9 @@ class BucketLifecycleConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -231,7 +245,11 @@ class BucketRuleFilterPropertiesArgs:
              and_operator: Optional[pulumi.Input['BucketFilterAndOperatorPropertiesArgs']] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              tag: Optional[pulumi.Input['BucketFilterTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andOperator' in kwargs:
+            and_operator = kwargs['andOperator']
+
         if and_operator is not None:
             _setter("and_operator", and_operator)
         if prefix is not None:
@@ -311,7 +329,15 @@ class BucketRuleArgs:
              filter: Optional[pulumi.Input['BucketRuleFilterPropertiesArgs']] = None,
              id: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['BucketRuleStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abortIncompleteMultipartUpload' in kwargs:
+            abort_incomplete_multipart_upload = kwargs['abortIncompleteMultipartUpload']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+
         if abort_incomplete_multipart_upload is not None:
             _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration_date is not None:
@@ -410,7 +436,9 @@ class BucketTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -452,7 +480,11 @@ class EndpointFailedReasonArgs:
              _setter: Callable[[Any, Any], None],
              error_code: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+
         if error_code is not None:
             _setter("error_code", error_code)
         if message is not None:

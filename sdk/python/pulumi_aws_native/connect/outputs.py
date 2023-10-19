@@ -123,7 +123,15 @@ class ConstraintsProperties(dict):
              invisible_fields: Optional[Sequence['outputs.TaskTemplateInvisibleFieldInfo']] = None,
              read_only_fields: Optional[Sequence['outputs.TaskTemplateReadOnlyFieldInfo']] = None,
              required_fields: Optional[Sequence['outputs.TaskTemplateRequiredFieldInfo']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'invisibleFields' in kwargs:
+            invisible_fields = kwargs['invisibleFields']
+        if 'readOnlyFields' in kwargs:
+            read_only_fields = kwargs['readOnlyFields']
+        if 'requiredFields' in kwargs:
+            required_fields = kwargs['requiredFields']
+
         if invisible_fields is not None:
             _setter("invisible_fields", invisible_fields)
         if read_only_fields is not None:
@@ -170,7 +178,9 @@ class ContactFlowModuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -214,7 +224,9 @@ class ContactFlowTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -254,7 +266,9 @@ class EvaluationFormBaseItem(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              section: 'outputs.EvaluationFormSection',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("section", section)
 
     @property
@@ -289,7 +303,9 @@ class EvaluationFormItem(dict):
              _setter: Callable[[Any, Any], None],
              question: Optional['outputs.EvaluationFormQuestion'] = None,
              section: Optional['outputs.EvaluationFormSection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if question is not None:
             _setter("question", question)
         if section is not None:
@@ -348,7 +364,11 @@ class EvaluationFormNumericQuestionAutomation(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              property_value: 'outputs.EvaluationFormNumericQuestionPropertyValueAutomation',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+
         _setter("property_value", property_value)
 
     @property
@@ -412,7 +432,15 @@ class EvaluationFormNumericQuestionOption(dict):
              min_value: int,
              automatic_fail: Optional[bool] = None,
              score: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+        if 'automaticFail' in kwargs:
+            automatic_fail = kwargs['automaticFail']
+
         _setter("max_value", max_value)
         _setter("min_value", min_value)
         if automatic_fail is not None:
@@ -503,7 +531,13 @@ class EvaluationFormNumericQuestionProperties(dict):
              min_value: int,
              automation: Optional['outputs.EvaluationFormNumericQuestionAutomation'] = None,
              options: Optional[Sequence['outputs.EvaluationFormNumericQuestionOption']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+
         _setter("max_value", max_value)
         _setter("min_value", min_value)
         if automation is not None:
@@ -563,7 +597,9 @@ class EvaluationFormNumericQuestionPropertyValueAutomation(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              label: 'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
 
     @property
@@ -641,7 +677,17 @@ class EvaluationFormQuestion(dict):
              not_applicable_enabled: Optional[bool] = None,
              question_type_properties: Optional['outputs.EvaluationFormQuestionTypeProperties'] = None,
              weight: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'questionType' in kwargs:
+            question_type = kwargs['questionType']
+        if 'refId' in kwargs:
+            ref_id = kwargs['refId']
+        if 'notApplicableEnabled' in kwargs:
+            not_applicable_enabled = kwargs['notApplicableEnabled']
+        if 'questionTypeProperties' in kwargs:
+            question_type_properties = kwargs['questionTypeProperties']
+
         _setter("question_type", question_type)
         _setter("ref_id", ref_id)
         _setter("title", title)
@@ -751,7 +797,11 @@ class EvaluationFormQuestionTypeProperties(dict):
              _setter: Callable[[Any, Any], None],
              numeric: Optional['outputs.EvaluationFormNumericQuestionProperties'] = None,
              single_select: Optional['outputs.EvaluationFormSingleSelectQuestionProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'singleSelect' in kwargs:
+            single_select = kwargs['singleSelect']
+
         if numeric is not None:
             _setter("numeric", numeric)
         if single_select is not None:
@@ -797,7 +847,9 @@ class EvaluationFormScoringStrategy(dict):
              _setter: Callable[[Any, Any], None],
              mode: 'EvaluationFormScoringStrategyMode',
              status: 'EvaluationFormScoringStrategyStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
         _setter("status", status)
 
@@ -870,7 +922,11 @@ class EvaluationFormSection(dict):
              instructions: Optional[str] = None,
              items: Optional[Sequence['outputs.EvaluationFormItem']] = None,
              weight: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refId' in kwargs:
+            ref_id = kwargs['refId']
+
         _setter("ref_id", ref_id)
         _setter("title", title)
         if instructions is not None:
@@ -961,7 +1017,11 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
              _setter: Callable[[Any, Any], None],
              options: Sequence['outputs.EvaluationFormSingleSelectQuestionAutomationOption'],
              default_option_ref_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultOptionRefId' in kwargs:
+            default_option_ref_id = kwargs['defaultOptionRefId']
+
         _setter("options", options)
         if default_option_ref_id is not None:
             _setter("default_option_ref_id", default_option_ref_id)
@@ -1019,7 +1079,11 @@ class EvaluationFormSingleSelectQuestionAutomationOption(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_category: 'outputs.EvaluationFormSingleSelectQuestionRuleCategoryAutomation',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleCategory' in kwargs:
+            rule_category = kwargs['ruleCategory']
+
         _setter("rule_category", rule_category)
 
     @property
@@ -1081,7 +1145,13 @@ class EvaluationFormSingleSelectQuestionOption(dict):
              text: str,
              automatic_fail: Optional[bool] = None,
              score: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refId' in kwargs:
+            ref_id = kwargs['refId']
+        if 'automaticFail' in kwargs:
+            automatic_fail = kwargs['automaticFail']
+
         _setter("ref_id", ref_id)
         _setter("text", text)
         if automatic_fail is not None:
@@ -1166,7 +1236,11 @@ class EvaluationFormSingleSelectQuestionProperties(dict):
              options: Sequence['outputs.EvaluationFormSingleSelectQuestionOption'],
              automation: Optional['outputs.EvaluationFormSingleSelectQuestionAutomation'] = None,
              display_as: Optional['EvaluationFormSingleSelectQuestionPropertiesDisplayAs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayAs' in kwargs:
+            display_as = kwargs['displayAs']
+
         _setter("options", options)
         if automation is not None:
             _setter("automation", automation)
@@ -1242,7 +1316,11 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
              category: str,
              condition: 'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition',
              option_ref_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optionRefId' in kwargs:
+            option_ref_id = kwargs['optionRefId']
+
         _setter("category", category)
         _setter("condition", condition)
         _setter("option_ref_id", option_ref_id)
@@ -1295,7 +1373,9 @@ class EvaluationFormTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1362,7 +1442,13 @@ class HoursOfOperationConfig(dict):
              day: 'HoursOfOperationConfigDay',
              end_time: 'outputs.HoursOfOperationTimeSlice',
              start_time: 'outputs.HoursOfOperationTimeSlice',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("day", day)
         _setter("end_time", end_time)
         _setter("start_time", start_time)
@@ -1415,7 +1501,9 @@ class HoursOfOperationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1459,7 +1547,9 @@ class HoursOfOperationTimeSlice(dict):
              _setter: Callable[[Any, Any], None],
              hours: int,
              minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("hours", hours)
         _setter("minutes", minutes)
 
@@ -1539,7 +1629,23 @@ class InstanceAttributes(dict):
              contactflow_logs: Optional[bool] = None,
              early_media: Optional[bool] = None,
              use_custom_tts_voices: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inboundCalls' in kwargs:
+            inbound_calls = kwargs['inboundCalls']
+        if 'outboundCalls' in kwargs:
+            outbound_calls = kwargs['outboundCalls']
+        if 'autoResolveBestVoices' in kwargs:
+            auto_resolve_best_voices = kwargs['autoResolveBestVoices']
+        if 'contactLens' in kwargs:
+            contact_lens = kwargs['contactLens']
+        if 'contactflowLogs' in kwargs:
+            contactflow_logs = kwargs['contactflowLogs']
+        if 'earlyMedia' in kwargs:
+            early_media = kwargs['earlyMedia']
+        if 'useCustomTtsVoices' in kwargs:
+            use_custom_tts_voices = kwargs['useCustomTtsVoices']
+
         _setter("inbound_calls", inbound_calls)
         _setter("outbound_calls", outbound_calls)
         if auto_resolve_best_voices is not None:
@@ -1623,7 +1729,13 @@ class InstanceStorageConfigEncryptionConfig(dict):
              _setter: Callable[[Any, Any], None],
              encryption_type: 'InstanceStorageConfigEncryptionType',
              key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         _setter("encryption_type", encryption_type)
         _setter("key_id", key_id)
 
@@ -1667,7 +1779,11 @@ class InstanceStorageConfigKinesisFirehoseConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              firehose_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+
         _setter("firehose_arn", firehose_arn)
 
     @property
@@ -1705,7 +1821,11 @@ class InstanceStorageConfigKinesisStreamConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         _setter("stream_arn", stream_arn)
 
     @property
@@ -1751,7 +1871,13 @@ class InstanceStorageConfigKinesisVideoStreamConfig(dict):
              prefix: str,
              retention_period_hours: float,
              encryption_config: Optional['outputs.InstanceStorageConfigEncryptionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("prefix", prefix)
         _setter("retention_period_hours", retention_period_hours)
         if encryption_config is not None:
@@ -1812,7 +1938,15 @@ class InstanceStorageConfigS3Config(dict):
              bucket_name: str,
              bucket_prefix: str,
              encryption_config: Optional['outputs.InstanceStorageConfigEncryptionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("bucket_name", bucket_name)
         _setter("bucket_prefix", bucket_prefix)
         if encryption_config is not None:
@@ -1857,7 +1991,9 @@ class PhoneNumberTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1901,7 +2037,9 @@ class PromptTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1967,7 +2105,15 @@ class QueueOutboundCallerConfig(dict):
              outbound_caller_id_name: Optional[str] = None,
              outbound_caller_id_number_arn: Optional[str] = None,
              outbound_flow_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outboundCallerIdName' in kwargs:
+            outbound_caller_id_name = kwargs['outboundCallerIdName']
+        if 'outboundCallerIdNumberArn' in kwargs:
+            outbound_caller_id_number_arn = kwargs['outboundCallerIdNumberArn']
+        if 'outboundFlowArn' in kwargs:
+            outbound_flow_arn = kwargs['outboundFlowArn']
+
         if outbound_caller_id_name is not None:
             _setter("outbound_caller_id_name", outbound_caller_id_name)
         if outbound_caller_id_number_arn is not None:
@@ -2012,7 +2158,9 @@ class QueueTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2077,7 +2225,17 @@ class QuickConnectConfig(dict):
              phone_config: Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig'] = None,
              queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
              user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'quickConnectType' in kwargs:
+            quick_connect_type = kwargs['quickConnectType']
+        if 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if 'queueConfig' in kwargs:
+            queue_config = kwargs['queueConfig']
+        if 'userConfig' in kwargs:
+            user_config = kwargs['userConfig']
+
         _setter("quick_connect_type", quick_connect_type)
         if phone_config is not None:
             _setter("phone_config", phone_config)
@@ -2142,7 +2300,11 @@ class QuickConnectPhoneNumberQuickConnectConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("phone_number", phone_number)
 
     @property
@@ -2191,7 +2353,13 @@ class QuickConnectQueueQuickConnectConfig(dict):
              _setter: Callable[[Any, Any], None],
              contact_flow_arn: str,
              queue_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+        if 'queueArn' in kwargs:
+            queue_arn = kwargs['queueArn']
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("queue_arn", queue_arn)
 
@@ -2229,7 +2397,9 @@ class QuickConnectTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2290,7 +2460,13 @@ class QuickConnectUserQuickConnectConfig(dict):
              _setter: Callable[[Any, Any], None],
              contact_flow_arn: str,
              user_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+        if 'userArn' in kwargs:
+            user_arn = kwargs['userArn']
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("user_arn", user_arn)
 
@@ -2340,7 +2516,11 @@ class RoutingProfileCrossChannelBehavior(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              behavior_type: 'RoutingProfileBehaviorType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'behaviorType' in kwargs:
+            behavior_type = kwargs['behaviorType']
+
         _setter("behavior_type", behavior_type)
 
     @property
@@ -2390,7 +2570,11 @@ class RoutingProfileMediaConcurrency(dict):
              channel: 'RoutingProfileChannel',
              concurrency: int,
              cross_channel_behavior: Optional['outputs.RoutingProfileCrossChannelBehavior'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossChannelBehavior' in kwargs:
+            cross_channel_behavior = kwargs['crossChannelBehavior']
+
         _setter("channel", channel)
         _setter("concurrency", concurrency)
         if cross_channel_behavior is not None:
@@ -2453,7 +2637,11 @@ class RoutingProfileQueueConfig(dict):
              delay: int,
              priority: int,
              queue_reference: 'outputs.RoutingProfileQueueReference',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueReference' in kwargs:
+            queue_reference = kwargs['queueReference']
+
         _setter("delay", delay)
         _setter("priority", priority)
         _setter("queue_reference", queue_reference)
@@ -2512,7 +2700,11 @@ class RoutingProfileQueueReference(dict):
              _setter: Callable[[Any, Any], None],
              channel: 'RoutingProfileChannel',
              queue_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueArn' in kwargs:
+            queue_arn = kwargs['queueArn']
+
         _setter("channel", channel)
         _setter("queue_arn", queue_arn)
 
@@ -2550,7 +2742,9 @@ class RoutingProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2621,7 +2815,17 @@ class RuleActions(dict):
              event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
              send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
              task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignContactCategoryActions' in kwargs:
+            assign_contact_category_actions = kwargs['assignContactCategoryActions']
+        if 'eventBridgeActions' in kwargs:
+            event_bridge_actions = kwargs['eventBridgeActions']
+        if 'sendNotificationActions' in kwargs:
+            send_notification_actions = kwargs['sendNotificationActions']
+        if 'taskActions' in kwargs:
+            task_actions = kwargs['taskActions']
+
         if assign_contact_category_actions is not None:
             _setter("assign_contact_category_actions", assign_contact_category_actions)
         if event_bridge_actions is not None:
@@ -2665,8 +2869,10 @@ class RuleAssignContactCategoryAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2688,7 +2894,9 @@ class RuleEventBridgeAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2742,7 +2950,13 @@ class RuleNotificationRecipientType(dict):
              _setter: Callable[[Any, Any], None],
              user_arns: Optional[Sequence[str]] = None,
              user_tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userArns' in kwargs:
+            user_arns = kwargs['userArns']
+        if 'userTags' in kwargs:
+            user_tags = kwargs['userTags']
+
         if user_arns is not None:
             _setter("user_arns", user_arns)
         if user_tags is not None:
@@ -2818,7 +3032,13 @@ class RuleSendNotificationAction(dict):
              delivery_method: 'RuleSendNotificationActionDeliveryMethod',
              recipient: 'outputs.RuleNotificationRecipientType',
              subject: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'deliveryMethod' in kwargs:
+            delivery_method = kwargs['deliveryMethod']
+
         _setter("content", content)
         _setter("content_type", content_type)
         _setter("delivery_method", delivery_method)
@@ -2887,7 +3107,9 @@ class RuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2956,7 +3178,11 @@ class RuleTaskAction(dict):
              name: str,
              description: Optional[str] = None,
              references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("name", name)
         if description is not None:
@@ -3039,7 +3265,13 @@ class RuleTriggerEventSource(dict):
              _setter: Callable[[Any, Any], None],
              event_source_name: 'RuleTriggerEventSourceEventSourceName',
              integration_association_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventSourceName' in kwargs:
+            event_source_name = kwargs['eventSourceName']
+        if 'integrationAssociationArn' in kwargs:
+            integration_association_arn = kwargs['integrationAssociationArn']
+
         _setter("event_source_name", event_source_name)
         if integration_association_arn is not None:
             _setter("integration_association_arn", integration_association_arn)
@@ -3084,7 +3316,9 @@ class SecurityProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3143,7 +3377,11 @@ class TaskTemplateDefaultFieldValue(dict):
              _setter: Callable[[Any, Any], None],
              default_value: str,
              id: 'outputs.TaskTemplateFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("default_value", default_value)
         _setter("id", id)
 
@@ -3204,7 +3442,11 @@ class TaskTemplateField(dict):
              type: 'TaskTemplateFieldType',
              description: Optional[str] = None,
              single_select_options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'singleSelectOptions' in kwargs:
+            single_select_options = kwargs['singleSelectOptions']
+
         _setter("id", id)
         _setter("type", type)
         if description is not None:
@@ -3258,7 +3500,9 @@ class TaskTemplateFieldIdentifier(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -3288,7 +3532,9 @@ class TaskTemplateInvisibleFieldInfo(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: 'outputs.TaskTemplateFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -3315,7 +3561,9 @@ class TaskTemplateReadOnlyFieldInfo(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: 'outputs.TaskTemplateFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -3342,7 +3590,9 @@ class TaskTemplateRequiredFieldInfo(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: 'outputs.TaskTemplateFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -3374,7 +3624,9 @@ class TaskTemplateTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3418,7 +3670,9 @@ class TrafficDistributionGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3462,7 +3716,9 @@ class UserHierarchyGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3534,7 +3790,15 @@ class UserIdentityInfo(dict):
              last_name: Optional[str] = None,
              mobile: Optional[str] = None,
              secondary_email: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'secondaryEmail' in kwargs:
+            secondary_email = kwargs['secondaryEmail']
+
         if email is not None:
             _setter("email", email)
         if first_name is not None:
@@ -3622,7 +3886,17 @@ class UserPhoneConfig(dict):
              after_contact_work_time_limit: Optional[int] = None,
              auto_accept: Optional[bool] = None,
              desk_phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'phoneType' in kwargs:
+            phone_type = kwargs['phoneType']
+        if 'afterContactWorkTimeLimit' in kwargs:
+            after_contact_work_time_limit = kwargs['afterContactWorkTimeLimit']
+        if 'autoAccept' in kwargs:
+            auto_accept = kwargs['autoAccept']
+        if 'deskPhoneNumber' in kwargs:
+            desk_phone_number = kwargs['deskPhoneNumber']
+
         _setter("phone_type", phone_type)
         if after_contact_work_time_limit is not None:
             _setter("after_contact_work_time_limit", after_contact_work_time_limit)
@@ -3675,7 +3949,9 @@ class UserTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3719,7 +3995,9 @@ class ViewTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

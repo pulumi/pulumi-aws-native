@@ -66,7 +66,25 @@ class DbProxyArgs:
              require_tls: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineFamily' in kwargs:
+            engine_family = kwargs['engineFamily']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if 'debugLogging' in kwargs:
+            debug_logging = kwargs['debugLogging']
+        if 'idleClientTimeout' in kwargs:
+            idle_client_timeout = kwargs['idleClientTimeout']
+        if 'requireTls' in kwargs:
+            require_tls = kwargs['requireTls']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("auth", auth)
         _setter("engine_family", engine_family)
         _setter("role_arn", role_arn)

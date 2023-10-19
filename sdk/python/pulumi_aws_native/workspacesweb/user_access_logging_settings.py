@@ -32,7 +32,11 @@ class UserAccessLoggingSettingsArgs:
              _setter: Callable[[Any, Any], None],
              kinesis_stream_arn: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessLoggingSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kinesisStreamArn' in kwargs:
+            kinesis_stream_arn = kwargs['kinesisStreamArn']
+
         _setter("kinesis_stream_arn", kinesis_stream_arn)
         if tags is not None:
             _setter("tags", tags)

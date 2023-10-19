@@ -50,7 +50,21 @@ class EndpointArgs:
              access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
              customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
              failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if 'failedReason' in kwargs:
+            failed_reason = kwargs['failedReason']
+
         _setter("outpost_id", outpost_id)
         _setter("security_group_id", security_group_id)
         _setter("subnet_id", subnet_id)

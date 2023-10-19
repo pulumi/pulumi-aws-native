@@ -42,7 +42,15 @@ class CustomMetricArgs:
              display_name: Optional[pulumi.Input[str]] = None,
              metric_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomMetricTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_type", metric_type)
         if display_name is not None:
             _setter("display_name", display_name)

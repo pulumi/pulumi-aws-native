@@ -41,7 +41,13 @@ class ProjectArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appConfigResource' in kwargs:
+            app_config_resource = kwargs['appConfigResource']
+        if 'dataDelivery' in kwargs:
+            data_delivery = kwargs['dataDelivery']
+
         if app_config_resource is not None:
             _setter("app_config_resource", app_config_resource)
         if data_delivery is not None:

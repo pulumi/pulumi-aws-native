@@ -85,7 +85,41 @@ class BrokerArgs:
              storage_type: Optional[pulumi.Input[str]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'hostInstanceType' in kwargs:
+            host_instance_type = kwargs['hostInstanceType']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'authenticationStrategy' in kwargs:
+            authentication_strategy = kwargs['authenticationStrategy']
+        if 'brokerName' in kwargs:
+            broker_name = kwargs['brokerName']
+        if 'dataReplicationMode' in kwargs:
+            data_replication_mode = kwargs['dataReplicationMode']
+        if 'dataReplicationPrimaryBrokerArn' in kwargs:
+            data_replication_primary_broker_arn = kwargs['dataReplicationPrimaryBrokerArn']
+        if 'encryptionOptions' in kwargs:
+            encryption_options = kwargs['encryptionOptions']
+        if 'ldapServerMetadata' in kwargs:
+            ldap_server_metadata = kwargs['ldapServerMetadata']
+        if 'maintenanceWindowStartTime' in kwargs:
+            maintenance_window_start_time = kwargs['maintenanceWindowStartTime']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         _setter("deployment_mode", deployment_mode)
         _setter("engine_type", engine_type)

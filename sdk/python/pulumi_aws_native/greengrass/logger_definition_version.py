@@ -31,7 +31,11 @@ class LoggerDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              logger_definition_id: pulumi.Input[str],
              loggers: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionVersionLoggerArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loggerDefinitionId' in kwargs:
+            logger_definition_id = kwargs['loggerDefinitionId']
+
         _setter("logger_definition_id", logger_definition_id)
         _setter("loggers", loggers)
 

@@ -37,7 +37,9 @@ class CellTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -67,7 +69,9 @@ class ReadinessCheckTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -97,7 +101,9 @@ class RecoveryGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -171,7 +177,19 @@ class ResourceSetDnsTargetResource(dict):
              record_set_id: Optional[str] = None,
              record_type: Optional[str] = None,
              target_resource: Optional['outputs.ResourceSetTargetResource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'hostedZoneArn' in kwargs:
+            hosted_zone_arn = kwargs['hostedZoneArn']
+        if 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+        if 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_arn is not None:
@@ -240,7 +258,9 @@ class ResourceSetNlbResource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -295,7 +315,13 @@ class ResourceSetR53ResourceRecord(dict):
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[str] = None,
              record_set_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if record_set_id is not None:
@@ -371,7 +397,17 @@ class ResourceSetResource(dict):
              dns_target_resource: Optional['outputs.ResourceSetDnsTargetResource'] = None,
              readiness_scopes: Optional[Sequence[str]] = None,
              resource_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if 'dnsTargetResource' in kwargs:
+            dns_target_resource = kwargs['dnsTargetResource']
+        if 'readinessScopes' in kwargs:
+            readiness_scopes = kwargs['readinessScopes']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if component_id is not None:
             _setter("component_id", component_id)
         if dns_target_resource is not None:
@@ -426,7 +462,9 @@ class ResourceSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -481,7 +519,13 @@ class ResourceSetTargetResource(dict):
              _setter: Callable[[Any, Any], None],
              nlb_resource: Optional['outputs.ResourceSetNlbResource'] = None,
              r53_resource: Optional['outputs.ResourceSetR53ResourceRecord'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nlbResource' in kwargs:
+            nlb_resource = kwargs['nlbResource']
+        if 'r53Resource' in kwargs:
+            r53_resource = kwargs['r53Resource']
+
         if nlb_resource is not None:
             _setter("nlb_resource", nlb_resource)
         if r53_resource is not None:

@@ -31,7 +31,13 @@ class DedicatedIpPoolArgs:
              _setter: Callable[[Any, Any], None],
              pool_name: Optional[pulumi.Input[str]] = None,
              scaling_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if 'scalingMode' in kwargs:
+            scaling_mode = kwargs['scalingMode']
+
         if pool_name is not None:
             _setter("pool_name", pool_name)
         if scaling_mode is not None:

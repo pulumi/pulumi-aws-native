@@ -69,7 +69,29 @@ class ScalingPolicyArgs:
              scaling_adjustment: Optional[pulumi.Input[int]] = None,
              step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]] = None,
              target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+        if 'metricAggregationType' in kwargs:
+            metric_aggregation_type = kwargs['metricAggregationType']
+        if 'minAdjustmentMagnitude' in kwargs:
+            min_adjustment_magnitude = kwargs['minAdjustmentMagnitude']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'predictiveScalingConfiguration' in kwargs:
+            predictive_scaling_configuration = kwargs['predictiveScalingConfiguration']
+        if 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if 'stepAdjustments' in kwargs:
+            step_adjustments = kwargs['stepAdjustments']
+        if 'targetTrackingConfiguration' in kwargs:
+            target_tracking_configuration = kwargs['targetTrackingConfiguration']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)

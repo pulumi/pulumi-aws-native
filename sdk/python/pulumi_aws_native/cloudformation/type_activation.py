@@ -68,7 +68,27 @@ class TypeActivationArgs:
              type_name: Optional[pulumi.Input[str]] = None,
              type_name_alias: Optional[pulumi.Input[str]] = None,
              version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+        if 'majorVersion' in kwargs:
+            major_version = kwargs['majorVersion']
+        if 'publicTypeArn' in kwargs:
+            public_type_arn = kwargs['publicTypeArn']
+        if 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if 'typeNameAlias' in kwargs:
+            type_name_alias = kwargs['typeNameAlias']
+        if 'versionBump' in kwargs:
+            version_bump = kwargs['versionBump']
+
         if auto_update is not None:
             _setter("auto_update", auto_update)
         if execution_role_arn is not None:

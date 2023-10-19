@@ -43,7 +43,13 @@ class BudgetAutoAdjustDataArgs:
              _setter: Callable[[Any, Any], None],
              auto_adjust_type: pulumi.Input[str],
              historical_options: Optional[pulumi.Input['BudgetHistoricalOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAdjustType' in kwargs:
+            auto_adjust_type = kwargs['autoAdjustType']
+        if 'historicalOptions' in kwargs:
+            historical_options = kwargs['historicalOptions']
+
         _setter("auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
             _setter("historical_options", historical_options)
@@ -109,7 +115,31 @@ class BudgetCostTypesArgs:
              include_upfront: Optional[pulumi.Input[bool]] = None,
              use_amortized: Optional[pulumi.Input[bool]] = None,
              use_blended: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeCredit' in kwargs:
+            include_credit = kwargs['includeCredit']
+        if 'includeDiscount' in kwargs:
+            include_discount = kwargs['includeDiscount']
+        if 'includeOtherSubscription' in kwargs:
+            include_other_subscription = kwargs['includeOtherSubscription']
+        if 'includeRecurring' in kwargs:
+            include_recurring = kwargs['includeRecurring']
+        if 'includeRefund' in kwargs:
+            include_refund = kwargs['includeRefund']
+        if 'includeSubscription' in kwargs:
+            include_subscription = kwargs['includeSubscription']
+        if 'includeSupport' in kwargs:
+            include_support = kwargs['includeSupport']
+        if 'includeTax' in kwargs:
+            include_tax = kwargs['includeTax']
+        if 'includeUpfront' in kwargs:
+            include_upfront = kwargs['includeUpfront']
+        if 'useAmortized' in kwargs:
+            use_amortized = kwargs['useAmortized']
+        if 'useBlended' in kwargs:
+            use_blended = kwargs['useBlended']
+
         if include_credit is not None:
             _setter("include_credit", include_credit)
         if include_discount is not None:
@@ -269,7 +299,27 @@ class BudgetDataArgs:
              cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
              planned_budget_limits: Optional[Any] = None,
              time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'budgetType' in kwargs:
+            budget_type = kwargs['budgetType']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+        if 'autoAdjustData' in kwargs:
+            auto_adjust_data = kwargs['autoAdjustData']
+        if 'budgetLimit' in kwargs:
+            budget_limit = kwargs['budgetLimit']
+        if 'budgetName' in kwargs:
+            budget_name = kwargs['budgetName']
+        if 'costFilters' in kwargs:
+            cost_filters = kwargs['costFilters']
+        if 'costTypes' in kwargs:
+            cost_types = kwargs['costTypes']
+        if 'plannedBudgetLimits' in kwargs:
+            planned_budget_limits = kwargs['plannedBudgetLimits']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
         _setter("budget_type", budget_type)
         _setter("time_unit", time_unit)
         if auto_adjust_data is not None:
@@ -381,7 +431,11 @@ class BudgetHistoricalOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              budget_adjustment_period: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'budgetAdjustmentPeriod' in kwargs:
+            budget_adjustment_period = kwargs['budgetAdjustmentPeriod']
+
         _setter("budget_adjustment_period", budget_adjustment_period)
 
     @property
@@ -409,7 +463,9 @@ class BudgetNotificationWithSubscribersArgs:
              _setter: Callable[[Any, Any], None],
              notification: pulumi.Input['BudgetNotificationArgs'],
              subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("notification", notification)
         _setter("subscribers", subscribers)
 
@@ -453,7 +509,15 @@ class BudgetNotificationArgs:
              notification_type: pulumi.Input[str],
              threshold: pulumi.Input[float],
              threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
         _setter("comparison_operator", comparison_operator)
         _setter("notification_type", notification_type)
         _setter("threshold", threshold)
@@ -512,7 +576,9 @@ class BudgetSpendArgs:
              _setter: Callable[[Any, Any], None],
              amount: pulumi.Input[float],
              unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("amount", amount)
         _setter("unit", unit)
 
@@ -550,7 +616,11 @@ class BudgetSubscriberArgs:
              _setter: Callable[[Any, Any], None],
              address: pulumi.Input[str],
              subscription_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionType' in kwargs:
+            subscription_type = kwargs['subscriptionType']
+
         _setter("address", address)
         _setter("subscription_type", subscription_type)
 
@@ -588,7 +658,9 @@ class BudgetTimePeriodArgs:
              _setter: Callable[[Any, Any], None],
              end: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if end is not None:
             _setter("end", end)
         if start is not None:
@@ -628,7 +700,9 @@ class BudgetsActionActionThresholdArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input['BudgetsActionActionThresholdType'],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -669,7 +743,15 @@ class BudgetsActionDefinitionArgs:
              iam_action_definition: Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']] = None,
              scp_action_definition: Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']] = None,
              ssm_action_definition: Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iamActionDefinition' in kwargs:
+            iam_action_definition = kwargs['iamActionDefinition']
+        if 'scpActionDefinition' in kwargs:
+            scp_action_definition = kwargs['scpActionDefinition']
+        if 'ssmActionDefinition' in kwargs:
+            ssm_action_definition = kwargs['ssmActionDefinition']
+
         if iam_action_definition is not None:
             _setter("iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
@@ -726,7 +808,11 @@ class BudgetsActionIamActionDefinitionArgs:
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+
         _setter("policy_arn", policy_arn)
         if groups is not None:
             _setter("groups", groups)
@@ -787,7 +873,13 @@ class BudgetsActionScpActionDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              policy_id: pulumi.Input[str],
              target_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'targetIds' in kwargs:
+            target_ids = kwargs['targetIds']
+
         _setter("policy_id", policy_id)
         _setter("target_ids", target_ids)
 
@@ -828,7 +920,11 @@ class BudgetsActionSsmActionDefinitionArgs:
              instance_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              region: pulumi.Input[str],
              subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceIds' in kwargs:
+            instance_ids = kwargs['instanceIds']
+
         _setter("instance_ids", instance_ids)
         _setter("region", region)
         _setter("subtype", subtype)
@@ -876,7 +972,9 @@ class BudgetsActionSubscriberArgs:
              _setter: Callable[[Any, Any], None],
              address: pulumi.Input[str],
              type: pulumi.Input['BudgetsActionSubscriberType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("address", address)
         _setter("type", type)
 

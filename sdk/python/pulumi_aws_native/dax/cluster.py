@@ -67,7 +67,33 @@ class ClusterArgs:
              sse_specification: Optional[pulumi.Input['ClusterSseSpecificationArgs']] = None,
              subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if 'replicationFactor' in kwargs:
+            replication_factor = kwargs['replicationFactor']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'clusterEndpointEncryptionType' in kwargs:
+            cluster_endpoint_encryption_type = kwargs['clusterEndpointEncryptionType']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+
         _setter("iam_role_arn", iam_role_arn)
         _setter("node_type", node_type)
         _setter("replication_factor", replication_factor)

@@ -31,7 +31,13 @@ class DataCatalogEncryptionSettingsInitArgs:
              _setter: Callable[[Any, Any], None],
              catalog_id: pulumi.Input[str],
              data_catalog_encryption_settings: pulumi.Input['DataCatalogEncryptionSettingsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'dataCatalogEncryptionSettings' in kwargs:
+            data_catalog_encryption_settings = kwargs['dataCatalogEncryptionSettings']
+
         _setter("catalog_id", catalog_id)
         _setter("data_catalog_encryption_settings", data_catalog_encryption_settings)
 

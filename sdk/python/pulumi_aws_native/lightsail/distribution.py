@@ -65,7 +65,25 @@ class DistributionArgs:
              ip_address_type: Optional[pulumi.Input[str]] = None,
              is_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if 'cacheBehaviorSettings' in kwargs:
+            cache_behavior_settings = kwargs['cacheBehaviorSettings']
+        if 'cacheBehaviors' in kwargs:
+            cache_behaviors = kwargs['cacheBehaviors']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'distributionName' in kwargs:
+            distribution_name = kwargs['distributionName']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         _setter("bundle_id", bundle_id)
         _setter("default_cache_behavior", default_cache_behavior)
         _setter("origin", origin)

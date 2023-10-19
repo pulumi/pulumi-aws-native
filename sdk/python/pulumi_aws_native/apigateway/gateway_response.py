@@ -38,7 +38,19 @@ class GatewayResponseArgs:
              response_parameters: Optional[Any] = None,
              response_templates: Optional[Any] = None,
              status_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("response_type", response_type)
         _setter("rest_api_id", rest_api_id)
         if response_parameters is not None:

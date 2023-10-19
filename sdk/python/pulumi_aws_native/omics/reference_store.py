@@ -40,7 +40,11 @@ class ReferenceStoreArgs:
              name: Optional[pulumi.Input[str]] = None,
              sse_config: Optional[pulumi.Input['ReferenceStoreSseConfigArgs']] = None,
              tags: Optional[pulumi.Input['ReferenceStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

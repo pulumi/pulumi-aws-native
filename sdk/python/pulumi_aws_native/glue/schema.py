@@ -56,7 +56,15 @@ class SchemaArgs:
              name: Optional[pulumi.Input[str]] = None,
              registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if 'checkpointVersion' in kwargs:
+            checkpoint_version = kwargs['checkpointVersion']
+
         _setter("compatibility", compatibility)
         _setter("data_format", data_format)
         _setter("schema_definition", schema_definition)

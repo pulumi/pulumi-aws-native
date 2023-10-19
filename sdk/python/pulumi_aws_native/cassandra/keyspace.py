@@ -36,7 +36,13 @@ class KeyspaceArgs:
              keyspace_name: Optional[pulumi.Input[str]] = None,
              replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if 'replicationSpecification' in kwargs:
+            replication_specification = kwargs['replicationSpecification']
+
         if keyspace_name is not None:
             _setter("keyspace_name", keyspace_name)
         if replication_specification is not None:

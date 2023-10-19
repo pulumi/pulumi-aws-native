@@ -44,7 +44,13 @@ class ListenerArgs:
              port: Optional[pulumi.Input[int]] = None,
              service_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+
         _setter("default_action", default_action)
         _setter("protocol", protocol)
         if name is not None:

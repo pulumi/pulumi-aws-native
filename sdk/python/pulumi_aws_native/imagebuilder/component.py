@@ -64,7 +64,15 @@ class ComponentArgs:
              supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[Any] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'changeDescription' in kwargs:
+            change_description = kwargs['changeDescription']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'supportedOsVersions' in kwargs:
+            supported_os_versions = kwargs['supportedOsVersions']
+
         _setter("platform", platform)
         _setter("version", version)
         if change_description is not None:

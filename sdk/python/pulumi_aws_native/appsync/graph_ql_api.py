@@ -64,7 +64,29 @@ class GraphQlApiArgs:
              user_pool_config: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              xray_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'additionalAuthenticationProviders' in kwargs:
+            additional_authentication_providers = kwargs['additionalAuthenticationProviders']
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'lambdaAuthorizerConfig' in kwargs:
+            lambda_authorizer_config = kwargs['lambdaAuthorizerConfig']
+        if 'logConfig' in kwargs:
+            log_config = kwargs['logConfig']
+        if 'mergedApiExecutionRoleArn' in kwargs:
+            merged_api_execution_role_arn = kwargs['mergedApiExecutionRoleArn']
+        if 'openIdConnectConfig' in kwargs:
+            open_id_connect_config = kwargs['openIdConnectConfig']
+        if 'ownerContact' in kwargs:
+            owner_contact = kwargs['ownerContact']
+        if 'userPoolConfig' in kwargs:
+            user_pool_config = kwargs['userPoolConfig']
+        if 'xrayEnabled' in kwargs:
+            xray_enabled = kwargs['xrayEnabled']
+
         _setter("authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             _setter("additional_authentication_providers", additional_authentication_providers)

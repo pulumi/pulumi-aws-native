@@ -67,7 +67,23 @@ class ComponentArgs:
              schema_version: Optional[pulumi.Input[str]] = None,
              source_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ComponentTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bindingProperties' in kwargs:
+            binding_properties = kwargs['bindingProperties']
+        if 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'collectionProperties' in kwargs:
+            collection_properties = kwargs['collectionProperties']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+
         _setter("binding_properties", binding_properties)
         _setter("component_type", component_type)
         _setter("overrides", overrides)

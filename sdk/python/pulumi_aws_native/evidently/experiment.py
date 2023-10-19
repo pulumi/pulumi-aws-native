@@ -64,7 +64,21 @@ class ExperimentArgs:
              sampling_rate: Optional[pulumi.Input[int]] = None,
              segment: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricGoals' in kwargs:
+            metric_goals = kwargs['metricGoals']
+        if 'onlineAbConfig' in kwargs:
+            online_ab_config = kwargs['onlineAbConfig']
+        if 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+        if 'removeSegment' in kwargs:
+            remove_segment = kwargs['removeSegment']
+        if 'runningStatus' in kwargs:
+            running_status = kwargs['runningStatus']
+        if 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         _setter("metric_goals", metric_goals)
         _setter("online_ab_config", online_ab_config)
         _setter("project", project)

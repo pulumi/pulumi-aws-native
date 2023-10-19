@@ -45,7 +45,15 @@ class UrlArgs:
              cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
              invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
              qualifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'targetFunctionArn' in kwargs:
+            target_function_arn = kwargs['targetFunctionArn']
+        if 'invokeMode' in kwargs:
+            invoke_mode = kwargs['invokeMode']
+
         _setter("auth_type", auth_type)
         _setter("target_function_arn", target_function_arn)
         if cors is not None:

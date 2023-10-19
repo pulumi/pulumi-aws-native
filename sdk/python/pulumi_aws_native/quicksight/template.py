@@ -50,7 +50,17 @@ class TemplateArgs:
              source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("aws_account_id", aws_account_id)
         _setter("template_id", template_id)
         if definition is not None:

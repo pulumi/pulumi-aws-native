@@ -153,7 +153,57 @@ class DbClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if 'dbInstanceParameterGroupName' in kwargs:
+            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
+        if 'dbPort' in kwargs:
+            db_port = kwargs['dbPort']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'iamAuthEnabled' in kwargs:
+            iam_auth_enabled = kwargs['iamAuthEnabled']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if 'serverlessScalingConfiguration' in kwargs:
+            serverless_scaling_configuration = kwargs['serverlessScalingConfiguration']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if associated_roles is not None:
             _setter("associated_roles", associated_roles)
         if availability_zones is not None:

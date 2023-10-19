@@ -39,7 +39,17 @@ class AccountAuditConfigurationArgs:
              audit_check_configurations: pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'],
              role_arn: pulumi.Input[str],
              audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'auditCheckConfigurations' in kwargs:
+            audit_check_configurations = kwargs['auditCheckConfigurations']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'auditNotificationTargetConfigurations' in kwargs:
+            audit_notification_target_configurations = kwargs['auditNotificationTargetConfigurations']
+
         _setter("account_id", account_id)
         _setter("audit_check_configurations", audit_check_configurations)
         _setter("role_arn", role_arn)

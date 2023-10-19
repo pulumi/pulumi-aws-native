@@ -51,7 +51,9 @@ class DatabaseTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -104,7 +106,17 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
              encryption_option: pulumi.Input[str],
              kms_key_id: Optional[pulumi.Input[str]] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'encryptionOption' in kwargs:
+            encryption_option = kwargs['encryptionOption']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         _setter("encryption_option", encryption_option)
         if kms_key_id is not None:
@@ -177,7 +189,11 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_configuration: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+
         if s3_configuration is not None:
             _setter("s3_configuration", s3_configuration)
 
@@ -214,7 +230,13 @@ class MagneticStoreWritePropertiesPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              enable_magnetic_store_writes: pulumi.Input[bool],
              magnetic_store_rejected_data_location: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableMagneticStoreWrites' in kwargs:
+            enable_magnetic_store_writes = kwargs['enableMagneticStoreWrites']
+        if 'magneticStoreRejectedDataLocation' in kwargs:
+            magnetic_store_rejected_data_location = kwargs['magneticStoreRejectedDataLocation']
+
         _setter("enable_magnetic_store_writes", enable_magnetic_store_writes)
         if magnetic_store_rejected_data_location is not None:
             _setter("magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
@@ -264,7 +286,13 @@ class RetentionPropertiesPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              magnetic_store_retention_period_in_days: Optional[pulumi.Input[str]] = None,
              memory_store_retention_period_in_hours: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'magneticStoreRetentionPeriodInDays' in kwargs:
+            magnetic_store_retention_period_in_days = kwargs['magneticStoreRetentionPeriodInDays']
+        if 'memoryStoreRetentionPeriodInHours' in kwargs:
+            memory_store_retention_period_in_hours = kwargs['memoryStoreRetentionPeriodInHours']
+
         if magnetic_store_retention_period_in_days is not None:
             _setter("magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
         if memory_store_retention_period_in_hours is not None:
@@ -313,7 +341,11 @@ class ScheduledQueryDimensionMappingArgs:
              _setter: Callable[[Any, Any], None],
              dimension_value_type: pulumi.Input['ScheduledQueryDimensionValueType'],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dimensionValueType' in kwargs:
+            dimension_value_type = kwargs['dimensionValueType']
+
         _setter("dimension_value_type", dimension_value_type)
         _setter("name", name)
 
@@ -351,7 +383,11 @@ class ScheduledQueryErrorReportConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_configuration: pulumi.Input['ScheduledQueryS3ConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+
         _setter("s3_configuration", s3_configuration)
 
     @property
@@ -391,7 +427,19 @@ class ScheduledQueryMixedMeasureMappingArgs:
              multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]] = None,
              source_column: Optional[pulumi.Input[str]] = None,
              target_measure_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'measureValueType' in kwargs:
+            measure_value_type = kwargs['measureValueType']
+        if 'measureName' in kwargs:
+            measure_name = kwargs['measureName']
+        if 'multiMeasureAttributeMappings' in kwargs:
+            multi_measure_attribute_mappings = kwargs['multiMeasureAttributeMappings']
+        if 'sourceColumn' in kwargs:
+            source_column = kwargs['sourceColumn']
+        if 'targetMeasureName' in kwargs:
+            target_measure_name = kwargs['targetMeasureName']
+
         _setter("measure_value_type", measure_value_type)
         if measure_name is not None:
             _setter("measure_name", measure_name)
@@ -469,7 +517,15 @@ class ScheduledQueryMultiMeasureAttributeMappingArgs:
              measure_value_type: pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType'],
              source_column: pulumi.Input[str],
              target_multi_measure_attribute_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'measureValueType' in kwargs:
+            measure_value_type = kwargs['measureValueType']
+        if 'sourceColumn' in kwargs:
+            source_column = kwargs['sourceColumn']
+        if 'targetMultiMeasureAttributeName' in kwargs:
+            target_multi_measure_attribute_name = kwargs['targetMultiMeasureAttributeName']
+
         _setter("measure_value_type", measure_value_type)
         _setter("source_column", source_column)
         if target_multi_measure_attribute_name is not None:
@@ -521,7 +577,13 @@ class ScheduledQueryMultiMeasureMappingsArgs:
              _setter: Callable[[Any, Any], None],
              multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]],
              target_multi_measure_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multiMeasureAttributeMappings' in kwargs:
+            multi_measure_attribute_mappings = kwargs['multiMeasureAttributeMappings']
+        if 'targetMultiMeasureName' in kwargs:
+            target_multi_measure_name = kwargs['targetMultiMeasureName']
+
         _setter("multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
             _setter("target_multi_measure_name", target_multi_measure_name)
@@ -560,7 +622,11 @@ class ScheduledQueryNotificationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sns_configuration: pulumi.Input['ScheduledQuerySnsConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsConfiguration' in kwargs:
+            sns_configuration = kwargs['snsConfiguration']
+
         _setter("sns_configuration", sns_configuration)
 
     @property
@@ -594,7 +660,15 @@ class ScheduledQueryS3ConfigurationArgs:
              bucket_name: pulumi.Input[str],
              encryption_option: Optional[pulumi.Input['ScheduledQueryEncryptionOption']] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'encryptionOption' in kwargs:
+            encryption_option = kwargs['encryptionOption']
+        if 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         if encryption_option is not None:
             _setter("encryption_option", encryption_option)
@@ -644,7 +718,11 @@ class ScheduledQueryScheduleConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -672,7 +750,11 @@ class ScheduledQuerySnsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("topic_arn", topic_arn)
 
     @property
@@ -703,7 +785,9 @@ class ScheduledQueryTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -741,7 +825,11 @@ class ScheduledQueryTargetConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timestreamConfiguration' in kwargs:
+            timestream_configuration = kwargs['timestreamConfiguration']
+
         _setter("timestream_configuration", timestream_configuration)
 
     @property
@@ -787,7 +875,23 @@ class ScheduledQueryTimestreamConfigurationArgs:
              measure_name_column: Optional[pulumi.Input[str]] = None,
              mixed_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]] = None,
              multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'dimensionMappings' in kwargs:
+            dimension_mappings = kwargs['dimensionMappings']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'timeColumn' in kwargs:
+            time_column = kwargs['timeColumn']
+        if 'measureNameColumn' in kwargs:
+            measure_name_column = kwargs['measureNameColumn']
+        if 'mixedMeasureMappings' in kwargs:
+            mixed_measure_mappings = kwargs['mixedMeasureMappings']
+        if 'multiMeasureMappings' in kwargs:
+            multi_measure_mappings = kwargs['multiMeasureMappings']
+
         _setter("database_name", database_name)
         _setter("dimension_mappings", dimension_mappings)
         _setter("table_name", table_name)
@@ -878,7 +982,11 @@ class SchemaPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              composite_partition_key: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compositePartitionKey' in kwargs:
+            composite_partition_key = kwargs['compositePartitionKey']
+
         if composite_partition_key is not None:
             _setter("composite_partition_key", composite_partition_key)
 
@@ -913,7 +1021,11 @@ class TablePartitionKeyArgs:
              type: pulumi.Input['TablePartitionKeyType'],
              enforcement_in_record: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enforcementInRecord' in kwargs:
+            enforcement_in_record = kwargs['enforcementInRecord']
+
         _setter("type", type)
         if enforcement_in_record is not None:
             _setter("enforcement_in_record", enforcement_in_record)
@@ -966,7 +1078,9 @@ class TableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

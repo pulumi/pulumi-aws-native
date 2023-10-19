@@ -37,7 +37,11 @@ class PackagingGroupArgs:
              authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
              egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressAccessLogs' in kwargs:
+            egress_access_logs = kwargs['egressAccessLogs']
+
         if authorization is not None:
             _setter("authorization", authorization)
         if egress_access_logs is not None:

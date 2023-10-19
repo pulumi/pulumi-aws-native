@@ -69,7 +69,15 @@ class PricingRuleArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None,
              tiering: Optional[pulumi.Input['TieringPropertiesArgs']] = None,
              usage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingEntity' in kwargs:
+            billing_entity = kwargs['billingEntity']
+        if 'modifierPercentage' in kwargs:
+            modifier_percentage = kwargs['modifierPercentage']
+        if 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         _setter("scope", scope)
         _setter("type", type)
         if billing_entity is not None:

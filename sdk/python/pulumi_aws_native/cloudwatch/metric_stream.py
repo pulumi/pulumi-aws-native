@@ -61,7 +61,23 @@ class MetricStreamArgs:
              name: Optional[pulumi.Input[str]] = None,
              statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+        if 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'excludeFilters' in kwargs:
+            exclude_filters = kwargs['excludeFilters']
+        if 'includeFilters' in kwargs:
+            include_filters = kwargs['includeFilters']
+        if 'includeLinkedAccountsMetrics' in kwargs:
+            include_linked_accounts_metrics = kwargs['includeLinkedAccountsMetrics']
+        if 'statisticsConfigurations' in kwargs:
+            statistics_configurations = kwargs['statisticsConfigurations']
+
         _setter("firehose_arn", firehose_arn)
         _setter("output_format", output_format)
         _setter("role_arn", role_arn)

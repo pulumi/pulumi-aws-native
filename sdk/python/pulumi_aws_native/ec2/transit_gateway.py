@@ -61,7 +61,29 @@ class TransitGatewayArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayTagArgs']]]] = None,
              transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+        if 'associationDefaultRouteTableId' in kwargs:
+            association_default_route_table_id = kwargs['associationDefaultRouteTableId']
+        if 'autoAcceptSharedAttachments' in kwargs:
+            auto_accept_shared_attachments = kwargs['autoAcceptSharedAttachments']
+        if 'defaultRouteTableAssociation' in kwargs:
+            default_route_table_association = kwargs['defaultRouteTableAssociation']
+        if 'defaultRouteTablePropagation' in kwargs:
+            default_route_table_propagation = kwargs['defaultRouteTablePropagation']
+        if 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if 'multicastSupport' in kwargs:
+            multicast_support = kwargs['multicastSupport']
+        if 'propagationDefaultRouteTableId' in kwargs:
+            propagation_default_route_table_id = kwargs['propagationDefaultRouteTableId']
+        if 'transitGatewayCidrBlocks' in kwargs:
+            transit_gateway_cidr_blocks = kwargs['transitGatewayCidrBlocks']
+        if 'vpnEcmpSupport' in kwargs:
+            vpn_ecmp_support = kwargs['vpnEcmpSupport']
+
         if amazon_side_asn is not None:
             _setter("amazon_side_asn", amazon_side_asn)
         if association_default_route_table_id is not None:

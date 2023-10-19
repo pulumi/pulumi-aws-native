@@ -79,7 +79,43 @@ class IntegrationArgs:
              template_selection_expression: Optional[pulumi.Input[str]] = None,
              timeout_in_millis: Optional[pulumi.Input[int]] = None,
              tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if 'integrationMethod' in kwargs:
+            integration_method = kwargs['integrationMethod']
+        if 'integrationSubtype' in kwargs:
+            integration_subtype = kwargs['integrationSubtype']
+        if 'integrationUri' in kwargs:
+            integration_uri = kwargs['integrationUri']
+        if 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if 'payloadFormatVersion' in kwargs:
+            payload_format_version = kwargs['payloadFormatVersion']
+        if 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+        if 'timeoutInMillis' in kwargs:
+            timeout_in_millis = kwargs['timeoutInMillis']
+        if 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
         _setter("api_id", api_id)
         _setter("integration_type", integration_type)
         if connection_id is not None:

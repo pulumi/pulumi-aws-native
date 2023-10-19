@@ -30,7 +30,9 @@ class LedgerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -68,7 +70,13 @@ class StreamKinesisConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              aggregation_enabled: Optional[pulumi.Input[bool]] = None,
              stream_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationEnabled' in kwargs:
+            aggregation_enabled = kwargs['aggregationEnabled']
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         if aggregation_enabled is not None:
             _setter("aggregation_enabled", aggregation_enabled)
         if stream_arn is not None:
@@ -113,7 +121,9 @@ class StreamTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

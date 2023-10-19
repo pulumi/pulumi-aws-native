@@ -37,7 +37,11 @@ class TransitGatewayConnectArgs:
              options: pulumi.Input['TransitGatewayConnectOptionsArgs'],
              transport_transit_gateway_attachment_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transportTransitGatewayAttachmentId' in kwargs:
+            transport_transit_gateway_attachment_id = kwargs['transportTransitGatewayAttachmentId']
+
         _setter("options", options)
         _setter("transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tags is not None:

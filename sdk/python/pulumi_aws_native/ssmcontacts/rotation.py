@@ -48,7 +48,15 @@ class RotationArgs:
              time_zone_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RotationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactIds' in kwargs:
+            contact_ids = kwargs['contactIds']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+
         _setter("contact_ids", contact_ids)
         _setter("recurrence", recurrence)
         _setter("start_time", start_time)

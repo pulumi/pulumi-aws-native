@@ -49,7 +49,19 @@ class AppBlockArgs:
              post_setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
              setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceS3Location' in kwargs:
+            source_s3_location = kwargs['sourceS3Location']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'packagingType' in kwargs:
+            packaging_type = kwargs['packagingType']
+        if 'postSetupScriptDetails' in kwargs:
+            post_setup_script_details = kwargs['postSetupScriptDetails']
+        if 'setupScriptDetails' in kwargs:
+            setup_script_details = kwargs['setupScriptDetails']
+
         _setter("source_s3_location", source_s3_location)
         if description is not None:
             _setter("description", description)

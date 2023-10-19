@@ -27,7 +27,11 @@ class EgressOnlyInternetGatewayArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("vpc_id", vpc_id)
 
     @property

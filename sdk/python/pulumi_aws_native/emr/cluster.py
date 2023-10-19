@@ -97,7 +97,45 @@ class ClusterArgs:
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepConfigArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              visible_to_all_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobFlowRole' in kwargs:
+            job_flow_role = kwargs['jobFlowRole']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if 'autoScalingRole' in kwargs:
+            auto_scaling_role = kwargs['autoScalingRole']
+        if 'autoTerminationPolicy' in kwargs:
+            auto_termination_policy = kwargs['autoTerminationPolicy']
+        if 'bootstrapActions' in kwargs:
+            bootstrap_actions = kwargs['bootstrapActions']
+        if 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if 'ebsRootVolumeSize' in kwargs:
+            ebs_root_volume_size = kwargs['ebsRootVolumeSize']
+        if 'kerberosAttributes' in kwargs:
+            kerberos_attributes = kwargs['kerberosAttributes']
+        if 'logEncryptionKmsKeyId' in kwargs:
+            log_encryption_kms_key_id = kwargs['logEncryptionKmsKeyId']
+        if 'logUri' in kwargs:
+            log_uri = kwargs['logUri']
+        if 'managedScalingPolicy' in kwargs:
+            managed_scaling_policy = kwargs['managedScalingPolicy']
+        if 'osReleaseLabel' in kwargs:
+            os_release_label = kwargs['osReleaseLabel']
+        if 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if 'scaleDownBehavior' in kwargs:
+            scale_down_behavior = kwargs['scaleDownBehavior']
+        if 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if 'stepConcurrencyLevel' in kwargs:
+            step_concurrency_level = kwargs['stepConcurrencyLevel']
+        if 'visibleToAllUsers' in kwargs:
+            visible_to_all_users = kwargs['visibleToAllUsers']
+
         _setter("instances", instances)
         _setter("job_flow_role", job_flow_role)
         _setter("service_role", service_role)

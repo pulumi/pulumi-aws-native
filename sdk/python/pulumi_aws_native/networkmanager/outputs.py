@@ -58,7 +58,9 @@ class ConnectAttachmentOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if protocol is not None:
             _setter("protocol", protocol)
 
@@ -117,7 +119,13 @@ class ConnectAttachmentProposedSegmentChange(dict):
              attachment_policy_rule_number: Optional[int] = None,
              segment_name: Optional[str] = None,
              tags: Optional[Sequence['outputs.ConnectAttachmentTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+
         if attachment_policy_rule_number is not None:
             _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
@@ -173,7 +181,9 @@ class ConnectAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -248,7 +258,17 @@ class ConnectPeerBgpConfiguration(dict):
              core_network_asn: Optional[float] = None,
              peer_address: Optional[str] = None,
              peer_asn: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+        if 'coreNetworkAsn' in kwargs:
+            core_network_asn = kwargs['coreNetworkAsn']
+        if 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+
         if core_network_address is not None:
             _setter("core_network_address", core_network_address)
         if core_network_asn is not None:
@@ -326,7 +346,11 @@ class ConnectPeerBgpOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              peer_asn: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+
         if peer_asn is not None:
             _setter("peer_asn", peer_asn)
 
@@ -388,7 +412,17 @@ class ConnectPeerConfiguration(dict):
              inside_cidr_blocks: Optional[Sequence[str]] = None,
              peer_address: Optional[str] = None,
              protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpConfigurations' in kwargs:
+            bgp_configurations = kwargs['bgpConfigurations']
+        if 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+        if 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+        if 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+
         if bgp_configurations is not None:
             _setter("bgp_configurations", bgp_configurations)
         if core_network_address is not None:
@@ -458,7 +492,9 @@ class ConnectPeerTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -520,7 +556,13 @@ class CoreNetworkEdge(dict):
              asn: Optional[float] = None,
              edge_location: Optional[str] = None,
              inside_cidr_blocks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+
         if asn is not None:
             _setter("asn", asn)
         if edge_location is not None:
@@ -590,7 +632,13 @@ class CoreNetworkSegment(dict):
              edge_locations: Optional[Sequence[str]] = None,
              name: Optional[str] = None,
              shared_segments: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'edgeLocations' in kwargs:
+            edge_locations = kwargs['edgeLocations']
+        if 'sharedSegments' in kwargs:
+            shared_segments = kwargs['sharedSegments']
+
         if edge_locations is not None:
             _setter("edge_locations", edge_locations)
         if name is not None:
@@ -640,7 +688,9 @@ class CoreNetworkTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -701,7 +751,11 @@ class DeviceAwsLocation(dict):
              _setter: Callable[[Any, Any], None],
              subnet_arn: Optional[str] = None,
              zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetArn' in kwargs:
+            subnet_arn = kwargs['subnetArn']
+
         if subnet_arn is not None:
             _setter("subnet_arn", subnet_arn)
         if zone is not None:
@@ -751,7 +805,9 @@ class DeviceLocation(dict):
              address: Optional[str] = None,
              latitude: Optional[str] = None,
              longitude: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if latitude is not None:
@@ -807,7 +863,9 @@ class DeviceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -851,7 +909,9 @@ class GlobalNetworkTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -914,7 +974,13 @@ class LinkBandwidth(dict):
              _setter: Callable[[Any, Any], None],
              download_speed: Optional[int] = None,
              upload_speed: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downloadSpeed' in kwargs:
+            download_speed = kwargs['downloadSpeed']
+        if 'uploadSpeed' in kwargs:
+            upload_speed = kwargs['uploadSpeed']
+
         if download_speed is not None:
             _setter("download_speed", download_speed)
         if upload_speed is not None:
@@ -960,7 +1026,9 @@ class LinkTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1008,7 +1076,9 @@ class SiteLocation(dict):
              address: Optional[str] = None,
              latitude: Optional[str] = None,
              longitude: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if latitude is not None:
@@ -1064,7 +1134,9 @@ class SiteTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1131,7 +1203,13 @@ class SiteToSiteVpnAttachmentProposedSegmentChange(dict):
              attachment_policy_rule_number: Optional[int] = None,
              segment_name: Optional[str] = None,
              tags: Optional[Sequence['outputs.SiteToSiteVpnAttachmentTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+
         if attachment_policy_rule_number is not None:
             _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
@@ -1187,7 +1265,9 @@ class SiteToSiteVpnAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1231,7 +1311,9 @@ class TransitGatewayPeeringTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1298,7 +1380,13 @@ class TransitGatewayRouteTableAttachmentProposedSegmentChange(dict):
              attachment_policy_rule_number: Optional[int] = None,
              segment_name: Optional[str] = None,
              tags: Optional[Sequence['outputs.TransitGatewayRouteTableAttachmentTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+
         if attachment_policy_rule_number is not None:
             _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
@@ -1354,7 +1442,9 @@ class TransitGatewayRouteTableAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1421,7 +1511,13 @@ class VpcAttachmentProposedSegmentChange(dict):
              attachment_policy_rule_number: Optional[int] = None,
              segment_name: Optional[str] = None,
              tags: Optional[Sequence['outputs.VpcAttachmentTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+
         if attachment_policy_rule_number is not None:
             _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
@@ -1477,7 +1573,9 @@ class VpcAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1540,7 +1638,13 @@ class VpcAttachmentVpcOptions(dict):
              _setter: Callable[[Any, Any], None],
              appliance_mode_support: Optional[bool] = None,
              ipv6_support: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applianceModeSupport' in kwargs:
+            appliance_mode_support = kwargs['applianceModeSupport']
+        if 'ipv6Support' in kwargs:
+            ipv6_support = kwargs['ipv6Support']
+
         if appliance_mode_support is not None:
             _setter("appliance_mode_support", appliance_mode_support)
         if ipv6_support is not None:

@@ -49,7 +49,13 @@ class UsagePlanArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]] = None,
              throttle: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
              usage_plan_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiStages' in kwargs:
+            api_stages = kwargs['apiStages']
+        if 'usagePlanName' in kwargs:
+            usage_plan_name = kwargs['usagePlanName']
+
         if api_stages is not None:
             _setter("api_stages", api_stages)
         if description is not None:

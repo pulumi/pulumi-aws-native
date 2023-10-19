@@ -41,7 +41,17 @@ class ThingGroupArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupTagArgs']]]] = None,
              thing_group_name: Optional[pulumi.Input[str]] = None,
              thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentGroupName' in kwargs:
+            parent_group_name = kwargs['parentGroupName']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'thingGroupName' in kwargs:
+            thing_group_name = kwargs['thingGroupName']
+        if 'thingGroupProperties' in kwargs:
+            thing_group_properties = kwargs['thingGroupProperties']
+
         if parent_group_name is not None:
             _setter("parent_group_name", parent_group_name)
         if query_string is not None:

@@ -49,7 +49,17 @@ class EipArgs:
              public_ipv4_pool: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EipTagArgs']]]] = None,
              transfer_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'networkBorderGroup' in kwargs:
+            network_border_group = kwargs['networkBorderGroup']
+        if 'publicIpv4Pool' in kwargs:
+            public_ipv4_pool = kwargs['publicIpv4Pool']
+        if 'transferAddress' in kwargs:
+            transfer_address = kwargs['transferAddress']
+
         if domain is not None:
             _setter("domain", domain)
         if instance_id is not None:

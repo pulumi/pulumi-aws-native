@@ -40,7 +40,13 @@ class StateMachineAliasArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentPreference' in kwargs:
+            deployment_preference = kwargs['deploymentPreference']
+        if 'routingConfiguration' in kwargs:
+            routing_configuration = kwargs['routingConfiguration']
+
         if deployment_preference is not None:
             _setter("deployment_preference", deployment_preference)
         if description is not None:

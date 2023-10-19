@@ -27,7 +27,9 @@ class MapConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              style: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("style", style)
 
     @property
@@ -65,7 +67,11 @@ class PlaceIndexDataSourceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              intended_use: Optional['PlaceIndexIntendedUse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intendedUse' in kwargs:
+            intended_use = kwargs['intendedUse']
+
         if intended_use is not None:
             _setter("intended_use", intended_use)
 

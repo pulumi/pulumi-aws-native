@@ -28,7 +28,11 @@ class ResolverDnssecConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
             _setter("resource_id", resource_id)
 

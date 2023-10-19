@@ -49,7 +49,17 @@ class DiskArgs:
              disk_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input['DiskLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if 'addOns' in kwargs:
+            add_ons = kwargs['addOns']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+
         _setter("size_in_gb", size_in_gb)
         if add_ons is not None:
             _setter("add_ons", add_ons)

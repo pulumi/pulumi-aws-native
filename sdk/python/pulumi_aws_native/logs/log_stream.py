@@ -31,7 +31,13 @@ class LogStreamArgs:
              _setter: Callable[[Any, Any], None],
              log_group_name: pulumi.Input[str],
              log_stream_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logStreamName' in kwargs:
+            log_stream_name = kwargs['logStreamName']
+
         _setter("log_group_name", log_group_name)
         if log_stream_name is not None:
             _setter("log_stream_name", log_stream_name)

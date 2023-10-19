@@ -29,7 +29,13 @@ class WebAclAssociationArgs:
              _setter: Callable[[Any, Any], None],
              resource_arn: pulumi.Input[str],
              web_acl_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'webAclId' in kwargs:
+            web_acl_id = kwargs['webAclId']
+
         _setter("resource_arn", resource_arn)
         _setter("web_acl_id", web_acl_id)
 

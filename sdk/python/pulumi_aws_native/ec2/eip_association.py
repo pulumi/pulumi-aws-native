@@ -43,7 +43,17 @@ class EipAssociationArgs:
              instance_id: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         if allocation_id is not None:
             _setter("allocation_id", allocation_id)
         if eip is not None:

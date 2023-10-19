@@ -49,7 +49,19 @@ class ConnectPeerArgs:
              core_network_address: Optional[pulumi.Input[str]] = None,
              inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectAttachmentId' in kwargs:
+            connect_attachment_id = kwargs['connectAttachmentId']
+        if 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if 'bgpOptions' in kwargs:
+            bgp_options = kwargs['bgpOptions']
+        if 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+        if 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+
         _setter("connect_attachment_id", connect_attachment_id)
         _setter("peer_address", peer_address)
         if bgp_options is not None:

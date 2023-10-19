@@ -31,7 +31,13 @@ class ScalingPlanArgs:
              _setter: Callable[[Any, Any], None],
              application_source: pulumi.Input['ScalingPlanApplicationSourceArgs'],
              scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationSource' in kwargs:
+            application_source = kwargs['applicationSource']
+        if 'scalingInstructions' in kwargs:
+            scaling_instructions = kwargs['scalingInstructions']
+
         _setter("application_source", application_source)
         _setter("scaling_instructions", scaling_instructions)
 

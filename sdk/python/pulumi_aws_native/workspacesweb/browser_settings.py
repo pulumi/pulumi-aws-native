@@ -37,7 +37,15 @@ class BrowserSettingsArgs:
              browser_policy: Optional[pulumi.Input[str]] = None,
              customer_managed_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if 'browserPolicy' in kwargs:
+            browser_policy = kwargs['browserPolicy']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)
         if browser_policy is not None:

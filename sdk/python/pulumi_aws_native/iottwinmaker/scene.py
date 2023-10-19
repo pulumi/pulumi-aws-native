@@ -51,7 +51,17 @@ class SceneArgs:
              description: Optional[pulumi.Input[str]] = None,
              scene_metadata: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentLocation' in kwargs:
+            content_location = kwargs['contentLocation']
+        if 'sceneId' in kwargs:
+            scene_id = kwargs['sceneId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'sceneMetadata' in kwargs:
+            scene_metadata = kwargs['sceneMetadata']
+
         _setter("content_location", content_location)
         _setter("scene_id", scene_id)
         _setter("workspace_id", workspace_id)

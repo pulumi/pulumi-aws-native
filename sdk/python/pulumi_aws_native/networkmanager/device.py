@@ -65,7 +65,17 @@ class DeviceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if 'awsLocation' in kwargs:
+            aws_location = kwargs['awsLocation']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'siteId' in kwargs:
+            site_id = kwargs['siteId']
+
         _setter("global_network_id", global_network_id)
         if aws_location is not None:
             _setter("aws_location", aws_location)

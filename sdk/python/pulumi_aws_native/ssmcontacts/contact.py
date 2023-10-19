@@ -42,7 +42,11 @@ class ContactArgs:
              display_name: pulumi.Input[str],
              type: pulumi.Input['ContactType'],
              plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("alias", alias)
         _setter("display_name", display_name)
         _setter("type", type)

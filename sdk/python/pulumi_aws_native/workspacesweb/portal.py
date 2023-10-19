@@ -59,7 +59,29 @@ class PortalArgs:
              trust_store_arn: Optional[pulumi.Input[str]] = None,
              user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
              user_settings_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'browserSettingsArn' in kwargs:
+            browser_settings_arn = kwargs['browserSettingsArn']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'ipAccessSettingsArn' in kwargs:
+            ip_access_settings_arn = kwargs['ipAccessSettingsArn']
+        if 'networkSettingsArn' in kwargs:
+            network_settings_arn = kwargs['networkSettingsArn']
+        if 'trustStoreArn' in kwargs:
+            trust_store_arn = kwargs['trustStoreArn']
+        if 'userAccessLoggingSettingsArn' in kwargs:
+            user_access_logging_settings_arn = kwargs['userAccessLoggingSettingsArn']
+        if 'userSettingsArn' in kwargs:
+            user_settings_arn = kwargs['userSettingsArn']
+
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)
         if authentication_type is not None:

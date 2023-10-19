@@ -70,7 +70,25 @@ class RestApiArgs:
              parameters: Optional[Any] = None,
              policy: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RestApiTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKeySourceType' in kwargs:
+            api_key_source_type = kwargs['apiKeySourceType']
+        if 'binaryMediaTypes' in kwargs:
+            binary_media_types = kwargs['binaryMediaTypes']
+        if 'bodyS3Location' in kwargs:
+            body_s3_location = kwargs['bodyS3Location']
+        if 'cloneFrom' in kwargs:
+            clone_from = kwargs['cloneFrom']
+        if 'disableExecuteApiEndpoint' in kwargs:
+            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
+        if 'endpointConfiguration' in kwargs:
+            endpoint_configuration = kwargs['endpointConfiguration']
+        if 'failOnWarnings' in kwargs:
+            fail_on_warnings = kwargs['failOnWarnings']
+        if 'minimumCompressionSize' in kwargs:
+            minimum_compression_size = kwargs['minimumCompressionSize']
+
         if api_key_source_type is not None:
             _setter("api_key_source_type", api_key_source_type)
         if binary_media_types is not None:

@@ -50,7 +50,19 @@ class AppArgs:
              app_name: Optional[pulumi.Input[str]] = None,
              resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appType' in kwargs:
+            app_type = kwargs['appType']
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if 'appName' in kwargs:
+            app_name = kwargs['appName']
+        if 'resourceSpec' in kwargs:
+            resource_spec = kwargs['resourceSpec']
+
         _setter("app_type", app_type)
         _setter("domain_id", domain_id)
         _setter("user_profile_name", user_profile_name)

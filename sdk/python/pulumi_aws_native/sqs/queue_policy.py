@@ -31,7 +31,11 @@ class QueuePolicyArgs:
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              queues: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("policy_document", policy_document)
         _setter("queues", queues)
 

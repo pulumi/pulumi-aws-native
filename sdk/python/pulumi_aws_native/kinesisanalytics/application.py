@@ -37,7 +37,15 @@ class ApplicationArgs:
              application_code: Optional[pulumi.Input[str]] = None,
              application_description: Optional[pulumi.Input[str]] = None,
              application_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationCode' in kwargs:
+            application_code = kwargs['applicationCode']
+        if 'applicationDescription' in kwargs:
+            application_description = kwargs['applicationDescription']
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+
         _setter("inputs", inputs)
         if application_code is not None:
             _setter("application_code", application_code)

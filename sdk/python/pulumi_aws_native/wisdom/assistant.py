@@ -41,7 +41,11 @@ class AssistantArgs:
              name: Optional[pulumi.Input[str]] = None,
              server_side_encryption_configuration: Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssistantTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+
         _setter("type", type)
         if description is not None:
             _setter("description", description)

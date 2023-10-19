@@ -39,7 +39,17 @@ class NetworkInterfaceAttachmentArgs:
              instance_id: pulumi.Input[str],
              network_interface_id: pulumi.Input[str],
              delete_on_termination: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+
         _setter("device_index", device_index)
         _setter("instance_id", instance_id)
         _setter("network_interface_id", network_interface_id)

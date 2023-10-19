@@ -39,7 +39,11 @@ class EnvironmentArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricType' in kwargs:
+            network_fabric_type = kwargs['networkFabricType']
+
         _setter("network_fabric_type", network_fabric_type)
         if description is not None:
             _setter("description", description)

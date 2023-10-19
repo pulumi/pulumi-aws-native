@@ -43,7 +43,9 @@ class PublicRepositoryTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -90,7 +92,11 @@ class ReplicationConfigurationReplicationDestinationArgs:
              _setter: Callable[[Any, Any], None],
              region: pulumi.Input[str],
              registry_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+
         _setter("region", region)
         _setter("registry_id", registry_id)
 
@@ -133,7 +139,11 @@ class ReplicationConfigurationReplicationRuleArgs:
              _setter: Callable[[Any, Any], None],
              destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]],
              repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryFilters' in kwargs:
+            repository_filters = kwargs['repositoryFilters']
+
         _setter("destinations", destinations)
         if repository_filters is not None:
             _setter("repository_filters", repository_filters)
@@ -181,7 +191,11 @@ class ReplicationConfigurationRepositoryFilterArgs:
              _setter: Callable[[Any, Any], None],
              filter: pulumi.Input[str],
              filter_type: pulumi.Input['ReplicationConfigurationFilterType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+
         _setter("filter", filter)
         _setter("filter_type", filter_type)
 
@@ -220,7 +234,9 @@ class ReplicationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -263,7 +279,17 @@ class RepositoryCatalogDataPropertiesArgs:
              operating_systems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository_description: Optional[pulumi.Input[str]] = None,
              usage_text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aboutText' in kwargs:
+            about_text = kwargs['aboutText']
+        if 'operatingSystems' in kwargs:
+            operating_systems = kwargs['operatingSystems']
+        if 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+        if 'usageText' in kwargs:
+            usage_text = kwargs['usageText']
+
         if about_text is not None:
             _setter("about_text", about_text)
         if architectures is not None:
@@ -343,7 +369,13 @@ class RepositoryEncryptionConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              encryption_type: pulumi.Input['RepositoryEncryptionType'],
              kms_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("encryption_type", encryption_type)
         if kms_key is not None:
             _setter("kms_key", kms_key)
@@ -382,7 +414,11 @@ class RepositoryImageScanningConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              scan_on_push: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scanOnPush' in kwargs:
+            scan_on_push = kwargs['scanOnPush']
+
         if scan_on_push is not None:
             _setter("scan_on_push", scan_on_push)
 
@@ -414,7 +450,13 @@ class RepositoryLifecyclePolicyArgs:
              _setter: Callable[[Any, Any], None],
              lifecycle_policy_text: Optional[pulumi.Input[str]] = None,
              registry_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lifecyclePolicyText' in kwargs:
+            lifecycle_policy_text = kwargs['lifecyclePolicyText']
+        if 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+
         if lifecycle_policy_text is not None:
             _setter("lifecycle_policy_text", lifecycle_policy_text)
         if registry_id is not None:
@@ -459,7 +501,9 @@ class RepositoryTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

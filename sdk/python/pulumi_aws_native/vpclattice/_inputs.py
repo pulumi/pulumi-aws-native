@@ -56,7 +56,9 @@ class AccessLogSubscriptionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -94,7 +96,11 @@ class ListenerDefaultActionArgs:
              _setter: Callable[[Any, Any], None],
              fixed_response: Optional[pulumi.Input['ListenerFixedResponseArgs']] = None,
              forward: Optional[pulumi.Input['ListenerForwardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+
         if fixed_response is not None:
             _setter("fixed_response", fixed_response)
         if forward is not None:
@@ -131,7 +137,11 @@ class ListenerFixedResponseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              status_code: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("status_code", status_code)
 
     @property
@@ -156,7 +166,11 @@ class ListenerForwardArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
         _setter("target_groups", target_groups)
 
     @property
@@ -184,7 +198,9 @@ class ListenerTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -222,7 +238,11 @@ class ListenerWeightedTargetGroupArgs:
              _setter: Callable[[Any, Any], None],
              target_group_identifier: pulumi.Input[str],
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+
         _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
             _setter("weight", weight)
@@ -261,7 +281,11 @@ class RuleActionArgs:
              _setter: Callable[[Any, Any], None],
              fixed_response: Optional[pulumi.Input['RuleFixedResponseArgs']] = None,
              forward: Optional[pulumi.Input['RuleForwardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+
         if fixed_response is not None:
             _setter("fixed_response", fixed_response)
         if forward is not None:
@@ -298,7 +322,11 @@ class RuleFixedResponseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              status_code: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("status_code", status_code)
 
     @property
@@ -323,7 +351,11 @@ class RuleForwardArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_groups: pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
         _setter("target_groups", target_groups)
 
     @property
@@ -354,7 +386,9 @@ class RuleHeaderMatchTypeArgs:
              contains: Optional[pulumi.Input[str]] = None,
              exact: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if contains is not None:
             _setter("contains", contains)
         if exact is not None:
@@ -408,7 +442,11 @@ class RuleHeaderMatchArgs:
              match: pulumi.Input['RuleHeaderMatchTypeArgs'],
              name: pulumi.Input[str],
              case_sensitive: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+
         _setter("match", match)
         _setter("name", name)
         if case_sensitive is not None:
@@ -460,7 +498,13 @@ class RuleHttpMatchArgs:
              header_matches: Optional[pulumi.Input[Sequence[pulumi.Input['RuleHeaderMatchArgs']]]] = None,
              method: Optional[pulumi.Input['RuleHttpMatchMethod']] = None,
              path_match: Optional[pulumi.Input['RulePathMatchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerMatches' in kwargs:
+            header_matches = kwargs['headerMatches']
+        if 'pathMatch' in kwargs:
+            path_match = kwargs['pathMatch']
+
         if header_matches is not None:
             _setter("header_matches", header_matches)
         if method is not None:
@@ -508,7 +552,11 @@ class RuleMatchArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              http_match: pulumi.Input['RuleHttpMatchArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpMatch' in kwargs:
+            http_match = kwargs['httpMatch']
+
         _setter("http_match", http_match)
 
     @property
@@ -536,7 +584,9 @@ class RulePathMatchTypeArgs:
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -576,7 +626,11 @@ class RulePathMatchArgs:
              _setter: Callable[[Any, Any], None],
              match: pulumi.Input['RulePathMatchTypeArgs'],
              case_sensitive: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+
         _setter("match", match)
         if case_sensitive is not None:
             _setter("case_sensitive", case_sensitive)
@@ -615,7 +669,9 @@ class RuleTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -653,7 +709,11 @@ class RuleWeightedTargetGroupArgs:
              _setter: Callable[[Any, Any], None],
              target_group_identifier: pulumi.Input[str],
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+
         _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
             _setter("weight", weight)
@@ -692,7 +752,13 @@ class ServiceDnsEntryArgs:
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[pulumi.Input[str]] = None,
              hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -732,7 +798,13 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[pulumi.Input[str]] = None,
              hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -772,7 +844,9 @@ class ServiceNetworkServiceAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -810,7 +884,9 @@ class ServiceNetworkTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -848,7 +924,9 @@ class ServiceNetworkVpcAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -886,7 +964,9 @@ class ServiceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -939,7 +1019,19 @@ class TargetGroupConfigArgs:
              protocol: Optional[pulumi.Input['TargetGroupConfigProtocol']] = None,
              protocol_version: Optional[pulumi.Input['TargetGroupConfigProtocolVersion']] = None,
              vpc_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'lambdaEventStructureVersion' in kwargs:
+            lambda_event_structure_version = kwargs['lambdaEventStructureVersion']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'vpcIdentifier' in kwargs:
+            vpc_identifier = kwargs['vpcIdentifier']
+
         if health_check is not None:
             _setter("health_check", health_check)
         if ip_address_type is not None:
@@ -1058,7 +1150,19 @@ class TargetGroupHealthCheckConfigArgs:
              protocol: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocol']] = None,
              protocol_version: Optional[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']] = None,
              unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if 'healthCheckTimeoutSeconds' in kwargs:
+            health_check_timeout_seconds = kwargs['healthCheckTimeoutSeconds']
+        if 'healthyThresholdCount' in kwargs:
+            healthy_threshold_count = kwargs['healthyThresholdCount']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'unhealthyThresholdCount' in kwargs:
+            unhealthy_threshold_count = kwargs['unhealthyThresholdCount']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if health_check_interval_seconds is not None:
@@ -1183,7 +1287,11 @@ class TargetGroupMatcherArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              http_code: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpCode' in kwargs:
+            http_code = kwargs['httpCode']
+
         _setter("http_code", http_code)
 
     @property
@@ -1211,7 +1319,9 @@ class TargetGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1249,7 +1359,9 @@ class TargetGroupTargetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if port is not None:
             _setter("port", port)

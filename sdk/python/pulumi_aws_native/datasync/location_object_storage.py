@@ -66,7 +66,25 @@ class LocationObjectStorageArgs:
              server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if 'serverCertificate' in kwargs:
+            server_certificate = kwargs['serverCertificate']
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if 'serverProtocol' in kwargs:
+            server_protocol = kwargs['serverProtocol']
+
         _setter("agent_arns", agent_arns)
         if access_key is not None:
             _setter("access_key", access_key)

@@ -50,7 +50,13 @@ class RepositoryAssociationArgs:
              name: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("type", type)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)

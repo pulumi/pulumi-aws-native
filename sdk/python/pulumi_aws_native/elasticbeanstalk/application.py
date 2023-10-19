@@ -37,7 +37,13 @@ class ApplicationArgs:
              application_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'resourceLifecycleConfig' in kwargs:
+            resource_lifecycle_config = kwargs['resourceLifecycleConfig']
+
         if application_name is not None:
             _setter("application_name", application_name)
         if description is not None:

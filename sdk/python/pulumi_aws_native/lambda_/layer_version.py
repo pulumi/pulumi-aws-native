@@ -49,7 +49,17 @@ class LayerVersionArgs:
              description: Optional[pulumi.Input[str]] = None,
              layer_name: Optional[pulumi.Input[str]] = None,
              license_info: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compatibleArchitectures' in kwargs:
+            compatible_architectures = kwargs['compatibleArchitectures']
+        if 'compatibleRuntimes' in kwargs:
+            compatible_runtimes = kwargs['compatibleRuntimes']
+        if 'layerName' in kwargs:
+            layer_name = kwargs['layerName']
+        if 'licenseInfo' in kwargs:
+            license_info = kwargs['licenseInfo']
+
         _setter("content", content)
         if compatible_architectures is not None:
             _setter("compatible_architectures", compatible_architectures)

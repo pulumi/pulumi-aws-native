@@ -41,7 +41,13 @@ class TemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input['TemplateTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+        if 'reenrollAllCertificateHolders' in kwargs:
+            reenroll_all_certificate_holders = kwargs['reenrollAllCertificateHolders']
+
         _setter("connector_arn", connector_arn)
         _setter("definition", definition)
         if name is not None:

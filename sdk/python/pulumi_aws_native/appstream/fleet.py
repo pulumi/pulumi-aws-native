@@ -91,7 +91,45 @@ class FleetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
              usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'computeCapacity' in kwargs:
+            compute_capacity = kwargs['computeCapacity']
+        if 'disconnectTimeoutInSeconds' in kwargs:
+            disconnect_timeout_in_seconds = kwargs['disconnectTimeoutInSeconds']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if 'idleDisconnectTimeoutInSeconds' in kwargs:
+            idle_disconnect_timeout_in_seconds = kwargs['idleDisconnectTimeoutInSeconds']
+        if 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'maxConcurrentSessions' in kwargs:
+            max_concurrent_sessions = kwargs['maxConcurrentSessions']
+        if 'maxSessionsPerInstance' in kwargs:
+            max_sessions_per_instance = kwargs['maxSessionsPerInstance']
+        if 'maxUserDurationInSeconds' in kwargs:
+            max_user_duration_in_seconds = kwargs['maxUserDurationInSeconds']
+        if 'sessionScriptS3Location' in kwargs:
+            session_script_s3_location = kwargs['sessionScriptS3Location']
+        if 'streamView' in kwargs:
+            stream_view = kwargs['streamView']
+        if 'usbDeviceFilterStrings' in kwargs:
+            usb_device_filter_strings = kwargs['usbDeviceFilterStrings']
+        if 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("instance_type", instance_type)
         if compute_capacity is not None:
             _setter("compute_capacity", compute_capacity)

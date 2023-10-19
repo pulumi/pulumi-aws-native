@@ -84,7 +84,37 @@ class AssociationArgs:
              sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
              wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyOnlyAtCronInterval' in kwargs:
+            apply_only_at_cron_interval = kwargs['applyOnlyAtCronInterval']
+        if 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+        if 'automationTargetParameterName' in kwargs:
+            automation_target_parameter_name = kwargs['automationTargetParameterName']
+        if 'calendarNames' in kwargs:
+            calendar_names = kwargs['calendarNames']
+        if 'complianceSeverity' in kwargs:
+            compliance_severity = kwargs['complianceSeverity']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if 'syncCompliance' in kwargs:
+            sync_compliance = kwargs['syncCompliance']
+        if 'waitForSuccessTimeoutSeconds' in kwargs:
+            wait_for_success_timeout_seconds = kwargs['waitForSuccessTimeoutSeconds']
+
         if apply_only_at_cron_interval is not None:
             _setter("apply_only_at_cron_interval", apply_only_at_cron_interval)
         if association_name is not None:

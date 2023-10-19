@@ -46,7 +46,15 @@ class AnomalyDetectorArgs:
              namespace: Optional[pulumi.Input[str]] = None,
              single_metric_anomaly_detector: Optional[pulumi.Input['AnomalyDetectorSingleMetricAnomalyDetectorArgs']] = None,
              stat: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricMathAnomalyDetector' in kwargs:
+            metric_math_anomaly_detector = kwargs['metricMathAnomalyDetector']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'singleMetricAnomalyDetector' in kwargs:
+            single_metric_anomaly_detector = kwargs['singleMetricAnomalyDetector']
+
         if configuration is not None:
             _setter("configuration", configuration)
         if dimensions is not None:

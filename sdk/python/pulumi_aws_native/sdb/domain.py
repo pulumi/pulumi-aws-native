@@ -26,7 +26,9 @@ class DomainArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
 

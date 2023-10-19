@@ -49,7 +49,15 @@ class ConfigurationProfileArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'locationUri' in kwargs:
+            location_uri = kwargs['locationUri']
+        if 'retrievalRoleArn' in kwargs:
+            retrieval_role_arn = kwargs['retrievalRoleArn']
+
         _setter("application_id", application_id)
         _setter("location_uri", location_uri)
         if description is not None:

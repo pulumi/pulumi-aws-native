@@ -57,7 +57,19 @@ class DetectorModelArgs:
              evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
              key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorModelDefinition' in kwargs:
+            detector_model_definition = kwargs['detectorModelDefinition']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'detectorModelDescription' in kwargs:
+            detector_model_description = kwargs['detectorModelDescription']
+        if 'detectorModelName' in kwargs:
+            detector_model_name = kwargs['detectorModelName']
+        if 'evaluationMethod' in kwargs:
+            evaluation_method = kwargs['evaluationMethod']
+
         _setter("detector_model_definition", detector_model_definition)
         _setter("role_arn", role_arn)
         if detector_model_description is not None:

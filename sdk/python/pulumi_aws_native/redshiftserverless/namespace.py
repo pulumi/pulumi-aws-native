@@ -70,7 +70,29 @@ class NamespaceArgs:
              log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
              namespace_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if 'finalSnapshotRetentionPeriod' in kwargs:
+            final_snapshot_retention_period = kwargs['finalSnapshotRetentionPeriod']
+        if 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'logExports' in kwargs:
+            log_exports = kwargs['logExports']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+
         if admin_user_password is not None:
             _setter("admin_user_password", admin_user_password)
         if admin_username is not None:

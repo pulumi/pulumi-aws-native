@@ -108,7 +108,41 @@ class ProviderArgs:
              skip_region_validation: Optional[pulumi.Input[bool]] = None,
              skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
              token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'allowedAccountIds' in kwargs:
+            allowed_account_ids = kwargs['allowedAccountIds']
+        if 'assumeRole' in kwargs:
+            assume_role = kwargs['assumeRole']
+        if 'defaultTags' in kwargs:
+            default_tags = kwargs['defaultTags']
+        if 'forbiddenAccountIds' in kwargs:
+            forbidden_account_ids = kwargs['forbiddenAccountIds']
+        if 'ignoreTags' in kwargs:
+            ignore_tags = kwargs['ignoreTags']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 's3ForcePathStyle' in kwargs:
+            s3_force_path_style = kwargs['s3ForcePathStyle']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if 'sharedCredentialsFile' in kwargs:
+            shared_credentials_file = kwargs['sharedCredentialsFile']
+        if 'skipCredentialsValidation' in kwargs:
+            skip_credentials_validation = kwargs['skipCredentialsValidation']
+        if 'skipGetEc2Platforms' in kwargs:
+            skip_get_ec2_platforms = kwargs['skipGetEc2Platforms']
+        if 'skipMetadataApiCheck' in kwargs:
+            skip_metadata_api_check = kwargs['skipMetadataApiCheck']
+        if 'skipRegionValidation' in kwargs:
+            skip_region_validation = kwargs['skipRegionValidation']
+        if 'skipRequestingAccountId' in kwargs:
+            skip_requesting_account_id = kwargs['skipRequestingAccountId']
+
         if region is None:
             region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         _setter("region", region)

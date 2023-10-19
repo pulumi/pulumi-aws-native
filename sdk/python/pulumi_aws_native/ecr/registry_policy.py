@@ -27,7 +27,11 @@ class RegistryPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              policy_text: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+
         _setter("policy_text", policy_text)
 
     @property

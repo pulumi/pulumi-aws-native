@@ -49,7 +49,17 @@ class ServiceArgs:
              namespace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'healthCheckConfig' in kwargs:
+            health_check_config = kwargs['healthCheckConfig']
+        if 'healthCheckCustomConfig' in kwargs:
+            health_check_custom_config = kwargs['healthCheckCustomConfig']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+
         if description is not None:
             _setter("description", description)
         if dns_config is not None:

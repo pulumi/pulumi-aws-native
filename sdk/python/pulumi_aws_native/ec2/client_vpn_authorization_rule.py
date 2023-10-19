@@ -38,7 +38,17 @@ class ClientVpnAuthorizationRuleArgs:
              access_group_id: Optional[pulumi.Input[str]] = None,
              authorize_all_groups: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if 'targetNetworkCidr' in kwargs:
+            target_network_cidr = kwargs['targetNetworkCidr']
+        if 'accessGroupId' in kwargs:
+            access_group_id = kwargs['accessGroupId']
+        if 'authorizeAllGroups' in kwargs:
+            authorize_all_groups = kwargs['authorizeAllGroups']
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("target_network_cidr", target_network_cidr)
         if access_group_id is not None:

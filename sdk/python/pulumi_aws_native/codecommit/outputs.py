@@ -49,7 +49,11 @@ class RepositoryCode(dict):
              _setter: Callable[[Any, Any], None],
              s3: 'outputs.RepositoryS3',
              branch_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
         _setter("s3", s3)
         if branch_name is not None:
             _setter("branch_name", branch_name)
@@ -100,7 +104,11 @@ class RepositoryS3(dict):
              bucket: str,
              key: str,
              object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:
@@ -137,7 +145,9 @@ class RepositoryTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -195,7 +205,13 @@ class RepositoryTrigger(dict):
              name: str,
              branches: Optional[Sequence[str]] = None,
              custom_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         _setter("destination_arn", destination_arn)
         _setter("events", events)
         _setter("name", name)

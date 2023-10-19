@@ -35,7 +35,13 @@ class RefreshScheduleArgs:
              aws_account_id: Optional[pulumi.Input[str]] = None,
              data_set_id: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if data_set_id is not None:

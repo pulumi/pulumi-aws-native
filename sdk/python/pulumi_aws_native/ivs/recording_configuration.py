@@ -47,7 +47,17 @@ class RecordingConfigurationArgs:
              rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
              thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+        if 'recordingReconnectWindowSeconds' in kwargs:
+            recording_reconnect_window_seconds = kwargs['recordingReconnectWindowSeconds']
+        if 'renditionConfiguration' in kwargs:
+            rendition_configuration = kwargs['renditionConfiguration']
+        if 'thumbnailConfiguration' in kwargs:
+            thumbnail_configuration = kwargs['thumbnailConfiguration']
+
         _setter("destination_configuration", destination_configuration)
         if name is not None:
             _setter("name", name)

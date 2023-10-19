@@ -44,7 +44,19 @@ class HostedConfigurationVersionArgs:
              description: Optional[pulumi.Input[str]] = None,
              latest_version_number: Optional[pulumi.Input[float]] = None,
              version_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'latestVersionNumber' in kwargs:
+            latest_version_number = kwargs['latestVersionNumber']
+        if 'versionLabel' in kwargs:
+            version_label = kwargs['versionLabel']
+
         _setter("application_id", application_id)
         _setter("configuration_profile_id", configuration_profile_id)
         _setter("content", content)

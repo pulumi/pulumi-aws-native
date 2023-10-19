@@ -53,7 +53,21 @@ class CertificateArgs:
              api_passthrough: Optional[pulumi.Input['CertificateApiPassthroughArgs']] = None,
              template_arn: Optional[pulumi.Input[str]] = None,
              validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if 'certificateSigningRequest' in kwargs:
+            certificate_signing_request = kwargs['certificateSigningRequest']
+        if 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+        if 'apiPassthrough' in kwargs:
+            api_passthrough = kwargs['apiPassthrough']
+        if 'templateArn' in kwargs:
+            template_arn = kwargs['templateArn']
+        if 'validityNotBefore' in kwargs:
+            validity_not_before = kwargs['validityNotBefore']
+
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("certificate_signing_request", certificate_signing_request)
         _setter("signing_algorithm", signing_algorithm)

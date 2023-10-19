@@ -34,7 +34,11 @@ class MeshArgs:
              mesh_name: Optional[pulumi.Input[str]] = None,
              spec: Optional[pulumi.Input['MeshSpecArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MeshTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+
         if mesh_name is not None:
             _setter("mesh_name", mesh_name)
         if spec is not None:

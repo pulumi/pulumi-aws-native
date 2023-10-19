@@ -35,7 +35,13 @@ class ServiceLinkedRoleArgs:
              aws_service_name: Optional[pulumi.Input[str]] = None,
              custom_suffix: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsServiceName' in kwargs:
+            aws_service_name = kwargs['awsServiceName']
+        if 'customSuffix' in kwargs:
+            custom_suffix = kwargs['customSuffix']
+
         if aws_service_name is not None:
             _setter("aws_service_name", aws_service_name)
         if custom_suffix is not None:

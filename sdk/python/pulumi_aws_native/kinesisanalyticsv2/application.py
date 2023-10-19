@@ -62,7 +62,25 @@ class ApplicationArgs:
              application_name: Optional[pulumi.Input[str]] = None,
              run_configuration: Optional[pulumi.Input['ApplicationRunConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeEnvironment' in kwargs:
+            runtime_environment = kwargs['runtimeEnvironment']
+        if 'serviceExecutionRole' in kwargs:
+            service_execution_role = kwargs['serviceExecutionRole']
+        if 'applicationConfiguration' in kwargs:
+            application_configuration = kwargs['applicationConfiguration']
+        if 'applicationDescription' in kwargs:
+            application_description = kwargs['applicationDescription']
+        if 'applicationMaintenanceConfiguration' in kwargs:
+            application_maintenance_configuration = kwargs['applicationMaintenanceConfiguration']
+        if 'applicationMode' in kwargs:
+            application_mode = kwargs['applicationMode']
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'runConfiguration' in kwargs:
+            run_configuration = kwargs['runConfiguration']
+
         _setter("runtime_environment", runtime_environment)
         _setter("service_execution_role", service_execution_role)
         if application_configuration is not None:

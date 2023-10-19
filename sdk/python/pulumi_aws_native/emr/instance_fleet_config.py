@@ -46,7 +46,21 @@ class InstanceFleetConfigArgs:
              name: Optional[pulumi.Input[str]] = None,
              target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
              target_spot_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'instanceFleetType' in kwargs:
+            instance_fleet_type = kwargs['instanceFleetType']
+        if 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         _setter("cluster_id", cluster_id)
         _setter("instance_fleet_type", instance_fleet_type)
         if instance_type_configs is not None:

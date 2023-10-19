@@ -46,7 +46,19 @@ class EventSubscriptionArgs:
              source_type: Optional[pulumi.Input[str]] = None,
              subscription_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if 'eventCategories' in kwargs:
+            event_categories = kwargs['eventCategories']
+        if 'sourceIds' in kwargs:
+            source_ids = kwargs['sourceIds']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+
         _setter("sns_topic_arn", sns_topic_arn)
         if enabled is not None:
             _setter("enabled", enabled)

@@ -66,7 +66,19 @@ class ContainerCorsRule(dict):
              allowed_origins: Optional[Sequence[str]] = None,
              expose_headers: Optional[Sequence[str]] = None,
              max_age_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if 'maxAgeSeconds' in kwargs:
+            max_age_seconds = kwargs['maxAgeSeconds']
+
         if allowed_headers is not None:
             _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
@@ -138,7 +150,13 @@ class ContainerMetricPolicy(dict):
              _setter: Callable[[Any, Any], None],
              container_level_metrics: str,
              metric_policy_rules: Optional[Sequence['outputs.ContainerMetricPolicyRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerLevelMetrics' in kwargs:
+            container_level_metrics = kwargs['containerLevelMetrics']
+        if 'metricPolicyRules' in kwargs:
+            metric_policy_rules = kwargs['metricPolicyRules']
+
         _setter("container_level_metrics", container_level_metrics)
         if metric_policy_rules is not None:
             _setter("metric_policy_rules", metric_policy_rules)
@@ -188,7 +206,13 @@ class ContainerMetricPolicyRule(dict):
              _setter: Callable[[Any, Any], None],
              object_group: str,
              object_group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectGroup' in kwargs:
+            object_group = kwargs['objectGroup']
+        if 'objectGroupName' in kwargs:
+            object_group_name = kwargs['objectGroupName']
+
         _setter("object_group", object_group)
         _setter("object_group_name", object_group_name)
 
@@ -218,7 +242,9 @@ class ContainerTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

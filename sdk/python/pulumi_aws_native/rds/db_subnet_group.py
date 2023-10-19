@@ -38,7 +38,15 @@ class DbSubnetGroupArgs:
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              db_subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbSubnetGroupDescription' in kwargs:
+            db_subnet_group_description = kwargs['dbSubnetGroupDescription']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+
         _setter("db_subnet_group_description", db_subnet_group_description)
         _setter("subnet_ids", subnet_ids)
         if db_subnet_group_name is not None:

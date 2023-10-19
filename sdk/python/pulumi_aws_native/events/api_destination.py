@@ -45,7 +45,17 @@ class ApiDestinationArgs:
              description: Optional[pulumi.Input[str]] = None,
              invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'invocationEndpoint' in kwargs:
+            invocation_endpoint = kwargs['invocationEndpoint']
+        if 'invocationRateLimitPerSecond' in kwargs:
+            invocation_rate_limit_per_second = kwargs['invocationRateLimitPerSecond']
+
         _setter("connection_arn", connection_arn)
         _setter("http_method", http_method)
         _setter("invocation_endpoint", invocation_endpoint)

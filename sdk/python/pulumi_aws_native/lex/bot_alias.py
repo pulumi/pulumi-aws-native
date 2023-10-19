@@ -52,7 +52,23 @@ class BotAliasArgs:
              conversation_log_settings: Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              sentiment_analysis_settings: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botId' in kwargs:
+            bot_id = kwargs['botId']
+        if 'botAliasLocaleSettings' in kwargs:
+            bot_alias_locale_settings = kwargs['botAliasLocaleSettings']
+        if 'botAliasName' in kwargs:
+            bot_alias_name = kwargs['botAliasName']
+        if 'botAliasTags' in kwargs:
+            bot_alias_tags = kwargs['botAliasTags']
+        if 'botVersion' in kwargs:
+            bot_version = kwargs['botVersion']
+        if 'conversationLogSettings' in kwargs:
+            conversation_log_settings = kwargs['conversationLogSettings']
+        if 'sentimentAnalysisSettings' in kwargs:
+            sentiment_analysis_settings = kwargs['sentimentAnalysisSettings']
+
         _setter("bot_id", bot_id)
         if bot_alias_locale_settings is not None:
             _setter("bot_alias_locale_settings", bot_alias_locale_settings)

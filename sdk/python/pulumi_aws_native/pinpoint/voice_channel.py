@@ -29,7 +29,11 @@ class VoiceChannelArgs:
              _setter: Callable[[Any, Any], None],
              application_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
         _setter("application_id", application_id)
         if enabled is not None:
             _setter("enabled", enabled)

@@ -45,7 +45,11 @@ class RobotArgs:
              fleet: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['RobotTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'greengrassGroupId' in kwargs:
+            greengrass_group_id = kwargs['greengrassGroupId']
+
         _setter("architecture", architecture)
         _setter("greengrass_group_id", greengrass_group_id)
         if fleet is not None:

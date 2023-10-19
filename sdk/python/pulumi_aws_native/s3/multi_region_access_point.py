@@ -37,7 +37,11 @@ class MultiRegionAccessPointArgs:
              regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]],
              name: Optional[pulumi.Input[str]] = None,
              public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+
         _setter("regions", regions)
         if name is not None:
             _setter("name", name)

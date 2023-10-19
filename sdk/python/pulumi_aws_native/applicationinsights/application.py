@@ -66,7 +66,27 @@ class ApplicationArgs:
              ops_center_enabled: Optional[pulumi.Input[bool]] = None,
              ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoConfigurationEnabled' in kwargs:
+            auto_configuration_enabled = kwargs['autoConfigurationEnabled']
+        if 'componentMonitoringSettings' in kwargs:
+            component_monitoring_settings = kwargs['componentMonitoringSettings']
+        if 'customComponents' in kwargs:
+            custom_components = kwargs['customComponents']
+        if 'cweMonitorEnabled' in kwargs:
+            cwe_monitor_enabled = kwargs['cweMonitorEnabled']
+        if 'groupingType' in kwargs:
+            grouping_type = kwargs['groupingType']
+        if 'logPatternSets' in kwargs:
+            log_pattern_sets = kwargs['logPatternSets']
+        if 'opsCenterEnabled' in kwargs:
+            ops_center_enabled = kwargs['opsCenterEnabled']
+        if 'opsItemSnsTopicArn' in kwargs:
+            ops_item_sns_topic_arn = kwargs['opsItemSnsTopicArn']
+
         _setter("resource_group_name", resource_group_name)
         if auto_configuration_enabled is not None:
             _setter("auto_configuration_enabled", auto_configuration_enabled)

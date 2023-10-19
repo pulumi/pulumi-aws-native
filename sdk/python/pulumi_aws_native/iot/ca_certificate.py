@@ -52,7 +52,21 @@ class CaCertificateArgs:
              remove_auto_registration: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]] = None,
              verification_certificate_pem: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caCertificatePem' in kwargs:
+            ca_certificate_pem = kwargs['caCertificatePem']
+        if 'autoRegistrationStatus' in kwargs:
+            auto_registration_status = kwargs['autoRegistrationStatus']
+        if 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if 'registrationConfig' in kwargs:
+            registration_config = kwargs['registrationConfig']
+        if 'removeAutoRegistration' in kwargs:
+            remove_auto_registration = kwargs['removeAutoRegistration']
+        if 'verificationCertificatePem' in kwargs:
+            verification_certificate_pem = kwargs['verificationCertificatePem']
+
         _setter("ca_certificate_pem", ca_certificate_pem)
         _setter("status", status)
         if auto_registration_status is not None:

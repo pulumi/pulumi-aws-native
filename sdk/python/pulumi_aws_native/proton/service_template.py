@@ -50,7 +50,15 @@ class ServiceTemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              pipeline_provisioning: Optional[pulumi.Input['ServiceTemplateProvisioning']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'pipelineProvisioning' in kwargs:
+            pipeline_provisioning = kwargs['pipelineProvisioning']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

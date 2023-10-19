@@ -37,7 +37,17 @@ class ClassifierArgs:
              grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
              json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
              xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'csvClassifier' in kwargs:
+            csv_classifier = kwargs['csvClassifier']
+        if 'grokClassifier' in kwargs:
+            grok_classifier = kwargs['grokClassifier']
+        if 'jsonClassifier' in kwargs:
+            json_classifier = kwargs['jsonClassifier']
+        if 'xmlClassifier' in kwargs:
+            xml_classifier = kwargs['xmlClassifier']
+
         if csv_classifier is not None:
             _setter("csv_classifier", csv_classifier)
         if grok_classifier is not None:

@@ -42,7 +42,21 @@ class PackageVersionArgs:
              mark_latest: Optional[pulumi.Input[bool]] = None,
              owner_account: Optional[pulumi.Input[str]] = None,
              updated_latest_patch_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageId' in kwargs:
+            package_id = kwargs['packageId']
+        if 'packageVersion' in kwargs:
+            package_version = kwargs['packageVersion']
+        if 'patchVersion' in kwargs:
+            patch_version = kwargs['patchVersion']
+        if 'markLatest' in kwargs:
+            mark_latest = kwargs['markLatest']
+        if 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if 'updatedLatestPatchVersion' in kwargs:
+            updated_latest_patch_version = kwargs['updatedLatestPatchVersion']
+
         _setter("package_id", package_id)
         _setter("package_version", package_version)
         _setter("patch_version", patch_version)

@@ -41,7 +41,15 @@ class PublicRepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              repository_policy_text: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PublicRepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryCatalogData' in kwargs:
+            repository_catalog_data = kwargs['repositoryCatalogData']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'repositoryPolicyText' in kwargs:
+            repository_policy_text = kwargs['repositoryPolicyText']
+
         if repository_catalog_data is not None:
             _setter("repository_catalog_data", repository_catalog_data)
         if repository_name is not None:

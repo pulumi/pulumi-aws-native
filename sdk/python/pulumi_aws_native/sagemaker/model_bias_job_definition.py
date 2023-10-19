@@ -61,7 +61,29 @@ class ModelBiasJobDefinitionArgs:
              network_config: Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']] = None,
              stopping_condition: Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobResources' in kwargs:
+            job_resources = kwargs['jobResources']
+        if 'modelBiasAppSpecification' in kwargs:
+            model_bias_app_specification = kwargs['modelBiasAppSpecification']
+        if 'modelBiasJobInput' in kwargs:
+            model_bias_job_input = kwargs['modelBiasJobInput']
+        if 'modelBiasJobOutputConfig' in kwargs:
+            model_bias_job_output_config = kwargs['modelBiasJobOutputConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if 'modelBiasBaselineConfig' in kwargs:
+            model_bias_baseline_config = kwargs['modelBiasBaselineConfig']
+        if 'networkConfig' in kwargs:
+            network_config = kwargs['networkConfig']
+        if 'stoppingCondition' in kwargs:
+            stopping_condition = kwargs['stoppingCondition']
+
         _setter("job_resources", job_resources)
         _setter("model_bias_app_specification", model_bias_app_specification)
         _setter("model_bias_job_input", model_bias_job_input)

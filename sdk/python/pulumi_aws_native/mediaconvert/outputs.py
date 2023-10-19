@@ -26,7 +26,9 @@ class JobTemplateAccelerationSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
 
     @property
@@ -70,7 +72,11 @@ class JobTemplateHopDestination(dict):
              priority: Optional[int] = None,
              queue: Optional[str] = None,
              wait_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'waitMinutes' in kwargs:
+            wait_minutes = kwargs['waitMinutes']
+
         if priority is not None:
             _setter("priority", priority)
         if queue is not None:

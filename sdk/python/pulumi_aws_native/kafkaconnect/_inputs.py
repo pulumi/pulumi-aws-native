@@ -50,7 +50,11 @@ class ConnectorApacheKafkaClusterArgs:
              _setter: Callable[[Any, Any], None],
              bootstrap_servers: pulumi.Input[str],
              vpc: pulumi.Input['ConnectorVpcArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bootstrapServers' in kwargs:
+            bootstrap_servers = kwargs['bootstrapServers']
+
         _setter("bootstrap_servers", bootstrap_servers)
         _setter("vpc", vpc)
 
@@ -106,7 +110,19 @@ class ConnectorAutoScalingArgs:
              min_worker_count: pulumi.Input[int],
              scale_in_policy: pulumi.Input['ConnectorScaleInPolicyArgs'],
              scale_out_policy: pulumi.Input['ConnectorScaleOutPolicyArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxWorkerCount' in kwargs:
+            max_worker_count = kwargs['maxWorkerCount']
+        if 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+        if 'minWorkerCount' in kwargs:
+            min_worker_count = kwargs['minWorkerCount']
+        if 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if 'scaleOutPolicy' in kwargs:
+            scale_out_policy = kwargs['scaleOutPolicy']
+
         _setter("max_worker_count", max_worker_count)
         _setter("mcu_count", mcu_count)
         _setter("min_worker_count", min_worker_count)
@@ -186,7 +202,13 @@ class ConnectorCapacityArgs:
              _setter: Callable[[Any, Any], None],
              auto_scaling: Optional[pulumi.Input['ConnectorAutoScalingArgs']] = None,
              provisioned_capacity: Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScaling' in kwargs:
+            auto_scaling = kwargs['autoScaling']
+        if 'provisionedCapacity' in kwargs:
+            provisioned_capacity = kwargs['provisionedCapacity']
+
         if auto_scaling is not None:
             _setter("auto_scaling", auto_scaling)
         if provisioned_capacity is not None:
@@ -231,7 +253,11 @@ class ConnectorCloudWatchLogsLogDeliveryArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("enabled", enabled)
         if log_group is not None:
             _setter("log_group", log_group)
@@ -281,7 +307,11 @@ class ConnectorCustomPluginArgs:
              _setter: Callable[[Any, Any], None],
              custom_plugin_arn: pulumi.Input[str],
              revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPluginArn' in kwargs:
+            custom_plugin_arn = kwargs['customPluginArn']
+
         _setter("custom_plugin_arn", custom_plugin_arn)
         _setter("revision", revision)
 
@@ -330,7 +360,11 @@ class ConnectorFirehoseLogDeliveryArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              delivery_stream: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("enabled", enabled)
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
@@ -375,7 +409,11 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              authentication_type: pulumi.Input['ConnectorKafkaClusterClientAuthenticationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+
         _setter("authentication_type", authentication_type)
 
     @property
@@ -403,7 +441,11 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              encryption_type: pulumi.Input['ConnectorKafkaClusterEncryptionInTransitType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+
         _setter("encryption_type", encryption_type)
 
     @property
@@ -431,7 +473,11 @@ class ConnectorKafkaClusterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              apache_kafka_cluster: pulumi.Input['ConnectorApacheKafkaClusterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apacheKafkaCluster' in kwargs:
+            apache_kafka_cluster = kwargs['apacheKafkaCluster']
+
         _setter("apache_kafka_cluster", apache_kafka_cluster)
 
     @property
@@ -459,7 +505,11 @@ class ConnectorLogDeliveryArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              worker_log_delivery: pulumi.Input['ConnectorWorkerLogDeliveryArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerLogDelivery' in kwargs:
+            worker_log_delivery = kwargs['workerLogDelivery']
+
         _setter("worker_log_delivery", worker_log_delivery)
 
     @property
@@ -487,7 +537,11 @@ class ConnectorPluginArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_plugin: pulumi.Input['ConnectorCustomPluginArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPlugin' in kwargs:
+            custom_plugin = kwargs['customPlugin']
+
         _setter("custom_plugin", custom_plugin)
 
     @property
@@ -520,7 +574,13 @@ class ConnectorProvisionedCapacityArgs:
              _setter: Callable[[Any, Any], None],
              worker_count: pulumi.Input[int],
              mcu_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+
         _setter("worker_count", worker_count)
         if mcu_count is not None:
             _setter("mcu_count", mcu_count)
@@ -574,7 +634,9 @@ class ConnectorS3LogDeliveryArgs:
              enabled: pulumi.Input[bool],
              bucket: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if bucket is not None:
             _setter("bucket", bucket)
@@ -634,7 +696,11 @@ class ConnectorScaleInPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_utilization_percentage: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+
         _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
@@ -666,7 +732,11 @@ class ConnectorScaleOutPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_utilization_percentage: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+
         _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
@@ -702,7 +772,11 @@ class ConnectorVpcArgs:
              _setter: Callable[[Any, Any], None],
              security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("security_groups", security_groups)
         _setter("subnets", subnets)
 
@@ -751,7 +825,11 @@ class ConnectorWorkerConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              revision: pulumi.Input[int],
              worker_configuration_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerConfigurationArn' in kwargs:
+            worker_configuration_arn = kwargs['workerConfigurationArn']
+
         _setter("revision", revision)
         _setter("worker_configuration_arn", worker_configuration_arn)
 
@@ -801,7 +879,11 @@ class ConnectorWorkerLogDeliveryArgs:
              cloud_watch_logs: Optional[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs']] = None,
              firehose: Optional[pulumi.Input['ConnectorFirehoseLogDeliveryArgs']] = None,
              s3: Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:

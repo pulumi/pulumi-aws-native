@@ -56,7 +56,23 @@ class ComputeEnvironmentArgs:
              tags: Optional[Any] = None,
              unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
              update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if 'replaceComputeEnvironment' in kwargs:
+            replace_compute_environment = kwargs['replaceComputeEnvironment']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'unmanagedvCpus' in kwargs:
+            unmanagedv_cpus = kwargs['unmanagedvCpus']
+        if 'updatePolicy' in kwargs:
+            update_policy = kwargs['updatePolicy']
+
         _setter("type", type)
         if compute_environment_name is not None:
             _setter("compute_environment_name", compute_environment_name)

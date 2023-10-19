@@ -48,7 +48,13 @@ class NotificationRuleTarget(dict):
              _setter: Callable[[Any, Any], None],
              target_address: str,
              target_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("target_address", target_address)
         _setter("target_type", target_type)
 

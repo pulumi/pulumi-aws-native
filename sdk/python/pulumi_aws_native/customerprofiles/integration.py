@@ -49,7 +49,17 @@ class IntegrationArgs:
              object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'flowDefinition' in kwargs:
+            flow_definition = kwargs['flowDefinition']
+        if 'objectTypeName' in kwargs:
+            object_type_name = kwargs['objectTypeName']
+        if 'objectTypeNames' in kwargs:
+            object_type_names = kwargs['objectTypeNames']
+
         _setter("domain_name", domain_name)
         if flow_definition is not None:
             _setter("flow_definition", flow_definition)

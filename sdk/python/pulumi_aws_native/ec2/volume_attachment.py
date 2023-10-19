@@ -32,7 +32,13 @@ class VolumeAttachmentArgs:
              instance_id: pulumi.Input[str],
              volume_id: pulumi.Input[str],
              device: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         _setter("instance_id", instance_id)
         _setter("volume_id", volume_id)
         if device is not None:

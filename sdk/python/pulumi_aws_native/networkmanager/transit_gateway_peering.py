@@ -37,7 +37,13 @@ class TransitGatewayPeeringArgs:
              core_network_id: pulumi.Input[str],
              transit_gateway_arn: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+
         _setter("core_network_id", core_network_id)
         _setter("transit_gateway_arn", transit_gateway_arn)
         if tags is not None:

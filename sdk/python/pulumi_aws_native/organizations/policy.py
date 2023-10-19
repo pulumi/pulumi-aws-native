@@ -50,7 +50,11 @@ class PolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None,
              target_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetIds' in kwargs:
+            target_ids = kwargs['targetIds']
+
         _setter("content", content)
         _setter("type", type)
         if description is not None:

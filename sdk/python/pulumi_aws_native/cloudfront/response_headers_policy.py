@@ -28,7 +28,11 @@ class ResponseHeadersPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              response_headers_policy_config: pulumi.Input['ResponseHeadersPolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseHeadersPolicyConfig' in kwargs:
+            response_headers_policy_config = kwargs['responseHeadersPolicyConfig']
+
         _setter("response_headers_policy_config", response_headers_policy_config)
 
     @property

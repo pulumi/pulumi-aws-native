@@ -45,7 +45,17 @@ class VersionArgs:
              description: Optional[pulumi.Input[str]] = None,
              provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
              runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'codeSha256' in kwargs:
+            code_sha256 = kwargs['codeSha256']
+        if 'provisionedConcurrencyConfig' in kwargs:
+            provisioned_concurrency_config = kwargs['provisionedConcurrencyConfig']
+        if 'runtimePolicy' in kwargs:
+            runtime_policy = kwargs['runtimePolicy']
+
         _setter("function_name", function_name)
         if code_sha256 is not None:
             _setter("code_sha256", code_sha256)

@@ -41,7 +41,17 @@ class LaunchTemplateArgs:
              launch_template_name: Optional[pulumi.Input[str]] = None,
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateData' in kwargs:
+            launch_template_data = kwargs['launchTemplateData']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("launch_template_data", launch_template_data)
         if launch_template_name is not None:
             _setter("launch_template_name", launch_template_name)

@@ -50,7 +50,17 @@ class ResolverRuleArgs:
              resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTagArgs']]]] = None,
              target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if 'resolverEndpointId' in kwargs:
+            resolver_endpoint_id = kwargs['resolverEndpointId']
+        if 'targetIps' in kwargs:
+            target_ips = kwargs['targetIps']
+
         _setter("domain_name", domain_name)
         _setter("rule_type", rule_type)
         if name is not None:

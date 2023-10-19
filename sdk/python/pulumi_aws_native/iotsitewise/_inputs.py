@@ -60,7 +60,9 @@ class AccessPolicyIamRoleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -93,7 +95,9 @@ class AccessPolicyIamUserArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -131,7 +135,13 @@ class AccessPolicyIdentityArgs:
              iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
              iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
              user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if 'iamUser' in kwargs:
+            iam_user = kwargs['iamUser']
+
         if iam_role is not None:
             _setter("iam_role", iam_role)
         if iam_user is not None:
@@ -183,7 +193,9 @@ class AccessPolicyPortalArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -216,7 +228,9 @@ class AccessPolicyProjectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -251,7 +265,9 @@ class AccessPolicyResourceArgs:
              _setter: Callable[[Any, Any], None],
              portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
              project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if portal is not None:
             _setter("portal", portal)
         if project is not None:
@@ -292,7 +308,9 @@ class AccessPolicyUserArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -329,7 +347,13 @@ class AlarmsPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              alarm_role_arn: Optional[pulumi.Input[str]] = None,
              notification_lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmRoleArn' in kwargs:
+            alarm_role_arn = kwargs['alarmRoleArn']
+        if 'notificationLambdaArn' in kwargs:
+            notification_lambda_arn = kwargs['notificationLambdaArn']
+
         if alarm_role_arn is not None:
             _setter("alarm_role_arn", alarm_role_arn)
         if notification_lambda_arn is not None:
@@ -380,7 +404,13 @@ class AssetHierarchyArgs:
              _setter: Callable[[Any, Any], None],
              child_asset_id: pulumi.Input[str],
              logical_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'childAssetId' in kwargs:
+            child_asset_id = kwargs['childAssetId']
+        if 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+
         _setter("child_asset_id", child_asset_id)
         _setter("logical_id", logical_id)
 
@@ -421,7 +451,11 @@ class AssetModelAttributeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         if default_value is not None:
             _setter("default_value", default_value)
 
@@ -463,7 +497,11 @@ class AssetModelCompositeModelArgs:
              type: pulumi.Input[str],
              composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compositeModelProperties' in kwargs:
+            composite_model_properties = kwargs['compositeModelProperties']
+
         _setter("name", name)
         _setter("type", type)
         if composite_model_properties is not None:
@@ -539,7 +577,9 @@ class AssetModelExpressionVariableArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input['AssetModelVariableValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -592,7 +632,13 @@ class AssetModelHierarchyArgs:
              child_asset_model_id: pulumi.Input[str],
              logical_id: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'childAssetModelId' in kwargs:
+            child_asset_model_id = kwargs['childAssetModelId']
+        if 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+
         _setter("child_asset_model_id", child_asset_model_id)
         _setter("logical_id", logical_id)
         _setter("name", name)
@@ -649,7 +695,9 @@ class AssetModelMetricWindowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if tumbling is not None:
             _setter("tumbling", tumbling)
 
@@ -686,7 +734,9 @@ class AssetModelMetricArgs:
              expression: pulumi.Input[str],
              variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
              window: pulumi.Input['AssetModelMetricWindowArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
         _setter("variables", variables)
         _setter("window", window)
@@ -752,7 +802,11 @@ class AssetModelPropertyTypeArgs:
              attribute: Optional[pulumi.Input['AssetModelAttributeArgs']] = None,
              metric: Optional[pulumi.Input['AssetModelMetricArgs']] = None,
              transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         _setter("type_name", type_name)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -834,7 +888,15 @@ class AssetModelPropertyArgs:
              type: pulumi.Input['AssetModelPropertyTypeArgs'],
              data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if 'dataTypeSpec' in kwargs:
+            data_type_spec = kwargs['dataTypeSpec']
+
         _setter("data_type", data_type)
         _setter("logical_id", logical_id)
         _setter("name", name)
@@ -932,7 +994,9 @@ class AssetModelTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -974,7 +1038,9 @@ class AssetModelTransformArgs:
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
              variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
         _setter("variables", variables)
 
@@ -1021,7 +1087,9 @@ class AssetModelTumblingWindowArgs:
              _setter: Callable[[Any, Any], None],
              interval: pulumi.Input[str],
              offset: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("interval", interval)
         if offset is not None:
             _setter("offset", offset)
@@ -1060,7 +1128,13 @@ class AssetModelVariableValueArgs:
              _setter: Callable[[Any, Any], None],
              property_logical_id: pulumi.Input[str],
              hierarchy_logical_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertyLogicalId' in kwargs:
+            property_logical_id = kwargs['propertyLogicalId']
+        if 'hierarchyLogicalId' in kwargs:
+            hierarchy_logical_id = kwargs['hierarchyLogicalId']
+
         _setter("property_logical_id", property_logical_id)
         if hierarchy_logical_id is not None:
             _setter("hierarchy_logical_id", hierarchy_logical_id)
@@ -1112,7 +1186,13 @@ class AssetPropertyArgs:
              alias: Optional[pulumi.Input[str]] = None,
              notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if 'notificationState' in kwargs:
+            notification_state = kwargs['notificationState']
+
         _setter("logical_id", logical_id)
         if alias is not None:
             _setter("alias", alias)
@@ -1185,7 +1265,9 @@ class AssetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1226,7 +1308,9 @@ class DashboardTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1267,7 +1351,13 @@ class GatewayCapabilitySummaryArgs:
              _setter: Callable[[Any, Any], None],
              capability_namespace: pulumi.Input[str],
              capability_configuration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capabilityNamespace' in kwargs:
+            capability_namespace = kwargs['capabilityNamespace']
+        if 'capabilityConfiguration' in kwargs:
+            capability_configuration = kwargs['capabilityConfiguration']
+
         _setter("capability_namespace", capability_namespace)
         if capability_configuration is not None:
             _setter("capability_configuration", capability_configuration)
@@ -1307,7 +1397,11 @@ class GatewayGreengrassV2Args:
     def _configure(
              _setter: Callable[[Any, Any], None],
              core_device_thing_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreDeviceThingName' in kwargs:
+            core_device_thing_name = kwargs['coreDeviceThingName']
+
         _setter("core_device_thing_name", core_device_thing_name)
 
     @property
@@ -1339,7 +1433,11 @@ class GatewayGreengrassArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupArn' in kwargs:
+            group_arn = kwargs['groupArn']
+
         _setter("group_arn", group_arn)
 
     @property
@@ -1375,7 +1473,11 @@ class GatewayPlatformArgs:
              _setter: Callable[[Any, Any], None],
              greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
              greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'greengrassV2' in kwargs:
+            greengrass_v2 = kwargs['greengrassV2']
+
         if greengrass is not None:
             _setter("greengrass", greengrass)
         if greengrass_v2 is not None:
@@ -1424,7 +1526,9 @@ class GatewayTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1465,7 +1569,9 @@ class PortalTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1506,7 +1612,9 @@ class ProjectTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

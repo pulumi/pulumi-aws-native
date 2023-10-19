@@ -40,7 +40,13 @@ class EntitlementArgs:
              stack_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appVisibility' in kwargs:
+            app_visibility = kwargs['appVisibility']
+        if 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
         _setter("app_visibility", app_visibility)
         _setter("attributes", attributes)
         _setter("stack_name", stack_name)

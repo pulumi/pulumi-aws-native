@@ -62,7 +62,17 @@ class ImageRecipeArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if 'additionalInstanceConfiguration' in kwargs:
+            additional_instance_configuration = kwargs['additionalInstanceConfiguration']
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("components", components)
         _setter("parent_image", parent_image)
         _setter("version", version)

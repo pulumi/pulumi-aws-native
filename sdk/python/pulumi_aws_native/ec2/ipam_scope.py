@@ -37,7 +37,11 @@ class IpamScopeArgs:
              ipam_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+
         _setter("ipam_id", ipam_id)
         if description is not None:
             _setter("description", description)

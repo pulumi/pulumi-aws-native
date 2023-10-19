@@ -49,7 +49,13 @@ class CustomActionTypeArtifactDetailsArgs:
              _setter: Callable[[Any, Any], None],
              maximum_count: pulumi.Input[int],
              minimum_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumCount' in kwargs:
+            maximum_count = kwargs['maximumCount']
+        if 'minimumCount' in kwargs:
+            minimum_count = kwargs['minimumCount']
+
         _setter("maximum_count", maximum_count)
         _setter("minimum_count", minimum_count)
 
@@ -118,7 +124,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
              description: Optional[pulumi.Input[str]] = None,
              queryable: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("name", name)
         _setter("required", required)
@@ -243,7 +251,17 @@ class CustomActionTypeSettingsArgs:
              execution_url_template: Optional[pulumi.Input[str]] = None,
              revision_url_template: Optional[pulumi.Input[str]] = None,
              third_party_configuration_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityUrlTemplate' in kwargs:
+            entity_url_template = kwargs['entityUrlTemplate']
+        if 'executionUrlTemplate' in kwargs:
+            execution_url_template = kwargs['executionUrlTemplate']
+        if 'revisionUrlTemplate' in kwargs:
+            revision_url_template = kwargs['revisionUrlTemplate']
+        if 'thirdPartyConfigurationUrl' in kwargs:
+            third_party_configuration_url = kwargs['thirdPartyConfigurationUrl']
+
         if entity_url_template is not None:
             _setter("entity_url_template", entity_url_template)
         if execution_url_template is not None:
@@ -317,7 +335,9 @@ class CustomActionTypeTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -376,7 +396,19 @@ class PipelineActionDeclarationArgs:
              region: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              run_order: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionTypeId' in kwargs:
+            action_type_id = kwargs['actionTypeId']
+        if 'inputArtifacts' in kwargs:
+            input_artifacts = kwargs['inputArtifacts']
+        if 'outputArtifacts' in kwargs:
+            output_artifacts = kwargs['outputArtifacts']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'runOrder' in kwargs:
+            run_order = kwargs['runOrder']
+
         _setter("action_type_id", action_type_id)
         _setter("name", name)
         if configuration is not None:
@@ -497,7 +529,9 @@ class PipelineActionTypeIdArgs:
              owner: pulumi.Input[str],
              provider: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("category", category)
         _setter("owner", owner)
         _setter("provider", provider)
@@ -555,7 +589,11 @@ class PipelineArtifactStoreMapArgs:
              _setter: Callable[[Any, Any], None],
              artifact_store: pulumi.Input['PipelineArtifactStoreArgs'],
              region: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactStore' in kwargs:
+            artifact_store = kwargs['artifactStore']
+
         _setter("artifact_store", artifact_store)
         _setter("region", region)
 
@@ -596,7 +634,11 @@ class PipelineArtifactStoreArgs:
              location: pulumi.Input[str],
              type: pulumi.Input[str],
              encryption_key: Optional[pulumi.Input['PipelineEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
         _setter("location", location)
         _setter("type", type)
         if encryption_key is not None:
@@ -645,7 +687,9 @@ class PipelineBlockerDeclarationArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -683,7 +727,9 @@ class PipelineEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -718,7 +764,9 @@ class PipelineInputArtifactArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -743,7 +791,9 @@ class PipelineOutputArtifactArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -774,7 +824,9 @@ class PipelineStageDeclarationArgs:
              actions: pulumi.Input[Sequence[pulumi.Input['PipelineActionDeclarationArgs']]],
              name: pulumi.Input[str],
              blockers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineBlockerDeclarationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("name", name)
         if blockers is not None:
@@ -823,7 +875,11 @@ class PipelineStageTransitionArgs:
              _setter: Callable[[Any, Any], None],
              reason: pulumi.Input[str],
              stage_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         _setter("reason", reason)
         _setter("stage_name", stage_name)
 
@@ -861,7 +917,9 @@ class PipelineTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -899,7 +957,13 @@ class WebhookAuthConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              allowed_ip_range: Optional[pulumi.Input[str]] = None,
              secret_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedIpRange' in kwargs:
+            allowed_ip_range = kwargs['allowedIpRange']
+        if 'secretToken' in kwargs:
+            secret_token = kwargs['secretToken']
+
         if allowed_ip_range is not None:
             _setter("allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
@@ -939,7 +1003,13 @@ class WebhookFilterRuleArgs:
              _setter: Callable[[Any, Any], None],
              json_path: pulumi.Input[str],
              match_equals: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+        if 'matchEquals' in kwargs:
+            match_equals = kwargs['matchEquals']
+
         _setter("json_path", json_path)
         if match_equals is not None:
             _setter("match_equals", match_equals)

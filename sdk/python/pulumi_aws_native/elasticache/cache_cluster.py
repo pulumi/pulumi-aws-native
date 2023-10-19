@@ -112,7 +112,61 @@ class CacheClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]] = None,
              transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if 'numCacheNodes' in kwargs:
+            num_cache_nodes = kwargs['numCacheNodes']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'azMode' in kwargs:
+            az_mode = kwargs['azMode']
+        if 'cacheParameterGroupName' in kwargs:
+            cache_parameter_group_name = kwargs['cacheParameterGroupName']
+        if 'cacheSecurityGroupNames' in kwargs:
+            cache_security_group_names = kwargs['cacheSecurityGroupNames']
+        if 'cacheSubnetGroupName' in kwargs:
+            cache_subnet_group_name = kwargs['cacheSubnetGroupName']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'configurationEndpointAddress' in kwargs:
+            configuration_endpoint_address = kwargs['configurationEndpointAddress']
+        if 'configurationEndpointPort' in kwargs:
+            configuration_endpoint_port = kwargs['configurationEndpointPort']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'ipDiscovery' in kwargs:
+            ip_discovery = kwargs['ipDiscovery']
+        if 'logDeliveryConfigurations' in kwargs:
+            log_delivery_configurations = kwargs['logDeliveryConfigurations']
+        if 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if 'preferredAvailabilityZone' in kwargs:
+            preferred_availability_zone = kwargs['preferredAvailabilityZone']
+        if 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'redisEndpointAddress' in kwargs:
+            redis_endpoint_address = kwargs['redisEndpointAddress']
+        if 'redisEndpointPort' in kwargs:
+            redis_endpoint_port = kwargs['redisEndpointPort']
+        if 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("cache_node_type", cache_node_type)
         _setter("engine", engine)
         _setter("num_cache_nodes", num_cache_nodes)

@@ -42,7 +42,13 @@ class FlowArgs:
              availability_zone: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'sourceFailoverConfig' in kwargs:
+            source_failover_config = kwargs['sourceFailoverConfig']
+
         _setter("source", source)
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)

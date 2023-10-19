@@ -49,7 +49,17 @@ class VerifiedAccessGroupArgs:
              policy_enabled: Optional[pulumi.Input[bool]] = None,
              sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'verifiedAccessInstanceId' in kwargs:
+            verified_access_instance_id = kwargs['verifiedAccessInstanceId']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyEnabled' in kwargs:
+            policy_enabled = kwargs['policyEnabled']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+
         _setter("verified_access_instance_id", verified_access_instance_id)
         if description is not None:
             _setter("description", description)

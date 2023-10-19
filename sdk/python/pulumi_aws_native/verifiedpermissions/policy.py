@@ -32,7 +32,11 @@ class PolicyArgs:
              _setter: Callable[[Any, Any], None],
              definition: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']],
              policy_store_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyStoreId' in kwargs:
+            policy_store_id = kwargs['policyStoreId']
+
         _setter("definition", definition)
         if policy_store_id is not None:
             _setter("policy_store_id", policy_store_id)

@@ -56,7 +56,25 @@ class SlackChannelConfigurationArgs:
              notify_on_add_correspondence_to_case: Optional[pulumi.Input[bool]] = None,
              notify_on_create_or_reopen_case: Optional[pulumi.Input[bool]] = None,
              notify_on_resolve_case: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'channelRoleArn' in kwargs:
+            channel_role_arn = kwargs['channelRoleArn']
+        if 'notifyOnCaseSeverity' in kwargs:
+            notify_on_case_severity = kwargs['notifyOnCaseSeverity']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'notifyOnAddCorrespondenceToCase' in kwargs:
+            notify_on_add_correspondence_to_case = kwargs['notifyOnAddCorrespondenceToCase']
+        if 'notifyOnCreateOrReopenCase' in kwargs:
+            notify_on_create_or_reopen_case = kwargs['notifyOnCreateOrReopenCase']
+        if 'notifyOnResolveCase' in kwargs:
+            notify_on_resolve_case = kwargs['notifyOnResolveCase']
+
         _setter("channel_id", channel_id)
         _setter("channel_role_arn", channel_role_arn)
         _setter("notify_on_case_severity", notify_on_case_severity)

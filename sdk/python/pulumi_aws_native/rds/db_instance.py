@@ -343,7 +343,145 @@ class DbInstanceArgs:
              use_default_processor_features: Optional[pulumi.Input[bool]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if 'automaticBackupReplicationRegion' in kwargs:
+            automatic_backup_replication_region = kwargs['automaticBackupReplicationRegion']
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'caCertificateIdentifier' in kwargs:
+            ca_certificate_identifier = kwargs['caCertificateIdentifier']
+        if 'certificateDetails' in kwargs:
+            certificate_details = kwargs['certificateDetails']
+        if 'certificateRotationRestart' in kwargs:
+            certificate_rotation_restart = kwargs['certificateRotationRestart']
+        if 'characterSetName' in kwargs:
+            character_set_name = kwargs['characterSetName']
+        if 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if 'customIamInstanceProfile' in kwargs:
+            custom_iam_instance_profile = kwargs['customIamInstanceProfile']
+        if 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if 'dbClusterSnapshotIdentifier' in kwargs:
+            db_cluster_snapshot_identifier = kwargs['dbClusterSnapshotIdentifier']
+        if 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if 'dbParameterGroupName' in kwargs:
+            db_parameter_group_name = kwargs['dbParameterGroupName']
+        if 'dbSecurityGroups' in kwargs:
+            db_security_groups = kwargs['dbSecurityGroups']
+        if 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'deleteAutomatedBackups' in kwargs:
+            delete_automated_backups = kwargs['deleteAutomatedBackups']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'domainAuthSecretArn' in kwargs:
+            domain_auth_secret_arn = kwargs['domainAuthSecretArn']
+        if 'domainDnsIps' in kwargs:
+            domain_dns_ips = kwargs['domainDnsIps']
+        if 'domainFqdn' in kwargs:
+            domain_fqdn = kwargs['domainFqdn']
+        if 'domainIamRoleName' in kwargs:
+            domain_iam_role_name = kwargs['domainIamRoleName']
+        if 'domainOu' in kwargs:
+            domain_ou = kwargs['domainOu']
+        if 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if 'enableIamDatabaseAuthentication' in kwargs:
+            enable_iam_database_authentication = kwargs['enableIamDatabaseAuthentication']
+        if 'enablePerformanceInsights' in kwargs:
+            enable_performance_insights = kwargs['enablePerformanceInsights']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'licenseModel' in kwargs:
+            license_model = kwargs['licenseModel']
+        if 'manageMasterUserPassword' in kwargs:
+            manage_master_user_password = kwargs['manageMasterUserPassword']
+        if 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if 'masterUserSecret' in kwargs:
+            master_user_secret = kwargs['masterUserSecret']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'maxAllocatedStorage' in kwargs:
+            max_allocated_storage = kwargs['maxAllocatedStorage']
+        if 'monitoringInterval' in kwargs:
+            monitoring_interval = kwargs['monitoringInterval']
+        if 'monitoringRoleArn' in kwargs:
+            monitoring_role_arn = kwargs['monitoringRoleArn']
+        if 'multiAz' in kwargs:
+            multi_az = kwargs['multiAz']
+        if 'ncharCharacterSetName' in kwargs:
+            nchar_character_set_name = kwargs['ncharCharacterSetName']
+        if 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+        if 'performanceInsightsKmsKeyId' in kwargs:
+            performance_insights_kms_key_id = kwargs['performanceInsightsKmsKeyId']
+        if 'performanceInsightsRetentionPeriod' in kwargs:
+            performance_insights_retention_period = kwargs['performanceInsightsRetentionPeriod']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'processorFeatures' in kwargs:
+            processor_features = kwargs['processorFeatures']
+        if 'promotionTier' in kwargs:
+            promotion_tier = kwargs['promotionTier']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'replicaMode' in kwargs:
+            replica_mode = kwargs['replicaMode']
+        if 'restoreTime' in kwargs:
+            restore_time = kwargs['restoreTime']
+        if 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if 'sourceDbInstanceAutomatedBackupsArn' in kwargs:
+            source_db_instance_automated_backups_arn = kwargs['sourceDbInstanceAutomatedBackupsArn']
+        if 'sourceDbInstanceIdentifier' in kwargs:
+            source_db_instance_identifier = kwargs['sourceDbInstanceIdentifier']
+        if 'sourceDbiResourceId' in kwargs:
+            source_dbi_resource_id = kwargs['sourceDbiResourceId']
+        if 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'storageThroughput' in kwargs:
+            storage_throughput = kwargs['storageThroughput']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'tdeCredentialArn' in kwargs:
+            tde_credential_arn = kwargs['tdeCredentialArn']
+        if 'tdeCredentialPassword' in kwargs:
+            tde_credential_password = kwargs['tdeCredentialPassword']
+        if 'useDefaultProcessorFeatures' in kwargs:
+            use_default_processor_features = kwargs['useDefaultProcessorFeatures']
+        if 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if 'vpcSecurityGroups' in kwargs:
+            vpc_security_groups = kwargs['vpcSecurityGroups']
+
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:

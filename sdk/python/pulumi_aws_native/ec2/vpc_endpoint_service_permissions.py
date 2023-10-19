@@ -29,7 +29,13 @@ class VpcEndpointServicePermissionsArgs:
              _setter: Callable[[Any, Any], None],
              service_id: pulumi.Input[str],
              allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if 'allowedPrincipals' in kwargs:
+            allowed_principals = kwargs['allowedPrincipals']
+
         _setter("service_id", service_id)
         if allowed_principals is not None:
             _setter("allowed_principals", allowed_principals)

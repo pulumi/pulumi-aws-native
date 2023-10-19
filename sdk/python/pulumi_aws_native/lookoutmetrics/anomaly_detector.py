@@ -46,7 +46,19 @@ class AnomalyDetectorArgs:
              anomaly_detector_description: Optional[pulumi.Input[str]] = None,
              anomaly_detector_name: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anomalyDetectorConfig' in kwargs:
+            anomaly_detector_config = kwargs['anomalyDetectorConfig']
+        if 'metricSetList' in kwargs:
+            metric_set_list = kwargs['metricSetList']
+        if 'anomalyDetectorDescription' in kwargs:
+            anomaly_detector_description = kwargs['anomalyDetectorDescription']
+        if 'anomalyDetectorName' in kwargs:
+            anomaly_detector_name = kwargs['anomalyDetectorName']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("anomaly_detector_config", anomaly_detector_config)
         _setter("metric_set_list", metric_set_list)
         if anomaly_detector_description is not None:

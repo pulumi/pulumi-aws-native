@@ -59,7 +59,31 @@ class SecurityGroupIngressInitArgs:
              source_security_group_name: Optional[pulumi.Input[str]] = None,
              source_security_group_owner_id: Optional[pulumi.Input[str]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'sourcePrefixListId' in kwargs:
+            source_prefix_list_id = kwargs['sourcePrefixListId']
+        if 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if 'sourceSecurityGroupName' in kwargs:
+            source_security_group_name = kwargs['sourceSecurityGroupName']
+        if 'sourceSecurityGroupOwnerId' in kwargs:
+            source_security_group_owner_id = kwargs['sourceSecurityGroupOwnerId']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)

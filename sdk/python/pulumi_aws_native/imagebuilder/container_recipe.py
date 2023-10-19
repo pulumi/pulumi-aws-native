@@ -86,7 +86,29 @@ class ContainerRecipeArgs:
              target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if 'dockerfileTemplateData' in kwargs:
+            dockerfile_template_data = kwargs['dockerfileTemplateData']
+        if 'dockerfileTemplateUri' in kwargs:
+            dockerfile_template_uri = kwargs['dockerfileTemplateUri']
+        if 'imageOsVersionOverride' in kwargs:
+            image_os_version_override = kwargs['imageOsVersionOverride']
+        if 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if 'platformOverride' in kwargs:
+            platform_override = kwargs['platformOverride']
+        if 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+        if 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         if components is not None:
             _setter("components", components)
         if container_type is not None:

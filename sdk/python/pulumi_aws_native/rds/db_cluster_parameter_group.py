@@ -44,7 +44,11 @@ class DbClusterParameterGroupArgs:
              parameters: Any,
              db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+
         _setter("description", description)
         _setter("family", family)
         _setter("parameters", parameters)

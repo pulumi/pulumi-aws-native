@@ -61,7 +61,23 @@ class PermissionSetArgs:
              relay_state_type: Optional[pulumi.Input[str]] = None,
              session_duration: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'customerManagedPolicyReferences' in kwargs:
+            customer_managed_policy_references = kwargs['customerManagedPolicyReferences']
+        if 'inlinePolicy' in kwargs:
+            inline_policy = kwargs['inlinePolicy']
+        if 'managedPolicies' in kwargs:
+            managed_policies = kwargs['managedPolicies']
+        if 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if 'relayStateType' in kwargs:
+            relay_state_type = kwargs['relayStateType']
+        if 'sessionDuration' in kwargs:
+            session_duration = kwargs['sessionDuration']
+
         _setter("instance_arn", instance_arn)
         if customer_managed_policy_references is not None:
             _setter("customer_managed_policy_references", customer_managed_policy_references)

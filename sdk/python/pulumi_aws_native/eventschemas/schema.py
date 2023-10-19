@@ -43,7 +43,13 @@ class SchemaArgs:
              description: Optional[pulumi.Input[str]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         _setter("content", content)
         _setter("registry_name", registry_name)
         _setter("type", type)

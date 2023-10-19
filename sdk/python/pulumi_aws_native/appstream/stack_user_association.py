@@ -35,7 +35,17 @@ class StackUserAssociationArgs:
              stack_name: pulumi.Input[str],
              user_name: pulumi.Input[str],
              send_email_notification: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'sendEmailNotification' in kwargs:
+            send_email_notification = kwargs['sendEmailNotification']
+
         _setter("authentication_type", authentication_type)
         _setter("stack_name", stack_name)
         _setter("user_name", user_name)

@@ -45,7 +45,15 @@ class CustomerGatewayArgs:
              type: pulumi.Input[str],
              device_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+
         _setter("bgp_asn", bgp_asn)
         _setter("ip_address", ip_address)
         _setter("type", type)

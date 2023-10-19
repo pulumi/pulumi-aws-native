@@ -57,7 +57,9 @@ class CertificateApiPassthroughArgs:
              _setter: Callable[[Any, Any], None],
              extensions: Optional[pulumi.Input['CertificateExtensionsArgs']] = None,
              subject: Optional[pulumi.Input['CertificateSubjectArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if extensions is not None:
             _setter("extensions", extensions)
         if subject is not None:
@@ -100,7 +102,13 @@ class CertificateAuthorityAccessDescriptionArgs:
              _setter: Callable[[Any, Any], None],
              access_location: pulumi.Input['CertificateAuthorityGeneralNameArgs'],
              access_method: pulumi.Input['CertificateAuthorityAccessMethodArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLocation' in kwargs:
+            access_location = kwargs['accessLocation']
+        if 'accessMethod' in kwargs:
+            access_method = kwargs['accessMethod']
+
         _setter("access_location", access_location)
         _setter("access_method", access_method)
 
@@ -141,7 +149,13 @@ class CertificateAuthorityAccessMethodArgs:
              _setter: Callable[[Any, Any], None],
              access_method_type: Optional[pulumi.Input[str]] = None,
              custom_object_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessMethodType' in kwargs:
+            access_method_type = kwargs['accessMethodType']
+        if 'customObjectIdentifier' in kwargs:
+            custom_object_identifier = kwargs['customObjectIdentifier']
+
         if access_method_type is not None:
             _setter("access_method_type", access_method_type)
         if custom_object_identifier is not None:
@@ -193,7 +207,17 @@ class CertificateAuthorityCrlConfigurationArgs:
              expiration_in_days: Optional[pulumi.Input[int]] = None,
              s3_bucket_name: Optional[pulumi.Input[str]] = None,
              s3_object_acl: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customCname' in kwargs:
+            custom_cname = kwargs['customCname']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3ObjectAcl' in kwargs:
+            s3_object_acl = kwargs['s3ObjectAcl']
+
         if custom_cname is not None:
             _setter("custom_cname", custom_cname)
         if enabled is not None:
@@ -269,7 +293,13 @@ class CertificateAuthorityCsrExtensionsArgs:
              _setter: Callable[[Any, Any], None],
              key_usage: Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']] = None,
              subject_information_access: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'subjectInformationAccess' in kwargs:
+            subject_information_access = kwargs['subjectInformationAccess']
+
         if key_usage is not None:
             _setter("key_usage", key_usage)
         if subject_information_access is not None:
@@ -312,7 +342,11 @@ class CertificateAuthorityCustomAttributeArgs:
              _setter: Callable[[Any, Any], None],
              object_identifier: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
 
@@ -353,7 +387,13 @@ class CertificateAuthorityEdiPartyNameArgs:
              _setter: Callable[[Any, Any], None],
              name_assigner: pulumi.Input[str],
              party_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nameAssigner' in kwargs:
+            name_assigner = kwargs['nameAssigner']
+        if 'partyName' in kwargs:
+            party_name = kwargs['partyName']
+
         _setter("name_assigner", name_assigner)
         _setter("party_name", party_name)
 
@@ -412,7 +452,25 @@ class CertificateAuthorityGeneralNameArgs:
              registered_id: Optional[pulumi.Input[str]] = None,
              rfc822_name: Optional[pulumi.Input[str]] = None,
              uniform_resource_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ediPartyName' in kwargs:
+            edi_party_name = kwargs['ediPartyName']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'otherName' in kwargs:
+            other_name = kwargs['otherName']
+        if 'registeredId' in kwargs:
+            registered_id = kwargs['registeredId']
+        if 'rfc822Name' in kwargs:
+            rfc822_name = kwargs['rfc822Name']
+        if 'uniformResourceIdentifier' in kwargs:
+            uniform_resource_identifier = kwargs['uniformResourceIdentifier']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if dns_name is not None:
@@ -542,7 +600,27 @@ class CertificateAuthorityKeyUsageArgs:
              key_cert_sign: Optional[pulumi.Input[bool]] = None,
              key_encipherment: Optional[pulumi.Input[bool]] = None,
              non_repudiation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlSign' in kwargs:
+            crl_sign = kwargs['crlSign']
+        if 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if 'decipherOnly' in kwargs:
+            decipher_only = kwargs['decipherOnly']
+        if 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if 'encipherOnly' in kwargs:
+            encipher_only = kwargs['encipherOnly']
+        if 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if 'keyCertSign' in kwargs:
+            key_cert_sign = kwargs['keyCertSign']
+        if 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if crl_sign is not None:
             _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -662,7 +740,11 @@ class CertificateAuthorityOcspConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              ocsp_custom_cname: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ocspCustomCname' in kwargs:
+            ocsp_custom_cname = kwargs['ocspCustomCname']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if ocsp_custom_cname is not None:
@@ -705,7 +787,11 @@ class CertificateAuthorityOtherNameArgs:
              _setter: Callable[[Any, Any], None],
              type_id: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+
         _setter("type_id", type_id)
         _setter("value", value)
 
@@ -746,7 +832,13 @@ class CertificateAuthorityRevocationConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              crl_configuration: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']] = None,
              ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlConfiguration' in kwargs:
+            crl_configuration = kwargs['crlConfiguration']
+        if 'ocspConfiguration' in kwargs:
+            ocsp_configuration = kwargs['ocspConfiguration']
+
         if crl_configuration is not None:
             _setter("crl_configuration", crl_configuration)
         if ocsp_configuration is not None:
@@ -828,7 +920,23 @@ class CertificateAuthoritySubjectArgs:
              state: Optional[pulumi.Input[str]] = None,
              surname: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'customAttributes' in kwargs:
+            custom_attributes = kwargs['customAttributes']
+        if 'distinguishedNameQualifier' in kwargs:
+            distinguished_name_qualifier = kwargs['distinguishedNameQualifier']
+        if 'generationQualifier' in kwargs:
+            generation_qualifier = kwargs['generationQualifier']
+        if 'givenName' in kwargs:
+            given_name = kwargs['givenName']
+        if 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if common_name is not None:
             _setter("common_name", common_name)
         if country is not None:
@@ -1011,7 +1119,9 @@ class CertificateAuthorityTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1054,7 +1164,11 @@ class CertificateCustomAttributeArgs:
              _setter: Callable[[Any, Any], None],
              object_identifier: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
 
@@ -1098,7 +1212,11 @@ class CertificateCustomExtensionArgs:
              object_identifier: pulumi.Input[str],
              value: pulumi.Input[str],
              critical: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
         if critical is not None:
@@ -1150,7 +1268,13 @@ class CertificateEdiPartyNameArgs:
              _setter: Callable[[Any, Any], None],
              name_assigner: pulumi.Input[str],
              party_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nameAssigner' in kwargs:
+            name_assigner = kwargs['nameAssigner']
+        if 'partyName' in kwargs:
+            party_name = kwargs['partyName']
+
         _setter("name_assigner", name_assigner)
         _setter("party_name", party_name)
 
@@ -1191,7 +1315,13 @@ class CertificateExtendedKeyUsageArgs:
              _setter: Callable[[Any, Any], None],
              extended_key_usage_object_identifier: Optional[pulumi.Input[str]] = None,
              extended_key_usage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extendedKeyUsageObjectIdentifier' in kwargs:
+            extended_key_usage_object_identifier = kwargs['extendedKeyUsageObjectIdentifier']
+        if 'extendedKeyUsageType' in kwargs:
+            extended_key_usage_type = kwargs['extendedKeyUsageType']
+
         if extended_key_usage_object_identifier is not None:
             _setter("extended_key_usage_object_identifier", extended_key_usage_object_identifier)
         if extended_key_usage_type is not None:
@@ -1243,7 +1373,19 @@ class CertificateExtensionsArgs:
              extended_key_usage: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]] = None,
              key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
              subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificatePolicies' in kwargs:
+            certificate_policies = kwargs['certificatePolicies']
+        if 'customExtensions' in kwargs:
+            custom_extensions = kwargs['customExtensions']
+        if 'extendedKeyUsage' in kwargs:
+            extended_key_usage = kwargs['extendedKeyUsage']
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         if certificate_policies is not None:
             _setter("certificate_policies", certificate_policies)
         if custom_extensions is not None:
@@ -1337,7 +1479,25 @@ class CertificateGeneralNameArgs:
              registered_id: Optional[pulumi.Input[str]] = None,
              rfc822_name: Optional[pulumi.Input[str]] = None,
              uniform_resource_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ediPartyName' in kwargs:
+            edi_party_name = kwargs['ediPartyName']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'otherName' in kwargs:
+            other_name = kwargs['otherName']
+        if 'registeredId' in kwargs:
+            registered_id = kwargs['registeredId']
+        if 'rfc822Name' in kwargs:
+            rfc822_name = kwargs['rfc822Name']
+        if 'uniformResourceIdentifier' in kwargs:
+            uniform_resource_identifier = kwargs['uniformResourceIdentifier']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if dns_name is not None:
@@ -1467,7 +1627,27 @@ class CertificateKeyUsageArgs:
              key_cert_sign: Optional[pulumi.Input[bool]] = None,
              key_encipherment: Optional[pulumi.Input[bool]] = None,
              non_repudiation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlSign' in kwargs:
+            crl_sign = kwargs['crlSign']
+        if 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if 'decipherOnly' in kwargs:
+            decipher_only = kwargs['decipherOnly']
+        if 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if 'encipherOnly' in kwargs:
+            encipher_only = kwargs['encipherOnly']
+        if 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if 'keyCertSign' in kwargs:
+            key_cert_sign = kwargs['keyCertSign']
+        if 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if crl_sign is not None:
             _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -1587,7 +1767,11 @@ class CertificateOtherNameArgs:
              _setter: Callable[[Any, Any], None],
              type_id: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+
         _setter("type_id", type_id)
         _setter("value", value)
 
@@ -1628,7 +1812,13 @@ class CertificatePolicyInformationArgs:
              _setter: Callable[[Any, Any], None],
              cert_policy_id: pulumi.Input[str],
              policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certPolicyId' in kwargs:
+            cert_policy_id = kwargs['certPolicyId']
+        if 'policyQualifiers' in kwargs:
+            policy_qualifiers = kwargs['policyQualifiers']
+
         _setter("cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
             _setter("policy_qualifiers", policy_qualifiers)
@@ -1670,7 +1860,11 @@ class CertificatePolicyQualifierInfoArgs:
              _setter: Callable[[Any, Any], None],
              policy_qualifier_id: pulumi.Input[str],
              qualifier: pulumi.Input['CertificateQualifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyQualifierId' in kwargs:
+            policy_qualifier_id = kwargs['policyQualifierId']
+
         _setter("policy_qualifier_id", policy_qualifier_id)
         _setter("qualifier", qualifier)
 
@@ -1708,7 +1902,11 @@ class CertificateQualifierArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cps_uri: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpsUri' in kwargs:
+            cps_uri = kwargs['cpsUri']
+
         _setter("cps_uri", cps_uri)
 
     @property
@@ -1778,7 +1976,23 @@ class CertificateSubjectArgs:
              state: Optional[pulumi.Input[str]] = None,
              surname: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'customAttributes' in kwargs:
+            custom_attributes = kwargs['customAttributes']
+        if 'distinguishedNameQualifier' in kwargs:
+            distinguished_name_qualifier = kwargs['distinguishedNameQualifier']
+        if 'generationQualifier' in kwargs:
+            generation_qualifier = kwargs['generationQualifier']
+        if 'givenName' in kwargs:
+            given_name = kwargs['givenName']
+        if 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if common_name is not None:
             _setter("common_name", common_name)
         if country is not None:
@@ -1964,7 +2178,9 @@ class CertificateValidityArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 

@@ -31,7 +31,11 @@ class SecurityConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              security_configuration: Any,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+
         _setter("security_configuration", security_configuration)
         if name is not None:
             _setter("name", name)

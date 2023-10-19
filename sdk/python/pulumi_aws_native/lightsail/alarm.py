@@ -67,7 +67,29 @@ class AlarmArgs:
              notification_enabled: Optional[pulumi.Input[bool]] = None,
              notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              treat_missing_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'monitoredResourceName' in kwargs:
+            monitored_resource_name = kwargs['monitoredResourceName']
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'contactProtocols' in kwargs:
+            contact_protocols = kwargs['contactProtocols']
+        if 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if 'notificationEnabled' in kwargs:
+            notification_enabled = kwargs['notificationEnabled']
+        if 'notificationTriggers' in kwargs:
+            notification_triggers = kwargs['notificationTriggers']
+        if 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
         _setter("comparison_operator", comparison_operator)
         _setter("evaluation_periods", evaluation_periods)
         _setter("metric_name", metric_name)

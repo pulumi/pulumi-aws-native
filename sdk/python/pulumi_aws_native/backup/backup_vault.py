@@ -43,7 +43,19 @@ class BackupVaultArgs:
              encryption_key_arn: Optional[pulumi.Input[str]] = None,
              lock_configuration: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']] = None,
              notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'backupVaultTags' in kwargs:
+            backup_vault_tags = kwargs['backupVaultTags']
+        if 'encryptionKeyArn' in kwargs:
+            encryption_key_arn = kwargs['encryptionKeyArn']
+        if 'lockConfiguration' in kwargs:
+            lock_configuration = kwargs['lockConfiguration']
+
         if access_policy is not None:
             _setter("access_policy", access_policy)
         if backup_vault_name is not None:

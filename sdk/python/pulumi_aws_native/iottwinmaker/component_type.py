@@ -61,7 +61,21 @@ class ComponentTypeArgs:
              property_definitions: Optional[Any] = None,
              property_groups: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentTypeId' in kwargs:
+            component_type_id = kwargs['componentTypeId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'extendsFrom' in kwargs:
+            extends_from = kwargs['extendsFrom']
+        if 'isSingleton' in kwargs:
+            is_singleton = kwargs['isSingleton']
+        if 'propertyDefinitions' in kwargs:
+            property_definitions = kwargs['propertyDefinitions']
+        if 'propertyGroups' in kwargs:
+            property_groups = kwargs['propertyGroups']
+
         _setter("component_type_id", component_type_id)
         _setter("workspace_id", workspace_id)
         if description is not None:

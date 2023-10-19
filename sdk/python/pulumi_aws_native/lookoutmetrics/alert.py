@@ -45,7 +45,17 @@ class AlertArgs:
              anomaly_detector_arn: pulumi.Input[str],
              alert_description: Optional[pulumi.Input[str]] = None,
              alert_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertSensitivityThreshold' in kwargs:
+            alert_sensitivity_threshold = kwargs['alertSensitivityThreshold']
+        if 'anomalyDetectorArn' in kwargs:
+            anomaly_detector_arn = kwargs['anomalyDetectorArn']
+        if 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if 'alertName' in kwargs:
+            alert_name = kwargs['alertName']
+
         _setter("action", action)
         _setter("alert_sensitivity_threshold", alert_sensitivity_threshold)
         _setter("anomaly_detector_arn", anomaly_detector_arn)

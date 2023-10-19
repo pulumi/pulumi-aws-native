@@ -45,7 +45,11 @@ class DbParameterGroupArgs:
              db_parameter_group_name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbParameterGroupName' in kwargs:
+            db_parameter_group_name = kwargs['dbParameterGroupName']
+
         _setter("description", description)
         _setter("family", family)
         if db_parameter_group_name is not None:

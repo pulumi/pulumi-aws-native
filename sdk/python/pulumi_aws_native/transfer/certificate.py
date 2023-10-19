@@ -58,7 +58,17 @@ class CertificateArgs:
              inactive_date: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDate' in kwargs:
+            active_date = kwargs['activeDate']
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'inactiveDate' in kwargs:
+            inactive_date = kwargs['inactiveDate']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         _setter("certificate", certificate)
         _setter("usage", usage)
         if active_date is not None:

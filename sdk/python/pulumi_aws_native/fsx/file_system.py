@@ -64,7 +64,33 @@ class FileSystemArgs:
              storage_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemTagArgs']]]] = None,
              windows_configuration: Optional[pulumi.Input['FileSystemWindowsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileSystemType' in kwargs:
+            file_system_type = kwargs['fileSystemType']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if 'fileSystemTypeVersion' in kwargs:
+            file_system_type_version = kwargs['fileSystemTypeVersion']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'lustreConfiguration' in kwargs:
+            lustre_configuration = kwargs['lustreConfiguration']
+        if 'ontapConfiguration' in kwargs:
+            ontap_configuration = kwargs['ontapConfiguration']
+        if 'openZfsConfiguration' in kwargs:
+            open_zfs_configuration = kwargs['openZfsConfiguration']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'windowsConfiguration' in kwargs:
+            windows_configuration = kwargs['windowsConfiguration']
+
         _setter("file_system_type", file_system_type)
         _setter("subnet_ids", subnet_ids)
         if backup_id is not None:

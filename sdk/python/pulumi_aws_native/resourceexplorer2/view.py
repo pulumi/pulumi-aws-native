@@ -37,7 +37,13 @@ class ViewArgs:
              included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input['ViewTagMapArgs']] = None,
              view_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedProperties' in kwargs:
+            included_properties = kwargs['includedProperties']
+        if 'viewName' in kwargs:
+            view_name = kwargs['viewName']
+
         if filters is not None:
             _setter("filters", filters)
         if included_properties is not None:

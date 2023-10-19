@@ -49,7 +49,19 @@ class MatchingWorkflowArgs:
              workflow_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputSourceConfig' in kwargs:
+            input_source_config = kwargs['inputSourceConfig']
+        if 'outputSourceConfig' in kwargs:
+            output_source_config = kwargs['outputSourceConfig']
+        if 'resolutionTechniques' in kwargs:
+            resolution_techniques = kwargs['resolutionTechniques']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
         _setter("input_source_config", input_source_config)
         _setter("output_source_config", output_source_config)
         _setter("resolution_techniques", resolution_techniques)

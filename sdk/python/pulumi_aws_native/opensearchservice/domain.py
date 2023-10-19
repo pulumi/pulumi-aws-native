@@ -77,7 +77,41 @@ class DomainArgs:
              software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
              vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if 'advancedOptions' in kwargs:
+            advanced_options = kwargs['advancedOptions']
+        if 'advancedSecurityOptions' in kwargs:
+            advanced_security_options = kwargs['advancedSecurityOptions']
+        if 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+        if 'cognitoOptions' in kwargs:
+            cognito_options = kwargs['cognitoOptions']
+        if 'domainEndpointOptions' in kwargs:
+            domain_endpoint_options = kwargs['domainEndpointOptions']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'ebsOptions' in kwargs:
+            ebs_options = kwargs['ebsOptions']
+        if 'encryptionAtRestOptions' in kwargs:
+            encryption_at_rest_options = kwargs['encryptionAtRestOptions']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if 'nodeToNodeEncryptionOptions' in kwargs:
+            node_to_node_encryption_options = kwargs['nodeToNodeEncryptionOptions']
+        if 'offPeakWindowOptions' in kwargs:
+            off_peak_window_options = kwargs['offPeakWindowOptions']
+        if 'snapshotOptions' in kwargs:
+            snapshot_options = kwargs['snapshotOptions']
+        if 'softwareUpdateOptions' in kwargs:
+            software_update_options = kwargs['softwareUpdateOptions']
+        if 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if access_policies is not None:
             _setter("access_policies", access_policies)
         if advanced_options is not None:

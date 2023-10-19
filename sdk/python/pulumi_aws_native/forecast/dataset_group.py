@@ -42,7 +42,13 @@ class DatasetGroupArgs:
              dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              dataset_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetArns' in kwargs:
+            dataset_arns = kwargs['datasetArns']
+        if 'datasetGroupName' in kwargs:
+            dataset_group_name = kwargs['datasetGroupName']
+
         _setter("domain", domain)
         if dataset_arns is not None:
             _setter("dataset_arns", dataset_arns)

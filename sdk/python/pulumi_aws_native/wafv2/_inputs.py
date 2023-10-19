@@ -168,7 +168,9 @@ class IpSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -209,7 +211,9 @@ class LoggingConfigurationConditionActionConditionPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesAction'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
 
     @property
@@ -241,7 +245,11 @@ class LoggingConfigurationConditionLabelNameConditionPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              label_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+
         _setter("label_name", label_name)
 
     @property
@@ -276,7 +284,13 @@ class LoggingConfigurationConditionArgs:
              _setter: Callable[[Any, Any], None],
              action_condition: Optional[pulumi.Input['LoggingConfigurationConditionActionConditionPropertiesArgs']] = None,
              label_name_condition: Optional[pulumi.Input['LoggingConfigurationConditionLabelNameConditionPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionCondition' in kwargs:
+            action_condition = kwargs['actionCondition']
+        if 'labelNameCondition' in kwargs:
+            label_name_condition = kwargs['labelNameCondition']
+
         if action_condition is not None:
             _setter("action_condition", action_condition)
         if label_name_condition is not None:
@@ -327,7 +341,11 @@ class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesAr
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -382,7 +400,15 @@ class LoggingConfigurationFieldToMatchJsonBodyPropertiesArgs:
              match_pattern: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternPropertiesArgs'],
              match_scope: pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'],
              invalid_fallback_behavior: Optional[pulumi.Input['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -441,7 +467,9 @@ class LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -489,7 +517,17 @@ class LoggingConfigurationFieldToMatchArgs:
              query_string: Optional[Any] = None,
              single_header: Optional[pulumi.Input['LoggingConfigurationFieldToMatchSingleHeaderPropertiesArgs']] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if json_body is not None:
             _setter("json_body", json_body)
         if method is not None:
@@ -585,7 +623,9 @@ class LoggingConfigurationFilterArgs:
              behavior: pulumi.Input['LoggingConfigurationFilterBehavior'],
              conditions: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationConditionArgs']]],
              requirement: pulumi.Input['LoggingConfigurationFilterRequirement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("behavior", behavior)
         _setter("conditions", conditions)
         _setter("requirement", requirement)
@@ -647,7 +687,11 @@ class LoggingFilterPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              default_behavior: pulumi.Input['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior'],
              filters: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFilterArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultBehavior' in kwargs:
+            default_behavior = kwargs['defaultBehavior']
+
         _setter("default_behavior", default_behavior)
         _setter("filters", filters)
 
@@ -691,7 +735,9 @@ class RegexPatternSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -731,7 +777,11 @@ class RuleGroupAllowActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -757,7 +807,9 @@ class RuleGroupAndStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -785,7 +837,11 @@ class RuleGroupBlockActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional[pulumi.Input['RuleGroupCustomResponseArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -814,7 +870,11 @@ class RuleGroupBodyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -855,7 +915,19 @@ class RuleGroupByteMatchStatementArgs:
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
              search_string: Optional[pulumi.Input[str]] = None,
              search_string_base64: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -925,7 +997,11 @@ class RuleGroupCaptchaActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -951,7 +1027,11 @@ class RuleGroupCaptchaConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -980,7 +1060,11 @@ class RuleGroupChallengeActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1006,7 +1090,11 @@ class RuleGroupChallengeConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional[pulumi.Input['RuleGroupImmunityTimePropertyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -1042,7 +1130,13 @@ class RuleGroupCookieMatchPatternArgs:
              all: Optional[Any] = None,
              excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -1102,7 +1196,15 @@ class RuleGroupCookiesArgs:
              match_pattern: pulumi.Input['RuleGroupCookieMatchPatternArgs'],
              match_scope: pulumi.Input['RuleGroupMapMatchScope'],
              oversize_handling: pulumi.Input['RuleGroupOversizeHandling'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -1150,7 +1252,11 @@ class RuleGroupCountActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['RuleGroupCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1182,7 +1288,9 @@ class RuleGroupCustomHttpHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1221,7 +1329,11 @@ class RuleGroupCustomRequestHandlingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              insert_headers: pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -1247,8 +1359,10 @@ class RuleGroupCustomResponseBodiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1274,7 +1388,15 @@ class RuleGroupCustomResponseArgs:
              response_code: pulumi.Input[int],
              custom_response_body_key: Optional[pulumi.Input[str]] = None,
              response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomHttpHeaderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -1327,7 +1449,9 @@ class RuleGroupFieldToMatchSingleHeaderPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1355,7 +1479,9 @@ class RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1415,7 +1541,21 @@ class RuleGroupFieldToMatchArgs:
              single_header: Optional[pulumi.Input['RuleGroupFieldToMatchSingleHeaderPropertiesArgs']] = None,
              single_query_argument: Optional[pulumi.Input['RuleGroupFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -1558,7 +1698,13 @@ class RuleGroupForwardedIpConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              fallback_behavior: pulumi.Input['RuleGroupForwardedIpConfigurationFallbackBehavior'],
              header_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -1596,7 +1742,13 @@ class RuleGroupGeoMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -1643,7 +1795,13 @@ class RuleGroupHeaderMatchPatternArgs:
              all: Optional[Any] = None,
              excluded_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -1703,7 +1861,15 @@ class RuleGroupHeadersArgs:
              match_pattern: pulumi.Input['RuleGroupHeaderMatchPatternArgs'],
              match_scope: pulumi.Input['RuleGroupMapMatchScope'],
              oversize_handling: pulumi.Input['RuleGroupOversizeHandling'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -1748,7 +1914,11 @@ class RuleGroupImmunityTimePropertyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -1779,7 +1949,13 @@ class RuleGroupIpSetForwardedIpConfigurationArgs:
              fallback_behavior: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior'],
              header_name: pulumi.Input[str],
              position: pulumi.Input['RuleGroupIpSetForwardedIpConfigurationPosition'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -1827,7 +2003,11 @@ class RuleGroupIpSetReferenceStatementArgs:
              _setter: Callable[[Any, Any], None],
              arn: pulumi.Input[str],
              ip_set_forwarded_ip_config: Optional[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -1875,7 +2055,17 @@ class RuleGroupJsonBodyArgs:
              match_scope: pulumi.Input['RuleGroupJsonMatchScope'],
              invalid_fallback_behavior: Optional[pulumi.Input['RuleGroupBodyParsingFallbackBehavior']] = None,
              oversize_handling: Optional[pulumi.Input['RuleGroupOversizeHandling']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -1939,7 +2129,11 @@ class RuleGroupJsonMatchPatternArgs:
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -1982,7 +2176,9 @@ class RuleGroupLabelMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              scope: pulumi.Input['RuleGroupLabelMatchScope'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -2017,7 +2213,9 @@ class RuleGroupLabelSummaryArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -2043,7 +2241,9 @@ class RuleGroupLabelArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2068,7 +2268,9 @@ class RuleGroupNotStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statement: pulumi.Input['RuleGroupStatementArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statement", statement)
 
     @property
@@ -2093,7 +2295,9 @@ class RuleGroupOrStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatementArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -2145,7 +2349,21 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
              query_argument: Optional[pulumi.Input['RuleGroupRateLimitQueryArgumentArgs']] = None,
              query_string: Optional[pulumi.Input['RuleGroupRateLimitQueryStringArgs']] = None,
              uri_path: Optional[pulumi.Input['RuleGroupRateLimitUriPathArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -2274,7 +2492,17 @@ class RuleGroupRateBasedStatementArgs:
              custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgs']]]] = None,
              forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None,
              scope_down_statement: Optional[pulumi.Input['RuleGroupStatementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -2352,7 +2580,11 @@ class RuleGroupRateLimitCookieArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2388,8 +2620,10 @@ class RuleGroupRateLimitForwardedIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2411,7 +2645,11 @@ class RuleGroupRateLimitHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2447,8 +2685,10 @@ class RuleGroupRateLimitHttpMethodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2461,8 +2701,10 @@ class RuleGroupRateLimitIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2481,7 +2723,9 @@ class RuleGroupRateLimitLabelNamespaceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
 
     @property
@@ -2516,7 +2760,11 @@ class RuleGroupRateLimitQueryArgumentArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2557,7 +2805,11 @@ class RuleGroupRateLimitQueryStringArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2585,7 +2837,11 @@ class RuleGroupRateLimitUriPathArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2616,7 +2872,15 @@ class RuleGroupRegexMatchStatementArgs:
              field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
              regex_string: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -2667,7 +2931,13 @@ class RuleGroupRegexPatternSetReferenceStatementArgs:
              arn: pulumi.Input[str],
              field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -2727,7 +2997,9 @@ class RuleGroupRuleActionArgs:
              captcha: Optional[pulumi.Input['RuleGroupCaptchaActionArgs']] = None,
              challenge: Optional[pulumi.Input['RuleGroupChallengeActionArgs']] = None,
              count: Optional[pulumi.Input['RuleGroupCountActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -2822,7 +3094,17 @@ class RuleGroupRuleArgs:
              captcha_config: Optional[pulumi.Input['RuleGroupCaptchaConfigArgs']] = None,
              challenge_config: Optional[pulumi.Input['RuleGroupChallengeConfigArgs']] = None,
              rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -2936,7 +3218,15 @@ class RuleGroupSizeConstraintStatementArgs:
              field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
              size: pulumi.Input[float],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -3000,7 +3290,15 @@ class RuleGroupSqliMatchStatementArgs:
              field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
              sensitivity_level: Optional[pulumi.Input['RuleGroupSensitivityLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -3085,7 +3383,35 @@ class RuleGroupStatementArgs:
              size_constraint_statement: Optional[pulumi.Input['RuleGroupSizeConstraintStatementArgs']] = None,
              sqli_match_statement: Optional[pulumi.Input['RuleGroupSqliMatchStatementArgs']] = None,
              xss_match_statement: Optional[pulumi.Input['RuleGroupXssMatchStatementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -3246,7 +3572,9 @@ class RuleGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3289,7 +3617,9 @@ class RuleGroupTextTransformationArgs:
              _setter: Callable[[Any, Any], None],
              priority: pulumi.Input[int],
              type: pulumi.Input['RuleGroupTextTransformationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -3333,7 +3663,15 @@ class RuleGroupVisibilityConfigArgs:
              cloud_watch_metrics_enabled: pulumi.Input[bool],
              metric_name: pulumi.Input[str],
              sampled_requests_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -3384,7 +3722,13 @@ class RuleGroupXssMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              field_to_match: pulumi.Input['RuleGroupFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 
@@ -3422,7 +3766,11 @@ class WebAclAllowActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -3448,7 +3796,9 @@ class WebAclAndStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -3476,7 +3826,11 @@ class WebAclAssociationConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              request_body: Optional[pulumi.Input['WebAclRequestBodyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestBody' in kwargs:
+            request_body = kwargs['requestBody']
+
         if request_body is not None:
             _setter("request_body", request_body)
 
@@ -3517,7 +3871,19 @@ class WebAclAwsManagedRulesAcfpRuleSetArgs:
              request_inspection: pulumi.Input['WebAclRequestInspectionAcfpArgs'],
              enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
              response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationPath' in kwargs:
+            creation_path = kwargs['creationPath']
+        if 'registrationPagePath' in kwargs:
+            registration_page_path = kwargs['registrationPagePath']
+        if 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("creation_path", creation_path)
         _setter("registration_page_path", registration_page_path)
         _setter("request_inspection", request_inspection)
@@ -3596,7 +3962,17 @@ class WebAclAwsManagedRulesAtpRuleSetArgs:
              enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
              request_inspection: Optional[pulumi.Input['WebAclRequestInspectionArgs']] = None,
              response_inspection: Optional[pulumi.Input['WebAclResponseInspectionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("login_path", login_path)
         if enable_regex_in_path is not None:
             _setter("enable_regex_in_path", enable_regex_in_path)
@@ -3660,7 +4036,13 @@ class WebAclAwsManagedRulesBotControlRuleSetArgs:
              _setter: Callable[[Any, Any], None],
              inspection_level: pulumi.Input['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'],
              enable_machine_learning: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inspectionLevel' in kwargs:
+            inspection_level = kwargs['inspectionLevel']
+        if 'enableMachineLearning' in kwargs:
+            enable_machine_learning = kwargs['enableMachineLearning']
+
         _setter("inspection_level", inspection_level)
         if enable_machine_learning is not None:
             _setter("enable_machine_learning", enable_machine_learning)
@@ -3699,7 +4081,11 @@ class WebAclBlockActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional[pulumi.Input['WebAclCustomResponseArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -3728,7 +4114,11 @@ class WebAclBodyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -3769,7 +4159,19 @@ class WebAclByteMatchStatementArgs:
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
              search_string: Optional[pulumi.Input[str]] = None,
              search_string_base64: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -3839,7 +4241,11 @@ class WebAclCaptchaActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -3865,7 +4271,11 @@ class WebAclCaptchaConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -3894,7 +4304,11 @@ class WebAclChallengeActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -3920,7 +4334,11 @@ class WebAclChallengeConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional[pulumi.Input['WebAclImmunityTimePropertyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -3956,7 +4374,13 @@ class WebAclCookieMatchPatternArgs:
              all: Optional[Any] = None,
              excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -4016,7 +4440,15 @@ class WebAclCookiesArgs:
              match_pattern: pulumi.Input['WebAclCookieMatchPatternArgs'],
              match_scope: pulumi.Input['WebAclMapMatchScope'],
              oversize_handling: pulumi.Input['WebAclOversizeHandling'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -4064,7 +4496,11 @@ class WebAclCountActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional[pulumi.Input['WebAclCustomRequestHandlingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4096,7 +4532,9 @@ class WebAclCustomHttpHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -4135,7 +4573,11 @@ class WebAclCustomRequestHandlingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -4161,8 +4603,10 @@ class WebAclCustomResponseBodiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -4188,7 +4632,15 @@ class WebAclCustomResponseArgs:
              response_code: pulumi.Input[int],
              custom_response_body_key: Optional[pulumi.Input[str]] = None,
              response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomHttpHeaderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -4247,7 +4699,9 @@ class WebAclDefaultActionArgs:
              _setter: Callable[[Any, Any], None],
              allow: Optional[pulumi.Input['WebAclAllowActionArgs']] = None,
              block: Optional[pulumi.Input['WebAclBlockActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -4287,7 +4741,9 @@ class WebAclExcludedRuleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -4312,7 +4768,9 @@ class WebAclFieldIdentifierArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("identifier", identifier)
 
     @property
@@ -4337,7 +4795,9 @@ class WebAclFieldToMatchSingleHeaderPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -4365,7 +4825,9 @@ class WebAclFieldToMatchSingleQueryArgumentPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -4425,7 +4887,21 @@ class WebAclFieldToMatchArgs:
              single_header: Optional[pulumi.Input['WebAclFieldToMatchSingleHeaderPropertiesArgs']] = None,
              single_query_argument: Optional[pulumi.Input['WebAclFieldToMatchSingleQueryArgumentPropertiesArgs']] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -4568,7 +5044,13 @@ class WebAclForwardedIpConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              fallback_behavior: pulumi.Input['WebAclForwardedIpConfigurationFallbackBehavior'],
              header_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -4606,7 +5088,13 @@ class WebAclGeoMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -4653,7 +5141,13 @@ class WebAclHeaderMatchPatternArgs:
              all: Optional[Any] = None,
              excluded_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              included_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -4713,7 +5207,15 @@ class WebAclHeadersArgs:
              match_pattern: pulumi.Input['WebAclHeaderMatchPatternArgs'],
              match_scope: pulumi.Input['WebAclMapMatchScope'],
              oversize_handling: pulumi.Input['WebAclOversizeHandling'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -4758,7 +5260,11 @@ class WebAclImmunityTimePropertyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -4789,7 +5295,13 @@ class WebAclIpSetForwardedIpConfigurationArgs:
              fallback_behavior: pulumi.Input['WebAclIpSetForwardedIpConfigurationFallbackBehavior'],
              header_name: pulumi.Input[str],
              position: pulumi.Input['WebAclIpSetForwardedIpConfigurationPosition'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -4837,7 +5349,11 @@ class WebAclIpSetReferenceStatementArgs:
              _setter: Callable[[Any, Any], None],
              arn: pulumi.Input[str],
              ip_set_forwarded_ip_config: Optional[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -4885,7 +5401,17 @@ class WebAclJsonBodyArgs:
              match_scope: pulumi.Input['WebAclJsonMatchScope'],
              invalid_fallback_behavior: Optional[pulumi.Input['WebAclBodyParsingFallbackBehavior']] = None,
              oversize_handling: Optional[pulumi.Input['WebAclOversizeHandling']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -4949,7 +5475,11 @@ class WebAclJsonMatchPatternArgs:
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -4992,7 +5522,9 @@ class WebAclLabelMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              scope: pulumi.Input['WebAclLabelMatchScope'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -5027,7 +5559,9 @@ class WebAclLabelArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -5073,7 +5607,23 @@ class WebAclManagedRuleGroupConfigArgs:
              password_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
              payload_type: Optional[pulumi.Input['WebAclManagedRuleGroupConfigPayloadType']] = None,
              username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsManagedRulesAcfpRuleSet' in kwargs:
+            aws_managed_rules_acfp_rule_set = kwargs['awsManagedRulesAcfpRuleSet']
+        if 'awsManagedRulesAtpRuleSet' in kwargs:
+            aws_managed_rules_atp_rule_set = kwargs['awsManagedRulesAtpRuleSet']
+        if 'awsManagedRulesBotControlRuleSet' in kwargs:
+            aws_managed_rules_bot_control_rule_set = kwargs['awsManagedRulesBotControlRuleSet']
+        if 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         if aws_managed_rules_acfp_rule_set is not None:
             _setter("aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
@@ -5187,7 +5737,19 @@ class WebAclManagedRuleGroupStatementArgs:
              rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]] = None,
              scope_down_statement: Optional[pulumi.Input['WebAclStatementArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+        if 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if 'managedRuleGroupConfigs' in kwargs:
+            managed_rule_group_configs = kwargs['managedRuleGroupConfigs']
+        if 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("name", name)
         _setter("vendor_name", vendor_name)
         if excluded_rules is not None:
@@ -5283,7 +5845,9 @@ class WebAclNotStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statement: pulumi.Input['WebAclStatementArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statement", statement)
 
     @property
@@ -5308,7 +5872,9 @@ class WebAclOrStatementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              statements: pulumi.Input[Sequence[pulumi.Input['WebAclStatementArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statements", statements)
 
     @property
@@ -5341,7 +5907,9 @@ class WebAclOverrideActionArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
              none: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if none is not None:
@@ -5411,7 +5979,21 @@ class WebAclRateBasedStatementCustomKeyArgs:
              query_argument: Optional[pulumi.Input['WebAclRateLimitQueryArgumentArgs']] = None,
              query_string: Optional[pulumi.Input['WebAclRateLimitQueryStringArgs']] = None,
              uri_path: Optional[pulumi.Input['WebAclRateLimitUriPathArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -5540,7 +6122,17 @@ class WebAclRateBasedStatementArgs:
              custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]] = None,
              forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None,
              scope_down_statement: Optional[pulumi.Input['WebAclStatementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -5618,7 +6210,11 @@ class WebAclRateLimitCookieArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -5654,8 +6250,10 @@ class WebAclRateLimitForwardedIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -5677,7 +6275,11 @@ class WebAclRateLimitHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -5713,8 +6315,10 @@ class WebAclRateLimitHttpMethodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -5727,8 +6331,10 @@ class WebAclRateLimitIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -5747,7 +6353,9 @@ class WebAclRateLimitLabelNamespaceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("namespace", namespace)
 
     @property
@@ -5782,7 +6390,11 @@ class WebAclRateLimitQueryArgumentArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -5823,7 +6435,11 @@ class WebAclRateLimitQueryStringArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -5851,7 +6467,11 @@ class WebAclRateLimitUriPathArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -5882,7 +6502,15 @@ class WebAclRegexMatchStatementArgs:
              field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
              regex_string: pulumi.Input[str],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -5933,7 +6561,13 @@ class WebAclRegexPatternSetReferenceStatementArgs:
              arn: pulumi.Input[str],
              field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -5976,8 +6610,10 @@ class WebAclRequestBodyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -6010,7 +6646,21 @@ class WebAclRequestInspectionAcfpArgs:
              password_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
              phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclFieldIdentifierArgs']]]] = None,
              username_field: Optional[pulumi.Input['WebAclFieldIdentifierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'addressFields' in kwargs:
+            address_fields = kwargs['addressFields']
+        if 'emailField' in kwargs:
+            email_field = kwargs['emailField']
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'phoneNumberFields' in kwargs:
+            phone_number_fields = kwargs['phoneNumberFields']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         _setter("payload_type", payload_type)
         if address_fields is not None:
             _setter("address_fields", address_fields)
@@ -6099,7 +6749,15 @@ class WebAclRequestInspectionArgs:
              password_field: pulumi.Input['WebAclFieldIdentifierArgs'],
              payload_type: pulumi.Input['WebAclRequestInspectionPayloadType'],
              username_field: pulumi.Input['WebAclFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         _setter("password_field", password_field)
         _setter("payload_type", payload_type)
         _setter("username_field", username_field)
@@ -6150,7 +6808,13 @@ class WebAclResponseInspectionBodyContainsArgs:
              _setter: Callable[[Any, Any], None],
              failure_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
              success_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureStrings' in kwargs:
+            failure_strings = kwargs['failureStrings']
+        if 'successStrings' in kwargs:
+            success_strings = kwargs['successStrings']
+
         _setter("failure_strings", failure_strings)
         _setter("success_strings", success_strings)
 
@@ -6194,7 +6858,13 @@ class WebAclResponseInspectionHeaderArgs:
              failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
              name: pulumi.Input[str],
              success_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+
         _setter("failure_values", failure_values)
         _setter("name", name)
         _setter("success_values", success_values)
@@ -6248,7 +6918,13 @@ class WebAclResponseInspectionJsonArgs:
              failure_values: pulumi.Input[Sequence[pulumi.Input[str]]],
              identifier: pulumi.Input[str],
              success_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+
         _setter("failure_values", failure_values)
         _setter("identifier", identifier)
         _setter("success_values", success_values)
@@ -6299,7 +6975,13 @@ class WebAclResponseInspectionStatusCodeArgs:
              _setter: Callable[[Any, Any], None],
              failure_codes: pulumi.Input[Sequence[pulumi.Input[int]]],
              success_codes: pulumi.Input[Sequence[pulumi.Input[int]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCodes' in kwargs:
+            failure_codes = kwargs['failureCodes']
+        if 'successCodes' in kwargs:
+            success_codes = kwargs['successCodes']
+
         _setter("failure_codes", failure_codes)
         _setter("success_codes", success_codes)
 
@@ -6346,7 +7028,13 @@ class WebAclResponseInspectionArgs:
              header: Optional[pulumi.Input['WebAclResponseInspectionHeaderArgs']] = None,
              json: Optional[pulumi.Input['WebAclResponseInspectionJsonArgs']] = None,
              status_code: Optional[pulumi.Input['WebAclResponseInspectionStatusCodeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyContains' in kwargs:
+            body_contains = kwargs['bodyContains']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if body_contains is not None:
             _setter("body_contains", body_contains)
         if header is not None:
@@ -6411,7 +7099,11 @@ class WebAclRuleActionOverrideArgs:
              _setter: Callable[[Any, Any], None],
              action_to_use: pulumi.Input['WebAclRuleActionArgs'],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionToUse' in kwargs:
+            action_to_use = kwargs['actionToUse']
+
         _setter("action_to_use", action_to_use)
         _setter("name", name)
 
@@ -6461,7 +7153,9 @@ class WebAclRuleActionArgs:
              captcha: Optional[pulumi.Input['WebAclCaptchaActionArgs']] = None,
              challenge: Optional[pulumi.Input['WebAclChallengeActionArgs']] = None,
              count: Optional[pulumi.Input['WebAclCountActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -6540,7 +7234,13 @@ class WebAclRuleGroupReferenceStatementArgs:
              arn: pulumi.Input[str],
              excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclExcludedRuleArgs']]]] = None,
              rule_action_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleActionOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+
         _setter("arn", arn)
         if excluded_rules is not None:
             _setter("excluded_rules", excluded_rules)
@@ -6618,7 +7318,19 @@ class WebAclRuleArgs:
              challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
              override_action: Optional[pulumi.Input['WebAclOverrideActionArgs']] = None,
              rule_labels: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLabelArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if 'overrideAction' in kwargs:
+            override_action = kwargs['overrideAction']
+        if 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -6743,7 +7455,15 @@ class WebAclSizeConstraintStatementArgs:
              field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
              size: pulumi.Input[float],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -6807,7 +7527,15 @@ class WebAclSqliMatchStatementArgs:
              field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
              sensitivity_level: Optional[pulumi.Input['WebAclSensitivityLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -6898,7 +7626,39 @@ class WebAclStatementArgs:
              size_constraint_statement: Optional[pulumi.Input['WebAclSizeConstraintStatementArgs']] = None,
              sqli_match_statement: Optional[pulumi.Input['WebAclSqliMatchStatementArgs']] = None,
              xss_match_statement: Optional[pulumi.Input['WebAclXssMatchStatementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if 'managedRuleGroupStatement' in kwargs:
+            managed_rule_group_statement = kwargs['managedRuleGroupStatement']
+        if 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if 'ruleGroupReferenceStatement' in kwargs:
+            rule_group_reference_statement = kwargs['ruleGroupReferenceStatement']
+        if 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -7081,7 +7841,9 @@ class WebAclTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7124,7 +7886,9 @@ class WebAclTextTransformationArgs:
              _setter: Callable[[Any, Any], None],
              priority: pulumi.Input[int],
              type: pulumi.Input['WebAclTextTransformationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -7168,7 +7932,15 @@ class WebAclVisibilityConfigArgs:
              cloud_watch_metrics_enabled: pulumi.Input[bool],
              metric_name: pulumi.Input[str],
              sampled_requests_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -7219,7 +7991,13 @@ class WebAclXssMatchStatementArgs:
              _setter: Callable[[Any, Any], None],
              field_to_match: pulumi.Input['WebAclFieldToMatchArgs'],
              text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclTextTransformationArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 

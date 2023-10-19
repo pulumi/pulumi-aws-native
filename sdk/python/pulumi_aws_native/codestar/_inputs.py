@@ -26,7 +26,9 @@ class GitHubRepositoryCodeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: pulumi.Input['GitHubRepositoryS3Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("s3", s3)
 
     @property
@@ -57,7 +59,11 @@ class GitHubRepositoryS3Args:
              bucket: pulumi.Input[str],
              key: pulumi.Input[str],
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:

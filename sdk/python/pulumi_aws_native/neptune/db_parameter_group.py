@@ -40,7 +40,9 @@ class DbParameterGroupArgs:
              parameters: Any,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("family", family)
         _setter("parameters", parameters)

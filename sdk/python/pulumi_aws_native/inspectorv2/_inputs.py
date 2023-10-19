@@ -122,7 +122,67 @@ class FilterCriteriaArgs:
              vulnerability_id: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
              vulnerability_source: Optional[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
              vulnerable_packages: Optional[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+        if 'ec2InstanceImageId' in kwargs:
+            ec2_instance_image_id = kwargs['ec2InstanceImageId']
+        if 'ec2InstanceSubnetId' in kwargs:
+            ec2_instance_subnet_id = kwargs['ec2InstanceSubnetId']
+        if 'ec2InstanceVpcId' in kwargs:
+            ec2_instance_vpc_id = kwargs['ec2InstanceVpcId']
+        if 'ecrImageArchitecture' in kwargs:
+            ecr_image_architecture = kwargs['ecrImageArchitecture']
+        if 'ecrImageHash' in kwargs:
+            ecr_image_hash = kwargs['ecrImageHash']
+        if 'ecrImagePushedAt' in kwargs:
+            ecr_image_pushed_at = kwargs['ecrImagePushedAt']
+        if 'ecrImageRegistry' in kwargs:
+            ecr_image_registry = kwargs['ecrImageRegistry']
+        if 'ecrImageRepositoryName' in kwargs:
+            ecr_image_repository_name = kwargs['ecrImageRepositoryName']
+        if 'ecrImageTags' in kwargs:
+            ecr_image_tags = kwargs['ecrImageTags']
+        if 'findingArn' in kwargs:
+            finding_arn = kwargs['findingArn']
+        if 'findingStatus' in kwargs:
+            finding_status = kwargs['findingStatus']
+        if 'findingType' in kwargs:
+            finding_type = kwargs['findingType']
+        if 'firstObservedAt' in kwargs:
+            first_observed_at = kwargs['firstObservedAt']
+        if 'inspectorScore' in kwargs:
+            inspector_score = kwargs['inspectorScore']
+        if 'lastObservedAt' in kwargs:
+            last_observed_at = kwargs['lastObservedAt']
+        if 'networkProtocol' in kwargs:
+            network_protocol = kwargs['networkProtocol']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if 'relatedVulnerabilities' in kwargs:
+            related_vulnerabilities = kwargs['relatedVulnerabilities']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if 'vendorSeverity' in kwargs:
+            vendor_severity = kwargs['vendorSeverity']
+        if 'vulnerabilityId' in kwargs:
+            vulnerability_id = kwargs['vulnerabilityId']
+        if 'vulnerabilitySource' in kwargs:
+            vulnerability_source = kwargs['vulnerabilitySource']
+        if 'vulnerablePackages' in kwargs:
+            vulnerable_packages = kwargs['vulnerablePackages']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if component_id is not None:
@@ -481,7 +541,13 @@ class FilterDateFilterArgs:
              _setter: Callable[[Any, Any], None],
              end_inclusive: Optional[pulumi.Input[int]] = None,
              start_inclusive: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endInclusive' in kwargs:
+            end_inclusive = kwargs['endInclusive']
+        if 'startInclusive' in kwargs:
+            start_inclusive = kwargs['startInclusive']
+
         if end_inclusive is not None:
             _setter("end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -524,7 +590,9 @@ class FilterMapFilterArgs:
              comparison: pulumi.Input['FilterMapComparison'],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         if key is not None:
             _setter("key", key)
@@ -574,7 +642,13 @@ class FilterNumberFilterArgs:
              _setter: Callable[[Any, Any], None],
              lower_inclusive: Optional[pulumi.Input[float]] = None,
              upper_inclusive: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lowerInclusive' in kwargs:
+            lower_inclusive = kwargs['lowerInclusive']
+        if 'upperInclusive' in kwargs:
+            upper_inclusive = kwargs['upperInclusive']
+
         if lower_inclusive is not None:
             _setter("lower_inclusive", lower_inclusive)
         if upper_inclusive is not None:
@@ -626,7 +700,11 @@ class FilterPackageFilterArgs:
              release: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
              source_layer_hash: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
              version: Optional[pulumi.Input['FilterStringFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceLayerHash' in kwargs:
+            source_layer_hash = kwargs['sourceLayerHash']
+
         if architecture is not None:
             _setter("architecture", architecture)
         if epoch is not None:
@@ -710,7 +788,13 @@ class FilterPortRangeFilterArgs:
              _setter: Callable[[Any, Any], None],
              begin_inclusive: Optional[pulumi.Input[int]] = None,
              end_inclusive: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'beginInclusive' in kwargs:
+            begin_inclusive = kwargs['beginInclusive']
+        if 'endInclusive' in kwargs:
+            end_inclusive = kwargs['endInclusive']
+
         if begin_inclusive is not None:
             _setter("begin_inclusive", begin_inclusive)
         if end_inclusive is not None:
@@ -750,7 +834,9 @@ class FilterStringFilterArgs:
              _setter: Callable[[Any, Any], None],
              comparison: pulumi.Input['FilterStringComparison'],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("comparison", comparison)
         _setter("value", value)
 

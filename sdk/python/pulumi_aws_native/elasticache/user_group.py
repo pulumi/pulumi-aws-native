@@ -42,7 +42,13 @@ class UserGroupArgs:
              user_group_id: pulumi.Input[str],
              user_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+
         _setter("engine", engine)
         _setter("user_group_id", user_group_id)
         _setter("user_ids", user_ids)

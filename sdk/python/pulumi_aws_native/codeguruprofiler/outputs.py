@@ -35,7 +35,9 @@ class AgentPermissionsProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              principals: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("principals", principals)
 
     @property
@@ -87,7 +89,13 @@ class ProfilingGroupChannel(dict):
              _setter: Callable[[Any, Any], None],
              channel_uri: str,
              channel_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelUri' in kwargs:
+            channel_uri = kwargs['channelUri']
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+
         _setter("channel_uri", channel_uri)
         if channel_id is not None:
             _setter("channel_id", channel_id)
@@ -126,7 +134,9 @@ class ProfilingGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

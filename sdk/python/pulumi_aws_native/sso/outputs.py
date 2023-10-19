@@ -35,7 +35,9 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttribute(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeValue',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -62,7 +64,9 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeValue(dic
     def _configure(
              _setter: Callable[[Any, Any], None],
              source: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("source", source)
 
     @property
@@ -106,7 +110,11 @@ class InstanceAccessControlAttributeConfigurationProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              access_control_attributes: Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessControlAttributes' in kwargs:
+            access_control_attributes = kwargs['accessControlAttributes']
+
         _setter("access_control_attributes", access_control_attributes)
 
     @property
@@ -130,7 +138,9 @@ class PermissionSetCustomerManagedPolicyReference(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if path is not None:
             _setter("path", path)
@@ -180,7 +190,13 @@ class PermissionSetPermissionsBoundary(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_policy_reference: Optional['outputs.PermissionSetCustomerManagedPolicyReference'] = None,
              managed_policy_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedPolicyReference' in kwargs:
+            customer_managed_policy_reference = kwargs['customerManagedPolicyReference']
+        if 'managedPolicyArn' in kwargs:
+            managed_policy_arn = kwargs['managedPolicyArn']
+
         if customer_managed_policy_reference is not None:
             _setter("customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -218,7 +234,9 @@ class PermissionSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

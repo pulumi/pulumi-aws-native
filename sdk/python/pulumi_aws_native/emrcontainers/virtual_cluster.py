@@ -37,7 +37,11 @@ class VirtualClusterArgs:
              container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerProvider' in kwargs:
+            container_provider = kwargs['containerProvider']
+
         _setter("container_provider", container_provider)
         if name is not None:
             _setter("name", name)

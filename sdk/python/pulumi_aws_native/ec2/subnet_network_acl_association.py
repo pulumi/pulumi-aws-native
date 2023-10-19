@@ -31,7 +31,13 @@ class SubnetNetworkAclAssociationArgs:
              _setter: Callable[[Any, Any], None],
              network_acl_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("network_acl_id", network_acl_id)
         _setter("subnet_id", subnet_id)
 

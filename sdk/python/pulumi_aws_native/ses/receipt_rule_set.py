@@ -26,7 +26,11 @@ class ReceiptRuleSetArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_set_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+
         if rule_set_name is not None:
             _setter("rule_set_name", rule_set_name)
 

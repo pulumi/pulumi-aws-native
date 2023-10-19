@@ -40,7 +40,15 @@ class PortfolioArgs:
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortfolioTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("display_name", display_name)
         _setter("provider_name", provider_name)
         if accept_language is not None:

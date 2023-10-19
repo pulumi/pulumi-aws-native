@@ -35,7 +35,11 @@ class ConfigArgs:
              config_data: pulumi.Input['ConfigDataArgs'],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configData' in kwargs:
+            config_data = kwargs['configData']
+
         _setter("config_data", config_data)
         if name is not None:
             _setter("name", name)

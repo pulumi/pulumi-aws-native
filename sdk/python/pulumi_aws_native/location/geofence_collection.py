@@ -39,7 +39,17 @@ class GeofenceCollectionArgs:
              kms_key_id: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
              pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+        if 'pricingPlanDataSource' in kwargs:
+            pricing_plan_data_source = kwargs['pricingPlanDataSource']
+
         _setter("collection_name", collection_name)
         if description is not None:
             _setter("description", description)

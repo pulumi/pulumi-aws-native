@@ -40,7 +40,17 @@ class EventInvokeConfigArgs:
              destination_config: Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']] = None,
              maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
              maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'destinationConfig' in kwargs:
+            destination_config = kwargs['destinationConfig']
+        if 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         _setter("function_name", function_name)
         _setter("qualifier", qualifier)
         if destination_config is not None:

@@ -34,7 +34,9 @@ class GroupConfigurationItemArgs:
              _setter: Callable[[Any, Any], None],
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameters is not None:
             _setter("parameters", parameters)
         if type is not None:
@@ -74,7 +76,9 @@ class GroupConfigurationParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if values is not None:
@@ -117,7 +121,15 @@ class GroupQueryArgs:
              resource_type_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              stack_identifier: Optional[pulumi.Input[str]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceTypeFilters' in kwargs:
+            resource_type_filters = kwargs['resourceTypeFilters']
+        if 'stackIdentifier' in kwargs:
+            stack_identifier = kwargs['stackIdentifier']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if resource_type_filters is not None:
             _setter("resource_type_filters", resource_type_filters)
         if stack_identifier is not None:
@@ -168,7 +180,9 @@ class GroupResourceQueryArgs:
              _setter: Callable[[Any, Any], None],
              query: Optional[pulumi.Input['GroupQueryArgs']] = None,
              type: Optional[pulumi.Input['GroupResourceQueryType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if query is not None:
             _setter("query", query)
         if type is not None:
@@ -208,7 +222,9 @@ class GroupTagFilterArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if values is not None:
@@ -248,7 +264,9 @@ class GroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

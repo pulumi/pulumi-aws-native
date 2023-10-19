@@ -53,7 +53,25 @@ class CapacityReservationFleetArgs:
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]] = None,
              tenancy: Optional[pulumi.Input['CapacityReservationFleetTenancy']] = None,
              total_target_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'instanceMatchCriteria' in kwargs:
+            instance_match_criteria = kwargs['instanceMatchCriteria']
+        if 'instanceTypeSpecifications' in kwargs:
+            instance_type_specifications = kwargs['instanceTypeSpecifications']
+        if 'noRemoveEndDate' in kwargs:
+            no_remove_end_date = kwargs['noRemoveEndDate']
+        if 'removeEndDate' in kwargs:
+            remove_end_date = kwargs['removeEndDate']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'totalTargetCapacity' in kwargs:
+            total_target_capacity = kwargs['totalTargetCapacity']
+
         if allocation_strategy is not None:
             _setter("allocation_strategy", allocation_strategy)
         if end_date is not None:

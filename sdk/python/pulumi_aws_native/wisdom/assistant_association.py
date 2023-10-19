@@ -38,7 +38,13 @@ class AssistantAssociationArgs:
              association: pulumi.Input['AssistantAssociationAssociationDataArgs'],
              association_type: pulumi.Input['AssistantAssociationAssociationType'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssistantAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assistantId' in kwargs:
+            assistant_id = kwargs['assistantId']
+        if 'associationType' in kwargs:
+            association_type = kwargs['associationType']
+
         _setter("assistant_id", assistant_id)
         _setter("association", association)
         _setter("association_type", association_type)

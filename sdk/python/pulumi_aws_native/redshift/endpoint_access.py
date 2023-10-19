@@ -44,7 +44,19 @@ class EndpointAccessArgs:
              subnet_group_name: pulumi.Input[str],
              vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              resource_owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if 'resourceOwner' in kwargs:
+            resource_owner = kwargs['resourceOwner']
+
         _setter("cluster_identifier", cluster_identifier)
         _setter("endpoint_name", endpoint_name)
         _setter("subnet_group_name", subnet_group_name)

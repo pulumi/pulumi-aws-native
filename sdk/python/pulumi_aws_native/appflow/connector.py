@@ -41,7 +41,15 @@ class ConnectorArgs:
              connector_provisioning_type: pulumi.Input[str],
              connector_label: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorProvisioningConfig' in kwargs:
+            connector_provisioning_config = kwargs['connectorProvisioningConfig']
+        if 'connectorProvisioningType' in kwargs:
+            connector_provisioning_type = kwargs['connectorProvisioningType']
+        if 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+
         _setter("connector_provisioning_config", connector_provisioning_config)
         _setter("connector_provisioning_type", connector_provisioning_type)
         if connector_label is not None:

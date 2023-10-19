@@ -39,7 +39,13 @@ class CertificateAuthorityActivationArgs:
              certificate_authority_arn: pulumi.Input[str],
              certificate_chain: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+
         _setter("certificate", certificate)
         _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:

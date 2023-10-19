@@ -61,7 +61,27 @@ class NetworkProfileArgs:
              uplink_delay_ms: Optional[pulumi.Input[int]] = None,
              uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
              uplink_loss_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if 'downlinkBandwidthBits' in kwargs:
+            downlink_bandwidth_bits = kwargs['downlinkBandwidthBits']
+        if 'downlinkDelayMs' in kwargs:
+            downlink_delay_ms = kwargs['downlinkDelayMs']
+        if 'downlinkJitterMs' in kwargs:
+            downlink_jitter_ms = kwargs['downlinkJitterMs']
+        if 'downlinkLossPercent' in kwargs:
+            downlink_loss_percent = kwargs['downlinkLossPercent']
+        if 'uplinkBandwidthBits' in kwargs:
+            uplink_bandwidth_bits = kwargs['uplinkBandwidthBits']
+        if 'uplinkDelayMs' in kwargs:
+            uplink_delay_ms = kwargs['uplinkDelayMs']
+        if 'uplinkJitterMs' in kwargs:
+            uplink_jitter_ms = kwargs['uplinkJitterMs']
+        if 'uplinkLossPercent' in kwargs:
+            uplink_loss_percent = kwargs['uplinkLossPercent']
+
         _setter("project_arn", project_arn)
         if description is not None:
             _setter("description", description)

@@ -97,7 +97,53 @@ class UserPoolArgs:
              username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
              verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountRecoverySetting' in kwargs:
+            account_recovery_setting = kwargs['accountRecoverySetting']
+        if 'adminCreateUserConfig' in kwargs:
+            admin_create_user_config = kwargs['adminCreateUserConfig']
+        if 'aliasAttributes' in kwargs:
+            alias_attributes = kwargs['aliasAttributes']
+        if 'autoVerifiedAttributes' in kwargs:
+            auto_verified_attributes = kwargs['autoVerifiedAttributes']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'deviceConfiguration' in kwargs:
+            device_configuration = kwargs['deviceConfiguration']
+        if 'emailConfiguration' in kwargs:
+            email_configuration = kwargs['emailConfiguration']
+        if 'emailVerificationMessage' in kwargs:
+            email_verification_message = kwargs['emailVerificationMessage']
+        if 'emailVerificationSubject' in kwargs:
+            email_verification_subject = kwargs['emailVerificationSubject']
+        if 'enabledMfas' in kwargs:
+            enabled_mfas = kwargs['enabledMfas']
+        if 'lambdaConfig' in kwargs:
+            lambda_config = kwargs['lambdaConfig']
+        if 'mfaConfiguration' in kwargs:
+            mfa_configuration = kwargs['mfaConfiguration']
+        if 'smsAuthenticationMessage' in kwargs:
+            sms_authentication_message = kwargs['smsAuthenticationMessage']
+        if 'smsConfiguration' in kwargs:
+            sms_configuration = kwargs['smsConfiguration']
+        if 'smsVerificationMessage' in kwargs:
+            sms_verification_message = kwargs['smsVerificationMessage']
+        if 'userAttributeUpdateSettings' in kwargs:
+            user_attribute_update_settings = kwargs['userAttributeUpdateSettings']
+        if 'userPoolAddOns' in kwargs:
+            user_pool_add_ons = kwargs['userPoolAddOns']
+        if 'userPoolName' in kwargs:
+            user_pool_name = kwargs['userPoolName']
+        if 'userPoolTags' in kwargs:
+            user_pool_tags = kwargs['userPoolTags']
+        if 'usernameAttributes' in kwargs:
+            username_attributes = kwargs['usernameAttributes']
+        if 'usernameConfiguration' in kwargs:
+            username_configuration = kwargs['usernameConfiguration']
+        if 'verificationMessageTemplate' in kwargs:
+            verification_message_template = kwargs['verificationMessageTemplate']
+
         if account_recovery_setting is not None:
             _setter("account_recovery_setting", account_recovery_setting)
         if admin_create_user_config is not None:

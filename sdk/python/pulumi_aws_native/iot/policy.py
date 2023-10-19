@@ -29,7 +29,13 @@ class PolicyArgs:
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         if policy_name is not None:
             _setter("policy_name", policy_name)

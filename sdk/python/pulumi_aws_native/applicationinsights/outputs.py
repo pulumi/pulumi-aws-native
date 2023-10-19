@@ -70,7 +70,11 @@ class ApplicationAlarm(dict):
              _setter: Callable[[Any, Any], None],
              alarm_name: str,
              severity: Optional['ApplicationAlarmSeverity'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+
         _setter("alarm_name", alarm_name)
         if severity is not None:
             _setter("severity", severity)
@@ -128,7 +132,11 @@ class ApplicationAlarmMetric(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              alarm_metric_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmMetricName' in kwargs:
+            alarm_metric_name = kwargs['alarmMetricName']
+
         _setter("alarm_metric_name", alarm_metric_name)
 
     @property
@@ -182,7 +190,13 @@ class ApplicationComponentConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              configuration_details: Optional['outputs.ApplicationConfigurationDetails'] = None,
              sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationDetails' in kwargs:
+            configuration_details = kwargs['configurationDetails']
+        if 'subComponentTypeConfigurations' in kwargs:
+            sub_component_type_configurations = kwargs['subComponentTypeConfigurations']
+
         if configuration_details is not None:
             _setter("configuration_details", configuration_details)
         if sub_component_type_configurations is not None:
@@ -269,7 +283,19 @@ class ApplicationComponentMonitoringSetting(dict):
              component_name: Optional[str] = None,
              custom_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
              default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentConfigurationMode' in kwargs:
+            component_configuration_mode = kwargs['componentConfigurationMode']
+        if 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if 'customComponentConfiguration' in kwargs:
+            custom_component_configuration = kwargs['customComponentConfiguration']
+        if 'defaultOverwriteComponentConfiguration' in kwargs:
+            default_overwrite_component_configuration = kwargs['defaultOverwriteComponentConfiguration']
+
         _setter("component_configuration_mode", component_configuration_mode)
         _setter("tier", tier)
         if component_arn is not None:
@@ -398,7 +424,19 @@ class ApplicationConfigurationDetails(dict):
              jmx_prometheus_exporter: Optional['outputs.ApplicationJmxPrometheusExporter'] = None,
              logs: Optional[Sequence['outputs.ApplicationLog']] = None,
              windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmMetrics' in kwargs:
+            alarm_metrics = kwargs['alarmMetrics']
+        if 'haClusterPrometheusExporter' in kwargs:
+            ha_cluster_prometheus_exporter = kwargs['haClusterPrometheusExporter']
+        if 'hanaPrometheusExporter' in kwargs:
+            hana_prometheus_exporter = kwargs['hanaPrometheusExporter']
+        if 'jmxPrometheusExporter' in kwargs:
+            jmx_prometheus_exporter = kwargs['jmxPrometheusExporter']
+        if 'windowsEvents' in kwargs:
+            windows_events = kwargs['windowsEvents']
+
         if alarm_metrics is not None:
             _setter("alarm_metrics", alarm_metrics)
         if alarms is not None:
@@ -513,7 +551,13 @@ class ApplicationCustomComponent(dict):
              _setter: Callable[[Any, Any], None],
              component_name: str,
              resource_list: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if 'resourceList' in kwargs:
+            resource_list = kwargs['resourceList']
+
         _setter("component_name", component_name)
         _setter("resource_list", resource_list)
 
@@ -570,7 +614,11 @@ class ApplicationHaClusterPrometheusExporter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         if prometheus_port is not None:
             _setter("prometheus_port", prometheus_port)
 
@@ -644,7 +692,17 @@ class ApplicationHanaPrometheusExporter(dict):
              hana_secret_name: str,
              hanasid: str,
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreeToInstallHanadbClient' in kwargs:
+            agree_to_install_hanadb_client = kwargs['agreeToInstallHanadbClient']
+        if 'hanaPort' in kwargs:
+            hana_port = kwargs['hanaPort']
+        if 'hanaSecretName' in kwargs:
+            hana_secret_name = kwargs['hanaSecretName']
+        if 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         _setter("agree_to_install_hanadb_client", agree_to_install_hanadb_client)
         _setter("hana_port", hana_port)
         _setter("hana_secret_name", hana_secret_name)
@@ -742,7 +800,13 @@ class ApplicationJmxPrometheusExporter(dict):
              host_port: Optional[str] = None,
              jmxurl: Optional[str] = None,
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostPort' in kwargs:
+            host_port = kwargs['hostPort']
+        if 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         if host_port is not None:
             _setter("host_port", host_port)
         if jmxurl is not None:
@@ -833,7 +897,17 @@ class ApplicationLog(dict):
              log_group_name: Optional[str] = None,
              log_path: Optional[str] = None,
              pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'logPath' in kwargs:
+            log_path = kwargs['logPath']
+        if 'patternSet' in kwargs:
+            pattern_set = kwargs['patternSet']
+
         _setter("log_type", log_type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -929,7 +1003,11 @@ class ApplicationLogPattern(dict):
              pattern: str,
              pattern_name: str,
              rank: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patternName' in kwargs:
+            pattern_name = kwargs['patternName']
+
         _setter("pattern", pattern)
         _setter("pattern_name", pattern_name)
         _setter("rank", rank)
@@ -1001,7 +1079,13 @@ class ApplicationLogPatternSet(dict):
              _setter: Callable[[Any, Any], None],
              log_patterns: Sequence['outputs.ApplicationLogPattern'],
              pattern_set_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logPatterns' in kwargs:
+            log_patterns = kwargs['logPatterns']
+        if 'patternSetName' in kwargs:
+            pattern_set_name = kwargs['patternSetName']
+
         _setter("log_patterns", log_patterns)
         _setter("pattern_set_name", pattern_set_name)
 
@@ -1068,7 +1152,13 @@ class ApplicationSubComponentConfigurationDetails(dict):
              alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
              logs: Optional[Sequence['outputs.ApplicationLog']] = None,
              windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmMetrics' in kwargs:
+            alarm_metrics = kwargs['alarmMetrics']
+        if 'windowsEvents' in kwargs:
+            windows_events = kwargs['windowsEvents']
+
         if alarm_metrics is not None:
             _setter("alarm_metrics", alarm_metrics)
         if logs is not None:
@@ -1143,7 +1233,13 @@ class ApplicationSubComponentTypeConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              sub_component_configuration_details: 'outputs.ApplicationSubComponentConfigurationDetails',
              sub_component_type: 'ApplicationSubComponentTypeConfigurationSubComponentType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subComponentConfigurationDetails' in kwargs:
+            sub_component_configuration_details = kwargs['subComponentConfigurationDetails']
+        if 'subComponentType' in kwargs:
+            sub_component_type = kwargs['subComponentType']
+
         _setter("sub_component_configuration_details", sub_component_configuration_details)
         _setter("sub_component_type", sub_component_type)
 
@@ -1187,7 +1283,9 @@ class ApplicationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1262,7 +1360,17 @@ class ApplicationWindowsEvent(dict):
              event_name: str,
              log_group_name: str,
              pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventLevels' in kwargs:
+            event_levels = kwargs['eventLevels']
+        if 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'patternSet' in kwargs:
+            pattern_set = kwargs['patternSet']
+
         _setter("event_levels", event_levels)
         _setter("event_name", event_name)
         _setter("log_group_name", log_group_name)

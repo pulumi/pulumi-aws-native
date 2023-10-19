@@ -50,7 +50,19 @@ class AgentArgs:
              subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationKey' in kwargs:
+            activation_key = kwargs['activationKey']
+        if 'agentName' in kwargs:
+            agent_name = kwargs['agentName']
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'subnetArns' in kwargs:
+            subnet_arns = kwargs['subnetArns']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if activation_key is not None:
             _setter("activation_key", activation_key)
         if agent_name is not None:

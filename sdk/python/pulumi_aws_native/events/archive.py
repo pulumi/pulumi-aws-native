@@ -38,7 +38,17 @@ class ArchiveArgs:
              description: Optional[pulumi.Input[str]] = None,
              event_pattern: Optional[Any] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if 'archiveName' in kwargs:
+            archive_name = kwargs['archiveName']
+        if 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         _setter("source_arn", source_arn)
         if archive_name is not None:
             _setter("archive_name", archive_name)

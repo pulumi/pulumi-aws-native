@@ -50,7 +50,17 @@ class TableArgs:
              schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'magneticStoreWriteProperties' in kwargs:
+            magnetic_store_write_properties = kwargs['magneticStoreWriteProperties']
+        if 'retentionProperties' in kwargs:
+            retention_properties = kwargs['retentionProperties']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         if magnetic_store_write_properties is not None:
             _setter("magnetic_store_write_properties", magnetic_store_write_properties)

@@ -45,7 +45,9 @@ class FirewallDomainListTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -89,7 +91,9 @@ class FirewallRuleGroupAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -178,7 +182,19 @@ class FirewallRuleGroupFirewallRule(dict):
              block_override_domain: Optional[str] = None,
              block_override_ttl: Optional[int] = None,
              block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDomainListId' in kwargs:
+            firewall_domain_list_id = kwargs['firewallDomainListId']
+        if 'blockOverrideDnsType' in kwargs:
+            block_override_dns_type = kwargs['blockOverrideDnsType']
+        if 'blockOverrideDomain' in kwargs:
+            block_override_domain = kwargs['blockOverrideDomain']
+        if 'blockOverrideTtl' in kwargs:
+            block_override_ttl = kwargs['blockOverrideTtl']
+        if 'blockResponse' in kwargs:
+            block_response = kwargs['blockResponse']
+
         _setter("action", action)
         _setter("firewall_domain_list_id", firewall_domain_list_id)
         _setter("priority", priority)
@@ -271,7 +287,9 @@ class FirewallRuleGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -315,7 +333,9 @@ class OutpostResolverTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -371,7 +391,11 @@ class ResolverEndpointIpAddressRequest(dict):
              subnet_id: str,
              ip: Optional[str] = None,
              ipv6: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
         if ip is not None:
             _setter("ip", ip)
@@ -409,7 +433,9 @@ class ResolverEndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -443,7 +469,9 @@ class ResolverRuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -487,7 +515,9 @@ class ResolverRuleTargetAddress(dict):
              ip: Optional[str] = None,
              ipv6: Optional[str] = None,
              port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ip is not None:
             _setter("ip", ip)
         if ipv6 is not None:

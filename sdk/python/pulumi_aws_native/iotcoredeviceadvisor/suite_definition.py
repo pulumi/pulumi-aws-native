@@ -32,7 +32,11 @@ class SuiteDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              suite_definition_configuration: pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'suiteDefinitionConfiguration' in kwargs:
+            suite_definition_configuration = kwargs['suiteDefinitionConfiguration']
+
         _setter("suite_definition_configuration", suite_definition_configuration)
         if tags is not None:
             _setter("tags", tags)

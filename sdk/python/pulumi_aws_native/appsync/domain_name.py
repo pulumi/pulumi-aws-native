@@ -32,7 +32,13 @@ class DomainNameArgs:
              certificate_arn: pulumi.Input[str],
              domain_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         _setter("certificate_arn", certificate_arn)
         _setter("domain_name", domain_name)
         if description is not None:

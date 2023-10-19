@@ -32,7 +32,11 @@ class ResolverQueryLoggingConfigArgs:
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
         if name is not None:

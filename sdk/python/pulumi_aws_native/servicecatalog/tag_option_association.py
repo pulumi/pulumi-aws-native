@@ -29,7 +29,13 @@ class TagOptionAssociationArgs:
              _setter: Callable[[Any, Any], None],
              resource_id: pulumi.Input[str],
              tag_option_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'tagOptionId' in kwargs:
+            tag_option_id = kwargs['tagOptionId']
+
         _setter("resource_id", resource_id)
         _setter("tag_option_id", tag_option_id)
 

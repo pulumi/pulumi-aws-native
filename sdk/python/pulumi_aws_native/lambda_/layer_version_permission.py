@@ -39,7 +39,13 @@ class LayerVersionPermissionArgs:
              layer_version_arn: pulumi.Input[str],
              principal: pulumi.Input[str],
              organization_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'layerVersionArn' in kwargs:
+            layer_version_arn = kwargs['layerVersionArn']
+        if 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+
         _setter("action", action)
         _setter("layer_version_arn", layer_version_arn)
         _setter("principal", principal)

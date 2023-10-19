@@ -35,7 +35,17 @@ class PortfolioPrincipalAssociationArgs:
              principal_arn: pulumi.Input[str],
              principal_type: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         _setter("principal_arn", principal_arn)
         _setter("principal_type", principal_type)

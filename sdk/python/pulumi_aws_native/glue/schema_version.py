@@ -32,7 +32,11 @@ class SchemaVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              schema: pulumi.Input['SchemaVersionSchemaArgs'],
              schema_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+
         _setter("schema", schema)
         _setter("schema_definition", schema_definition)
 

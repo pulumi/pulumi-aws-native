@@ -60,7 +60,21 @@ class AppArgs:
              permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
              resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['AppTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appTemplateBody' in kwargs:
+            app_template_body = kwargs['appTemplateBody']
+        if 'resourceMappings' in kwargs:
+            resource_mappings = kwargs['resourceMappings']
+        if 'appAssessmentSchedule' in kwargs:
+            app_assessment_schedule = kwargs['appAssessmentSchedule']
+        if 'eventSubscriptions' in kwargs:
+            event_subscriptions = kwargs['eventSubscriptions']
+        if 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if 'resiliencyPolicyArn' in kwargs:
+            resiliency_policy_arn = kwargs['resiliencyPolicyArn']
+
         _setter("app_template_body", app_template_body)
         _setter("resource_mappings", resource_mappings)
         if app_assessment_schedule is not None:

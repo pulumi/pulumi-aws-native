@@ -62,7 +62,25 @@ class InferenceSchedulerArgs:
              inference_scheduler_name: Optional[pulumi.Input[str]] = None,
              server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataInputConfiguration' in kwargs:
+            data_input_configuration = kwargs['dataInputConfiguration']
+        if 'dataOutputConfiguration' in kwargs:
+            data_output_configuration = kwargs['dataOutputConfiguration']
+        if 'dataUploadFrequency' in kwargs:
+            data_upload_frequency = kwargs['dataUploadFrequency']
+        if 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'dataDelayOffsetInMinutes' in kwargs:
+            data_delay_offset_in_minutes = kwargs['dataDelayOffsetInMinutes']
+        if 'inferenceSchedulerName' in kwargs:
+            inference_scheduler_name = kwargs['inferenceSchedulerName']
+        if 'serverSideKmsKeyId' in kwargs:
+            server_side_kms_key_id = kwargs['serverSideKmsKeyId']
+
         _setter("data_input_configuration", data_input_configuration)
         _setter("data_output_configuration", data_output_configuration)
         _setter("data_upload_frequency", data_upload_frequency)

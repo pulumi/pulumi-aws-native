@@ -34,7 +34,13 @@ class HealthCheckArgs:
              _setter: Callable[[Any, Any], None],
              health_check_config: pulumi.Input['HealthCheckConfigPropertiesArgs'],
              health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthCheckConfig' in kwargs:
+            health_check_config = kwargs['healthCheckConfig']
+        if 'healthCheckTags' in kwargs:
+            health_check_tags = kwargs['healthCheckTags']
+
         _setter("health_check_config", health_check_config)
         if health_check_tags is not None:
             _setter("health_check_tags", health_check_tags)

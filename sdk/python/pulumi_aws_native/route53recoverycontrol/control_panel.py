@@ -38,7 +38,11 @@ class ControlPanelArgs:
              cluster_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ControlPanelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+
         if cluster_arn is not None:
             _setter("cluster_arn", cluster_arn)
         if name is not None:

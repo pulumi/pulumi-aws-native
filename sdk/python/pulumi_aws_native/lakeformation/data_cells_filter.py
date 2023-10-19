@@ -53,7 +53,21 @@ class DataCellsFilterArgs:
              column_wildcard: Optional[pulumi.Input['DataCellsFilterColumnWildcardArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              row_filter: Optional[pulumi.Input['DataCellsFilterRowFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableCatalogId' in kwargs:
+            table_catalog_id = kwargs['tableCatalogId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'columnWildcard' in kwargs:
+            column_wildcard = kwargs['columnWildcard']
+        if 'rowFilter' in kwargs:
+            row_filter = kwargs['rowFilter']
+
         _setter("database_name", database_name)
         _setter("table_catalog_id", table_catalog_id)
         _setter("table_name", table_name)

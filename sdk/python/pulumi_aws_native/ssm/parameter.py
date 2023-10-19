@@ -60,7 +60,13 @@ class ParameterArgs:
              policies: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              tier: Optional[pulumi.Input['ParameterTier']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedPattern' in kwargs:
+            allowed_pattern = kwargs['allowedPattern']
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         _setter("type", type)
         _setter("value", value)
         if allowed_pattern is not None:

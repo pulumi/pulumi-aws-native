@@ -41,7 +41,13 @@ class PipelineFieldArgs:
              key: pulumi.Input[str],
              ref_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         if ref_value is not None:
             _setter("ref_value", ref_value)
@@ -108,7 +114,9 @@ class PipelineObjectArgs:
              fields: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]],
              id: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("fields", fields)
         _setter("id", id)
         _setter("name", name)
@@ -169,7 +177,11 @@ class PipelineParameterAttributeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              string_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         _setter("string_value", string_value)
 
@@ -217,7 +229,9 @@ class PipelineParameterObjectArgs:
              _setter: Callable[[Any, Any], None],
              attributes: pulumi.Input[Sequence[pulumi.Input['PipelineParameterAttributeArgs']]],
              id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("id", id)
 
@@ -265,7 +279,11 @@ class PipelineParameterValueArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              string_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("id", id)
         _setter("string_value", string_value)
 
@@ -313,7 +331,9 @@ class PipelineTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

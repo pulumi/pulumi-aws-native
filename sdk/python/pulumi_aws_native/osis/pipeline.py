@@ -51,7 +51,21 @@ class PipelineArgs:
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
              vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxUnits' in kwargs:
+            max_units = kwargs['maxUnits']
+        if 'minUnits' in kwargs:
+            min_units = kwargs['minUnits']
+        if 'pipelineConfigurationBody' in kwargs:
+            pipeline_configuration_body = kwargs['pipelineConfigurationBody']
+        if 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         _setter("max_units", max_units)
         _setter("min_units", min_units)
         _setter("pipeline_configuration_body", pipeline_configuration_body)

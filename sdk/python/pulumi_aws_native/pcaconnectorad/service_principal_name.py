@@ -29,7 +29,13 @@ class ServicePrincipalNameArgs:
              _setter: Callable[[Any, Any], None],
              connector_arn: Optional[pulumi.Input[str]] = None,
              directory_registration_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+        if 'directoryRegistrationArn' in kwargs:
+            directory_registration_arn = kwargs['directoryRegistrationArn']
+
         if connector_arn is not None:
             _setter("connector_arn", connector_arn)
         if directory_registration_arn is not None:

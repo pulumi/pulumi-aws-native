@@ -37,7 +37,13 @@ class GroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initialVersion' in kwargs:
+            initial_version = kwargs['initialVersion']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if initial_version is not None:
             _setter("initial_version", initial_version)
         if name is not None:

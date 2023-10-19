@@ -57,7 +57,19 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
              upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if 'externalConnections' in kwargs:
+            external_connections = kwargs['externalConnections']
+        if 'permissionsPolicyDocument' in kwargs:
+            permissions_policy_document = kwargs['permissionsPolicyDocument']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         _setter("domain_name", domain_name)
         if description is not None:
             _setter("description", description)

@@ -41,7 +41,15 @@ class MemberArgs:
              disable_email_notification: Optional[pulumi.Input[bool]] = None,
              message: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if 'disableEmailNotification' in kwargs:
+            disable_email_notification = kwargs['disableEmailNotification']
+
         _setter("detector_id", detector_id)
         _setter("email", email)
         _setter("member_id", member_id)

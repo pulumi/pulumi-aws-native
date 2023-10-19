@@ -32,7 +32,15 @@ class InstanceArgs:
              instance_attributes: Any,
              service_id: pulumi.Input[str],
              instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceAttributes' in kwargs:
+            instance_attributes = kwargs['instanceAttributes']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+
         _setter("instance_attributes", instance_attributes)
         _setter("service_id", service_id)
         if instance_id is not None:

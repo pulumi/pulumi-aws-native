@@ -31,7 +31,13 @@ class LogDeliveryConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              user_pool_id: pulumi.Input[str],
              log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'logConfigurations' in kwargs:
+            log_configurations = kwargs['logConfigurations']
+
         _setter("user_pool_id", user_pool_id)
         if log_configurations is not None:
             _setter("log_configurations", log_configurations)

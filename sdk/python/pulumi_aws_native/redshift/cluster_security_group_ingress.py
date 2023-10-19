@@ -35,7 +35,15 @@ class ClusterSecurityGroupIngressArgs:
              cidrip: Optional[pulumi.Input[str]] = None,
              ec2_security_group_name: Optional[pulumi.Input[str]] = None,
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterSecurityGroupName' in kwargs:
+            cluster_security_group_name = kwargs['clusterSecurityGroupName']
+        if 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         _setter("cluster_security_group_name", cluster_security_group_name)
         if cidrip is not None:
             _setter("cidrip", cidrip)

@@ -101,7 +101,35 @@ class TargetGroupArgs:
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
              unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthCheckEnabled' in kwargs:
+            health_check_enabled = kwargs['healthCheckEnabled']
+        if 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if 'healthCheckTimeoutSeconds' in kwargs:
+            health_check_timeout_seconds = kwargs['healthCheckTimeoutSeconds']
+        if 'healthyThresholdCount' in kwargs:
+            healthy_threshold_count = kwargs['healthyThresholdCount']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if 'targetGroupAttributes' in kwargs:
+            target_group_attributes = kwargs['targetGroupAttributes']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if 'unhealthyThresholdCount' in kwargs:
+            unhealthy_threshold_count = kwargs['unhealthyThresholdCount']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if health_check_enabled is not None:
             _setter("health_check_enabled", health_check_enabled)
         if health_check_interval_seconds is not None:

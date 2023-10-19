@@ -55,7 +55,17 @@ class InputArgs:
              tags: Optional[Any] = None,
              type: Optional[pulumi.Input[str]] = None,
              vpc: Optional[pulumi.Input['InputVpcRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputDevices' in kwargs:
+            input_devices = kwargs['inputDevices']
+        if 'inputSecurityGroups' in kwargs:
+            input_security_groups = kwargs['inputSecurityGroups']
+        if 'mediaConnectFlows' in kwargs:
+            media_connect_flows = kwargs['mediaConnectFlows']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if destinations is not None:
             _setter("destinations", destinations)
         if input_devices is not None:

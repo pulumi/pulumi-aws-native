@@ -64,7 +64,21 @@ class FleetMetricArgs:
              query_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'aggregationField' in kwargs:
+            aggregation_field = kwargs['aggregationField']
+        if 'aggregationType' in kwargs:
+            aggregation_type = kwargs['aggregationType']
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'queryVersion' in kwargs:
+            query_version = kwargs['queryVersion']
+
         _setter("metric_name", metric_name)
         if aggregation_field is not None:
             _setter("aggregation_field", aggregation_field)

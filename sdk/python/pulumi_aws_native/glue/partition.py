@@ -37,7 +37,17 @@ class PartitionArgs:
              database_name: pulumi.Input[str],
              partition_input: pulumi.Input['PartitionInputArgs'],
              table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'partitionInput' in kwargs:
+            partition_input = kwargs['partitionInput']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("partition_input", partition_input)

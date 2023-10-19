@@ -49,7 +49,21 @@ class TrafficMirrorSessionArgs:
              packet_length: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorSessionTagArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'sessionNumber' in kwargs:
+            session_number = kwargs['sessionNumber']
+        if 'trafficMirrorFilterId' in kwargs:
+            traffic_mirror_filter_id = kwargs['trafficMirrorFilterId']
+        if 'trafficMirrorTargetId' in kwargs:
+            traffic_mirror_target_id = kwargs['trafficMirrorTargetId']
+        if 'packetLength' in kwargs:
+            packet_length = kwargs['packetLength']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("network_interface_id", network_interface_id)
         _setter("session_number", session_number)
         _setter("traffic_mirror_filter_id", traffic_mirror_filter_id)

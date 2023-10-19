@@ -59,7 +59,15 @@ class AssessmentArgs:
              scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
              status: Optional[pulumi.Input['AssessmentStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentReportsDestination' in kwargs:
+            assessment_reports_destination = kwargs['assessmentReportsDestination']
+        if 'awsAccount' in kwargs:
+            aws_account = kwargs['awsAccount']
+        if 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+
         if assessment_reports_destination is not None:
             _setter("assessment_reports_destination", assessment_reports_destination)
         if aws_account is not None:

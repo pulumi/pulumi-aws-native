@@ -43,7 +43,19 @@ class DbProxyTargetGroupArgs:
              connection_pool_configuration_info: Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
              db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if 'targetGroupName' in kwargs:
+            target_group_name = kwargs['targetGroupName']
+        if 'connectionPoolConfigurationInfo' in kwargs:
+            connection_pool_configuration_info = kwargs['connectionPoolConfigurationInfo']
+        if 'dbClusterIdentifiers' in kwargs:
+            db_cluster_identifiers = kwargs['dbClusterIdentifiers']
+        if 'dbInstanceIdentifiers' in kwargs:
+            db_instance_identifiers = kwargs['dbInstanceIdentifiers']
+
         _setter("db_proxy_name", db_proxy_name)
         _setter("target_group_name", target_group_name)
         if connection_pool_configuration_info is not None:

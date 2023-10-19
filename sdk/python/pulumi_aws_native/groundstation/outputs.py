@@ -72,7 +72,11 @@ class ConfigAntennaDownlinkConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              spectrum_config: Optional['outputs.ConfigSpectrumConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'spectrumConfig' in kwargs:
+            spectrum_config = kwargs['spectrumConfig']
+
         if spectrum_config is not None:
             _setter("spectrum_config", spectrum_config)
 
@@ -121,7 +125,15 @@ class ConfigAntennaDownlinkDemodDecodeConfig(dict):
              decode_config: Optional['outputs.ConfigDecodeConfig'] = None,
              demodulation_config: Optional['outputs.ConfigDemodulationConfig'] = None,
              spectrum_config: Optional['outputs.ConfigSpectrumConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'decodeConfig' in kwargs:
+            decode_config = kwargs['decodeConfig']
+        if 'demodulationConfig' in kwargs:
+            demodulation_config = kwargs['demodulationConfig']
+        if 'spectrumConfig' in kwargs:
+            spectrum_config = kwargs['spectrumConfig']
+
         if decode_config is not None:
             _setter("decode_config", decode_config)
         if demodulation_config is not None:
@@ -184,7 +196,15 @@ class ConfigAntennaUplinkConfig(dict):
              spectrum_config: Optional['outputs.ConfigUplinkSpectrumConfig'] = None,
              target_eirp: Optional['outputs.ConfigEirp'] = None,
              transmit_disabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'spectrumConfig' in kwargs:
+            spectrum_config = kwargs['spectrumConfig']
+        if 'targetEirp' in kwargs:
+            target_eirp = kwargs['targetEirp']
+        if 'transmitDisabled' in kwargs:
+            transmit_disabled = kwargs['transmitDisabled']
+
         if spectrum_config is not None:
             _setter("spectrum_config", spectrum_config)
         if target_eirp is not None:
@@ -267,7 +287,23 @@ class ConfigData(dict):
              s3_recording_config: Optional['outputs.ConfigS3RecordingConfig'] = None,
              tracking_config: Optional['outputs.ConfigTrackingConfig'] = None,
              uplink_echo_config: Optional['outputs.ConfigUplinkEchoConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'antennaDownlinkConfig' in kwargs:
+            antenna_downlink_config = kwargs['antennaDownlinkConfig']
+        if 'antennaDownlinkDemodDecodeConfig' in kwargs:
+            antenna_downlink_demod_decode_config = kwargs['antennaDownlinkDemodDecodeConfig']
+        if 'antennaUplinkConfig' in kwargs:
+            antenna_uplink_config = kwargs['antennaUplinkConfig']
+        if 'dataflowEndpointConfig' in kwargs:
+            dataflow_endpoint_config = kwargs['dataflowEndpointConfig']
+        if 's3RecordingConfig' in kwargs:
+            s3_recording_config = kwargs['s3RecordingConfig']
+        if 'trackingConfig' in kwargs:
+            tracking_config = kwargs['trackingConfig']
+        if 'uplinkEchoConfig' in kwargs:
+            uplink_echo_config = kwargs['uplinkEchoConfig']
+
         if antenna_downlink_config is not None:
             _setter("antenna_downlink_config", antenna_downlink_config)
         if antenna_downlink_demod_decode_config is not None:
@@ -353,7 +389,13 @@ class ConfigDataflowEndpointConfig(dict):
              _setter: Callable[[Any, Any], None],
              dataflow_endpoint_name: Optional[str] = None,
              dataflow_endpoint_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataflowEndpointName' in kwargs:
+            dataflow_endpoint_name = kwargs['dataflowEndpointName']
+        if 'dataflowEndpointRegion' in kwargs:
+            dataflow_endpoint_region = kwargs['dataflowEndpointRegion']
+
         if dataflow_endpoint_name is not None:
             _setter("dataflow_endpoint_name", dataflow_endpoint_name)
         if dataflow_endpoint_region is not None:
@@ -399,7 +441,11 @@ class ConfigDecodeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              unvalidated_json: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'unvalidatedJson' in kwargs:
+            unvalidated_json = kwargs['unvalidatedJson']
+
         if unvalidated_json is not None:
             _setter("unvalidated_json", unvalidated_json)
 
@@ -438,7 +484,11 @@ class ConfigDemodulationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              unvalidated_json: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'unvalidatedJson' in kwargs:
+            unvalidated_json = kwargs['unvalidatedJson']
+
         if unvalidated_json is not None:
             _setter("unvalidated_json", unvalidated_json)
 
@@ -463,7 +513,9 @@ class ConfigEirp(dict):
              _setter: Callable[[Any, Any], None],
              units: Optional['ConfigEirpUnits'] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if units is not None:
             _setter("units", units)
         if value is not None:
@@ -495,7 +547,9 @@ class ConfigFrequency(dict):
              _setter: Callable[[Any, Any], None],
              units: Optional['ConfigFrequencyUnits'] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if units is not None:
             _setter("units", units)
         if value is not None:
@@ -527,7 +581,9 @@ class ConfigFrequencyBandwidth(dict):
              _setter: Callable[[Any, Any], None],
              units: Optional['ConfigBandwidthUnits'] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if units is not None:
             _setter("units", units)
         if value is not None:
@@ -581,7 +637,13 @@ class ConfigS3RecordingConfig(dict):
              bucket_arn: Optional[str] = None,
              prefix: Optional[str] = None,
              role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if bucket_arn is not None:
             _setter("bucket_arn", bucket_arn)
         if prefix is not None:
@@ -640,7 +702,11 @@ class ConfigSpectrumConfig(dict):
              bandwidth: Optional['outputs.ConfigFrequencyBandwidth'] = None,
              center_frequency: Optional['outputs.ConfigFrequency'] = None,
              polarization: Optional['ConfigPolarization'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'centerFrequency' in kwargs:
+            center_frequency = kwargs['centerFrequency']
+
         if bandwidth is not None:
             _setter("bandwidth", bandwidth)
         if center_frequency is not None:
@@ -679,7 +745,9 @@ class ConfigTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -708,7 +776,9 @@ class ConfigTrackingConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              autotrack: Optional['ConfigTrackingConfigAutotrack'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if autotrack is not None:
             _setter("autotrack", autotrack)
 
@@ -750,7 +820,11 @@ class ConfigUplinkEchoConfig(dict):
              _setter: Callable[[Any, Any], None],
              antenna_uplink_config_arn: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'antennaUplinkConfigArn' in kwargs:
+            antenna_uplink_config_arn = kwargs['antennaUplinkConfigArn']
+
         if antenna_uplink_config_arn is not None:
             _setter("antenna_uplink_config_arn", antenna_uplink_config_arn)
         if enabled is not None:
@@ -799,7 +873,11 @@ class ConfigUplinkSpectrumConfig(dict):
              _setter: Callable[[Any, Any], None],
              center_frequency: Optional['outputs.ConfigFrequency'] = None,
              polarization: Optional['ConfigPolarization'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'centerFrequency' in kwargs:
+            center_frequency = kwargs['centerFrequency']
+
         if center_frequency is not None:
             _setter("center_frequency", center_frequency)
         if polarization is not None:
@@ -869,7 +947,17 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpoint(dict):
              egress_address: Optional['outputs.DataflowEndpointGroupConnectionDetails'] = None,
              ingress_address: Optional['outputs.DataflowEndpointGroupRangedConnectionDetails'] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentStatus' in kwargs:
+            agent_status = kwargs['agentStatus']
+        if 'auditResults' in kwargs:
+            audit_results = kwargs['auditResults']
+        if 'egressAddress' in kwargs:
+            egress_address = kwargs['egressAddress']
+        if 'ingressAddress' in kwargs:
+            ingress_address = kwargs['ingressAddress']
+
         if agent_status is not None:
             _setter("agent_status", agent_status)
         if audit_results is not None:
@@ -946,7 +1034,11 @@ class DataflowEndpointGroupConnectionDetails(dict):
              _setter: Callable[[Any, Any], None],
              mtu: Optional[int] = None,
              socket_address: Optional['outputs.DataflowEndpointGroupSocketAddress'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'socketAddress' in kwargs:
+            socket_address = kwargs['socketAddress']
+
         if mtu is not None:
             _setter("mtu", mtu)
         if socket_address is not None:
@@ -984,7 +1076,9 @@ class DataflowEndpointGroupDataflowEndpoint(dict):
              address: Optional['outputs.DataflowEndpointGroupSocketAddress'] = None,
              mtu: Optional[int] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if mtu is not None:
@@ -1045,7 +1139,13 @@ class DataflowEndpointGroupEndpointDetails(dict):
              aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupAwsGroundStationAgentEndpoint'] = None,
              endpoint: Optional['outputs.DataflowEndpointGroupDataflowEndpoint'] = None,
              security_details: Optional['outputs.DataflowEndpointGroupSecurityDetails'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsGroundStationAgentEndpoint' in kwargs:
+            aws_ground_station_agent_endpoint = kwargs['awsGroundStationAgentEndpoint']
+        if 'securityDetails' in kwargs:
+            security_details = kwargs['securityDetails']
+
         if aws_ground_station_agent_endpoint is not None:
             _setter("aws_ground_station_agent_endpoint", aws_ground_station_agent_endpoint)
         if endpoint is not None:
@@ -1092,7 +1192,9 @@ class DataflowEndpointGroupIntegerRange(dict):
              _setter: Callable[[Any, Any], None],
              maximum: Optional[int] = None,
              minimum: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if maximum is not None:
             _setter("maximum", maximum)
         if minimum is not None:
@@ -1154,7 +1256,11 @@ class DataflowEndpointGroupRangedConnectionDetails(dict):
              _setter: Callable[[Any, Any], None],
              mtu: Optional[int] = None,
              socket_address: Optional['outputs.DataflowEndpointGroupRangedSocketAddress'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'socketAddress' in kwargs:
+            socket_address = kwargs['socketAddress']
+
         if mtu is not None:
             _setter("mtu", mtu)
         if socket_address is not None:
@@ -1214,7 +1320,11 @@ class DataflowEndpointGroupRangedSocketAddress(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              port_range: Optional['outputs.DataflowEndpointGroupIntegerRange'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         if name is not None:
             _setter("name", name)
         if port_range is not None:
@@ -1276,7 +1386,15 @@ class DataflowEndpointGroupSecurityDetails(dict):
              role_arn: Optional[str] = None,
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if role_arn is not None:
             _setter("role_arn", role_arn)
         if security_group_ids is not None:
@@ -1315,7 +1433,9 @@ class DataflowEndpointGroupSocketAddress(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if port is not None:
@@ -1347,7 +1467,9 @@ class DataflowEndpointGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1377,7 +1499,9 @@ class MissionProfileDataflowEdge(dict):
              _setter: Callable[[Any, Any], None],
              destination: Optional[str] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destination is not None:
             _setter("destination", destination)
         if source is not None:
@@ -1428,7 +1552,13 @@ class MissionProfileStreamsKmsKey(dict):
              _setter: Callable[[Any, Any], None],
              kms_alias_arn: Optional[str] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsAliasArn' in kwargs:
+            kms_alias_arn = kwargs['kmsAliasArn']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if kms_alias_arn is not None:
             _setter("kms_alias_arn", kms_alias_arn)
         if kms_key_arn is not None:
@@ -1460,7 +1590,9 @@ class MissionProfileTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -81,7 +81,33 @@ class VerifiedAccessEndpointArgs:
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sse_specification: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationDomain' in kwargs:
+            application_domain = kwargs['applicationDomain']
+        if 'attachmentType' in kwargs:
+            attachment_type = kwargs['attachmentType']
+        if 'domainCertificateArn' in kwargs:
+            domain_certificate_arn = kwargs['domainCertificateArn']
+        if 'endpointDomainPrefix' in kwargs:
+            endpoint_domain_prefix = kwargs['endpointDomainPrefix']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'verifiedAccessGroupId' in kwargs:
+            verified_access_group_id = kwargs['verifiedAccessGroupId']
+        if 'loadBalancerOptions' in kwargs:
+            load_balancer_options = kwargs['loadBalancerOptions']
+        if 'networkInterfaceOptions' in kwargs:
+            network_interface_options = kwargs['networkInterfaceOptions']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyEnabled' in kwargs:
+            policy_enabled = kwargs['policyEnabled']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+
         _setter("application_domain", application_domain)
         _setter("attachment_type", attachment_type)
         _setter("domain_certificate_arn", domain_certificate_arn)

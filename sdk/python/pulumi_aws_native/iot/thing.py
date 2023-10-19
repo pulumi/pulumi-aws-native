@@ -31,7 +31,13 @@ class ThingArgs:
              _setter: Callable[[Any, Any], None],
              attribute_payload: Optional[pulumi.Input['ThingAttributePayloadArgs']] = None,
              thing_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributePayload' in kwargs:
+            attribute_payload = kwargs['attributePayload']
+        if 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         if attribute_payload is not None:
             _setter("attribute_payload", attribute_payload)
         if thing_name is not None:

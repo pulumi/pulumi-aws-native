@@ -59,7 +59,29 @@ class UserSettingsArgs:
              disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
              idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyAllowed' in kwargs:
+            copy_allowed = kwargs['copyAllowed']
+        if 'downloadAllowed' in kwargs:
+            download_allowed = kwargs['downloadAllowed']
+        if 'pasteAllowed' in kwargs:
+            paste_allowed = kwargs['pasteAllowed']
+        if 'printAllowed' in kwargs:
+            print_allowed = kwargs['printAllowed']
+        if 'uploadAllowed' in kwargs:
+            upload_allowed = kwargs['uploadAllowed']
+        if 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if 'cookieSynchronizationConfiguration' in kwargs:
+            cookie_synchronization_configuration = kwargs['cookieSynchronizationConfiguration']
+        if 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if 'disconnectTimeoutInMinutes' in kwargs:
+            disconnect_timeout_in_minutes = kwargs['disconnectTimeoutInMinutes']
+        if 'idleDisconnectTimeoutInMinutes' in kwargs:
+            idle_disconnect_timeout_in_minutes = kwargs['idleDisconnectTimeoutInMinutes']
+
         _setter("copy_allowed", copy_allowed)
         _setter("download_allowed", download_allowed)
         _setter("paste_allowed", paste_allowed)

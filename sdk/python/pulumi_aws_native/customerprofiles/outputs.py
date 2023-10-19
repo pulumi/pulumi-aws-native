@@ -66,7 +66,9 @@ class CalculatedAttributeDefinitionAttributeDetails(dict):
              _setter: Callable[[Any, Any], None],
              attributes: Sequence['outputs.CalculatedAttributeDefinitionAttributeItem'],
              expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("attributes", attributes)
         _setter("expression", expression)
 
@@ -99,7 +101,9 @@ class CalculatedAttributeDefinitionAttributeItem(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -149,7 +153,11 @@ class CalculatedAttributeDefinitionConditions(dict):
              object_count: Optional[int] = None,
              range: Optional['outputs.CalculatedAttributeDefinitionRange'] = None,
              threshold: Optional['outputs.CalculatedAttributeDefinitionThreshold'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectCount' in kwargs:
+            object_count = kwargs['objectCount']
+
         if object_count is not None:
             _setter("object_count", object_count)
         if range is not None:
@@ -194,7 +202,9 @@ class CalculatedAttributeDefinitionRange(dict):
              _setter: Callable[[Any, Any], None],
              unit: 'CalculatedAttributeDefinitionRangeUnit',
              value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -232,7 +242,9 @@ class CalculatedAttributeDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -274,7 +286,9 @@ class CalculatedAttributeDefinitionThreshold(dict):
              _setter: Callable[[Any, Any], None],
              operator: 'CalculatedAttributeDefinitionThresholdOperator',
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("value", value)
 
@@ -310,7 +324,9 @@ class DestinationDetailsProperties(dict):
              _setter: Callable[[Any, Any], None],
              status: 'EventStreamStatus',
              uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("status", status)
         _setter("uri", uri)
 
@@ -340,7 +356,9 @@ class DomainTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -378,7 +396,9 @@ class EventStreamTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -440,7 +460,11 @@ class IntegrationConnectorOperator(dict):
              salesforce: Optional['IntegrationSalesforceConnectorOperator'] = None,
              service_now: Optional['IntegrationServiceNowConnectorOperator'] = None,
              zendesk: Optional['IntegrationZendeskConnectorOperator'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if marketo is not None:
             _setter("marketo", marketo)
         if s3 is not None:
@@ -528,7 +552,17 @@ class IntegrationFlowDefinition(dict):
              tasks: Sequence['outputs.IntegrationTask'],
              trigger_config: 'outputs.IntegrationTriggerConfig',
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowName' in kwargs:
+            flow_name = kwargs['flowName']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+        if 'sourceFlowConfig' in kwargs:
+            source_flow_config = kwargs['sourceFlowConfig']
+        if 'triggerConfig' in kwargs:
+            trigger_config = kwargs['triggerConfig']
+
         _setter("flow_name", flow_name)
         _setter("kms_arn", kms_arn)
         _setter("source_flow_config", source_flow_config)
@@ -597,7 +631,11 @@ class IntegrationIncrementalPullConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              datetime_type_field_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datetimeTypeFieldName' in kwargs:
+            datetime_type_field_name = kwargs['datetimeTypeFieldName']
+
         if datetime_type_field_name is not None:
             _setter("datetime_type_field_name", datetime_type_field_name)
 
@@ -619,7 +657,9 @@ class IntegrationMarketoSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -643,7 +683,9 @@ class IntegrationObjectTypeMapping(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -692,7 +734,13 @@ class IntegrationS3SourceProperties(dict):
              _setter: Callable[[Any, Any], None],
              bucket_name: str,
              bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
         _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
             _setter("bucket_prefix", bucket_prefix)
@@ -745,7 +793,13 @@ class IntegrationSalesforceSourceProperties(dict):
              object: str,
              enable_dynamic_field_update: Optional[bool] = None,
              include_deleted_records: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableDynamicFieldUpdate' in kwargs:
+            enable_dynamic_field_update = kwargs['enableDynamicFieldUpdate']
+        if 'includeDeletedRecords' in kwargs:
+            include_deleted_records = kwargs['includeDeletedRecords']
+
         _setter("object", object)
         if enable_dynamic_field_update is not None:
             _setter("enable_dynamic_field_update", enable_dynamic_field_update)
@@ -825,7 +879,21 @@ class IntegrationScheduledTriggerProperties(dict):
              schedule_offset: Optional[int] = None,
              schedule_start_time: Optional[float] = None,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'dataPullMode' in kwargs:
+            data_pull_mode = kwargs['dataPullMode']
+        if 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+        if 'scheduleEndTime' in kwargs:
+            schedule_end_time = kwargs['scheduleEndTime']
+        if 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if 'scheduleStartTime' in kwargs:
+            schedule_start_time = kwargs['scheduleStartTime']
+
         _setter("schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             _setter("data_pull_mode", data_pull_mode)
@@ -888,7 +956,9 @@ class IntegrationServiceNowSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -938,7 +1008,11 @@ class IntegrationSourceConnectorProperties(dict):
              salesforce: Optional['outputs.IntegrationSalesforceSourceProperties'] = None,
              service_now: Optional['outputs.IntegrationServiceNowSourceProperties'] = None,
              zendesk: Optional['outputs.IntegrationZendeskSourceProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if marketo is not None:
             _setter("marketo", marketo)
         if s3 is not None:
@@ -1020,7 +1094,17 @@ class IntegrationSourceFlowConfig(dict):
              source_connector_properties: 'outputs.IntegrationSourceConnectorProperties',
              connector_profile_name: Optional[str] = None,
              incremental_pull_config: Optional['outputs.IntegrationIncrementalPullConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'sourceConnectorProperties' in kwargs:
+            source_connector_properties = kwargs['sourceConnectorProperties']
+        if 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+        if 'incrementalPullConfig' in kwargs:
+            incremental_pull_config = kwargs['incrementalPullConfig']
+
         _setter("connector_type", connector_type)
         _setter("source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
@@ -1064,7 +1148,9 @@ class IntegrationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1128,7 +1214,19 @@ class IntegrationTask(dict):
              connector_operator: Optional['outputs.IntegrationConnectorOperator'] = None,
              destination_field: Optional[str] = None,
              task_properties: Optional[Sequence['outputs.IntegrationTaskPropertiesMap']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceFields' in kwargs:
+            source_fields = kwargs['sourceFields']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'connectorOperator' in kwargs:
+            connector_operator = kwargs['connectorOperator']
+        if 'destinationField' in kwargs:
+            destination_field = kwargs['destinationField']
+        if 'taskProperties' in kwargs:
+            task_properties = kwargs['taskProperties']
+
         _setter("source_fields", source_fields)
         _setter("task_type", task_type)
         if connector_operator is not None:
@@ -1196,7 +1294,11 @@ class IntegrationTaskPropertiesMap(dict):
              _setter: Callable[[Any, Any], None],
              operator_property_key: 'IntegrationOperatorPropertiesKeys',
              property: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatorPropertyKey' in kwargs:
+            operator_property_key = kwargs['operatorPropertyKey']
+
         _setter("operator_property_key", operator_property_key)
         _setter("property", property)
 
@@ -1245,7 +1347,13 @@ class IntegrationTriggerConfig(dict):
              _setter: Callable[[Any, Any], None],
              trigger_type: 'IntegrationTriggerType',
              trigger_properties: Optional['outputs.IntegrationTriggerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if 'triggerProperties' in kwargs:
+            trigger_properties = kwargs['triggerProperties']
+
         _setter("trigger_type", trigger_type)
         if trigger_properties is not None:
             _setter("trigger_properties", trigger_properties)
@@ -1273,7 +1381,9 @@ class IntegrationTriggerProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              scheduled: Optional['outputs.IntegrationScheduledTriggerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if scheduled is not None:
             _setter("scheduled", scheduled)
 
@@ -1295,7 +1405,9 @@ class IntegrationZendeskSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -1348,7 +1460,11 @@ class ObjectTypeField(dict):
              content_type: Optional['ObjectTypeFieldContentType'] = None,
              source: Optional[str] = None,
              target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if source is not None:
@@ -1413,7 +1529,11 @@ class ObjectTypeFieldMap(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              object_type_field: Optional['outputs.ObjectTypeField'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypeField' in kwargs:
+            object_type_field = kwargs['objectTypeField']
+
         if name is not None:
             _setter("name", name)
         if object_type_field is not None:
@@ -1472,7 +1592,13 @@ class ObjectTypeKey(dict):
              _setter: Callable[[Any, Any], None],
              field_names: Optional[Sequence[str]] = None,
              standard_identifiers: Optional[Sequence['ObjectTypeKeyStandardIdentifiersItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldNames' in kwargs:
+            field_names = kwargs['fieldNames']
+        if 'standardIdentifiers' in kwargs:
+            standard_identifiers = kwargs['standardIdentifiers']
+
         if field_names is not None:
             _setter("field_names", field_names)
         if standard_identifiers is not None:
@@ -1527,7 +1653,11 @@ class ObjectTypeKeyMap(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              object_type_key_list: Optional[Sequence['outputs.ObjectTypeKey']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectTypeKeyList' in kwargs:
+            object_type_key_list = kwargs['objectTypeKeyList']
+
         if name is not None:
             _setter("name", name)
         if object_type_key_list is not None:
@@ -1559,7 +1689,9 @@ class ObjectTypeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

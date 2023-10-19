@@ -70,7 +70,31 @@ class ServerArgs:
              structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
              workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointDetails' in kwargs:
+            endpoint_details = kwargs['endpointDetails']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'identityProviderDetails' in kwargs:
+            identity_provider_details = kwargs['identityProviderDetails']
+        if 'identityProviderType' in kwargs:
+            identity_provider_type = kwargs['identityProviderType']
+        if 'loggingRole' in kwargs:
+            logging_role = kwargs['loggingRole']
+        if 'postAuthenticationLoginBanner' in kwargs:
+            post_authentication_login_banner = kwargs['postAuthenticationLoginBanner']
+        if 'preAuthenticationLoginBanner' in kwargs:
+            pre_authentication_login_banner = kwargs['preAuthenticationLoginBanner']
+        if 'protocolDetails' in kwargs:
+            protocol_details = kwargs['protocolDetails']
+        if 'securityPolicyName' in kwargs:
+            security_policy_name = kwargs['securityPolicyName']
+        if 'structuredLogDestinations' in kwargs:
+            structured_log_destinations = kwargs['structuredLogDestinations']
+        if 'workflowDetails' in kwargs:
+            workflow_details = kwargs['workflowDetails']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if domain is not None:

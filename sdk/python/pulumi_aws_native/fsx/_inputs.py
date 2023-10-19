@@ -60,7 +60,9 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("events", events)
 
     @property
@@ -88,7 +90,9 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("events", events)
 
     @property
@@ -119,7 +123,13 @@ class DataRepositoryAssociationS3Args:
              _setter: Callable[[Any, Any], None],
              auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']] = None,
              auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoExportPolicy' in kwargs:
+            auto_export_policy = kwargs['autoExportPolicy']
+        if 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+
         if auto_export_policy is not None:
             _setter("auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
@@ -164,7 +174,9 @@ class DataRepositoryAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -211,7 +223,15 @@ class FileSystemAuditLogConfigurationArgs:
              file_access_audit_log_level: pulumi.Input[str],
              file_share_access_audit_log_level: pulumi.Input[str],
              audit_log_destination: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileAccessAuditLogLevel' in kwargs:
+            file_access_audit_log_level = kwargs['fileAccessAuditLogLevel']
+        if 'fileShareAccessAuditLogLevel' in kwargs:
+            file_share_access_audit_log_level = kwargs['fileShareAccessAuditLogLevel']
+        if 'auditLogDestination' in kwargs:
+            audit_log_destination = kwargs['auditLogDestination']
+
         _setter("file_access_audit_log_level", file_access_audit_log_level)
         _setter("file_share_access_audit_log_level", file_share_access_audit_log_level)
         if audit_log_destination is not None:
@@ -260,7 +280,9 @@ class FileSystemClientConfigurationsArgs:
              _setter: Callable[[Any, Any], None],
              clients: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if clients is not None:
             _setter("clients", clients)
         if options is not None:
@@ -300,7 +322,9 @@ class FileSystemDiskIopsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              iops: Optional[pulumi.Input[int]] = None,
              mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iops is not None:
             _setter("iops", iops)
         if mode is not None:
@@ -370,7 +394,33 @@ class FileSystemLustreConfigurationArgs:
              imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
              per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+        if 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'driveCacheType' in kwargs:
+            drive_cache_type = kwargs['driveCacheType']
+        if 'exportPath' in kwargs:
+            export_path = kwargs['exportPath']
+        if 'importPath' in kwargs:
+            import_path = kwargs['importPath']
+        if 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if 'perUnitStorageThroughput' in kwargs:
+            per_unit_storage_throughput = kwargs['perUnitStorageThroughput']
+        if 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         if auto_import_policy is not None:
             _setter("auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
@@ -517,7 +567,11 @@ class FileSystemNfsExportsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemClientConfigurationsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+
         if client_configurations is not None:
             _setter("client_configurations", client_configurations)
 
@@ -570,7 +624,29 @@ class FileSystemOntapConfigurationArgs:
              route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              throughput_capacity: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if 'fsxAdminPassword' in kwargs:
+            fsx_admin_password = kwargs['fsxAdminPassword']
+        if 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
             _setter("automatic_backup_retention_days", automatic_backup_retention_days)
@@ -730,7 +806,33 @@ class FileSystemOpenZfsConfigurationArgs:
              route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              throughput_capacity: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if 'copyTagsToVolumes' in kwargs:
+            copy_tags_to_volumes = kwargs['copyTagsToVolumes']
+        if 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if 'rootVolumeConfiguration' in kwargs:
+            root_volume_configuration = kwargs['rootVolumeConfiguration']
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
             _setter("automatic_backup_retention_days", automatic_backup_retention_days)
@@ -902,7 +1004,21 @@ class FileSystemRootVolumeConfigurationArgs:
              read_only: Optional[pulumi.Input[bool]] = None,
              record_size_ki_b: Optional[pulumi.Input[int]] = None,
              user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemUserAndGroupQuotasArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyTagsToSnapshots' in kwargs:
+            copy_tags_to_snapshots = kwargs['copyTagsToSnapshots']
+        if 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if 'nfsExports' in kwargs:
+            nfs_exports = kwargs['nfsExports']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'recordSizeKiB' in kwargs:
+            record_size_ki_b = kwargs['recordSizeKiB']
+        if 'userAndGroupQuotas' in kwargs:
+            user_and_group_quotas = kwargs['userAndGroupQuotas']
+
         if copy_tags_to_snapshots is not None:
             _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
@@ -998,7 +1114,19 @@ class FileSystemSelfManagedActiveDirectoryConfigurationArgs:
              organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if dns_ips is not None:
             _setter("dns_ips", dns_ips)
         if domain_name is not None:
@@ -1082,7 +1210,9 @@ class FileSystemTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1123,7 +1253,11 @@ class FileSystemUserAndGroupQuotasArgs:
              id: Optional[pulumi.Input[int]] = None,
              storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+
         if id is not None:
             _setter("id", id)
         if storage_capacity_quota_gi_b is not None:
@@ -1204,7 +1338,31 @@ class FileSystemWindowsConfigurationArgs:
              preferred_subnet_id: Optional[pulumi.Input[str]] = None,
              self_managed_active_directory_configuration: Optional[pulumi.Input['FileSystemSelfManagedActiveDirectoryConfigurationArgs']] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if 'activeDirectoryId' in kwargs:
+            active_directory_id = kwargs['activeDirectoryId']
+        if 'auditLogConfiguration' in kwargs:
+            audit_log_configuration = kwargs['auditLogConfiguration']
+        if 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if 'selfManagedActiveDirectoryConfiguration' in kwargs:
+            self_managed_active_directory_configuration = kwargs['selfManagedActiveDirectoryConfiguration']
+        if 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
             _setter("active_directory_id", active_directory_id)
@@ -1353,7 +1511,9 @@ class SnapshotTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1391,7 +1551,13 @@ class StorageVirtualMachineActiveDirectoryConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              net_bios_name: Optional[pulumi.Input[str]] = None,
              self_managed_active_directory_configuration: Optional[pulumi.Input['StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'netBiosName' in kwargs:
+            net_bios_name = kwargs['netBiosName']
+        if 'selfManagedActiveDirectoryConfiguration' in kwargs:
+            self_managed_active_directory_configuration = kwargs['selfManagedActiveDirectoryConfiguration']
+
         if net_bios_name is not None:
             _setter("net_bios_name", net_bios_name)
         if self_managed_active_directory_configuration is not None:
@@ -1443,7 +1609,19 @@ class StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs:
              organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if dns_ips is not None:
             _setter("dns_ips", dns_ips)
         if domain_name is not None:
@@ -1527,7 +1705,9 @@ class StorageVirtualMachineTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1565,7 +1745,9 @@ class VolumeAutocommitPeriodArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if value is not None:
             _setter("value", value)
@@ -1604,7 +1786,9 @@ class VolumeClientConfigurationsArgs:
              _setter: Callable[[Any, Any], None],
              clients: pulumi.Input[str],
              options: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("clients", clients)
         _setter("options", options)
 
@@ -1639,7 +1823,11 @@ class VolumeNfsExportsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+
         _setter("client_configurations", client_configurations)
 
     @property
@@ -1691,7 +1879,29 @@ class VolumeOntapConfigurationArgs:
              snapshot_policy: Optional[pulumi.Input[str]] = None,
              storage_efficiency_enabled: Optional[pulumi.Input[str]] = None,
              tiering_policy: Optional[pulumi.Input['VolumeTieringPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInMegabytes' in kwargs:
+            size_in_megabytes = kwargs['sizeInMegabytes']
+        if 'storageVirtualMachineId' in kwargs:
+            storage_virtual_machine_id = kwargs['storageVirtualMachineId']
+        if 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if 'junctionPath' in kwargs:
+            junction_path = kwargs['junctionPath']
+        if 'ontapVolumeType' in kwargs:
+            ontap_volume_type = kwargs['ontapVolumeType']
+        if 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if 'snaplockConfiguration' in kwargs:
+            snaplock_configuration = kwargs['snaplockConfiguration']
+        if 'snapshotPolicy' in kwargs:
+            snapshot_policy = kwargs['snapshotPolicy']
+        if 'storageEfficiencyEnabled' in kwargs:
+            storage_efficiency_enabled = kwargs['storageEfficiencyEnabled']
+        if 'tieringPolicy' in kwargs:
+            tiering_policy = kwargs['tieringPolicy']
+
         _setter("size_in_megabytes", size_in_megabytes)
         _setter("storage_virtual_machine_id", storage_virtual_machine_id)
         if copy_tags_to_backups is not None:
@@ -1844,7 +2054,29 @@ class VolumeOpenZfsConfigurationArgs:
              storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
              storage_capacity_reservation_gi_b: Optional[pulumi.Input[int]] = None,
              user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentVolumeId' in kwargs:
+            parent_volume_id = kwargs['parentVolumeId']
+        if 'copyTagsToSnapshots' in kwargs:
+            copy_tags_to_snapshots = kwargs['copyTagsToSnapshots']
+        if 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if 'nfsExports' in kwargs:
+            nfs_exports = kwargs['nfsExports']
+        if 'originSnapshot' in kwargs:
+            origin_snapshot = kwargs['originSnapshot']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'recordSizeKiB' in kwargs:
+            record_size_ki_b = kwargs['recordSizeKiB']
+        if 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+        if 'storageCapacityReservationGiB' in kwargs:
+            storage_capacity_reservation_gi_b = kwargs['storageCapacityReservationGiB']
+        if 'userAndGroupQuotas' in kwargs:
+            user_and_group_quotas = kwargs['userAndGroupQuotas']
+
         _setter("parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
             _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -1982,7 +2214,13 @@ class VolumeOriginSnapshotArgs:
              _setter: Callable[[Any, Any], None],
              copy_strategy: pulumi.Input[str],
              snapshot_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyStrategy' in kwargs:
+            copy_strategy = kwargs['copyStrategy']
+        if 'snapshotArn' in kwargs:
+            snapshot_arn = kwargs['snapshotArn']
+
         _setter("copy_strategy", copy_strategy)
         _setter("snapshot_arn", snapshot_arn)
 
@@ -2020,7 +2258,9 @@ class VolumeRetentionPeriodArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if value is not None:
             _setter("value", value)
@@ -2071,7 +2311,21 @@ class VolumeSnaplockConfigurationArgs:
              privileged_delete: Optional[pulumi.Input[str]] = None,
              retention_period: Optional[pulumi.Input['VolumeSnaplockRetentionPeriodArgs']] = None,
              volume_append_mode_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snaplockType' in kwargs:
+            snaplock_type = kwargs['snaplockType']
+        if 'auditLogVolume' in kwargs:
+            audit_log_volume = kwargs['auditLogVolume']
+        if 'autocommitPeriod' in kwargs:
+            autocommit_period = kwargs['autocommitPeriod']
+        if 'privilegedDelete' in kwargs:
+            privileged_delete = kwargs['privilegedDelete']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if 'volumeAppendModeEnabled' in kwargs:
+            volume_append_mode_enabled = kwargs['volumeAppendModeEnabled']
+
         _setter("snaplock_type", snaplock_type)
         if audit_log_volume is not None:
             _setter("audit_log_volume", audit_log_volume)
@@ -2157,7 +2411,15 @@ class VolumeSnaplockRetentionPeriodArgs:
              default_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
              maximum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
              minimum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRetention' in kwargs:
+            default_retention = kwargs['defaultRetention']
+        if 'maximumRetention' in kwargs:
+            maximum_retention = kwargs['maximumRetention']
+        if 'minimumRetention' in kwargs:
+            minimum_retention = kwargs['minimumRetention']
+
         _setter("default_retention", default_retention)
         _setter("maximum_retention", maximum_retention)
         _setter("minimum_retention", minimum_retention)
@@ -2205,7 +2467,9 @@ class VolumeTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2243,7 +2507,11 @@ class VolumeTieringPolicyArgs:
              _setter: Callable[[Any, Any], None],
              cooling_period: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coolingPeriod' in kwargs:
+            cooling_period = kwargs['coolingPeriod']
+
         if cooling_period is not None:
             _setter("cooling_period", cooling_period)
         if name is not None:
@@ -2286,7 +2554,11 @@ class VolumeUserAndGroupQuotasArgs:
              id: pulumi.Input[int],
              storage_capacity_quota_gi_b: pulumi.Input[int],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+
         _setter("id", id)
         _setter("storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
         _setter("type", type)

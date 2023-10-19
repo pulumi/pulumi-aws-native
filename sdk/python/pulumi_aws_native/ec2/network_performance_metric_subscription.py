@@ -39,7 +39,9 @@ class NetworkPerformanceMetricSubscriptionArgs:
              metric: pulumi.Input[str],
              source: pulumi.Input[str],
              statistic: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("destination", destination)
         _setter("metric", metric)
         _setter("source", source)

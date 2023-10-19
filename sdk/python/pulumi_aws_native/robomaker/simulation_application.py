@@ -57,7 +57,17 @@ class SimulationApplicationArgs:
              rendering_engine: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
              tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'robotSoftwareSuite' in kwargs:
+            robot_software_suite = kwargs['robotSoftwareSuite']
+        if 'simulationSoftwareSuite' in kwargs:
+            simulation_software_suite = kwargs['simulationSoftwareSuite']
+        if 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+        if 'renderingEngine' in kwargs:
+            rendering_engine = kwargs['renderingEngine']
+
         _setter("robot_software_suite", robot_software_suite)
         _setter("simulation_software_suite", simulation_software_suite)
         if current_revision_id is not None:

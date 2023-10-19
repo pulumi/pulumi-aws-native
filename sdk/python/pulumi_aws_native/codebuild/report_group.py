@@ -40,7 +40,13 @@ class ReportGroupArgs:
              delete_reports: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportConfig' in kwargs:
+            export_config = kwargs['exportConfig']
+        if 'deleteReports' in kwargs:
+            delete_reports = kwargs['deleteReports']
+
         _setter("export_config", export_config)
         _setter("type", type)
         if delete_reports is not None:

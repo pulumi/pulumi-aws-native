@@ -31,7 +31,13 @@ class EnclaveCertificateIamRoleAssociationArgs:
              _setter: Callable[[Any, Any], None],
              certificate_arn: pulumi.Input[str],
              role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("certificate_arn", certificate_arn)
         _setter("role_arn", role_arn)
 

@@ -50,7 +50,11 @@ class ContactFlowModuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['ContactFlowModuleState']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowModuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+
         _setter("content", content)
         _setter("instance_arn", instance_arn)
         if description is not None:

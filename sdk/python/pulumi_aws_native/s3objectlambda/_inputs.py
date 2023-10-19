@@ -31,7 +31,13 @@ class AccessPointAwsLambdaArgs:
              _setter: Callable[[Any, Any], None],
              function_arn: pulumi.Input[str],
              function_payload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if 'functionPayload' in kwargs:
+            function_payload = kwargs['functionPayload']
+
         _setter("function_arn", function_arn)
         if function_payload is not None:
             _setter("function_payload", function_payload)
@@ -79,7 +85,17 @@ class AccessPointObjectLambdaConfigurationArgs:
              transformation_configurations: pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]],
              allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportingAccessPoint' in kwargs:
+            supporting_access_point = kwargs['supportingAccessPoint']
+        if 'transformationConfigurations' in kwargs:
+            transformation_configurations = kwargs['transformationConfigurations']
+        if 'allowedFeatures' in kwargs:
+            allowed_features = kwargs['allowedFeatures']
+        if 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+
         _setter("supporting_access_point", supporting_access_point)
         _setter("transformation_configurations", transformation_configurations)
         if allowed_features is not None:
@@ -136,7 +152,11 @@ class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsLambda' in kwargs:
+            aws_lambda = kwargs['awsLambda']
+
         _setter("aws_lambda", aws_lambda)
 
     @property
@@ -167,7 +187,11 @@ class AccessPointTransformationConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input[Sequence[pulumi.Input[str]]],
              content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTransformation' in kwargs:
+            content_transformation = kwargs['contentTransformation']
+
         _setter("actions", actions)
         _setter("content_transformation", content_transformation)
 

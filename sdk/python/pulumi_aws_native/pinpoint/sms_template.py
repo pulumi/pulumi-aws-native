@@ -38,7 +38,15 @@ class SmsTemplateArgs:
              default_substitutions: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'defaultSubstitutions' in kwargs:
+            default_substitutions = kwargs['defaultSubstitutions']
+        if 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+
         _setter("body", body)
         _setter("template_name", template_name)
         if default_substitutions is not None:

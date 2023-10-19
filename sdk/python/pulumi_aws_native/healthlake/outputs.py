@@ -43,7 +43,9 @@ class FhirDatastoreCreatedAt(dict):
              _setter: Callable[[Any, Any], None],
              nanos: int,
              seconds: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("nanos", nanos)
         _setter("seconds", seconds)
 
@@ -116,7 +118,15 @@ class FhirDatastoreIdentityProviderConfiguration(dict):
              fine_grained_authorization_enabled: Optional[bool] = None,
              idp_lambda_arn: Optional[str] = None,
              metadata: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationStrategy' in kwargs:
+            authorization_strategy = kwargs['authorizationStrategy']
+        if 'fineGrainedAuthorizationEnabled' in kwargs:
+            fine_grained_authorization_enabled = kwargs['fineGrainedAuthorizationEnabled']
+        if 'idpLambdaArn' in kwargs:
+            idp_lambda_arn = kwargs['idpLambdaArn']
+
         _setter("authorization_strategy", authorization_strategy)
         if fine_grained_authorization_enabled is not None:
             _setter("fine_grained_authorization_enabled", fine_grained_authorization_enabled)
@@ -200,7 +210,13 @@ class FhirDatastoreKmsEncryptionConfig(dict):
              _setter: Callable[[Any, Any], None],
              cmk_type: 'FhirDatastoreKmsEncryptionConfigCmkType',
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cmkType' in kwargs:
+            cmk_type = kwargs['cmkType']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("cmk_type", cmk_type)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -258,7 +274,11 @@ class FhirDatastorePreloadDataConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              preload_data_type: 'FhirDatastorePreloadDataConfigPreloadDataType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preloadDataType' in kwargs:
+            preload_data_type = kwargs['preloadDataType']
+
         _setter("preload_data_type", preload_data_type)
 
     @property
@@ -305,7 +325,11 @@ class FhirDatastoreSseConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsEncryptionConfig' in kwargs:
+            kms_encryption_config = kwargs['kmsEncryptionConfig']
+
         _setter("kms_encryption_config", kms_encryption_config)
 
     @property
@@ -337,7 +361,9 @@ class FhirDatastoreTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

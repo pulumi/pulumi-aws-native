@@ -56,7 +56,17 @@ class AnalysisArgs:
              status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
              theme_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'analysisId' in kwargs:
+            analysis_id = kwargs['analysisId']
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+
         _setter("analysis_id", analysis_id)
         _setter("aws_account_id", aws_account_id)
         if definition is not None:

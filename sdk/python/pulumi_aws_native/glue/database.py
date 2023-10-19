@@ -31,7 +31,13 @@ class DatabaseArgs:
              _setter: Callable[[Any, Any], None],
              catalog_id: pulumi.Input[str],
              database_input: pulumi.Input['DatabaseInputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseInput' in kwargs:
+            database_input = kwargs['databaseInput']
+
         _setter("catalog_id", catalog_id)
         _setter("database_input", database_input)
 

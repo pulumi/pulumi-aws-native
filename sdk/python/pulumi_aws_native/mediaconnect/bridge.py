@@ -51,7 +51,17 @@ class BridgeArgs:
              name: Optional[pulumi.Input[str]] = None,
              outputs: Optional[pulumi.Input[Sequence[pulumi.Input['BridgeOutputArgs']]]] = None,
              source_failover_config: Optional[pulumi.Input['BridgeFailoverConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'placementArn' in kwargs:
+            placement_arn = kwargs['placementArn']
+        if 'egressGatewayBridge' in kwargs:
+            egress_gateway_bridge = kwargs['egressGatewayBridge']
+        if 'ingressGatewayBridge' in kwargs:
+            ingress_gateway_bridge = kwargs['ingressGatewayBridge']
+        if 'sourceFailoverConfig' in kwargs:
+            source_failover_config = kwargs['sourceFailoverConfig']
+
         _setter("placement_arn", placement_arn)
         _setter("sources", sources)
         if egress_gateway_bridge is not None:

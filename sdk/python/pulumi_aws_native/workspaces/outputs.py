@@ -61,7 +61,17 @@ class ConnectionAliasAssociation(dict):
              association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
              connection_identifier: Optional[str] = None,
              resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatedAccountId' in kwargs:
+            associated_account_id = kwargs['associatedAccountId']
+        if 'associationStatus' in kwargs:
+            association_status = kwargs['associationStatus']
+        if 'connectionIdentifier' in kwargs:
+            connection_identifier = kwargs['connectionIdentifier']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if associated_account_id is not None:
             _setter("associated_account_id", associated_account_id)
         if association_status is not None:
@@ -107,7 +117,9 @@ class ConnectionAliasTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -171,7 +183,19 @@ class WorkspaceProperties(dict):
              running_mode: Optional[str] = None,
              running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
              user_volume_size_gib: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeTypeName' in kwargs:
+            compute_type_name = kwargs['computeTypeName']
+        if 'rootVolumeSizeGib' in kwargs:
+            root_volume_size_gib = kwargs['rootVolumeSizeGib']
+        if 'runningMode' in kwargs:
+            running_mode = kwargs['runningMode']
+        if 'runningModeAutoStopTimeoutInMinutes' in kwargs:
+            running_mode_auto_stop_timeout_in_minutes = kwargs['runningModeAutoStopTimeoutInMinutes']
+        if 'userVolumeSizeGib' in kwargs:
+            user_volume_size_gib = kwargs['userVolumeSizeGib']
+
         if compute_type_name is not None:
             _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -224,7 +248,9 @@ class WorkspaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

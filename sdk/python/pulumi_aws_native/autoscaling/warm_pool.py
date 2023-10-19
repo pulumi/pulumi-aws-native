@@ -40,7 +40,19 @@ class WarmPoolArgs:
              max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
              min_size: Optional[pulumi.Input[int]] = None,
              pool_state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if 'instanceReusePolicy' in kwargs:
+            instance_reuse_policy = kwargs['instanceReusePolicy']
+        if 'maxGroupPreparedCapacity' in kwargs:
+            max_group_prepared_capacity = kwargs['maxGroupPreparedCapacity']
+        if 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if 'poolState' in kwargs:
+            pool_state = kwargs['poolState']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if instance_reuse_policy is not None:
             _setter("instance_reuse_policy", instance_reuse_policy)

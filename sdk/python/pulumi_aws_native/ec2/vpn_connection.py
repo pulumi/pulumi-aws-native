@@ -53,7 +53,19 @@ class VpnConnectionArgs:
              transit_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerGatewayId' in kwargs:
+            customer_gateway_id = kwargs['customerGatewayId']
+        if 'staticRoutesOnly' in kwargs:
+            static_routes_only = kwargs['staticRoutesOnly']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if 'vpnTunnelOptionsSpecifications' in kwargs:
+            vpn_tunnel_options_specifications = kwargs['vpnTunnelOptionsSpecifications']
+
         _setter("customer_gateway_id", customer_gateway_id)
         _setter("type", type)
         if static_routes_only is not None:

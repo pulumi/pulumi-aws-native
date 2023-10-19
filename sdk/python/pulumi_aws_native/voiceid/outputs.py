@@ -43,7 +43,11 @@ class DomainServerSideEncryptionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("kms_key_id", kms_key_id)
 
     @property
@@ -67,7 +71,9 @@ class DomainTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -34,7 +34,15 @@ class NodeArgs:
              member_id: pulumi.Input[str],
              network_id: pulumi.Input[str],
              node_configuration: pulumi.Input['NodeConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if 'nodeConfiguration' in kwargs:
+            node_configuration = kwargs['nodeConfiguration']
+
         _setter("member_id", member_id)
         _setter("network_id", network_id)
         _setter("node_configuration", node_configuration)

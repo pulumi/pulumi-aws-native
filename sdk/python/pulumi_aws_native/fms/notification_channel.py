@@ -29,7 +29,13 @@ class NotificationChannelArgs:
              _setter: Callable[[Any, Any], None],
              sns_role_name: pulumi.Input[str],
              sns_topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsRoleName' in kwargs:
+            sns_role_name = kwargs['snsRoleName']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("sns_role_name", sns_role_name)
         _setter("sns_topic_arn", sns_topic_arn)
 

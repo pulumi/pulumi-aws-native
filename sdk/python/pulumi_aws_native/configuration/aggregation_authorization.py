@@ -37,7 +37,13 @@ class AggregationAuthorizationArgs:
              authorized_account_id: pulumi.Input[str],
              authorized_aws_region: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizedAccountId' in kwargs:
+            authorized_account_id = kwargs['authorizedAccountId']
+        if 'authorizedAwsRegion' in kwargs:
+            authorized_aws_region = kwargs['authorizedAwsRegion']
+
         _setter("authorized_account_id", authorized_account_id)
         _setter("authorized_aws_region", authorized_aws_region)
         if tags is not None:

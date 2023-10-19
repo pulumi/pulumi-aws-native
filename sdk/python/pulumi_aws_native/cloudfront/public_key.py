@@ -28,7 +28,11 @@ class PublicKeyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              public_key_config: pulumi.Input['PublicKeyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKeyConfig' in kwargs:
+            public_key_config = kwargs['publicKeyConfig']
+
         _setter("public_key_config", public_key_config)
 
     @property

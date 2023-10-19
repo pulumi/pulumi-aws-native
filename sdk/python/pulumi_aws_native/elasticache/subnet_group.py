@@ -40,7 +40,13 @@ class SubnetGroupArgs:
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'cacheSubnetGroupName' in kwargs:
+            cache_subnet_group_name = kwargs['cacheSubnetGroupName']
+
         _setter("description", description)
         _setter("subnet_ids", subnet_ids)
         if cache_subnet_group_name is not None:

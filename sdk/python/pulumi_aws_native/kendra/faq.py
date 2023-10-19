@@ -54,7 +54,17 @@ class FaqArgs:
              file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 's3Path' in kwargs:
+            s3_path = kwargs['s3Path']
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+
         _setter("index_id", index_id)
         _setter("role_arn", role_arn)
         _setter("s3_path", s3_path)

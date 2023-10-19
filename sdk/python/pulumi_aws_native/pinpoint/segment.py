@@ -40,7 +40,13 @@ class SegmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              segment_groups: Optional[pulumi.Input['SegmentGroupsArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'segmentGroups' in kwargs:
+            segment_groups = kwargs['segmentGroups']
+
         _setter("application_id", application_id)
         if dimensions is not None:
             _setter("dimensions", dimensions)

@@ -43,7 +43,11 @@ class ExecutionPlanCapacityUnitsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rescore_capacity_units: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rescoreCapacityUnits' in kwargs:
+            rescore_capacity_units = kwargs['rescoreCapacityUnits']
+
         _setter("rescore_capacity_units", rescore_capacity_units)
 
     @property
@@ -75,7 +79,9 @@ class ExecutionPlanTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

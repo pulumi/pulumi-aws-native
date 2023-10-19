@@ -37,7 +37,11 @@ class TransitGatewayMulticastDomainArgs:
              transit_gateway_id: pulumi.Input[str],
              options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayMulticastDomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+
         _setter("transit_gateway_id", transit_gateway_id)
         if options is not None:
             _setter("options", options)

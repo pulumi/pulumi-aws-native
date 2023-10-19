@@ -29,7 +29,11 @@ class ResourceCollectionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceCollectionFilter' in kwargs:
+            resource_collection_filter = kwargs['resourceCollectionFilter']
+
         _setter("resource_collection_filter", resource_collection_filter)
 
     @property

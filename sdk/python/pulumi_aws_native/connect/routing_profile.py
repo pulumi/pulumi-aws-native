@@ -58,7 +58,19 @@ class RoutingProfileArgs:
              name: Optional[pulumi.Input[str]] = None,
              queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultOutboundQueueArn' in kwargs:
+            default_outbound_queue_arn = kwargs['defaultOutboundQueueArn']
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'mediaConcurrencies' in kwargs:
+            media_concurrencies = kwargs['mediaConcurrencies']
+        if 'agentAvailabilityTimer' in kwargs:
+            agent_availability_timer = kwargs['agentAvailabilityTimer']
+        if 'queueConfigs' in kwargs:
+            queue_configs = kwargs['queueConfigs']
+
         _setter("default_outbound_queue_arn", default_outbound_queue_arn)
         _setter("description", description)
         _setter("instance_arn", instance_arn)

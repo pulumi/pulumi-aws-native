@@ -41,7 +41,13 @@ class EventStreamArgs:
              uri: pulumi.Input[str],
              event_stream_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'eventStreamName' in kwargs:
+            event_stream_name = kwargs['eventStreamName']
+
         _setter("domain_name", domain_name)
         _setter("uri", uri)
         if event_stream_name is not None:

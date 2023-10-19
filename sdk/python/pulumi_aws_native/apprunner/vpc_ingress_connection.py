@@ -40,7 +40,15 @@ class VpcIngressConnectionArgs:
              service_arn: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]] = None,
              vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ingressVpcConfiguration' in kwargs:
+            ingress_vpc_configuration = kwargs['ingressVpcConfiguration']
+        if 'serviceArn' in kwargs:
+            service_arn = kwargs['serviceArn']
+        if 'vpcIngressConnectionName' in kwargs:
+            vpc_ingress_connection_name = kwargs['vpcIngressConnectionName']
+
         _setter("ingress_vpc_configuration", ingress_vpc_configuration)
         _setter("service_arn", service_arn)
         if tags is not None:

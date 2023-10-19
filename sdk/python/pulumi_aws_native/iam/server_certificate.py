@@ -43,7 +43,17 @@ class ServerCertificateArgs:
              private_key: Optional[pulumi.Input[str]] = None,
              server_certificate_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBody' in kwargs:
+            certificate_body = kwargs['certificateBody']
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'serverCertificateName' in kwargs:
+            server_certificate_name = kwargs['serverCertificateName']
+
         if certificate_body is not None:
             _setter("certificate_body", certificate_body)
         if certificate_chain is not None:

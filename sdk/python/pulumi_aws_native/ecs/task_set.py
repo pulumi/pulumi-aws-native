@@ -64,7 +64,23 @@ class TaskSetArgs:
              platform_version: Optional[pulumi.Input[str]] = None,
              scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
              service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskDefinition' in kwargs:
+            task_definition = kwargs['taskDefinition']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if 'serviceRegistries' in kwargs:
+            service_registries = kwargs['serviceRegistries']
+
         _setter("cluster", cluster)
         _setter("service", service)
         _setter("task_definition", task_definition)

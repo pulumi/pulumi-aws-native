@@ -39,7 +39,9 @@ class PolicyIeMapArgs:
              _setter: Callable[[Any, Any], None],
              account: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if account is not None:
             _setter("account", account)
         if orgunit is not None:
@@ -79,7 +81,11 @@ class PolicyNetworkFirewallPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -110,7 +116,13 @@ class PolicyOptionArgs:
              _setter: Callable[[Any, Any], None],
              network_firewall_policy: Optional[pulumi.Input['PolicyNetworkFirewallPolicyArgs']] = None,
              third_party_firewall_policy: Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFirewallPolicy' in kwargs:
+            network_firewall_policy = kwargs['networkFirewallPolicy']
+        if 'thirdPartyFirewallPolicy' in kwargs:
+            third_party_firewall_policy = kwargs['thirdPartyFirewallPolicy']
+
         if network_firewall_policy is not None:
             _setter("network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
@@ -153,7 +165,9 @@ class PolicyResourceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -198,7 +212,13 @@ class PolicySecurityServicePolicyDataArgs:
              type: pulumi.Input['PolicyType'],
              managed_service_data: Optional[pulumi.Input[str]] = None,
              policy_option: Optional[pulumi.Input['PolicyOptionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedServiceData' in kwargs:
+            managed_service_data = kwargs['managedServiceData']
+        if 'policyOption' in kwargs:
+            policy_option = kwargs['policyOption']
+
         _setter("type", type)
         if managed_service_data is not None:
             _setter("managed_service_data", managed_service_data)
@@ -251,7 +271,9 @@ class PolicyTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -289,7 +311,11 @@ class PolicyThirdPartyFirewallPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -320,7 +346,9 @@ class ResourceSetTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

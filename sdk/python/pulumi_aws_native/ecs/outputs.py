@@ -117,7 +117,15 @@ class CapacityProviderAutoScalingGroupProvider(dict):
              auto_scaling_group_arn: str,
              managed_scaling: Optional['outputs.CapacityProviderManagedScaling'] = None,
              managed_termination_protection: Optional['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingGroupArn' in kwargs:
+            auto_scaling_group_arn = kwargs['autoScalingGroupArn']
+        if 'managedScaling' in kwargs:
+            managed_scaling = kwargs['managedScaling']
+        if 'managedTerminationProtection' in kwargs:
+            managed_termination_protection = kwargs['managedTerminationProtection']
+
         _setter("auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_scaling is not None:
             _setter("managed_scaling", managed_scaling)
@@ -193,7 +201,17 @@ class CapacityProviderManagedScaling(dict):
              minimum_scaling_step_size: Optional[int] = None,
              status: Optional['CapacityProviderManagedScalingStatus'] = None,
              target_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceWarmupPeriod' in kwargs:
+            instance_warmup_period = kwargs['instanceWarmupPeriod']
+        if 'maximumScalingStepSize' in kwargs:
+            maximum_scaling_step_size = kwargs['maximumScalingStepSize']
+        if 'minimumScalingStepSize' in kwargs:
+            minimum_scaling_step_size = kwargs['minimumScalingStepSize']
+        if 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+
         if instance_warmup_period is not None:
             _setter("instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
@@ -246,7 +264,9 @@ class CapacityProviderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -298,7 +318,11 @@ class ClusterCapacityProviderAssociationsCapacityProviderStrategy(dict):
              capacity_provider: str,
              base: Optional[int] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -362,7 +386,11 @@ class ClusterCapacityProviderStrategyItem(dict):
              base: Optional[int] = None,
              capacity_provider: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+
         if base is not None:
             _setter("base", base)
         if capacity_provider is not None:
@@ -421,7 +449,11 @@ class ClusterConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              execute_command_configuration: Optional['outputs.ClusterExecuteCommandConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executeCommandConfiguration' in kwargs:
+            execute_command_configuration = kwargs['executeCommandConfiguration']
+
         if execute_command_configuration is not None:
             _setter("execute_command_configuration", execute_command_configuration)
 
@@ -474,7 +506,13 @@ class ClusterExecuteCommandConfiguration(dict):
              kms_key_id: Optional[str] = None,
              log_configuration: Optional['outputs.ClusterExecuteCommandLogConfiguration'] = None,
              logging: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if log_configuration is not None:
@@ -553,7 +591,19 @@ class ClusterExecuteCommandLogConfiguration(dict):
              s3_bucket_name: Optional[str] = None,
              s3_encryption_enabled: Optional[bool] = None,
              s3_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchEncryptionEnabled' in kwargs:
+            cloud_watch_encryption_enabled = kwargs['cloudWatchEncryptionEnabled']
+        if 'cloudWatchLogGroupName' in kwargs:
+            cloud_watch_log_group_name = kwargs['cloudWatchLogGroupName']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3EncryptionEnabled' in kwargs:
+            s3_encryption_enabled = kwargs['s3EncryptionEnabled']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         if cloud_watch_encryption_enabled is not None:
             _setter("cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
         if cloud_watch_log_group_name is not None:
@@ -610,7 +660,9 @@ class ClusterServiceConnectDefaults(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              namespace: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if namespace is not None:
             _setter("namespace", namespace)
 
@@ -644,7 +696,9 @@ class ClusterSettings(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -682,7 +736,9 @@ class ClusterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -736,7 +792,13 @@ class ServiceAwsVpcConfiguration(dict):
              assign_public_ip: Optional['ServiceAwsVpcConfigurationAssignPublicIp'] = None,
              security_groups: Optional[Sequence[str]] = None,
              subnets: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
@@ -795,7 +857,11 @@ class ServiceCapacityProviderStrategyItem(dict):
              base: Optional[int] = None,
              capacity_provider: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+
         if base is not None:
             _setter("base", base)
         if capacity_provider is not None:
@@ -851,7 +917,11 @@ class ServiceConnectClientAlias(dict):
              _setter: Callable[[Any, Any], None],
              port: int,
              dns_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+
         _setter("port", port)
         if dns_name is not None:
             _setter("dns_name", dns_name)
@@ -905,7 +975,11 @@ class ServiceConnectConfiguration(dict):
              log_configuration: Optional['outputs.ServiceLogConfiguration'] = None,
              namespace: Optional[str] = None,
              services: Optional[Sequence['outputs.ServiceConnectService']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         _setter("enabled", enabled)
         if log_configuration is not None:
             _setter("log_configuration", log_configuration)
@@ -979,7 +1053,17 @@ class ServiceConnectService(dict):
              client_aliases: Optional[Sequence['outputs.ServiceConnectClientAlias']] = None,
              discovery_name: Optional[str] = None,
              ingress_port_override: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portName' in kwargs:
+            port_name = kwargs['portName']
+        if 'clientAliases' in kwargs:
+            client_aliases = kwargs['clientAliases']
+        if 'discoveryName' in kwargs:
+            discovery_name = kwargs['discoveryName']
+        if 'ingressPortOverride' in kwargs:
+            ingress_port_override = kwargs['ingressPortOverride']
+
         _setter("port_name", port_name)
         if client_aliases is not None:
             _setter("client_aliases", client_aliases)
@@ -1044,7 +1128,11 @@ class ServiceDeploymentAlarms(dict):
              alarm_names: Sequence[str],
              enable: bool,
              rollback: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmNames' in kwargs:
+            alarm_names = kwargs['alarmNames']
+
         _setter("alarm_names", alarm_names)
         _setter("enable", enable)
         _setter("rollback", rollback)
@@ -1080,7 +1168,9 @@ class ServiceDeploymentCircuitBreaker(dict):
              _setter: Callable[[Any, Any], None],
              enable: bool,
              rollback: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enable", enable)
         _setter("rollback", rollback)
 
@@ -1137,7 +1227,15 @@ class ServiceDeploymentConfiguration(dict):
              deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
              maximum_percent: Optional[int] = None,
              minimum_healthy_percent: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentCircuitBreaker' in kwargs:
+            deployment_circuit_breaker = kwargs['deploymentCircuitBreaker']
+        if 'maximumPercent' in kwargs:
+            maximum_percent = kwargs['maximumPercent']
+        if 'minimumHealthyPercent' in kwargs:
+            minimum_healthy_percent = kwargs['minimumHealthyPercent']
+
         if alarms is not None:
             _setter("alarms", alarms)
         if deployment_circuit_breaker is not None:
@@ -1180,7 +1278,9 @@ class ServiceDeploymentController(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional['ServiceDeploymentControllerType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -1234,7 +1334,17 @@ class ServiceLoadBalancer(dict):
              container_port: Optional[int] = None,
              load_balancer_name: Optional[str] = None,
              target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if container_port is not None:
@@ -1302,7 +1412,13 @@ class ServiceLogConfiguration(dict):
              log_driver: Optional[str] = None,
              options: Optional[Any] = None,
              secret_options: Optional[Sequence['outputs.ServiceSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDriver' in kwargs:
+            log_driver = kwargs['logDriver']
+        if 'secretOptions' in kwargs:
+            secret_options = kwargs['secretOptions']
+
         if log_driver is not None:
             _setter("log_driver", log_driver)
         if options is not None:
@@ -1355,7 +1471,11 @@ class ServiceNetworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              awsvpc_configuration: Optional['outputs.ServiceAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsvpcConfiguration' in kwargs:
+            awsvpc_configuration = kwargs['awsvpcConfiguration']
+
         if awsvpc_configuration is not None:
             _setter("awsvpc_configuration", awsvpc_configuration)
 
@@ -1380,7 +1500,9 @@ class ServicePlacementConstraint(dict):
              _setter: Callable[[Any, Any], None],
              type: 'ServicePlacementConstraintType',
              expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if expression is not None:
             _setter("expression", expression)
@@ -1411,7 +1533,9 @@ class ServicePlacementStrategy(dict):
              _setter: Callable[[Any, Any], None],
              type: 'ServicePlacementStrategyType',
              field: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if field is not None:
             _setter("field", field)
@@ -1469,7 +1593,15 @@ class ServiceRegistry(dict):
              container_port: Optional[int] = None,
              port: Optional[int] = None,
              registry_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if container_port is not None:
@@ -1532,7 +1664,11 @@ class ServiceSecret(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueFrom' in kwargs:
+            value_from = kwargs['valueFrom']
+
         _setter("name", name)
         _setter("value_from", value_from)
 
@@ -1562,7 +1698,9 @@ class ServiceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1611,7 +1749,11 @@ class TaskDefinitionAuthorizationConfig(dict):
              _setter: Callable[[Any, Any], None],
              access_point_id: Optional[str] = None,
              iam: Optional['TaskDefinitionAuthorizationConfigIam'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPointId' in kwargs:
+            access_point_id = kwargs['accessPointId']
+
         if access_point_id is not None:
             _setter("access_point_id", access_point_id)
         if iam is not None:
@@ -1831,7 +1973,59 @@ class TaskDefinitionContainerDefinition(dict):
              user: Optional[str] = None,
              volumes_from: Optional[Sequence['outputs.TaskDefinitionVolumeFrom']] = None,
              working_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if 'disableNetworking' in kwargs:
+            disable_networking = kwargs['disableNetworking']
+        if 'dnsSearchDomains' in kwargs:
+            dns_search_domains = kwargs['dnsSearchDomains']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'dockerLabels' in kwargs:
+            docker_labels = kwargs['dockerLabels']
+        if 'dockerSecurityOptions' in kwargs:
+            docker_security_options = kwargs['dockerSecurityOptions']
+        if 'entryPoint' in kwargs:
+            entry_point = kwargs['entryPoint']
+        if 'environmentFiles' in kwargs:
+            environment_files = kwargs['environmentFiles']
+        if 'extraHosts' in kwargs:
+            extra_hosts = kwargs['extraHosts']
+        if 'firelensConfiguration' in kwargs:
+            firelens_configuration = kwargs['firelensConfiguration']
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if 'linuxParameters' in kwargs:
+            linux_parameters = kwargs['linuxParameters']
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+        if 'memoryReservation' in kwargs:
+            memory_reservation = kwargs['memoryReservation']
+        if 'mountPoints' in kwargs:
+            mount_points = kwargs['mountPoints']
+        if 'portMappings' in kwargs:
+            port_mappings = kwargs['portMappings']
+        if 'pseudoTerminal' in kwargs:
+            pseudo_terminal = kwargs['pseudoTerminal']
+        if 'readonlyRootFilesystem' in kwargs:
+            readonly_root_filesystem = kwargs['readonlyRootFilesystem']
+        if 'repositoryCredentials' in kwargs:
+            repository_credentials = kwargs['repositoryCredentials']
+        if 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+        if 'startTimeout' in kwargs:
+            start_timeout = kwargs['startTimeout']
+        if 'stopTimeout' in kwargs:
+            stop_timeout = kwargs['stopTimeout']
+        if 'systemControls' in kwargs:
+            system_controls = kwargs['systemControls']
+        if 'volumesFrom' in kwargs:
+            volumes_from = kwargs['volumesFrom']
+        if 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("image", image)
         _setter("name", name)
         if command is not None:
@@ -2155,7 +2349,11 @@ class TaskDefinitionContainerDependency(dict):
              _setter: Callable[[Any, Any], None],
              condition: Optional[str] = None,
              container_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+
         if condition is not None:
             _setter("condition", condition)
         if container_name is not None:
@@ -2209,7 +2407,13 @@ class TaskDefinitionDevice(dict):
              container_path: Optional[str] = None,
              host_path: Optional[str] = None,
              permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'hostPath' in kwargs:
+            host_path = kwargs['hostPath']
+
         if container_path is not None:
             _setter("container_path", container_path)
         if host_path is not None:
@@ -2274,7 +2478,11 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
              driver_opts: Optional[Any] = None,
              labels: Optional[Any] = None,
              scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'driverOpts' in kwargs:
+            driver_opts = kwargs['driverOpts']
+
         if autoprovision is not None:
             _setter("autoprovision", autoprovision)
         if driver is not None:
@@ -2361,7 +2569,19 @@ class TaskDefinitionEfsVolumeConfiguration(dict):
              root_directory: Optional[str] = None,
              transit_encryption: Optional['TaskDefinitionEfsVolumeConfigurationTransitEncryption'] = None,
              transit_encryption_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+        if 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+        if 'transitEncryption' in kwargs:
+            transit_encryption = kwargs['transitEncryption']
+        if 'transitEncryptionPort' in kwargs:
+            transit_encryption_port = kwargs['transitEncryptionPort']
+
         _setter("filesystem_id", filesystem_id)
         if authorization_config is not None:
             _setter("authorization_config", authorization_config)
@@ -2413,7 +2633,9 @@ class TaskDefinitionEnvironmentFile(dict):
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if value is not None:
@@ -2459,7 +2681,11 @@ class TaskDefinitionEphemeralStorage(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              size_in_gi_b: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sizeInGiB' in kwargs:
+            size_in_gi_b = kwargs['sizeInGiB']
+
         if size_in_gi_b is not None:
             _setter("size_in_gi_b", size_in_gi_b)
 
@@ -2484,7 +2710,9 @@ class TaskDefinitionFirelensConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              options: Optional[Any] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if options is not None:
             _setter("options", options)
         if type is not None:
@@ -2553,7 +2781,11 @@ class TaskDefinitionHealthCheck(dict):
              retries: Optional[int] = None,
              start_period: Optional[int] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startPeriod' in kwargs:
+            start_period = kwargs['startPeriod']
+
         if command is not None:
             _setter("command", command)
         if interval is not None:
@@ -2638,7 +2870,11 @@ class TaskDefinitionHostEntry(dict):
              _setter: Callable[[Any, Any], None],
              hostname: Optional[str] = None,
              ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if hostname is not None:
             _setter("hostname", hostname)
         if ip_address is not None:
@@ -2684,7 +2920,11 @@ class TaskDefinitionHostVolumeProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         if source_path is not None:
             _setter("source_path", source_path)
 
@@ -2728,7 +2968,13 @@ class TaskDefinitionInferenceAccelerator(dict):
              _setter: Callable[[Any, Any], None],
              device_name: Optional[str] = None,
              device_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if device_type is not None:
@@ -2760,7 +3006,9 @@ class TaskDefinitionKernelCapabilities(dict):
              _setter: Callable[[Any, Any], None],
              add: Optional[Sequence[str]] = None,
              drop: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if add is not None:
             _setter("add", add)
         if drop is not None:
@@ -2792,7 +3040,9 @@ class TaskDefinitionKeyValuePair(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -2860,7 +3110,15 @@ class TaskDefinitionLinuxParameters(dict):
              shared_memory_size: Optional[int] = None,
              swappiness: Optional[int] = None,
              tmpfs: Optional[Sequence['outputs.TaskDefinitionTmpfs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'initProcessEnabled' in kwargs:
+            init_process_enabled = kwargs['initProcessEnabled']
+        if 'maxSwap' in kwargs:
+            max_swap = kwargs['maxSwap']
+        if 'sharedMemorySize' in kwargs:
+            shared_memory_size = kwargs['sharedMemorySize']
+
         if capabilities is not None:
             _setter("capabilities", capabilities)
         if devices is not None:
@@ -2949,7 +3207,13 @@ class TaskDefinitionLogConfiguration(dict):
              log_driver: str,
              options: Optional[Any] = None,
              secret_options: Optional[Sequence['outputs.TaskDefinitionSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDriver' in kwargs:
+            log_driver = kwargs['logDriver']
+        if 'secretOptions' in kwargs:
+            secret_options = kwargs['secretOptions']
+
         _setter("log_driver", log_driver)
         if options is not None:
             _setter("options", options)
@@ -3011,7 +3275,15 @@ class TaskDefinitionMountPoint(dict):
              container_path: Optional[str] = None,
              read_only: Optional[bool] = None,
              source_volume: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'sourceVolume' in kwargs:
+            source_volume = kwargs['sourceVolume']
+
         if container_path is not None:
             _setter("container_path", container_path)
         if read_only is not None:
@@ -3050,7 +3322,9 @@ class TaskDefinitionPlacementConstraint(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if expression is not None:
             _setter("expression", expression)
@@ -3116,7 +3390,17 @@ class TaskDefinitionPortMapping(dict):
              host_port: Optional[int] = None,
              name: Optional[str] = None,
              protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+        if 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if 'containerPortRange' in kwargs:
+            container_port_range = kwargs['containerPortRange']
+        if 'hostPort' in kwargs:
+            host_port = kwargs['hostPort']
+
         if app_protocol is not None:
             _setter("app_protocol", app_protocol)
         if container_port is not None:
@@ -3198,7 +3482,13 @@ class TaskDefinitionProxyConfiguration(dict):
              container_name: str,
              proxy_configuration_properties: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'proxyConfigurationProperties' in kwargs:
+            proxy_configuration_properties = kwargs['proxyConfigurationProperties']
+
         _setter("container_name", container_name)
         if proxy_configuration_properties is not None:
             _setter("proxy_configuration_properties", proxy_configuration_properties)
@@ -3250,7 +3540,11 @@ class TaskDefinitionRepositoryCredentials(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              credentials_parameter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'credentialsParameter' in kwargs:
+            credentials_parameter = kwargs['credentialsParameter']
+
         if credentials_parameter is not None:
             _setter("credentials_parameter", credentials_parameter)
 
@@ -3275,7 +3569,9 @@ class TaskDefinitionResourceRequirement(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -3324,7 +3620,13 @@ class TaskDefinitionRuntimePlatform(dict):
              _setter: Callable[[Any, Any], None],
              cpu_architecture: Optional[str] = None,
              operating_system_family: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuArchitecture' in kwargs:
+            cpu_architecture = kwargs['cpuArchitecture']
+        if 'operatingSystemFamily' in kwargs:
+            operating_system_family = kwargs['operatingSystemFamily']
+
         if cpu_architecture is not None:
             _setter("cpu_architecture", cpu_architecture)
         if operating_system_family is not None:
@@ -3373,7 +3675,11 @@ class TaskDefinitionSecret(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueFrom' in kwargs:
+            value_from = kwargs['valueFrom']
+
         _setter("name", name)
         _setter("value_from", value_from)
 
@@ -3403,7 +3709,9 @@ class TaskDefinitionSystemControl(dict):
              _setter: Callable[[Any, Any], None],
              namespace: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if namespace is not None:
             _setter("namespace", namespace)
         if value is not None:
@@ -3435,7 +3743,9 @@ class TaskDefinitionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3489,7 +3799,13 @@ class TaskDefinitionTmpfs(dict):
              size: int,
              container_path: Optional[str] = None,
              mount_options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerPath' in kwargs:
+            container_path = kwargs['containerPath']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("size", size)
         if container_path is not None:
             _setter("container_path", container_path)
@@ -3549,7 +3865,13 @@ class TaskDefinitionUlimit(dict):
              hard_limit: int,
              name: str,
              soft_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hardLimit' in kwargs:
+            hard_limit = kwargs['hardLimit']
+        if 'softLimit' in kwargs:
+            soft_limit = kwargs['softLimit']
+
         _setter("hard_limit", hard_limit)
         _setter("name", name)
         _setter("soft_limit", soft_limit)
@@ -3610,7 +3932,13 @@ class TaskDefinitionVolume(dict):
              efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
              host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dockerVolumeConfiguration' in kwargs:
+            docker_volume_configuration = kwargs['dockerVolumeConfiguration']
+        if 'efsVolumeConfiguration' in kwargs:
+            efs_volume_configuration = kwargs['efsVolumeConfiguration']
+
         if docker_volume_configuration is not None:
             _setter("docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
@@ -3675,7 +4003,13 @@ class TaskDefinitionVolumeFrom(dict):
              _setter: Callable[[Any, Any], None],
              read_only: Optional[bool] = None,
              source_container: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'sourceContainer' in kwargs:
+            source_container = kwargs['sourceContainer']
+
         if read_only is not None:
             _setter("read_only", read_only)
         if source_container is not None:
@@ -3738,7 +4072,13 @@ class TaskSetAwsVpcConfiguration(dict):
              subnets: Sequence[str],
              assign_public_ip: Optional['TaskSetAwsVpcConfigurationAssignPublicIp'] = None,
              security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -3818,7 +4158,15 @@ class TaskSetLoadBalancer(dict):
              container_name: Optional[str] = None,
              container_port: Optional[int] = None,
              target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if container_port is not None:
@@ -3886,7 +4234,11 @@ class TaskSetNetworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              aws_vpc_configuration: Optional['outputs.TaskSetAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsVpcConfiguration' in kwargs:
+            aws_vpc_configuration = kwargs['awsVpcConfiguration']
+
         if aws_vpc_configuration is not None:
             _setter("aws_vpc_configuration", aws_vpc_configuration)
 
@@ -3915,7 +4267,9 @@ class TaskSetScale(dict):
              _setter: Callable[[Any, Any], None],
              unit: Optional['TaskSetScaleUnit'] = None,
              value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if unit is not None:
             _setter("unit", unit)
         if value is not None:
@@ -3986,7 +4340,15 @@ class TaskSetServiceRegistry(dict):
              container_port: Optional[int] = None,
              port: Optional[int] = None,
              registry_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if container_port is not None:

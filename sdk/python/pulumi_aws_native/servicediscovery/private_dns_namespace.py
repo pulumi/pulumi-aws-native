@@ -40,7 +40,9 @@ class PrivateDnsNamespaceArgs:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input['PrivateDnsNamespacePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("vpc", vpc)
         if description is not None:
             _setter("description", description)

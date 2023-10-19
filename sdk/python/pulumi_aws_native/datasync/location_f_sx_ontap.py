@@ -45,7 +45,13 @@ class LocationFSxOntapArgs:
              protocol: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'storageVirtualMachineArn' in kwargs:
+            storage_virtual_machine_arn = kwargs['storageVirtualMachineArn']
+
         _setter("security_group_arns", security_group_arns)
         _setter("storage_virtual_machine_arn", storage_virtual_machine_arn)
         if protocol is not None:

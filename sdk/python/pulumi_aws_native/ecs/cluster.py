@@ -47,7 +47,19 @@ class ClusterArgs:
              default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
              service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityProviders' in kwargs:
+            capacity_providers = kwargs['capacityProviders']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if 'defaultCapacityProviderStrategy' in kwargs:
+            default_capacity_provider_strategy = kwargs['defaultCapacityProviderStrategy']
+        if 'serviceConnectDefaults' in kwargs:
+            service_connect_defaults = kwargs['serviceConnectDefaults']
+
         if capacity_providers is not None:
             _setter("capacity_providers", capacity_providers)
         if cluster_name is not None:

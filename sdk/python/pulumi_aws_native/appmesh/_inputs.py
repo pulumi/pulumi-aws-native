@@ -167,7 +167,9 @@ class GatewayRouteGrpcGatewayRouteActionArgs:
              _setter: Callable[[Any, Any], None],
              target: pulumi.Input['GatewayRouteTargetArgs'],
              rewrite: Optional[pulumi.Input['GatewayRouteGrpcGatewayRouteRewriteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if rewrite is not None:
             _setter("rewrite", rewrite)
@@ -212,7 +214,11 @@ class GatewayRouteGrpcGatewayRouteMatchArgs:
              metadata: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteGrpcGatewayRouteMetadataArgs']]]] = None,
              port: Optional[pulumi.Input[int]] = None,
              service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if hostname is not None:
             _setter("hostname", hostname)
         if metadata is not None:
@@ -277,7 +283,9 @@ class GatewayRouteGrpcGatewayRouteMetadataArgs:
              name: pulumi.Input[str],
              invert: Optional[pulumi.Input[bool]] = None,
              match: Optional[pulumi.Input['GatewayRouteMetadataMatchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if invert is not None:
             _setter("invert", invert)
@@ -324,7 +332,9 @@ class GatewayRouteGrpcGatewayRouteRewriteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              hostname: Optional[pulumi.Input['GatewayRouteHostnameRewriteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if hostname is not None:
             _setter("hostname", hostname)
 
@@ -353,7 +363,9 @@ class GatewayRouteGrpcGatewayRouteArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['GatewayRouteGrpcGatewayRouteActionArgs'],
              match: pulumi.Input['GatewayRouteGrpcGatewayRouteMatchArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("match", match)
 
@@ -391,7 +403,9 @@ class GatewayRouteHostnameMatchArgs:
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if suffix is not None:
@@ -428,7 +442,11 @@ class GatewayRouteHostnameRewriteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_target_hostname: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultTargetHostname' in kwargs:
+            default_target_hostname = kwargs['defaultTargetHostname']
+
         if default_target_hostname is not None:
             _setter("default_target_hostname", default_target_hostname)
 
@@ -457,7 +475,9 @@ class GatewayRouteHttpGatewayRouteActionArgs:
              _setter: Callable[[Any, Any], None],
              target: pulumi.Input['GatewayRouteTargetArgs'],
              rewrite: Optional[pulumi.Input['GatewayRouteHttpGatewayRouteRewriteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if rewrite is not None:
             _setter("rewrite", rewrite)
@@ -505,7 +525,9 @@ class GatewayRouteHttpGatewayRouteHeaderMatchArgs:
              range: Optional[pulumi.Input['GatewayRouteRangeMatchArgs']] = None,
              regex: Optional[pulumi.Input[str]] = None,
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -581,7 +603,9 @@ class GatewayRouteHttpGatewayRouteHeaderArgs:
              name: pulumi.Input[str],
              invert: Optional[pulumi.Input[bool]] = None,
              match: Optional[pulumi.Input['GatewayRouteHttpGatewayRouteHeaderMatchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if invert is not None:
             _setter("invert", invert)
@@ -646,7 +670,11 @@ class GatewayRouteHttpGatewayRouteMatchArgs:
              port: Optional[pulumi.Input[int]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteQueryParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+
         if headers is not None:
             _setter("headers", headers)
         if hostname is not None:
@@ -738,7 +766,9 @@ class GatewayRouteHttpGatewayRoutePathRewriteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
 
@@ -767,7 +797,11 @@ class GatewayRouteHttpGatewayRoutePrefixRewriteArgs:
              _setter: Callable[[Any, Any], None],
              default_prefix: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultPrefix' in kwargs:
+            default_prefix = kwargs['defaultPrefix']
+
         if default_prefix is not None:
             _setter("default_prefix", default_prefix)
         if value is not None:
@@ -810,7 +844,9 @@ class GatewayRouteHttpGatewayRouteRewriteArgs:
              hostname: Optional[pulumi.Input['GatewayRouteHostnameRewriteArgs']] = None,
              path: Optional[pulumi.Input['GatewayRouteHttpGatewayRoutePathRewriteArgs']] = None,
              prefix: Optional[pulumi.Input['GatewayRouteHttpGatewayRoutePrefixRewriteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if hostname is not None:
             _setter("hostname", hostname)
         if path is not None:
@@ -861,7 +897,9 @@ class GatewayRouteHttpGatewayRouteArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['GatewayRouteHttpGatewayRouteActionArgs'],
              match: pulumi.Input['GatewayRouteHttpGatewayRouteMatchArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("match", match)
 
@@ -899,7 +937,9 @@ class GatewayRouteHttpPathMatchArgs:
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
              regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if regex is not None:
@@ -936,7 +976,9 @@ class GatewayRouteHttpQueryParameterMatchArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
 
@@ -974,7 +1016,9 @@ class GatewayRouteMetadataMatchArgs:
              range: Optional[pulumi.Input['GatewayRouteRangeMatchArgs']] = None,
              regex: Optional[pulumi.Input[str]] = None,
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -1047,7 +1091,9 @@ class GatewayRouteQueryParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              match: Optional[pulumi.Input['GatewayRouteHttpQueryParameterMatchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if match is not None:
             _setter("match", match)
@@ -1086,7 +1132,9 @@ class GatewayRouteRangeMatchArgs:
              _setter: Callable[[Any, Any], None],
              end: pulumi.Input[int],
              start: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
 
@@ -1130,7 +1178,15 @@ class GatewayRouteSpecArgs:
              http2_route: Optional[pulumi.Input['GatewayRouteHttpGatewayRouteArgs']] = None,
              http_route: Optional[pulumi.Input['GatewayRouteHttpGatewayRouteArgs']] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'grpcRoute' in kwargs:
+            grpc_route = kwargs['grpcRoute']
+        if 'http2Route' in kwargs:
+            http2_route = kwargs['http2Route']
+        if 'httpRoute' in kwargs:
+            http_route = kwargs['httpRoute']
+
         if grpc_route is not None:
             _setter("grpc_route", grpc_route)
         if http2_route is not None:
@@ -1192,7 +1248,9 @@ class GatewayRouteTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1230,7 +1288,11 @@ class GatewayRouteTargetArgs:
              _setter: Callable[[Any, Any], None],
              virtual_service: pulumi.Input['GatewayRouteVirtualServiceArgs'],
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualService' in kwargs:
+            virtual_service = kwargs['virtualService']
+
         _setter("virtual_service", virtual_service)
         if port is not None:
             _setter("port", port)
@@ -1266,7 +1328,11 @@ class GatewayRouteVirtualServiceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              virtual_service_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualServiceName' in kwargs:
+            virtual_service_name = kwargs['virtualServiceName']
+
         _setter("virtual_service_name", virtual_service_name)
 
     @property
@@ -1291,7 +1357,9 @@ class MeshEgressFilterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -1316,7 +1384,11 @@ class MeshServiceDiscoveryArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ip_preference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipPreference' in kwargs:
+            ip_preference = kwargs['ipPreference']
+
         if ip_preference is not None:
             _setter("ip_preference", ip_preference)
 
@@ -1345,7 +1417,13 @@ class MeshSpecArgs:
              _setter: Callable[[Any, Any], None],
              egress_filter: Optional[pulumi.Input['MeshEgressFilterArgs']] = None,
              service_discovery: Optional[pulumi.Input['MeshServiceDiscoveryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'egressFilter' in kwargs:
+            egress_filter = kwargs['egressFilter']
+        if 'serviceDiscovery' in kwargs:
+            service_discovery = kwargs['serviceDiscovery']
+
         if egress_filter is not None:
             _setter("egress_filter", egress_filter)
         if service_discovery is not None:
@@ -1385,7 +1463,9 @@ class MeshTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1423,7 +1503,9 @@ class RouteDurationArgs:
              _setter: Callable[[Any, Any], None],
              unit: pulumi.Input[str],
              value: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -1470,7 +1552,19 @@ class RouteGrpcRetryPolicyArgs:
              grpc_retry_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              http_retry_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tcp_retry_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'perRetryTimeout' in kwargs:
+            per_retry_timeout = kwargs['perRetryTimeout']
+        if 'grpcRetryEvents' in kwargs:
+            grpc_retry_events = kwargs['grpcRetryEvents']
+        if 'httpRetryEvents' in kwargs:
+            http_retry_events = kwargs['httpRetryEvents']
+        if 'tcpRetryEvents' in kwargs:
+            tcp_retry_events = kwargs['tcpRetryEvents']
+
         _setter("max_retries", max_retries)
         _setter("per_retry_timeout", per_retry_timeout)
         if grpc_retry_events is not None:
@@ -1538,7 +1632,11 @@ class RouteGrpcRouteActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteWeightedTargetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'weightedTargets' in kwargs:
+            weighted_targets = kwargs['weightedTargets']
+
         _setter("weighted_targets", weighted_targets)
 
     @property
@@ -1572,7 +1670,13 @@ class RouteGrpcRouteMatchArgs:
              method_name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'methodName' in kwargs:
+            method_name = kwargs['methodName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if metadata is not None:
             _setter("metadata", metadata)
         if method_name is not None:
@@ -1643,7 +1747,9 @@ class RouteGrpcRouteMetadataMatchMethodArgs:
              range: Optional[pulumi.Input['RouteMatchRangeArgs']] = None,
              regex: Optional[pulumi.Input[str]] = None,
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -1719,7 +1825,9 @@ class RouteGrpcRouteMetadataArgs:
              name: pulumi.Input[str],
              invert: Optional[pulumi.Input[bool]] = None,
              match: Optional[pulumi.Input['RouteGrpcRouteMetadataMatchMethodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if invert is not None:
             _setter("invert", invert)
@@ -1775,7 +1883,11 @@ class RouteGrpcRouteArgs:
              match: pulumi.Input['RouteGrpcRouteMatchArgs'],
              retry_policy: Optional[pulumi.Input['RouteGrpcRetryPolicyArgs']] = None,
              timeout: Optional[pulumi.Input['RouteGrpcTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+
         _setter("action", action)
         _setter("match", match)
         if retry_policy is not None:
@@ -1835,7 +1947,11 @@ class RouteGrpcTimeoutArgs:
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['RouteDurationArgs']] = None,
              per_request: Optional[pulumi.Input['RouteDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perRequest' in kwargs:
+            per_request = kwargs['perRequest']
+
         if idle is not None:
             _setter("idle", idle)
         if per_request is not None:
@@ -1884,7 +2000,9 @@ class RouteHeaderMatchMethodArgs:
              range: Optional[pulumi.Input['RouteMatchRangeArgs']] = None,
              regex: Optional[pulumi.Input[str]] = None,
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -1957,7 +2075,9 @@ class RouteHttpPathMatchArgs:
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
              regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if regex is not None:
@@ -1994,7 +2114,9 @@ class RouteHttpQueryParameterMatchArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
 
@@ -2029,7 +2151,17 @@ class RouteHttpRetryPolicyArgs:
              per_retry_timeout: pulumi.Input['RouteDurationArgs'],
              http_retry_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tcp_retry_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'perRetryTimeout' in kwargs:
+            per_retry_timeout = kwargs['perRetryTimeout']
+        if 'httpRetryEvents' in kwargs:
+            http_retry_events = kwargs['httpRetryEvents']
+        if 'tcpRetryEvents' in kwargs:
+            tcp_retry_events = kwargs['tcpRetryEvents']
+
         _setter("max_retries", max_retries)
         _setter("per_retry_timeout", per_retry_timeout)
         if http_retry_events is not None:
@@ -2086,7 +2218,11 @@ class RouteHttpRouteActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteWeightedTargetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'weightedTargets' in kwargs:
+            weighted_targets = kwargs['weightedTargets']
+
         _setter("weighted_targets", weighted_targets)
 
     @property
@@ -2117,7 +2253,9 @@ class RouteHttpRouteHeaderArgs:
              name: pulumi.Input[str],
              invert: Optional[pulumi.Input[bool]] = None,
              match: Optional[pulumi.Input['RouteHeaderMatchMethodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if invert is not None:
             _setter("invert", invert)
@@ -2182,7 +2320,11 @@ class RouteHttpRouteMatchArgs:
              prefix: Optional[pulumi.Input[str]] = None,
              query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteQueryParameterArgs']]]] = None,
              scheme: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryParameters' in kwargs:
+            query_parameters = kwargs['queryParameters']
+
         if headers is not None:
             _setter("headers", headers)
         if method is not None:
@@ -2283,7 +2425,11 @@ class RouteHttpRouteArgs:
              match: pulumi.Input['RouteHttpRouteMatchArgs'],
              retry_policy: Optional[pulumi.Input['RouteHttpRetryPolicyArgs']] = None,
              timeout: Optional[pulumi.Input['RouteHttpTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+
         _setter("action", action)
         _setter("match", match)
         if retry_policy is not None:
@@ -2343,7 +2489,11 @@ class RouteHttpTimeoutArgs:
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['RouteDurationArgs']] = None,
              per_request: Optional[pulumi.Input['RouteDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perRequest' in kwargs:
+            per_request = kwargs['perRequest']
+
         if idle is not None:
             _setter("idle", idle)
         if per_request is not None:
@@ -2383,7 +2533,9 @@ class RouteMatchRangeArgs:
              _setter: Callable[[Any, Any], None],
              end: pulumi.Input[int],
              start: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
 
@@ -2421,7 +2573,9 @@ class RouteQueryParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              match: Optional[pulumi.Input['RouteHttpQueryParameterMatchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if match is not None:
             _setter("match", match)
@@ -2469,7 +2623,17 @@ class RouteSpecArgs:
              http_route: Optional[pulumi.Input['RouteHttpRouteArgs']] = None,
              priority: Optional[pulumi.Input[int]] = None,
              tcp_route: Optional[pulumi.Input['RouteTcpRouteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'grpcRoute' in kwargs:
+            grpc_route = kwargs['grpcRoute']
+        if 'http2Route' in kwargs:
+            http2_route = kwargs['http2Route']
+        if 'httpRoute' in kwargs:
+            http_route = kwargs['httpRoute']
+        if 'tcpRoute' in kwargs:
+            tcp_route = kwargs['tcpRoute']
+
         if grpc_route is not None:
             _setter("grpc_route", grpc_route)
         if http2_route is not None:
@@ -2542,7 +2706,9 @@ class RouteTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2577,7 +2743,11 @@ class RouteTcpRouteActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteWeightedTargetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'weightedTargets' in kwargs:
+            weighted_targets = kwargs['weightedTargets']
+
         _setter("weighted_targets", weighted_targets)
 
     @property
@@ -2602,7 +2772,9 @@ class RouteTcpRouteMatchArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if port is not None:
             _setter("port", port)
 
@@ -2634,7 +2806,9 @@ class RouteTcpRouteArgs:
              action: pulumi.Input['RouteTcpRouteActionArgs'],
              match: Optional[pulumi.Input['RouteTcpRouteMatchArgs']] = None,
              timeout: Optional[pulumi.Input['RouteTcpTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         if match is not None:
             _setter("match", match)
@@ -2681,7 +2855,9 @@ class RouteTcpTimeoutArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['RouteDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if idle is not None:
             _setter("idle", idle)
 
@@ -2713,7 +2889,11 @@ class RouteWeightedTargetArgs:
              virtual_node: pulumi.Input[str],
              weight: pulumi.Input[int],
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualNode' in kwargs:
+            virtual_node = kwargs['virtualNode']
+
         _setter("virtual_node", virtual_node)
         _setter("weight", weight)
         if port is not None:
@@ -2759,7 +2939,9 @@ class VirtualGatewayAccessLogArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualGatewayFileAccessLogArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
 
@@ -2785,7 +2967,11 @@ class VirtualGatewayBackendDefaultsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_policy: Optional[pulumi.Input['VirtualGatewayClientPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientPolicy' in kwargs:
+            client_policy = kwargs['clientPolicy']
+
         if client_policy is not None:
             _setter("client_policy", client_policy)
 
@@ -2820,7 +3006,9 @@ class VirtualGatewayClientPolicyTlsArgs:
              certificate: Optional[pulumi.Input['VirtualGatewayClientTlsCertificateArgs']] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("validation", validation)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -2878,7 +3066,9 @@ class VirtualGatewayClientPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tls: Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if tls is not None:
             _setter("tls", tls)
 
@@ -2907,7 +3097,9 @@ class VirtualGatewayClientTlsCertificateArgs:
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualGatewayListenerTlsFileCertificateArgs']] = None,
              sds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
         if sds is not None:
@@ -2950,7 +3142,9 @@ class VirtualGatewayConnectionPoolArgs:
              grpc: Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']] = None,
              http: Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']] = None,
              http2: Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if grpc is not None:
             _setter("grpc", grpc)
         if http is not None:
@@ -3001,7 +3195,9 @@ class VirtualGatewayFileAccessLogArgs:
              _setter: Callable[[Any, Any], None],
              path: pulumi.Input[str],
              format: Optional[pulumi.Input['VirtualGatewayLoggingFormatArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
         if format is not None:
             _setter("format", format)
@@ -3037,7 +3233,11 @@ class VirtualGatewayGrpcConnectionPoolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_requests: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRequests' in kwargs:
+            max_requests = kwargs['maxRequests']
+
         _setter("max_requests", max_requests)
 
     @property
@@ -3080,7 +3280,17 @@ class VirtualGatewayHealthCheckPolicyArgs:
              unhealthy_threshold: pulumi.Input[int],
              path: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'intervalMillis' in kwargs:
+            interval_millis = kwargs['intervalMillis']
+        if 'timeoutMillis' in kwargs:
+            timeout_millis = kwargs['timeoutMillis']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         _setter("healthy_threshold", healthy_threshold)
         _setter("interval_millis", interval_millis)
         _setter("protocol", protocol)
@@ -3167,7 +3377,11 @@ class VirtualGatewayHttp2ConnectionPoolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_requests: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRequests' in kwargs:
+            max_requests = kwargs['maxRequests']
+
         _setter("max_requests", max_requests)
 
     @property
@@ -3195,7 +3409,13 @@ class VirtualGatewayHttpConnectionPoolArgs:
              _setter: Callable[[Any, Any], None],
              max_connections: pulumi.Input[int],
              max_pending_requests: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConnections' in kwargs:
+            max_connections = kwargs['maxConnections']
+        if 'maxPendingRequests' in kwargs:
+            max_pending_requests = kwargs['maxPendingRequests']
+
         _setter("max_connections", max_connections)
         if max_pending_requests is not None:
             _setter("max_pending_requests", max_pending_requests)
@@ -3234,7 +3454,9 @@ class VirtualGatewayJsonFormatRefArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3269,7 +3491,11 @@ class VirtualGatewayListenerTlsAcmCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
         _setter("certificate_arn", certificate_arn)
 
     @property
@@ -3300,7 +3526,9 @@ class VirtualGatewayListenerTlsCertificateArgs:
              acm: Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']] = None,
              file: Optional[pulumi.Input['VirtualGatewayListenerTlsFileCertificateArgs']] = None,
              sds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if acm is not None:
             _setter("acm", acm)
         if file is not None:
@@ -3351,7 +3579,13 @@ class VirtualGatewayListenerTlsFileCertificateArgs:
              _setter: Callable[[Any, Any], None],
              certificate_chain: pulumi.Input[str],
              private_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         _setter("certificate_chain", certificate_chain)
         _setter("private_key", private_key)
 
@@ -3386,7 +3620,11 @@ class VirtualGatewayListenerTlsSdsCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("secret_name", secret_name)
 
     @property
@@ -3414,7 +3652,9 @@ class VirtualGatewayListenerTlsValidationContextTrustArgs:
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualGatewayTlsValidationContextFileTrustArgs']] = None,
              sds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
         if sds is not None:
@@ -3454,7 +3694,11 @@ class VirtualGatewayListenerTlsValidationContextArgs:
              _setter: Callable[[Any, Any], None],
              trust: pulumi.Input['VirtualGatewayListenerTlsValidationContextTrustArgs'],
              subject_alternative_names: Optional[pulumi.Input['VirtualGatewaySubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("trust", trust)
         if subject_alternative_names is not None:
             _setter("subject_alternative_names", subject_alternative_names)
@@ -3496,7 +3740,9 @@ class VirtualGatewayListenerTlsArgs:
              certificate: pulumi.Input['VirtualGatewayListenerTlsCertificateArgs'],
              mode: pulumi.Input[str],
              validation: Optional[pulumi.Input['VirtualGatewayListenerTlsValidationContextArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("certificate", certificate)
         _setter("mode", mode)
         if validation is not None:
@@ -3551,7 +3797,15 @@ class VirtualGatewayListenerArgs:
              connection_pool: Optional[pulumi.Input['VirtualGatewayConnectionPoolArgs']] = None,
              health_check: Optional[pulumi.Input['VirtualGatewayHealthCheckPolicyArgs']] = None,
              tls: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portMapping' in kwargs:
+            port_mapping = kwargs['portMapping']
+        if 'connectionPool' in kwargs:
+            connection_pool = kwargs['connectionPool']
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+
         _setter("port_mapping", port_mapping)
         if connection_pool is not None:
             _setter("connection_pool", connection_pool)
@@ -3612,7 +3866,9 @@ class VirtualGatewayLoggingFormatArgs:
              _setter: Callable[[Any, Any], None],
              json: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayJsonFormatRefArgs']]]] = None,
              text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if json is not None:
             _setter("json", json)
         if text is not None:
@@ -3649,7 +3905,11 @@ class VirtualGatewayLoggingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              access_log: Optional[pulumi.Input['VirtualGatewayAccessLogArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLog' in kwargs:
+            access_log = kwargs['accessLog']
+
         if access_log is not None:
             _setter("access_log", access_log)
 
@@ -3678,7 +3938,9 @@ class VirtualGatewayPortMappingArgs:
              _setter: Callable[[Any, Any], None],
              port: pulumi.Input[int],
              protocol: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("protocol", protocol)
 
@@ -3719,7 +3981,11 @@ class VirtualGatewaySpecArgs:
              listeners: pulumi.Input[Sequence[pulumi.Input['VirtualGatewayListenerArgs']]],
              backend_defaults: Optional[pulumi.Input['VirtualGatewayBackendDefaultsArgs']] = None,
              logging: Optional[pulumi.Input['VirtualGatewayLoggingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendDefaults' in kwargs:
+            backend_defaults = kwargs['backendDefaults']
+
         _setter("listeners", listeners)
         if backend_defaults is not None:
             _setter("backend_defaults", backend_defaults)
@@ -3766,7 +4032,9 @@ class VirtualGatewaySubjectAlternativeNameMatchersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
 
@@ -3792,7 +4060,9 @@ class VirtualGatewaySubjectAlternativeNamesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              match: pulumi.Input['VirtualGatewaySubjectAlternativeNameMatchersArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("match", match)
 
     @property
@@ -3820,7 +4090,9 @@ class VirtualGatewayTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3855,7 +4127,11 @@ class VirtualGatewayTlsValidationContextAcmTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArns' in kwargs:
+            certificate_authority_arns = kwargs['certificateAuthorityArns']
+
         _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
@@ -3880,7 +4156,11 @@ class VirtualGatewayTlsValidationContextFileTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_chain: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+
         _setter("certificate_chain", certificate_chain)
 
     @property
@@ -3905,7 +4185,11 @@ class VirtualGatewayTlsValidationContextSdsTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("secret_name", secret_name)
 
     @property
@@ -3936,7 +4220,9 @@ class VirtualGatewayTlsValidationContextTrustArgs:
              acm: Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']] = None,
              file: Optional[pulumi.Input['VirtualGatewayTlsValidationContextFileTrustArgs']] = None,
              sds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if acm is not None:
             _setter("acm", acm)
         if file is not None:
@@ -3987,7 +4273,11 @@ class VirtualGatewayTlsValidationContextArgs:
              _setter: Callable[[Any, Any], None],
              trust: pulumi.Input['VirtualGatewayTlsValidationContextTrustArgs'],
              subject_alternative_names: Optional[pulumi.Input['VirtualGatewaySubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("trust", trust)
         if subject_alternative_names is not None:
             _setter("subject_alternative_names", subject_alternative_names)
@@ -4023,7 +4313,9 @@ class VirtualNodeAccessLogArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualNodeFileAccessLogArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
 
@@ -4052,7 +4344,9 @@ class VirtualNodeAwsCloudMapInstanceAttributeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4096,7 +4390,15 @@ class VirtualNodeAwsCloudMapServiceDiscoveryArgs:
              service_name: pulumi.Input[str],
              attributes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeAwsCloudMapInstanceAttributeArgs']]]] = None,
              ip_preference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'ipPreference' in kwargs:
+            ip_preference = kwargs['ipPreference']
+
         _setter("namespace_name", namespace_name)
         _setter("service_name", service_name)
         if attributes is not None:
@@ -4153,7 +4455,11 @@ class VirtualNodeBackendDefaultsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_policy: Optional[pulumi.Input['VirtualNodeClientPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientPolicy' in kwargs:
+            client_policy = kwargs['clientPolicy']
+
         if client_policy is not None:
             _setter("client_policy", client_policy)
 
@@ -4179,7 +4485,11 @@ class VirtualNodeBackendArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              virtual_service: Optional[pulumi.Input['VirtualNodeVirtualServiceBackendArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualService' in kwargs:
+            virtual_service = kwargs['virtualService']
+
         if virtual_service is not None:
             _setter("virtual_service", virtual_service)
 
@@ -4214,7 +4524,9 @@ class VirtualNodeClientPolicyTlsArgs:
              certificate: Optional[pulumi.Input['VirtualNodeClientTlsCertificateArgs']] = None,
              enforce: Optional[pulumi.Input[bool]] = None,
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("validation", validation)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -4272,7 +4584,9 @@ class VirtualNodeClientPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tls: Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if tls is not None:
             _setter("tls", tls)
 
@@ -4301,7 +4615,9 @@ class VirtualNodeClientTlsCertificateArgs:
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualNodeListenerTlsFileCertificateArgs']] = None,
              sds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
         if sds is not None:
@@ -4347,7 +4663,9 @@ class VirtualNodeConnectionPoolArgs:
              http: Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']] = None,
              http2: Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']] = None,
              tcp: Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if grpc is not None:
             _setter("grpc", grpc)
         if http is not None:
@@ -4412,7 +4730,13 @@ class VirtualNodeDnsServiceDiscoveryArgs:
              hostname: pulumi.Input[str],
              ip_preference: Optional[pulumi.Input[str]] = None,
              response_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipPreference' in kwargs:
+            ip_preference = kwargs['ipPreference']
+        if 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+
         _setter("hostname", hostname)
         if ip_preference is not None:
             _setter("ip_preference", ip_preference)
@@ -4462,7 +4786,9 @@ class VirtualNodeDurationArgs:
              _setter: Callable[[Any, Any], None],
              unit: pulumi.Input[str],
              value: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -4500,7 +4826,9 @@ class VirtualNodeFileAccessLogArgs:
              _setter: Callable[[Any, Any], None],
              path: pulumi.Input[str],
              format: Optional[pulumi.Input['VirtualNodeLoggingFormatArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
         if format is not None:
             _setter("format", format)
@@ -4536,7 +4864,11 @@ class VirtualNodeGrpcConnectionPoolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_requests: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRequests' in kwargs:
+            max_requests = kwargs['maxRequests']
+
         _setter("max_requests", max_requests)
 
     @property
@@ -4564,7 +4896,11 @@ class VirtualNodeGrpcTimeoutArgs:
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['VirtualNodeDurationArgs']] = None,
              per_request: Optional[pulumi.Input['VirtualNodeDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perRequest' in kwargs:
+            per_request = kwargs['perRequest']
+
         if idle is not None:
             _setter("idle", idle)
         if per_request is not None:
@@ -4619,7 +4955,17 @@ class VirtualNodeHealthCheckArgs:
              unhealthy_threshold: pulumi.Input[int],
              path: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'intervalMillis' in kwargs:
+            interval_millis = kwargs['intervalMillis']
+        if 'timeoutMillis' in kwargs:
+            timeout_millis = kwargs['timeoutMillis']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         _setter("healthy_threshold", healthy_threshold)
         _setter("interval_millis", interval_millis)
         _setter("protocol", protocol)
@@ -4706,7 +5052,11 @@ class VirtualNodeHttp2ConnectionPoolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_requests: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxRequests' in kwargs:
+            max_requests = kwargs['maxRequests']
+
         _setter("max_requests", max_requests)
 
     @property
@@ -4734,7 +5084,13 @@ class VirtualNodeHttpConnectionPoolArgs:
              _setter: Callable[[Any, Any], None],
              max_connections: pulumi.Input[int],
              max_pending_requests: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConnections' in kwargs:
+            max_connections = kwargs['maxConnections']
+        if 'maxPendingRequests' in kwargs:
+            max_pending_requests = kwargs['maxPendingRequests']
+
         _setter("max_connections", max_connections)
         if max_pending_requests is not None:
             _setter("max_pending_requests", max_pending_requests)
@@ -4773,7 +5129,11 @@ class VirtualNodeHttpTimeoutArgs:
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['VirtualNodeDurationArgs']] = None,
              per_request: Optional[pulumi.Input['VirtualNodeDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perRequest' in kwargs:
+            per_request = kwargs['perRequest']
+
         if idle is not None:
             _setter("idle", idle)
         if per_request is not None:
@@ -4813,7 +5173,9 @@ class VirtualNodeJsonFormatRefArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4857,7 +5219,9 @@ class VirtualNodeListenerTimeoutArgs:
              http: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
              http2: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
              tcp: Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if grpc is not None:
             _setter("grpc", grpc)
         if http is not None:
@@ -4916,7 +5280,11 @@ class VirtualNodeListenerTlsAcmCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
         _setter("certificate_arn", certificate_arn)
 
     @property
@@ -4947,7 +5315,9 @@ class VirtualNodeListenerTlsCertificateArgs:
              acm: Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']] = None,
              file: Optional[pulumi.Input['VirtualNodeListenerTlsFileCertificateArgs']] = None,
              sds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if acm is not None:
             _setter("acm", acm)
         if file is not None:
@@ -4998,7 +5368,13 @@ class VirtualNodeListenerTlsFileCertificateArgs:
              _setter: Callable[[Any, Any], None],
              certificate_chain: pulumi.Input[str],
              private_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         _setter("certificate_chain", certificate_chain)
         _setter("private_key", private_key)
 
@@ -5033,7 +5409,11 @@ class VirtualNodeListenerTlsSdsCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("secret_name", secret_name)
 
     @property
@@ -5061,7 +5441,9 @@ class VirtualNodeListenerTlsValidationContextTrustArgs:
              _setter: Callable[[Any, Any], None],
              file: Optional[pulumi.Input['VirtualNodeTlsValidationContextFileTrustArgs']] = None,
              sds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if file is not None:
             _setter("file", file)
         if sds is not None:
@@ -5101,7 +5483,11 @@ class VirtualNodeListenerTlsValidationContextArgs:
              _setter: Callable[[Any, Any], None],
              trust: pulumi.Input['VirtualNodeListenerTlsValidationContextTrustArgs'],
              subject_alternative_names: Optional[pulumi.Input['VirtualNodeSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("trust", trust)
         if subject_alternative_names is not None:
             _setter("subject_alternative_names", subject_alternative_names)
@@ -5143,7 +5529,9 @@ class VirtualNodeListenerTlsArgs:
              certificate: pulumi.Input['VirtualNodeListenerTlsCertificateArgs'],
              mode: pulumi.Input[str],
              validation: Optional[pulumi.Input['VirtualNodeListenerTlsValidationContextArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("certificate", certificate)
         _setter("mode", mode)
         if validation is not None:
@@ -5204,7 +5592,17 @@ class VirtualNodeListenerArgs:
              outlier_detection: Optional[pulumi.Input['VirtualNodeOutlierDetectionArgs']] = None,
              timeout: Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']] = None,
              tls: Optional[pulumi.Input['VirtualNodeListenerTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portMapping' in kwargs:
+            port_mapping = kwargs['portMapping']
+        if 'connectionPool' in kwargs:
+            connection_pool = kwargs['connectionPool']
+        if 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if 'outlierDetection' in kwargs:
+            outlier_detection = kwargs['outlierDetection']
+
         _setter("port_mapping", port_mapping)
         if connection_pool is not None:
             _setter("connection_pool", connection_pool)
@@ -5287,7 +5685,9 @@ class VirtualNodeLoggingFormatArgs:
              _setter: Callable[[Any, Any], None],
              json: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeJsonFormatRefArgs']]]] = None,
              text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if json is not None:
             _setter("json", json)
         if text is not None:
@@ -5324,7 +5724,11 @@ class VirtualNodeLoggingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              access_log: Optional[pulumi.Input['VirtualNodeAccessLogArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLog' in kwargs:
+            access_log = kwargs['accessLog']
+
         if access_log is not None:
             _setter("access_log", access_log)
 
@@ -5359,7 +5763,15 @@ class VirtualNodeOutlierDetectionArgs:
              interval: pulumi.Input['VirtualNodeDurationArgs'],
              max_ejection_percent: pulumi.Input[int],
              max_server_errors: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseEjectionDuration' in kwargs:
+            base_ejection_duration = kwargs['baseEjectionDuration']
+        if 'maxEjectionPercent' in kwargs:
+            max_ejection_percent = kwargs['maxEjectionPercent']
+        if 'maxServerErrors' in kwargs:
+            max_server_errors = kwargs['maxServerErrors']
+
         _setter("base_ejection_duration", base_ejection_duration)
         _setter("interval", interval)
         _setter("max_ejection_percent", max_ejection_percent)
@@ -5417,7 +5829,9 @@ class VirtualNodePortMappingArgs:
              _setter: Callable[[Any, Any], None],
              port: pulumi.Input[int],
              protocol: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("protocol", protocol)
 
@@ -5455,7 +5869,11 @@ class VirtualNodeServiceDiscoveryArgs:
              _setter: Callable[[Any, Any], None],
              aws_cloud_map: Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']] = None,
              dns: Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsCloudMap' in kwargs:
+            aws_cloud_map = kwargs['awsCloudMap']
+
         if aws_cloud_map is not None:
             _setter("aws_cloud_map", aws_cloud_map)
         if dns is not None:
@@ -5504,7 +5922,13 @@ class VirtualNodeSpecArgs:
              listeners: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeListenerArgs']]]] = None,
              logging: Optional[pulumi.Input['VirtualNodeLoggingArgs']] = None,
              service_discovery: Optional[pulumi.Input['VirtualNodeServiceDiscoveryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendDefaults' in kwargs:
+            backend_defaults = kwargs['backendDefaults']
+        if 'serviceDiscovery' in kwargs:
+            service_discovery = kwargs['serviceDiscovery']
+
         if backend_defaults is not None:
             _setter("backend_defaults", backend_defaults)
         if backends is not None:
@@ -5574,7 +5998,9 @@ class VirtualNodeSubjectAlternativeNameMatchersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              exact: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
 
@@ -5600,7 +6026,9 @@ class VirtualNodeSubjectAlternativeNamesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              match: pulumi.Input['VirtualNodeSubjectAlternativeNameMatchersArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("match", match)
 
     @property
@@ -5628,7 +6056,9 @@ class VirtualNodeTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -5663,7 +6093,11 @@ class VirtualNodeTcpConnectionPoolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_connections: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxConnections' in kwargs:
+            max_connections = kwargs['maxConnections']
+
         _setter("max_connections", max_connections)
 
     @property
@@ -5688,7 +6122,9 @@ class VirtualNodeTcpTimeoutArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle: Optional[pulumi.Input['VirtualNodeDurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if idle is not None:
             _setter("idle", idle)
 
@@ -5714,7 +6150,11 @@ class VirtualNodeTlsValidationContextAcmTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArns' in kwargs:
+            certificate_authority_arns = kwargs['certificateAuthorityArns']
+
         _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
@@ -5739,7 +6179,11 @@ class VirtualNodeTlsValidationContextFileTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_chain: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+
         _setter("certificate_chain", certificate_chain)
 
     @property
@@ -5764,7 +6208,11 @@ class VirtualNodeTlsValidationContextSdsTrustArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("secret_name", secret_name)
 
     @property
@@ -5795,7 +6243,9 @@ class VirtualNodeTlsValidationContextTrustArgs:
              acm: Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']] = None,
              file: Optional[pulumi.Input['VirtualNodeTlsValidationContextFileTrustArgs']] = None,
              sds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if acm is not None:
             _setter("acm", acm)
         if file is not None:
@@ -5846,7 +6296,11 @@ class VirtualNodeTlsValidationContextArgs:
              _setter: Callable[[Any, Any], None],
              trust: pulumi.Input['VirtualNodeTlsValidationContextTrustArgs'],
              subject_alternative_names: Optional[pulumi.Input['VirtualNodeSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("trust", trust)
         if subject_alternative_names is not None:
             _setter("subject_alternative_names", subject_alternative_names)
@@ -5885,7 +6339,13 @@ class VirtualNodeVirtualServiceBackendArgs:
              _setter: Callable[[Any, Any], None],
              virtual_service_name: pulumi.Input[str],
              client_policy: Optional[pulumi.Input['VirtualNodeClientPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualServiceName' in kwargs:
+            virtual_service_name = kwargs['virtualServiceName']
+        if 'clientPolicy' in kwargs:
+            client_policy = kwargs['clientPolicy']
+
         _setter("virtual_service_name", virtual_service_name)
         if client_policy is not None:
             _setter("client_policy", client_policy)
@@ -5921,7 +6381,11 @@ class VirtualRouterListenerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              port_mapping: pulumi.Input['VirtualRouterPortMappingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portMapping' in kwargs:
+            port_mapping = kwargs['portMapping']
+
         _setter("port_mapping", port_mapping)
 
     @property
@@ -5949,7 +6413,9 @@ class VirtualRouterPortMappingArgs:
              _setter: Callable[[Any, Any], None],
              port: pulumi.Input[int],
              protocol: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("protocol", protocol)
 
@@ -5984,7 +6450,9 @@ class VirtualRouterSpecArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              listeners: pulumi.Input[Sequence[pulumi.Input['VirtualRouterListenerArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("listeners", listeners)
 
     @property
@@ -6012,7 +6480,9 @@ class VirtualRouterTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -6050,7 +6520,13 @@ class VirtualServiceProviderArgs:
              _setter: Callable[[Any, Any], None],
              virtual_node: Optional[pulumi.Input['VirtualServiceVirtualNodeServiceProviderArgs']] = None,
              virtual_router: Optional[pulumi.Input['VirtualServiceVirtualRouterServiceProviderArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualNode' in kwargs:
+            virtual_node = kwargs['virtualNode']
+        if 'virtualRouter' in kwargs:
+            virtual_router = kwargs['virtualRouter']
+
         if virtual_node is not None:
             _setter("virtual_node", virtual_node)
         if virtual_router is not None:
@@ -6087,7 +6563,9 @@ class VirtualServiceSpecArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              provider: Optional[pulumi.Input['VirtualServiceProviderArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if provider is not None:
             _setter("provider", provider)
 
@@ -6116,7 +6594,9 @@ class VirtualServiceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -6151,7 +6631,11 @@ class VirtualServiceVirtualNodeServiceProviderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              virtual_node_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualNodeName' in kwargs:
+            virtual_node_name = kwargs['virtualNodeName']
+
         _setter("virtual_node_name", virtual_node_name)
 
     @property
@@ -6176,7 +6660,11 @@ class VirtualServiceVirtualRouterServiceProviderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              virtual_router_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+
         _setter("virtual_router_name", virtual_router_name)
 
     @property

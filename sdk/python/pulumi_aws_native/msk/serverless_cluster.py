@@ -38,7 +38,15 @@ class ServerlessClusterArgs:
              cluster_name: pulumi.Input[str],
              vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'vpcConfigs' in kwargs:
+            vpc_configs = kwargs['vpcConfigs']
+
         _setter("client_authentication", client_authentication)
         _setter("cluster_name", cluster_name)
         _setter("vpc_configs", vpc_configs)

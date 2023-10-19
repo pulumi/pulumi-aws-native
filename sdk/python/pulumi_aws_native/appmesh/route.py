@@ -43,7 +43,17 @@ class RouteArgs:
              mesh_owner: Optional[pulumi.Input[str]] = None,
              route_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+        if 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if 'routeName' in kwargs:
+            route_name = kwargs['routeName']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         _setter("virtual_router_name", virtual_router_name)

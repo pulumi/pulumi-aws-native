@@ -50,7 +50,13 @@ class DestinationArgs:
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("expression", expression)
         _setter("expression_type", expression_type)
         if description is not None:

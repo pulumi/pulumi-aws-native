@@ -29,7 +29,13 @@ class AcceptedPortfolioShareArgs:
              _setter: Callable[[Any, Any], None],
              portfolio_id: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         if accept_language is not None:
             _setter("accept_language", accept_language)

@@ -34,7 +34,13 @@ class PackageArgs:
              package_name: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['PackageStorageLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+
         if package_name is not None:
             _setter("package_name", package_name)
         if storage_location is not None:

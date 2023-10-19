@@ -33,7 +33,11 @@ class StreamKeyArgs:
              _setter: Callable[[Any, Any], None],
              channel_arn: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelArn' in kwargs:
+            channel_arn = kwargs['channelArn']
+
         _setter("channel_arn", channel_arn)
         if tags is not None:
             _setter("tags", tags)

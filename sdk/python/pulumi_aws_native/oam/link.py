@@ -37,7 +37,15 @@ class LinkArgs:
              sink_identifier: pulumi.Input[str],
              label_template: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if 'sinkIdentifier' in kwargs:
+            sink_identifier = kwargs['sinkIdentifier']
+        if 'labelTemplate' in kwargs:
+            label_template = kwargs['labelTemplate']
+
         _setter("resource_types", resource_types)
         _setter("sink_identifier", sink_identifier)
         if label_template is not None:

@@ -32,7 +32,11 @@ class ApiKeyArgs:
              api_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              expires: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         _setter("api_id", api_id)
         if description is not None:
             _setter("description", description)

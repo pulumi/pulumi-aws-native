@@ -28,7 +28,11 @@ class AccountArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expiry_events_configuration: pulumi.Input['AccountExpiryEventsConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiryEventsConfiguration' in kwargs:
+            expiry_events_configuration = kwargs['expiryEventsConfiguration']
+
         _setter("expiry_events_configuration", expiry_events_configuration)
 
     @property

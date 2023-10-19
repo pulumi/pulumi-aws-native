@@ -32,7 +32,9 @@ class IndexArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input['IndexType'],
              tags: Optional[pulumi.Input['IndexTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if tags is not None:
             _setter("tags", tags)

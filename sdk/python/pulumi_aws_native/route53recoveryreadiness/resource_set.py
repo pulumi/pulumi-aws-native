@@ -43,7 +43,13 @@ class ResourceSetArgs:
              resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
              resource_set_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceSetType' in kwargs:
+            resource_set_type = kwargs['resourceSetType']
+        if 'resourceSetName' in kwargs:
+            resource_set_name = kwargs['resourceSetName']
+
         _setter("resource_set_type", resource_set_type)
         _setter("resources", resources)
         if resource_set_name is not None:

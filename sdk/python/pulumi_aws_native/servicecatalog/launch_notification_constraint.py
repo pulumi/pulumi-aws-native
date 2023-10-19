@@ -38,7 +38,17 @@ class LaunchNotificationConstraintArgs:
              product_id: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("notification_arns", notification_arns)
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)

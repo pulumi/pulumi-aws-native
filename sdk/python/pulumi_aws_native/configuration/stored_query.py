@@ -38,7 +38,15 @@ class StoredQueryArgs:
              query_name: pulumi.Input[str],
              query_description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StoredQueryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queryExpression' in kwargs:
+            query_expression = kwargs['queryExpression']
+        if 'queryName' in kwargs:
+            query_name = kwargs['queryName']
+        if 'queryDescription' in kwargs:
+            query_description = kwargs['queryDescription']
+
         _setter("query_expression", query_expression)
         _setter("query_name", query_name)
         if query_description is not None:

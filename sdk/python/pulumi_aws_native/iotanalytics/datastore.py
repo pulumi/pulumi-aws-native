@@ -43,7 +43,19 @@ class DatastoreArgs:
              file_format_configuration: Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']] = None,
              retention_period: Optional[pulumi.Input['DatastoreRetentionPeriodArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if 'datastorePartitions' in kwargs:
+            datastore_partitions = kwargs['datastorePartitions']
+        if 'datastoreStorage' in kwargs:
+            datastore_storage = kwargs['datastoreStorage']
+        if 'fileFormatConfiguration' in kwargs:
+            file_format_configuration = kwargs['fileFormatConfiguration']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
         if datastore_name is not None:
             _setter("datastore_name", datastore_name)
         if datastore_partitions is not None:

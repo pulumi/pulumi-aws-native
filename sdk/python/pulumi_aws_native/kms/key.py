@@ -70,7 +70,23 @@ class KeyArgs:
              origin: Optional[pulumi.Input['KeyOrigin']] = None,
              pending_window_in_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if 'enableKeyRotation' in kwargs:
+            enable_key_rotation = kwargs['enableKeyRotation']
+        if 'keyPolicy' in kwargs:
+            key_policy = kwargs['keyPolicy']
+        if 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'multiRegion' in kwargs:
+            multi_region = kwargs['multiRegion']
+        if 'pendingWindowInDays' in kwargs:
+            pending_window_in_days = kwargs['pendingWindowInDays']
+
         if bypass_policy_lockout_safety_check is not None:
             _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if description is not None:

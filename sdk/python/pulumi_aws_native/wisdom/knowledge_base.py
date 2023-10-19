@@ -47,7 +47,17 @@ class KnowledgeBaseArgs:
              server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
              source_configuration: Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'knowledgeBaseType' in kwargs:
+            knowledge_base_type = kwargs['knowledgeBaseType']
+        if 'renderingConfiguration' in kwargs:
+            rendering_configuration = kwargs['renderingConfiguration']
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+
         _setter("knowledge_base_type", knowledge_base_type)
         if description is not None:
             _setter("description", description)

@@ -56,7 +56,13 @@ class ScalingPlanApplicationSource(dict):
              _setter: Callable[[Any, Any], None],
              cloud_formation_stack_arn: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.ScalingPlanTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudFormationStackArn' in kwargs:
+            cloud_formation_stack_arn = kwargs['cloudFormationStackArn']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if cloud_formation_stack_arn is not None:
             _setter("cloud_formation_stack_arn", cloud_formation_stack_arn)
         if tag_filters is not None:
@@ -114,7 +120,11 @@ class ScalingPlanCustomizedLoadMetricSpecification(dict):
              statistic: str,
              dimensions: Optional[Sequence['outputs.ScalingPlanMetricDimension']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -190,7 +200,11 @@ class ScalingPlanCustomizedScalingMetricSpecification(dict):
              statistic: str,
              dimensions: Optional[Sequence['outputs.ScalingPlanMetricDimension']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -240,7 +254,9 @@ class ScalingPlanMetricDimension(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -289,7 +305,13 @@ class ScalingPlanPredefinedLoadMetricSpecification(dict):
              _setter: Callable[[Any, Any], None],
              predefined_load_metric_type: str,
              resource_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedLoadMetricType' in kwargs:
+            predefined_load_metric_type = kwargs['predefinedLoadMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_load_metric_type", predefined_load_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -339,7 +361,13 @@ class ScalingPlanPredefinedScalingMetricSpecification(dict):
              _setter: Callable[[Any, Any], None],
              predefined_scaling_metric_type: str,
              resource_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedScalingMetricType' in kwargs:
+            predefined_scaling_metric_type = kwargs['predefinedScalingMetricType']
+        if 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_scaling_metric_type", predefined_scaling_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -449,7 +477,37 @@ class ScalingPlanScalingInstruction(dict):
              predictive_scaling_mode: Optional[str] = None,
              scaling_policy_update_behavior: Optional[str] = None,
              scheduled_action_buffer_time: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if 'targetTrackingConfigurations' in kwargs:
+            target_tracking_configurations = kwargs['targetTrackingConfigurations']
+        if 'customizedLoadMetricSpecification' in kwargs:
+            customized_load_metric_specification = kwargs['customizedLoadMetricSpecification']
+        if 'disableDynamicScaling' in kwargs:
+            disable_dynamic_scaling = kwargs['disableDynamicScaling']
+        if 'predefinedLoadMetricSpecification' in kwargs:
+            predefined_load_metric_specification = kwargs['predefinedLoadMetricSpecification']
+        if 'predictiveScalingMaxCapacityBehavior' in kwargs:
+            predictive_scaling_max_capacity_behavior = kwargs['predictiveScalingMaxCapacityBehavior']
+        if 'predictiveScalingMaxCapacityBuffer' in kwargs:
+            predictive_scaling_max_capacity_buffer = kwargs['predictiveScalingMaxCapacityBuffer']
+        if 'predictiveScalingMode' in kwargs:
+            predictive_scaling_mode = kwargs['predictiveScalingMode']
+        if 'scalingPolicyUpdateBehavior' in kwargs:
+            scaling_policy_update_behavior = kwargs['scalingPolicyUpdateBehavior']
+        if 'scheduledActionBufferTime' in kwargs:
+            scheduled_action_buffer_time = kwargs['scheduledActionBufferTime']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
         _setter("resource_id", resource_id)
@@ -559,7 +617,9 @@ class ScalingPlanTagFilter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if values is not None:
             _setter("values", values)
@@ -634,7 +694,23 @@ class ScalingPlanTargetTrackingConfiguration(dict):
              predefined_scaling_metric_specification: Optional['outputs.ScalingPlanPredefinedScalingMetricSpecification'] = None,
              scale_in_cooldown: Optional[int] = None,
              scale_out_cooldown: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if 'customizedScalingMetricSpecification' in kwargs:
+            customized_scaling_metric_specification = kwargs['customizedScalingMetricSpecification']
+        if 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+        if 'predefinedScalingMetricSpecification' in kwargs:
+            predefined_scaling_metric_specification = kwargs['predefinedScalingMetricSpecification']
+        if 'scaleInCooldown' in kwargs:
+            scale_in_cooldown = kwargs['scaleInCooldown']
+        if 'scaleOutCooldown' in kwargs:
+            scale_out_cooldown = kwargs['scaleOutCooldown']
+
         _setter("target_value", target_value)
         if customized_scaling_metric_specification is not None:
             _setter("customized_scaling_metric_specification", customized_scaling_metric_specification)

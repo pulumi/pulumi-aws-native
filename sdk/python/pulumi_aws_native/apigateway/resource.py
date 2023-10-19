@@ -35,7 +35,15 @@ class ResourceArgs:
              parent_id: pulumi.Input[str],
              path_part: pulumi.Input[str],
              rest_api_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'pathPart' in kwargs:
+            path_part = kwargs['pathPart']
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+
         _setter("parent_id", parent_id)
         _setter("path_part", path_part)
         _setter("rest_api_id", rest_api_id)

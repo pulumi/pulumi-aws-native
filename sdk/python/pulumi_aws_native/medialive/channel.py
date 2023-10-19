@@ -61,7 +61,23 @@ class ChannelArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              vpc: Optional[pulumi.Input['ChannelVpcOutputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdiInputSpecification' in kwargs:
+            cdi_input_specification = kwargs['cdiInputSpecification']
+        if 'channelClass' in kwargs:
+            channel_class = kwargs['channelClass']
+        if 'encoderSettings' in kwargs:
+            encoder_settings = kwargs['encoderSettings']
+        if 'inputAttachments' in kwargs:
+            input_attachments = kwargs['inputAttachments']
+        if 'inputSpecification' in kwargs:
+            input_specification = kwargs['inputSpecification']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if cdi_input_specification is not None:
             _setter("cdi_input_specification", cdi_input_specification)
         if channel_class is not None:

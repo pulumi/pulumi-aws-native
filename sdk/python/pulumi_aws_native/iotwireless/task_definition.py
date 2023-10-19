@@ -50,7 +50,15 @@ class TaskDefinitionArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
              task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
              update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoCreateTasks' in kwargs:
+            auto_create_tasks = kwargs['autoCreateTasks']
+        if 'loRaWanUpdateGatewayTaskEntry' in kwargs:
+            lo_ra_wan_update_gateway_task_entry = kwargs['loRaWanUpdateGatewayTaskEntry']
+        if 'taskDefinitionType' in kwargs:
+            task_definition_type = kwargs['taskDefinitionType']
+
         _setter("auto_create_tasks", auto_create_tasks)
         if lo_ra_wan_update_gateway_task_entry is not None:
             _setter("lo_ra_wan_update_gateway_task_entry", lo_ra_wan_update_gateway_task_entry)

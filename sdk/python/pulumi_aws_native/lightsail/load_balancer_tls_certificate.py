@@ -47,7 +47,21 @@ class LoadBalancerTlsCertificateArgs:
              certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              https_redirection_enabled: Optional[pulumi.Input[bool]] = None,
              is_attached: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateDomainName' in kwargs:
+            certificate_domain_name = kwargs['certificateDomainName']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if 'certificateAlternativeNames' in kwargs:
+            certificate_alternative_names = kwargs['certificateAlternativeNames']
+        if 'httpsRedirectionEnabled' in kwargs:
+            https_redirection_enabled = kwargs['httpsRedirectionEnabled']
+        if 'isAttached' in kwargs:
+            is_attached = kwargs['isAttached']
+
         _setter("certificate_domain_name", certificate_domain_name)
         _setter("certificate_name", certificate_name)
         _setter("load_balancer_name", load_balancer_name)

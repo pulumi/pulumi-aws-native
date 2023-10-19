@@ -37,7 +37,9 @@ class PublicDnsNamespaceArgs:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input['PublicDnsNamespacePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PublicDnsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:

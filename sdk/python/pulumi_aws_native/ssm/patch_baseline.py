@@ -64,7 +64,27 @@ class PatchBaselineArgs:
              rejected_patches_action: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchSourceArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approvalRules' in kwargs:
+            approval_rules = kwargs['approvalRules']
+        if 'approvedPatches' in kwargs:
+            approved_patches = kwargs['approvedPatches']
+        if 'approvedPatchesComplianceLevel' in kwargs:
+            approved_patches_compliance_level = kwargs['approvedPatchesComplianceLevel']
+        if 'approvedPatchesEnableNonSecurity' in kwargs:
+            approved_patches_enable_non_security = kwargs['approvedPatchesEnableNonSecurity']
+        if 'globalFilters' in kwargs:
+            global_filters = kwargs['globalFilters']
+        if 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if 'patchGroups' in kwargs:
+            patch_groups = kwargs['patchGroups']
+        if 'rejectedPatches' in kwargs:
+            rejected_patches = kwargs['rejectedPatches']
+        if 'rejectedPatchesAction' in kwargs:
+            rejected_patches_action = kwargs['rejectedPatchesAction']
+
         if approval_rules is not None:
             _setter("approval_rules", approval_rules)
         if approved_patches is not None:

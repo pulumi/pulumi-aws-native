@@ -35,7 +35,15 @@ class VolumeArgs:
              stack_id: pulumi.Input[str],
              mount_point: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2VolumeId' in kwargs:
+            ec2_volume_id = kwargs['ec2VolumeId']
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+
         _setter("ec2_volume_id", ec2_volume_id)
         _setter("stack_id", stack_id)
         if mount_point is not None:

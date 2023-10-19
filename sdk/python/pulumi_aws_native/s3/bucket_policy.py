@@ -31,7 +31,11 @@ class BucketPolicyArgs:
              _setter: Callable[[Any, Any], None],
              bucket: pulumi.Input[str],
              policy_document: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("bucket", bucket)
         _setter("policy_document", policy_document)
 

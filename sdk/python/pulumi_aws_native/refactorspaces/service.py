@@ -54,7 +54,21 @@ class ServiceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
              url_endpoint: Optional[pulumi.Input['ServiceUrlEndpointInputArgs']] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if 'lambdaEndpoint' in kwargs:
+            lambda_endpoint = kwargs['lambdaEndpoint']
+        if 'urlEndpoint' in kwargs:
+            url_endpoint = kwargs['urlEndpoint']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("application_identifier", application_identifier)
         _setter("endpoint_type", endpoint_type)
         _setter("environment_identifier", environment_identifier)

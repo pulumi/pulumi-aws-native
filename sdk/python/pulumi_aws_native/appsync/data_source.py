@@ -61,7 +61,27 @@ class DataSourceArgs:
              open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
              relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
              service_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'dynamoDbConfig' in kwargs:
+            dynamo_db_config = kwargs['dynamoDbConfig']
+        if 'elasticsearchConfig' in kwargs:
+            elasticsearch_config = kwargs['elasticsearchConfig']
+        if 'eventBridgeConfig' in kwargs:
+            event_bridge_config = kwargs['eventBridgeConfig']
+        if 'httpConfig' in kwargs:
+            http_config = kwargs['httpConfig']
+        if 'lambdaConfig' in kwargs:
+            lambda_config = kwargs['lambdaConfig']
+        if 'openSearchServiceConfig' in kwargs:
+            open_search_service_config = kwargs['openSearchServiceConfig']
+        if 'relationalDatabaseConfig' in kwargs:
+            relational_database_config = kwargs['relationalDatabaseConfig']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+
         _setter("api_id", api_id)
         _setter("type", type)
         if description is not None:

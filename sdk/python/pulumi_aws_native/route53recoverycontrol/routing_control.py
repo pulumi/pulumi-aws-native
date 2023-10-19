@@ -36,7 +36,13 @@ class RoutingControlArgs:
              cluster_arn: Optional[pulumi.Input[str]] = None,
              control_panel_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+
         if cluster_arn is not None:
             _setter("cluster_arn", cluster_arn)
         if control_panel_arn is not None:

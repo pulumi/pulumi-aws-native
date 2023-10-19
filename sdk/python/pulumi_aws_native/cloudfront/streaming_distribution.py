@@ -31,7 +31,11 @@ class StreamingDistributionArgs:
              _setter: Callable[[Any, Any], None],
              streaming_distribution_config: pulumi.Input['StreamingDistributionConfigArgs'],
              tags: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamingDistributionConfig' in kwargs:
+            streaming_distribution_config = kwargs['streamingDistributionConfig']
+
         _setter("streaming_distribution_config", streaming_distribution_config)
         _setter("tags", tags)
 

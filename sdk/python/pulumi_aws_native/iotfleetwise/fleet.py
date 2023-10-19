@@ -34,7 +34,11 @@ class FleetArgs:
              signal_catalog_arn: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signalCatalogArn' in kwargs:
+            signal_catalog_arn = kwargs['signalCatalogArn']
+
         _setter("signal_catalog_arn", signal_catalog_arn)
         if description is not None:
             _setter("description", description)

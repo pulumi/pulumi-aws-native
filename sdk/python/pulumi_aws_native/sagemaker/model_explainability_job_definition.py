@@ -61,7 +61,29 @@ class ModelExplainabilityJobDefinitionArgs:
              network_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
              stopping_condition: Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobResources' in kwargs:
+            job_resources = kwargs['jobResources']
+        if 'modelExplainabilityAppSpecification' in kwargs:
+            model_explainability_app_specification = kwargs['modelExplainabilityAppSpecification']
+        if 'modelExplainabilityJobInput' in kwargs:
+            model_explainability_job_input = kwargs['modelExplainabilityJobInput']
+        if 'modelExplainabilityJobOutputConfig' in kwargs:
+            model_explainability_job_output_config = kwargs['modelExplainabilityJobOutputConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if 'modelExplainabilityBaselineConfig' in kwargs:
+            model_explainability_baseline_config = kwargs['modelExplainabilityBaselineConfig']
+        if 'networkConfig' in kwargs:
+            network_config = kwargs['networkConfig']
+        if 'stoppingCondition' in kwargs:
+            stopping_condition = kwargs['stoppingCondition']
+
         _setter("job_resources", job_resources)
         _setter("model_explainability_app_specification", model_explainability_app_specification)
         _setter("model_explainability_job_input", model_explainability_job_input)

@@ -41,7 +41,11 @@ class AccessPointArgs:
              vpc_configuration: pulumi.Input['AccessPointVpcConfigurationArgs'],
              name: Optional[pulumi.Input[str]] = None,
              policy: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("bucket", bucket)
         _setter("vpc_configuration", vpc_configuration)
         if name is not None:

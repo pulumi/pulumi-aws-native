@@ -41,7 +41,13 @@ class SchemaMappingArgs:
              schema_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mappedInputFields' in kwargs:
+            mapped_input_fields = kwargs['mappedInputFields']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         _setter("mapped_input_fields", mapped_input_fields)
         _setter("schema_name", schema_name)
         if description is not None:

@@ -40,7 +40,17 @@ class SamplingRuleInitArgs:
              sampling_rule_record: Optional[pulumi.Input['SamplingRuleRecordArgs']] = None,
              sampling_rule_update: Optional[pulumi.Input['SamplingRuleUpdateArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'samplingRule' in kwargs:
+            sampling_rule = kwargs['samplingRule']
+        if 'samplingRuleRecord' in kwargs:
+            sampling_rule_record = kwargs['samplingRuleRecord']
+        if 'samplingRuleUpdate' in kwargs:
+            sampling_rule_update = kwargs['samplingRuleUpdate']
+
         if rule_name is not None:
             _setter("rule_name", rule_name)
         if sampling_rule is not None:

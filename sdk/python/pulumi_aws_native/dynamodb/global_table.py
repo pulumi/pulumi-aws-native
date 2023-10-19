@@ -58,7 +58,29 @@ class GlobalTableArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              time_to_live_specification: Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']] = None,
              write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeDefinitions' in kwargs:
+            attribute_definitions = kwargs['attributeDefinitions']
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if 'streamSpecification' in kwargs:
+            stream_specification = kwargs['streamSpecification']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'timeToLiveSpecification' in kwargs:
+            time_to_live_specification = kwargs['timeToLiveSpecification']
+        if 'writeProvisionedThroughputSettings' in kwargs:
+            write_provisioned_throughput_settings = kwargs['writeProvisionedThroughputSettings']
+
         _setter("attribute_definitions", attribute_definitions)
         _setter("key_schema", key_schema)
         _setter("replicas", replicas)

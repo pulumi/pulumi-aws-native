@@ -35,7 +35,15 @@ class PlacementArgs:
              associated_devices: Optional[Any] = None,
              attributes: Optional[Any] = None,
              placement_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'associatedDevices' in kwargs:
+            associated_devices = kwargs['associatedDevices']
+        if 'placementName' in kwargs:
+            placement_name = kwargs['placementName']
+
         _setter("project_name", project_name)
         if associated_devices is not None:
             _setter("associated_devices", associated_devices)

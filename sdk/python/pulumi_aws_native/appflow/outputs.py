@@ -150,7 +150,11 @@ class ConnectorLambdaConnectorProvisioningConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         _setter("lambda_arn", lambda_arn)
 
     @property
@@ -199,7 +203,13 @@ class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              api_key: str,
              secret_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         _setter("api_key", api_key)
         _setter("secret_key", secret_key)
 
@@ -251,7 +261,13 @@ class ConnectorProfileApiKeyCredentials(dict):
              _setter: Callable[[Any, Any], None],
              api_key: str,
              api_secret_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+
         _setter("api_key", api_key)
         if api_secret_key is not None:
             _setter("api_secret_key", api_secret_key)
@@ -282,7 +298,9 @@ class ConnectorProfileBasicAuthCredentials(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -337,7 +355,13 @@ class ConnectorProfileConfig(dict):
              _setter: Callable[[Any, Any], None],
              connector_profile_credentials: Optional['outputs.ConnectorProfileCredentials'] = None,
              connector_profile_properties: Optional['outputs.ConnectorProfileProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorProfileCredentials' in kwargs:
+            connector_profile_credentials = kwargs['connectorProfileCredentials']
+        if 'connectorProfileProperties' in kwargs:
+            connector_profile_properties = kwargs['connectorProfileProperties']
+
         if connector_profile_credentials is not None:
             _setter("connector_profile_credentials", connector_profile_credentials)
         if connector_profile_properties is not None:
@@ -393,7 +417,13 @@ class ConnectorProfileConnectorOAuthRequest(dict):
              _setter: Callable[[Any, Any], None],
              auth_code: Optional[str] = None,
              redirect_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authCode' in kwargs:
+            auth_code = kwargs['authCode']
+        if 'redirectUri' in kwargs:
+            redirect_uri = kwargs['redirectUri']
+
         if auth_code is not None:
             _setter("auth_code", auth_code)
         if redirect_uri is not None:
@@ -511,7 +541,19 @@ class ConnectorProfileCredentials(dict):
              trendmicro: Optional['outputs.ConnectorProfileTrendmicroConnectorProfileCredentials'] = None,
              veeva: Optional['outputs.ConnectorProfileVeevaConnectorProfileCredentials'] = None,
              zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileCredentials'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customConnector' in kwargs:
+            custom_connector = kwargs['customConnector']
+        if 'googleAnalytics' in kwargs:
+            google_analytics = kwargs['googleAnalytics']
+        if 'inforNexus' in kwargs:
+            infor_nexus = kwargs['inforNexus']
+        if 'sapoData' in kwargs:
+            sapo_data = kwargs['sapoData']
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if amplitude is not None:
             _setter("amplitude", amplitude)
         if custom_connector is not None:
@@ -653,8 +695,10 @@ class ConnectorProfileCredentialsMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -691,7 +735,13 @@ class ConnectorProfileCustomAuthCredentials(dict):
              _setter: Callable[[Any, Any], None],
              custom_authentication_type: str,
              credentials_map: Optional['outputs.ConnectorProfileCredentialsMap'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customAuthenticationType' in kwargs:
+            custom_authentication_type = kwargs['customAuthenticationType']
+        if 'credentialsMap' in kwargs:
+            credentials_map = kwargs['credentialsMap']
+
         _setter("custom_authentication_type", custom_authentication_type)
         if credentials_map is not None:
             _setter("credentials_map", credentials_map)
@@ -750,7 +800,13 @@ class ConnectorProfileCustomConnectorProfileCredentials(dict):
              basic: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
              custom: Optional['outputs.ConnectorProfileCustomAuthCredentials'] = None,
              oauth2: Optional['outputs.ConnectorProfileOAuth2Credentials'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("authentication_type", authentication_type)
         if api_key is not None:
             _setter("api_key", api_key)
@@ -821,7 +877,13 @@ class ConnectorProfileCustomConnectorProfileProperties(dict):
              _setter: Callable[[Any, Any], None],
              o_auth2_properties: Optional['outputs.ConnectorProfileOAuth2Properties'] = None,
              profile_properties: Optional['outputs.ConnectorProfileProfileProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oAuth2Properties' in kwargs:
+            o_auth2_properties = kwargs['oAuth2Properties']
+        if 'profileProperties' in kwargs:
+            profile_properties = kwargs['profileProperties']
+
         if o_auth2_properties is not None:
             _setter("o_auth2_properties", o_auth2_properties)
         if profile_properties is not None:
@@ -876,7 +938,13 @@ class ConnectorProfileDatadogConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              api_key: str,
              application_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationKey' in kwargs:
+            application_key = kwargs['applicationKey']
+
         _setter("api_key", api_key)
         _setter("application_key", application_key)
 
@@ -929,7 +997,11 @@ class ConnectorProfileDatadogConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -973,7 +1045,11 @@ class ConnectorProfileDynatraceConnectorProfileCredentials(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiToken' in kwargs:
+            api_token = kwargs['apiToken']
+
         _setter("api_token", api_token)
 
     @property
@@ -1017,7 +1093,11 @@ class ConnectorProfileDynatraceConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -1085,7 +1165,19 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentials(dict):
              access_token: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if access_token is not None:
@@ -1184,7 +1276,15 @@ class ConnectorProfileInforNexusConnectorProfileCredentials(dict):
              datakey: str,
              secret_access_key: str,
              user_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("access_key_id", access_key_id)
         _setter("datakey", datakey)
         _setter("secret_access_key", secret_access_key)
@@ -1255,7 +1355,11 @@ class ConnectorProfileInforNexusConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -1317,7 +1421,17 @@ class ConnectorProfileMarketoConnectorProfileCredentials(dict):
              client_secret: str,
              access_token: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if access_token is not None:
@@ -1390,7 +1504,11 @@ class ConnectorProfileMarketoConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -1451,7 +1569,19 @@ class ConnectorProfileOAuth2Credentials(dict):
              client_secret: Optional[str] = None,
              o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'oAuthRequest' in kwargs:
+            o_auth_request = kwargs['oAuthRequest']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if client_id is not None:
@@ -1528,7 +1658,15 @@ class ConnectorProfileOAuth2Properties(dict):
              o_auth2_grant_type: Optional['ConnectorProfileOAuth2GrantType'] = None,
              token_url: Optional[str] = None,
              token_url_custom_properties: Optional['outputs.ConnectorProfileTokenUrlCustomProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oAuth2GrantType' in kwargs:
+            o_auth2_grant_type = kwargs['oAuth2GrantType']
+        if 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+        if 'tokenUrlCustomProperties' in kwargs:
+            token_url_custom_properties = kwargs['tokenUrlCustomProperties']
+
         if o_auth2_grant_type is not None:
             _setter("o_auth2_grant_type", o_auth2_grant_type)
         if token_url is not None:
@@ -1591,7 +1729,15 @@ class ConnectorProfileOAuthProperties(dict):
              auth_code_url: Optional[str] = None,
              o_auth_scopes: Optional[Sequence[str]] = None,
              token_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authCodeUrl' in kwargs:
+            auth_code_url = kwargs['authCodeUrl']
+        if 'oAuthScopes' in kwargs:
+            o_auth_scopes = kwargs['oAuthScopes']
+        if 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+
         if auth_code_url is not None:
             _setter("auth_code_url", auth_code_url)
         if o_auth_scopes is not None:
@@ -1665,7 +1811,17 @@ class ConnectorProfilePardotConnectorProfileCredentials(dict):
              client_credentials_arn: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'clientCredentialsArn' in kwargs:
+            client_credentials_arn = kwargs['clientCredentialsArn']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if client_credentials_arn is not None:
@@ -1752,7 +1908,15 @@ class ConnectorProfilePardotConnectorProfileProperties(dict):
              business_unit_id: str,
              instance_url: Optional[str] = None,
              is_sandbox_environment: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'businessUnitId' in kwargs:
+            business_unit_id = kwargs['businessUnitId']
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+        if 'isSandboxEnvironment' in kwargs:
+            is_sandbox_environment = kwargs['isSandboxEnvironment']
+
         _setter("business_unit_id", business_unit_id)
         if instance_url is not None:
             _setter("instance_url", instance_url)
@@ -1797,8 +1961,10 @@ class ConnectorProfileProfileProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1881,7 +2047,17 @@ class ConnectorProfileProperties(dict):
              snowflake: Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties'] = None,
              veeva: Optional['outputs.ConnectorProfileVeevaConnectorProfileProperties'] = None,
              zendesk: Optional['outputs.ConnectorProfileZendeskConnectorProfileProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customConnector' in kwargs:
+            custom_connector = kwargs['customConnector']
+        if 'inforNexus' in kwargs:
+            infor_nexus = kwargs['inforNexus']
+        if 'sapoData' in kwargs:
+            sapo_data = kwargs['sapoData']
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if custom_connector is not None:
             _setter("custom_connector", custom_connector)
         if datadog is not None:
@@ -2001,7 +2177,9 @@ class ConnectorProfileRedshiftConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -2104,7 +2282,27 @@ class ConnectorProfileRedshiftConnectorProfileProperties(dict):
              database_url: Optional[str] = None,
              is_redshift_serverless: Optional[bool] = None,
              workgroup_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'dataApiRoleArn' in kwargs:
+            data_api_role_arn = kwargs['dataApiRoleArn']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databaseUrl' in kwargs:
+            database_url = kwargs['databaseUrl']
+        if 'isRedshiftServerless' in kwargs:
+            is_redshift_serverless = kwargs['isRedshiftServerless']
+        if 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
         _setter("bucket_name", bucket_name)
         _setter("role_arn", role_arn)
         if bucket_prefix is not None:
@@ -2257,7 +2455,21 @@ class ConnectorProfileSalesforceConnectorProfileCredentials(dict):
              jwt_token: Optional[str] = None,
              o_auth2_grant_type: Optional['ConnectorProfileOAuth2GrantType'] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'clientCredentialsArn' in kwargs:
+            client_credentials_arn = kwargs['clientCredentialsArn']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+        if 'jwtToken' in kwargs:
+            jwt_token = kwargs['jwtToken']
+        if 'oAuth2GrantType' in kwargs:
+            o_auth2_grant_type = kwargs['oAuth2GrantType']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if client_credentials_arn is not None:
@@ -2364,7 +2576,15 @@ class ConnectorProfileSalesforceConnectorProfileProperties(dict):
              instance_url: Optional[str] = None,
              is_sandbox_environment: Optional[bool] = None,
              use_private_link_for_metadata_and_authorization: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+        if 'isSandboxEnvironment' in kwargs:
+            is_sandbox_environment = kwargs['isSandboxEnvironment']
+        if 'usePrivateLinkForMetadataAndAuthorization' in kwargs:
+            use_private_link_for_metadata_and_authorization = kwargs['usePrivateLinkForMetadataAndAuthorization']
+
         if instance_url is not None:
             _setter("instance_url", instance_url)
         if is_sandbox_environment is not None:
@@ -2431,7 +2651,13 @@ class ConnectorProfileSapoDataConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              basic_auth_credentials: Optional['outputs.ConnectorProfileBasicAuthCredentials'] = None,
              o_auth_credentials: Optional['outputs.ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'basicAuthCredentials' in kwargs:
+            basic_auth_credentials = kwargs['basicAuthCredentials']
+        if 'oAuthCredentials' in kwargs:
+            o_auth_credentials = kwargs['oAuthCredentials']
+
         if basic_auth_credentials is not None:
             _setter("basic_auth_credentials", basic_auth_credentials)
         if o_auth_credentials is not None:
@@ -2497,7 +2723,19 @@ class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropert
              client_secret: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if client_id is not None:
@@ -2602,7 +2840,25 @@ class ConnectorProfileSapoDataConnectorProfileProperties(dict):
              o_auth_properties: Optional['outputs.ConnectorProfileOAuthProperties'] = None,
              port_number: Optional[int] = None,
              private_link_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationHostUrl' in kwargs:
+            application_host_url = kwargs['applicationHostUrl']
+        if 'applicationServicePath' in kwargs:
+            application_service_path = kwargs['applicationServicePath']
+        if 'clientNumber' in kwargs:
+            client_number = kwargs['clientNumber']
+        if 'disableSso' in kwargs:
+            disable_sso = kwargs['disableSso']
+        if 'logonLanguage' in kwargs:
+            logon_language = kwargs['logonLanguage']
+        if 'oAuthProperties' in kwargs:
+            o_auth_properties = kwargs['oAuthProperties']
+        if 'portNumber' in kwargs:
+            port_number = kwargs['portNumber']
+        if 'privateLinkServiceName' in kwargs:
+            private_link_service_name = kwargs['privateLinkServiceName']
+
         if application_host_url is not None:
             _setter("application_host_url", application_host_url)
         if application_service_path is not None:
@@ -2704,7 +2960,11 @@ class ConnectorProfileServiceNowConnectorProfileCredentials(dict):
              o_auth2_credentials: Optional['outputs.ConnectorProfileOAuth2Credentials'] = None,
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oAuth2Credentials' in kwargs:
+            o_auth2_credentials = kwargs['oAuth2Credentials']
+
         if o_auth2_credentials is not None:
             _setter("o_auth2_credentials", o_auth2_credentials)
         if password is not None:
@@ -2769,7 +3029,11 @@ class ConnectorProfileServiceNowConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -2813,7 +3077,11 @@ class ConnectorProfileSingularConnectorProfileCredentials(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
 
     @property
@@ -2875,7 +3143,17 @@ class ConnectorProfileSlackConnectorProfileCredentials(dict):
              client_secret: str,
              access_token: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if access_token is not None:
@@ -2948,7 +3226,11 @@ class ConnectorProfileSlackConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -2979,7 +3261,9 @@ class ConnectorProfileSnowflakeConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -3063,7 +3347,17 @@ class ConnectorProfileSnowflakeConnectorProfileProperties(dict):
              bucket_prefix: Optional[str] = None,
              private_link_service_name: Optional[str] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'privateLinkServiceName' in kwargs:
+            private_link_service_name = kwargs['privateLinkServiceName']
+
         _setter("bucket_name", bucket_name)
         _setter("stage", stage)
         _setter("warehouse", warehouse)
@@ -3147,8 +3441,10 @@ class ConnectorProfileTokenUrlCustomProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3183,7 +3479,11 @@ class ConnectorProfileTrendmicroConnectorProfileCredentials(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_secret_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+
         _setter("api_secret_key", api_secret_key)
 
     @property
@@ -3214,7 +3514,9 @@ class ConnectorProfileVeevaConnectorProfileCredentials(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -3267,7 +3569,11 @@ class ConnectorProfileVeevaConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -3329,7 +3635,17 @@ class ConnectorProfileZendeskConnectorProfileCredentials(dict):
              client_secret: str,
              access_token: Optional[str] = None,
              connector_o_auth_request: Optional['outputs.ConnectorProfileConnectorOAuthRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'connectorOAuthRequest' in kwargs:
+            connector_o_auth_request = kwargs['connectorOAuthRequest']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         if access_token is not None:
@@ -3402,7 +3718,11 @@ class ConnectorProfileZendeskConnectorProfileProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceUrl' in kwargs:
+            instance_url = kwargs['instanceUrl']
+
         _setter("instance_url", instance_url)
 
     @property
@@ -3450,7 +3770,11 @@ class ConnectorProvisioningConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_: Optional['outputs.ConnectorLambdaConnectorProvisioningConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
         if lambda_ is not None:
             _setter("lambda_", lambda_)
 
@@ -3497,7 +3821,13 @@ class FlowAggregationConfig(dict):
              _setter: Callable[[Any, Any], None],
              aggregation_type: Optional['FlowAggregationType'] = None,
              target_file_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationType' in kwargs:
+            aggregation_type = kwargs['aggregationType']
+        if 'targetFileSize' in kwargs:
+            target_file_size = kwargs['targetFileSize']
+
         if aggregation_type is not None:
             _setter("aggregation_type", aggregation_type)
         if target_file_size is not None:
@@ -3526,7 +3856,9 @@ class FlowAmplitudeSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -3626,7 +3958,19 @@ class FlowConnectorOperator(dict):
              trendmicro: Optional['FlowTrendmicroConnectorOperator'] = None,
              veeva: Optional['FlowVeevaConnectorOperator'] = None,
              zendesk: Optional['FlowZendeskConnectorOperator'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customConnector' in kwargs:
+            custom_connector = kwargs['customConnector']
+        if 'googleAnalytics' in kwargs:
+            google_analytics = kwargs['googleAnalytics']
+        if 'inforNexus' in kwargs:
+            infor_nexus = kwargs['inforNexus']
+        if 'sapoData' in kwargs:
+            sapo_data = kwargs['sapoData']
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if amplitude is not None:
             _setter("amplitude", amplitude)
         if custom_connector is not None:
@@ -3800,7 +4144,19 @@ class FlowCustomConnectorDestinationProperties(dict):
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
              id_field_names: Optional[Sequence[str]] = None,
              write_operation_type: Optional['FlowWriteOperationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+        if 'idFieldNames' in kwargs:
+            id_field_names = kwargs['idFieldNames']
+        if 'writeOperationType' in kwargs:
+            write_operation_type = kwargs['writeOperationType']
+
         _setter("entity_name", entity_name)
         if custom_properties is not None:
             _setter("custom_properties", custom_properties)
@@ -3879,7 +4235,15 @@ class FlowCustomConnectorSourceProperties(dict):
              entity_name: str,
              custom_properties: Optional['outputs.FlowCustomProperties'] = None,
              data_transfer_api: Optional['outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if 'dataTransferApi' in kwargs:
+            data_transfer_api = kwargs['dataTransferApi']
+
         _setter("entity_name", entity_name)
         if custom_properties is not None:
             _setter("custom_properties", custom_properties)
@@ -3917,7 +4281,9 @@ class FlowCustomConnectorSourcePropertiesDataTransferApiProperties(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: 'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -3945,8 +4311,10 @@ class FlowCustomProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3961,7 +4329,9 @@ class FlowDatadogSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4041,7 +4411,17 @@ class FlowDestinationConnectorProperties(dict):
              snowflake: Optional['outputs.FlowSnowflakeDestinationProperties'] = None,
              upsolver: Optional['outputs.FlowUpsolverDestinationProperties'] = None,
              zendesk: Optional['outputs.FlowZendeskDestinationProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customConnector' in kwargs:
+            custom_connector = kwargs['customConnector']
+        if 'eventBridge' in kwargs:
+            event_bridge = kwargs['eventBridge']
+        if 'lookoutMetrics' in kwargs:
+            lookout_metrics = kwargs['lookoutMetrics']
+        if 'sapoData' in kwargs:
+            sapo_data = kwargs['sapoData']
+
         if custom_connector is not None:
             _setter("custom_connector", custom_connector)
         if event_bridge is not None:
@@ -4175,7 +4555,17 @@ class FlowDestinationFlowConfig(dict):
              destination_connector_properties: 'outputs.FlowDestinationConnectorProperties',
              api_version: Optional[str] = None,
              connector_profile_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'destinationConnectorProperties' in kwargs:
+            destination_connector_properties = kwargs['destinationConnectorProperties']
+        if 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+
         _setter("connector_type", connector_type)
         _setter("destination_connector_properties", destination_connector_properties)
         if api_version is not None:
@@ -4228,7 +4618,9 @@ class FlowDynatraceSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4276,7 +4668,15 @@ class FlowErrorHandlingConfig(dict):
              bucket_name: Optional[str] = None,
              bucket_prefix: Optional[str] = None,
              fail_on_first_error: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'failOnFirstError' in kwargs:
+            fail_on_first_error = kwargs['failOnFirstError']
+
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -4332,7 +4732,11 @@ class FlowEventBridgeDestinationProperties(dict):
              _setter: Callable[[Any, Any], None],
              object: str,
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+
         _setter("object", object)
         if error_handling_config is not None:
             _setter("error_handling_config", error_handling_config)
@@ -4396,7 +4800,15 @@ class FlowGlueDataCatalog(dict):
              database_name: str,
              role_arn: str,
              table_prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tablePrefix' in kwargs:
+            table_prefix = kwargs['tablePrefix']
+
         _setter("database_name", database_name)
         _setter("role_arn", role_arn)
         _setter("table_prefix", table_prefix)
@@ -4438,7 +4850,9 @@ class FlowGoogleAnalyticsSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4482,7 +4896,11 @@ class FlowIncrementalPullConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              datetime_type_field_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datetimeTypeFieldName' in kwargs:
+            datetime_type_field_name = kwargs['datetimeTypeFieldName']
+
         if datetime_type_field_name is not None:
             _setter("datetime_type_field_name", datetime_type_field_name)
 
@@ -4504,7 +4922,9 @@ class FlowInforNexusSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4525,7 +4945,9 @@ class FlowLookoutMetricsDestinationProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if object is not None:
             _setter("object", object)
 
@@ -4567,7 +4989,11 @@ class FlowMarketoDestinationProperties(dict):
              _setter: Callable[[Any, Any], None],
              object: str,
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+
         _setter("object", object)
         if error_handling_config is not None:
             _setter("error_handling_config", error_handling_config)
@@ -4595,7 +5021,9 @@ class FlowMarketoSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4640,7 +5068,11 @@ class FlowMetadataCatalogConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              glue_data_catalog: Optional['outputs.FlowGlueDataCatalog'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'glueDataCatalog' in kwargs:
+            glue_data_catalog = kwargs['glueDataCatalog']
+
         if glue_data_catalog is not None:
             _setter("glue_data_catalog", glue_data_catalog)
 
@@ -4665,7 +5097,9 @@ class FlowPardotSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -4713,7 +5147,15 @@ class FlowPrefixConfig(dict):
              path_prefix_hierarchy: Optional[Sequence['FlowPathPrefix']] = None,
              prefix_format: Optional['FlowPrefixFormat'] = None,
              prefix_type: Optional['FlowPrefixType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathPrefixHierarchy' in kwargs:
+            path_prefix_hierarchy = kwargs['pathPrefixHierarchy']
+        if 'prefixFormat' in kwargs:
+            prefix_format = kwargs['prefixFormat']
+        if 'prefixType' in kwargs:
+            prefix_type = kwargs['prefixType']
+
         if path_prefix_hierarchy is not None:
             _setter("path_prefix_hierarchy", path_prefix_hierarchy)
         if prefix_format is not None:
@@ -4779,7 +5221,15 @@ class FlowRedshiftDestinationProperties(dict):
              object: str,
              bucket_prefix: Optional[str] = None,
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intermediateBucketName' in kwargs:
+            intermediate_bucket_name = kwargs['intermediateBucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+
         _setter("intermediate_bucket_name", intermediate_bucket_name)
         _setter("object", object)
         if bucket_prefix is not None:
@@ -4847,7 +5297,15 @@ class FlowS3DestinationProperties(dict):
              bucket_name: str,
              bucket_prefix: Optional[str] = None,
              s3_output_format_config: Optional['outputs.FlowS3OutputFormatConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 's3OutputFormatConfig' in kwargs:
+            s3_output_format_config = kwargs['s3OutputFormatConfig']
+
         _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
             _setter("bucket_prefix", bucket_prefix)
@@ -4899,7 +5357,11 @@ class FlowS3InputFormatConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_input_file_type: Optional['FlowS3InputFormatConfigS3InputFileType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3InputFileType' in kwargs:
+            s3_input_file_type = kwargs['s3InputFileType']
+
         if s3_input_file_type is not None:
             _setter("s3_input_file_type", s3_input_file_type)
 
@@ -4953,7 +5415,17 @@ class FlowS3OutputFormatConfig(dict):
              file_type: Optional['FlowFileType'] = None,
              prefix_config: Optional['outputs.FlowPrefixConfig'] = None,
              preserve_source_data_typing: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationConfig' in kwargs:
+            aggregation_config = kwargs['aggregationConfig']
+        if 'fileType' in kwargs:
+            file_type = kwargs['fileType']
+        if 'prefixConfig' in kwargs:
+            prefix_config = kwargs['prefixConfig']
+        if 'preserveSourceDataTyping' in kwargs:
+            preserve_source_data_typing = kwargs['preserveSourceDataTyping']
+
         if aggregation_config is not None:
             _setter("aggregation_config", aggregation_config)
         if file_type is not None:
@@ -5023,7 +5495,15 @@ class FlowS3SourceProperties(dict):
              bucket_name: str,
              bucket_prefix: str,
              s3_input_format_config: Optional['outputs.FlowS3InputFormatConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 's3InputFormatConfig' in kwargs:
+            s3_input_format_config = kwargs['s3InputFormatConfig']
+
         _setter("bucket_name", bucket_name)
         _setter("bucket_prefix", bucket_prefix)
         if s3_input_format_config is not None:
@@ -5095,7 +5575,17 @@ class FlowSalesforceDestinationProperties(dict):
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
              id_field_names: Optional[Sequence[str]] = None,
              write_operation_type: Optional['FlowWriteOperationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTransferApi' in kwargs:
+            data_transfer_api = kwargs['dataTransferApi']
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+        if 'idFieldNames' in kwargs:
+            id_field_names = kwargs['idFieldNames']
+        if 'writeOperationType' in kwargs:
+            write_operation_type = kwargs['writeOperationType']
+
         _setter("object", object)
         if data_transfer_api is not None:
             _setter("data_transfer_api", data_transfer_api)
@@ -5177,7 +5667,15 @@ class FlowSalesforceSourceProperties(dict):
              data_transfer_api: Optional['FlowDataTransferApi'] = None,
              enable_dynamic_field_update: Optional[bool] = None,
              include_deleted_records: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTransferApi' in kwargs:
+            data_transfer_api = kwargs['dataTransferApi']
+        if 'enableDynamicFieldUpdate' in kwargs:
+            enable_dynamic_field_update = kwargs['enableDynamicFieldUpdate']
+        if 'includeDeletedRecords' in kwargs:
+            include_deleted_records = kwargs['includeDeletedRecords']
+
         _setter("object", object)
         if data_transfer_api is not None:
             _setter("data_transfer_api", data_transfer_api)
@@ -5259,7 +5757,19 @@ class FlowSapoDataDestinationProperties(dict):
              id_field_names: Optional[Sequence[str]] = None,
              success_response_handling_config: Optional['outputs.FlowSuccessResponseHandlingConfig'] = None,
              write_operation_type: Optional['FlowWriteOperationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectPath' in kwargs:
+            object_path = kwargs['objectPath']
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+        if 'idFieldNames' in kwargs:
+            id_field_names = kwargs['idFieldNames']
+        if 'successResponseHandlingConfig' in kwargs:
+            success_response_handling_config = kwargs['successResponseHandlingConfig']
+        if 'writeOperationType' in kwargs:
+            write_operation_type = kwargs['writeOperationType']
+
         _setter("object_path", object_path)
         if error_handling_config is not None:
             _setter("error_handling_config", error_handling_config)
@@ -5334,7 +5844,11 @@ class FlowSapoDataPaginationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_page_size: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxPageSize' in kwargs:
+            max_page_size = kwargs['maxPageSize']
+
         _setter("max_page_size", max_page_size)
 
     @property
@@ -5378,7 +5892,11 @@ class FlowSapoDataParallelismConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_parallelism: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxParallelism' in kwargs:
+            max_parallelism = kwargs['maxParallelism']
+
         _setter("max_parallelism", max_parallelism)
 
     @property
@@ -5426,7 +5944,15 @@ class FlowSapoDataSourceProperties(dict):
              object_path: str,
              pagination_config: Optional['outputs.FlowSapoDataPaginationConfig'] = None,
              parallelism_config: Optional['outputs.FlowSapoDataParallelismConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectPath' in kwargs:
+            object_path = kwargs['objectPath']
+        if 'paginationConfig' in kwargs:
+            pagination_config = kwargs['paginationConfig']
+        if 'parallelismConfig' in kwargs:
+            parallelism_config = kwargs['parallelismConfig']
+
         _setter("object_path", object_path)
         if pagination_config is not None:
             _setter("pagination_config", pagination_config)
@@ -5519,7 +6045,25 @@ class FlowScheduledTriggerProperties(dict):
              schedule_offset: Optional[float] = None,
              schedule_start_time: Optional[float] = None,
              time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if 'dataPullMode' in kwargs:
+            data_pull_mode = kwargs['dataPullMode']
+        if 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+        if 'flowErrorDeactivationThreshold' in kwargs:
+            flow_error_deactivation_threshold = kwargs['flowErrorDeactivationThreshold']
+        if 'scheduleEndTime' in kwargs:
+            schedule_end_time = kwargs['scheduleEndTime']
+        if 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if 'scheduleStartTime' in kwargs:
+            schedule_start_time = kwargs['scheduleStartTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             _setter("data_pull_mode", data_pull_mode)
@@ -5589,7 +6133,9 @@ class FlowServiceNowSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -5610,7 +6156,9 @@ class FlowSingularSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -5631,7 +6179,9 @@ class FlowSlackSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -5682,7 +6232,15 @@ class FlowSnowflakeDestinationProperties(dict):
              object: str,
              bucket_prefix: Optional[str] = None,
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intermediateBucketName' in kwargs:
+            intermediate_bucket_name = kwargs['intermediateBucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+
         _setter("intermediate_bucket_name", intermediate_bucket_name)
         _setter("object", object)
         if bucket_prefix is not None:
@@ -5802,7 +6360,19 @@ class FlowSourceConnectorProperties(dict):
              trendmicro: Optional['outputs.FlowTrendmicroSourceProperties'] = None,
              veeva: Optional['outputs.FlowVeevaSourceProperties'] = None,
              zendesk: Optional['outputs.FlowZendeskSourceProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customConnector' in kwargs:
+            custom_connector = kwargs['customConnector']
+        if 'googleAnalytics' in kwargs:
+            google_analytics = kwargs['googleAnalytics']
+        if 'inforNexus' in kwargs:
+            infor_nexus = kwargs['inforNexus']
+        if 'sapoData' in kwargs:
+            sapo_data = kwargs['sapoData']
+        if 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if amplitude is not None:
             _setter("amplitude", amplitude)
         if custom_connector is not None:
@@ -5984,7 +6554,19 @@ class FlowSourceFlowConfig(dict):
              api_version: Optional[str] = None,
              connector_profile_name: Optional[str] = None,
              incremental_pull_config: Optional['outputs.FlowIncrementalPullConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'sourceConnectorProperties' in kwargs:
+            source_connector_properties = kwargs['sourceConnectorProperties']
+        if 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+        if 'incrementalPullConfig' in kwargs:
+            incremental_pull_config = kwargs['incrementalPullConfig']
+
         _setter("connector_type", connector_type)
         _setter("source_connector_properties", source_connector_properties)
         if api_version is not None:
@@ -6069,7 +6651,13 @@ class FlowSuccessResponseHandlingConfig(dict):
              _setter: Callable[[Any, Any], None],
              bucket_name: Optional[str] = None,
              bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -6109,7 +6697,9 @@ class FlowTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -6186,7 +6776,19 @@ class FlowTask(dict):
              connector_operator: Optional['outputs.FlowConnectorOperator'] = None,
              destination_field: Optional[str] = None,
              task_properties: Optional[Sequence['outputs.FlowTaskPropertiesObject']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceFields' in kwargs:
+            source_fields = kwargs['sourceFields']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'connectorOperator' in kwargs:
+            connector_operator = kwargs['connectorOperator']
+        if 'destinationField' in kwargs:
+            destination_field = kwargs['destinationField']
+        if 'taskProperties' in kwargs:
+            task_properties = kwargs['taskProperties']
+
         _setter("source_fields", source_fields)
         _setter("task_type", task_type)
         if connector_operator is not None:
@@ -6258,7 +6860,9 @@ class FlowTaskPropertiesObject(dict):
              _setter: Callable[[Any, Any], None],
              key: 'FlowOperatorPropertiesKeys',
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -6285,7 +6889,9 @@ class FlowTrendmicroSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property
@@ -6336,7 +6942,13 @@ class FlowTriggerConfig(dict):
              _setter: Callable[[Any, Any], None],
              trigger_type: 'FlowTriggerType',
              trigger_properties: Optional['outputs.FlowScheduledTriggerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if 'triggerProperties' in kwargs:
+            trigger_properties = kwargs['triggerProperties']
+
         _setter("trigger_type", trigger_type)
         if trigger_properties is not None:
             _setter("trigger_properties", trigger_properties)
@@ -6397,7 +7009,15 @@ class FlowUpsolverDestinationProperties(dict):
              bucket_name: str,
              s3_output_format_config: 'outputs.FlowUpsolverS3OutputFormatConfig',
              bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 's3OutputFormatConfig' in kwargs:
+            s3_output_format_config = kwargs['s3OutputFormatConfig']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
         _setter("bucket_name", bucket_name)
         _setter("s3_output_format_config", s3_output_format_config)
         if bucket_prefix is not None:
@@ -6458,7 +7078,15 @@ class FlowUpsolverS3OutputFormatConfig(dict):
              prefix_config: 'outputs.FlowPrefixConfig',
              aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
              file_type: Optional['FlowFileType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'prefixConfig' in kwargs:
+            prefix_config = kwargs['prefixConfig']
+        if 'aggregationConfig' in kwargs:
+            aggregation_config = kwargs['aggregationConfig']
+        if 'fileType' in kwargs:
+            file_type = kwargs['fileType']
+
         _setter("prefix_config", prefix_config)
         if aggregation_config is not None:
             _setter("aggregation_config", aggregation_config)
@@ -6528,7 +7156,17 @@ class FlowVeevaSourceProperties(dict):
              include_all_versions: Optional[bool] = None,
              include_renditions: Optional[bool] = None,
              include_source_files: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if 'includeAllVersions' in kwargs:
+            include_all_versions = kwargs['includeAllVersions']
+        if 'includeRenditions' in kwargs:
+            include_renditions = kwargs['includeRenditions']
+        if 'includeSourceFiles' in kwargs:
+            include_source_files = kwargs['includeSourceFiles']
+
         _setter("object", object)
         if document_type is not None:
             _setter("document_type", document_type)
@@ -6610,7 +7248,15 @@ class FlowZendeskDestinationProperties(dict):
              error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
              id_field_names: Optional[Sequence[str]] = None,
              write_operation_type: Optional['FlowWriteOperationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'errorHandlingConfig' in kwargs:
+            error_handling_config = kwargs['errorHandlingConfig']
+        if 'idFieldNames' in kwargs:
+            id_field_names = kwargs['idFieldNames']
+        if 'writeOperationType' in kwargs:
+            write_operation_type = kwargs['writeOperationType']
+
         _setter("object", object)
         if error_handling_config is not None:
             _setter("error_handling_config", error_handling_config)
@@ -6655,7 +7301,9 @@ class FlowZendeskSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("object", object)
 
     @property

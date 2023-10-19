@@ -33,7 +33,11 @@ class TagAssociationArgs:
              _setter: Callable[[Any, Any], None],
              lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]],
              resource: pulumi.Input['TagAssociationResourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lfTags' in kwargs:
+            lf_tags = kwargs['lfTags']
+
         _setter("lf_tags", lf_tags)
         _setter("resource", resource)
 

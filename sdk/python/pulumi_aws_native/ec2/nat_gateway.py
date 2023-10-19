@@ -52,7 +52,25 @@ class NatGatewayArgs:
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'connectivityType' in kwargs:
+            connectivity_type = kwargs['connectivityType']
+        if 'maxDrainDurationSeconds' in kwargs:
+            max_drain_duration_seconds = kwargs['maxDrainDurationSeconds']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'secondaryAllocationIds' in kwargs:
+            secondary_allocation_ids = kwargs['secondaryAllocationIds']
+        if 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if 'secondaryPrivateIpAddresses' in kwargs:
+            secondary_private_ip_addresses = kwargs['secondaryPrivateIpAddresses']
+
         _setter("subnet_id", subnet_id)
         if allocation_id is not None:
             _setter("allocation_id", allocation_id)

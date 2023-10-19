@@ -98,7 +98,11 @@ class ConnectorDefinitionConnector(dict):
              connector_arn: str,
              id: str,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+
         _setter("connector_arn", connector_arn)
         _setter("id", id)
         if parameters is not None:
@@ -132,7 +136,9 @@ class ConnectorDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              connectors: Sequence['outputs.ConnectorDefinitionConnector'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("connectors", connectors)
 
     @property
@@ -176,7 +182,11 @@ class ConnectorDefinitionVersionConnector(dict):
              connector_arn: str,
              id: str,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+
         _setter("connector_arn", connector_arn)
         _setter("id", id)
         if parameters is not None:
@@ -240,7 +250,15 @@ class CoreDefinitionCore(dict):
              id: str,
              thing_arn: str,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -280,7 +298,9 @@ class CoreDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cores: Sequence['outputs.CoreDefinitionCore'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cores", cores)
 
     @property
@@ -331,7 +351,15 @@ class CoreDefinitionVersionCore(dict):
              id: str,
              thing_arn: str,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -401,7 +429,15 @@ class DeviceDefinitionDevice(dict):
              id: str,
              thing_arn: str,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -441,7 +477,9 @@ class DeviceDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              devices: Sequence['outputs.DeviceDefinitionDevice'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("devices", devices)
 
     @property
@@ -492,7 +530,15 @@ class DeviceDefinitionVersionDevice(dict):
              id: str,
              thing_arn: str,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -532,7 +578,9 @@ class FunctionDefinitionDefaultConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              execution: 'outputs.FunctionDefinitionExecution',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("execution", execution)
 
     @property
@@ -581,7 +629,13 @@ class FunctionDefinitionEnvironment(dict):
              execution: Optional['outputs.FunctionDefinitionExecution'] = None,
              resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionResourceAccessPolicy']] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessSysfs' in kwargs:
+            access_sysfs = kwargs['accessSysfs']
+        if 'resourceAccessPolicies' in kwargs:
+            resource_access_policies = kwargs['resourceAccessPolicies']
+
         if access_sysfs is not None:
             _setter("access_sysfs", access_sysfs)
         if execution is not None:
@@ -646,7 +700,13 @@ class FunctionDefinitionExecution(dict):
              _setter: Callable[[Any, Any], None],
              isolation_mode: Optional[str] = None,
              run_as: Optional['outputs.FunctionDefinitionRunAs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isolationMode' in kwargs:
+            isolation_mode = kwargs['isolationMode']
+        if 'runAs' in kwargs:
+            run_as = kwargs['runAs']
+
         if isolation_mode is not None:
             _setter("isolation_mode", isolation_mode)
         if run_as is not None:
@@ -700,7 +760,13 @@ class FunctionDefinitionFunction(dict):
              function_arn: str,
              function_configuration: 'outputs.FunctionDefinitionFunctionConfiguration',
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if 'functionConfiguration' in kwargs:
+            function_configuration = kwargs['functionConfiguration']
+
         _setter("function_arn", function_arn)
         _setter("function_configuration", function_configuration)
         _setter("id", id)
@@ -772,7 +838,15 @@ class FunctionDefinitionFunctionConfiguration(dict):
              memory_size: Optional[int] = None,
              pinned: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if 'execArgs' in kwargs:
+            exec_args = kwargs['execArgs']
+        if 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+
         if encoding_type is not None:
             _setter("encoding_type", encoding_type)
         if environment is not None:
@@ -856,7 +930,11 @@ class FunctionDefinitionResourceAccessPolicy(dict):
              _setter: Callable[[Any, Any], None],
              resource_id: str,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("resource_id", resource_id)
         if permission is not None:
             _setter("permission", permission)
@@ -887,7 +965,9 @@ class FunctionDefinitionRunAs(dict):
              _setter: Callable[[Any, Any], None],
              gid: Optional[int] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if gid is not None:
             _setter("gid", gid)
         if uid is not None:
@@ -936,7 +1016,11 @@ class FunctionDefinitionVersion(dict):
              _setter: Callable[[Any, Any], None],
              functions: Sequence['outputs.FunctionDefinitionFunction'],
              default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         _setter("functions", functions)
         if default_config is not None:
             _setter("default_config", default_config)
@@ -964,7 +1048,9 @@ class FunctionDefinitionVersionDefaultConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              execution: 'outputs.FunctionDefinitionVersionExecution',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("execution", execution)
 
     @property
@@ -1013,7 +1099,13 @@ class FunctionDefinitionVersionEnvironment(dict):
              execution: Optional['outputs.FunctionDefinitionVersionExecution'] = None,
              resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionVersionResourceAccessPolicy']] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessSysfs' in kwargs:
+            access_sysfs = kwargs['accessSysfs']
+        if 'resourceAccessPolicies' in kwargs:
+            resource_access_policies = kwargs['resourceAccessPolicies']
+
         if access_sysfs is not None:
             _setter("access_sysfs", access_sysfs)
         if execution is not None:
@@ -1078,7 +1170,13 @@ class FunctionDefinitionVersionExecution(dict):
              _setter: Callable[[Any, Any], None],
              isolation_mode: Optional[str] = None,
              run_as: Optional['outputs.FunctionDefinitionVersionRunAs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isolationMode' in kwargs:
+            isolation_mode = kwargs['isolationMode']
+        if 'runAs' in kwargs:
+            run_as = kwargs['runAs']
+
         if isolation_mode is not None:
             _setter("isolation_mode", isolation_mode)
         if run_as is not None:
@@ -1132,7 +1230,13 @@ class FunctionDefinitionVersionFunction(dict):
              function_arn: str,
              function_configuration: 'outputs.FunctionDefinitionVersionFunctionConfiguration',
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if 'functionConfiguration' in kwargs:
+            function_configuration = kwargs['functionConfiguration']
+
         _setter("function_arn", function_arn)
         _setter("function_configuration", function_configuration)
         _setter("id", id)
@@ -1204,7 +1308,15 @@ class FunctionDefinitionVersionFunctionConfiguration(dict):
              memory_size: Optional[int] = None,
              pinned: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if 'execArgs' in kwargs:
+            exec_args = kwargs['execArgs']
+        if 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+
         if encoding_type is not None:
             _setter("encoding_type", encoding_type)
         if environment is not None:
@@ -1288,7 +1400,11 @@ class FunctionDefinitionVersionResourceAccessPolicy(dict):
              _setter: Callable[[Any, Any], None],
              resource_id: str,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("resource_id", resource_id)
         if permission is not None:
             _setter("permission", permission)
@@ -1319,7 +1435,9 @@ class FunctionDefinitionVersionRunAs(dict):
              _setter: Callable[[Any, Any], None],
              gid: Optional[int] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if gid is not None:
             _setter("gid", gid)
         if uid is not None:
@@ -1395,7 +1513,23 @@ class GroupVersion(dict):
              logger_definition_version_arn: Optional[str] = None,
              resource_definition_version_arn: Optional[str] = None,
              subscription_definition_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorDefinitionVersionArn' in kwargs:
+            connector_definition_version_arn = kwargs['connectorDefinitionVersionArn']
+        if 'coreDefinitionVersionArn' in kwargs:
+            core_definition_version_arn = kwargs['coreDefinitionVersionArn']
+        if 'deviceDefinitionVersionArn' in kwargs:
+            device_definition_version_arn = kwargs['deviceDefinitionVersionArn']
+        if 'functionDefinitionVersionArn' in kwargs:
+            function_definition_version_arn = kwargs['functionDefinitionVersionArn']
+        if 'loggerDefinitionVersionArn' in kwargs:
+            logger_definition_version_arn = kwargs['loggerDefinitionVersionArn']
+        if 'resourceDefinitionVersionArn' in kwargs:
+            resource_definition_version_arn = kwargs['resourceDefinitionVersionArn']
+        if 'subscriptionDefinitionVersionArn' in kwargs:
+            subscription_definition_version_arn = kwargs['subscriptionDefinitionVersionArn']
+
         if connector_definition_version_arn is not None:
             _setter("connector_definition_version_arn", connector_definition_version_arn)
         if core_definition_version_arn is not None:
@@ -1471,7 +1605,9 @@ class LoggerDefinitionLogger(dict):
              level: str,
              type: str,
              space: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("component", component)
         _setter("id", id)
         _setter("level", level)
@@ -1517,7 +1653,9 @@ class LoggerDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              loggers: Sequence['outputs.LoggerDefinitionLogger'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("loggers", loggers)
 
     @property
@@ -1550,7 +1688,9 @@ class LoggerDefinitionVersionLogger(dict):
              level: str,
              type: str,
              space: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("component", component)
         _setter("id", id)
         _setter("level", level)
@@ -1618,7 +1758,13 @@ class ResourceDefinitionGroupOwnerSetting(dict):
              _setter: Callable[[Any, Any], None],
              auto_add_group_owner: bool,
              group_owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAddGroupOwner' in kwargs:
+            auto_add_group_owner = kwargs['autoAddGroupOwner']
+        if 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+
         _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
             _setter("group_owner", group_owner)
@@ -1668,7 +1814,13 @@ class ResourceDefinitionLocalDeviceResourceData(dict):
              _setter: Callable[[Any, Any], None],
              source_path: str,
              group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("source_path", source_path)
         if group_owner_setting is not None:
             _setter("group_owner_setting", group_owner_setting)
@@ -1723,7 +1875,15 @@ class ResourceDefinitionLocalVolumeResourceData(dict):
              destination_path: str,
              source_path: str,
              group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("destination_path", destination_path)
         _setter("source_path", source_path)
         if group_owner_setting is not None:
@@ -1794,7 +1954,19 @@ class ResourceDefinitionResourceDataContainer(dict):
              s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionS3MachineLearningModelResourceData'] = None,
              sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionSageMakerMachineLearningModelResourceData'] = None,
              secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionSecretsManagerSecretResourceData'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localDeviceResourceData' in kwargs:
+            local_device_resource_data = kwargs['localDeviceResourceData']
+        if 'localVolumeResourceData' in kwargs:
+            local_volume_resource_data = kwargs['localVolumeResourceData']
+        if 's3MachineLearningModelResourceData' in kwargs:
+            s3_machine_learning_model_resource_data = kwargs['s3MachineLearningModelResourceData']
+        if 'sageMakerMachineLearningModelResourceData' in kwargs:
+            sage_maker_machine_learning_model_resource_data = kwargs['sageMakerMachineLearningModelResourceData']
+        if 'secretsManagerSecretResourceData' in kwargs:
+            secrets_manager_secret_resource_data = kwargs['secretsManagerSecretResourceData']
+
         if local_device_resource_data is not None:
             _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
@@ -1866,7 +2038,13 @@ class ResourceDefinitionResourceDownloadOwnerSetting(dict):
              _setter: Callable[[Any, Any], None],
              group_owner: str,
              group_permission: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+        if 'groupPermission' in kwargs:
+            group_permission = kwargs['groupPermission']
+
         _setter("group_owner", group_owner)
         _setter("group_permission", group_permission)
 
@@ -1916,7 +2094,11 @@ class ResourceDefinitionResourceInstance(dict):
              id: str,
              name: str,
              resource_data_container: 'outputs.ResourceDefinitionResourceDataContainer',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceDataContainer' in kwargs:
+            resource_data_container = kwargs['resourceDataContainer']
+
         _setter("id", id)
         _setter("name", name)
         _setter("resource_data_container", resource_data_container)
@@ -1976,7 +2158,15 @@ class ResourceDefinitionS3MachineLearningModelResourceData(dict):
              destination_path: str,
              s3_uri: str,
              owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("s3_uri", s3_uri)
         if owner_setting is not None:
@@ -2037,7 +2227,15 @@ class ResourceDefinitionSageMakerMachineLearningModelResourceData(dict):
              destination_path: str,
              sage_maker_job_arn: str,
              owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 'sageMakerJobArn' in kwargs:
+            sage_maker_job_arn = kwargs['sageMakerJobArn']
+        if 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
@@ -2091,7 +2289,11 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
              _setter: Callable[[Any, Any], None],
              arn: str,
              additional_staging_labels_to_download: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalStagingLabelsToDownload' in kwargs:
+            additional_staging_labels_to_download = kwargs['additionalStagingLabelsToDownload']
+
         _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
             _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
@@ -2119,7 +2321,9 @@ class ResourceDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              resources: Sequence['outputs.ResourceDefinitionResourceInstance'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("resources", resources)
 
     @property
@@ -2162,7 +2366,13 @@ class ResourceDefinitionVersionGroupOwnerSetting(dict):
              _setter: Callable[[Any, Any], None],
              auto_add_group_owner: bool,
              group_owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAddGroupOwner' in kwargs:
+            auto_add_group_owner = kwargs['autoAddGroupOwner']
+        if 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+
         _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
             _setter("group_owner", group_owner)
@@ -2212,7 +2422,13 @@ class ResourceDefinitionVersionLocalDeviceResourceData(dict):
              _setter: Callable[[Any, Any], None],
              source_path: str,
              group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("source_path", source_path)
         if group_owner_setting is not None:
             _setter("group_owner_setting", group_owner_setting)
@@ -2267,7 +2483,15 @@ class ResourceDefinitionVersionLocalVolumeResourceData(dict):
              destination_path: str,
              source_path: str,
              group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("destination_path", destination_path)
         _setter("source_path", source_path)
         if group_owner_setting is not None:
@@ -2338,7 +2562,19 @@ class ResourceDefinitionVersionResourceDataContainer(dict):
              s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionS3MachineLearningModelResourceData'] = None,
              sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionSageMakerMachineLearningModelResourceData'] = None,
              secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionVersionSecretsManagerSecretResourceData'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localDeviceResourceData' in kwargs:
+            local_device_resource_data = kwargs['localDeviceResourceData']
+        if 'localVolumeResourceData' in kwargs:
+            local_volume_resource_data = kwargs['localVolumeResourceData']
+        if 's3MachineLearningModelResourceData' in kwargs:
+            s3_machine_learning_model_resource_data = kwargs['s3MachineLearningModelResourceData']
+        if 'sageMakerMachineLearningModelResourceData' in kwargs:
+            sage_maker_machine_learning_model_resource_data = kwargs['sageMakerMachineLearningModelResourceData']
+        if 'secretsManagerSecretResourceData' in kwargs:
+            secrets_manager_secret_resource_data = kwargs['secretsManagerSecretResourceData']
+
         if local_device_resource_data is not None:
             _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
@@ -2410,7 +2646,13 @@ class ResourceDefinitionVersionResourceDownloadOwnerSetting(dict):
              _setter: Callable[[Any, Any], None],
              group_owner: str,
              group_permission: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+        if 'groupPermission' in kwargs:
+            group_permission = kwargs['groupPermission']
+
         _setter("group_owner", group_owner)
         _setter("group_permission", group_permission)
 
@@ -2460,7 +2702,11 @@ class ResourceDefinitionVersionResourceInstance(dict):
              id: str,
              name: str,
              resource_data_container: 'outputs.ResourceDefinitionVersionResourceDataContainer',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceDataContainer' in kwargs:
+            resource_data_container = kwargs['resourceDataContainer']
+
         _setter("id", id)
         _setter("name", name)
         _setter("resource_data_container", resource_data_container)
@@ -2520,7 +2766,15 @@ class ResourceDefinitionVersionS3MachineLearningModelResourceData(dict):
              destination_path: str,
              s3_uri: str,
              owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("s3_uri", s3_uri)
         if owner_setting is not None:
@@ -2581,7 +2835,15 @@ class ResourceDefinitionVersionSageMakerMachineLearningModelResourceData(dict):
              destination_path: str,
              sage_maker_job_arn: str,
              owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if 'sageMakerJobArn' in kwargs:
+            sage_maker_job_arn = kwargs['sageMakerJobArn']
+        if 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
@@ -2635,7 +2897,11 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceData(dict):
              _setter: Callable[[Any, Any], None],
              arn: str,
              additional_staging_labels_to_download: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalStagingLabelsToDownload' in kwargs:
+            additional_staging_labels_to_download = kwargs['additionalStagingLabelsToDownload']
+
         _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
             _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
@@ -2672,7 +2938,9 @@ class SubscriptionDefinitionSubscription(dict):
              source: str,
              subject: str,
              target: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("source", source)
         _setter("subject", subject)
@@ -2711,7 +2979,9 @@ class SubscriptionDefinitionVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              subscriptions: Sequence['outputs.SubscriptionDefinitionSubscription'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("subscriptions", subscriptions)
 
     @property
@@ -2741,7 +3011,9 @@ class SubscriptionDefinitionVersionSubscription(dict):
              source: str,
              subject: str,
              target: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("source", source)
         _setter("subject", subject)

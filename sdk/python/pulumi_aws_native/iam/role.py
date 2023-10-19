@@ -61,7 +61,19 @@ class RoleArgs:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assumeRolePolicyDocument' in kwargs:
+            assume_role_policy_document = kwargs['assumeRolePolicyDocument']
+        if 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if 'maxSessionDuration' in kwargs:
+            max_session_duration = kwargs['maxSessionDuration']
+        if 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         _setter("assume_role_policy_document", assume_role_policy_document)
         if description is not None:
             _setter("description", description)

@@ -40,7 +40,13 @@ class LifecyclePolicyArgs:
              policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']] = None,
              state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'policyDetails' in kwargs:
+            policy_details = kwargs['policyDetails']
+
         if description is not None:
             _setter("description", description)
         if execution_role_arn is not None:

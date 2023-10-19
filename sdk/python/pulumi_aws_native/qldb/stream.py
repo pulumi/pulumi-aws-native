@@ -47,7 +47,21 @@ class StreamArgs:
              exclusive_end_time: Optional[pulumi.Input[str]] = None,
              stream_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inclusiveStartTime' in kwargs:
+            inclusive_start_time = kwargs['inclusiveStartTime']
+        if 'kinesisConfiguration' in kwargs:
+            kinesis_configuration = kwargs['kinesisConfiguration']
+        if 'ledgerName' in kwargs:
+            ledger_name = kwargs['ledgerName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'exclusiveEndTime' in kwargs:
+            exclusive_end_time = kwargs['exclusiveEndTime']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("inclusive_start_time", inclusive_start_time)
         _setter("kinesis_configuration", kinesis_configuration)
         _setter("ledger_name", ledger_name)

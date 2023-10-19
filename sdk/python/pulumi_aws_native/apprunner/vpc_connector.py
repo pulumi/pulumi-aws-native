@@ -41,7 +41,13 @@ class VpcConnectorArgs:
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcConnectorTagArgs']]]] = None,
              vpc_connector_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'vpcConnectorName' in kwargs:
+            vpc_connector_name = kwargs['vpcConnectorName']
+
         _setter("subnets", subnets)
         if security_groups is not None:
             _setter("security_groups", security_groups)

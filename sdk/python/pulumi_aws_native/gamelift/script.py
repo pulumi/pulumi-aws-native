@@ -37,7 +37,11 @@ class ScriptArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+
         _setter("storage_location", storage_location)
         if name is not None:
             _setter("name", name)

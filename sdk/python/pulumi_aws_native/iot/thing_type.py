@@ -38,7 +38,15 @@ class ThingTypeArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]] = None,
              thing_type_name: Optional[pulumi.Input[str]] = None,
              thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deprecateThingType' in kwargs:
+            deprecate_thing_type = kwargs['deprecateThingType']
+        if 'thingTypeName' in kwargs:
+            thing_type_name = kwargs['thingTypeName']
+        if 'thingTypeProperties' in kwargs:
+            thing_type_properties = kwargs['thingTypeProperties']
+
         if deprecate_thing_type is not None:
             _setter("deprecate_thing_type", deprecate_thing_type)
         if tags is not None:

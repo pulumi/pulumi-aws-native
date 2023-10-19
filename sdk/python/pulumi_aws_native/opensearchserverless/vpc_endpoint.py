@@ -39,7 +39,15 @@ class VpcEndpointArgs:
              vpc_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)
         if name is not None:

@@ -28,7 +28,11 @@ class CloudFrontOriginAccessIdentityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudFrontOriginAccessIdentityConfig' in kwargs:
+            cloud_front_origin_access_identity_config = kwargs['cloudFrontOriginAccessIdentityConfig']
+
         _setter("cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
 
     @property

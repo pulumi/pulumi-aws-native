@@ -41,7 +41,13 @@ class UserHierarchyGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              parent_group_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'parentGroupArn' in kwargs:
+            parent_group_arn = kwargs['parentGroupArn']
+
         _setter("instance_arn", instance_arn)
         if name is not None:
             _setter("name", name)

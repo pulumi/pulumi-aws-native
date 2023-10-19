@@ -33,7 +33,11 @@ class AccessorArgs:
              _setter: Callable[[Any, Any], None],
              accessor_type: pulumi.Input['AccessorType'],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessorType' in kwargs:
+            accessor_type = kwargs['accessorType']
+
         _setter("accessor_type", accessor_type)
         if tags is not None:
             _setter("tags", tags)

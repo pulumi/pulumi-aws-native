@@ -91,7 +91,53 @@ class UserPoolClientArgs:
              supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
              write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'accessTokenValidity' in kwargs:
+            access_token_validity = kwargs['accessTokenValidity']
+        if 'allowedOAuthFlows' in kwargs:
+            allowed_o_auth_flows = kwargs['allowedOAuthFlows']
+        if 'allowedOAuthFlowsUserPoolClient' in kwargs:
+            allowed_o_auth_flows_user_pool_client = kwargs['allowedOAuthFlowsUserPoolClient']
+        if 'allowedOAuthScopes' in kwargs:
+            allowed_o_auth_scopes = kwargs['allowedOAuthScopes']
+        if 'analyticsConfiguration' in kwargs:
+            analytics_configuration = kwargs['analyticsConfiguration']
+        if 'authSessionValidity' in kwargs:
+            auth_session_validity = kwargs['authSessionValidity']
+        if 'callbackUrls' in kwargs:
+            callback_urls = kwargs['callbackUrls']
+        if 'clientName' in kwargs:
+            client_name = kwargs['clientName']
+        if 'defaultRedirectUri' in kwargs:
+            default_redirect_uri = kwargs['defaultRedirectUri']
+        if 'enablePropagateAdditionalUserContextData' in kwargs:
+            enable_propagate_additional_user_context_data = kwargs['enablePropagateAdditionalUserContextData']
+        if 'enableTokenRevocation' in kwargs:
+            enable_token_revocation = kwargs['enableTokenRevocation']
+        if 'explicitAuthFlows' in kwargs:
+            explicit_auth_flows = kwargs['explicitAuthFlows']
+        if 'generateSecret' in kwargs:
+            generate_secret = kwargs['generateSecret']
+        if 'idTokenValidity' in kwargs:
+            id_token_validity = kwargs['idTokenValidity']
+        if 'logoutUrls' in kwargs:
+            logout_urls = kwargs['logoutUrls']
+        if 'preventUserExistenceErrors' in kwargs:
+            prevent_user_existence_errors = kwargs['preventUserExistenceErrors']
+        if 'readAttributes' in kwargs:
+            read_attributes = kwargs['readAttributes']
+        if 'refreshTokenValidity' in kwargs:
+            refresh_token_validity = kwargs['refreshTokenValidity']
+        if 'supportedIdentityProviders' in kwargs:
+            supported_identity_providers = kwargs['supportedIdentityProviders']
+        if 'tokenValidityUnits' in kwargs:
+            token_validity_units = kwargs['tokenValidityUnits']
+        if 'writeAttributes' in kwargs:
+            write_attributes = kwargs['writeAttributes']
+
         _setter("user_pool_id", user_pool_id)
         if access_token_validity is not None:
             _setter("access_token_validity", access_token_validity)

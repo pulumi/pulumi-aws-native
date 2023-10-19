@@ -102,7 +102,47 @@ class EnvironmentArgs:
              tags: Optional[Any] = None,
              webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
              weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'airflowConfigurationOptions' in kwargs:
+            airflow_configuration_options = kwargs['airflowConfigurationOptions']
+        if 'airflowVersion' in kwargs:
+            airflow_version = kwargs['airflowVersion']
+        if 'dagS3Path' in kwargs:
+            dag_s3_path = kwargs['dagS3Path']
+        if 'environmentClass' in kwargs:
+            environment_class = kwargs['environmentClass']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if 'maxWorkers' in kwargs:
+            max_workers = kwargs['maxWorkers']
+        if 'minWorkers' in kwargs:
+            min_workers = kwargs['minWorkers']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'pluginsS3ObjectVersion' in kwargs:
+            plugins_s3_object_version = kwargs['pluginsS3ObjectVersion']
+        if 'pluginsS3Path' in kwargs:
+            plugins_s3_path = kwargs['pluginsS3Path']
+        if 'requirementsS3ObjectVersion' in kwargs:
+            requirements_s3_object_version = kwargs['requirementsS3ObjectVersion']
+        if 'requirementsS3Path' in kwargs:
+            requirements_s3_path = kwargs['requirementsS3Path']
+        if 'sourceBucketArn' in kwargs:
+            source_bucket_arn = kwargs['sourceBucketArn']
+        if 'startupScriptS3ObjectVersion' in kwargs:
+            startup_script_s3_object_version = kwargs['startupScriptS3ObjectVersion']
+        if 'startupScriptS3Path' in kwargs:
+            startup_script_s3_path = kwargs['startupScriptS3Path']
+        if 'webserverAccessMode' in kwargs:
+            webserver_access_mode = kwargs['webserverAccessMode']
+        if 'weeklyMaintenanceWindowStart' in kwargs:
+            weekly_maintenance_window_start = kwargs['weeklyMaintenanceWindowStart']
+
         if airflow_configuration_options is not None:
             _setter("airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:

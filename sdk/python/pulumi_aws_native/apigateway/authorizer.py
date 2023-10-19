@@ -63,7 +63,25 @@ class AuthorizerArgs:
              identity_validation_expression: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'authorizerCredentials' in kwargs:
+            authorizer_credentials = kwargs['authorizerCredentials']
+        if 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if 'identitySource' in kwargs:
+            identity_source = kwargs['identitySource']
+        if 'identityValidationExpression' in kwargs:
+            identity_validation_expression = kwargs['identityValidationExpression']
+        if 'providerArns' in kwargs:
+            provider_arns = kwargs['providerArns']
+
         _setter("rest_api_id", rest_api_id)
         _setter("type", type)
         if auth_type is not None:

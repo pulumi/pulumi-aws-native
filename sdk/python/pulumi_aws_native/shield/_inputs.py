@@ -43,7 +43,15 @@ class ProactiveEngagementEmergencyContactArgs:
              email_address: pulumi.Input[str],
              contact_notes: Optional[pulumi.Input[str]] = None,
              phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'contactNotes' in kwargs:
+            contact_notes = kwargs['contactNotes']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email_address", email_address)
         if contact_notes is not None:
             _setter("contact_notes", contact_notes)
@@ -104,7 +112,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesA
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -139,7 +149,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesA
     def _configure(
              _setter: Callable[[Any, Any], None],
              block: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if block is not None:
             _setter("block", block)
 
@@ -177,7 +189,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']],
              status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("status", status)
 
@@ -226,7 +240,9 @@ class ProtectionGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -275,7 +291,9 @@ class ProtectionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

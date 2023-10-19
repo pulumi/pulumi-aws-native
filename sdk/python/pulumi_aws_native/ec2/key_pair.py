@@ -46,7 +46,17 @@ class KeyPairArgs:
              key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
              public_key_material: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyFormat' in kwargs:
+            key_format = kwargs['keyFormat']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'publicKeyMaterial' in kwargs:
+            public_key_material = kwargs['publicKeyMaterial']
+
         _setter("key_name", key_name)
         if key_format is not None:
             _setter("key_format", key_format)

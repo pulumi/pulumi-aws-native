@@ -32,7 +32,11 @@ class ConnectionAliasArgs:
              _setter: Callable[[Any, Any], None],
              connection_string: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionAliasTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         if tags is not None:
             _setter("tags", tags)

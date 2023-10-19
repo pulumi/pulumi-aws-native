@@ -36,7 +36,15 @@ class InstanceAccessControlAttributeConfigurationArgs:
              instance_arn: pulumi.Input[str],
              access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
              instance_access_control_attribute_configuration: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'accessControlAttributes' in kwargs:
+            access_control_attributes = kwargs['accessControlAttributes']
+        if 'instanceAccessControlAttributeConfiguration' in kwargs:
+            instance_access_control_attribute_configuration = kwargs['instanceAccessControlAttributeConfiguration']
+
         _setter("instance_arn", instance_arn)
         if access_control_attributes is not None:
             _setter("access_control_attributes", access_control_attributes)

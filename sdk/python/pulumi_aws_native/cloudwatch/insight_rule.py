@@ -37,7 +37,15 @@ class InsightRuleArgs:
              rule_name: pulumi.Input[str],
              rule_state: pulumi.Input[str],
              tags: Optional[pulumi.Input['InsightRuleTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleBody' in kwargs:
+            rule_body = kwargs['ruleBody']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'ruleState' in kwargs:
+            rule_state = kwargs['ruleState']
+
         _setter("rule_body", rule_body)
         _setter("rule_name", rule_name)
         _setter("rule_state", rule_state)

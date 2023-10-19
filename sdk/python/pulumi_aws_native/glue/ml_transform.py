@@ -64,7 +64,25 @@ class MlTransformArgs:
              timeout: Optional[pulumi.Input[int]] = None,
              transform_encryption: Optional[pulumi.Input['MlTransformTransformEncryptionArgs']] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputRecordTables' in kwargs:
+            input_record_tables = kwargs['inputRecordTables']
+        if 'transformParameters' in kwargs:
+            transform_parameters = kwargs['transformParameters']
+        if 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if 'transformEncryption' in kwargs:
+            transform_encryption = kwargs['transformEncryption']
+        if 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("input_record_tables", input_record_tables)
         _setter("role", role)
         _setter("transform_parameters", transform_parameters)

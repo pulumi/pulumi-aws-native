@@ -64,7 +64,9 @@ class CustomDbEngineVersionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -128,7 +130,13 @@ class DbClusterDbClusterRole(dict):
              _setter: Callable[[Any, Any], None],
              role_arn: str,
              feature_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+
         _setter("role_arn", role_arn)
         if feature_name is not None:
             _setter("feature_name", feature_name)
@@ -169,7 +177,9 @@ class DbClusterEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if port is not None:
@@ -230,7 +240,13 @@ class DbClusterMasterUserSecret(dict):
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
@@ -276,7 +292,9 @@ class DbClusterParameterGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -313,7 +331,9 @@ class DbClusterReadEndpoint(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
 
@@ -403,7 +423,21 @@ class DbClusterScalingConfiguration(dict):
              seconds_before_timeout: Optional[int] = None,
              seconds_until_auto_pause: Optional[int] = None,
              timeout_action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'secondsBeforeTimeout' in kwargs:
+            seconds_before_timeout = kwargs['secondsBeforeTimeout']
+        if 'secondsUntilAutoPause' in kwargs:
+            seconds_until_auto_pause = kwargs['secondsUntilAutoPause']
+        if 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+
         if auto_pause is not None:
             _setter("auto_pause", auto_pause)
         if max_capacity is not None:
@@ -519,7 +553,13 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              max_capacity: Optional[float] = None,
              min_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         if max_capacity is not None:
             _setter("max_capacity", max_capacity)
         if min_capacity is not None:
@@ -565,7 +605,9 @@ class DbClusterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -625,7 +667,13 @@ class DbInstanceCertificateDetails(dict):
              _setter: Callable[[Any, Any], None],
              ca_identifier: Optional[str] = None,
              valid_till: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caIdentifier' in kwargs:
+            ca_identifier = kwargs['caIdentifier']
+        if 'validTill' in kwargs:
+            valid_till = kwargs['validTill']
+
         if ca_identifier is not None:
             _setter("ca_identifier", ca_identifier)
         if valid_till is not None:
@@ -686,7 +734,13 @@ class DbInstanceDbInstanceRole(dict):
              _setter: Callable[[Any, Any], None],
              feature_name: str,
              role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("feature_name", feature_name)
         _setter("role_arn", role_arn)
 
@@ -747,7 +801,11 @@ class DbInstanceEndpoint(dict):
              address: Optional[str] = None,
              hosted_zone_id: Optional[str] = None,
              port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if address is not None:
             _setter("address", address)
         if hosted_zone_id is not None:
@@ -818,7 +876,13 @@ class DbInstanceMasterUserSecret(dict):
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
@@ -860,7 +924,9 @@ class DbInstanceProcessorFeature(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional['DbInstanceProcessorFeatureName'] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -906,7 +972,9 @@ class DbInstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -951,7 +1019,9 @@ class DbParameterGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1027,7 +1097,17 @@ class DbProxyAuthFormat(dict):
              description: Optional[str] = None,
              iam_auth: Optional['DbProxyAuthFormatIamAuth'] = None,
              secret_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authScheme' in kwargs:
+            auth_scheme = kwargs['authScheme']
+        if 'clientPasswordAuthType' in kwargs:
+            client_password_auth_type = kwargs['clientPasswordAuthType']
+        if 'iamAuth' in kwargs:
+            iam_auth = kwargs['iamAuth']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if auth_scheme is not None:
             _setter("auth_scheme", auth_scheme)
         if client_password_auth_type is not None:
@@ -1095,7 +1175,9 @@ class DbProxyEndpointTagFormat(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1127,7 +1209,9 @@ class DbProxyTagFormat(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1200,7 +1284,19 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
              max_connections_percent: Optional[int] = None,
              max_idle_connections_percent: Optional[int] = None,
              session_pinning_filters: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionBorrowTimeout' in kwargs:
+            connection_borrow_timeout = kwargs['connectionBorrowTimeout']
+        if 'initQuery' in kwargs:
+            init_query = kwargs['initQuery']
+        if 'maxConnectionsPercent' in kwargs:
+            max_connections_percent = kwargs['maxConnectionsPercent']
+        if 'maxIdleConnectionsPercent' in kwargs:
+            max_idle_connections_percent = kwargs['maxIdleConnectionsPercent']
+        if 'sessionPinningFilters' in kwargs:
+            session_pinning_filters = kwargs['sessionPinningFilters']
+
         if connection_borrow_timeout is not None:
             _setter("connection_borrow_timeout", connection_borrow_timeout)
         if init_query is not None:
@@ -1295,7 +1391,15 @@ class DbSecurityGroupIngress(dict):
              ec2_security_group_id: Optional[str] = None,
              ec2_security_group_name: Optional[str] = None,
              ec2_security_group_owner_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ec2SecurityGroupId' in kwargs:
+            ec2_security_group_id = kwargs['ec2SecurityGroupId']
+        if 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         if cidrip is not None:
             _setter("cidrip", cidrip)
         if ec2_security_group_id is not None:
@@ -1341,7 +1445,9 @@ class DbSecurityGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1379,7 +1485,9 @@ class DbSubnetGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1424,7 +1532,9 @@ class EventSubscriptionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1510,7 +1620,19 @@ class OptionGroupOptionConfiguration(dict):
              option_version: Optional[str] = None,
              port: Optional[int] = None,
              vpc_security_group_memberships: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if 'dbSecurityGroupMemberships' in kwargs:
+            db_security_group_memberships = kwargs['dbSecurityGroupMemberships']
+        if 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if 'optionVersion' in kwargs:
+            option_version = kwargs['optionVersion']
+        if 'vpcSecurityGroupMemberships' in kwargs:
+            vpc_security_group_memberships = kwargs['vpcSecurityGroupMemberships']
+
         _setter("option_name", option_name)
         if db_security_group_memberships is not None:
             _setter("db_security_group_memberships", db_security_group_memberships)
@@ -1595,7 +1717,9 @@ class OptionGroupOptionSetting(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -1641,7 +1765,9 @@ class OptionGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)

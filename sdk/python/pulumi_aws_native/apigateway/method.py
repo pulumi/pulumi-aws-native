@@ -78,7 +78,33 @@ class MethodArgs:
              request_models: Optional[Any] = None,
              request_parameters: Optional[Any] = None,
              request_validator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'apiKeyRequired' in kwargs:
+            api_key_required = kwargs['apiKeyRequired']
+        if 'authorizationScopes' in kwargs:
+            authorization_scopes = kwargs['authorizationScopes']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'authorizerId' in kwargs:
+            authorizer_id = kwargs['authorizerId']
+        if 'methodResponses' in kwargs:
+            method_responses = kwargs['methodResponses']
+        if 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if 'requestModels' in kwargs:
+            request_models = kwargs['requestModels']
+        if 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if 'requestValidatorId' in kwargs:
+            request_validator_id = kwargs['requestValidatorId']
+
         _setter("http_method", http_method)
         _setter("resource_id", resource_id)
         _setter("rest_api_id", rest_api_id)

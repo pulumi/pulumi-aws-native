@@ -33,8 +33,10 @@ class FleetTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -57,7 +59,9 @@ class RobotApplicationRobotSoftwareSuiteArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName'],
              version: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -110,7 +114,13 @@ class RobotApplicationSourceConfigArgs:
              architecture: pulumi.Input['RobotApplicationSourceConfigArchitecture'],
              s3_bucket: pulumi.Input[str],
              s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("architecture", architecture)
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
@@ -162,8 +172,10 @@ class RobotApplicationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -176,8 +188,10 @@ class RobotTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -200,7 +214,9 @@ class SimulationApplicationRenderingEngineArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input['SimulationApplicationRenderingEngineName'],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("version", version)
 
@@ -249,7 +265,9 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
              version: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -299,7 +317,9 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
              version: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -353,7 +373,13 @@ class SimulationApplicationSourceConfigArgs:
              architecture: pulumi.Input['SimulationApplicationSourceConfigArchitecture'],
              s3_bucket: pulumi.Input[str],
              s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("architecture", architecture)
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
@@ -405,7 +431,9 @@ class SimulationApplicationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

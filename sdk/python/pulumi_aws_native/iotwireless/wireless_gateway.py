@@ -53,7 +53,17 @@ class WirelessGatewayArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessGatewayTagArgs']]]] = None,
              thing_arn: Optional[pulumi.Input[str]] = None,
              thing_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if 'lastUplinkReceivedAt' in kwargs:
+            last_uplink_received_at = kwargs['lastUplinkReceivedAt']
+        if 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         _setter("lo_ra_wan", lo_ra_wan)
         if description is not None:
             _setter("description", description)

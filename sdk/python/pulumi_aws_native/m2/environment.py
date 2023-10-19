@@ -76,7 +76,29 @@ class EnvironmentArgs:
              storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'highAvailabilityConfig' in kwargs:
+            high_availability_config = kwargs['highAvailabilityConfig']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'storageConfigurations' in kwargs:
+            storage_configurations = kwargs['storageConfigurations']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("engine_type", engine_type)
         _setter("instance_type", instance_type)
         if description is not None:

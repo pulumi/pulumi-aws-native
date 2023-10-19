@@ -32,7 +32,13 @@ class MonitoringSubscriptionInitArgs:
              _setter: Callable[[Any, Any], None],
              distribution_id: pulumi.Input[str],
              monitoring_subscription: pulumi.Input['MonitoringSubscriptionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'distributionId' in kwargs:
+            distribution_id = kwargs['distributionId']
+        if 'monitoringSubscription' in kwargs:
+            monitoring_subscription = kwargs['monitoringSubscription']
+
         _setter("distribution_id", distribution_id)
         _setter("monitoring_subscription", monitoring_subscription)
 

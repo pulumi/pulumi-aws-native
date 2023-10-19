@@ -31,7 +31,13 @@ class SlackWorkspaceConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              team_id: pulumi.Input[str],
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         _setter("team_id", team_id)
         if version_id is not None:
             _setter("version_id", version_id)

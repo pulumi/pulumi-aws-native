@@ -72,7 +72,29 @@ class ReportDefinitionArgs:
              additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalArtifactsItem']]]] = None,
              additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalSchemaElementsItem']]]] = None,
              billing_view_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refreshClosedReports' in kwargs:
+            refresh_closed_reports = kwargs['refreshClosedReports']
+        if 'reportName' in kwargs:
+            report_name = kwargs['reportName']
+        if 'reportVersioning' in kwargs:
+            report_versioning = kwargs['reportVersioning']
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+        if 's3Region' in kwargs:
+            s3_region = kwargs['s3Region']
+        if 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+        if 'additionalArtifacts' in kwargs:
+            additional_artifacts = kwargs['additionalArtifacts']
+        if 'additionalSchemaElements' in kwargs:
+            additional_schema_elements = kwargs['additionalSchemaElements']
+        if 'billingViewArn' in kwargs:
+            billing_view_arn = kwargs['billingViewArn']
+
         _setter("compression", compression)
         _setter("format", format)
         _setter("refresh_closed_reports", refresh_closed_reports)

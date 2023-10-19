@@ -49,7 +49,19 @@ class PipelineArgs:
              name: Optional[pulumi.Input[str]] = None,
              restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'artifactStore' in kwargs:
+            artifact_store = kwargs['artifactStore']
+        if 'artifactStores' in kwargs:
+            artifact_stores = kwargs['artifactStores']
+        if 'disableInboundStageTransitions' in kwargs:
+            disable_inbound_stage_transitions = kwargs['disableInboundStageTransitions']
+        if 'restartExecutionOnUpdate' in kwargs:
+            restart_execution_on_update = kwargs['restartExecutionOnUpdate']
+
         _setter("role_arn", role_arn)
         _setter("stages", stages)
         if artifact_store is not None:

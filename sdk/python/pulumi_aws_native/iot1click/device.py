@@ -29,7 +29,11 @@ class DeviceArgs:
              _setter: Callable[[Any, Any], None],
              device_id: pulumi.Input[str],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+
         _setter("device_id", device_id)
         _setter("enabled", enabled)
 

@@ -35,7 +35,13 @@ class BillingGroupArgs:
              billing_group_name: Optional[pulumi.Input[str]] = None,
              billing_group_properties: Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingGroupName' in kwargs:
+            billing_group_name = kwargs['billingGroupName']
+        if 'billingGroupProperties' in kwargs:
+            billing_group_properties = kwargs['billingGroupProperties']
+
         if billing_group_name is not None:
             _setter("billing_group_name", billing_group_name)
         if billing_group_properties is not None:

@@ -47,7 +47,15 @@ class DecoderManifestArgs:
              signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanSignalDecoderArgs', 'DecoderManifestObdSignalDecoderArgs']]]]] = None,
              status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelManifestArn' in kwargs:
+            model_manifest_arn = kwargs['modelManifestArn']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'signalDecoders' in kwargs:
+            signal_decoders = kwargs['signalDecoders']
+
         _setter("model_manifest_arn", model_manifest_arn)
         if description is not None:
             _setter("description", description)

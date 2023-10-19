@@ -115,7 +115,25 @@ class FirewallPolicy(dict):
              stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
              stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None,
              stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statelessDefaultActions' in kwargs:
+            stateless_default_actions = kwargs['statelessDefaultActions']
+        if 'statelessFragmentDefaultActions' in kwargs:
+            stateless_fragment_default_actions = kwargs['statelessFragmentDefaultActions']
+        if 'policyVariables' in kwargs:
+            policy_variables = kwargs['policyVariables']
+        if 'statefulDefaultActions' in kwargs:
+            stateful_default_actions = kwargs['statefulDefaultActions']
+        if 'statefulEngineOptions' in kwargs:
+            stateful_engine_options = kwargs['statefulEngineOptions']
+        if 'statefulRuleGroupReferences' in kwargs:
+            stateful_rule_group_references = kwargs['statefulRuleGroupReferences']
+        if 'statelessCustomActions' in kwargs:
+            stateless_custom_actions = kwargs['statelessCustomActions']
+        if 'statelessRuleGroupReferences' in kwargs:
+            stateless_rule_group_references = kwargs['statelessRuleGroupReferences']
+
         _setter("stateless_default_actions", stateless_default_actions)
         _setter("stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
@@ -201,7 +219,11 @@ class FirewallPolicyActionDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              publish_metric_action: Optional['outputs.FirewallPolicyPublishMetricAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
         if publish_metric_action is not None:
             _setter("publish_metric_action", publish_metric_action)
 
@@ -245,7 +267,13 @@ class FirewallPolicyCustomAction(dict):
              _setter: Callable[[Any, Any], None],
              action_definition: 'outputs.FirewallPolicyActionDefinition',
              action_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
         _setter("action_definition", action_definition)
         _setter("action_name", action_name)
 
@@ -272,7 +300,9 @@ class FirewallPolicyDimension(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -310,7 +340,11 @@ class FirewallPolicyPolicyVariablesProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_variables: Optional['outputs.FirewallPolicyRuleVariables'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+
         if rule_variables is not None:
             _setter("rule_variables", rule_variables)
 
@@ -332,7 +366,9 @@ class FirewallPolicyPublishMetricAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dimensions: Sequence['outputs.FirewallPolicyDimension'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("dimensions", dimensions)
 
     @property
@@ -348,8 +384,10 @@ class FirewallPolicyRuleVariables(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -386,7 +424,13 @@ class FirewallPolicyStatefulEngineOptions(dict):
              _setter: Callable[[Any, Any], None],
              rule_order: Optional['FirewallPolicyRuleOrder'] = None,
              stream_exception_policy: Optional['FirewallPolicyStreamExceptionPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+        if 'streamExceptionPolicy' in kwargs:
+            stream_exception_policy = kwargs['streamExceptionPolicy']
+
         if rule_order is not None:
             _setter("rule_order", rule_order)
         if stream_exception_policy is not None:
@@ -415,7 +459,9 @@ class FirewallPolicyStatefulRuleGroupOverride(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: Optional['FirewallPolicyOverrideAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
 
@@ -460,7 +506,11 @@ class FirewallPolicyStatefulRuleGroupReference(dict):
              resource_arn: str,
              override: Optional['outputs.FirewallPolicyStatefulRuleGroupOverride'] = None,
              priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("resource_arn", resource_arn)
         if override is not None:
             _setter("override", override)
@@ -515,7 +565,11 @@ class FirewallPolicyStatelessRuleGroupReference(dict):
              _setter: Callable[[Any, Any], None],
              priority: int,
              resource_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         _setter("priority", priority)
         _setter("resource_arn", resource_arn)
 
@@ -545,7 +599,9 @@ class FirewallPolicyTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -598,7 +654,13 @@ class FirewallSubnetMapping(dict):
              _setter: Callable[[Any, Any], None],
              subnet_id: str,
              ip_address_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+
         _setter("subnet_id", subnet_id)
         if ip_address_type is not None:
             _setter("ip_address_type", ip_address_type)
@@ -635,7 +697,9 @@ class FirewallTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -679,7 +743,11 @@ class LoggingConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_destination_configs: Sequence['outputs.LoggingConfigurationLogDestinationConfig'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDestinationConfigs' in kwargs:
+            log_destination_configs = kwargs['logDestinationConfigs']
+
         _setter("log_destination_configs", log_destination_configs)
 
     @property
@@ -730,7 +798,15 @@ class LoggingConfigurationLogDestinationConfig(dict):
              log_destination: Any,
              log_destination_type: 'LoggingConfigurationLogDestinationConfigLogDestinationType',
              log_type: 'LoggingConfigurationLogDestinationConfigLogType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+
         _setter("log_destination", log_destination)
         _setter("log_destination_type", log_destination_type)
         _setter("log_type", log_type)
@@ -798,7 +874,17 @@ class RuleGroup(dict):
              reference_sets: Optional['outputs.RuleGroupReferenceSets'] = None,
              rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None,
              stateful_rule_options: Optional['outputs.RuleGroupStatefulRuleOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulesSource' in kwargs:
+            rules_source = kwargs['rulesSource']
+        if 'referenceSets' in kwargs:
+            reference_sets = kwargs['referenceSets']
+        if 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+        if 'statefulRuleOptions' in kwargs:
+            stateful_rule_options = kwargs['statefulRuleOptions']
+
         _setter("rules_source", rules_source)
         if reference_sets is not None:
             _setter("reference_sets", reference_sets)
@@ -857,7 +943,11 @@ class RuleGroupActionDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              publish_metric_action: Optional['outputs.RuleGroupPublishMetricAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
         if publish_metric_action is not None:
             _setter("publish_metric_action", publish_metric_action)
 
@@ -896,7 +986,11 @@ class RuleGroupAddress(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              address_definition: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressDefinition' in kwargs:
+            address_definition = kwargs['addressDefinition']
+
         _setter("address_definition", address_definition)
 
     @property
@@ -939,7 +1033,13 @@ class RuleGroupCustomAction(dict):
              _setter: Callable[[Any, Any], None],
              action_definition: 'outputs.RuleGroupActionDefinition',
              action_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
         _setter("action_definition", action_definition)
         _setter("action_name", action_name)
 
@@ -966,7 +1066,9 @@ class RuleGroupDimension(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -1021,7 +1123,13 @@ class RuleGroupHeader(dict):
              protocol: 'RuleGroupHeaderProtocol',
              source: str,
              source_port: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
         _setter("destination", destination)
         _setter("destination_port", destination_port)
         _setter("direction", direction)
@@ -1108,7 +1216,15 @@ class RuleGroupMatchAttributes(dict):
              source_ports: Optional[Sequence['outputs.RuleGroupPortRange']] = None,
              sources: Optional[Sequence['outputs.RuleGroupAddress']] = None,
              tcp_flags: Optional[Sequence['outputs.RuleGroupTcpFlagField']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourcePorts' in kwargs:
+            source_ports = kwargs['sourcePorts']
+        if 'tcpFlags' in kwargs:
+            tcp_flags = kwargs['tcpFlags']
+
         if destination_ports is not None:
             _setter("destination_ports", destination_ports)
         if destinations is not None:
@@ -1187,7 +1303,13 @@ class RuleGroupPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_port: int,
              to_port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 
@@ -1214,7 +1336,9 @@ class RuleGroupPublishMetricAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dimensions: Sequence['outputs.RuleGroupDimension'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("dimensions", dimensions)
 
     @property
@@ -1252,7 +1376,11 @@ class RuleGroupReferenceSets(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ip_set_references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetReferences' in kwargs:
+            ip_set_references = kwargs['ipSetReferences']
+
         if ip_set_references is not None:
             _setter("ip_set_references", ip_set_references)
 
@@ -1294,7 +1422,11 @@ class RuleGroupRuleDefinition(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence[str],
              match_attributes: 'outputs.RuleGroupMatchAttributes',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchAttributes' in kwargs:
+            match_attributes = kwargs['matchAttributes']
+
         _setter("actions", actions)
         _setter("match_attributes", match_attributes)
 
@@ -1324,7 +1456,9 @@ class RuleGroupRuleOption(dict):
              _setter: Callable[[Any, Any], None],
              keyword: str,
              settings: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("keyword", keyword)
         if settings is not None:
             _setter("settings", settings)
@@ -1374,7 +1508,13 @@ class RuleGroupRuleVariables(dict):
              _setter: Callable[[Any, Any], None],
              ip_sets: Optional[Any] = None,
              port_sets: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSets' in kwargs:
+            ip_sets = kwargs['ipSets']
+        if 'portSets' in kwargs:
+            port_sets = kwargs['portSets']
+
         if ip_sets is not None:
             _setter("ip_sets", ip_sets)
         if port_sets is not None:
@@ -1435,7 +1575,17 @@ class RuleGroupRulesSource(dict):
              rules_string: Optional[str] = None,
              stateful_rules: Optional[Sequence['outputs.RuleGroupStatefulRule']] = None,
              stateless_rules_and_custom_actions: Optional['outputs.RuleGroupStatelessRulesAndCustomActions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulesSourceList' in kwargs:
+            rules_source_list = kwargs['rulesSourceList']
+        if 'rulesString' in kwargs:
+            rules_string = kwargs['rulesString']
+        if 'statefulRules' in kwargs:
+            stateful_rules = kwargs['statefulRules']
+        if 'statelessRulesAndCustomActions' in kwargs:
+            stateless_rules_and_custom_actions = kwargs['statelessRulesAndCustomActions']
+
         if rules_source_list is not None:
             _setter("rules_source_list", rules_source_list)
         if rules_string is not None:
@@ -1503,7 +1653,13 @@ class RuleGroupRulesSourceList(dict):
              generated_rules_type: 'RuleGroupGeneratedRulesType',
              target_types: Sequence['RuleGroupTargetType'],
              targets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'generatedRulesType' in kwargs:
+            generated_rules_type = kwargs['generatedRulesType']
+        if 'targetTypes' in kwargs:
+            target_types = kwargs['targetTypes']
+
         _setter("generated_rules_type", generated_rules_type)
         _setter("target_types", target_types)
         _setter("targets", targets)
@@ -1559,7 +1715,11 @@ class RuleGroupStatefulRule(dict):
              action: 'RuleGroupStatefulRuleAction',
              header: 'outputs.RuleGroupHeader',
              rule_options: Sequence['outputs.RuleGroupRuleOption'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOptions' in kwargs:
+            rule_options = kwargs['ruleOptions']
+
         _setter("action", action)
         _setter("header", header)
         _setter("rule_options", rule_options)
@@ -1609,7 +1769,11 @@ class RuleGroupStatefulRuleOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_order: Optional['RuleGroupRuleOrder'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+
         if rule_order is not None:
             _setter("rule_order", rule_order)
 
@@ -1651,7 +1815,11 @@ class RuleGroupStatelessRule(dict):
              _setter: Callable[[Any, Any], None],
              priority: int,
              rule_definition: 'outputs.RuleGroupRuleDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleDefinition' in kwargs:
+            rule_definition = kwargs['ruleDefinition']
+
         _setter("priority", priority)
         _setter("rule_definition", rule_definition)
 
@@ -1700,7 +1868,13 @@ class RuleGroupStatelessRulesAndCustomActions(dict):
              _setter: Callable[[Any, Any], None],
              stateless_rules: Sequence['outputs.RuleGroupStatelessRule'],
              custom_actions: Optional[Sequence['outputs.RuleGroupCustomAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statelessRules' in kwargs:
+            stateless_rules = kwargs['statelessRules']
+        if 'customActions' in kwargs:
+            custom_actions = kwargs['customActions']
+
         _setter("stateless_rules", stateless_rules)
         if custom_actions is not None:
             _setter("custom_actions", custom_actions)
@@ -1731,7 +1905,9 @@ class RuleGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1761,7 +1937,9 @@ class RuleGroupTcpFlagField(dict):
              _setter: Callable[[Any, Any], None],
              flags: Sequence['RuleGroupTcpFlag'],
              masks: Optional[Sequence['RuleGroupTcpFlag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("flags", flags)
         if masks is not None:
             _setter("masks", masks)

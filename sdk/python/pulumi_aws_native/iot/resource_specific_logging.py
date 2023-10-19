@@ -36,7 +36,15 @@ class ResourceSpecificLoggingArgs:
              log_level: pulumi.Input['ResourceSpecificLoggingLogLevel'],
              target_name: pulumi.Input[str],
              target_type: pulumi.Input['ResourceSpecificLoggingTargetType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("log_level", log_level)
         _setter("target_name", target_name)
         _setter("target_type", target_type)

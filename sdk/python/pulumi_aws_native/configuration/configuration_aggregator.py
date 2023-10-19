@@ -39,7 +39,15 @@ class ConfigurationAggregatorArgs:
              configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
              organization_aggregation_source: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountAggregationSources' in kwargs:
+            account_aggregation_sources = kwargs['accountAggregationSources']
+        if 'configurationAggregatorName' in kwargs:
+            configuration_aggregator_name = kwargs['configurationAggregatorName']
+        if 'organizationAggregationSource' in kwargs:
+            organization_aggregation_source = kwargs['organizationAggregationSource']
+
         if account_aggregation_sources is not None:
             _setter("account_aggregation_sources", account_aggregation_sources)
         if configuration_aggregator_name is not None:

@@ -29,7 +29,13 @@ class StreamConsumerArgs:
              _setter: Callable[[Any, Any], None],
              consumer_name: pulumi.Input[str],
              stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerName' in kwargs:
+            consumer_name = kwargs['consumerName']
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         _setter("consumer_name", consumer_name)
         _setter("stream_arn", stream_arn)
 

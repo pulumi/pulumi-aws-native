@@ -43,7 +43,17 @@ class VolumeArgs:
              open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if 'ontapConfiguration' in kwargs:
+            ontap_configuration = kwargs['ontapConfiguration']
+        if 'openZfsConfiguration' in kwargs:
+            open_zfs_configuration = kwargs['openZfsConfiguration']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if backup_id is not None:
             _setter("backup_id", backup_id)
         if name is not None:

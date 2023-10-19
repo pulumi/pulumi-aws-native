@@ -100,7 +100,53 @@ class StackArgs:
              use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
              use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultInstanceProfileArn' in kwargs:
+            default_instance_profile_arn = kwargs['defaultInstanceProfileArn']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'chefConfiguration' in kwargs:
+            chef_configuration = kwargs['chefConfiguration']
+        if 'cloneAppIds' in kwargs:
+            clone_app_ids = kwargs['cloneAppIds']
+        if 'clonePermissions' in kwargs:
+            clone_permissions = kwargs['clonePermissions']
+        if 'configurationManager' in kwargs:
+            configuration_manager = kwargs['configurationManager']
+        if 'customCookbooksSource' in kwargs:
+            custom_cookbooks_source = kwargs['customCookbooksSource']
+        if 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if 'defaultAvailabilityZone' in kwargs:
+            default_availability_zone = kwargs['defaultAvailabilityZone']
+        if 'defaultOs' in kwargs:
+            default_os = kwargs['defaultOs']
+        if 'defaultRootDeviceType' in kwargs:
+            default_root_device_type = kwargs['defaultRootDeviceType']
+        if 'defaultSshKeyName' in kwargs:
+            default_ssh_key_name = kwargs['defaultSshKeyName']
+        if 'defaultSubnetId' in kwargs:
+            default_subnet_id = kwargs['defaultSubnetId']
+        if 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if 'elasticIps' in kwargs:
+            elastic_ips = kwargs['elasticIps']
+        if 'hostnameTheme' in kwargs:
+            hostname_theme = kwargs['hostnameTheme']
+        if 'rdsDbInstances' in kwargs:
+            rds_db_instances = kwargs['rdsDbInstances']
+        if 'sourceStackId' in kwargs:
+            source_stack_id = kwargs['sourceStackId']
+        if 'useCustomCookbooks' in kwargs:
+            use_custom_cookbooks = kwargs['useCustomCookbooks']
+        if 'useOpsworksSecurityGroups' in kwargs:
+            use_opsworks_security_groups = kwargs['useOpsworksSecurityGroups']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("default_instance_profile_arn", default_instance_profile_arn)
         _setter("service_role_arn", service_role_arn)
         if agent_version is not None:

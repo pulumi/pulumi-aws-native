@@ -50,7 +50,19 @@ class ByteMatchSetByteMatchTupleArgs:
              text_transformation: pulumi.Input[str],
              target_string: Optional[pulumi.Input[str]] = None,
              target_string_base64: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if 'targetString' in kwargs:
+            target_string = kwargs['targetString']
+        if 'targetStringBase64' in kwargs:
+            target_string_base64 = kwargs['targetStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformation", text_transformation)
@@ -120,7 +132,9 @@ class ByteMatchSetFieldToMatchArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -159,7 +173,9 @@ class GeoMatchSetGeoMatchConstraintArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -197,7 +213,9 @@ class IpSetIpSetDescriptorArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         _setter("value", value)
 
@@ -238,7 +256,11 @@ class RateBasedRulePredicateArgs:
              data_id: pulumi.Input[str],
              negated: pulumi.Input[bool],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+
         _setter("data_id", data_id)
         _setter("negated", negated)
         _setter("type", type)
@@ -289,7 +311,11 @@ class RulePredicateArgs:
              data_id: pulumi.Input[str],
              negated: pulumi.Input[bool],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+
         _setter("data_id", data_id)
         _setter("negated", negated)
         _setter("type", type)
@@ -337,7 +363,9 @@ class SizeConstraintSetFieldToMatchArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -382,7 +410,15 @@ class SizeConstraintSetSizeConstraintArgs:
              field_to_match: pulumi.Input['SizeConstraintSetFieldToMatchArgs'],
              size: pulumi.Input[int],
              text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -440,7 +476,9 @@ class SqlInjectionMatchSetFieldToMatchArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -479,7 +517,13 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
              _setter: Callable[[Any, Any], None],
              field_to_match: pulumi.Input['SqlInjectionMatchSetFieldToMatchArgs'],
              text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 
@@ -514,7 +558,9 @@ class WebAclActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -545,7 +591,11 @@ class WebAclRuleArgs:
              action: pulumi.Input['WebAclActionArgs'],
              priority: pulumi.Input[int],
              rule_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
         _setter("action", action)
         _setter("priority", priority)
         _setter("rule_id", rule_id)
@@ -593,7 +643,9 @@ class XssMatchSetFieldToMatchArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -632,7 +684,13 @@ class XssMatchSetXssMatchTupleArgs:
              _setter: Callable[[Any, Any], None],
              field_to_match: pulumi.Input['XssMatchSetFieldToMatchArgs'],
              text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 

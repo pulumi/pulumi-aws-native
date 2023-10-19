@@ -64,7 +64,11 @@ class ContainerRecipeComponentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              component_arn: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+
         if component_arn is not None:
             _setter("component_arn", component_arn)
         if parameters is not None:
@@ -115,7 +119,9 @@ class ContainerRecipeComponentParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -188,7 +194,19 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
              throughput: Optional[pulumi.Input[int]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -331,7 +349,15 @@ class ContainerRecipeInstanceBlockDeviceMappingArgs:
              ebs: Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs']] = None,
              no_device: Optional[pulumi.Input[str]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -410,7 +436,11 @@ class ContainerRecipeInstanceConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceBlockDeviceMappingArgs']]]] = None,
              image: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+
         if block_device_mappings is not None:
             _setter("block_device_mappings", block_device_mappings)
         if image is not None:
@@ -461,7 +491,11 @@ class ContainerRecipeTargetContainerRepositoryArgs:
              _setter: Callable[[Any, Any], None],
              repository_name: Optional[pulumi.Input[str]] = None,
              service: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryService']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if repository_name is not None:
             _setter("repository_name", repository_name)
         if service is not None:
@@ -527,7 +561,17 @@ class DistributionConfigurationAmiDistributionConfigurationArgs:
              launch_permission_configuration: Optional[pulumi.Input['DistributionConfigurationLaunchPermissionConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              target_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amiTags' in kwargs:
+            ami_tags = kwargs['amiTags']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'launchPermissionConfiguration' in kwargs:
+            launch_permission_configuration = kwargs['launchPermissionConfiguration']
+        if 'targetAccountIds' in kwargs:
+            target_account_ids = kwargs['targetAccountIds']
+
         if ami_tags is not None:
             _setter("ami_tags", ami_tags)
         if description is not None:
@@ -635,7 +679,13 @@ class DistributionConfigurationContainerDistributionConfigurationArgs:
              container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              target_repository: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+
         if container_tags is not None:
             _setter("container_tags", container_tags)
         if description is not None:
@@ -714,7 +764,19 @@ class DistributionConfigurationDistributionArgs:
              fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationFastLaunchConfigurationArgs']]]] = None,
              launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationLaunchTemplateConfigurationArgs']]]] = None,
              license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amiDistributionConfiguration' in kwargs:
+            ami_distribution_configuration = kwargs['amiDistributionConfiguration']
+        if 'containerDistributionConfiguration' in kwargs:
+            container_distribution_configuration = kwargs['containerDistributionConfiguration']
+        if 'fastLaunchConfigurations' in kwargs:
+            fast_launch_configurations = kwargs['fastLaunchConfigurations']
+        if 'launchTemplateConfigurations' in kwargs:
+            launch_template_configurations = kwargs['launchTemplateConfigurations']
+        if 'licenseConfigurationArns' in kwargs:
+            license_configuration_arns = kwargs['licenseConfigurationArns']
+
         _setter("region", region)
         if ami_distribution_configuration is not None:
             _setter("ami_distribution_configuration", ami_distribution_configuration)
@@ -826,7 +888,17 @@ class DistributionConfigurationFastLaunchConfigurationArgs:
              launch_template: Optional[pulumi.Input['DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs']] = None,
              max_parallel_launches: Optional[pulumi.Input[int]] = None,
              snapshot_configuration: Optional[pulumi.Input['DistributionConfigurationFastLaunchSnapshotConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if 'maxParallelLaunches' in kwargs:
+            max_parallel_launches = kwargs['maxParallelLaunches']
+        if 'snapshotConfiguration' in kwargs:
+            snapshot_configuration = kwargs['snapshotConfiguration']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if enabled is not None:
@@ -923,7 +995,15 @@ class DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs:
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
              launch_template_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+        if 'launchTemplateVersion' in kwargs:
+            launch_template_version = kwargs['launchTemplateVersion']
+
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -984,7 +1064,11 @@ class DistributionConfigurationFastLaunchSnapshotConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_resource_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetResourceCount' in kwargs:
+            target_resource_count = kwargs['targetResourceCount']
+
         if target_resource_count is not None:
             _setter("target_resource_count", target_resource_count)
 
@@ -1029,7 +1113,17 @@ class DistributionConfigurationLaunchPermissionConfigurationArgs:
              organizational_unit_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'organizationArns' in kwargs:
+            organization_arns = kwargs['organizationArns']
+        if 'organizationalUnitArns' in kwargs:
+            organizational_unit_arns = kwargs['organizationalUnitArns']
+        if 'userGroups' in kwargs:
+            user_groups = kwargs['userGroups']
+        if 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+
         if organization_arns is not None:
             _setter("organization_arns", organization_arns)
         if organizational_unit_arns is not None:
@@ -1112,7 +1206,15 @@ class DistributionConfigurationLaunchTemplateConfigurationArgs:
              account_id: Optional[pulumi.Input[str]] = None,
              launch_template_id: Optional[pulumi.Input[str]] = None,
              set_default_version: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'setDefaultVersion' in kwargs:
+            set_default_version = kwargs['setDefaultVersion']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if launch_template_id is not None:
@@ -1177,7 +1279,11 @@ class DistributionConfigurationTargetContainerRepositoryArgs:
              _setter: Callable[[Any, Any], None],
              repository_name: Optional[pulumi.Input[str]] = None,
              service: Optional[pulumi.Input['DistributionConfigurationTargetContainerRepositoryService']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if repository_name is not None:
             _setter("repository_name", repository_name)
         if service is not None:
@@ -1228,7 +1334,13 @@ class ImageEcrConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if container_tags is not None:
             _setter("container_tags", container_tags)
         if repository_name is not None:
@@ -1279,7 +1391,13 @@ class ImagePipelineEcrConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if container_tags is not None:
             _setter("container_tags", container_tags)
         if repository_name is not None:
@@ -1330,7 +1448,13 @@ class ImagePipelineImageScanningConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ecr_configuration: Optional[pulumi.Input['ImagePipelineEcrConfigurationArgs']] = None,
              image_scanning_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ecrConfiguration' in kwargs:
+            ecr_configuration = kwargs['ecrConfiguration']
+        if 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+
         if ecr_configuration is not None:
             _setter("ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
@@ -1381,7 +1505,13 @@ class ImagePipelineImageTestsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              image_tests_enabled: Optional[pulumi.Input[bool]] = None,
              timeout_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+
         if image_tests_enabled is not None:
             _setter("image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
@@ -1432,7 +1562,13 @@ class ImagePipelineScheduleArgs:
              _setter: Callable[[Any, Any], None],
              pipeline_execution_start_condition: Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']] = None,
              schedule_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pipelineExecutionStartCondition' in kwargs:
+            pipeline_execution_start_condition = kwargs['pipelineExecutionStartCondition']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         if pipeline_execution_start_condition is not None:
             _setter("pipeline_execution_start_condition", pipeline_execution_start_condition)
         if schedule_expression is not None:
@@ -1483,7 +1619,13 @@ class ImageRecipeAdditionalInstanceConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None,
              user_data_override: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'systemsManagerAgent' in kwargs:
+            systems_manager_agent = kwargs['systemsManagerAgent']
+        if 'userDataOverride' in kwargs:
+            user_data_override = kwargs['userDataOverride']
+
         if systems_manager_agent is not None:
             _setter("systems_manager_agent", systems_manager_agent)
         if user_data_override is not None:
@@ -1534,7 +1676,11 @@ class ImageRecipeComponentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              component_arn: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+
         if component_arn is not None:
             _setter("component_arn", component_arn)
         if parameters is not None:
@@ -1585,7 +1731,9 @@ class ImageRecipeComponentParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1658,7 +1806,19 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
              throughput: Optional[pulumi.Input[int]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1801,7 +1961,15 @@ class ImageRecipeInstanceBlockDeviceMappingArgs:
              ebs: Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationArgs']] = None,
              no_device: Optional[pulumi.Input[str]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -1876,7 +2044,11 @@ class ImageRecipeSystemsManagerAgentArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              uninstall_after_build: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'uninstallAfterBuild' in kwargs:
+            uninstall_after_build = kwargs['uninstallAfterBuild']
+
         if uninstall_after_build is not None:
             _setter("uninstall_after_build", uninstall_after_build)
 
@@ -1913,7 +2085,13 @@ class ImageScanningConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ecr_configuration: Optional[pulumi.Input['ImageEcrConfigurationArgs']] = None,
              image_scanning_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ecrConfiguration' in kwargs:
+            ecr_configuration = kwargs['ecrConfiguration']
+        if 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+
         if ecr_configuration is not None:
             _setter("ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
@@ -1964,7 +2142,13 @@ class ImageTestsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              image_tests_enabled: Optional[pulumi.Input[bool]] = None,
              timeout_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+
         if image_tests_enabled is not None:
             _setter("image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
@@ -2015,7 +2199,13 @@ class InfrastructureConfigurationInstanceMetadataOptionsArgs:
              _setter: Callable[[Any, Any], None],
              http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
              http_tokens: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+
         if http_put_response_hop_limit is not None:
             _setter("http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -2061,7 +2251,11 @@ class InfrastructureConfigurationLoggingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_logs: Optional[pulumi.Input['InfrastructureConfigurationS3LogsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if s3_logs is not None:
             _setter("s3_logs", s3_logs)
 
@@ -2095,7 +2289,13 @@ class InfrastructureConfigurationS3LogsArgs:
              _setter: Callable[[Any, Any], None],
              s3_bucket_name: Optional[pulumi.Input[str]] = None,
              s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         if s3_bucket_name is not None:
             _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:

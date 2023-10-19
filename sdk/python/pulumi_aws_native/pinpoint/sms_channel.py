@@ -35,7 +35,15 @@ class SmsChannelArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              sender_id: Optional[pulumi.Input[str]] = None,
              short_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+        if 'shortCode' in kwargs:
+            short_code = kwargs['shortCode']
+
         _setter("application_id", application_id)
         if enabled is not None:
             _setter("enabled", enabled)

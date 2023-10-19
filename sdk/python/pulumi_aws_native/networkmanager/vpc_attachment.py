@@ -49,7 +49,17 @@ class VpcAttachmentArgs:
              options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
              proposed_segment_change: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if 'subnetArns' in kwargs:
+            subnet_arns = kwargs['subnetArns']
+        if 'vpcArn' in kwargs:
+            vpc_arn = kwargs['vpcArn']
+        if 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("subnet_arns", subnet_arns)
         _setter("vpc_arn", vpc_arn)

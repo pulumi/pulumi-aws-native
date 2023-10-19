@@ -52,7 +52,27 @@ class ResourceDataSyncArgs:
              sync_format: Optional[pulumi.Input[str]] = None,
              sync_source: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']] = None,
              sync_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'syncName' in kwargs:
+            sync_name = kwargs['syncName']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+        if 'syncFormat' in kwargs:
+            sync_format = kwargs['syncFormat']
+        if 'syncSource' in kwargs:
+            sync_source = kwargs['syncSource']
+        if 'syncType' in kwargs:
+            sync_type = kwargs['syncType']
+
         _setter("sync_name", sync_name)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)

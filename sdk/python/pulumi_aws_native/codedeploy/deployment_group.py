@@ -82,7 +82,43 @@ class DeploymentGroupArgs:
              outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]] = None,
              trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'alarmConfiguration' in kwargs:
+            alarm_configuration = kwargs['alarmConfiguration']
+        if 'autoRollbackConfiguration' in kwargs:
+            auto_rollback_configuration = kwargs['autoRollbackConfiguration']
+        if 'autoScalingGroups' in kwargs:
+            auto_scaling_groups = kwargs['autoScalingGroups']
+        if 'blueGreenDeploymentConfiguration' in kwargs:
+            blue_green_deployment_configuration = kwargs['blueGreenDeploymentConfiguration']
+        if 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if 'deploymentGroupName' in kwargs:
+            deployment_group_name = kwargs['deploymentGroupName']
+        if 'deploymentStyle' in kwargs:
+            deployment_style = kwargs['deploymentStyle']
+        if 'ec2TagFilters' in kwargs:
+            ec2_tag_filters = kwargs['ec2TagFilters']
+        if 'ec2TagSet' in kwargs:
+            ec2_tag_set = kwargs['ec2TagSet']
+        if 'ecsServices' in kwargs:
+            ecs_services = kwargs['ecsServices']
+        if 'loadBalancerInfo' in kwargs:
+            load_balancer_info = kwargs['loadBalancerInfo']
+        if 'onPremisesInstanceTagFilters' in kwargs:
+            on_premises_instance_tag_filters = kwargs['onPremisesInstanceTagFilters']
+        if 'onPremisesTagSet' in kwargs:
+            on_premises_tag_set = kwargs['onPremisesTagSet']
+        if 'outdatedInstancesStrategy' in kwargs:
+            outdated_instances_strategy = kwargs['outdatedInstancesStrategy']
+        if 'triggerConfigurations' in kwargs:
+            trigger_configurations = kwargs['triggerConfigurations']
+
         _setter("application_name", application_name)
         _setter("service_role_arn", service_role_arn)
         if alarm_configuration is not None:

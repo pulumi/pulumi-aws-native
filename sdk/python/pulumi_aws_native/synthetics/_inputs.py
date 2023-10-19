@@ -37,7 +37,11 @@ class CanaryArtifactConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_encryption: Optional[pulumi.Input['CanaryS3EncryptionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Encryption' in kwargs:
+            s3_encryption = kwargs['s3Encryption']
+
         if s3_encryption is not None:
             _setter("s3_encryption", s3_encryption)
 
@@ -73,7 +77,13 @@ class CanaryBaseScreenshotArgs:
              _setter: Callable[[Any, Any], None],
              screenshot_name: pulumi.Input[str],
              ignore_coordinates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'screenshotName' in kwargs:
+            screenshot_name = kwargs['screenshotName']
+        if 'ignoreCoordinates' in kwargs:
+            ignore_coordinates = kwargs['ignoreCoordinates']
+
         _setter("screenshot_name", screenshot_name)
         if ignore_coordinates is not None:
             _setter("ignore_coordinates", ignore_coordinates)
@@ -130,7 +140,17 @@ class CanaryCodeArgs:
              s3_object_version: Optional[pulumi.Input[str]] = None,
              script: Optional[pulumi.Input[str]] = None,
              source_location_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+        if 'sourceLocationArn' in kwargs:
+            source_location_arn = kwargs['sourceLocationArn']
+
         _setter("handler", handler)
         if s3_bucket is not None:
             _setter("s3_bucket", s3_bucket)
@@ -225,7 +245,17 @@ class CanaryRunConfigArgs:
              environment_variables: Optional[Any] = None,
              memory_in_mb: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeTracing' in kwargs:
+            active_tracing = kwargs['activeTracing']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'memoryInMb' in kwargs:
+            memory_in_mb = kwargs['memoryInMb']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if active_tracing is not None:
             _setter("active_tracing", active_tracing)
         if environment_variables is not None:
@@ -303,7 +333,13 @@ class CanaryS3EncryptionArgs:
              _setter: Callable[[Any, Any], None],
              encryption_mode: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if encryption_mode is not None:
             _setter("encryption_mode", encryption_mode)
         if kms_key_arn is not None:
@@ -349,7 +385,11 @@ class CanaryScheduleArgs:
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
              duration_in_seconds: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         _setter("expression", expression)
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
@@ -393,7 +433,9 @@ class CanaryTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -441,7 +483,13 @@ class CanaryVisualReferenceArgs:
              _setter: Callable[[Any, Any], None],
              base_canary_run_id: pulumi.Input[str],
              base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseCanaryRunId' in kwargs:
+            base_canary_run_id = kwargs['baseCanaryRunId']
+        if 'baseScreenshots' in kwargs:
+            base_screenshots = kwargs['baseScreenshots']
+
         _setter("base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
             _setter("base_screenshots", base_screenshots)
@@ -489,7 +537,15 @@ class CanaryVpcConfigArgs:
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
         if vpc_id is not None:
@@ -543,7 +599,9 @@ class GroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -68,7 +68,35 @@ class DeliveryStreamArgs:
              s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              splunk_destination_configuration: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amazonOpenSearchServerlessDestinationConfiguration' in kwargs:
+            amazon_open_search_serverless_destination_configuration = kwargs['amazonOpenSearchServerlessDestinationConfiguration']
+        if 'amazonopensearchserviceDestinationConfiguration' in kwargs:
+            amazonopensearchservice_destination_configuration = kwargs['amazonopensearchserviceDestinationConfiguration']
+        if 'deliveryStreamEncryptionConfigurationInput' in kwargs:
+            delivery_stream_encryption_configuration_input = kwargs['deliveryStreamEncryptionConfigurationInput']
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if 'deliveryStreamType' in kwargs:
+            delivery_stream_type = kwargs['deliveryStreamType']
+        if 'elasticsearchDestinationConfiguration' in kwargs:
+            elasticsearch_destination_configuration = kwargs['elasticsearchDestinationConfiguration']
+        if 'extendedS3DestinationConfiguration' in kwargs:
+            extended_s3_destination_configuration = kwargs['extendedS3DestinationConfiguration']
+        if 'httpEndpointDestinationConfiguration' in kwargs:
+            http_endpoint_destination_configuration = kwargs['httpEndpointDestinationConfiguration']
+        if 'kinesisStreamSourceConfiguration' in kwargs:
+            kinesis_stream_source_configuration = kwargs['kinesisStreamSourceConfiguration']
+        if 'mskSourceConfiguration' in kwargs:
+            msk_source_configuration = kwargs['mskSourceConfiguration']
+        if 'redshiftDestinationConfiguration' in kwargs:
+            redshift_destination_configuration = kwargs['redshiftDestinationConfiguration']
+        if 's3DestinationConfiguration' in kwargs:
+            s3_destination_configuration = kwargs['s3DestinationConfiguration']
+        if 'splunkDestinationConfiguration' in kwargs:
+            splunk_destination_configuration = kwargs['splunkDestinationConfiguration']
+
         if amazon_open_search_serverless_destination_configuration is not None:
             _setter("amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
         if amazonopensearchservice_destination_configuration is not None:

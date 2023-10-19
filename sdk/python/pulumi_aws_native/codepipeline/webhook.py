@@ -49,7 +49,19 @@ class WebhookArgs:
              target_pipeline_version: pulumi.Input[int],
              name: Optional[pulumi.Input[str]] = None,
              register_with_third_party: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+        if 'targetPipeline' in kwargs:
+            target_pipeline = kwargs['targetPipeline']
+        if 'targetPipelineVersion' in kwargs:
+            target_pipeline_version = kwargs['targetPipelineVersion']
+        if 'registerWithThirdParty' in kwargs:
+            register_with_third_party = kwargs['registerWithThirdParty']
+
         _setter("authentication", authentication)
         _setter("authentication_configuration", authentication_configuration)
         _setter("filters", filters)

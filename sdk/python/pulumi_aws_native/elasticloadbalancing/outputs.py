@@ -63,7 +63,15 @@ class LoadBalancerAccessLoggingPolicy(dict):
              s3_bucket_name: str,
              emit_interval: Optional[int] = None,
              s3_bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'emitInterval' in kwargs:
+            emit_interval = kwargs['emitInterval']
+        if 's3BucketPrefix' in kwargs:
+            s3_bucket_prefix = kwargs['s3BucketPrefix']
+
         _setter("enabled", enabled)
         _setter("s3_bucket_name", s3_bucket_name)
         if emit_interval is not None:
@@ -126,7 +134,13 @@ class LoadBalancerAppCookieStickinessPolicy(dict):
              _setter: Callable[[Any, Any], None],
              cookie_name: str,
              policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("cookie_name", cookie_name)
         _setter("policy_name", policy_name)
 
@@ -156,7 +170,9 @@ class LoadBalancerConnectionDrainingPolicy(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -201,7 +217,11 @@ class LoadBalancerConnectionSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle_timeout: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         _setter("idle_timeout", idle_timeout)
 
     @property
@@ -253,7 +273,13 @@ class LoadBalancerHealthCheck(dict):
              target: str,
              timeout: str,
              unhealthy_threshold: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         _setter("healthy_threshold", healthy_threshold)
         _setter("interval", interval)
         _setter("target", target)
@@ -320,7 +346,13 @@ class LoadBalancerLbCookieStickinessPolicy(dict):
              _setter: Callable[[Any, Any], None],
              cookie_expiration_period: Optional[str] = None,
              policy_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieExpirationPeriod' in kwargs:
+            cookie_expiration_period = kwargs['cookieExpirationPeriod']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if cookie_expiration_period is not None:
             _setter("cookie_expiration_period", cookie_expiration_period)
         if policy_name is not None:
@@ -389,7 +421,19 @@ class LoadBalancerListeners(dict):
              instance_protocol: Optional[str] = None,
              policy_names: Optional[Sequence[str]] = None,
              ssl_certificate_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if 'loadBalancerPort' in kwargs:
+            load_balancer_port = kwargs['loadBalancerPort']
+        if 'instanceProtocol' in kwargs:
+            instance_protocol = kwargs['instanceProtocol']
+        if 'policyNames' in kwargs:
+            policy_names = kwargs['policyNames']
+        if 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+
         _setter("instance_port", instance_port)
         _setter("load_balancer_port", load_balancer_port)
         _setter("protocol", protocol)
@@ -478,7 +522,17 @@ class LoadBalancerPolicies(dict):
              policy_type: str,
              instance_ports: Optional[Sequence[str]] = None,
              load_balancer_ports: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'instancePorts' in kwargs:
+            instance_ports = kwargs['instancePorts']
+        if 'loadBalancerPorts' in kwargs:
+            load_balancer_ports = kwargs['loadBalancerPorts']
+
         _setter("attributes", attributes)
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)
@@ -528,7 +582,9 @@ class LoadBalancerTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

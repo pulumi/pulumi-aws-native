@@ -50,7 +50,25 @@ class StackSetConstraintArgs:
              region_list: pulumi.Input[Sequence[pulumi.Input[str]]],
              stack_instance_control: pulumi.Input[str],
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountList' in kwargs:
+            account_list = kwargs['accountList']
+        if 'adminRole' in kwargs:
+            admin_role = kwargs['adminRole']
+        if 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'regionList' in kwargs:
+            region_list = kwargs['regionList']
+        if 'stackInstanceControl' in kwargs:
+            stack_instance_control = kwargs['stackInstanceControl']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("account_list", account_list)
         _setter("admin_role", admin_role)
         _setter("description", description)

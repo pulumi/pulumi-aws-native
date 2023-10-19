@@ -57,7 +57,19 @@ class DataIntegrationArgs:
              object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
              schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'fileConfiguration' in kwargs:
+            file_configuration = kwargs['fileConfiguration']
+        if 'objectConfiguration' in kwargs:
+            object_configuration = kwargs['objectConfiguration']
+        if 'scheduleConfig' in kwargs:
+            schedule_config = kwargs['scheduleConfig']
+
         _setter("kms_key", kms_key)
         _setter("source_uri", source_uri)
         if description is not None:

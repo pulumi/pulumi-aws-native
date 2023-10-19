@@ -38,7 +38,13 @@ class FirewallPolicyInitArgs:
              description: Optional[pulumi.Input[str]] = None,
              firewall_policy_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallPolicy' in kwargs:
+            firewall_policy = kwargs['firewallPolicy']
+        if 'firewallPolicyName' in kwargs:
+            firewall_policy_name = kwargs['firewallPolicyName']
+
         _setter("firewall_policy", firewall_policy)
         if description is not None:
             _setter("description", description)

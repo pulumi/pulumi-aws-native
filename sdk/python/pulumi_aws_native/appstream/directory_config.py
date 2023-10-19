@@ -37,7 +37,17 @@ class DirectoryConfigArgs:
              organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[str]]],
              service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
              certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'organizationalUnitDistinguishedNames' in kwargs:
+            organizational_unit_distinguished_names = kwargs['organizationalUnitDistinguishedNames']
+        if 'serviceAccountCredentials' in kwargs:
+            service_account_credentials = kwargs['serviceAccountCredentials']
+        if 'certificateBasedAuthProperties' in kwargs:
+            certificate_based_auth_properties = kwargs['certificateBasedAuthProperties']
+
         _setter("directory_name", directory_name)
         _setter("organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         _setter("service_account_credentials", service_account_credentials)

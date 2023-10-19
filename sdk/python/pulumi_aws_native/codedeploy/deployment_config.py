@@ -41,7 +41,17 @@ class DeploymentConfigArgs:
              deployment_config_name: Optional[pulumi.Input[str]] = None,
              minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
              traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if 'minimumHealthyHosts' in kwargs:
+            minimum_healthy_hosts = kwargs['minimumHealthyHosts']
+        if 'trafficRoutingConfig' in kwargs:
+            traffic_routing_config = kwargs['trafficRoutingConfig']
+
         if compute_platform is not None:
             _setter("compute_platform", compute_platform)
         if deployment_config_name is not None:

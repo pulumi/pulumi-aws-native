@@ -46,7 +46,15 @@ class OutpostResolverArgs:
              instance_count: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OutpostResolverTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if 'preferredInstanceType' in kwargs:
+            preferred_instance_type = kwargs['preferredInstanceType']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
         _setter("outpost_arn", outpost_arn)
         _setter("preferred_instance_type", preferred_instance_type)
         if instance_count is not None:

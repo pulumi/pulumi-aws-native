@@ -55,7 +55,25 @@ class VpcEndpointArgs:
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'privateDnsEnabled' in kwargs:
+            private_dns_enabled = kwargs['privateDnsEnabled']
+        if 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcEndpointType' in kwargs:
+            vpc_endpoint_type = kwargs['vpcEndpointType']
+
         _setter("service_name", service_name)
         _setter("vpc_id", vpc_id)
         if policy_document is not None:

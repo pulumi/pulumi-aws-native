@@ -32,7 +32,13 @@ class StateMachineVersionArgs:
              state_machine_arn: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              state_machine_revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stateMachineArn' in kwargs:
+            state_machine_arn = kwargs['stateMachineArn']
+        if 'stateMachineRevisionId' in kwargs:
+            state_machine_revision_id = kwargs['stateMachineRevisionId']
+
         _setter("state_machine_arn", state_machine_arn)
         if description is not None:
             _setter("description", description)

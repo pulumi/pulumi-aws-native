@@ -66,7 +66,19 @@ class DocumentArgs:
              target_type: Optional[pulumi.Input[str]] = None,
              update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
              version_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentFormat' in kwargs:
+            document_format = kwargs['documentFormat']
+        if 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if 'updateMethod' in kwargs:
+            update_method = kwargs['updateMethod']
+        if 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
         _setter("content", content)
         if attachments is not None:
             _setter("attachments", attachments)

@@ -27,7 +27,9 @@ class GitHubRepositoryCode(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: 'outputs.GitHubRepositoryS3',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("s3", s3)
 
     @property
@@ -71,7 +73,11 @@ class GitHubRepositoryS3(dict):
              bucket: str,
              key: str,
              object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:

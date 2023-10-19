@@ -46,7 +46,17 @@ class ProfilingGroupArgs:
              compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
              profiling_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentPermissions' in kwargs:
+            agent_permissions = kwargs['agentPermissions']
+        if 'anomalyDetectionNotificationConfiguration' in kwargs:
+            anomaly_detection_notification_configuration = kwargs['anomalyDetectionNotificationConfiguration']
+        if 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if 'profilingGroupName' in kwargs:
+            profiling_group_name = kwargs['profilingGroupName']
+
         if agent_permissions is not None:
             _setter("agent_permissions", agent_permissions)
         if anomaly_detection_notification_configuration is not None:

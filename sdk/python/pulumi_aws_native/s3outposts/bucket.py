@@ -42,7 +42,15 @@ class BucketArgs:
              bucket_name: Optional[pulumi.Input[str]] = None,
              lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'lifecycleConfiguration' in kwargs:
+            lifecycle_configuration = kwargs['lifecycleConfiguration']
+
         _setter("outpost_id", outpost_id)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)

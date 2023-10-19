@@ -46,7 +46,19 @@ class ContainerArgs:
              metric_policy: Optional[pulumi.Input['ContainerMetricPolicyArgs']] = None,
              policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLoggingEnabled' in kwargs:
+            access_logging_enabled = kwargs['accessLoggingEnabled']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'corsPolicy' in kwargs:
+            cors_policy = kwargs['corsPolicy']
+        if 'lifecyclePolicy' in kwargs:
+            lifecycle_policy = kwargs['lifecyclePolicy']
+        if 'metricPolicy' in kwargs:
+            metric_policy = kwargs['metricPolicy']
+
         if access_logging_enabled is not None:
             _setter("access_logging_enabled", access_logging_enabled)
         if container_name is not None:

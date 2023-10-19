@@ -31,7 +31,9 @@ class SecurityGroupArgs:
              _setter: Callable[[Any, Any], None],
              description: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         if tags is not None:
             _setter("tags", tags)

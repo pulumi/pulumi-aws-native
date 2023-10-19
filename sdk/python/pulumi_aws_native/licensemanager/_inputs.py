@@ -34,7 +34,13 @@ class LicenseBorrowConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              allow_early_check_in: pulumi.Input[bool],
              max_time_to_live_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowEarlyCheckIn' in kwargs:
+            allow_early_check_in = kwargs['allowEarlyCheckIn']
+        if 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+
         _setter("allow_early_check_in", allow_early_check_in)
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
@@ -75,7 +81,15 @@ class LicenseConsumptionConfigurationArgs:
              borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
              provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
              renew_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'borrowConfiguration' in kwargs:
+            borrow_configuration = kwargs['borrowConfiguration']
+        if 'provisionalConfiguration' in kwargs:
+            provisional_configuration = kwargs['provisionalConfiguration']
+        if 'renewType' in kwargs:
+            renew_type = kwargs['renewType']
+
         if borrow_configuration is not None:
             _setter("borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -138,7 +152,13 @@ class LicenseEntitlementArgs:
              max_count: Optional[pulumi.Input[int]] = None,
              overage: Optional[pulumi.Input[bool]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCheckIn' in kwargs:
+            allow_check_in = kwargs['allowCheckIn']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+
         _setter("name", name)
         _setter("unit", unit)
         if allow_check_in is not None:
@@ -220,7 +240,11 @@ class LicenseIssuerDataArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              sign_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'signKey' in kwargs:
+            sign_key = kwargs['signKey']
+
         _setter("name", name)
         if sign_key is not None:
             _setter("sign_key", sign_key)
@@ -259,7 +283,9 @@ class LicenseMetadataArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -294,7 +320,11 @@ class LicenseProvisionalConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_time_to_live_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
@@ -326,7 +356,9 @@ class LicenseValidityDateFormatArgs:
              _setter: Callable[[Any, Any], None],
              begin: pulumi.Input[str],
              end: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("begin", begin)
         _setter("end", end)
 

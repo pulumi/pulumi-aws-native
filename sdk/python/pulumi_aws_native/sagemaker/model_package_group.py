@@ -39,7 +39,15 @@ class ModelPackageGroupArgs:
              model_package_group_name: Optional[pulumi.Input[str]] = None,
              model_package_group_policy: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelPackageGroupDescription' in kwargs:
+            model_package_group_description = kwargs['modelPackageGroupDescription']
+        if 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if 'modelPackageGroupPolicy' in kwargs:
+            model_package_group_policy = kwargs['modelPackageGroupPolicy']
+
         if model_package_group_description is not None:
             _setter("model_package_group_description", model_package_group_description)
         if model_package_group_name is not None:

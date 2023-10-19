@@ -43,7 +43,17 @@ class FlowVpcInterfaceArgs:
              security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("flow_arn", flow_arn)
         _setter("role_arn", role_arn)
         _setter("security_group_ids", security_group_ids)

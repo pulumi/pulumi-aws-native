@@ -73,7 +73,27 @@ class RecordSetArgs:
              set_identifier: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aliasTarget' in kwargs:
+            alias_target = kwargs['aliasTarget']
+        if 'cidrRoutingConfig' in kwargs:
+            cidr_routing_config = kwargs['cidrRoutingConfig']
+        if 'geoLocation' in kwargs:
+            geo_location = kwargs['geoLocation']
+        if 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'hostedZoneName' in kwargs:
+            hosted_zone_name = kwargs['hostedZoneName']
+        if 'multiValueAnswer' in kwargs:
+            multi_value_answer = kwargs['multiValueAnswer']
+        if 'resourceRecords' in kwargs:
+            resource_records = kwargs['resourceRecords']
+        if 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+
         _setter("type", type)
         if alias_target is not None:
             _setter("alias_target", alias_target)

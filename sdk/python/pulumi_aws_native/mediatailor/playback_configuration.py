@@ -86,7 +86,33 @@ class PlaybackConfigurationArgs:
              slate_ad_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]] = None,
              transcode_profile_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adDecisionServerUrl' in kwargs:
+            ad_decision_server_url = kwargs['adDecisionServerUrl']
+        if 'videoContentSourceUrl' in kwargs:
+            video_content_source_url = kwargs['videoContentSourceUrl']
+        if 'availSuppression' in kwargs:
+            avail_suppression = kwargs['availSuppression']
+        if 'cdnConfiguration' in kwargs:
+            cdn_configuration = kwargs['cdnConfiguration']
+        if 'configurationAliases' in kwargs:
+            configuration_aliases = kwargs['configurationAliases']
+        if 'dashConfiguration' in kwargs:
+            dash_configuration = kwargs['dashConfiguration']
+        if 'hlsConfiguration' in kwargs:
+            hls_configuration = kwargs['hlsConfiguration']
+        if 'livePreRollConfiguration' in kwargs:
+            live_pre_roll_configuration = kwargs['livePreRollConfiguration']
+        if 'manifestProcessingRules' in kwargs:
+            manifest_processing_rules = kwargs['manifestProcessingRules']
+        if 'personalizationThresholdSeconds' in kwargs:
+            personalization_threshold_seconds = kwargs['personalizationThresholdSeconds']
+        if 'slateAdUrl' in kwargs:
+            slate_ad_url = kwargs['slateAdUrl']
+        if 'transcodeProfileName' in kwargs:
+            transcode_profile_name = kwargs['transcodeProfileName']
+
         _setter("ad_decision_server_url", ad_decision_server_url)
         _setter("video_content_source_url", video_content_source_url)
         if avail_suppression is not None:

@@ -49,7 +49,21 @@ class RouteResponseArgs:
              model_selection_expression: Optional[pulumi.Input[str]] = None,
              response_models: Optional[Any] = None,
              response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'routeId' in kwargs:
+            route_id = kwargs['routeId']
+        if 'routeResponseKey' in kwargs:
+            route_response_key = kwargs['routeResponseKey']
+        if 'modelSelectionExpression' in kwargs:
+            model_selection_expression = kwargs['modelSelectionExpression']
+        if 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+
         _setter("api_id", api_id)
         _setter("route_id", route_id)
         _setter("route_response_key", route_response_key)

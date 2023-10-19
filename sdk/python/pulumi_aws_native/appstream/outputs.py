@@ -75,7 +75,13 @@ class AppBlockBuilderAccessEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_type: str,
              vpce_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'vpceId' in kwargs:
+            vpce_id = kwargs['vpceId']
+
         _setter("endpoint_type", endpoint_type)
         _setter("vpce_id", vpce_id)
 
@@ -105,7 +111,9 @@ class AppBlockBuilderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -154,7 +162,13 @@ class AppBlockBuilderVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -205,7 +219,13 @@ class AppBlockS3Location(dict):
              _setter: Callable[[Any, Any], None],
              s3_bucket: str,
              s3_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
             _setter("s3_key", s3_key)
@@ -265,7 +285,17 @@ class AppBlockScriptDetails(dict):
              script_s3_location: 'outputs.AppBlockS3Location',
              timeout_in_seconds: int,
              executable_parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'executablePath' in kwargs:
+            executable_path = kwargs['executablePath']
+        if 'scriptS3Location' in kwargs:
+            script_s3_location = kwargs['scriptS3Location']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'executableParameters' in kwargs:
+            executable_parameters = kwargs['executableParameters']
+
         _setter("executable_path", executable_path)
         _setter("script_s3_location", script_s3_location)
         _setter("timeout_in_seconds", timeout_in_seconds)
@@ -308,7 +338,9 @@ class AppBlockTag0Properties(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -357,7 +389,13 @@ class AppBlockTag1Properties(dict):
              _setter: Callable[[Any, Any], None],
              tag_key: str,
              tag_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         _setter("tag_key", tag_key)
         _setter("tag_value", tag_value)
 
@@ -406,7 +444,13 @@ class ApplicationS3Location(dict):
              _setter: Callable[[Any, Any], None],
              s3_bucket: str,
              s3_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
 
@@ -436,7 +480,9 @@ class ApplicationTag0Properties(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -485,7 +531,13 @@ class ApplicationTag1Properties(dict):
              _setter: Callable[[Any, Any], None],
              tag_key: str,
              tag_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         _setter("tag_key", tag_key)
         _setter("tag_value", tag_value)
 
@@ -532,7 +584,11 @@ class DirectoryConfigCertificateBasedAuthProperties(dict):
              _setter: Callable[[Any, Any], None],
              certificate_authority_arn: Optional[str] = None,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+
         if certificate_authority_arn is not None:
             _setter("certificate_authority_arn", certificate_authority_arn)
         if status is not None:
@@ -583,7 +639,13 @@ class DirectoryConfigServiceAccountCredentials(dict):
              _setter: Callable[[Any, Any], None],
              account_name: str,
              account_password: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'accountPassword' in kwargs:
+            account_password = kwargs['accountPassword']
+
         _setter("account_name", account_name)
         _setter("account_password", account_password)
 
@@ -613,7 +675,9 @@ class EntitlementAttribute(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -662,7 +726,13 @@ class FleetComputeCapacity(dict):
              _setter: Callable[[Any, Any], None],
              desired_instances: Optional[int] = None,
              desired_sessions: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'desiredInstances' in kwargs:
+            desired_instances = kwargs['desiredInstances']
+        if 'desiredSessions' in kwargs:
+            desired_sessions = kwargs['desiredSessions']
+
         if desired_instances is not None:
             _setter("desired_instances", desired_instances)
         if desired_sessions is not None:
@@ -713,7 +783,13 @@ class FleetDomainJoinInfo(dict):
              _setter: Callable[[Any, Any], None],
              directory_name: Optional[str] = None,
              organizational_unit_distinguished_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -764,7 +840,13 @@ class FleetS3Location(dict):
              _setter: Callable[[Any, Any], None],
              s3_bucket: str,
              s3_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
 
@@ -794,7 +876,9 @@ class FleetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -843,7 +927,13 @@ class FleetVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -894,7 +984,13 @@ class ImageBuilderAccessEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_type: str,
              vpce_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'vpceId' in kwargs:
+            vpce_id = kwargs['vpceId']
+
         _setter("endpoint_type", endpoint_type)
         _setter("vpce_id", vpce_id)
 
@@ -943,7 +1039,13 @@ class ImageBuilderDomainJoinInfo(dict):
              _setter: Callable[[Any, Any], None],
              directory_name: Optional[str] = None,
              organizational_unit_distinguished_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -975,7 +1077,9 @@ class ImageBuilderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1024,7 +1128,13 @@ class ImageBuilderVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -1075,7 +1185,13 @@ class StackAccessEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_type: str,
              vpce_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'vpceId' in kwargs:
+            vpce_id = kwargs['vpceId']
+
         _setter("endpoint_type", endpoint_type)
         _setter("vpce_id", vpce_id)
 
@@ -1122,7 +1238,11 @@ class StackApplicationSettings(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              settings_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'settingsGroup' in kwargs:
+            settings_group = kwargs['settingsGroup']
+
         _setter("enabled", enabled)
         if settings_group is not None:
             _setter("settings_group", settings_group)
@@ -1175,7 +1295,13 @@ class StackStorageConnector(dict):
              connector_type: str,
              domains: Optional[Sequence[str]] = None,
              resource_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         _setter("connector_type", connector_type)
         if domains is not None:
             _setter("domains", domains)
@@ -1227,7 +1353,11 @@ class StackStreamingExperienceSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              preferred_protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preferredProtocol' in kwargs:
+            preferred_protocol = kwargs['preferredProtocol']
+
         if preferred_protocol is not None:
             _setter("preferred_protocol", preferred_protocol)
 
@@ -1252,7 +1382,9 @@ class StackTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1282,7 +1414,9 @@ class StackUserSetting(dict):
              _setter: Callable[[Any, Any], None],
              action: str,
              permission: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("permission", permission)
 

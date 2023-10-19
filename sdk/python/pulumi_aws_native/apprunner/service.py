@@ -55,7 +55,25 @@ class ServiceArgs:
              observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
              service_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+        if 'autoScalingConfigurationArn' in kwargs:
+            auto_scaling_configuration_arn = kwargs['autoScalingConfigurationArn']
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'healthCheckConfiguration' in kwargs:
+            health_check_configuration = kwargs['healthCheckConfiguration']
+        if 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'observabilityConfiguration' in kwargs:
+            observability_configuration = kwargs['observabilityConfiguration']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         _setter("source_configuration", source_configuration)
         if auto_scaling_configuration_arn is not None:
             _setter("auto_scaling_configuration_arn", auto_scaling_configuration_arn)

@@ -29,7 +29,13 @@ class NotificationRuleTargetArgs:
              _setter: Callable[[Any, Any], None],
              target_address: pulumi.Input[str],
              target_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+        if 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+
         _setter("target_address", target_address)
         _setter("target_type", target_type)
 

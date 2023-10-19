@@ -65,7 +65,23 @@ class FuotaTaskArgs:
              disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firmwareUpdateImage' in kwargs:
+            firmware_update_image = kwargs['firmwareUpdateImage']
+        if 'firmwareUpdateRole' in kwargs:
+            firmware_update_role = kwargs['firmwareUpdateRole']
+        if 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if 'associateMulticastGroup' in kwargs:
+            associate_multicast_group = kwargs['associateMulticastGroup']
+        if 'associateWirelessDevice' in kwargs:
+            associate_wireless_device = kwargs['associateWirelessDevice']
+        if 'disassociateMulticastGroup' in kwargs:
+            disassociate_multicast_group = kwargs['disassociateMulticastGroup']
+        if 'disassociateWirelessDevice' in kwargs:
+            disassociate_wireless_device = kwargs['disassociateWirelessDevice']
+
         _setter("firmware_update_image", firmware_update_image)
         _setter("firmware_update_role", firmware_update_role)
         _setter("lo_ra_wan", lo_ra_wan)

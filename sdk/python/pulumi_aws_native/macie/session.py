@@ -32,7 +32,11 @@ class SessionArgs:
              _setter: Callable[[Any, Any], None],
              finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
              status: Optional[pulumi.Input['SessionStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+
         if finding_publishing_frequency is not None:
             _setter("finding_publishing_frequency", finding_publishing_frequency)
         if status is not None:

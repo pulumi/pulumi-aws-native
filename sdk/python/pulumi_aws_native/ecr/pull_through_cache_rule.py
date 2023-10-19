@@ -31,7 +31,13 @@ class PullThroughCacheRuleArgs:
              _setter: Callable[[Any, Any], None],
              ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
              upstream_registry_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ecrRepositoryPrefix' in kwargs:
+            ecr_repository_prefix = kwargs['ecrRepositoryPrefix']
+        if 'upstreamRegistryUrl' in kwargs:
+            upstream_registry_url = kwargs['upstreamRegistryUrl']
+
         if ecr_repository_prefix is not None:
             _setter("ecr_repository_prefix", ecr_repository_prefix)
         if upstream_registry_url is not None:

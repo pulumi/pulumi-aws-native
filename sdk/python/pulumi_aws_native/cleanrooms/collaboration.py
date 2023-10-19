@@ -51,7 +51,17 @@ class CollaborationArgs:
              data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creatorDisplayName' in kwargs:
+            creator_display_name = kwargs['creatorDisplayName']
+        if 'creatorMemberAbilities' in kwargs:
+            creator_member_abilities = kwargs['creatorMemberAbilities']
+        if 'queryLogStatus' in kwargs:
+            query_log_status = kwargs['queryLogStatus']
+        if 'dataEncryptionMetadata' in kwargs:
+            data_encryption_metadata = kwargs['dataEncryptionMetadata']
+
         _setter("creator_display_name", creator_display_name)
         _setter("creator_member_abilities", creator_member_abilities)
         _setter("description", description)

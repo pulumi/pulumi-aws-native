@@ -50,7 +50,23 @@ class FlywheelArgs:
              model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]] = None,
              task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if 'dataLakeS3Uri' in kwargs:
+            data_lake_s3_uri = kwargs['dataLakeS3Uri']
+        if 'activeModelArn' in kwargs:
+            active_model_arn = kwargs['activeModelArn']
+        if 'dataSecurityConfig' in kwargs:
+            data_security_config = kwargs['dataSecurityConfig']
+        if 'flywheelName' in kwargs:
+            flywheel_name = kwargs['flywheelName']
+        if 'modelType' in kwargs:
+            model_type = kwargs['modelType']
+        if 'taskConfig' in kwargs:
+            task_config = kwargs['taskConfig']
+
         _setter("data_access_role_arn", data_access_role_arn)
         _setter("data_lake_s3_uri", data_lake_s3_uri)
         if active_model_arn is not None:

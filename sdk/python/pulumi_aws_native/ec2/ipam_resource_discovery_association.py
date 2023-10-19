@@ -37,7 +37,13 @@ class IpamResourceDiscoveryAssociationArgs:
              ipam_id: pulumi.Input[str],
              ipam_resource_discovery_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if 'ipamResourceDiscoveryId' in kwargs:
+            ipam_resource_discovery_id = kwargs['ipamResourceDiscoveryId']
+
         _setter("ipam_id", ipam_id)
         _setter("ipam_resource_discovery_id", ipam_resource_discovery_id)
         if tags is not None:

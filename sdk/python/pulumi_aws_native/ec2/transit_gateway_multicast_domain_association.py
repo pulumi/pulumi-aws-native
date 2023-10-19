@@ -35,7 +35,15 @@ class TransitGatewayMulticastDomainAssociationArgs:
              subnet_id: pulumi.Input[str],
              transit_gateway_attachment_id: pulumi.Input[str],
              transit_gateway_multicast_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if 'transitGatewayMulticastDomainId' in kwargs:
+            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
+
         _setter("subnet_id", subnet_id)
         _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)

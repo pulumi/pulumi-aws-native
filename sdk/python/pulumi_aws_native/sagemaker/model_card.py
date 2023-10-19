@@ -52,7 +52,19 @@ class ModelCardArgs:
              model_card_name: Optional[pulumi.Input[str]] = None,
              security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'modelCardStatus' in kwargs:
+            model_card_status = kwargs['modelCardStatus']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if 'modelCardName' in kwargs:
+            model_card_name = kwargs['modelCardName']
+        if 'securityConfig' in kwargs:
+            security_config = kwargs['securityConfig']
+
         _setter("content", content)
         _setter("model_card_status", model_card_status)
         if created_by is not None:

@@ -43,7 +43,9 @@ class PolicyIeMap(dict):
              _setter: Callable[[Any, Any], None],
              account: Optional[Sequence[str]] = None,
              orgunit: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if account is not None:
             _setter("account", account)
         if orgunit is not None:
@@ -95,7 +97,11 @@ class PolicyNetworkFirewallPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              firewall_deployment_model: 'PolicyFirewallDeploymentModel',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -144,7 +150,13 @@ class PolicyOption(dict):
              _setter: Callable[[Any, Any], None],
              network_firewall_policy: Optional['outputs.PolicyNetworkFirewallPolicy'] = None,
              third_party_firewall_policy: Optional['outputs.PolicyThirdPartyFirewallPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFirewallPolicy' in kwargs:
+            network_firewall_policy = kwargs['networkFirewallPolicy']
+        if 'thirdPartyFirewallPolicy' in kwargs:
+            third_party_firewall_policy = kwargs['thirdPartyFirewallPolicy']
+
         if network_firewall_policy is not None:
             _setter("network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
@@ -182,7 +194,9 @@ class PolicyResourceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -241,7 +255,13 @@ class PolicySecurityServicePolicyData(dict):
              type: 'PolicyType',
              managed_service_data: Optional[str] = None,
              policy_option: Optional['outputs.PolicyOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedServiceData' in kwargs:
+            managed_service_data = kwargs['managedServiceData']
+        if 'policyOption' in kwargs:
+            policy_option = kwargs['policyOption']
+
         _setter("type", type)
         if managed_service_data is not None:
             _setter("managed_service_data", managed_service_data)
@@ -285,7 +305,9 @@ class PolicyTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -335,7 +357,11 @@ class PolicyThirdPartyFirewallPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              firewall_deployment_model: 'PolicyFirewallDeploymentModel',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -365,7 +391,9 @@ class ResourceSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

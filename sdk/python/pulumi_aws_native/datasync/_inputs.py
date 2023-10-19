@@ -76,7 +76,9 @@ class AgentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -121,7 +123,11 @@ class LocationAzureBlobAzureBlobSasConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              azure_blob_sas_token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureBlobSasToken' in kwargs:
+            azure_blob_sas_token = kwargs['azureBlobSasToken']
+
         _setter("azure_blob_sas_token", azure_blob_sas_token)
 
     @property
@@ -157,7 +163,9 @@ class LocationAzureBlobTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -206,7 +214,13 @@ class LocationEfsEc2ConfigArgs:
              _setter: Callable[[Any, Any], None],
              security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
              subnet_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'subnetArn' in kwargs:
+            subnet_arn = kwargs['subnetArn']
+
         _setter("security_group_arns", security_group_arns)
         _setter("subnet_arn", subnet_arn)
 
@@ -255,7 +269,9 @@ class LocationEfsTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -304,7 +320,9 @@ class LocationFSxLustreTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -349,7 +367,9 @@ class LocationFSxOntapNfsMountOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              version: Optional[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
             _setter("version", version)
 
@@ -381,7 +401,11 @@ class LocationFSxOntapNfsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              mount_options: pulumi.Input['LocationFSxOntapNfsMountOptionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("mount_options", mount_options)
 
     @property
@@ -412,7 +436,9 @@ class LocationFSxOntapProtocolArgs:
              _setter: Callable[[Any, Any], None],
              nfs: Optional[pulumi.Input['LocationFSxOntapNfsArgs']] = None,
              smb: Optional[pulumi.Input['LocationFSxOntapSmbArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if nfs is not None:
             _setter("nfs", nfs)
         if smb is not None:
@@ -453,7 +479,9 @@ class LocationFSxOntapSmbMountOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              version: Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
             _setter("version", version)
 
@@ -497,7 +525,11 @@ class LocationFSxOntapSmbArgs:
              password: pulumi.Input[str],
              user: pulumi.Input[str],
              domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("mount_options", mount_options)
         _setter("password", password)
         _setter("user", user)
@@ -570,7 +602,9 @@ class LocationFSxOntapTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -615,7 +649,9 @@ class LocationFSxOpenZfsMountOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              version: Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
             _setter("version", version)
 
@@ -647,7 +683,11 @@ class LocationFSxOpenZfsNfsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              mount_options: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("mount_options", mount_options)
 
     @property
@@ -675,7 +715,9 @@ class LocationFSxOpenZfsProtocolArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              nfs: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if nfs is not None:
             _setter("nfs", nfs)
 
@@ -709,7 +751,9 @@ class LocationFSxOpenZfsTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -758,7 +802,9 @@ class LocationFSxWindowsTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -807,7 +853,9 @@ class LocationHdfsNameNodeArgs:
              _setter: Callable[[Any, Any], None],
              hostname: pulumi.Input[str],
              port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("hostname", hostname)
         _setter("port", port)
 
@@ -856,7 +904,13 @@ class LocationHdfsQopConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              data_transfer_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']] = None,
              rpc_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTransferProtection' in kwargs:
+            data_transfer_protection = kwargs['dataTransferProtection']
+        if 'rpcProtection' in kwargs:
+            rpc_protection = kwargs['rpcProtection']
+
         if data_transfer_protection is not None:
             _setter("data_transfer_protection", data_transfer_protection)
         if rpc_protection is not None:
@@ -907,7 +961,9 @@ class LocationHdfsTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -952,7 +1008,9 @@ class LocationNfsMountOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              version: Optional[pulumi.Input['LocationNfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
             _setter("version", version)
 
@@ -985,7 +1043,11 @@ class LocationNfsOnPremConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+
         _setter("agent_arns", agent_arns)
 
     @property
@@ -1021,7 +1083,9 @@ class LocationNfsTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1070,7 +1134,9 @@ class LocationObjectStorageTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1119,7 +1185,9 @@ class LocationS3TagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1164,7 +1232,11 @@ class LocationS3s3ConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              bucket_access_role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketAccessRoleArn' in kwargs:
+            bucket_access_role_arn = kwargs['bucketAccessRoleArn']
+
         _setter("bucket_access_role_arn", bucket_access_role_arn)
 
     @property
@@ -1196,7 +1268,9 @@ class LocationSmbMountOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              version: Optional[pulumi.Input['LocationSmbMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if version is not None:
             _setter("version", version)
 
@@ -1233,7 +1307,9 @@ class LocationSmbTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1282,7 +1358,13 @@ class StorageSystemServerConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              server_hostname: pulumi.Input[str],
              server_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+
         _setter("server_hostname", server_hostname)
         if server_port is not None:
             _setter("server_port", server_port)
@@ -1332,7 +1414,9 @@ class StorageSystemServerCredentialsArgs:
              _setter: Callable[[Any, Any], None],
              password: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -1381,7 +1465,9 @@ class StorageSystemTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1430,7 +1516,11 @@ class TaskFilterRuleArgs:
              _setter: Callable[[Any, Any], None],
              filter_type: Optional[pulumi.Input['TaskFilterRuleFilterType']] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+
         if filter_type is not None:
             _setter("filter_type", filter_type)
         if value is not None:
@@ -1533,7 +1623,31 @@ class TaskOptionsArgs:
              transfer_mode: Optional[pulumi.Input['TaskOptionsTransferMode']] = None,
              uid: Optional[pulumi.Input['TaskOptionsUid']] = None,
              verify_mode: Optional[pulumi.Input['TaskOptionsVerifyMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bytesPerSecond' in kwargs:
+            bytes_per_second = kwargs['bytesPerSecond']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'objectTags' in kwargs:
+            object_tags = kwargs['objectTags']
+        if 'overwriteMode' in kwargs:
+            overwrite_mode = kwargs['overwriteMode']
+        if 'posixPermissions' in kwargs:
+            posix_permissions = kwargs['posixPermissions']
+        if 'preserveDeletedFiles' in kwargs:
+            preserve_deleted_files = kwargs['preserveDeletedFiles']
+        if 'preserveDevices' in kwargs:
+            preserve_devices = kwargs['preserveDevices']
+        if 'securityDescriptorCopyFlags' in kwargs:
+            security_descriptor_copy_flags = kwargs['securityDescriptorCopyFlags']
+        if 'taskQueueing' in kwargs:
+            task_queueing = kwargs['taskQueueing']
+        if 'transferMode' in kwargs:
+            transfer_mode = kwargs['transferMode']
+        if 'verifyMode' in kwargs:
+            verify_mode = kwargs['verifyMode']
+
         if atime is not None:
             _setter("atime", atime)
         if bytes_per_second is not None:
@@ -1770,7 +1884,13 @@ class TaskReportConfigDestinationPropertiesS3PropertiesArgs:
              bucket_access_role_arn: Optional[pulumi.Input[str]] = None,
              s3_bucket_arn: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketAccessRoleArn' in kwargs:
+            bucket_access_role_arn = kwargs['bucketAccessRoleArn']
+        if 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+
         if bucket_access_role_arn is not None:
             _setter("bucket_access_role_arn", bucket_access_role_arn)
         if s3_bucket_arn is not None:
@@ -1831,7 +1951,9 @@ class TaskReportConfigDestinationPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: Optional[pulumi.Input['TaskReportConfigDestinationPropertiesS3PropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if s3 is not None:
             _setter("s3", s3)
 
@@ -1864,7 +1986,11 @@ class TaskReportConfigOverridesPropertiesDeletedPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportLevel' in kwargs:
+            report_level = kwargs['reportLevel']
+
         if report_level is not None:
             _setter("report_level", report_level)
 
@@ -1897,7 +2023,11 @@ class TaskReportConfigOverridesPropertiesSkippedPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportLevel' in kwargs:
+            report_level = kwargs['reportLevel']
+
         if report_level is not None:
             _setter("report_level", report_level)
 
@@ -1930,7 +2060,11 @@ class TaskReportConfigOverridesPropertiesTransferredPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportLevel' in kwargs:
+            report_level = kwargs['reportLevel']
+
         if report_level is not None:
             _setter("report_level", report_level)
 
@@ -1963,7 +2097,11 @@ class TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'reportLevel' in kwargs:
+            report_level = kwargs['reportLevel']
+
         if report_level is not None:
             _setter("report_level", report_level)
 
@@ -2008,7 +2146,9 @@ class TaskReportConfigOverridesPropertiesArgs:
              skipped: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesArgs']] = None,
              transferred: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesArgs']] = None,
              verified: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if deleted is not None:
             _setter("deleted", deleted)
         if skipped is not None:
@@ -2099,7 +2239,15 @@ class TaskReportConfigArgs:
              object_version_ids: Optional[pulumi.Input['TaskReportConfigObjectVersionIds']] = None,
              overrides: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesArgs']] = None,
              report_level: Optional[pulumi.Input['TaskReportConfigReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputType' in kwargs:
+            output_type = kwargs['outputType']
+        if 'objectVersionIds' in kwargs:
+            object_version_ids = kwargs['objectVersionIds']
+        if 'reportLevel' in kwargs:
+            report_level = kwargs['reportLevel']
+
         _setter("destination", destination)
         _setter("output_type", output_type)
         if object_version_ids is not None:
@@ -2186,7 +2334,11 @@ class TaskScheduleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -2222,7 +2374,9 @@ class TaskTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

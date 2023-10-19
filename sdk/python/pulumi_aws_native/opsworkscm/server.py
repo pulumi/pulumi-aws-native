@@ -88,7 +88,47 @@ class ServerArgs:
              server_name: Optional[pulumi.Input[str]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceProfileArn' in kwargs:
+            instance_profile_arn = kwargs['instanceProfileArn']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if 'backupRetentionCount' in kwargs:
+            backup_retention_count = kwargs['backupRetentionCount']
+        if 'customCertificate' in kwargs:
+            custom_certificate = kwargs['customCertificate']
+        if 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if 'customPrivateKey' in kwargs:
+            custom_private_key = kwargs['customPrivateKey']
+        if 'disableAutomatedBackup' in kwargs:
+            disable_automated_backup = kwargs['disableAutomatedBackup']
+        if 'engineAttributes' in kwargs:
+            engine_attributes = kwargs['engineAttributes']
+        if 'engineModel' in kwargs:
+            engine_model = kwargs['engineModel']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("instance_profile_arn", instance_profile_arn)
         _setter("instance_type", instance_type)
         _setter("service_role_arn", service_role_arn)

@@ -293,7 +293,19 @@ class CapacityReservationFleetInstanceTypeSpecification(dict):
              instance_type: Optional[str] = None,
              priority: Optional[int] = None,
              weight: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if availability_zone_id is not None:
@@ -360,7 +372,9 @@ class CapacityReservationFleetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -407,7 +421,11 @@ class CapacityReservationFleetTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[str] = None,
              tags: Optional[Sequence['outputs.CapacityReservationFleetTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -439,7 +457,9 @@ class CapacityReservationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -486,7 +506,11 @@ class CapacityReservationTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[str] = None,
              tags: Optional[Sequence['outputs.CapacityReservationTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -518,7 +542,9 @@ class CarrierGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -564,7 +590,11 @@ class ClientVpnEndpointCertificateAuthenticationRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_root_certificate_chain_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientRootCertificateChainArn' in kwargs:
+            client_root_certificate_chain_arn = kwargs['clientRootCertificateChainArn']
+
         _setter("client_root_certificate_chain_arn", client_root_certificate_chain_arn)
 
     @property
@@ -615,7 +645,15 @@ class ClientVpnEndpointClientAuthenticationRequest(dict):
              active_directory: Optional['outputs.ClientVpnEndpointDirectoryServiceAuthenticationRequest'] = None,
              federated_authentication: Optional['outputs.ClientVpnEndpointFederatedAuthenticationRequest'] = None,
              mutual_authentication: Optional['outputs.ClientVpnEndpointCertificateAuthenticationRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'federatedAuthentication' in kwargs:
+            federated_authentication = kwargs['federatedAuthentication']
+        if 'mutualAuthentication' in kwargs:
+            mutual_authentication = kwargs['mutualAuthentication']
+
         _setter("type", type)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -677,7 +715,11 @@ class ClientVpnEndpointClientConnectOptions(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              lambda_function_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         _setter("enabled", enabled)
         if lambda_function_arn is not None:
             _setter("lambda_function_arn", lambda_function_arn)
@@ -725,7 +767,11 @@ class ClientVpnEndpointClientLoginBannerOptions(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              banner_text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bannerText' in kwargs:
+            banner_text = kwargs['bannerText']
+
         _setter("enabled", enabled)
         if banner_text is not None:
             _setter("banner_text", banner_text)
@@ -778,7 +824,13 @@ class ClientVpnEndpointConnectionLogOptions(dict):
              enabled: bool,
              cloudwatch_log_group: Optional[str] = None,
              cloudwatch_log_stream: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchLogGroup' in kwargs:
+            cloudwatch_log_group = kwargs['cloudwatchLogGroup']
+        if 'cloudwatchLogStream' in kwargs:
+            cloudwatch_log_stream = kwargs['cloudwatchLogStream']
+
         _setter("enabled", enabled)
         if cloudwatch_log_group is not None:
             _setter("cloudwatch_log_group", cloudwatch_log_group)
@@ -830,7 +882,11 @@ class ClientVpnEndpointDirectoryServiceAuthenticationRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              directory_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+
         _setter("directory_id", directory_id)
 
     @property
@@ -873,7 +929,13 @@ class ClientVpnEndpointFederatedAuthenticationRequest(dict):
              _setter: Callable[[Any, Any], None],
              saml_provider_arn: str,
              self_service_saml_provider_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samlProviderArn' in kwargs:
+            saml_provider_arn = kwargs['samlProviderArn']
+        if 'selfServiceSamlProviderArn' in kwargs:
+            self_service_saml_provider_arn = kwargs['selfServiceSamlProviderArn']
+
         _setter("saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
             _setter("self_service_saml_provider_arn", self_service_saml_provider_arn)
@@ -904,7 +966,9 @@ class ClientVpnEndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -951,7 +1015,11 @@ class ClientVpnEndpointTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: str,
              tags: Sequence['outputs.ClientVpnEndpointTag'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("resource_type", resource_type)
         _setter("tags", tags)
 
@@ -981,7 +1049,9 @@ class CustomerGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1035,7 +1105,15 @@ class DestinationOptionsProperties(dict):
              file_format: 'FlowLogDestinationOptionsPropertiesFileFormat',
              hive_compatible_partitions: bool,
              per_hour_partition: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if 'hiveCompatiblePartitions' in kwargs:
+            hive_compatible_partitions = kwargs['hiveCompatiblePartitions']
+        if 'perHourPartition' in kwargs:
+            per_hour_partition = kwargs['perHourPartition']
+
         _setter("file_format", file_format)
         _setter("hive_compatible_partitions", hive_compatible_partitions)
         _setter("per_hour_partition", per_hour_partition)
@@ -1071,7 +1149,9 @@ class DhcpOptionsTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1101,7 +1181,9 @@ class Ec2FleetAcceleratorCountRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1133,7 +1215,9 @@ class Ec2FleetAcceleratorTotalMemoryMiBRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1165,7 +1249,9 @@ class Ec2FleetBaselineEbsBandwidthMbpsRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1216,7 +1302,13 @@ class Ec2FleetCapacityRebalance(dict):
              _setter: Callable[[Any, Any], None],
              replacement_strategy: Optional['Ec2FleetCapacityRebalanceReplacementStrategy'] = None,
              termination_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if 'terminationDelay' in kwargs:
+            termination_delay = kwargs['terminationDelay']
+
         if replacement_strategy is not None:
             _setter("replacement_strategy", replacement_strategy)
         if termination_delay is not None:
@@ -1262,7 +1354,11 @@ class Ec2FleetCapacityReservationOptionsRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              usage_strategy: Optional['Ec2FleetCapacityReservationOptionsRequestUsageStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'usageStrategy' in kwargs:
+            usage_strategy = kwargs['usageStrategy']
+
         if usage_strategy is not None:
             _setter("usage_strategy", usage_strategy)
 
@@ -1304,7 +1400,11 @@ class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
              _setter: Callable[[Any, Any], None],
              launch_template_specification: Optional['outputs.Ec2FleetFleetLaunchTemplateSpecificationRequest'] = None,
              overrides: Optional[Sequence['outputs.Ec2FleetFleetLaunchTemplateOverridesRequest']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+
         if launch_template_specification is not None:
             _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -1381,7 +1481,21 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
              priority: Optional[float] = None,
              subnet_id: Optional[str] = None,
              weighted_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'maxPrice' in kwargs:
+            max_price = kwargs['maxPrice']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if instance_requirements is not None:
@@ -1477,7 +1591,13 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequest(dict):
              version: str,
              launch_template_id: Optional[str] = None,
              launch_template_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -1639,7 +1759,55 @@ class Ec2FleetInstanceRequirementsRequest(dict):
              spot_max_price_percentage_over_lowest_price: Optional[int] = None,
              total_local_storage_gb: Optional['outputs.Ec2FleetTotalLocalStorageGbRequest'] = None,
              v_cpu_count: Optional['outputs.Ec2FleetVCpuCountRangeRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -1832,7 +2000,11 @@ class Ec2FleetMaintenanceStrategies(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              capacity_rebalance: Optional['outputs.Ec2FleetCapacityRebalance'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+
         if capacity_rebalance is not None:
             _setter("capacity_rebalance", capacity_rebalance)
 
@@ -1857,7 +2029,9 @@ class Ec2FleetMemoryGiBPerVCpuRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1889,7 +2063,9 @@ class Ec2FleetMemoryMiBRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1921,7 +2097,9 @@ class Ec2FleetNetworkBandwidthGbpsRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1953,7 +2131,9 @@ class Ec2FleetNetworkInterfaceCountRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -2024,7 +2204,21 @@ class Ec2FleetOnDemandOptionsRequest(dict):
              min_target_capacity: Optional[int] = None,
              single_availability_zone: Optional[bool] = None,
              single_instance_type: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'capacityReservationOptions' in kwargs:
+            capacity_reservation_options = kwargs['capacityReservationOptions']
+        if 'maxTotalPrice' in kwargs:
+            max_total_price = kwargs['maxTotalPrice']
+        if 'minTargetCapacity' in kwargs:
+            min_target_capacity = kwargs['minTargetCapacity']
+        if 'singleAvailabilityZone' in kwargs:
+            single_availability_zone = kwargs['singleAvailabilityZone']
+        if 'singleInstanceType' in kwargs:
+            single_instance_type = kwargs['singleInstanceType']
+
         if allocation_strategy is not None:
             _setter("allocation_strategy", allocation_strategy)
         if capacity_reservation_options is not None:
@@ -2129,7 +2323,21 @@ class Ec2FleetPlacement(dict):
              partition_number: Optional[int] = None,
              spread_domain: Optional[str] = None,
              tenancy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if 'partitionNumber' in kwargs:
+            partition_number = kwargs['partitionNumber']
+        if 'spreadDomain' in kwargs:
+            spread_domain = kwargs['spreadDomain']
+
         if affinity is not None:
             _setter("affinity", affinity)
         if availability_zone is not None:
@@ -2252,7 +2460,25 @@ class Ec2FleetSpotOptionsRequest(dict):
              min_target_capacity: Optional[int] = None,
              single_availability_zone: Optional[bool] = None,
              single_instance_type: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if 'maintenanceStrategies' in kwargs:
+            maintenance_strategies = kwargs['maintenanceStrategies']
+        if 'maxTotalPrice' in kwargs:
+            max_total_price = kwargs['maxTotalPrice']
+        if 'minTargetCapacity' in kwargs:
+            min_target_capacity = kwargs['minTargetCapacity']
+        if 'singleAvailabilityZone' in kwargs:
+            single_availability_zone = kwargs['singleAvailabilityZone']
+        if 'singleInstanceType' in kwargs:
+            single_instance_type = kwargs['singleInstanceType']
+
         if allocation_strategy is not None:
             _setter("allocation_strategy", allocation_strategy)
         if instance_interruption_behavior is not None:
@@ -2326,7 +2552,9 @@ class Ec2FleetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2373,7 +2601,11 @@ class Ec2FleetTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional['Ec2FleetTagSpecificationResourceType'] = None,
              tags: Optional[Sequence['outputs.Ec2FleetTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -2439,7 +2671,19 @@ class Ec2FleetTargetCapacitySpecificationRequest(dict):
              on_demand_target_capacity: Optional[int] = None,
              spot_target_capacity: Optional[int] = None,
              target_capacity_unit_type: Optional['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'totalTargetCapacity' in kwargs:
+            total_target_capacity = kwargs['totalTargetCapacity']
+        if 'defaultTargetCapacityType' in kwargs:
+            default_target_capacity_type = kwargs['defaultTargetCapacityType']
+        if 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if 'spotTargetCapacity' in kwargs:
+            spot_target_capacity = kwargs['spotTargetCapacity']
+        if 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+
         _setter("total_target_capacity", total_target_capacity)
         if default_target_capacity_type is not None:
             _setter("default_target_capacity_type", default_target_capacity_type)
@@ -2491,7 +2735,9 @@ class Ec2FleetTotalLocalStorageGbRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -2523,7 +2769,9 @@ class Ec2FleetVCpuCountRangeRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -2555,7 +2803,9 @@ class EipTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2585,7 +2835,9 @@ class FlowLogTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2615,7 +2867,9 @@ class InstanceAssociationParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2672,7 +2926,15 @@ class InstanceBlockDeviceMapping(dict):
              ebs: Optional['outputs.InstanceEbs'] = None,
              no_device: Optional['outputs.InstanceNoDevice'] = None,
              virtual_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         _setter("device_name", device_name)
         if ebs is not None:
             _setter("ebs", ebs)
@@ -2723,7 +2985,9 @@ class InstanceConnectEndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2772,7 +3036,13 @@ class InstanceCpuOptions(dict):
              _setter: Callable[[Any, Any], None],
              core_count: Optional[int] = None,
              threads_per_core: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'threadsPerCore' in kwargs:
+            threads_per_core = kwargs['threadsPerCore']
+
         if core_count is not None:
             _setter("core_count", core_count)
         if threads_per_core is not None:
@@ -2818,7 +3088,11 @@ class InstanceCreditSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_credits: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuCredits' in kwargs:
+            cpu_credits = kwargs['cpuCredits']
+
         if cpu_credits is not None:
             _setter("cpu_credits", cpu_credits)
 
@@ -2883,7 +3157,19 @@ class InstanceEbs(dict):
              snapshot_id: Optional[str] = None,
              volume_size: Optional[int] = None,
              volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -2947,7 +3233,9 @@ class InstanceElasticGpuSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -2971,7 +3259,9 @@ class InstanceElasticInferenceAccelerator(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if count is not None:
             _setter("count", count)
@@ -2999,7 +3289,9 @@ class InstanceEnclaveOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -3021,7 +3313,9 @@ class InstanceHibernationOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              configured: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configured is not None:
             _setter("configured", configured)
 
@@ -3060,7 +3354,11 @@ class InstanceIpv6Address(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -3106,7 +3404,13 @@ class InstanceLaunchTemplateSpecification(dict):
              version: str,
              launch_template_id: Optional[str] = None,
              launch_template_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -3158,7 +3462,11 @@ class InstanceLicenseSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              license_configuration_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+
         _setter("license_configuration_arn", license_configuration_arn)
 
     @property
@@ -3254,7 +3562,33 @@ class InstanceNetworkInterface(dict):
              private_ip_addresses: Optional[Sequence['outputs.InstancePrivateIpAddressSpecification']] = None,
              secondary_private_ip_address_count: Optional[int] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if 'associateCarrierIpAddress' in kwargs:
+            associate_carrier_ip_address = kwargs['associateCarrierIpAddress']
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'groupSet' in kwargs:
+            group_set = kwargs['groupSet']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("device_index", device_index)
         if associate_carrier_ip_address is not None:
             _setter("associate_carrier_ip_address", associate_carrier_ip_address)
@@ -3354,8 +3688,10 @@ class InstanceNoDevice(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3397,7 +3733,15 @@ class InstancePrivateDnsNameOptions(dict):
              enable_resource_name_dns_a_record: Optional[bool] = None,
              enable_resource_name_dns_aaaa_record: Optional[bool] = None,
              hostname_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -3453,7 +3797,11 @@ class InstancePrivateIpAddressSpecification(dict):
              _setter: Callable[[Any, Any], None],
              primary: bool,
              private_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         _setter("primary", primary)
         _setter("private_ip_address", private_ip_address)
 
@@ -3502,7 +3850,13 @@ class InstanceSsmAssociation(dict):
              _setter: Callable[[Any, Any], None],
              document_name: str,
              association_parameters: Optional[Sequence['outputs.InstanceAssociationParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if 'associationParameters' in kwargs:
+            association_parameters = kwargs['associationParameters']
+
         _setter("document_name", document_name)
         if association_parameters is not None:
             _setter("association_parameters", association_parameters)
@@ -3533,7 +3887,9 @@ class InstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3580,7 +3936,11 @@ class InstanceVolume(dict):
              _setter: Callable[[Any, Any], None],
              device: str,
              volume_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         _setter("device", device)
         _setter("volume_id", volume_id)
 
@@ -3610,7 +3970,9 @@ class InternetGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3661,7 +4023,11 @@ class IpamOperatingRegion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              region_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+
         _setter("region_name", region_name)
 
     @property
@@ -3691,7 +4057,9 @@ class IpamPoolProvisionedCidr(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cidr: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cidr", cidr)
 
     @property
@@ -3723,7 +4091,9 @@ class IpamPoolTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3767,7 +4137,9 @@ class IpamResourceDiscoveryAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3824,7 +4196,11 @@ class IpamResourceDiscoveryIpamOperatingRegion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              region_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+
         _setter("region_name", region_name)
 
     @property
@@ -3859,7 +4235,9 @@ class IpamResourceDiscoveryTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3903,7 +4281,9 @@ class IpamScopeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3947,7 +4327,9 @@ class IpamTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3991,7 +4373,9 @@ class KeyPairTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4035,7 +4419,9 @@ class LaunchTemplateAcceleratorCount(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4081,7 +4467,9 @@ class LaunchTemplateAcceleratorTotalMemoryMiB(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4127,7 +4515,9 @@ class LaunchTemplateBaselineEbsBandwidthMbps(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4201,7 +4591,15 @@ class LaunchTemplateBlockDeviceMapping(dict):
              ebs: Optional['outputs.LaunchTemplateEbs'] = None,
              no_device: Optional[str] = None,
              virtual_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -4282,7 +4680,13 @@ class LaunchTemplateCapacityReservationSpecification(dict):
              _setter: Callable[[Any, Any], None],
              capacity_reservation_preference: Optional[str] = None,
              capacity_reservation_target: Optional['outputs.LaunchTemplateCapacityReservationTarget'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityReservationPreference' in kwargs:
+            capacity_reservation_preference = kwargs['capacityReservationPreference']
+        if 'capacityReservationTarget' in kwargs:
+            capacity_reservation_target = kwargs['capacityReservationTarget']
+
         if capacity_reservation_preference is not None:
             _setter("capacity_reservation_preference", capacity_reservation_preference)
         if capacity_reservation_target is not None:
@@ -4344,7 +4748,13 @@ class LaunchTemplateCapacityReservationTarget(dict):
              _setter: Callable[[Any, Any], None],
              capacity_reservation_id: Optional[str] = None,
              capacity_reservation_resource_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityReservationId' in kwargs:
+            capacity_reservation_id = kwargs['capacityReservationId']
+        if 'capacityReservationResourceGroupArn' in kwargs:
+            capacity_reservation_resource_group_arn = kwargs['capacityReservationResourceGroupArn']
+
         if capacity_reservation_id is not None:
             _setter("capacity_reservation_id", capacity_reservation_id)
         if capacity_reservation_resource_group_arn is not None:
@@ -4415,7 +4825,15 @@ class LaunchTemplateCpuOptions(dict):
              amd_sev_snp: Optional['LaunchTemplateCpuOptionsAmdSevSnp'] = None,
              core_count: Optional[int] = None,
              threads_per_core: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'amdSevSnp' in kwargs:
+            amd_sev_snp = kwargs['amdSevSnp']
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'threadsPerCore' in kwargs:
+            threads_per_core = kwargs['threadsPerCore']
+
         if amd_sev_snp is not None:
             _setter("amd_sev_snp", amd_sev_snp)
         if core_count is not None:
@@ -4484,7 +4902,11 @@ class LaunchTemplateCreditSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_credits: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuCredits' in kwargs:
+            cpu_credits = kwargs['cpuCredits']
+
         if cpu_credits is not None:
             _setter("cpu_credits", cpu_credits)
 
@@ -4694,7 +5116,67 @@ class LaunchTemplateData(dict):
              security_groups: Optional[Sequence[str]] = None,
              tag_specifications: Optional[Sequence['outputs.TagSpecification']] = None,
              user_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if 'elasticInferenceAccelerators' in kwargs:
+            elastic_inference_accelerators = kwargs['elasticInferenceAccelerators']
+        if 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if block_device_mappings is not None:
             _setter("block_device_mappings", block_device_mappings)
         if capacity_reservation_specification is not None:
@@ -5034,7 +5516,19 @@ class LaunchTemplateEbs(dict):
              throughput: Optional[int] = None,
              volume_size: Optional[int] = None,
              volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -5136,7 +5630,9 @@ class LaunchTemplateElasticGpuSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -5172,7 +5668,9 @@ class LaunchTemplateElasticInferenceAccelerator(dict):
              _setter: Callable[[Any, Any], None],
              count: Optional[int] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if type is not None:
@@ -5214,7 +5712,9 @@ class LaunchTemplateEnclaveOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -5246,7 +5746,9 @@ class LaunchTemplateHibernationOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              configured: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if configured is not None:
             _setter("configured", configured)
 
@@ -5282,7 +5784,9 @@ class LaunchTemplateIamInstanceProfile(dict):
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
         if name is not None:
@@ -5346,7 +5850,13 @@ class LaunchTemplateInstanceMarketOptions(dict):
              _setter: Callable[[Any, Any], None],
              market_type: Optional[str] = None,
              spot_options: Optional['outputs.LaunchTemplateSpotOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'marketType' in kwargs:
+            market_type = kwargs['marketType']
+        if 'spotOptions' in kwargs:
+            spot_options = kwargs['spotOptions']
+
         if market_type is not None:
             _setter("market_type", market_type)
         if spot_options is not None:
@@ -5524,7 +6034,55 @@ class LaunchTemplateInstanceRequirements(dict):
              spot_max_price_percentage_over_lowest_price: Optional[int] = None,
              total_local_storage_gb: Optional['outputs.LaunchTemplateTotalLocalStorageGb'] = None,
              v_cpu_count: Optional['outputs.LaunchTemplateVCpuCount'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -5763,7 +6321,11 @@ class LaunchTemplateIpv4PrefixSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv4_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv4Prefix' in kwargs:
+            ipv4_prefix = kwargs['ipv4Prefix']
+
         if ipv4_prefix is not None:
             _setter("ipv4_prefix", ipv4_prefix)
 
@@ -5811,7 +6373,11 @@ class LaunchTemplateIpv6Add(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         if ipv6_address is not None:
             _setter("ipv6_address", ipv6_address)
 
@@ -5856,7 +6422,11 @@ class LaunchTemplateIpv6PrefixSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Prefix' in kwargs:
+            ipv6_prefix = kwargs['ipv6Prefix']
+
         if ipv6_prefix is not None:
             _setter("ipv6_prefix", ipv6_prefix)
 
@@ -5902,7 +6472,11 @@ class LaunchTemplateLicenseSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              license_configuration_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+
         if license_configuration_arn is not None:
             _setter("license_configuration_arn", license_configuration_arn)
 
@@ -5951,7 +6525,11 @@ class LaunchTemplateMaintenanceOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              auto_recovery: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRecovery' in kwargs:
+            auto_recovery = kwargs['autoRecovery']
+
         if auto_recovery is not None:
             _setter("auto_recovery", auto_recovery)
 
@@ -5987,7 +6565,9 @@ class LaunchTemplateMemoryGiBPerVCpu(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6033,7 +6613,9 @@ class LaunchTemplateMemoryMiB(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6116,7 +6698,19 @@ class LaunchTemplateMetadataOptions(dict):
              http_put_response_hop_limit: Optional[int] = None,
              http_tokens: Optional[str] = None,
              instance_metadata_tags: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if 'httpProtocolIpv6' in kwargs:
+            http_protocol_ipv6 = kwargs['httpProtocolIpv6']
+        if 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+        if 'instanceMetadataTags' in kwargs:
+            instance_metadata_tags = kwargs['instanceMetadataTags']
+
         if http_endpoint is not None:
             _setter("http_endpoint", http_endpoint)
         if http_protocol_ipv6 is not None:
@@ -6188,7 +6782,9 @@ class LaunchTemplateMonitoring(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -6224,7 +6820,9 @@ class LaunchTemplateNetworkBandwidthGbps(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6393,7 +6991,45 @@ class LaunchTemplateNetworkInterface(dict):
              private_ip_addresses: Optional[Sequence['outputs.LaunchTemplatePrivateIpAdd']] = None,
              secondary_private_ip_address_count: Optional[int] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associateCarrierIpAddress' in kwargs:
+            associate_carrier_ip_address = kwargs['associateCarrierIpAddress']
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if 'networkCardIndex' in kwargs:
+            network_card_index = kwargs['networkCardIndex']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'primaryIpv6' in kwargs:
+            primary_ipv6 = kwargs['primaryIpv6']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if associate_carrier_ip_address is not None:
             _setter("associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
@@ -6617,7 +7253,9 @@ class LaunchTemplateNetworkInterfaceCount(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6714,7 +7352,23 @@ class LaunchTemplatePlacement(dict):
              partition_number: Optional[int] = None,
              spread_domain: Optional[str] = None,
              tenancy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if 'partitionNumber' in kwargs:
+            partition_number = kwargs['partitionNumber']
+        if 'spreadDomain' in kwargs:
+            spread_domain = kwargs['spreadDomain']
+
         if affinity is not None:
             _setter("affinity", affinity)
         if availability_zone is not None:
@@ -6855,7 +7509,15 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
              enable_resource_name_dns_a_record: Optional[bool] = None,
              enable_resource_name_dns_aaaa_record: Optional[bool] = None,
              hostname_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -6928,7 +7590,11 @@ class LaunchTemplatePrivateIpAdd(dict):
              _setter: Callable[[Any, Any], None],
              primary: Optional[bool] = None,
              private_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         if primary is not None:
             _setter("primary", primary)
         if private_ip_address is not None:
@@ -7011,7 +7677,19 @@ class LaunchTemplateSpotOptions(dict):
              max_price: Optional[str] = None,
              spot_instance_type: Optional[str] = None,
              valid_until: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+        if 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if 'maxPrice' in kwargs:
+            max_price = kwargs['maxPrice']
+        if 'spotInstanceType' in kwargs:
+            spot_instance_type = kwargs['spotInstanceType']
+        if 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         if block_duration_minutes is not None:
             _setter("block_duration_minutes", block_duration_minutes)
         if instance_interruption_behavior is not None:
@@ -7085,7 +7763,9 @@ class LaunchTemplateTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7140,7 +7820,11 @@ class LaunchTemplateTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[str] = None,
              tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -7184,7 +7868,9 @@ class LaunchTemplateTotalLocalStorageGb(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -7224,7 +7910,9 @@ class LaunchTemplateVCpuCount(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -7262,7 +7950,9 @@ class LocalGatewayRouteTableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7294,7 +7984,9 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7326,7 +8018,9 @@ class LocalGatewayRouteTableVpcAssociationTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7358,7 +8052,9 @@ class NatGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7388,7 +8084,9 @@ class NetworkAclEntryIcmp(dict):
              _setter: Callable[[Any, Any], None],
              code: Optional[int] = None,
              type: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if code is not None:
             _setter("code", code)
         if type is not None:
@@ -7437,7 +8135,11 @@ class NetworkAclEntryPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_: Optional[int] = None,
              to: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+
         if from_ is not None:
             _setter("from_", from_)
         if to is not None:
@@ -7469,7 +8171,9 @@ class NetworkAclTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7519,7 +8223,11 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
              destination: Optional['outputs.NetworkInsightsAccessScopePathStatementRequest'] = None,
              source: Optional['outputs.NetworkInsightsAccessScopePathStatementRequest'] = None,
              through_resources: Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'throughResources' in kwargs:
+            through_resources = kwargs['throughResources']
+
         if destination is not None:
             _setter("destination", destination)
         if source is not None:
@@ -7558,7 +8266,9 @@ class NetworkInsightsAccessScopeAnalysisTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7631,7 +8341,21 @@ class NetworkInsightsAccessScopePacketHeaderStatementRequest(dict):
              source_addresses: Optional[Sequence[str]] = None,
              source_ports: Optional[Sequence[str]] = None,
              source_prefix_lists: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'destinationPrefixLists' in kwargs:
+            destination_prefix_lists = kwargs['destinationPrefixLists']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourcePorts' in kwargs:
+            source_ports = kwargs['sourcePorts']
+        if 'sourcePrefixLists' in kwargs:
+            source_prefix_lists = kwargs['sourcePrefixLists']
+
         if destination_addresses is not None:
             _setter("destination_addresses", destination_addresses)
         if destination_ports is not None:
@@ -7717,7 +8441,13 @@ class NetworkInsightsAccessScopePathStatementRequest(dict):
              _setter: Callable[[Any, Any], None],
              packet_header_statement: Optional['outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest'] = None,
              resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packetHeaderStatement' in kwargs:
+            packet_header_statement = kwargs['packetHeaderStatement']
+        if 'resourceStatement' in kwargs:
+            resource_statement = kwargs['resourceStatement']
+
         if packet_header_statement is not None:
             _setter("packet_header_statement", packet_header_statement)
         if resource_statement is not None:
@@ -7766,7 +8496,11 @@ class NetworkInsightsAccessScopeResourceStatementRequest(dict):
              _setter: Callable[[Any, Any], None],
              resource_types: Optional[Sequence[str]] = None,
              resources: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if resource_types is not None:
             _setter("resource_types", resource_types)
         if resources is not None:
@@ -7798,7 +8532,9 @@ class NetworkInsightsAccessScopeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7843,7 +8579,11 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceStatement' in kwargs:
+            resource_statement = kwargs['resourceStatement']
+
         if resource_statement is not None:
             _setter("resource_statement", resource_statement)
 
@@ -7895,7 +8635,15 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
              component: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
              load_balancers: Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']] = None,
              service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalDetailType' in kwargs:
+            additional_detail_type = kwargs['additionalDetailType']
+        if 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if additional_detail_type is not None:
             _setter("additional_detail_type", additional_detail_type)
         if component is not None:
@@ -7960,7 +8708,13 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
              _setter: Callable[[Any, Any], None],
              component_arn: Optional[str] = None,
              component_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+
         if component_arn is not None:
             _setter("component_arn", component_arn)
         if component_id is not None:
@@ -8025,7 +8779,15 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
              protocol: Optional[str] = None,
              rule_action: Optional[str] = None,
              rule_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if 'ruleAction' in kwargs:
+            rule_action = kwargs['ruleAction']
+        if 'ruleNumber' in kwargs:
+            rule_number = kwargs['ruleNumber']
+
         if cidr is not None:
             _setter("cidr", cidr)
         if egress is not None:
@@ -8085,7 +8847,9 @@ class NetworkInsightsAnalysisAnalysisComponent(dict):
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
         if id is not None:
@@ -8136,7 +8900,13 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerListener(dict):
              _setter: Callable[[Any, Any], None],
              instance_port: Optional[int] = None,
              load_balancer_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if 'loadBalancerPort' in kwargs:
+            load_balancer_port = kwargs['loadBalancerPort']
+
         if instance_port is not None:
             _setter("instance_port", instance_port)
         if load_balancer_port is not None:
@@ -8191,7 +8961,11 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
              availability_zone: Optional[str] = None,
              instance: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
         if address is not None:
             _setter("address", address)
         if availability_zone is not None:
@@ -8269,7 +9043,17 @@ class NetworkInsightsAnalysisAnalysisPacketHeader(dict):
              protocol: Optional[str] = None,
              source_addresses: Optional[Sequence[str]] = None,
              source_port_ranges: Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         if destination_addresses is not None:
             _setter("destination_addresses", destination_addresses)
         if destination_port_ranges is not None:
@@ -8382,7 +9166,27 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
              state: Optional[str] = None,
              transit_gateway_id: Optional[str] = None,
              vpc_peering_connection_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationCidr' in kwargs:
+            destination_cidr = kwargs['destinationCidr']
+        if 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if 'egressOnlyInternetGatewayId' in kwargs:
+            egress_only_internet_gateway_id = kwargs['egressOnlyInternetGatewayId']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
         if destination_cidr is not None:
             _setter("destination_cidr", destination_cidr)
         if destination_prefix_list_id is not None:
@@ -8510,7 +9314,15 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
              prefix_list_id: Optional[str] = None,
              protocol: Optional[str] = None,
              security_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+        if 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+
         if cidr is not None:
             _setter("cidr", cidr)
         if direction is not None:
@@ -8810,7 +9622,87 @@ class NetworkInsightsAnalysisExplanation(dict):
              vpc_peering_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
              vpn_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
              vpn_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aclRule' in kwargs:
+            acl_rule = kwargs['aclRule']
+        if 'attachedTo' in kwargs:
+            attached_to = kwargs['attachedTo']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'classicLoadBalancerListener' in kwargs:
+            classic_load_balancer_listener = kwargs['classicLoadBalancerListener']
+        if 'componentAccount' in kwargs:
+            component_account = kwargs['componentAccount']
+        if 'componentRegion' in kwargs:
+            component_region = kwargs['componentRegion']
+        if 'customerGateway' in kwargs:
+            customer_gateway = kwargs['customerGateway']
+        if 'destinationVpc' in kwargs:
+            destination_vpc = kwargs['destinationVpc']
+        if 'elasticLoadBalancerListener' in kwargs:
+            elastic_load_balancer_listener = kwargs['elasticLoadBalancerListener']
+        if 'explanationCode' in kwargs:
+            explanation_code = kwargs['explanationCode']
+        if 'ingressRouteTable' in kwargs:
+            ingress_route_table = kwargs['ingressRouteTable']
+        if 'internetGateway' in kwargs:
+            internet_gateway = kwargs['internetGateway']
+        if 'loadBalancerArn' in kwargs:
+            load_balancer_arn = kwargs['loadBalancerArn']
+        if 'loadBalancerListenerPort' in kwargs:
+            load_balancer_listener_port = kwargs['loadBalancerListenerPort']
+        if 'loadBalancerTarget' in kwargs:
+            load_balancer_target = kwargs['loadBalancerTarget']
+        if 'loadBalancerTargetGroup' in kwargs:
+            load_balancer_target_group = kwargs['loadBalancerTargetGroup']
+        if 'loadBalancerTargetGroups' in kwargs:
+            load_balancer_target_groups = kwargs['loadBalancerTargetGroups']
+        if 'loadBalancerTargetPort' in kwargs:
+            load_balancer_target_port = kwargs['loadBalancerTargetPort']
+        if 'missingComponent' in kwargs:
+            missing_component = kwargs['missingComponent']
+        if 'natGateway' in kwargs:
+            nat_gateway = kwargs['natGateway']
+        if 'networkInterface' in kwargs:
+            network_interface = kwargs['networkInterface']
+        if 'packetField' in kwargs:
+            packet_field = kwargs['packetField']
+        if 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+        if 'prefixList' in kwargs:
+            prefix_list = kwargs['prefixList']
+        if 'routeTable' in kwargs:
+            route_table = kwargs['routeTable']
+        if 'routeTableRoute' in kwargs:
+            route_table_route = kwargs['routeTableRoute']
+        if 'securityGroup' in kwargs:
+            security_group = kwargs['securityGroup']
+        if 'securityGroupRule' in kwargs:
+            security_group_rule = kwargs['securityGroupRule']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sourceVpc' in kwargs:
+            source_vpc = kwargs['sourceVpc']
+        if 'subnetRouteTable' in kwargs:
+            subnet_route_table = kwargs['subnetRouteTable']
+        if 'transitGateway' in kwargs:
+            transit_gateway = kwargs['transitGateway']
+        if 'transitGatewayAttachment' in kwargs:
+            transit_gateway_attachment = kwargs['transitGatewayAttachment']
+        if 'transitGatewayRouteTable' in kwargs:
+            transit_gateway_route_table = kwargs['transitGatewayRouteTable']
+        if 'transitGatewayRouteTableRoute' in kwargs:
+            transit_gateway_route_table_route = kwargs['transitGatewayRouteTableRoute']
+        if 'vpcEndpoint' in kwargs:
+            vpc_endpoint = kwargs['vpcEndpoint']
+        if 'vpcPeeringConnection' in kwargs:
+            vpc_peering_connection = kwargs['vpcPeeringConnection']
+        if 'vpnConnection' in kwargs:
+            vpn_connection = kwargs['vpnConnection']
+        if 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
         if acl is not None:
             _setter("acl", acl)
         if acl_rule is not None:
@@ -9271,7 +10163,35 @@ class NetworkInsightsAnalysisPathComponent(dict):
              transit_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
              transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
              vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aclRule' in kwargs:
+            acl_rule = kwargs['aclRule']
+        if 'additionalDetails' in kwargs:
+            additional_details = kwargs['additionalDetails']
+        if 'destinationVpc' in kwargs:
+            destination_vpc = kwargs['destinationVpc']
+        if 'elasticLoadBalancerListener' in kwargs:
+            elastic_load_balancer_listener = kwargs['elasticLoadBalancerListener']
+        if 'inboundHeader' in kwargs:
+            inbound_header = kwargs['inboundHeader']
+        if 'outboundHeader' in kwargs:
+            outbound_header = kwargs['outboundHeader']
+        if 'routeTableRoute' in kwargs:
+            route_table_route = kwargs['routeTableRoute']
+        if 'securityGroupRule' in kwargs:
+            security_group_rule = kwargs['securityGroupRule']
+        if 'sequenceNumber' in kwargs:
+            sequence_number = kwargs['sequenceNumber']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sourceVpc' in kwargs:
+            source_vpc = kwargs['sourceVpc']
+        if 'transitGateway' in kwargs:
+            transit_gateway = kwargs['transitGateway']
+        if 'transitGatewayRouteTableRoute' in kwargs:
+            transit_gateway_route_table_route = kwargs['transitGatewayRouteTableRoute']
+
         if acl_rule is not None:
             _setter("acl_rule", acl_rule)
         if additional_details is not None:
@@ -9425,7 +10345,11 @@ class NetworkInsightsAnalysisPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_: Optional[int] = None,
              to: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+
         if from_ is not None:
             _setter("from_", from_)
         if to is not None:
@@ -9457,7 +10381,9 @@ class NetworkInsightsAnalysisTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -9530,7 +10456,21 @@ class NetworkInsightsAnalysisTransitGatewayRouteTableRoute(dict):
              resource_type: Optional[str] = None,
              route_origin: Optional[str] = None,
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentId' in kwargs:
+            attachment_id = kwargs['attachmentId']
+        if 'destinationCidr' in kwargs:
+            destination_cidr = kwargs['destinationCidr']
+        if 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'routeOrigin' in kwargs:
+            route_origin = kwargs['routeOrigin']
+
         if attachment_id is not None:
             _setter("attachment_id", attachment_id)
         if destination_cidr is not None:
@@ -9616,7 +10556,13 @@ class NetworkInsightsPathFilterPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_port: Optional[int] = None,
              to_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         if from_port is not None:
             _setter("from_port", from_port)
         if to_port is not None:
@@ -9677,7 +10623,17 @@ class NetworkInsightsPathPathFilter(dict):
              destination_port_range: Optional['outputs.NetworkInsightsPathFilterPortRange'] = None,
              source_address: Optional[str] = None,
              source_port_range: Optional['outputs.NetworkInsightsPathFilterPortRange'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+
         if destination_address is not None:
             _setter("destination_address", destination_address)
         if destination_port_range is not None:
@@ -9723,7 +10679,9 @@ class NetworkInsightsPathTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -9768,7 +10726,11 @@ class NetworkInterfaceInstanceIpv6Address(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -9806,7 +10768,11 @@ class NetworkInterfaceIpv4PrefixSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv4_prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv4Prefix' in kwargs:
+            ipv4_prefix = kwargs['ipv4Prefix']
+
         _setter("ipv4_prefix", ipv4_prefix)
 
     @property
@@ -9844,7 +10810,11 @@ class NetworkInterfaceIpv6PrefixSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Prefix' in kwargs:
+            ipv6_prefix = kwargs['ipv6Prefix']
+
         _setter("ipv6_prefix", ipv6_prefix)
 
     @property
@@ -9885,7 +10855,11 @@ class NetworkInterfacePrivateIpAddressSpecification(dict):
              _setter: Callable[[Any, Any], None],
              primary: bool,
              private_ip_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         _setter("primary", primary)
         _setter("private_ip_address", private_ip_address)
 
@@ -9915,7 +10889,9 @@ class NetworkInterfaceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -9978,7 +10954,15 @@ class OptionsProperties(dict):
              appliance_mode_support: Optional[str] = None,
              dns_support: Optional[str] = None,
              ipv6_support: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applianceModeSupport' in kwargs:
+            appliance_mode_support = kwargs['applianceModeSupport']
+        if 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if 'ipv6Support' in kwargs:
+            ipv6_support = kwargs['ipv6Support']
+
         if appliance_mode_support is not None:
             _setter("appliance_mode_support", appliance_mode_support)
         if dns_support is not None:
@@ -10034,7 +11018,9 @@ class PlacementGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -10070,7 +11056,9 @@ class PrefixListEntry(dict):
              _setter: Callable[[Any, Any], None],
              cidr: str,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cidr", cidr)
         if description is not None:
             _setter("description", description)
@@ -10101,7 +11089,9 @@ class PrefixListTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -10156,7 +11146,15 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
              enable_resource_name_dns_a_record: Optional[bool] = None,
              enable_resource_name_dns_aaaa_record: Optional[bool] = None,
              hostname_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -10195,7 +11193,9 @@ class RouteTableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -10272,7 +11272,23 @@ class SecurityGroupEgress(dict):
              destination_security_group_id: Optional[str] = None,
              from_port: Optional[int] = None,
              to_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if 'destinationSecurityGroupId' in kwargs:
+            destination_security_group_id = kwargs['destinationSecurityGroupId']
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)
@@ -10402,7 +11418,27 @@ class SecurityGroupIngress(dict):
              source_security_group_name: Optional[str] = None,
              source_security_group_owner_id: Optional[str] = None,
              to_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'sourcePrefixListId' in kwargs:
+            source_prefix_list_id = kwargs['sourcePrefixListId']
+        if 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if 'sourceSecurityGroupName' in kwargs:
+            source_security_group_name = kwargs['sourceSecurityGroupName']
+        if 'sourceSecurityGroupOwnerId' in kwargs:
+            source_security_group_owner_id = kwargs['sourceSecurityGroupOwnerId']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)
@@ -10489,7 +11525,9 @@ class SecurityGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -10519,7 +11557,9 @@ class SpotFleetAcceleratorCountRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10551,7 +11591,9 @@ class SpotFleetAcceleratorTotalMemoryMiBRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10583,7 +11625,9 @@ class SpotFleetBaselineEbsBandwidthMbpsRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10642,7 +11686,15 @@ class SpotFleetBlockDeviceMapping(dict):
              ebs: Optional['outputs.SpotFleetEbsBlockDevice'] = None,
              no_device: Optional[str] = None,
              virtual_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         _setter("device_name", device_name)
         if ebs is not None:
             _setter("ebs", ebs)
@@ -10684,7 +11736,9 @@ class SpotFleetClassicLoadBalancer(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -10722,7 +11776,11 @@ class SpotFleetClassicLoadBalancersConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              classic_load_balancers: Sequence['outputs.SpotFleetClassicLoadBalancer'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classicLoadBalancers' in kwargs:
+            classic_load_balancers = kwargs['classicLoadBalancers']
+
         _setter("classic_load_balancers", classic_load_balancers)
 
     @property
@@ -10781,7 +11839,17 @@ class SpotFleetEbsBlockDevice(dict):
              snapshot_id: Optional[str] = None,
              volume_size: Optional[int] = None,
              volume_type: Optional['SpotFleetEbsBlockDeviceVolumeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -10863,7 +11931,13 @@ class SpotFleetFleetLaunchTemplateSpecification(dict):
              version: str,
              launch_template_id: Optional[str] = None,
              launch_template_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -10915,7 +11989,11 @@ class SpotFleetGroupIdentifier(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+
         _setter("group_id", group_id)
 
     @property
@@ -10936,7 +12014,9 @@ class SpotFleetIamInstanceProfileSpecification(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -10975,7 +12055,11 @@ class SpotFleetInstanceIpv6Address(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_address: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -11059,7 +12143,27 @@ class SpotFleetInstanceNetworkInterfaceSpecification(dict):
              private_ip_addresses: Optional[Sequence['outputs.SpotFleetPrivateIpAddressSpecification']] = None,
              secondary_private_ip_address_count: Optional[int] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if associate_public_ip_address is not None:
             _setter("associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
@@ -11278,7 +12382,55 @@ class SpotFleetInstanceRequirementsRequest(dict):
              spot_max_price_percentage_over_lowest_price: Optional[int] = None,
              total_local_storage_gb: Optional['outputs.SpotFleetTotalLocalStorageGbRequest'] = None,
              v_cpu_count: Optional['outputs.SpotFleetVCpuCountRangeRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -11552,7 +12704,41 @@ class SpotFleetLaunchSpecification(dict):
              tag_specifications: Optional[Sequence['outputs.SpotFleetTagSpecification']] = None,
              user_data: Optional[str] = None,
              weighted_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'ramdiskId' in kwargs:
+            ramdisk_id = kwargs['ramdiskId']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("image_id", image_id)
         if block_device_mappings is not None:
             _setter("block_device_mappings", block_device_mappings)
@@ -11712,7 +12898,11 @@ class SpotFleetLaunchTemplateConfig(dict):
              _setter: Callable[[Any, Any], None],
              launch_template_specification: Optional['outputs.SpotFleetFleetLaunchTemplateSpecification'] = None,
              overrides: Optional[Sequence['outputs.SpotFleetLaunchTemplateOverrides']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+
         if launch_template_specification is not None:
             _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -11786,7 +12976,21 @@ class SpotFleetLaunchTemplateOverrides(dict):
              spot_price: Optional[str] = None,
              subnet_id: Optional[str] = None,
              weighted_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if instance_requirements is not None:
@@ -11872,7 +13076,13 @@ class SpotFleetLoadBalancersConfig(dict):
              _setter: Callable[[Any, Any], None],
              classic_load_balancers_config: Optional['outputs.SpotFleetClassicLoadBalancersConfig'] = None,
              target_groups_config: Optional['outputs.SpotFleetTargetGroupsConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classicLoadBalancersConfig' in kwargs:
+            classic_load_balancers_config = kwargs['classicLoadBalancersConfig']
+        if 'targetGroupsConfig' in kwargs:
+            target_groups_config = kwargs['targetGroupsConfig']
+
         if classic_load_balancers_config is not None:
             _setter("classic_load_balancers_config", classic_load_balancers_config)
         if target_groups_config is not None:
@@ -11904,7 +13114,9 @@ class SpotFleetMemoryGiBPerVCpuRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -11936,7 +13148,9 @@ class SpotFleetMemoryMiBRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -11965,7 +13179,9 @@ class SpotFleetMonitoring(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -11990,7 +13206,9 @@ class SpotFleetNetworkBandwidthGbpsRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -12022,7 +13240,9 @@ class SpotFleetNetworkInterfaceCountRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -12071,7 +13291,11 @@ class SpotFleetPrivateIpAddressSpecification(dict):
              _setter: Callable[[Any, Any], None],
              private_ip_address: str,
              primary: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         _setter("private_ip_address", private_ip_address)
         if primary is not None:
             _setter("primary", primary)
@@ -12222,7 +13446,51 @@ class SpotFleetRequestConfigData(dict):
              type: Optional['SpotFleetRequestConfigDataType'] = None,
              valid_from: Optional[str] = None,
              valid_until: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iamFleetRole' in kwargs:
+            iam_fleet_role = kwargs['iamFleetRole']
+        if 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+        if 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if 'loadBalancersConfig' in kwargs:
+            load_balancers_config = kwargs['loadBalancersConfig']
+        if 'onDemandAllocationStrategy' in kwargs:
+            on_demand_allocation_strategy = kwargs['onDemandAllocationStrategy']
+        if 'onDemandMaxTotalPrice' in kwargs:
+            on_demand_max_total_price = kwargs['onDemandMaxTotalPrice']
+        if 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if 'spotMaintenanceStrategies' in kwargs:
+            spot_maintenance_strategies = kwargs['spotMaintenanceStrategies']
+        if 'spotMaxTotalPrice' in kwargs:
+            spot_max_total_price = kwargs['spotMaxTotalPrice']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+        if 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         _setter("iam_fleet_role", iam_fleet_role)
         _setter("target_capacity", target_capacity)
         if allocation_strategy is not None:
@@ -12418,7 +13686,13 @@ class SpotFleetSpotCapacityRebalance(dict):
              _setter: Callable[[Any, Any], None],
              replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None,
              termination_delay: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if 'terminationDelay' in kwargs:
+            termination_delay = kwargs['terminationDelay']
+
         if replacement_strategy is not None:
             _setter("replacement_strategy", replacement_strategy)
         if termination_delay is not None:
@@ -12464,7 +13738,11 @@ class SpotFleetSpotMaintenanceStrategies(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              capacity_rebalance: Optional['outputs.SpotFleetSpotCapacityRebalance'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+
         if capacity_rebalance is not None:
             _setter("capacity_rebalance", capacity_rebalance)
 
@@ -12511,7 +13789,13 @@ class SpotFleetSpotPlacement(dict):
              availability_zone: Optional[str] = None,
              group_name: Optional[str] = None,
              tenancy: Optional['SpotFleetSpotPlacementTenancy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if group_name is not None:
@@ -12550,7 +13834,9 @@ class SpotFleetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12597,7 +13883,11 @@ class SpotFleetTagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional['SpotFleetTagSpecificationResourceType'] = None,
              tags: Optional[Sequence['outputs.SpotFleetTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -12626,7 +13916,9 @@ class SpotFleetTargetGroup(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("arn", arn)
 
     @property
@@ -12664,7 +13956,11 @@ class SpotFleetTargetGroupsConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_groups: Sequence['outputs.SpotFleetTargetGroup'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
         _setter("target_groups", target_groups)
 
     @property
@@ -12688,7 +13984,9 @@ class SpotFleetTotalLocalStorageGbRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[float] = None,
              min: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -12720,7 +14018,9 @@ class SpotFleetVCpuCountRangeRequest(dict):
              _setter: Callable[[Any, Any], None],
              max: Optional[int] = None,
              min: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -12779,7 +14079,13 @@ class SseSpecificationProperties(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[bool] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -12817,7 +14123,9 @@ class SubnetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12872,7 +14180,11 @@ class TagSpecification(dict):
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[str] = None,
              tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -12929,7 +14241,13 @@ class TrafficMirrorFilterRuleTrafficMirrorPortRange(dict):
              _setter: Callable[[Any, Any], None],
              from_port: int,
              to_port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 
@@ -12959,7 +14277,9 @@ class TrafficMirrorFilterTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12989,7 +14309,9 @@ class TrafficMirrorSessionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13019,7 +14341,9 @@ class TrafficMirrorTargetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13049,7 +14373,9 @@ class TransitGatewayAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13079,7 +14405,9 @@ class TransitGatewayConnectOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if protocol is not None:
             _setter("protocol", protocol)
 
@@ -13111,7 +14439,9 @@ class TransitGatewayConnectTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -13153,7 +14483,9 @@ class TransitGatewayMulticastDomainTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -13195,7 +14527,9 @@ class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
              _setter: Callable[[Any, Any], None],
              code: Optional[str] = None,
              message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if code is not None:
             _setter("code", code)
         if message is not None:
@@ -13237,7 +14571,9 @@ class TransitGatewayPeeringAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -13279,7 +14615,9 @@ class TransitGatewayRouteTableTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13315,7 +14653,9 @@ class TransitGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13345,7 +14685,9 @@ class TransitGatewayVpcAttachmentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13410,7 +14752,13 @@ class VerifiedAccessEndpointLoadBalancerOptions(dict):
              port: Optional[int] = None,
              protocol: Optional[str] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerArn' in kwargs:
+            load_balancer_arn = kwargs['loadBalancerArn']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if load_balancer_arn is not None:
             _setter("load_balancer_arn", load_balancer_arn)
         if port is not None:
@@ -13497,7 +14845,11 @@ class VerifiedAccessEndpointNetworkInterfaceOptions(dict):
              network_interface_id: Optional[str] = None,
              port: Optional[int] = None,
              protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if network_interface_id is not None:
             _setter("network_interface_id", network_interface_id)
         if port is not None:
@@ -13572,7 +14924,13 @@ class VerifiedAccessEndpointSseSpecification(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[bool] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -13618,7 +14976,9 @@ class VerifiedAccessEndpointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13681,7 +15041,13 @@ class VerifiedAccessGroupSseSpecification(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[bool] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -13727,7 +15093,9 @@ class VerifiedAccessGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13771,7 +15139,9 @@ class VerifiedAccessInstanceTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -13850,7 +15220,17 @@ class VerifiedAccessInstanceVerifiedAccessLogs(dict):
              kinesis_data_firehose: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties'] = None,
              log_version: Optional[str] = None,
              s3: Optional['outputs.VerifiedAccessInstanceVerifiedAccessLogsS3Properties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+        if 'includeTrustContext' in kwargs:
+            include_trust_context = kwargs['includeTrustContext']
+        if 'kinesisDataFirehose' in kwargs:
+            kinesis_data_firehose = kwargs['kinesisDataFirehose']
+        if 'logVersion' in kwargs:
+            log_version = kwargs['logVersion']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if include_trust_context is not None:
@@ -13943,7 +15323,11 @@ class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsProperties(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              log_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if log_group is not None:
@@ -14006,7 +15390,11 @@ class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehoseProperties(dict
              _setter: Callable[[Any, Any], None],
              delivery_stream: Optional[str] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
         if enabled is not None:
@@ -14079,7 +15467,13 @@ class VerifiedAccessInstanceVerifiedAccessLogsS3Properties(dict):
              bucket_owner: Optional[str] = None,
              enabled: Optional[bool] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
         if bucket_owner is not None:
@@ -14180,7 +15574,17 @@ class VerifiedAccessInstanceVerifiedAccessTrustProvider(dict):
              trust_provider_type: Optional[str] = None,
              user_trust_provider_type: Optional[str] = None,
              verified_access_trust_provider_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceTrustProviderType' in kwargs:
+            device_trust_provider_type = kwargs['deviceTrustProviderType']
+        if 'trustProviderType' in kwargs:
+            trust_provider_type = kwargs['trustProviderType']
+        if 'userTrustProviderType' in kwargs:
+            user_trust_provider_type = kwargs['userTrustProviderType']
+        if 'verifiedAccessTrustProviderId' in kwargs:
+            verified_access_trust_provider_id = kwargs['verifiedAccessTrustProviderId']
+
         if description is not None:
             _setter("description", description)
         if device_trust_provider_type is not None:
@@ -14269,7 +15673,11 @@ class VerifiedAccessTrustProviderDeviceOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if tenant_id is not None:
             _setter("tenant_id", tenant_id)
 
@@ -14350,7 +15758,19 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
              scope: Optional[str] = None,
              token_endpoint: Optional[str] = None,
              user_info_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+
         if authorization_endpoint is not None:
             _setter("authorization_endpoint", authorization_endpoint)
         if client_id is not None:
@@ -14446,7 +15866,9 @@ class VerifiedAccessTrustProviderTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14486,7 +15908,9 @@ class VolumeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14530,7 +15954,9 @@ class VpcPeeringConnectionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14566,7 +15992,9 @@ class VpcTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14596,7 +16024,9 @@ class VpnConnectionTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -14645,7 +16075,13 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
              _setter: Callable[[Any, Any], None],
              pre_shared_key: Optional[str] = None,
              tunnel_inside_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'preSharedKey' in kwargs:
+            pre_shared_key = kwargs['preSharedKey']
+        if 'tunnelInsideCidr' in kwargs:
+            tunnel_inside_cidr = kwargs['tunnelInsideCidr']
+
         if pre_shared_key is not None:
             _setter("pre_shared_key", pre_shared_key)
         if tunnel_inside_cidr is not None:
@@ -14677,7 +16113,9 @@ class VpnGatewayTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

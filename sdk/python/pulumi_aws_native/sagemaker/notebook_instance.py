@@ -73,7 +73,39 @@ class NotebookInstanceArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceTagArgs']]]] = None,
              volume_size_in_gb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if 'additionalCodeRepositories' in kwargs:
+            additional_code_repositories = kwargs['additionalCodeRepositories']
+        if 'defaultCodeRepository' in kwargs:
+            default_code_repository = kwargs['defaultCodeRepository']
+        if 'directInternetAccess' in kwargs:
+            direct_internet_access = kwargs['directInternetAccess']
+        if 'instanceMetadataServiceConfiguration' in kwargs:
+            instance_metadata_service_configuration = kwargs['instanceMetadataServiceConfiguration']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'lifecycleConfigName' in kwargs:
+            lifecycle_config_name = kwargs['lifecycleConfigName']
+        if 'notebookInstanceName' in kwargs:
+            notebook_instance_name = kwargs['notebookInstanceName']
+        if 'platformIdentifier' in kwargs:
+            platform_identifier = kwargs['platformIdentifier']
+        if 'rootAccess' in kwargs:
+            root_access = kwargs['rootAccess']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+
         _setter("instance_type", instance_type)
         _setter("role_arn", role_arn)
         if accelerator_types is not None:

@@ -50,7 +50,21 @@ class BudgetsActionArgs:
              notification_type: pulumi.Input['BudgetsActionNotificationType'],
              subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]],
              approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionThreshold' in kwargs:
+            action_threshold = kwargs['actionThreshold']
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'budgetName' in kwargs:
+            budget_name = kwargs['budgetName']
+        if 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'approvalModel' in kwargs:
+            approval_model = kwargs['approvalModel']
+
         _setter("action_threshold", action_threshold)
         _setter("action_type", action_type)
         _setter("budget_name", budget_name)

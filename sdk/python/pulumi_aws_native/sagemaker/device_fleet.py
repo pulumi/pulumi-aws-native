@@ -45,7 +45,15 @@ class DeviceFleetArgs:
              description: Optional[pulumi.Input[str]] = None,
              device_fleet_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceFleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outputConfig' in kwargs:
+            output_config = kwargs['outputConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+
         _setter("output_config", output_config)
         _setter("role_arn", role_arn)
         if description is not None:

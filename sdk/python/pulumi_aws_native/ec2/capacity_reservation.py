@@ -64,7 +64,33 @@ class CapacityReservationArgs:
              placement_group_arn: Optional[pulumi.Input[str]] = None,
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
              tenancy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'endDateType' in kwargs:
+            end_date_type = kwargs['endDateType']
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'instanceMatchCriteria' in kwargs:
+            instance_match_criteria = kwargs['instanceMatchCriteria']
+        if 'outPostArn' in kwargs:
+            out_post_arn = kwargs['outPostArn']
+        if 'placementGroupArn' in kwargs:
+            placement_group_arn = kwargs['placementGroupArn']
+        if 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+
         _setter("availability_zone", availability_zone)
         _setter("instance_count", instance_count)
         _setter("instance_platform", instance_platform)

@@ -50,7 +50,17 @@ class ThemeArgs:
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'baseThemeId' in kwargs:
+            base_theme_id = kwargs['baseThemeId']
+        if 'themeId' in kwargs:
+            theme_id = kwargs['themeId']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("aws_account_id", aws_account_id)
         _setter("base_theme_id", base_theme_id)
         _setter("configuration", configuration)

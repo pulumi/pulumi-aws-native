@@ -44,7 +44,19 @@ class EmailTemplateArgs:
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
              text_part: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'defaultSubstitutions' in kwargs:
+            default_substitutions = kwargs['defaultSubstitutions']
+        if 'htmlPart' in kwargs:
+            html_part = kwargs['htmlPart']
+        if 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+        if 'textPart' in kwargs:
+            text_part = kwargs['textPart']
+
         _setter("subject", subject)
         _setter("template_name", template_name)
         if default_substitutions is not None:

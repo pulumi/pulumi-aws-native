@@ -38,7 +38,13 @@ class ObservabilityConfigurationArgs:
              observability_configuration_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObservabilityConfigurationTagArgs']]]] = None,
              trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'observabilityConfigurationName' in kwargs:
+            observability_configuration_name = kwargs['observabilityConfigurationName']
+        if 'traceConfiguration' in kwargs:
+            trace_configuration = kwargs['traceConfiguration']
+
         if observability_configuration_name is not None:
             _setter("observability_configuration_name", observability_configuration_name)
         if tags is not None:

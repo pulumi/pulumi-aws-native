@@ -56,7 +56,17 @@ class AutomationRuleArgs:
              rule_order: Optional[pulumi.Input[int]] = None,
              rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
              tags: Optional[pulumi.Input['AutomationRuleTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isTerminal' in kwargs:
+            is_terminal = kwargs['isTerminal']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+        if 'ruleStatus' in kwargs:
+            rule_status = kwargs['ruleStatus']
+
         if actions is not None:
             _setter("actions", actions)
         if criteria is not None:

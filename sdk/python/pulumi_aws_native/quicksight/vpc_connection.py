@@ -53,7 +53,23 @@ class VpcConnectionArgs:
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcConnectionTagArgs']]]] = None,
              vpc_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityStatus' in kwargs:
+            availability_status = kwargs['availabilityStatus']
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'dnsResolvers' in kwargs:
+            dns_resolvers = kwargs['dnsResolvers']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcConnectionId' in kwargs:
+            vpc_connection_id = kwargs['vpcConnectionId']
+
         if availability_status is not None:
             _setter("availability_status", availability_status)
         if aws_account_id is not None:

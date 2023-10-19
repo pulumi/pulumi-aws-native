@@ -41,7 +41,15 @@ class SiteToSiteVpnAttachmentArgs:
              vpn_connection_arn: pulumi.Input[str],
              proposed_segment_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if 'vpnConnectionArn' in kwargs:
+            vpn_connection_arn = kwargs['vpnConnectionArn']
+        if 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("vpn_connection_arn", vpn_connection_arn)
         if proposed_segment_change is not None:

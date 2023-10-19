@@ -58,7 +58,23 @@ class MissionProfileArgs:
              streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
              streams_kms_role: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataflowEdges' in kwargs:
+            dataflow_edges = kwargs['dataflowEdges']
+        if 'minimumViableContactDurationSeconds' in kwargs:
+            minimum_viable_contact_duration_seconds = kwargs['minimumViableContactDurationSeconds']
+        if 'trackingConfigArn' in kwargs:
+            tracking_config_arn = kwargs['trackingConfigArn']
+        if 'contactPostPassDurationSeconds' in kwargs:
+            contact_post_pass_duration_seconds = kwargs['contactPostPassDurationSeconds']
+        if 'contactPrePassDurationSeconds' in kwargs:
+            contact_pre_pass_duration_seconds = kwargs['contactPrePassDurationSeconds']
+        if 'streamsKmsKey' in kwargs:
+            streams_kms_key = kwargs['streamsKmsKey']
+        if 'streamsKmsRole' in kwargs:
+            streams_kms_role = kwargs['streamsKmsRole']
+
         _setter("dataflow_edges", dataflow_edges)
         _setter("minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
         _setter("tracking_config_arn", tracking_config_arn)

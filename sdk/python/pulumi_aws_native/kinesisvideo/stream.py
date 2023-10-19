@@ -49,7 +49,17 @@ class StreamArgs:
              media_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRetentionInHours' in kwargs:
+            data_retention_in_hours = kwargs['dataRetentionInHours']
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+
         if data_retention_in_hours is not None:
             _setter("data_retention_in_hours", data_retention_in_hours)
         if device_name is not None:

@@ -39,7 +39,15 @@ class MembershipArgs:
              query_log_status: pulumi.Input['MembershipQueryLogStatus'],
              default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collaborationIdentifier' in kwargs:
+            collaboration_identifier = kwargs['collaborationIdentifier']
+        if 'queryLogStatus' in kwargs:
+            query_log_status = kwargs['queryLogStatus']
+        if 'defaultResultConfiguration' in kwargs:
+            default_result_configuration = kwargs['defaultResultConfiguration']
+
         _setter("collaboration_identifier", collaboration_identifier)
         _setter("query_log_status", query_log_status)
         if default_result_configuration is not None:

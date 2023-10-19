@@ -47,7 +47,9 @@ class AccessorTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -107,7 +109,15 @@ class MemberApprovalThresholdPolicy(dict):
              proposal_duration_in_hours: Optional[int] = None,
              threshold_comparator: Optional[str] = None,
              threshold_percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'proposalDurationInHours' in kwargs:
+            proposal_duration_in_hours = kwargs['proposalDurationInHours']
+        if 'thresholdComparator' in kwargs:
+            threshold_comparator = kwargs['thresholdComparator']
+        if 'thresholdPercentage' in kwargs:
+            threshold_percentage = kwargs['thresholdPercentage']
+
         if proposal_duration_in_hours is not None:
             _setter("proposal_duration_in_hours", proposal_duration_in_hours)
         if threshold_comparator is not None:
@@ -166,7 +176,11 @@ class MemberConfiguration(dict):
              name: str,
              description: Optional[str] = None,
              member_framework_configuration: Optional['outputs.MemberFrameworkConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberFrameworkConfiguration' in kwargs:
+            member_framework_configuration = kwargs['memberFrameworkConfiguration']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -223,7 +237,13 @@ class MemberFabricConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              admin_password: str,
              admin_username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+
         _setter("admin_password", admin_password)
         _setter("admin_username", admin_username)
 
@@ -267,7 +287,11 @@ class MemberFrameworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              member_fabric_configuration: Optional['outputs.MemberFabricConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberFabricConfiguration' in kwargs:
+            member_fabric_configuration = kwargs['memberFabricConfiguration']
+
         if member_fabric_configuration is not None:
             _setter("member_fabric_configuration", member_fabric_configuration)
 
@@ -325,7 +349,15 @@ class MemberNetworkConfiguration(dict):
              voting_policy: 'outputs.MemberVotingPolicy',
              description: Optional[str] = None,
              network_framework_configuration: Optional['outputs.MemberNetworkFrameworkConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frameworkVersion' in kwargs:
+            framework_version = kwargs['frameworkVersion']
+        if 'votingPolicy' in kwargs:
+            voting_policy = kwargs['votingPolicy']
+        if 'networkFrameworkConfiguration' in kwargs:
+            network_framework_configuration = kwargs['networkFrameworkConfiguration']
+
         _setter("framework", framework)
         _setter("framework_version", framework_version)
         _setter("name", name)
@@ -378,7 +410,9 @@ class MemberNetworkFabricConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              edition: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("edition", edition)
 
     @property
@@ -416,7 +450,11 @@ class MemberNetworkFrameworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              network_fabric_configuration: Optional['outputs.MemberNetworkFabricConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkFabricConfiguration' in kwargs:
+            network_fabric_configuration = kwargs['networkFabricConfiguration']
+
         if network_fabric_configuration is not None:
             _setter("network_fabric_configuration", network_fabric_configuration)
 
@@ -455,7 +493,11 @@ class MemberVotingPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              approval_threshold_policy: Optional['outputs.MemberApprovalThresholdPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'approvalThresholdPolicy' in kwargs:
+            approval_threshold_policy = kwargs['approvalThresholdPolicy']
+
         if approval_threshold_policy is not None:
             _setter("approval_threshold_policy", approval_threshold_policy)
 
@@ -499,7 +541,13 @@ class NodeConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              availability_zone: str,
              instance_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
         _setter("availability_zone", availability_zone)
         _setter("instance_type", instance_type)
 

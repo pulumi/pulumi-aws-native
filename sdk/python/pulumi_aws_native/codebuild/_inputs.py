@@ -71,7 +71,17 @@ class ProjectArtifactsArgs:
              override_artifact_name: Optional[pulumi.Input[bool]] = None,
              packaging: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactIdentifier' in kwargs:
+            artifact_identifier = kwargs['artifactIdentifier']
+        if 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if 'overrideArtifactName' in kwargs:
+            override_artifact_name = kwargs['overrideArtifactName']
+
         _setter("type", type)
         if artifact_identifier is not None:
             _setter("artifact_identifier", artifact_identifier)
@@ -187,7 +197,13 @@ class ProjectBatchRestrictionsArgs:
              _setter: Callable[[Any, Any], None],
              compute_types_allowed: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              maximum_builds_allowed: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeTypesAllowed' in kwargs:
+            compute_types_allowed = kwargs['computeTypesAllowed']
+        if 'maximumBuildsAllowed' in kwargs:
+            maximum_builds_allowed = kwargs['maximumBuildsAllowed']
+
         if compute_types_allowed is not None:
             _setter("compute_types_allowed", compute_types_allowed)
         if maximum_builds_allowed is not None:
@@ -236,7 +252,17 @@ class ProjectBuildBatchConfigArgs:
              restrictions: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']] = None,
              service_role: Optional[pulumi.Input[str]] = None,
              timeout_in_mins: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchReportMode' in kwargs:
+            batch_report_mode = kwargs['batchReportMode']
+        if 'combineArtifacts' in kwargs:
+            combine_artifacts = kwargs['combineArtifacts']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'timeoutInMins' in kwargs:
+            timeout_in_mins = kwargs['timeoutInMins']
+
         if batch_report_mode is not None:
             _setter("batch_report_mode", batch_report_mode)
         if combine_artifacts is not None:
@@ -309,7 +335,11 @@ class ProjectBuildStatusConfigArgs:
              _setter: Callable[[Any, Any], None],
              context: Optional[pulumi.Input[str]] = None,
              target_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetUrl' in kwargs:
+            target_url = kwargs['targetUrl']
+
         if context is not None:
             _setter("context", context)
         if target_url is not None:
@@ -352,7 +382,9 @@ class ProjectCacheArgs:
              type: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if location is not None:
             _setter("location", location)
@@ -405,7 +437,13 @@ class ProjectCloudWatchLogsConfigArgs:
              status: pulumi.Input[str],
              group_name: Optional[pulumi.Input[str]] = None,
              stream_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("status", status)
         if group_name is not None:
             _setter("group_name", group_name)
@@ -458,7 +496,9 @@ class ProjectEnvironmentVariableArgs:
              name: pulumi.Input[str],
              value: pulumi.Input[str],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if type is not None:
@@ -525,7 +565,19 @@ class ProjectEnvironmentArgs:
              image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
              privileged_mode: Optional[pulumi.Input[bool]] = None,
              registry_credential: Optional[pulumi.Input['ProjectRegistryCredentialArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'imagePullCredentialsType' in kwargs:
+            image_pull_credentials_type = kwargs['imagePullCredentialsType']
+        if 'privilegedMode' in kwargs:
+            privileged_mode = kwargs['privilegedMode']
+        if 'registryCredential' in kwargs:
+            registry_credential = kwargs['registryCredential']
+
         _setter("compute_type", compute_type)
         _setter("image", image)
         _setter("type", type)
@@ -637,7 +689,13 @@ class ProjectFileSystemLocationArgs:
              mount_point: pulumi.Input[str],
              type: pulumi.Input[str],
              mount_options: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("identifier", identifier)
         _setter("location", location)
         _setter("mount_point", mount_point)
@@ -698,8 +756,10 @@ class ProjectFilterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -714,7 +774,11 @@ class ProjectGitSubmodulesConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              fetch_submodules: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fetchSubmodules' in kwargs:
+            fetch_submodules = kwargs['fetchSubmodules']
+
         _setter("fetch_submodules", fetch_submodules)
 
     @property
@@ -742,7 +806,13 @@ class ProjectLogsConfigArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs: Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']] = None,
              s3_logs: Optional[pulumi.Input['ProjectS3LogsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+        if 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if s3_logs is not None:
@@ -782,7 +852,11 @@ class ProjectRegistryCredentialArgs:
              _setter: Callable[[Any, Any], None],
              credential: pulumi.Input[str],
              credential_provider: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'credentialProvider' in kwargs:
+            credential_provider = kwargs['credentialProvider']
+
         _setter("credential", credential)
         _setter("credential_provider", credential_provider)
 
@@ -823,7 +897,11 @@ class ProjectS3LogsConfigArgs:
              status: pulumi.Input[str],
              encryption_disabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+
         _setter("status", status)
         if encryption_disabled is not None:
             _setter("encryption_disabled", encryption_disabled)
@@ -873,7 +951,9 @@ class ProjectSourceAuthArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              resource: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if resource is not None:
             _setter("resource", resource)
@@ -912,7 +992,13 @@ class ProjectSourceVersionArgs:
              _setter: Callable[[Any, Any], None],
              source_identifier: pulumi.Input[str],
              source_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+        if 'sourceVersion' in kwargs:
+            source_version = kwargs['sourceVersion']
+
         _setter("source_identifier", source_identifier)
         if source_version is not None:
             _setter("source_version", source_version)
@@ -975,7 +1061,23 @@ class ProjectSourceArgs:
              location: Optional[pulumi.Input[str]] = None,
              report_build_status: Optional[pulumi.Input[bool]] = None,
              source_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if 'buildStatusConfig' in kwargs:
+            build_status_config = kwargs['buildStatusConfig']
+        if 'gitCloneDepth' in kwargs:
+            git_clone_depth = kwargs['gitCloneDepth']
+        if 'gitSubmodulesConfig' in kwargs:
+            git_submodules_config = kwargs['gitSubmodulesConfig']
+        if 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+        if 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+        if 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+
         _setter("type", type)
         if auth is not None:
             _setter("auth", auth)
@@ -1102,7 +1204,9 @@ class ProjectTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1143,7 +1247,13 @@ class ProjectTriggersArgs:
              build_type: Optional[pulumi.Input[str]] = None,
              filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]] = None,
              webhook: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if 'filterGroups' in kwargs:
+            filter_groups = kwargs['filterGroups']
+
         if build_type is not None:
             _setter("build_type", build_type)
         if filter_groups is not None:
@@ -1197,7 +1307,13 @@ class ProjectVpcConfigArgs:
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnets is not None:
@@ -1248,7 +1364,13 @@ class ReportGroupReportExportConfigArgs:
              _setter: Callable[[Any, Any], None],
              export_config_type: pulumi.Input[str],
              s3_destination: Optional[pulumi.Input['ReportGroupS3ReportExportConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportConfigType' in kwargs:
+            export_config_type = kwargs['exportConfigType']
+        if 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         _setter("export_config_type", export_config_type)
         if s3_destination is not None:
             _setter("s3_destination", s3_destination)
@@ -1299,7 +1421,15 @@ class ReportGroupS3ReportExportConfigArgs:
              encryption_key: Optional[pulumi.Input[str]] = None,
              packaging: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+        if 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
         _setter("bucket", bucket)
         if bucket_owner is not None:
             _setter("bucket_owner", bucket_owner)
@@ -1382,7 +1512,9 @@ class ReportGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

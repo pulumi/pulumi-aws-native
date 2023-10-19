@@ -57,7 +57,17 @@ class ConfigRuleArgs:
              input_parameters: Optional[pulumi.Input[str]] = None,
              maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ConfigRuleScopeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if 'evaluationModes' in kwargs:
+            evaluation_modes = kwargs['evaluationModes']
+        if 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+
         _setter("source", source)
         if compliance is not None:
             _setter("compliance", compliance)

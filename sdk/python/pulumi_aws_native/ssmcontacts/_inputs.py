@@ -47,7 +47,13 @@ class ContactChannelTargetInfoArgs:
              _setter: Callable[[Any, Any], None],
              channel_id: pulumi.Input[str],
              retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'retryIntervalInMinutes' in kwargs:
+            retry_interval_in_minutes = kwargs['retryIntervalInMinutes']
+
         _setter("channel_id", channel_id)
         _setter("retry_interval_in_minutes", retry_interval_in_minutes)
 
@@ -100,7 +106,13 @@ class ContactStageArgs:
              duration_in_minutes: Optional[pulumi.Input[int]] = None,
              rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+        if 'rotationIds' in kwargs:
+            rotation_ids = kwargs['rotationIds']
+
         if duration_in_minutes is not None:
             _setter("duration_in_minutes", duration_in_minutes)
         if rotation_ids is not None:
@@ -165,7 +177,13 @@ class ContactTargetInfoArgs:
              _setter: Callable[[Any, Any], None],
              contact_id: pulumi.Input[str],
              is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if 'isEssential' in kwargs:
+            is_essential = kwargs['isEssential']
+
         _setter("contact_id", contact_id)
         _setter("is_essential", is_essential)
 
@@ -212,7 +230,13 @@ class ContactTargetsArgs:
              _setter: Callable[[Any, Any], None],
              channel_target_info: Optional[pulumi.Input['ContactChannelTargetInfoArgs']] = None,
              contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelTargetInfo' in kwargs:
+            channel_target_info = kwargs['channelTargetInfo']
+        if 'contactTargetInfo' in kwargs:
+            contact_target_info = kwargs['contactTargetInfo']
+
         if channel_target_info is not None:
             _setter("channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -257,7 +281,13 @@ class PlanChannelTargetInfoArgs:
              _setter: Callable[[Any, Any], None],
              channel_id: pulumi.Input[str],
              retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'retryIntervalInMinutes' in kwargs:
+            retry_interval_in_minutes = kwargs['retryIntervalInMinutes']
+
         _setter("channel_id", channel_id)
         _setter("retry_interval_in_minutes", retry_interval_in_minutes)
 
@@ -306,7 +336,13 @@ class PlanContactTargetInfoArgs:
              _setter: Callable[[Any, Any], None],
              contact_id: pulumi.Input[str],
              is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if 'isEssential' in kwargs:
+            is_essential = kwargs['isEssential']
+
         _setter("contact_id", contact_id)
         _setter("is_essential", is_essential)
 
@@ -355,7 +391,11 @@ class PlanStageArgs:
              _setter: Callable[[Any, Any], None],
              duration_in_minutes: pulumi.Input[int],
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+
         _setter("duration_in_minutes", duration_in_minutes)
         if targets is not None:
             _setter("targets", targets)
@@ -403,7 +443,13 @@ class PlanTargetsArgs:
              _setter: Callable[[Any, Any], None],
              channel_target_info: Optional[pulumi.Input['PlanChannelTargetInfoArgs']] = None,
              contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelTargetInfo' in kwargs:
+            channel_target_info = kwargs['channelTargetInfo']
+        if 'contactTargetInfo' in kwargs:
+            contact_target_info = kwargs['contactTargetInfo']
+
         if channel_target_info is not None:
             _setter("channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -446,7 +492,13 @@ class RotationCoverageTimeArgs:
              _setter: Callable[[Any, Any], None],
              end_time: pulumi.Input[str],
              start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -488,7 +540,13 @@ class RotationMonthlySettingArgs:
              _setter: Callable[[Any, Any], None],
              day_of_month: pulumi.Input[int],
              hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'handOffTime' in kwargs:
+            hand_off_time = kwargs['handOffTime']
+
         _setter("day_of_month", day_of_month)
         _setter("hand_off_time", hand_off_time)
 
@@ -550,7 +608,21 @@ class RotationRecurrenceSettingsArgs:
              recurrence_multiplier: Optional[pulumi.Input[int]] = None,
              shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]] = None,
              weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailySettings' in kwargs:
+            daily_settings = kwargs['dailySettings']
+        if 'monthlySettings' in kwargs:
+            monthly_settings = kwargs['monthlySettings']
+        if 'numberOfOnCalls' in kwargs:
+            number_of_on_calls = kwargs['numberOfOnCalls']
+        if 'recurrenceMultiplier' in kwargs:
+            recurrence_multiplier = kwargs['recurrenceMultiplier']
+        if 'shiftCoverages' in kwargs:
+            shift_coverages = kwargs['shiftCoverages']
+        if 'weeklySettings' in kwargs:
+            weekly_settings = kwargs['weeklySettings']
+
         if daily_settings is not None:
             _setter("daily_settings", daily_settings)
         if monthly_settings is not None:
@@ -656,7 +728,13 @@ class RotationShiftCoverageArgs:
              _setter: Callable[[Any, Any], None],
              coverage_times: pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]],
              day_of_week: pulumi.Input['RotationDayOfWeek'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coverageTimes' in kwargs:
+            coverage_times = kwargs['coverageTimes']
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+
         _setter("coverage_times", coverage_times)
         _setter("day_of_week", day_of_week)
 
@@ -702,7 +780,9 @@ class RotationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -749,7 +829,13 @@ class RotationWeeklySettingArgs:
              _setter: Callable[[Any, Any], None],
              day_of_week: pulumi.Input['RotationDayOfWeek'],
              hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'handOffTime' in kwargs:
+            hand_off_time = kwargs['handOffTime']
+
         _setter("day_of_week", day_of_week)
         _setter("hand_off_time", hand_off_time)
 

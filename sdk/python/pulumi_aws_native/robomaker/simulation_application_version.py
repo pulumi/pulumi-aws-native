@@ -30,7 +30,11 @@ class SimulationApplicationVersionArgs:
              _setter: Callable[[Any, Any], None],
              application: pulumi.Input[str],
              current_revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+
         _setter("application", application)
         if current_revision_id is not None:
             _setter("current_revision_id", current_revision_id)

@@ -41,7 +41,15 @@ class TransitGatewayRouteTableAttachmentArgs:
              transit_gateway_route_table_arn: pulumi.Input[str],
              proposed_segment_change: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+        if 'transitGatewayRouteTableArn' in kwargs:
+            transit_gateway_route_table_arn = kwargs['transitGatewayRouteTableArn']
+        if 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("peering_id", peering_id)
         _setter("transit_gateway_route_table_arn", transit_gateway_route_table_arn)
         if proposed_segment_change is not None:

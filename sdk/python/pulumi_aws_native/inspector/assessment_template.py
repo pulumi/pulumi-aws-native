@@ -40,7 +40,19 @@ class AssessmentTemplateArgs:
              rules_package_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
              assessment_template_name: Optional[pulumi.Input[str]] = None,
              user_attributes_for_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentTargetArn' in kwargs:
+            assessment_target_arn = kwargs['assessmentTargetArn']
+        if 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if 'rulesPackageArns' in kwargs:
+            rules_package_arns = kwargs['rulesPackageArns']
+        if 'assessmentTemplateName' in kwargs:
+            assessment_template_name = kwargs['assessmentTemplateName']
+        if 'userAttributesForFindings' in kwargs:
+            user_attributes_for_findings = kwargs['userAttributesForFindings']
+
         _setter("assessment_target_arn", assessment_target_arn)
         _setter("duration_in_seconds", duration_in_seconds)
         _setter("rules_package_arns", rules_package_arns)

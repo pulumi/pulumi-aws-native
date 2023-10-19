@@ -32,7 +32,13 @@ class GcmChannelArgs:
              api_key: pulumi.Input[str],
              application_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
         _setter("api_key", api_key)
         _setter("application_id", application_id)
         if enabled is not None:

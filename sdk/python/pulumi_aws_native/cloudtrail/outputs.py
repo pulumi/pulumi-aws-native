@@ -48,7 +48,9 @@ class ChannelDestination(dict):
              _setter: Callable[[Any, Any], None],
              location: str,
              type: 'ChannelDestinationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("location", location)
         _setter("type", type)
 
@@ -92,7 +94,9 @@ class ChannelTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -153,7 +157,11 @@ class EventDataStoreAdvancedEventSelector(dict):
              _setter: Callable[[Any, Any], None],
              field_selectors: Sequence['outputs.EventDataStoreAdvancedFieldSelector'],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldSelectors' in kwargs:
+            field_selectors = kwargs['fieldSelectors']
+
         _setter("field_selectors", field_selectors)
         if name is not None:
             _setter("name", name)
@@ -243,7 +251,19 @@ class EventDataStoreAdvancedFieldSelector(dict):
              not_equals: Optional[Sequence[str]] = None,
              not_starts_with: Optional[Sequence[str]] = None,
              starts_with: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if 'notEndsWith' in kwargs:
+            not_ends_with = kwargs['notEndsWith']
+        if 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+        if 'notStartsWith' in kwargs:
+            not_starts_with = kwargs['notStartsWith']
+        if 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+
         _setter("field", field)
         if ends_with is not None:
             _setter("ends_with", ends_with)
@@ -338,7 +358,9 @@ class EventDataStoreTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -399,7 +421,11 @@ class TrailAdvancedEventSelector(dict):
              _setter: Callable[[Any, Any], None],
              field_selectors: Sequence['outputs.TrailAdvancedFieldSelector'],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldSelectors' in kwargs:
+            field_selectors = kwargs['fieldSelectors']
+
         _setter("field_selectors", field_selectors)
         if name is not None:
             _setter("name", name)
@@ -489,7 +515,19 @@ class TrailAdvancedFieldSelector(dict):
              not_equals: Optional[Sequence[str]] = None,
              not_starts_with: Optional[Sequence[str]] = None,
              starts_with: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if 'notEndsWith' in kwargs:
+            not_ends_with = kwargs['notEndsWith']
+        if 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+        if 'notStartsWith' in kwargs:
+            not_starts_with = kwargs['notStartsWith']
+        if 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+
         _setter("field", field)
         if ends_with is not None:
             _setter("ends_with", ends_with)
@@ -584,7 +622,9 @@ class TrailDataResource(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if values is not None:
             _setter("values", values)
@@ -659,7 +699,17 @@ class TrailEventSelector(dict):
              exclude_management_event_sources: Optional[Sequence[str]] = None,
              include_management_events: Optional[bool] = None,
              read_write_type: Optional['TrailEventSelectorReadWriteType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataResources' in kwargs:
+            data_resources = kwargs['dataResources']
+        if 'excludeManagementEventSources' in kwargs:
+            exclude_management_event_sources = kwargs['excludeManagementEventSources']
+        if 'includeManagementEvents' in kwargs:
+            include_management_events = kwargs['includeManagementEvents']
+        if 'readWriteType' in kwargs:
+            read_write_type = kwargs['readWriteType']
+
         if data_resources is not None:
             _setter("data_resources", data_resources)
         if exclude_management_event_sources is not None:
@@ -735,7 +785,11 @@ class TrailInsightSelector(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              insight_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'insightType' in kwargs:
+            insight_type = kwargs['insightType']
+
         if insight_type is not None:
             _setter("insight_type", insight_type)
 
@@ -771,7 +825,9 @@ class TrailTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

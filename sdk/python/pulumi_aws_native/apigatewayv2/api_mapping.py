@@ -39,7 +39,15 @@ class ApiMappingArgs:
              domain_name: pulumi.Input[str],
              stage: pulumi.Input[str],
              api_mapping_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'apiMappingKey' in kwargs:
+            api_mapping_key = kwargs['apiMappingKey']
+
         _setter("api_id", api_id)
         _setter("domain_name", domain_name)
         _setter("stage", stage)

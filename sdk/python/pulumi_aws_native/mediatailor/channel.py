@@ -49,7 +49,17 @@ class ChannelArgs:
              log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
              tier: Optional[pulumi.Input['ChannelTier']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'playbackMode' in kwargs:
+            playback_mode = kwargs['playbackMode']
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'fillerSlate' in kwargs:
+            filler_slate = kwargs['fillerSlate']
+        if 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         _setter("outputs", outputs)
         _setter("playback_mode", playback_mode)
         if channel_name is not None:

@@ -45,7 +45,17 @@ class DatasetArgs:
              schema_arn: pulumi.Input[str],
              dataset_import_job: Optional[pulumi.Input['DatasetImportJobArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetGroupArn' in kwargs:
+            dataset_group_arn = kwargs['datasetGroupArn']
+        if 'datasetType' in kwargs:
+            dataset_type = kwargs['datasetType']
+        if 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if 'datasetImportJob' in kwargs:
+            dataset_import_job = kwargs['datasetImportJob']
+
         _setter("dataset_group_arn", dataset_group_arn)
         _setter("dataset_type", dataset_type)
         _setter("schema_arn", schema_arn)

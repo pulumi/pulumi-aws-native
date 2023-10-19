@@ -108,7 +108,11 @@ class DatasetCsvOptions(dict):
              _setter: Callable[[Any, Any], None],
              delimiter: Optional[str] = None,
              header_row: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerRow' in kwargs:
+            header_row = kwargs['headerRow']
+
         if delimiter is not None:
             _setter("delimiter", delimiter)
         if header_row is not None:
@@ -174,7 +178,17 @@ class DatasetDataCatalogInputDefinition(dict):
              database_name: Optional[str] = None,
              table_name: Optional[str] = None,
              temp_directory: Optional['outputs.DatasetS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'tempDirectory' in kwargs:
+            temp_directory = kwargs['tempDirectory']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -263,7 +277,17 @@ class DatasetDatabaseInputDefinition(dict):
              database_table_name: Optional[str] = None,
              query_string: Optional[str] = None,
              temp_directory: Optional['outputs.DatasetS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'glueConnectionName' in kwargs:
+            glue_connection_name = kwargs['glueConnectionName']
+        if 'databaseTableName' in kwargs:
+            database_table_name = kwargs['databaseTableName']
+        if 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if 'tempDirectory' in kwargs:
+            temp_directory = kwargs['tempDirectory']
+
         _setter("glue_connection_name", glue_connection_name)
         if database_table_name is not None:
             _setter("database_table_name", database_table_name)
@@ -344,7 +368,13 @@ class DatasetDatetimeOptions(dict):
              format: str,
              locale_code: Optional[str] = None,
              timezone_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localeCode' in kwargs:
+            locale_code = kwargs['localeCode']
+        if 'timezoneOffset' in kwargs:
+            timezone_offset = kwargs['timezoneOffset']
+
         _setter("format", format)
         if locale_code is not None:
             _setter("locale_code", locale_code)
@@ -415,7 +445,15 @@ class DatasetExcelOptions(dict):
              header_row: Optional[bool] = None,
              sheet_indexes: Optional[Sequence[int]] = None,
              sheet_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerRow' in kwargs:
+            header_row = kwargs['headerRow']
+        if 'sheetIndexes' in kwargs:
+            sheet_indexes = kwargs['sheetIndexes']
+        if 'sheetNames' in kwargs:
+            sheet_names = kwargs['sheetNames']
+
         if header_row is not None:
             _setter("header_row", header_row)
         if sheet_indexes is not None:
@@ -481,7 +519,13 @@ class DatasetFilesLimit(dict):
              max_files: int,
              order: Optional['DatasetFilesLimitOrder'] = None,
              ordered_by: Optional['DatasetFilesLimitOrderedBy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxFiles' in kwargs:
+            max_files = kwargs['maxFiles']
+        if 'orderedBy' in kwargs:
+            ordered_by = kwargs['orderedBy']
+
         _setter("max_files", max_files)
         if order is not None:
             _setter("order", order)
@@ -548,7 +592,11 @@ class DatasetFilterExpression(dict):
              _setter: Callable[[Any, Any], None],
              expression: str,
              values_map: Sequence['outputs.DatasetFilterValue'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valuesMap' in kwargs:
+            values_map = kwargs['valuesMap']
+
         _setter("expression", expression)
         _setter("values_map", values_map)
 
@@ -605,7 +653,11 @@ class DatasetFilterValue(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              value_reference: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueReference' in kwargs:
+            value_reference = kwargs['valueReference']
+
         _setter("value", value)
         _setter("value_reference", value_reference)
 
@@ -647,7 +699,9 @@ class DatasetFormatOptions(dict):
              csv: Optional['outputs.DatasetCsvOptions'] = None,
              excel: Optional['outputs.DatasetExcelOptions'] = None,
              json: Optional['outputs.DatasetJsonOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
         if excel is not None:
@@ -719,7 +773,15 @@ class DatasetInput(dict):
              database_input_definition: Optional['outputs.DatasetDatabaseInputDefinition'] = None,
              metadata: Optional['outputs.DatasetMetadata'] = None,
              s3_input_definition: Optional['outputs.DatasetS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCatalogInputDefinition' in kwargs:
+            data_catalog_input_definition = kwargs['dataCatalogInputDefinition']
+        if 'databaseInputDefinition' in kwargs:
+            database_input_definition = kwargs['databaseInputDefinition']
+        if 's3InputDefinition' in kwargs:
+            s3_input_definition = kwargs['s3InputDefinition']
+
         if data_catalog_input_definition is not None:
             _setter("data_catalog_input_definition", data_catalog_input_definition)
         if database_input_definition is not None:
@@ -785,7 +847,11 @@ class DatasetJsonOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              multi_line: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multiLine' in kwargs:
+            multi_line = kwargs['multiLine']
+
         if multi_line is not None:
             _setter("multi_line", multi_line)
 
@@ -827,7 +893,11 @@ class DatasetMetadata(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              source_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+
         if source_arn is not None:
             _setter("source_arn", source_arn)
 
@@ -887,7 +957,13 @@ class DatasetParameter(dict):
              create_column: Optional[bool] = None,
              datetime_options: Optional['outputs.DatasetDatetimeOptions'] = None,
              filter: Optional['outputs.DatasetFilterExpression'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createColumn' in kwargs:
+            create_column = kwargs['createColumn']
+        if 'datetimeOptions' in kwargs:
+            datetime_options = kwargs['datetimeOptions']
+
         _setter("name", name)
         _setter("type", type)
         if create_column is not None:
@@ -972,7 +1048,13 @@ class DatasetPathOptions(dict):
              files_limit: Optional['outputs.DatasetFilesLimit'] = None,
              last_modified_date_condition: Optional['outputs.DatasetFilterExpression'] = None,
              parameters: Optional[Sequence['outputs.DatasetPathParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesLimit' in kwargs:
+            files_limit = kwargs['filesLimit']
+        if 'lastModifiedDateCondition' in kwargs:
+            last_modified_date_condition = kwargs['lastModifiedDateCondition']
+
         if files_limit is not None:
             _setter("files_limit", files_limit)
         if last_modified_date_condition is not None:
@@ -1036,7 +1118,13 @@ class DatasetPathParameter(dict):
              _setter: Callable[[Any, Any], None],
              dataset_parameter: 'outputs.DatasetParameter',
              path_parameter_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameter' in kwargs:
+            dataset_parameter = kwargs['datasetParameter']
+        if 'pathParameterName' in kwargs:
+            path_parameter_name = kwargs['pathParameterName']
+
         _setter("dataset_parameter", dataset_parameter)
         _setter("path_parameter_name", path_parameter_name)
 
@@ -1072,7 +1160,9 @@ class DatasetS3Location(dict):
              _setter: Callable[[Any, Any], None],
              bucket: str,
              key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         if key is not None:
             _setter("key", key)
@@ -1109,7 +1199,9 @@ class DatasetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1136,7 +1228,9 @@ class JobAllowedStatistics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              statistics: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statistics", statistics)
 
     @property
@@ -1160,7 +1254,9 @@ class JobColumnSelector(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if regex is not None:
@@ -1192,7 +1288,9 @@ class JobColumnStatisticsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              statistics: 'outputs.JobStatisticsConfiguration',
              selectors: Optional[Sequence['outputs.JobColumnSelector']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("statistics", statistics)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -1226,7 +1324,9 @@ class JobCsvOutputOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if delimiter is not None:
             _setter("delimiter", delimiter)
 
@@ -1288,7 +1388,19 @@ class JobDataCatalogOutput(dict):
              database_options: Optional['outputs.JobDatabaseTableOutputOptions'] = None,
              overwrite: Optional[bool] = None,
              s3_options: Optional['outputs.JobS3TableOutputOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseOptions' in kwargs:
+            database_options = kwargs['databaseOptions']
+        if 's3Options' in kwargs:
+            s3_options = kwargs['s3Options']
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
         if catalog_id is not None:
@@ -1374,7 +1486,15 @@ class JobDatabaseOutput(dict):
              database_options: 'outputs.JobDatabaseTableOutputOptions',
              glue_connection_name: str,
              database_output_mode: Optional['JobDatabaseOutputDatabaseOutputMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseOptions' in kwargs:
+            database_options = kwargs['databaseOptions']
+        if 'glueConnectionName' in kwargs:
+            glue_connection_name = kwargs['glueConnectionName']
+        if 'databaseOutputMode' in kwargs:
+            database_output_mode = kwargs['databaseOutputMode']
+
         _setter("database_options", database_options)
         _setter("glue_connection_name", glue_connection_name)
         if database_output_mode is not None:
@@ -1436,7 +1556,13 @@ class JobDatabaseTableOutputOptions(dict):
              _setter: Callable[[Any, Any], None],
              table_name: str,
              temp_directory: Optional['outputs.JobS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'tempDirectory' in kwargs:
+            temp_directory = kwargs['tempDirectory']
+
         _setter("table_name", table_name)
         if temp_directory is not None:
             _setter("temp_directory", temp_directory)
@@ -1486,7 +1612,13 @@ class JobEntityDetectorConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              entity_types: Sequence[str],
              allowed_statistics: Optional['outputs.JobAllowedStatistics'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+        if 'allowedStatistics' in kwargs:
+            allowed_statistics = kwargs['allowedStatistics']
+
         _setter("entity_types", entity_types)
         if allowed_statistics is not None:
             _setter("allowed_statistics", allowed_statistics)
@@ -1555,7 +1687,17 @@ class JobOutput(dict):
              max_output_files: Optional[int] = None,
              overwrite: Optional[bool] = None,
              partition_columns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compressionFormat' in kwargs:
+            compression_format = kwargs['compressionFormat']
+        if 'formatOptions' in kwargs:
+            format_options = kwargs['formatOptions']
+        if 'maxOutputFiles' in kwargs:
+            max_output_files = kwargs['maxOutputFiles']
+        if 'partitionColumns' in kwargs:
+            partition_columns = kwargs['partitionColumns']
+
         _setter("location", location)
         if compression_format is not None:
             _setter("compression_format", compression_format)
@@ -1624,7 +1766,9 @@ class JobOutputFormatOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              csv: Optional['outputs.JobCsvOutputOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
 
@@ -1675,7 +1819,11 @@ class JobOutputLocation(dict):
              bucket: str,
              bucket_owner: Optional[str] = None,
              key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+
         _setter("bucket", bucket)
         if bucket_owner is not None:
             _setter("bucket_owner", bucket_owner)
@@ -1705,8 +1853,10 @@ class JobParameterMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1753,7 +1903,17 @@ class JobProfileConfiguration(dict):
              dataset_statistics_configuration: Optional['outputs.JobStatisticsConfiguration'] = None,
              entity_detector_configuration: Optional['outputs.JobEntityDetectorConfiguration'] = None,
              profile_columns: Optional[Sequence['outputs.JobColumnSelector']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnStatisticsConfigurations' in kwargs:
+            column_statistics_configurations = kwargs['columnStatisticsConfigurations']
+        if 'datasetStatisticsConfiguration' in kwargs:
+            dataset_statistics_configuration = kwargs['datasetStatisticsConfiguration']
+        if 'entityDetectorConfiguration' in kwargs:
+            entity_detector_configuration = kwargs['entityDetectorConfiguration']
+        if 'profileColumns' in kwargs:
+            profile_columns = kwargs['profileColumns']
+
         if column_statistics_configurations is not None:
             _setter("column_statistics_configurations", column_statistics_configurations)
         if dataset_statistics_configuration is not None:
@@ -1803,7 +1963,9 @@ class JobRecipe(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -1866,7 +2028,11 @@ class JobS3Location(dict):
              bucket: str,
              bucket_owner: Optional[str] = None,
              key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+
         _setter("bucket", bucket)
         if bucket_owner is not None:
             _setter("bucket_owner", bucket_owner)
@@ -1901,7 +2067,9 @@ class JobS3TableOutputOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              location: 'outputs.JobS3Location',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("location", location)
 
     @property
@@ -1931,7 +2099,9 @@ class JobSample(dict):
              _setter: Callable[[Any, Any], None],
              mode: Optional['JobSampleMode'] = None,
              size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
         if size is not None:
@@ -1963,7 +2133,9 @@ class JobStatisticOverride(dict):
              _setter: Callable[[Any, Any], None],
              parameters: 'outputs.JobParameterMap',
              statistic: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("parameters", parameters)
         _setter("statistic", statistic)
 
@@ -2010,7 +2182,11 @@ class JobStatisticsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              included_statistics: Optional[Sequence[str]] = None,
              overrides: Optional[Sequence['outputs.JobStatisticOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includedStatistics' in kwargs:
+            included_statistics = kwargs['includedStatistics']
+
         if included_statistics is not None:
             _setter("included_statistics", included_statistics)
         if overrides is not None:
@@ -2048,7 +2224,9 @@ class JobTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2104,7 +2282,13 @@ class JobValidationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ruleset_arn: str,
              validation_mode: Optional['JobValidationMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulesetArn' in kwargs:
+            ruleset_arn = kwargs['rulesetArn']
+        if 'validationMode' in kwargs:
+            validation_mode = kwargs['validationMode']
+
         _setter("ruleset_arn", ruleset_arn)
         if validation_mode is not None:
             _setter("validation_mode", validation_mode)
@@ -2142,7 +2326,9 @@ class ProjectSample(dict):
              _setter: Callable[[Any, Any], None],
              type: 'ProjectSampleType',
              size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if size is not None:
             _setter("size", size)
@@ -2185,7 +2371,9 @@ class ProjectTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2218,7 +2406,9 @@ class RecipeAction(dict):
              _setter: Callable[[Any, Any], None],
              operation: str,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operation", operation)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -2281,7 +2471,11 @@ class RecipeConditionExpression(dict):
              condition: str,
              target_column: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetColumn' in kwargs:
+            target_column = kwargs['targetColumn']
+
         _setter("condition", condition)
         _setter("target_column", target_column)
         if value is not None:
@@ -2361,7 +2555,17 @@ class RecipeDataCatalogInputDefinition(dict):
              database_name: Optional[str] = None,
              table_name: Optional[str] = None,
              temp_directory: Optional['outputs.RecipeS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'tempDirectory' in kwargs:
+            temp_directory = kwargs['tempDirectory']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -2408,8 +2612,10 @@ class RecipeParameterMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2912,7 +3118,179 @@ class RecipeParameters(dict):
              value2: Optional[str] = None,
              value_column: Optional[str] = None,
              view_frame: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregateFunction' in kwargs:
+            aggregate_function = kwargs['aggregateFunction']
+        if 'caseStatement' in kwargs:
+            case_statement = kwargs['caseStatement']
+        if 'categoryMap' in kwargs:
+            category_map = kwargs['categoryMap']
+        if 'charsToRemove' in kwargs:
+            chars_to_remove = kwargs['charsToRemove']
+        if 'collapseConsecutiveWhitespace' in kwargs:
+            collapse_consecutive_whitespace = kwargs['collapseConsecutiveWhitespace']
+        if 'columnDataType' in kwargs:
+            column_data_type = kwargs['columnDataType']
+        if 'columnRange' in kwargs:
+            column_range = kwargs['columnRange']
+        if 'customCharacters' in kwargs:
+            custom_characters = kwargs['customCharacters']
+        if 'customStopWords' in kwargs:
+            custom_stop_words = kwargs['customStopWords']
+        if 'customValue' in kwargs:
+            custom_value = kwargs['customValue']
+        if 'datasetsColumns' in kwargs:
+            datasets_columns = kwargs['datasetsColumns']
+        if 'dateAddValue' in kwargs:
+            date_add_value = kwargs['dateAddValue']
+        if 'dateTimeFormat' in kwargs:
+            date_time_format = kwargs['dateTimeFormat']
+        if 'dateTimeParameters' in kwargs:
+            date_time_parameters = kwargs['dateTimeParameters']
+        if 'deleteOtherRows' in kwargs:
+            delete_other_rows = kwargs['deleteOtherRows']
+        if 'endPattern' in kwargs:
+            end_pattern = kwargs['endPattern']
+        if 'endPosition' in kwargs:
+            end_position = kwargs['endPosition']
+        if 'endValue' in kwargs:
+            end_value = kwargs['endValue']
+        if 'expandContractions' in kwargs:
+            expand_contractions = kwargs['expandContractions']
+        if 'falseString' in kwargs:
+            false_string = kwargs['falseString']
+        if 'groupByAggFunctionOptions' in kwargs:
+            group_by_agg_function_options = kwargs['groupByAggFunctionOptions']
+        if 'groupByColumns' in kwargs:
+            group_by_columns = kwargs['groupByColumns']
+        if 'hiddenColumns' in kwargs:
+            hidden_columns = kwargs['hiddenColumns']
+        if 'ignoreCase' in kwargs:
+            ignore_case = kwargs['ignoreCase']
+        if 'includeInSplit' in kwargs:
+            include_in_split = kwargs['includeInSplit']
+        if 'isText' in kwargs:
+            is_text = kwargs['isText']
+        if 'joinKeys' in kwargs:
+            join_keys = kwargs['joinKeys']
+        if 'joinType' in kwargs:
+            join_type = kwargs['joinType']
+        if 'leftColumns' in kwargs:
+            left_columns = kwargs['leftColumns']
+        if 'lowerBound' in kwargs:
+            lower_bound = kwargs['lowerBound']
+        if 'mapType' in kwargs:
+            map_type = kwargs['mapType']
+        if 'modeType' in kwargs:
+            mode_type = kwargs['modeType']
+        if 'multiLine' in kwargs:
+            multi_line = kwargs['multiLine']
+        if 'numRows' in kwargs:
+            num_rows = kwargs['numRows']
+        if 'numRowsAfter' in kwargs:
+            num_rows_after = kwargs['numRowsAfter']
+        if 'numRowsBefore' in kwargs:
+            num_rows_before = kwargs['numRowsBefore']
+        if 'orderByColumn' in kwargs:
+            order_by_column = kwargs['orderByColumn']
+        if 'orderByColumns' in kwargs:
+            order_by_columns = kwargs['orderByColumns']
+        if 'patternOption1' in kwargs:
+            pattern_option1 = kwargs['patternOption1']
+        if 'patternOption2' in kwargs:
+            pattern_option2 = kwargs['patternOption2']
+        if 'patternOptions' in kwargs:
+            pattern_options = kwargs['patternOptions']
+        if 'removeAllPunctuation' in kwargs:
+            remove_all_punctuation = kwargs['removeAllPunctuation']
+        if 'removeAllQuotes' in kwargs:
+            remove_all_quotes = kwargs['removeAllQuotes']
+        if 'removeAllWhitespace' in kwargs:
+            remove_all_whitespace = kwargs['removeAllWhitespace']
+        if 'removeCustomCharacters' in kwargs:
+            remove_custom_characters = kwargs['removeCustomCharacters']
+        if 'removeCustomValue' in kwargs:
+            remove_custom_value = kwargs['removeCustomValue']
+        if 'removeLeadingAndTrailingPunctuation' in kwargs:
+            remove_leading_and_trailing_punctuation = kwargs['removeLeadingAndTrailingPunctuation']
+        if 'removeLeadingAndTrailingQuotes' in kwargs:
+            remove_leading_and_trailing_quotes = kwargs['removeLeadingAndTrailingQuotes']
+        if 'removeLeadingAndTrailingWhitespace' in kwargs:
+            remove_leading_and_trailing_whitespace = kwargs['removeLeadingAndTrailingWhitespace']
+        if 'removeLetters' in kwargs:
+            remove_letters = kwargs['removeLetters']
+        if 'removeNumbers' in kwargs:
+            remove_numbers = kwargs['removeNumbers']
+        if 'removeSourceColumn' in kwargs:
+            remove_source_column = kwargs['removeSourceColumn']
+        if 'removeSpecialCharacters' in kwargs:
+            remove_special_characters = kwargs['removeSpecialCharacters']
+        if 'rightColumns' in kwargs:
+            right_columns = kwargs['rightColumns']
+        if 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+        if 'sampleType' in kwargs:
+            sample_type = kwargs['sampleType']
+        if 'secondInput' in kwargs:
+            second_input = kwargs['secondInput']
+        if 'secondaryInputs' in kwargs:
+            secondary_inputs = kwargs['secondaryInputs']
+        if 'sheetIndexes' in kwargs:
+            sheet_indexes = kwargs['sheetIndexes']
+        if 'sheetNames' in kwargs:
+            sheet_names = kwargs['sheetNames']
+        if 'sourceColumn' in kwargs:
+            source_column = kwargs['sourceColumn']
+        if 'sourceColumn1' in kwargs:
+            source_column1 = kwargs['sourceColumn1']
+        if 'sourceColumn2' in kwargs:
+            source_column2 = kwargs['sourceColumn2']
+        if 'sourceColumns' in kwargs:
+            source_columns = kwargs['sourceColumns']
+        if 'startColumnIndex' in kwargs:
+            start_column_index = kwargs['startColumnIndex']
+        if 'startPattern' in kwargs:
+            start_pattern = kwargs['startPattern']
+        if 'startPosition' in kwargs:
+            start_position = kwargs['startPosition']
+        if 'startValue' in kwargs:
+            start_value = kwargs['startValue']
+        if 'stemmingMode' in kwargs:
+            stemming_mode = kwargs['stemmingMode']
+        if 'stepCount' in kwargs:
+            step_count = kwargs['stepCount']
+        if 'stepIndex' in kwargs:
+            step_index = kwargs['stepIndex']
+        if 'stopWordsMode' in kwargs:
+            stop_words_mode = kwargs['stopWordsMode']
+        if 'targetColumn' in kwargs:
+            target_column = kwargs['targetColumn']
+        if 'targetColumnNames' in kwargs:
+            target_column_names = kwargs['targetColumnNames']
+        if 'targetDateFormat' in kwargs:
+            target_date_format = kwargs['targetDateFormat']
+        if 'targetIndex' in kwargs:
+            target_index = kwargs['targetIndex']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'tokenizerPattern' in kwargs:
+            tokenizer_pattern = kwargs['tokenizerPattern']
+        if 'trueString' in kwargs:
+            true_string = kwargs['trueString']
+        if 'udfLang' in kwargs:
+            udf_lang = kwargs['udfLang']
+        if 'unpivotColumn' in kwargs:
+            unpivot_column = kwargs['unpivotColumn']
+        if 'upperBound' in kwargs:
+            upper_bound = kwargs['upperBound']
+        if 'useNewDataFrame' in kwargs:
+            use_new_data_frame = kwargs['useNewDataFrame']
+        if 'valueColumn' in kwargs:
+            value_column = kwargs['valueColumn']
+        if 'viewFrame' in kwargs:
+            view_frame = kwargs['viewFrame']
+
         if aggregate_function is not None:
             _setter("aggregate_function", aggregate_function)
         if base is not None:
@@ -3665,7 +4043,13 @@ class RecipeParametersInputProperties(dict):
              _setter: Callable[[Any, Any], None],
              data_catalog_input_definition: Optional['outputs.RecipeDataCatalogInputDefinition'] = None,
              s3_input_definition: Optional['outputs.RecipeS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCatalogInputDefinition' in kwargs:
+            data_catalog_input_definition = kwargs['dataCatalogInputDefinition']
+        if 's3InputDefinition' in kwargs:
+            s3_input_definition = kwargs['s3InputDefinition']
+
         if data_catalog_input_definition is not None:
             _setter("data_catalog_input_definition", data_catalog_input_definition)
         if s3_input_definition is not None:
@@ -3703,7 +4087,9 @@ class RecipeS3Location(dict):
              _setter: Callable[[Any, Any], None],
              bucket: str,
              key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("bucket", bucket)
         if key is not None:
             _setter("key", key)
@@ -3759,7 +4145,13 @@ class RecipeSecondaryInput(dict):
              _setter: Callable[[Any, Any], None],
              data_catalog_input_definition: Optional['outputs.RecipeDataCatalogInputDefinition'] = None,
              s3_input_definition: Optional['outputs.RecipeS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCatalogInputDefinition' in kwargs:
+            data_catalog_input_definition = kwargs['dataCatalogInputDefinition']
+        if 's3InputDefinition' in kwargs:
+            s3_input_definition = kwargs['s3InputDefinition']
+
         if data_catalog_input_definition is not None:
             _setter("data_catalog_input_definition", data_catalog_input_definition)
         if s3_input_definition is not None:
@@ -3811,7 +4203,11 @@ class RecipeStep(dict):
              _setter: Callable[[Any, Any], None],
              action: 'outputs.RecipeAction',
              condition_expressions: Optional[Sequence['outputs.RecipeConditionExpression']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conditionExpressions' in kwargs:
+            condition_expressions = kwargs['conditionExpressions']
+
         _setter("action", action)
         if condition_expressions is not None:
             _setter("condition_expressions", condition_expressions)
@@ -3851,7 +4247,9 @@ class RecipeTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3889,7 +4287,9 @@ class RulesetColumnSelector(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if regex is not None:
@@ -3967,7 +4367,15 @@ class RulesetRule(dict):
              disabled: Optional[bool] = None,
              substitution_map: Optional[Sequence['outputs.RulesetSubstitutionValue']] = None,
              threshold: Optional['outputs.RulesetThreshold'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkExpression' in kwargs:
+            check_expression = kwargs['checkExpression']
+        if 'columnSelectors' in kwargs:
+            column_selectors = kwargs['columnSelectors']
+        if 'substitutionMap' in kwargs:
+            substitution_map = kwargs['substitutionMap']
+
         _setter("check_expression", check_expression)
         _setter("name", name)
         if column_selectors is not None:
@@ -4053,7 +4461,11 @@ class RulesetSubstitutionValue(dict):
              _setter: Callable[[Any, Any], None],
              value: str,
              value_reference: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueReference' in kwargs:
+            value_reference = kwargs['valueReference']
+
         _setter("value", value)
         _setter("value_reference", value_reference)
 
@@ -4095,7 +4507,9 @@ class RulesetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4128,7 +4542,9 @@ class RulesetThreshold(dict):
              value: float,
              type: Optional['RulesetThresholdType'] = None,
              unit: Optional['RulesetThresholdUnit'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if type is not None:
             _setter("type", type)
@@ -4172,7 +4588,9 @@ class ScheduleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

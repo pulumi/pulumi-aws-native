@@ -59,7 +59,29 @@ class RotationScheduleHostedRotationLambdaArgs:
              superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
              vpc_subnet_ids: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rotationType' in kwargs:
+            rotation_type = kwargs['rotationType']
+        if 'excludeCharacters' in kwargs:
+            exclude_characters = kwargs['excludeCharacters']
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'masterSecretArn' in kwargs:
+            master_secret_arn = kwargs['masterSecretArn']
+        if 'masterSecretKmsKeyArn' in kwargs:
+            master_secret_kms_key_arn = kwargs['masterSecretKmsKeyArn']
+        if 'rotationLambdaName' in kwargs:
+            rotation_lambda_name = kwargs['rotationLambdaName']
+        if 'superuserSecretArn' in kwargs:
+            superuser_secret_arn = kwargs['superuserSecretArn']
+        if 'superuserSecretKmsKeyArn' in kwargs:
+            superuser_secret_kms_key_arn = kwargs['superuserSecretKmsKeyArn']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+
         _setter("rotation_type", rotation_type)
         if exclude_characters is not None:
             _setter("exclude_characters", exclude_characters)
@@ -200,7 +222,13 @@ class RotationScheduleRotationRulesArgs:
              automatically_after_days: Optional[pulumi.Input[int]] = None,
              duration: Optional[pulumi.Input[str]] = None,
              schedule_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticallyAfterDays' in kwargs:
+            automatically_after_days = kwargs['automaticallyAfterDays']
+        if 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         if automatically_after_days is not None:
             _setter("automatically_after_days", automatically_after_days)
         if duration is not None:
@@ -287,7 +315,29 @@ class SecretGenerateSecretStringArgs:
              password_length: Optional[pulumi.Input[int]] = None,
              require_each_included_type: Optional[pulumi.Input[bool]] = None,
              secret_string_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludeCharacters' in kwargs:
+            exclude_characters = kwargs['excludeCharacters']
+        if 'excludeLowercase' in kwargs:
+            exclude_lowercase = kwargs['excludeLowercase']
+        if 'excludeNumbers' in kwargs:
+            exclude_numbers = kwargs['excludeNumbers']
+        if 'excludePunctuation' in kwargs:
+            exclude_punctuation = kwargs['excludePunctuation']
+        if 'excludeUppercase' in kwargs:
+            exclude_uppercase = kwargs['excludeUppercase']
+        if 'generateStringKey' in kwargs:
+            generate_string_key = kwargs['generateStringKey']
+        if 'includeSpace' in kwargs:
+            include_space = kwargs['includeSpace']
+        if 'passwordLength' in kwargs:
+            password_length = kwargs['passwordLength']
+        if 'requireEachIncludedType' in kwargs:
+            require_each_included_type = kwargs['requireEachIncludedType']
+        if 'secretStringTemplate' in kwargs:
+            secret_string_template = kwargs['secretStringTemplate']
+
         if exclude_characters is not None:
             _setter("exclude_characters", exclude_characters)
         if exclude_lowercase is not None:
@@ -450,7 +500,11 @@ class SecretReplicaRegionArgs:
              _setter: Callable[[Any, Any], None],
              region: pulumi.Input[str],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("region", region)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -500,7 +554,9 @@ class SecretTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -60,7 +60,23 @@ class OriginEndpointArgs:
              segment: Optional[pulumi.Input['OriginEndpointSegmentArgs']] = None,
              startover_window_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if 'channelGroupName' in kwargs:
+            channel_group_name = kwargs['channelGroupName']
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'hlsManifests' in kwargs:
+            hls_manifests = kwargs['hlsManifests']
+        if 'lowLatencyHlsManifests' in kwargs:
+            low_latency_hls_manifests = kwargs['lowLatencyHlsManifests']
+        if 'originEndpointName' in kwargs:
+            origin_endpoint_name = kwargs['originEndpointName']
+        if 'startoverWindowSeconds' in kwargs:
+            startover_window_seconds = kwargs['startoverWindowSeconds']
+
         _setter("container_type", container_type)
         if channel_group_name is not None:
             _setter("channel_group_name", channel_group_name)

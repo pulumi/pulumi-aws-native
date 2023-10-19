@@ -32,7 +32,13 @@ class IdentityPoolRoleAttachmentArgs:
              identity_pool_id: pulumi.Input[str],
              role_mappings: Optional[Any] = None,
              roles: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if 'roleMappings' in kwargs:
+            role_mappings = kwargs['roleMappings']
+
         _setter("identity_pool_id", identity_pool_id)
         if role_mappings is not None:
             _setter("role_mappings", role_mappings)

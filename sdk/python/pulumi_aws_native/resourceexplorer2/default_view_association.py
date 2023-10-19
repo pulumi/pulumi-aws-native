@@ -26,7 +26,11 @@ class DefaultViewAssociationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              view_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'viewArn' in kwargs:
+            view_arn = kwargs['viewArn']
+
         _setter("view_arn", view_arn)
 
     @property

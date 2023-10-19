@@ -34,7 +34,15 @@ class SkillArgs:
              authentication_configuration: pulumi.Input['SkillAuthenticationConfigurationArgs'],
              skill_package: pulumi.Input['SkillPackageArgs'],
              vendor_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'skillPackage' in kwargs:
+            skill_package = kwargs['skillPackage']
+        if 'vendorId' in kwargs:
+            vendor_id = kwargs['vendorId']
+
         _setter("authentication_configuration", authentication_configuration)
         _setter("skill_package", skill_package)
         _setter("vendor_id", vendor_id)

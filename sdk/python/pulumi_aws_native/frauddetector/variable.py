@@ -54,7 +54,17 @@ class VariableArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
              variable_type: Optional[pulumi.Input['VariableType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         _setter("data_source", data_source)
         _setter("data_type", data_type)
         _setter("default_value", default_value)

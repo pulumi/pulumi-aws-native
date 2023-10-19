@@ -40,7 +40,15 @@ class MitigationActionArgs:
              role_arn: pulumi.Input[str],
              action_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionParams' in kwargs:
+            action_params = kwargs['actionParams']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
         _setter("action_params", action_params)
         _setter("role_arn", role_arn)
         if action_name is not None:

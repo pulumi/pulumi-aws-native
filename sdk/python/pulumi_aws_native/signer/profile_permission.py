@@ -38,7 +38,15 @@ class ProfilePermissionArgs:
              profile_name: pulumi.Input[str],
              statement_id: pulumi.Input[str],
              profile_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if 'profileVersion' in kwargs:
+            profile_version = kwargs['profileVersion']
+
         _setter("action", action)
         _setter("principal", principal)
         _setter("profile_name", profile_name)

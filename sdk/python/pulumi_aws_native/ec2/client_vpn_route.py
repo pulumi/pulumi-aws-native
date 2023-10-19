@@ -35,7 +35,15 @@ class ClientVpnRouteArgs:
              destination_cidr_block: pulumi.Input[str],
              target_vpc_subnet_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if 'targetVpcSubnetId' in kwargs:
+            target_vpc_subnet_id = kwargs['targetVpcSubnetId']
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("destination_cidr_block", destination_cidr_block)
         _setter("target_vpc_subnet_id", target_vpc_subnet_id)

@@ -35,7 +35,13 @@ class SourceCredentialArgs:
              server_type: pulumi.Input[str],
              token: pulumi.Input[str],
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+
         _setter("auth_type", auth_type)
         _setter("server_type", server_type)
         _setter("token", token)

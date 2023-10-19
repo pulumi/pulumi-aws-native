@@ -35,7 +35,11 @@ class InstanceProfileArgs:
              roles: pulumi.Input[Sequence[pulumi.Input[str]]],
              instance_profile_name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceProfileName' in kwargs:
+            instance_profile_name = kwargs['instanceProfileName']
+
         _setter("roles", roles)
         if instance_profile_name is not None:
             _setter("instance_profile_name", instance_profile_name)

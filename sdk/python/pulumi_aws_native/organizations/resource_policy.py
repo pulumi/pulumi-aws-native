@@ -33,7 +33,9 @@ class ResourcePolicyArgs:
              _setter: Callable[[Any, Any], None],
              content: Any,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         if tags is not None:
             _setter("tags", tags)

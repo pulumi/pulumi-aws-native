@@ -56,7 +56,19 @@ class NotificationRuleArgs:
              status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
              tags: Optional[Any] = None,
              target_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+        if 'eventTypeIds' in kwargs:
+            event_type_ids = kwargs['eventTypeIds']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'eventTypeId' in kwargs:
+            event_type_id = kwargs['eventTypeId']
+        if 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+
         _setter("detail_type", detail_type)
         _setter("event_type_ids", event_type_ids)
         _setter("resource", resource)

@@ -56,7 +56,11 @@ class CampaignAgentlessDialerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dialing_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
 
@@ -105,7 +109,11 @@ class CampaignAnswerMachineDetectionConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_answer_machine_detection: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableAnswerMachineDetection' in kwargs:
+            enable_answer_machine_detection = kwargs['enableAnswerMachineDetection']
+
         _setter("enable_answer_machine_detection", enable_answer_machine_detection)
 
     @property
@@ -162,7 +170,15 @@ class CampaignDialerConfig(dict):
              agentless_dialer_config: Optional['outputs.CampaignAgentlessDialerConfig'] = None,
              predictive_dialer_config: Optional['outputs.CampaignPredictiveDialerConfig'] = None,
              progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentlessDialerConfig' in kwargs:
+            agentless_dialer_config = kwargs['agentlessDialerConfig']
+        if 'predictiveDialerConfig' in kwargs:
+            predictive_dialer_config = kwargs['predictiveDialerConfig']
+        if 'progressiveDialerConfig' in kwargs:
+            progressive_dialer_config = kwargs['progressiveDialerConfig']
+
         if agentless_dialer_config is not None:
             _setter("agentless_dialer_config", agentless_dialer_config)
         if predictive_dialer_config is not None:
@@ -239,7 +255,17 @@ class CampaignOutboundCallConfig(dict):
              answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
              connect_queue_arn: Optional[str] = None,
              connect_source_phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectContactFlowArn' in kwargs:
+            connect_contact_flow_arn = kwargs['connectContactFlowArn']
+        if 'answerMachineDetectionConfig' in kwargs:
+            answer_machine_detection_config = kwargs['answerMachineDetectionConfig']
+        if 'connectQueueArn' in kwargs:
+            connect_queue_arn = kwargs['connectQueueArn']
+        if 'connectSourcePhoneNumber' in kwargs:
+            connect_source_phone_number = kwargs['connectSourcePhoneNumber']
+
         _setter("connect_contact_flow_arn", connect_contact_flow_arn)
         if answer_machine_detection_config is not None:
             _setter("answer_machine_detection_config", answer_machine_detection_config)
@@ -320,7 +346,13 @@ class CampaignPredictiveDialerConfig(dict):
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: float,
              dialing_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -384,7 +416,13 @@ class CampaignProgressiveDialerConfig(dict):
              _setter: Callable[[Any, Any], None],
              bandwidth_allocation: float,
              dialing_capacity: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -429,7 +467,9 @@ class CampaignTag(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 

@@ -46,7 +46,19 @@ class SourceLocationArgs:
              segment_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationSegmentDeliveryConfigurationArgs']]]] = None,
              source_location_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SourceLocationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpConfiguration' in kwargs:
+            http_configuration = kwargs['httpConfiguration']
+        if 'accessConfiguration' in kwargs:
+            access_configuration = kwargs['accessConfiguration']
+        if 'defaultSegmentDeliveryConfiguration' in kwargs:
+            default_segment_delivery_configuration = kwargs['defaultSegmentDeliveryConfiguration']
+        if 'segmentDeliveryConfigurations' in kwargs:
+            segment_delivery_configurations = kwargs['segmentDeliveryConfigurations']
+        if 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+
         _setter("http_configuration", http_configuration)
         if access_configuration is not None:
             _setter("access_configuration", access_configuration)

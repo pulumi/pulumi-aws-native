@@ -36,7 +36,13 @@ class ProactiveEngagementArgs:
              _setter: Callable[[Any, Any], None],
              emergency_contact_list: pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]],
              proactive_engagement_status: pulumi.Input['ProactiveEngagementStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emergencyContactList' in kwargs:
+            emergency_contact_list = kwargs['emergencyContactList']
+        if 'proactiveEngagementStatus' in kwargs:
+            proactive_engagement_status = kwargs['proactiveEngagementStatus']
+
         _setter("emergency_contact_list", emergency_contact_list)
         _setter("proactive_engagement_status", proactive_engagement_status)
 

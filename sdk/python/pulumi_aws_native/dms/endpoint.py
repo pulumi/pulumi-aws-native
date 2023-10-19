@@ -118,7 +118,63 @@ class EndpointArgs:
              sybase_settings: Optional[pulumi.Input['EndpointSybaseSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'docDbSettings' in kwargs:
+            doc_db_settings = kwargs['docDbSettings']
+        if 'dynamoDbSettings' in kwargs:
+            dynamo_db_settings = kwargs['dynamoDbSettings']
+        if 'elasticsearchSettings' in kwargs:
+            elasticsearch_settings = kwargs['elasticsearchSettings']
+        if 'endpointIdentifier' in kwargs:
+            endpoint_identifier = kwargs['endpointIdentifier']
+        if 'extraConnectionAttributes' in kwargs:
+            extra_connection_attributes = kwargs['extraConnectionAttributes']
+        if 'gcpMySqlSettings' in kwargs:
+            gcp_my_sql_settings = kwargs['gcpMySqlSettings']
+        if 'ibmDb2Settings' in kwargs:
+            ibm_db2_settings = kwargs['ibmDb2Settings']
+        if 'kafkaSettings' in kwargs:
+            kafka_settings = kwargs['kafkaSettings']
+        if 'kinesisSettings' in kwargs:
+            kinesis_settings = kwargs['kinesisSettings']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'microsoftSqlServerSettings' in kwargs:
+            microsoft_sql_server_settings = kwargs['microsoftSqlServerSettings']
+        if 'mongoDbSettings' in kwargs:
+            mongo_db_settings = kwargs['mongoDbSettings']
+        if 'mySqlSettings' in kwargs:
+            my_sql_settings = kwargs['mySqlSettings']
+        if 'neptuneSettings' in kwargs:
+            neptune_settings = kwargs['neptuneSettings']
+        if 'oracleSettings' in kwargs:
+            oracle_settings = kwargs['oracleSettings']
+        if 'postgreSqlSettings' in kwargs:
+            postgre_sql_settings = kwargs['postgreSqlSettings']
+        if 'redisSettings' in kwargs:
+            redis_settings = kwargs['redisSettings']
+        if 'redshiftSettings' in kwargs:
+            redshift_settings = kwargs['redshiftSettings']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if 's3Settings' in kwargs:
+            s3_settings = kwargs['s3Settings']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'sslMode' in kwargs:
+            ssl_mode = kwargs['sslMode']
+        if 'sybaseSettings' in kwargs:
+            sybase_settings = kwargs['sybaseSettings']
+
         _setter("endpoint_type", endpoint_type)
         _setter("engine_name", engine_name)
         if certificate_arn is not None:

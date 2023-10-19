@@ -49,7 +49,25 @@ class ScalingPolicyArgs:
              service_namespace: Optional[pulumi.Input[str]] = None,
              step_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs']] = None,
              target_tracking_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if 'scalingTargetId' in kwargs:
+            scaling_target_id = kwargs['scalingTargetId']
+        if 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if 'stepScalingPolicyConfiguration' in kwargs:
+            step_scaling_policy_configuration = kwargs['stepScalingPolicyConfiguration']
+        if 'targetTrackingScalingPolicyConfiguration' in kwargs:
+            target_tracking_scaling_policy_configuration = kwargs['targetTrackingScalingPolicyConfiguration']
+
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)
         if resource_id is not None:

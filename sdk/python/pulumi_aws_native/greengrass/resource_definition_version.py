@@ -31,7 +31,11 @@ class ResourceDefinitionVersionInitArgs:
              _setter: Callable[[Any, Any], None],
              resource_definition_id: pulumi.Input[str],
              resources: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionVersionResourceInstanceArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceDefinitionId' in kwargs:
+            resource_definition_id = kwargs['resourceDefinitionId']
+
         _setter("resource_definition_id", resource_definition_id)
         _setter("resources", resources)
 

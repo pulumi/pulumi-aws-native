@@ -67,7 +67,13 @@ class AppEventSubscription(dict):
              event_type: 'AppEventSubscriptionEventType',
              name: str,
              sns_topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("event_type", event_type)
         _setter("name", name)
         if sns_topic_arn is not None:
@@ -144,7 +150,13 @@ class AppPermissionModel(dict):
              type: 'AppPermissionModelType',
              cross_account_role_arns: Optional[Sequence[str]] = None,
              invoker_role_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossAccountRoleArns' in kwargs:
+            cross_account_role_arns = kwargs['crossAccountRoleArns']
+        if 'invokerRoleName' in kwargs:
+            invoker_role_name = kwargs['invokerRoleName']
+
         _setter("type", type)
         if cross_account_role_arns is not None:
             _setter("cross_account_role_arns", cross_account_role_arns)
@@ -216,7 +228,13 @@ class AppPhysicalResourceId(dict):
              type: str,
              aws_account_id: Optional[str] = None,
              aws_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+
         _setter("identifier", identifier)
         _setter("type", type)
         if aws_account_id is not None:
@@ -305,7 +323,21 @@ class AppResourceMapping(dict):
              logical_stack_name: Optional[str] = None,
              resource_name: Optional[str] = None,
              terraform_source_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mappingType' in kwargs:
+            mapping_type = kwargs['mappingType']
+        if 'physicalResourceId' in kwargs:
+            physical_resource_id = kwargs['physicalResourceId']
+        if 'eksSourceName' in kwargs:
+            eks_source_name = kwargs['eksSourceName']
+        if 'logicalStackName' in kwargs:
+            logical_stack_name = kwargs['logicalStackName']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'terraformSourceName' in kwargs:
+            terraform_source_name = kwargs['terraformSourceName']
+
         _setter("mapping_type", mapping_type)
         _setter("physical_resource_id", physical_resource_id)
         if eks_source_name is not None:
@@ -355,8 +387,10 @@ class AppTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -366,8 +400,10 @@ class ResiliencyPolicyPolicyMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -377,7 +413,9 @@ class ResiliencyPolicyTagMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 

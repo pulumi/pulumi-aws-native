@@ -53,7 +53,13 @@ class LinkArgs:
              provider: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if 'siteId' in kwargs:
+            site_id = kwargs['siteId']
+
         _setter("bandwidth", bandwidth)
         _setter("global_network_id", global_network_id)
         _setter("site_id", site_id)

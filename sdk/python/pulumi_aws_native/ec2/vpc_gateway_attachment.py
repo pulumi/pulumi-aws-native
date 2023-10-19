@@ -32,7 +32,15 @@ class VpcGatewayAttachmentArgs:
              vpc_id: pulumi.Input[str],
              internet_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'internetGatewayId' in kwargs:
+            internet_gateway_id = kwargs['internetGatewayId']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         _setter("vpc_id", vpc_id)
         if internet_gateway_id is not None:
             _setter("internet_gateway_id", internet_gateway_id)

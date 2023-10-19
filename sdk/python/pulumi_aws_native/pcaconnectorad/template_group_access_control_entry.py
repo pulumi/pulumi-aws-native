@@ -38,7 +38,17 @@ class TemplateGroupAccessControlEntryArgs:
              group_display_name: pulumi.Input[str],
              group_security_identifier: Optional[pulumi.Input[str]] = None,
              template_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessRights' in kwargs:
+            access_rights = kwargs['accessRights']
+        if 'groupDisplayName' in kwargs:
+            group_display_name = kwargs['groupDisplayName']
+        if 'groupSecurityIdentifier' in kwargs:
+            group_security_identifier = kwargs['groupSecurityIdentifier']
+        if 'templateArn' in kwargs:
+            template_arn = kwargs['templateArn']
+
         _setter("access_rights", access_rights)
         _setter("group_display_name", group_display_name)
         if group_security_identifier is not None:

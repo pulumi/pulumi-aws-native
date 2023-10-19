@@ -50,7 +50,19 @@ class ApplicationInstanceArgs:
              name: Optional[pulumi.Input[str]] = None,
              runtime_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRuntimeContextDevice' in kwargs:
+            default_runtime_context_device = kwargs['defaultRuntimeContextDevice']
+        if 'manifestPayload' in kwargs:
+            manifest_payload = kwargs['manifestPayload']
+        if 'applicationInstanceIdToReplace' in kwargs:
+            application_instance_id_to_replace = kwargs['applicationInstanceIdToReplace']
+        if 'manifestOverridesPayload' in kwargs:
+            manifest_overrides_payload = kwargs['manifestOverridesPayload']
+        if 'runtimeRoleArn' in kwargs:
+            runtime_role_arn = kwargs['runtimeRoleArn']
+
         _setter("default_runtime_context_device", default_runtime_context_device)
         _setter("manifest_payload", manifest_payload)
         if application_instance_id_to_replace is not None:

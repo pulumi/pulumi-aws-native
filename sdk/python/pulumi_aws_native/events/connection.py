@@ -40,7 +40,13 @@ class ConnectionArgs:
              authorization_type: pulumi.Input['ConnectionAuthorizationType'],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+
         _setter("auth_parameters", auth_parameters)
         _setter("authorization_type", authorization_type)
         if description is not None:

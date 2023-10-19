@@ -31,7 +31,11 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
             _setter("log_group", log_group)
 
@@ -65,7 +69,13 @@ class PipelineLogPublishingOptionsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_destination: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']] = None,
              is_logging_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogDestination' in kwargs:
+            cloud_watch_log_destination = kwargs['cloudWatchLogDestination']
+        if 'isLoggingEnabled' in kwargs:
+            is_logging_enabled = kwargs['isLoggingEnabled']
+
         if cloud_watch_log_destination is not None:
             _setter("cloud_watch_log_destination", cloud_watch_log_destination)
         if is_logging_enabled is not None:
@@ -116,7 +126,9 @@ class PipelineTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -165,7 +177,13 @@ class PipelineVpcOptionsArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:

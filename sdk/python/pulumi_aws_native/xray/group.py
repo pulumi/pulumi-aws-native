@@ -39,7 +39,15 @@ class GroupArgs:
              group_name: Optional[pulumi.Input[str]] = None,
              insights_configuration: Optional[pulumi.Input['GroupInsightsConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterExpression' in kwargs:
+            filter_expression = kwargs['filterExpression']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'insightsConfiguration' in kwargs:
+            insights_configuration = kwargs['insightsConfiguration']
+
         if filter_expression is not None:
             _setter("filter_expression", filter_expression)
         if group_name is not None:

@@ -118,7 +118,49 @@ class EventSourceMappingArgs:
              starting_position_timestamp: Optional[pulumi.Input[float]] = None,
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'amazonManagedKafkaEventSourceConfig' in kwargs:
+            amazon_managed_kafka_event_source_config = kwargs['amazonManagedKafkaEventSourceConfig']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bisectBatchOnFunctionError' in kwargs:
+            bisect_batch_on_function_error = kwargs['bisectBatchOnFunctionError']
+        if 'destinationConfig' in kwargs:
+            destination_config = kwargs['destinationConfig']
+        if 'documentDbEventSourceConfig' in kwargs:
+            document_db_event_source_config = kwargs['documentDbEventSourceConfig']
+        if 'eventSourceArn' in kwargs:
+            event_source_arn = kwargs['eventSourceArn']
+        if 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+        if 'functionResponseTypes' in kwargs:
+            function_response_types = kwargs['functionResponseTypes']
+        if 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+        if 'scalingConfig' in kwargs:
+            scaling_config = kwargs['scalingConfig']
+        if 'selfManagedEventSource' in kwargs:
+            self_managed_event_source = kwargs['selfManagedEventSource']
+        if 'selfManagedKafkaEventSourceConfig' in kwargs:
+            self_managed_kafka_event_source_config = kwargs['selfManagedKafkaEventSourceConfig']
+        if 'sourceAccessConfigurations' in kwargs:
+            source_access_configurations = kwargs['sourceAccessConfigurations']
+        if 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if 'startingPositionTimestamp' in kwargs:
+            starting_position_timestamp = kwargs['startingPositionTimestamp']
+        if 'tumblingWindowInSeconds' in kwargs:
+            tumbling_window_in_seconds = kwargs['tumblingWindowInSeconds']
+
         _setter("function_name", function_name)
         if amazon_managed_kafka_event_source_config is not None:
             _setter("amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)

@@ -59,7 +59,17 @@ class RuleGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'availableLabels' in kwargs:
+            available_labels = kwargs['availableLabels']
+        if 'consumedLabels' in kwargs:
+            consumed_labels = kwargs['consumedLabels']
+        if 'customResponseBodies' in kwargs:
+            custom_response_bodies = kwargs['customResponseBodies']
+
         _setter("capacity", capacity)
         _setter("scope", scope)
         _setter("visibility_config", visibility_config)

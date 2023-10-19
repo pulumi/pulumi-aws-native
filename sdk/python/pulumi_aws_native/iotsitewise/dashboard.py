@@ -45,7 +45,17 @@ class DashboardArgs:
              dashboard_name: Optional[pulumi.Input[str]] = None,
              project_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dashboardDefinition' in kwargs:
+            dashboard_definition = kwargs['dashboardDefinition']
+        if 'dashboardDescription' in kwargs:
+            dashboard_description = kwargs['dashboardDescription']
+        if 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+        if 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         _setter("dashboard_definition", dashboard_definition)
         _setter("dashboard_description", dashboard_description)
         if dashboard_name is not None:

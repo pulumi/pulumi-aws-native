@@ -35,7 +35,15 @@ class RolePolicyInitArgs:
              policy_name: pulumi.Input[str],
              role_name: pulumi.Input[str],
              policy_document: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("policy_name", policy_name)
         _setter("role_name", role_name)
         if policy_document is not None:

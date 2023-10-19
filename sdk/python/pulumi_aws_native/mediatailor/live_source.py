@@ -40,7 +40,15 @@ class LiveSourceArgs:
              source_location_name: pulumi.Input[str],
              live_source_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LiveSourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpPackageConfigurations' in kwargs:
+            http_package_configurations = kwargs['httpPackageConfigurations']
+        if 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if 'liveSourceName' in kwargs:
+            live_source_name = kwargs['liveSourceName']
+
         _setter("http_package_configurations", http_package_configurations)
         _setter("source_location_name", source_location_name)
         if live_source_name is not None:

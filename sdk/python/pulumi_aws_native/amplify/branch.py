@@ -65,7 +65,27 @@ class BranchArgs:
              pull_request_environment_name: Optional[pulumi.Input[str]] = None,
              stage: Optional[pulumi.Input['BranchStage']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+
         _setter("app_id", app_id)
         if basic_auth_config is not None:
             _setter("basic_auth_config", basic_auth_config)

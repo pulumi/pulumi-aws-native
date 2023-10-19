@@ -39,7 +39,15 @@ class SyncJobArgs:
              sync_source: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'syncRole' in kwargs:
+            sync_role = kwargs['syncRole']
+        if 'syncSource' in kwargs:
+            sync_source = kwargs['syncSource']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("sync_role", sync_role)
         _setter("sync_source", sync_source)
         _setter("workspace_id", workspace_id)

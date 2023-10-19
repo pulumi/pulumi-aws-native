@@ -31,7 +31,13 @@ class GatewayRouteTableAssociationArgs:
              _setter: Callable[[Any, Any], None],
              gateway_id: pulumi.Input[str],
              route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+
         _setter("gateway_id", gateway_id)
         _setter("route_table_id", route_table_id)
 

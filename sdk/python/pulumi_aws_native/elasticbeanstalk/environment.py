@@ -73,7 +73,27 @@ class EnvironmentArgs:
              template_name: Optional[pulumi.Input[str]] = None,
              tier: Optional[pulumi.Input['EnvironmentTierArgs']] = None,
              version_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if 'cnamePrefix' in kwargs:
+            cname_prefix = kwargs['cnamePrefix']
+        if 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if 'operationsRole' in kwargs:
+            operations_role = kwargs['operationsRole']
+        if 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if 'platformArn' in kwargs:
+            platform_arn = kwargs['platformArn']
+        if 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if 'versionLabel' in kwargs:
+            version_label = kwargs['versionLabel']
+
         _setter("application_name", application_name)
         if cname_prefix is not None:
             _setter("cname_prefix", cname_prefix)

@@ -28,7 +28,9 @@ class TemplateInitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              template: Optional[pulumi.Input['TemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if template is not None:
             _setter("template", template)
 

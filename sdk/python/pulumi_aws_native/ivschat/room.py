@@ -49,7 +49,17 @@ class RoomArgs:
              message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loggingConfigurationIdentifiers' in kwargs:
+            logging_configuration_identifiers = kwargs['loggingConfigurationIdentifiers']
+        if 'maximumMessageLength' in kwargs:
+            maximum_message_length = kwargs['maximumMessageLength']
+        if 'maximumMessageRatePerSecond' in kwargs:
+            maximum_message_rate_per_second = kwargs['maximumMessageRatePerSecond']
+        if 'messageReviewHandler' in kwargs:
+            message_review_handler = kwargs['messageReviewHandler']
+
         if logging_configuration_identifiers is not None:
             _setter("logging_configuration_identifiers", logging_configuration_identifiers)
         if maximum_message_length is not None:

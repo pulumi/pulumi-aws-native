@@ -35,7 +35,13 @@ class ModuleDefaultVersionArgs:
              arn: Optional[pulumi.Input[str]] = None,
              module_name: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'moduleName' in kwargs:
+            module_name = kwargs['moduleName']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if arn is not None:
             _setter("arn", arn)
         if module_name is not None:

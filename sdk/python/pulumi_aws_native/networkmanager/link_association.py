@@ -35,7 +35,15 @@ class LinkAssociationArgs:
              device_id: pulumi.Input[str],
              global_network_id: pulumi.Input[str],
              link_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+
         _setter("device_id", device_id)
         _setter("global_network_id", global_network_id)
         _setter("link_id", link_id)

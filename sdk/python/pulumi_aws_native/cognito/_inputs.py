@@ -68,7 +68,15 @@ class IdentityPoolCognitoIdentityProviderArgs:
              client_id: pulumi.Input[str],
              provider_name: pulumi.Input[str],
              server_side_token_check: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'serverSideTokenCheck' in kwargs:
+            server_side_token_check = kwargs['serverSideTokenCheck']
+
         _setter("client_id", client_id)
         _setter("provider_name", provider_name)
         if server_side_token_check is not None:
@@ -120,7 +128,15 @@ class IdentityPoolCognitoStreamsArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              stream_name: Optional[pulumi.Input[str]] = None,
              streaming_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+        if 'streamingStatus' in kwargs:
+            streaming_status = kwargs['streamingStatus']
+
         if role_arn is not None:
             _setter("role_arn", role_arn)
         if stream_name is not None:
@@ -171,7 +187,13 @@ class IdentityPoolPushSyncArgs:
              _setter: Callable[[Any, Any], None],
              application_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationArns' in kwargs:
+            application_arns = kwargs['applicationArns']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if application_arns is not None:
             _setter("application_arns", application_arns)
         if role_arn is not None:
@@ -216,7 +238,9 @@ class IdentityPoolTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -257,7 +281,11 @@ class LogDeliveryConfigurationCloudWatchLogsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+
         if log_group_arn is not None:
             _setter("log_group_arn", log_group_arn)
 
@@ -289,7 +317,15 @@ class LogDeliveryConfigurationLogConfigurationArgs:
              cloud_watch_logs_configuration: Optional[pulumi.Input['LogDeliveryConfigurationCloudWatchLogsConfigurationArgs']] = None,
              event_source: Optional[pulumi.Input[str]] = None,
              log_level: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudWatchLogsConfiguration' in kwargs:
+            cloud_watch_logs_configuration = kwargs['cloudWatchLogsConfiguration']
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+
         if cloud_watch_logs_configuration is not None:
             _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
         if event_source is not None:
@@ -337,7 +373,11 @@ class UserPoolAccountRecoverySettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              recovery_mechanisms: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolRecoveryOptionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryMechanisms' in kwargs:
+            recovery_mechanisms = kwargs['recoveryMechanisms']
+
         if recovery_mechanisms is not None:
             _setter("recovery_mechanisms", recovery_mechanisms)
 
@@ -363,7 +403,11 @@ class UserPoolAddOnsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              advanced_security_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advancedSecurityMode' in kwargs:
+            advanced_security_mode = kwargs['advancedSecurityMode']
+
         if advanced_security_mode is not None:
             _setter("advanced_security_mode", advanced_security_mode)
 
@@ -395,7 +439,15 @@ class UserPoolAdminCreateUserConfigArgs:
              allow_admin_create_user_only: Optional[pulumi.Input[bool]] = None,
              invite_message_template: Optional[pulumi.Input['UserPoolInviteMessageTemplateArgs']] = None,
              unused_account_validity_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAdminCreateUserOnly' in kwargs:
+            allow_admin_create_user_only = kwargs['allowAdminCreateUserOnly']
+        if 'inviteMessageTemplate' in kwargs:
+            invite_message_template = kwargs['inviteMessageTemplate']
+        if 'unusedAccountValidityDays' in kwargs:
+            unused_account_validity_days = kwargs['unusedAccountValidityDays']
+
         if allow_admin_create_user_only is not None:
             _setter("allow_admin_create_user_only", allow_admin_create_user_only)
         if invite_message_template is not None:
@@ -455,7 +507,19 @@ class UserPoolClientAnalyticsConfigurationArgs:
              external_id: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              user_data_shared: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'userDataShared' in kwargs:
+            user_data_shared = kwargs['userDataShared']
+
         if application_arn is not None:
             _setter("application_arn", application_arn)
         if application_id is not None:
@@ -531,7 +595,15 @@ class UserPoolClientTokenValidityUnitsArgs:
              access_token: Optional[pulumi.Input[str]] = None,
              id_token: Optional[pulumi.Input[str]] = None,
              refresh_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'idToken' in kwargs:
+            id_token = kwargs['idToken']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if id_token is not None:
@@ -582,7 +654,13 @@ class UserPoolCustomEmailSenderArgs:
              _setter: Callable[[Any, Any], None],
              lambda_arn: Optional[pulumi.Input[str]] = None,
              lambda_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if 'lambdaVersion' in kwargs:
+            lambda_version = kwargs['lambdaVersion']
+
         if lambda_arn is not None:
             _setter("lambda_arn", lambda_arn)
         if lambda_version is not None:
@@ -622,7 +700,13 @@ class UserPoolCustomSmsSenderArgs:
              _setter: Callable[[Any, Any], None],
              lambda_arn: Optional[pulumi.Input[str]] = None,
              lambda_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if 'lambdaVersion' in kwargs:
+            lambda_version = kwargs['lambdaVersion']
+
         if lambda_arn is not None:
             _setter("lambda_arn", lambda_arn)
         if lambda_version is not None:
@@ -662,7 +746,13 @@ class UserPoolDeviceConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              challenge_required_on_new_device: Optional[pulumi.Input[bool]] = None,
              device_only_remembered_on_user_prompt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'challengeRequiredOnNewDevice' in kwargs:
+            challenge_required_on_new_device = kwargs['challengeRequiredOnNewDevice']
+        if 'deviceOnlyRememberedOnUserPrompt' in kwargs:
+            device_only_remembered_on_user_prompt = kwargs['deviceOnlyRememberedOnUserPrompt']
+
         if challenge_required_on_new_device is not None:
             _setter("challenge_required_on_new_device", challenge_required_on_new_device)
         if device_only_remembered_on_user_prompt is not None:
@@ -699,7 +789,11 @@ class UserPoolDomainCustomDomainConfigTypeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
 
@@ -737,7 +831,19 @@ class UserPoolEmailConfigurationArgs:
              from_: Optional[pulumi.Input[str]] = None,
              reply_to_email_address: Optional[pulumi.Input[str]] = None,
              source_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if 'emailSendingAccount' in kwargs:
+            email_sending_account = kwargs['emailSendingAccount']
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'replyToEmailAddress' in kwargs:
+            reply_to_email_address = kwargs['replyToEmailAddress']
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+
         if configuration_set is not None:
             _setter("configuration_set", configuration_set)
         if email_sending_account is not None:
@@ -813,7 +919,15 @@ class UserPoolInviteMessageTemplateArgs:
              email_message: Optional[pulumi.Input[str]] = None,
              email_subject: Optional[pulumi.Input[str]] = None,
              sms_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailMessage' in kwargs:
+            email_message = kwargs['emailMessage']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if 'smsMessage' in kwargs:
+            sms_message = kwargs['smsMessage']
+
         if email_message is not None:
             _setter("email_message", email_message)
         if email_subject is not None:
@@ -897,7 +1011,35 @@ class UserPoolLambdaConfigArgs:
              pre_token_generation: Optional[pulumi.Input[str]] = None,
              user_migration: Optional[pulumi.Input[str]] = None,
              verify_auth_challenge_response: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createAuthChallenge' in kwargs:
+            create_auth_challenge = kwargs['createAuthChallenge']
+        if 'customEmailSender' in kwargs:
+            custom_email_sender = kwargs['customEmailSender']
+        if 'customMessage' in kwargs:
+            custom_message = kwargs['customMessage']
+        if 'customSmsSender' in kwargs:
+            custom_sms_sender = kwargs['customSmsSender']
+        if 'defineAuthChallenge' in kwargs:
+            define_auth_challenge = kwargs['defineAuthChallenge']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'postAuthentication' in kwargs:
+            post_authentication = kwargs['postAuthentication']
+        if 'postConfirmation' in kwargs:
+            post_confirmation = kwargs['postConfirmation']
+        if 'preAuthentication' in kwargs:
+            pre_authentication = kwargs['preAuthentication']
+        if 'preSignUp' in kwargs:
+            pre_sign_up = kwargs['preSignUp']
+        if 'preTokenGeneration' in kwargs:
+            pre_token_generation = kwargs['preTokenGeneration']
+        if 'userMigration' in kwargs:
+            user_migration = kwargs['userMigration']
+        if 'verifyAuthChallengeResponse' in kwargs:
+            verify_auth_challenge_response = kwargs['verifyAuthChallengeResponse']
+
         if create_auth_challenge is not None:
             _setter("create_auth_challenge", create_auth_challenge)
         if custom_email_sender is not None:
@@ -1058,7 +1200,13 @@ class UserPoolNumberAttributeConstraintsArgs:
              _setter: Callable[[Any, Any], None],
              max_value: Optional[pulumi.Input[str]] = None,
              min_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+
         if max_value is not None:
             _setter("max_value", max_value)
         if min_value is not None:
@@ -1110,7 +1258,21 @@ class UserPoolPasswordPolicyArgs:
              require_symbols: Optional[pulumi.Input[bool]] = None,
              require_uppercase: Optional[pulumi.Input[bool]] = None,
              temporary_password_validity_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minimumLength' in kwargs:
+            minimum_length = kwargs['minimumLength']
+        if 'requireLowercase' in kwargs:
+            require_lowercase = kwargs['requireLowercase']
+        if 'requireNumbers' in kwargs:
+            require_numbers = kwargs['requireNumbers']
+        if 'requireSymbols' in kwargs:
+            require_symbols = kwargs['requireSymbols']
+        if 'requireUppercase' in kwargs:
+            require_uppercase = kwargs['requireUppercase']
+        if 'temporaryPasswordValidityDays' in kwargs:
+            temporary_password_validity_days = kwargs['temporaryPasswordValidityDays']
+
         if minimum_length is not None:
             _setter("minimum_length", minimum_length)
         if require_lowercase is not None:
@@ -1191,7 +1353,11 @@ class UserPoolPoliciesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordPolicy' in kwargs:
+            password_policy = kwargs['passwordPolicy']
+
         if password_policy is not None:
             _setter("password_policy", password_policy)
 
@@ -1220,7 +1386,9 @@ class UserPoolRecoveryOptionArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if priority is not None:
@@ -1260,7 +1428,13 @@ class UserPoolResourceServerResourceServerScopeTypeArgs:
              _setter: Callable[[Any, Any], None],
              scope_description: pulumi.Input[str],
              scope_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scopeDescription' in kwargs:
+            scope_description = kwargs['scopeDescription']
+        if 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+
         _setter("scope_description", scope_description)
         _setter("scope_name", scope_name)
 
@@ -1298,7 +1472,11 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs:
              _setter: Callable[[Any, Any], None],
              event_action: pulumi.Input[str],
              notify: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+
         _setter("event_action", event_action)
         _setter("notify", notify)
 
@@ -1339,7 +1517,15 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
              high_action: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']] = None,
              low_action: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']] = None,
              medium_action: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'highAction' in kwargs:
+            high_action = kwargs['highAction']
+        if 'lowAction' in kwargs:
+            low_action = kwargs['lowAction']
+        if 'mediumAction' in kwargs:
+            medium_action = kwargs['mediumAction']
+
         if high_action is not None:
             _setter("high_action", high_action)
         if low_action is not None:
@@ -1390,7 +1576,11 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArg
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs'],
              notify_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notifyConfiguration' in kwargs:
+            notify_configuration = kwargs['notifyConfiguration']
+
         _setter("actions", actions)
         if notify_configuration is not None:
             _setter("notify_configuration", notify_configuration)
@@ -1426,7 +1616,11 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_action: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+
         _setter("event_action", event_action)
 
     @property
@@ -1454,7 +1648,11 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs'],
              event_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+
         _setter("actions", actions)
         if event_filter is not None:
             _setter("event_filter", event_filter)
@@ -1505,7 +1703,21 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs:
              mfa_email: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs']] = None,
              no_action_email: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs']] = None,
              reply_to: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if 'blockEmail' in kwargs:
+            block_email = kwargs['blockEmail']
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'mfaEmail' in kwargs:
+            mfa_email = kwargs['mfaEmail']
+        if 'noActionEmail' in kwargs:
+            no_action_email = kwargs['noActionEmail']
+        if 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+
         _setter("source_arn", source_arn)
         if block_email is not None:
             _setter("block_email", block_email)
@@ -1591,7 +1803,13 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs:
              subject: pulumi.Input[str],
              html_body: Optional[pulumi.Input[str]] = None,
              text_body: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'htmlBody' in kwargs:
+            html_body = kwargs['htmlBody']
+        if 'textBody' in kwargs:
+            text_body = kwargs['textBody']
+
         _setter("subject", subject)
         if html_body is not None:
             _setter("html_body", html_body)
@@ -1641,7 +1859,13 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs:
              _setter: Callable[[Any, Any], None],
              blocked_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              skipped_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blockedIpRangeList' in kwargs:
+            blocked_ip_range_list = kwargs['blockedIpRangeList']
+        if 'skippedIpRangeList' in kwargs:
+            skipped_ip_range_list = kwargs['skippedIpRangeList']
+
         if blocked_ip_range_list is not None:
             _setter("blocked_ip_range_list", blocked_ip_range_list)
         if skipped_ip_range_list is not None:
@@ -1696,7 +1920,17 @@ class UserPoolSchemaAttributeArgs:
              number_attribute_constraints: Optional[pulumi.Input['UserPoolNumberAttributeConstraintsArgs']] = None,
              required: Optional[pulumi.Input[bool]] = None,
              string_attribute_constraints: Optional[pulumi.Input['UserPoolStringAttributeConstraintsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeDataType' in kwargs:
+            attribute_data_type = kwargs['attributeDataType']
+        if 'developerOnlyAttribute' in kwargs:
+            developer_only_attribute = kwargs['developerOnlyAttribute']
+        if 'numberAttributeConstraints' in kwargs:
+            number_attribute_constraints = kwargs['numberAttributeConstraints']
+        if 'stringAttributeConstraints' in kwargs:
+            string_attribute_constraints = kwargs['stringAttributeConstraints']
+
         if attribute_data_type is not None:
             _setter("attribute_data_type", attribute_data_type)
         if developer_only_attribute is not None:
@@ -1794,7 +2028,15 @@ class UserPoolSmsConfigurationArgs:
              external_id: Optional[pulumi.Input[str]] = None,
              sns_caller_arn: Optional[pulumi.Input[str]] = None,
              sns_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'snsCallerArn' in kwargs:
+            sns_caller_arn = kwargs['snsCallerArn']
+        if 'snsRegion' in kwargs:
+            sns_region = kwargs['snsRegion']
+
         if external_id is not None:
             _setter("external_id", external_id)
         if sns_caller_arn is not None:
@@ -1845,7 +2087,13 @@ class UserPoolStringAttributeConstraintsArgs:
              _setter: Callable[[Any, Any], None],
              max_length: Optional[pulumi.Input[str]] = None,
              min_length: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+
         if max_length is not None:
             _setter("max_length", max_length)
         if min_length is not None:
@@ -1885,7 +2133,9 @@ class UserPoolUserAttributeTypeArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -1922,7 +2172,11 @@ class UserPoolUserAttributeUpdateSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attributes_require_verification_before_update: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributesRequireVerificationBeforeUpdate' in kwargs:
+            attributes_require_verification_before_update = kwargs['attributesRequireVerificationBeforeUpdate']
+
         _setter("attributes_require_verification_before_update", attributes_require_verification_before_update)
 
     @property
@@ -1947,7 +2201,11 @@ class UserPoolUsernameConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              case_sensitive: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+
         if case_sensitive is not None:
             _setter("case_sensitive", case_sensitive)
 
@@ -1988,7 +2246,21 @@ class UserPoolVerificationMessageTemplateArgs:
              email_subject: Optional[pulumi.Input[str]] = None,
              email_subject_by_link: Optional[pulumi.Input[str]] = None,
              sms_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultEmailOption' in kwargs:
+            default_email_option = kwargs['defaultEmailOption']
+        if 'emailMessage' in kwargs:
+            email_message = kwargs['emailMessage']
+        if 'emailMessageByLink' in kwargs:
+            email_message_by_link = kwargs['emailMessageByLink']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if 'emailSubjectByLink' in kwargs:
+            email_subject_by_link = kwargs['emailSubjectByLink']
+        if 'smsMessage' in kwargs:
+            sms_message = kwargs['smsMessage']
+
         if default_email_option is not None:
             _setter("default_email_option", default_email_option)
         if email_message is not None:

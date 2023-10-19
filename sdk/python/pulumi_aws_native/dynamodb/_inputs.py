@@ -63,7 +63,13 @@ class GlobalTableAttributeDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              attribute_name: pulumi.Input[str],
              attribute_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'attributeType' in kwargs:
+            attribute_type = kwargs['attributeType']
+
         _setter("attribute_name", attribute_name)
         _setter("attribute_type", attribute_type)
 
@@ -107,7 +113,17 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
              min_capacity: pulumi.Input[int],
              target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
              seed_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'targetTrackingScalingPolicyConfiguration' in kwargs:
+            target_tracking_scaling_policy_configuration = kwargs['targetTrackingScalingPolicyConfiguration']
+        if 'seedCapacity' in kwargs:
+            seed_capacity = kwargs['seedCapacity']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
         _setter("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
@@ -163,7 +179,9 @@ class GlobalTableContributorInsightsSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -197,7 +215,15 @@ class GlobalTableGlobalSecondaryIndexArgs:
              key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
              projection: pulumi.Input['GlobalTableProjectionArgs'],
              write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if 'writeProvisionedThroughputSettings' in kwargs:
+            write_provisioned_throughput_settings = kwargs['writeProvisionedThroughputSettings']
+
         _setter("index_name", index_name)
         _setter("key_schema", key_schema)
         _setter("projection", projection)
@@ -256,7 +282,13 @@ class GlobalTableKeySchemaArgs:
              _setter: Callable[[Any, Any], None],
              attribute_name: pulumi.Input[str],
              key_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+
         _setter("attribute_name", attribute_name)
         _setter("key_type", key_type)
 
@@ -291,7 +323,11 @@ class GlobalTableKinesisStreamSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         _setter("stream_arn", stream_arn)
 
     @property
@@ -322,7 +358,13 @@ class GlobalTableLocalSecondaryIndexArgs:
              index_name: pulumi.Input[str],
              key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
              projection: pulumi.Input['GlobalTableProjectionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+
         _setter("index_name", index_name)
         _setter("key_schema", key_schema)
         _setter("projection", projection)
@@ -367,7 +409,11 @@ class GlobalTablePointInTimeRecoverySpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pointInTimeRecoveryEnabled' in kwargs:
+            point_in_time_recovery_enabled = kwargs['pointInTimeRecoveryEnabled']
+
         if point_in_time_recovery_enabled is not None:
             _setter("point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
@@ -396,7 +442,13 @@ class GlobalTableProjectionArgs:
              _setter: Callable[[Any, Any], None],
              non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              projection_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nonKeyAttributes' in kwargs:
+            non_key_attributes = kwargs['nonKeyAttributes']
+        if 'projectionType' in kwargs:
+            projection_type = kwargs['projectionType']
+
         if non_key_attributes is not None:
             _setter("non_key_attributes", non_key_attributes)
         if projection_type is not None:
@@ -436,7 +488,13 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
              _setter: Callable[[Any, Any], None],
              read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
              read_capacity_units: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readCapacityAutoScalingSettings' in kwargs:
+            read_capacity_auto_scaling_settings = kwargs['readCapacityAutoScalingSettings']
+        if 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+
         if read_capacity_auto_scaling_settings is not None:
             _setter("read_capacity_auto_scaling_settings", read_capacity_auto_scaling_settings)
         if read_capacity_units is not None:
@@ -479,7 +537,15 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
              index_name: pulumi.Input[str],
              contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
              read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'contributorInsightsSpecification' in kwargs:
+            contributor_insights_specification = kwargs['contributorInsightsSpecification']
+        if 'readProvisionedThroughputSettings' in kwargs:
+            read_provisioned_throughput_settings = kwargs['readProvisionedThroughputSettings']
+
         _setter("index_name", index_name)
         if contributor_insights_specification is not None:
             _setter("contributor_insights_specification", contributor_insights_specification)
@@ -553,7 +619,25 @@ class GlobalTableReplicaSpecificationArgs:
              sse_specification: Optional[pulumi.Input['GlobalTableReplicaSseSpecificationArgs']] = None,
              table_class: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contributorInsightsSpecification' in kwargs:
+            contributor_insights_specification = kwargs['contributorInsightsSpecification']
+        if 'deletionProtectionEnabled' in kwargs:
+            deletion_protection_enabled = kwargs['deletionProtectionEnabled']
+        if 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if 'kinesisStreamSpecification' in kwargs:
+            kinesis_stream_specification = kwargs['kinesisStreamSpecification']
+        if 'pointInTimeRecoverySpecification' in kwargs:
+            point_in_time_recovery_specification = kwargs['pointInTimeRecoverySpecification']
+        if 'readProvisionedThroughputSettings' in kwargs:
+            read_provisioned_throughput_settings = kwargs['readProvisionedThroughputSettings']
+        if 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if 'tableClass' in kwargs:
+            table_class = kwargs['tableClass']
+
         _setter("region", region)
         if contributor_insights_specification is not None:
             _setter("contributor_insights_specification", contributor_insights_specification)
@@ -677,7 +761,11 @@ class GlobalTableReplicaSseSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_master_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+
         _setter("kms_master_key_id", kms_master_key_id)
 
     @property
@@ -705,7 +793,13 @@ class GlobalTableSseSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              sse_enabled: pulumi.Input[bool],
              sse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseEnabled' in kwargs:
+            sse_enabled = kwargs['sseEnabled']
+        if 'sseType' in kwargs:
+            sse_type = kwargs['sseType']
+
         _setter("sse_enabled", sse_enabled)
         if sse_type is not None:
             _setter("sse_type", sse_type)
@@ -741,7 +835,11 @@ class GlobalTableStreamSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_view_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamViewType' in kwargs:
+            stream_view_type = kwargs['streamViewType']
+
         _setter("stream_view_type", stream_view_type)
 
     @property
@@ -769,7 +867,9 @@ class GlobalTableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -813,7 +913,17 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
              disable_scale_in: Optional[pulumi.Input[bool]] = None,
              scale_in_cooldown: Optional[pulumi.Input[int]] = None,
              scale_out_cooldown: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if 'scaleInCooldown' in kwargs:
+            scale_in_cooldown = kwargs['scaleInCooldown']
+        if 'scaleOutCooldown' in kwargs:
+            scale_out_cooldown = kwargs['scaleOutCooldown']
+
         _setter("target_value", target_value)
         if disable_scale_in is not None:
             _setter("disable_scale_in", disable_scale_in)
@@ -874,7 +984,11 @@ class GlobalTableTimeToLiveSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              attribute_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+
         _setter("enabled", enabled)
         if attribute_name is not None:
             _setter("attribute_name", attribute_name)
@@ -910,7 +1024,11 @@ class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'writeCapacityAutoScalingSettings' in kwargs:
+            write_capacity_auto_scaling_settings = kwargs['writeCapacityAutoScalingSettings']
+
         if write_capacity_auto_scaling_settings is not None:
             _setter("write_capacity_auto_scaling_settings", write_capacity_auto_scaling_settings)
 
@@ -939,7 +1057,13 @@ class TableAttributeDefinitionArgs:
              _setter: Callable[[Any, Any], None],
              attribute_name: pulumi.Input[str],
              attribute_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'attributeType' in kwargs:
+            attribute_type = kwargs['attributeType']
+
         _setter("attribute_name", attribute_name)
         _setter("attribute_type", attribute_type)
 
@@ -974,7 +1098,9 @@ class TableContributorInsightsSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
 
     @property
@@ -1002,7 +1128,11 @@ class TableCsvArgs:
              _setter: Callable[[Any, Any], None],
              delimiter: Optional[pulumi.Input[str]] = None,
              header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerList' in kwargs:
+            header_list = kwargs['headerList']
+
         if delimiter is not None:
             _setter("delimiter", delimiter)
         if header_list is not None:
@@ -1051,7 +1181,17 @@ class TableGlobalSecondaryIndexArgs:
              projection: pulumi.Input['TableProjectionArgs'],
              contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
              provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if 'contributorInsightsSpecification' in kwargs:
+            contributor_insights_specification = kwargs['contributorInsightsSpecification']
+        if 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+
         _setter("index_name", index_name)
         _setter("key_schema", key_schema)
         _setter("projection", projection)
@@ -1127,7 +1267,17 @@ class TableImportSourceSpecificationArgs:
              s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
              input_compression_type: Optional[pulumi.Input[str]] = None,
              input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputFormat' in kwargs:
+            input_format = kwargs['inputFormat']
+        if 's3BucketSource' in kwargs:
+            s3_bucket_source = kwargs['s3BucketSource']
+        if 'inputCompressionType' in kwargs:
+            input_compression_type = kwargs['inputCompressionType']
+        if 'inputFormatOptions' in kwargs:
+            input_format_options = kwargs['inputFormatOptions']
+
         _setter("input_format", input_format)
         _setter("s3_bucket_source", s3_bucket_source)
         if input_compression_type is not None:
@@ -1184,7 +1334,9 @@ class TableInputFormatOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              csv: Optional[pulumi.Input['TableCsvArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if csv is not None:
             _setter("csv", csv)
 
@@ -1213,7 +1365,13 @@ class TableKeySchemaArgs:
              _setter: Callable[[Any, Any], None],
              attribute_name: pulumi.Input[str],
              key_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+
         _setter("attribute_name", attribute_name)
         _setter("key_type", key_type)
 
@@ -1248,7 +1406,11 @@ class TableKinesisStreamSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         _setter("stream_arn", stream_arn)
 
     @property
@@ -1279,7 +1441,13 @@ class TableLocalSecondaryIndexArgs:
              index_name: pulumi.Input[str],
              key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
              projection: pulumi.Input['TableProjectionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+
         _setter("index_name", index_name)
         _setter("key_schema", key_schema)
         _setter("projection", projection)
@@ -1324,7 +1492,11 @@ class TablePointInTimeRecoverySpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pointInTimeRecoveryEnabled' in kwargs:
+            point_in_time_recovery_enabled = kwargs['pointInTimeRecoveryEnabled']
+
         if point_in_time_recovery_enabled is not None:
             _setter("point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
@@ -1353,7 +1525,13 @@ class TableProjectionArgs:
              _setter: Callable[[Any, Any], None],
              non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              projection_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nonKeyAttributes' in kwargs:
+            non_key_attributes = kwargs['nonKeyAttributes']
+        if 'projectionType' in kwargs:
+            projection_type = kwargs['projectionType']
+
         if non_key_attributes is not None:
             _setter("non_key_attributes", non_key_attributes)
         if projection_type is not None:
@@ -1393,7 +1571,13 @@ class TableProvisionedThroughputArgs:
              _setter: Callable[[Any, Any], None],
              read_capacity_units: pulumi.Input[int],
              write_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+
         _setter("read_capacity_units", read_capacity_units)
         _setter("write_capacity_units", write_capacity_units)
 
@@ -1434,7 +1618,15 @@ class TableS3BucketSourceArgs:
              s3_bucket: pulumi.Input[str],
              s3_bucket_owner: Optional[pulumi.Input[str]] = None,
              s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 's3BucketOwner' in kwargs:
+            s3_bucket_owner = kwargs['s3BucketOwner']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         _setter("s3_bucket", s3_bucket)
         if s3_bucket_owner is not None:
             _setter("s3_bucket_owner", s3_bucket_owner)
@@ -1487,7 +1679,15 @@ class TableSseSpecificationArgs:
              sse_enabled: pulumi.Input[bool],
              kms_master_key_id: Optional[pulumi.Input[str]] = None,
              sse_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sseEnabled' in kwargs:
+            sse_enabled = kwargs['sseEnabled']
+        if 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if 'sseType' in kwargs:
+            sse_type = kwargs['sseType']
+
         _setter("sse_enabled", sse_enabled)
         if kms_master_key_id is not None:
             _setter("kms_master_key_id", kms_master_key_id)
@@ -1534,7 +1734,11 @@ class TableStreamSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              stream_view_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamViewType' in kwargs:
+            stream_view_type = kwargs['streamViewType']
+
         _setter("stream_view_type", stream_view_type)
 
     @property
@@ -1562,7 +1766,9 @@ class TableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1600,7 +1806,11 @@ class TableTimeToLiveSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              attribute_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+
         _setter("enabled", enabled)
         if attribute_name is not None:
             _setter("attribute_name", attribute_name)

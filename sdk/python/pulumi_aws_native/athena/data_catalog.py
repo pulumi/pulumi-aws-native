@@ -46,7 +46,9 @@ class DataCatalogArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataCatalogTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if description is not None:
             _setter("description", description)

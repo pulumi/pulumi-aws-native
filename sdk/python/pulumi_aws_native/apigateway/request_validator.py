@@ -39,7 +39,15 @@ class RequestValidatorArgs:
              name: Optional[pulumi.Input[str]] = None,
              validate_request_body: Optional[pulumi.Input[bool]] = None,
              validate_request_parameters: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if 'validateRequestBody' in kwargs:
+            validate_request_body = kwargs['validateRequestBody']
+        if 'validateRequestParameters' in kwargs:
+            validate_request_parameters = kwargs['validateRequestParameters']
+
         _setter("rest_api_id", rest_api_id)
         if name is not None:
             _setter("name", name)

@@ -44,7 +44,17 @@ class ProjectArgs:
              project_name: Optional[pulumi.Input[str]] = None,
              service_catalog_provisioned_product_details: Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceCatalogProvisioningDetails' in kwargs:
+            service_catalog_provisioning_details = kwargs['serviceCatalogProvisioningDetails']
+        if 'projectDescription' in kwargs:
+            project_description = kwargs['projectDescription']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'serviceCatalogProvisionedProductDetails' in kwargs:
+            service_catalog_provisioned_product_details = kwargs['serviceCatalogProvisionedProductDetails']
+
         _setter("service_catalog_provisioning_details", service_catalog_provisioning_details)
         if project_description is not None:
             _setter("project_description", project_description)

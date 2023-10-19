@@ -44,7 +44,13 @@ class RuleGroupInitArgs:
              rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
              rule_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroup' in kwargs:
+            rule_group = kwargs['ruleGroup']
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
         _setter("capacity", capacity)
         _setter("type", type)
         if description is not None:
