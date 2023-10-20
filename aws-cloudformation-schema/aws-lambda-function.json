@@ -11,10 +11,10 @@
       "permissions" : [ "lambda:GetFunction", "lambda:GetFunctionCodeSigningConfig" ]
     },
     "create" : {
-      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource" ]
+      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:GetPolicy", "lambda:AddPermission", "lambda:RemovePermission", "lambda:GetResourcePolicy", "lambda:PutResourcePolicy" ]
     },
     "update" : {
-      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig" ]
+      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:ListTags", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetPolicy", "lambda:AddPermission", "lambda:RemovePermission", "lambda:GetResourcePolicy", "lambda:PutResourcePolicy", "lambda:DeleteResourcePolicy" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListFunctions" ]
@@ -26,7 +26,7 @@
   "typeName" : "AWS::Lambda::Function",
   "readOnlyProperties" : [ "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus", "/properties/Arn" ],
   "description" : "Resource Type definition for AWS::Lambda::Function in region",
-  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile" ],
+  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile", "/properties/Policy" ],
   "createOnlyProperties" : [ "/properties/FunctionName" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/FunctionName" ],
@@ -263,6 +263,10 @@
   },
   "required" : [ "Code", "Role" ],
   "properties" : {
+    "Policy" : {
+      "description" : "The resource policy of your function",
+      "type" : "object"
+    },
     "Description" : {
       "description" : "A description of the function.",
       "type" : "string",

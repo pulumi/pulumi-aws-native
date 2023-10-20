@@ -1,82 +1,92 @@
 {
-  "tagging" : {
-    "taggable" : false
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "iam:PassRole", "events:DescribeRule", "events:ListTargetsByRule" ]
+  "typeName" : "AWS::Events::Rule",
+  "description" : "Resource Type definition for AWS::Events::Rule",
+  "additionalProperties" : false,
+  "properties" : {
+    "EventBusName" : {
+      "type" : "string"
     },
-    "create" : {
-      "permissions" : [ "iam:PassRole", "events:DescribeRule", "events:PutRule", "events:PutTargets" ]
+    "EventPattern" : {
+      "type" : "object"
     },
-    "update" : {
-      "permissions" : [ "iam:PassRole", "events:DescribeRule", "events:PutRule", "events:RemoveTargets", "events:PutTargets" ]
+    "ScheduleExpression" : {
+      "type" : "string"
     },
-    "list" : {
-      "permissions" : [ "events:ListRules" ]
+    "Description" : {
+      "type" : "string"
     },
-    "delete" : {
-      "permissions" : [ "iam:PassRole", "events:DescribeRule", "events:DeleteRule", "events:RemoveTargets", "events:ListTargetsByRule" ]
+    "State" : {
+      "type" : "string"
+    },
+    "Targets" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/Target"
+      }
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "RoleArn" : {
+      "type" : "string"
+    },
+    "Name" : {
+      "type" : "string"
     }
   },
-  "typeName" : "AWS::Events::Rule",
-  "readOnlyProperties" : [ "/properties/Arn" ],
-  "description" : "Resource Type definition for AWS::Events::Rule",
-  "createOnlyProperties" : [ "/properties/Name" ],
-  "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {
     "CapacityProviderStrategyItem" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "CapacityProvider" : {
-          "type" : "string"
-        },
         "Base" : {
           "type" : "integer"
         },
         "Weight" : {
           "type" : "integer"
+        },
+        "CapacityProvider" : {
+          "type" : "string"
         }
       },
       "required" : [ "CapacityProvider" ]
     },
     "HttpParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "PathParameterValues" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
         },
         "HeaderParameters" : {
+          "type" : "object",
           "patternProperties" : {
             "[a-zA-Z0-9]+" : {
               "type" : "string"
             }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
+          }
         },
         "QueryStringParameters" : {
+          "type" : "object",
           "patternProperties" : {
             "[a-zA-Z0-9]+" : {
               "type" : "string"
             }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
+          }
         }
       }
     },
     "DeadLetterConfig" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Arn" : {
           "type" : "string"
@@ -84,13 +94,12 @@
       }
     },
     "RunCommandParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "RunCommandTargets" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/RunCommandTarget"
           }
@@ -99,8 +108,8 @@
       "required" : [ "RunCommandTargets" ]
     },
     "PlacementStrategy" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Field" : {
           "type" : "string"
@@ -111,27 +120,26 @@
       }
     },
     "InputTransformer" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
+        "InputTemplate" : {
+          "type" : "string"
+        },
         "InputPathsMap" : {
+          "type" : "object",
           "patternProperties" : {
             "[a-zA-Z0-9]+" : {
               "type" : "string"
             }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
-        },
-        "InputTemplate" : {
-          "type" : "string"
+          }
         }
       },
       "required" : [ "InputTemplate" ]
     },
     "KinesisParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "PartitionKeyPath" : {
           "type" : "string"
@@ -140,8 +148,8 @@
       "required" : [ "PartitionKeyPath" ]
     },
     "BatchRetryStrategy" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Attempts" : {
           "type" : "integer"
@@ -149,19 +157,11 @@
       }
     },
     "RedshiftDataParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "StatementName" : {
           "type" : "string"
-        },
-        "Sqls" : {
-          "uniqueItems" : false,
-          "insertionOrder" : true,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
         },
         "Database" : {
           "type" : "string"
@@ -182,8 +182,8 @@
       "required" : [ "Database" ]
     },
     "Target" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "InputPath" : {
           "type" : "string"
@@ -237,33 +237,31 @@
       "required" : [ "Id", "Arn" ]
     },
     "PlacementConstraint" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Type" : {
+        "Expression" : {
           "type" : "string"
         },
-        "Expression" : {
+        "Type" : {
           "type" : "string"
         }
       }
     },
     "AwsVpcConfiguration" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "SecurityGroups" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
         },
         "Subnets" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -275,8 +273,8 @@
       "required" : [ "Subnets" ]
     },
     "SqsParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "MessageGroupId" : {
           "type" : "string"
@@ -285,13 +283,12 @@
       "required" : [ "MessageGroupId" ]
     },
     "RunCommandTarget" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Values" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -303,8 +300,8 @@
       "required" : [ "Values", "Key" ]
     },
     "EcsParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "PlatformVersion" : {
           "type" : "string"
@@ -319,9 +316,8 @@
           "type" : "boolean"
         },
         "PlacementConstraints" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/PlacementConstraint"
           }
@@ -333,17 +329,15 @@
           "type" : "integer"
         },
         "PlacementStrategies" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/PlacementStrategy"
           }
         },
         "CapacityProviderStrategy" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/CapacityProviderStrategyItem"
           }
@@ -355,9 +349,8 @@
           "type" : "string"
         },
         "TagList" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/Tag"
           }
@@ -372,17 +365,17 @@
       "required" : [ "TaskDefinitionArn" ]
     },
     "BatchParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "ArrayProperties" : {
-          "$ref" : "#/definitions/BatchArrayProperties"
-        },
         "JobName" : {
           "type" : "string"
         },
         "RetryStrategy" : {
           "$ref" : "#/definitions/BatchRetryStrategy"
+        },
+        "ArrayProperties" : {
+          "$ref" : "#/definitions/BatchArrayProperties"
         },
         "JobDefinition" : {
           "type" : "string"
@@ -391,8 +384,8 @@
       "required" : [ "JobName", "JobDefinition" ]
     },
     "NetworkConfiguration" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "AwsVpcConfiguration" : {
           "$ref" : "#/definitions/AwsVpcConfiguration"
@@ -400,8 +393,8 @@
       }
     },
     "Tag" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Value" : {
           "type" : "string"
@@ -412,13 +405,12 @@
       }
     },
     "SageMakerPipelineParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "PipelineParameterList" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/SageMakerPipelineParameter"
           }
@@ -426,20 +418,20 @@
       }
     },
     "RetryPolicy" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "MaximumRetryAttempts" : {
+        "MaximumEventAgeInSeconds" : {
           "type" : "integer"
         },
-        "MaximumEventAgeInSeconds" : {
+        "MaximumRetryAttempts" : {
           "type" : "integer"
         }
       }
     },
     "BatchArrayProperties" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Size" : {
           "type" : "integer"
@@ -447,8 +439,8 @@
       }
     },
     "SageMakerPipelineParameter" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Value" : {
           "type" : "string"
@@ -460,49 +452,7 @@
       "required" : [ "Value", "Name" ]
     }
   },
-  "properties" : {
-    "EventBusName" : {
-      "description" : "The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.",
-      "type" : "string"
-    },
-    "EventPattern" : {
-      "description" : "The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.",
-      "type" : [ "string", "object" ]
-    },
-    "ScheduleExpression" : {
-      "description" : "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.",
-      "type" : "string"
-    },
-    "Description" : {
-      "description" : "The description of the rule.",
-      "type" : "string"
-    },
-    "State" : {
-      "description" : "The state of the rule.",
-      "type" : "string",
-      "enum" : [ "DISABLED", "ENABLED" ]
-    },
-    "Targets" : {
-      "uniqueItems" : true,
-      "description" : "Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.\nTargets are the resources that are invoked when a rule is triggered.",
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Target"
-      }
-    },
-    "Arn" : {
-      "description" : "The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.",
-      "type" : "string"
-    },
-    "RoleArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the role that is used for target invocation.",
-      "type" : "string"
-    },
-    "Name" : {
-      "description" : "The name of the rule.",
-      "type" : "string"
-    }
-  },
-  "conditionalCreateOnlyProperties" : [ "/properties/EventBusName" ]
+  "createOnlyProperties" : [ "/properties/Name", "/properties/EventBusName" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
 }
