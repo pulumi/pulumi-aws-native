@@ -195,6 +195,11 @@
           "type" : "string",
           "description" : "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.",
           "enum" : [ "Pipe", "File" ]
+        },
+        "ExcludeFeaturesAttribute" : {
+          "type" : "string",
+          "description" : "Indexes or names of the features to be excluded from analysis",
+          "maxLength" : 100
         }
       },
       "required" : [ "EndpointName", "LocalPath" ]
@@ -228,6 +233,11 @@
           "type" : "string",
           "description" : "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.",
           "enum" : [ "Pipe", "File" ]
+        },
+        "ExcludeFeaturesAttribute" : {
+          "type" : "string",
+          "description" : "Indexes or names of the features to be excluded from analysis",
+          "maxLength" : 100
         }
       },
       "required" : [ "DataCapturedDestinationS3Uri", "DatasetFormat", "LocalPath" ]

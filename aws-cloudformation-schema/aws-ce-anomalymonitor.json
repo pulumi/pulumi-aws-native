@@ -57,7 +57,7 @@
       "type" : "string",
       "minLength" : 0,
       "maxLength" : 40,
-      "pattern" : "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?"
+      "pattern" : "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?|(NOT_EVALUATED_YET)"
     },
     "LastUpdatedDate" : {
       "description" : "The date when the monitor was last updated.",
@@ -93,7 +93,8 @@
   "additionalProperties" : false,
   "required" : [ "MonitorName", "MonitorType" ],
   "createOnlyProperties" : [ "/properties/MonitorType", "/properties/MonitorDimension", "/properties/MonitorSpecification", "/properties/ResourceTags" ],
-  "readOnlyProperties" : [ "/properties/MonitorArn", "/properties/CreationDate", "/properties/DimensionValueCount", "/properties/LastEvaluatedDate", "/properties/LastUpdatedDate", "/properties/DimensionalValueCount" ],
+  "readOnlyProperties" : [ "/properties/MonitorArn", "/properties/CreationDate", "/properties/LastEvaluatedDate", "/properties/LastUpdatedDate", "/properties/DimensionalValueCount" ],
+  "writeOnlyProperties" : [ "/properties/ResourceTags" ],
   "primaryIdentifier" : [ "/properties/MonitorArn" ],
   "handlers" : {
     "create" : {

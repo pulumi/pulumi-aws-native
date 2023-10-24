@@ -9324,6 +9324,20 @@
       "required" : [ "ComputationId" ],
       "additionalProperties" : false
     },
+    "ValidationStrategy" : {
+      "type" : "object",
+      "properties" : {
+        "Mode" : {
+          "$ref" : "#/definitions/ValidationStrategyMode"
+        }
+      },
+      "required" : [ "Mode" ],
+      "additionalProperties" : false
+    },
+    "ValidationStrategyMode" : {
+      "type" : "string",
+      "enum" : [ "STRICT", "LENIENT" ]
+    },
     "ValueWhenUnsetOption" : {
       "type" : "string",
       "enum" : [ "RECOMMENDED_VALUE", "NULL" ]
@@ -9895,6 +9909,9 @@
       "minLength" : 1,
       "pattern" : "[\\w\\-]+"
     },
+    "ValidationStrategy" : {
+      "$ref" : "#/definitions/ValidationStrategy"
+    },
     "Version" : {
       "$ref" : "#/definitions/TemplateVersion"
     },
@@ -9905,7 +9922,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/TemplateError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/Definition", "/properties/VersionDescription", "/properties/SourceEntity", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime" ],
+  "writeOnlyProperties" : [ "/properties/Definition", "/properties/VersionDescription", "/properties/SourceEntity", "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TemplateId" ],
   "handlers" : {

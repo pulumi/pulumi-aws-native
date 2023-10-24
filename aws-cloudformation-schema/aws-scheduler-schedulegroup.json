@@ -71,7 +71,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "scheduler:CreateScheduleGroup", "scheduler:GetScheduleGroup", "scheduler:ListTagsForResource" ]
+      "permissions" : [ "scheduler:TagResource", "scheduler:CreateScheduleGroup", "scheduler:GetScheduleGroup", "scheduler:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "scheduler:GetScheduleGroup", "scheduler:ListTagsForResource" ]
