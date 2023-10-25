@@ -310,8 +310,8 @@
   "taggable" : true,
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/JobArn", "/properties/Tags" ],
-  "createOnlyProperties" : [ "/properties/JobTemplateId", "/properties/JobArn", "/properties/Description", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/JobArn", "/properties/Tags", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows" ],
+  "createOnlyProperties" : [ "/properties/JobTemplateId", "/properties/JobArn", "/properties/Description", "/properties/Document", "/properties/DocumentSource", "/properties/TimeoutConfig", "/properties/JobExecutionsRolloutConfig", "/properties/AbortConfig", "/properties/PresignedUrlConfig", "/properties/Tags", "/properties/DestinationPackageVersions", "/properties/JobExecutionsRetryConfig", "/properties/MaintenanceWindows" ],
   "primaryIdentifier" : [ "/properties/JobTemplateId" ],
   "handlers" : {
     "create" : {

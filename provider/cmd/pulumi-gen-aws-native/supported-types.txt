@@ -39,6 +39,7 @@ AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
+AWS::AppConfig::Application
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
 AWS::AppFlow::Connector
@@ -61,6 +62,7 @@ AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
+AWS::AppSync::FunctionConfiguration
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
@@ -140,6 +142,9 @@ AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPool
 AWS::Cognito::IdentityPoolPrincipalTag
 AWS::Cognito::LogDeliveryConfiguration
+AWS::Cognito::UserPool
+AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolUser
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
@@ -325,6 +330,7 @@ AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::ElasticLoadBalancingV2::LoadBalancer
 AWS::ElasticLoadBalancingV2::TargetGroup
+AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
 AWS::EventSchemas::RegistryPolicy
@@ -377,6 +383,7 @@ AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore
+AWS::IAM::Group
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
 AWS::IAM::ManagedPolicy
@@ -528,6 +535,7 @@ AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
 AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
+AWS::MSK::Replicator
 AWS::MSK::ServerlessCluster
 AWS::MSK::VpcConnection
 AWS::MWAA::Environment

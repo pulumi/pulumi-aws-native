@@ -9,6 +9,9 @@
     "Type" : {
       "type" : "string"
     },
+    "KmsKeyIdentifier" : {
+      "type" : "string"
+    },
     "Description" : {
       "type" : "string"
     },
