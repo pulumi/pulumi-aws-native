@@ -22,6 +22,10 @@ class GroupArgs:
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[str] group_name: The name of the group to create
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        :param pulumi.Input[str] path: The path to the group
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyArgs']]] policies: Adds or updates an inline policy document that is embedded in the specified IAM group
         """
         GroupArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -50,6 +54,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group to create
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -59,6 +66,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @managed_policy_arns.setter
@@ -68,6 +78,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the group
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -77,6 +90,9 @@ class GroupArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyArgs']]]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM group
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -84,12 +100,7 @@ class GroupArgs:
         pulumi.set(self, "policies", value)
 
 
-warnings.warn("""Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Group(pulumi.CustomResource):
-    warnings.warn("""Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -104,6 +115,10 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_name: The name of the group to create
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        :param pulumi.Input[str] path: The path to the group
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM group
         """
         ...
     @overload
@@ -138,7 +153,6 @@ class Group(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Group is deprecated: Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -186,25 +200,40 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Arn of the group to create
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the group to create
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the group
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[Sequence['outputs.GroupPolicy']]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM group
+        """
         return pulumi.get(self, "policies")
 

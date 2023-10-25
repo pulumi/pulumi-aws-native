@@ -10,91 +10,91 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::Stage
+    /// The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Stage")]
     public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies settings for logging access in this stage.
+        /// Access log settings, including the access log format and access log destination ARN.
         /// </summary>
         [Output("accessLogSetting")]
         public Output<Outputs.StageAccessLogSetting?> AccessLogSetting { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether cache clustering is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage.
         /// </summary>
         [Output("cacheClusterEnabled")]
         public Output<bool?> CacheClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The stage's cache cluster size.
+        /// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
         /// </summary>
         [Output("cacheClusterSize")]
         public Output<string?> CacheClusterSize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies settings for the canary deployment in this stage.
+        /// Settings for the canary deployment in this stage.
         /// </summary>
         [Output("canarySetting")]
         public Output<Outputs.StageCanarySetting?> CanarySetting { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        /// The identifier of a client certificate for an API stage.
         /// </summary>
         [Output("clientCertificateId")]
         public Output<string?> ClientCertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        /// The identifier of the Deployment that the stage points to.
         /// </summary>
         [Output("deploymentId")]
         public Output<string?> DeploymentId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the stage.
+        /// The stage's description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The version ID of the API documentation snapshot.
+        /// The version of the associated API documentation.
         /// </summary>
         [Output("documentationVersion")]
         public Output<string?> DocumentationVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for all methods in the stage.
+        /// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
         /// </summary>
         [Output("methodSettings")]
         public Output<ImmutableArray<Outputs.StageMethodSetting>> MethodSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource that you're deploying with this stage.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        /// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StageTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether active X-Ray tracing is enabled for this stage.
+        /// Specifies whether active tracing with X-ray is enabled for the Stage.
         /// </summary>
         [Output("tracingEnabled")]
         public Output<bool?> TracingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
         [Output("variables")]
         public Output<object?> Variables { get; private set; } = null!;
@@ -150,49 +150,49 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies settings for logging access in this stage.
+        /// Access log settings, including the access log format and access log destination ARN.
         /// </summary>
         [Input("accessLogSetting")]
         public Input<Inputs.StageAccessLogSettingArgs>? AccessLogSetting { get; set; }
 
         /// <summary>
-        /// Indicates whether cache clustering is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage.
         /// </summary>
         [Input("cacheClusterEnabled")]
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The stage's cache cluster size.
+        /// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
-        /// Specifies settings for the canary deployment in this stage.
+        /// Settings for the canary deployment in this stage.
         /// </summary>
         [Input("canarySetting")]
         public Input<Inputs.StageCanarySettingArgs>? CanarySetting { get; set; }
 
         /// <summary>
-        /// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        /// The identifier of a client certificate for an API stage.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
 
         /// <summary>
-        /// The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        /// The identifier of the Deployment that the stage points to.
         /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
 
         /// <summary>
-        /// A description of the stage.
+        /// The stage's description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version ID of the API documentation snapshot.
+        /// The version of the associated API documentation.
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.StageMethodSettingArgs>? _methodSettings;
 
         /// <summary>
-        /// Settings for all methods in the stage.
+        /// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
         /// </summary>
         public InputList<Inputs.StageMethodSettingArgs> MethodSettings
         {
@@ -210,13 +210,13 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// The ID of the RestApi resource that you're deploying with this stage.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        /// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.StageTagArgs>? _tags;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the stage.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public InputList<Inputs.StageTagArgs> Tags
         {
@@ -234,13 +234,13 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// Specifies whether active X-Ray tracing is enabled for this stage.
+        /// Specifies whether active tracing with X-ray is enabled for the Stage.
         /// </summary>
         [Input("tracingEnabled")]
         public Input<bool>? TracingEnabled { get; set; }
 
         /// <summary>
-        /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        /// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
         [Input("variables")]
         public Input<object>? Variables { get; set; }

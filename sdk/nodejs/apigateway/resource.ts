@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Resource
+ * The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -47,7 +47,7 @@ export class Resource extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * The ID of the RestApi resource in which you want to create this resource..
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -101,7 +101,7 @@ export interface ResourceArgs {
      */
     pathPart: pulumi.Input<string>;
     /**
-     * The ID of the RestApi resource in which you want to create this resource..
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

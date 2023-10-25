@@ -17,7 +17,7 @@ class AccountArgs:
                  cloud_watch_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[str] cloud_watch_role_arn: The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        :param pulumi.Input[str] cloud_watch_role_arn: The ARN of an Amazon CloudWatch role for the current Account.
         """
         AccountArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -35,7 +35,7 @@ class AccountArgs:
     @pulumi.getter(name="cloudWatchRoleArn")
     def cloud_watch_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        The ARN of an Amazon CloudWatch role for the current Account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
 
@@ -52,11 +52,11 @@ class Account(pulumi.CustomResource):
                  cloud_watch_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::Account
+        The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_watch_role_arn: The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        :param pulumi.Input[str] cloud_watch_role_arn: The ARN of an Amazon CloudWatch role for the current Account.
         """
         ...
     @overload
@@ -65,7 +65,7 @@ class Account(pulumi.CustomResource):
                  args: Optional[AccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::Account
+        The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -126,7 +126,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="cloudWatchRoleArn")
     def cloud_watch_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        The ARN of an Amazon CloudWatch role for the current Account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
 

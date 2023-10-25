@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
+        [Output("validationStrategy")]
+        public Output<Outputs.DashboardValidationStrategy?> ValidationStrategy { get; private set; } = null!;
+
         [Output("version")]
         public Output<Outputs.DashboardVersion> Version { get; private set; } = null!;
 
@@ -152,6 +155,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
+
+        [Input("validationStrategy")]
+        public Input<Inputs.DashboardValidationStrategyArgs>? ValidationStrategy { get; set; }
 
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

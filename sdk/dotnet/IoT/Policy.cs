@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("policyName")]
         public Output<string?> PolicyName { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.PolicyTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Policy resource with the given unique name, arguments, and options.
@@ -78,6 +81,14 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.PolicyTagArgs>? _tags;
+        public InputList<Inputs.PolicyTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.PolicyTagArgs>());
+            set => _tags = value;
+        }
 
         public PolicyArgs()
         {

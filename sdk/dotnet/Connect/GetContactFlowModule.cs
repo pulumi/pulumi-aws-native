@@ -80,11 +80,11 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The state of the contact flow module.
         /// </summary>
-        public readonly Pulumi.AwsNative.Connect.ContactFlowModuleState? State;
+        public readonly string? State;
         /// <summary>
         /// The status of the contact flow module.
         /// </summary>
-        public readonly Pulumi.AwsNative.Connect.ContactFlowModuleStatus? Status;
+        public readonly string? Status;
         /// <summary>
         /// One or more tags.
         /// </summary>
@@ -102,9 +102,9 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
-            Pulumi.AwsNative.Connect.ContactFlowModuleState? state,
+            string? state,
 
-            Pulumi.AwsNative.Connect.ContactFlowModuleStatus? status,
+            string? status,
 
             ImmutableArray<Outputs.ContactFlowModuleTag> tags)
         {

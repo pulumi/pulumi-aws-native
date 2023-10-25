@@ -1015,6 +1015,2051 @@ func (o DestinationDetailsPropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+type DomainAttributeTypesSelector struct {
+	// The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+	Address []string `pulumi:"address"`
+	// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+	AttributeMatchingModel DomainAttributeTypesSelectorAttributeMatchingModel `pulumi:"attributeMatchingModel"`
+	// The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+	EmailAddress []string `pulumi:"emailAddress"`
+	// The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+	PhoneNumber []string `pulumi:"phoneNumber"`
+}
+
+// DomainAttributeTypesSelectorInput is an input type that accepts DomainAttributeTypesSelectorArgs and DomainAttributeTypesSelectorOutput values.
+// You can construct a concrete instance of `DomainAttributeTypesSelectorInput` via:
+//
+//	DomainAttributeTypesSelectorArgs{...}
+type DomainAttributeTypesSelectorInput interface {
+	pulumi.Input
+
+	ToDomainAttributeTypesSelectorOutput() DomainAttributeTypesSelectorOutput
+	ToDomainAttributeTypesSelectorOutputWithContext(context.Context) DomainAttributeTypesSelectorOutput
+}
+
+// Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+type DomainAttributeTypesSelectorArgs struct {
+	// The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+	Address pulumi.StringArrayInput `pulumi:"address"`
+	// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+	AttributeMatchingModel DomainAttributeTypesSelectorAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
+	// The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+	EmailAddress pulumi.StringArrayInput `pulumi:"emailAddress"`
+	// The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+	PhoneNumber pulumi.StringArrayInput `pulumi:"phoneNumber"`
+}
+
+func (DomainAttributeTypesSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAttributeTypesSelector)(nil)).Elem()
+}
+
+func (i DomainAttributeTypesSelectorArgs) ToDomainAttributeTypesSelectorOutput() DomainAttributeTypesSelectorOutput {
+	return i.ToDomainAttributeTypesSelectorOutputWithContext(context.Background())
+}
+
+func (i DomainAttributeTypesSelectorArgs) ToDomainAttributeTypesSelectorOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAttributeTypesSelectorOutput)
+}
+
+func (i DomainAttributeTypesSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAttributeTypesSelector] {
+	return pulumix.Output[DomainAttributeTypesSelector]{
+		OutputState: i.ToDomainAttributeTypesSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainAttributeTypesSelectorArgs) ToDomainAttributeTypesSelectorPtrOutput() DomainAttributeTypesSelectorPtrOutput {
+	return i.ToDomainAttributeTypesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAttributeTypesSelectorArgs) ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAttributeTypesSelectorOutput).ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx)
+}
+
+// DomainAttributeTypesSelectorPtrInput is an input type that accepts DomainAttributeTypesSelectorArgs, DomainAttributeTypesSelectorPtr and DomainAttributeTypesSelectorPtrOutput values.
+// You can construct a concrete instance of `DomainAttributeTypesSelectorPtrInput` via:
+//
+//	        DomainAttributeTypesSelectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAttributeTypesSelectorPtrInput interface {
+	pulumi.Input
+
+	ToDomainAttributeTypesSelectorPtrOutput() DomainAttributeTypesSelectorPtrOutput
+	ToDomainAttributeTypesSelectorPtrOutputWithContext(context.Context) DomainAttributeTypesSelectorPtrOutput
+}
+
+type domainAttributeTypesSelectorPtrType DomainAttributeTypesSelectorArgs
+
+func DomainAttributeTypesSelectorPtr(v *DomainAttributeTypesSelectorArgs) DomainAttributeTypesSelectorPtrInput {
+	return (*domainAttributeTypesSelectorPtrType)(v)
+}
+
+func (*domainAttributeTypesSelectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAttributeTypesSelector)(nil)).Elem()
+}
+
+func (i *domainAttributeTypesSelectorPtrType) ToDomainAttributeTypesSelectorPtrOutput() DomainAttributeTypesSelectorPtrOutput {
+	return i.ToDomainAttributeTypesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAttributeTypesSelectorPtrType) ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAttributeTypesSelectorPtrOutput)
+}
+
+func (i *domainAttributeTypesSelectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelector] {
+	return pulumix.Output[*DomainAttributeTypesSelector]{
+		OutputState: i.ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+type DomainAttributeTypesSelectorOutput struct{ *pulumi.OutputState }
+
+func (DomainAttributeTypesSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAttributeTypesSelector)(nil)).Elem()
+}
+
+func (o DomainAttributeTypesSelectorOutput) ToDomainAttributeTypesSelectorOutput() DomainAttributeTypesSelectorOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorOutput) ToDomainAttributeTypesSelectorOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorOutput) ToDomainAttributeTypesSelectorPtrOutput() DomainAttributeTypesSelectorPtrOutput {
+	return o.ToDomainAttributeTypesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAttributeTypesSelectorOutput) ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAttributeTypesSelector) *DomainAttributeTypesSelector {
+		return &v
+	}).(DomainAttributeTypesSelectorPtrOutput)
+}
+
+func (o DomainAttributeTypesSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAttributeTypesSelector] {
+	return pulumix.Output[DomainAttributeTypesSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+func (o DomainAttributeTypesSelectorOutput) Address() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainAttributeTypesSelector) []string { return v.Address }).(pulumi.StringArrayOutput)
+}
+
+// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+func (o DomainAttributeTypesSelectorOutput) AttributeMatchingModel() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return o.ApplyT(func(v DomainAttributeTypesSelector) DomainAttributeTypesSelectorAttributeMatchingModel {
+		return v.AttributeMatchingModel
+	}).(DomainAttributeTypesSelectorAttributeMatchingModelOutput)
+}
+
+// The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+func (o DomainAttributeTypesSelectorOutput) EmailAddress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainAttributeTypesSelector) []string { return v.EmailAddress }).(pulumi.StringArrayOutput)
+}
+
+// The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+func (o DomainAttributeTypesSelectorOutput) PhoneNumber() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainAttributeTypesSelector) []string { return v.PhoneNumber }).(pulumi.StringArrayOutput)
+}
+
+type DomainAttributeTypesSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAttributeTypesSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAttributeTypesSelector)(nil)).Elem()
+}
+
+func (o DomainAttributeTypesSelectorPtrOutput) ToDomainAttributeTypesSelectorPtrOutput() DomainAttributeTypesSelectorPtrOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorPtrOutput) ToDomainAttributeTypesSelectorPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorPtrOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelector] {
+	return pulumix.Output[*DomainAttributeTypesSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainAttributeTypesSelectorPtrOutput) Elem() DomainAttributeTypesSelectorOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelector) DomainAttributeTypesSelector {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAttributeTypesSelector
+		return ret
+	}).(DomainAttributeTypesSelectorOutput)
+}
+
+// The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+func (o DomainAttributeTypesSelectorPtrOutput) Address() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringArrayOutput)
+}
+
+// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+func (o DomainAttributeTypesSelectorPtrOutput) AttributeMatchingModel() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelector) *DomainAttributeTypesSelectorAttributeMatchingModel {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeMatchingModel
+	}).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
+}
+
+// The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+func (o DomainAttributeTypesSelectorPtrOutput) EmailAddress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddress
+	}).(pulumi.StringArrayOutput)
+}
+
+// The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+func (o DomainAttributeTypesSelectorPtrOutput) PhoneNumber() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration information about the auto-merging process.
+type DomainAutoMerging struct {
+	ConflictResolution *DomainConflictResolution `pulumi:"conflictResolution"`
+	Consolidation      *DomainConsolidation      `pulumi:"consolidation"`
+	// The flag that enables the auto-merging of duplicate profiles.
+	Enabled bool `pulumi:"enabled"`
+	// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+	MinAllowedConfidenceScoreForMerging *float64 `pulumi:"minAllowedConfidenceScoreForMerging"`
+}
+
+// DomainAutoMergingInput is an input type that accepts DomainAutoMergingArgs and DomainAutoMergingOutput values.
+// You can construct a concrete instance of `DomainAutoMergingInput` via:
+//
+//	DomainAutoMergingArgs{...}
+type DomainAutoMergingInput interface {
+	pulumi.Input
+
+	ToDomainAutoMergingOutput() DomainAutoMergingOutput
+	ToDomainAutoMergingOutputWithContext(context.Context) DomainAutoMergingOutput
+}
+
+// Configuration information about the auto-merging process.
+type DomainAutoMergingArgs struct {
+	ConflictResolution DomainConflictResolutionPtrInput `pulumi:"conflictResolution"`
+	Consolidation      DomainConsolidationPtrInput      `pulumi:"consolidation"`
+	// The flag that enables the auto-merging of duplicate profiles.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+	MinAllowedConfidenceScoreForMerging pulumi.Float64PtrInput `pulumi:"minAllowedConfidenceScoreForMerging"`
+}
+
+func (DomainAutoMergingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoMerging)(nil)).Elem()
+}
+
+func (i DomainAutoMergingArgs) ToDomainAutoMergingOutput() DomainAutoMergingOutput {
+	return i.ToDomainAutoMergingOutputWithContext(context.Background())
+}
+
+func (i DomainAutoMergingArgs) ToDomainAutoMergingOutputWithContext(ctx context.Context) DomainAutoMergingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoMergingOutput)
+}
+
+func (i DomainAutoMergingArgs) ToOutput(ctx context.Context) pulumix.Output[DomainAutoMerging] {
+	return pulumix.Output[DomainAutoMerging]{
+		OutputState: i.ToDomainAutoMergingOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainAutoMergingArgs) ToDomainAutoMergingPtrOutput() DomainAutoMergingPtrOutput {
+	return i.ToDomainAutoMergingPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAutoMergingArgs) ToDomainAutoMergingPtrOutputWithContext(ctx context.Context) DomainAutoMergingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoMergingOutput).ToDomainAutoMergingPtrOutputWithContext(ctx)
+}
+
+// DomainAutoMergingPtrInput is an input type that accepts DomainAutoMergingArgs, DomainAutoMergingPtr and DomainAutoMergingPtrOutput values.
+// You can construct a concrete instance of `DomainAutoMergingPtrInput` via:
+//
+//	        DomainAutoMergingArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAutoMergingPtrInput interface {
+	pulumi.Input
+
+	ToDomainAutoMergingPtrOutput() DomainAutoMergingPtrOutput
+	ToDomainAutoMergingPtrOutputWithContext(context.Context) DomainAutoMergingPtrOutput
+}
+
+type domainAutoMergingPtrType DomainAutoMergingArgs
+
+func DomainAutoMergingPtr(v *DomainAutoMergingArgs) DomainAutoMergingPtrInput {
+	return (*domainAutoMergingPtrType)(v)
+}
+
+func (*domainAutoMergingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutoMerging)(nil)).Elem()
+}
+
+func (i *domainAutoMergingPtrType) ToDomainAutoMergingPtrOutput() DomainAutoMergingPtrOutput {
+	return i.ToDomainAutoMergingPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAutoMergingPtrType) ToDomainAutoMergingPtrOutputWithContext(ctx context.Context) DomainAutoMergingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoMergingPtrOutput)
+}
+
+func (i *domainAutoMergingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainAutoMerging] {
+	return pulumix.Output[*DomainAutoMerging]{
+		OutputState: i.ToDomainAutoMergingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configuration information about the auto-merging process.
+type DomainAutoMergingOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoMergingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoMerging)(nil)).Elem()
+}
+
+func (o DomainAutoMergingOutput) ToDomainAutoMergingOutput() DomainAutoMergingOutput {
+	return o
+}
+
+func (o DomainAutoMergingOutput) ToDomainAutoMergingOutputWithContext(ctx context.Context) DomainAutoMergingOutput {
+	return o
+}
+
+func (o DomainAutoMergingOutput) ToDomainAutoMergingPtrOutput() DomainAutoMergingPtrOutput {
+	return o.ToDomainAutoMergingPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAutoMergingOutput) ToDomainAutoMergingPtrOutputWithContext(ctx context.Context) DomainAutoMergingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAutoMerging) *DomainAutoMerging {
+		return &v
+	}).(DomainAutoMergingPtrOutput)
+}
+
+func (o DomainAutoMergingOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAutoMerging] {
+	return pulumix.Output[DomainAutoMerging]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainAutoMergingOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
+	return o.ApplyT(func(v DomainAutoMerging) *DomainConflictResolution { return v.ConflictResolution }).(DomainConflictResolutionPtrOutput)
+}
+
+func (o DomainAutoMergingOutput) Consolidation() DomainConsolidationPtrOutput {
+	return o.ApplyT(func(v DomainAutoMerging) *DomainConsolidation { return v.Consolidation }).(DomainConsolidationPtrOutput)
+}
+
+// The flag that enables the auto-merging of duplicate profiles.
+func (o DomainAutoMergingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainAutoMerging) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+func (o DomainAutoMergingOutput) MinAllowedConfidenceScoreForMerging() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DomainAutoMerging) *float64 { return v.MinAllowedConfidenceScoreForMerging }).(pulumi.Float64PtrOutput)
+}
+
+type DomainAutoMergingPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoMergingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutoMerging)(nil)).Elem()
+}
+
+func (o DomainAutoMergingPtrOutput) ToDomainAutoMergingPtrOutput() DomainAutoMergingPtrOutput {
+	return o
+}
+
+func (o DomainAutoMergingPtrOutput) ToDomainAutoMergingPtrOutputWithContext(ctx context.Context) DomainAutoMergingPtrOutput {
+	return o
+}
+
+func (o DomainAutoMergingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAutoMerging] {
+	return pulumix.Output[*DomainAutoMerging]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainAutoMergingPtrOutput) Elem() DomainAutoMergingOutput {
+	return o.ApplyT(func(v *DomainAutoMerging) DomainAutoMerging {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAutoMerging
+		return ret
+	}).(DomainAutoMergingOutput)
+}
+
+func (o DomainAutoMergingPtrOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
+	return o.ApplyT(func(v *DomainAutoMerging) *DomainConflictResolution {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolution
+	}).(DomainConflictResolutionPtrOutput)
+}
+
+func (o DomainAutoMergingPtrOutput) Consolidation() DomainConsolidationPtrOutput {
+	return o.ApplyT(func(v *DomainAutoMerging) *DomainConsolidation {
+		if v == nil {
+			return nil
+		}
+		return v.Consolidation
+	}).(DomainConsolidationPtrOutput)
+}
+
+// The flag that enables the auto-merging of duplicate profiles.
+func (o DomainAutoMergingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAutoMerging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+func (o DomainAutoMergingPtrOutput) MinAllowedConfidenceScoreForMerging() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DomainAutoMerging) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinAllowedConfidenceScoreForMerging
+	}).(pulumi.Float64PtrOutput)
+}
+
+// How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+type DomainConflictResolution struct {
+	// How the auto-merging process should resolve conflicts between different profiles.
+	ConflictResolvingModel DomainConflictResolutionConflictResolvingModel `pulumi:"conflictResolvingModel"`
+	// The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+	SourceName *string `pulumi:"sourceName"`
+}
+
+// DomainConflictResolutionInput is an input type that accepts DomainConflictResolutionArgs and DomainConflictResolutionOutput values.
+// You can construct a concrete instance of `DomainConflictResolutionInput` via:
+//
+//	DomainConflictResolutionArgs{...}
+type DomainConflictResolutionInput interface {
+	pulumi.Input
+
+	ToDomainConflictResolutionOutput() DomainConflictResolutionOutput
+	ToDomainConflictResolutionOutputWithContext(context.Context) DomainConflictResolutionOutput
+}
+
+// How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+type DomainConflictResolutionArgs struct {
+	// How the auto-merging process should resolve conflicts between different profiles.
+	ConflictResolvingModel DomainConflictResolutionConflictResolvingModelInput `pulumi:"conflictResolvingModel"`
+	// The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+}
+
+func (DomainConflictResolutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConflictResolution)(nil)).Elem()
+}
+
+func (i DomainConflictResolutionArgs) ToDomainConflictResolutionOutput() DomainConflictResolutionOutput {
+	return i.ToDomainConflictResolutionOutputWithContext(context.Background())
+}
+
+func (i DomainConflictResolutionArgs) ToDomainConflictResolutionOutputWithContext(ctx context.Context) DomainConflictResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConflictResolutionOutput)
+}
+
+func (i DomainConflictResolutionArgs) ToOutput(ctx context.Context) pulumix.Output[DomainConflictResolution] {
+	return pulumix.Output[DomainConflictResolution]{
+		OutputState: i.ToDomainConflictResolutionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainConflictResolutionArgs) ToDomainConflictResolutionPtrOutput() DomainConflictResolutionPtrOutput {
+	return i.ToDomainConflictResolutionPtrOutputWithContext(context.Background())
+}
+
+func (i DomainConflictResolutionArgs) ToDomainConflictResolutionPtrOutputWithContext(ctx context.Context) DomainConflictResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConflictResolutionOutput).ToDomainConflictResolutionPtrOutputWithContext(ctx)
+}
+
+// DomainConflictResolutionPtrInput is an input type that accepts DomainConflictResolutionArgs, DomainConflictResolutionPtr and DomainConflictResolutionPtrOutput values.
+// You can construct a concrete instance of `DomainConflictResolutionPtrInput` via:
+//
+//	        DomainConflictResolutionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainConflictResolutionPtrInput interface {
+	pulumi.Input
+
+	ToDomainConflictResolutionPtrOutput() DomainConflictResolutionPtrOutput
+	ToDomainConflictResolutionPtrOutputWithContext(context.Context) DomainConflictResolutionPtrOutput
+}
+
+type domainConflictResolutionPtrType DomainConflictResolutionArgs
+
+func DomainConflictResolutionPtr(v *DomainConflictResolutionArgs) DomainConflictResolutionPtrInput {
+	return (*domainConflictResolutionPtrType)(v)
+}
+
+func (*domainConflictResolutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConflictResolution)(nil)).Elem()
+}
+
+func (i *domainConflictResolutionPtrType) ToDomainConflictResolutionPtrOutput() DomainConflictResolutionPtrOutput {
+	return i.ToDomainConflictResolutionPtrOutputWithContext(context.Background())
+}
+
+func (i *domainConflictResolutionPtrType) ToDomainConflictResolutionPtrOutputWithContext(ctx context.Context) DomainConflictResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConflictResolutionPtrOutput)
+}
+
+func (i *domainConflictResolutionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolution] {
+	return pulumix.Output[*DomainConflictResolution]{
+		OutputState: i.ToDomainConflictResolutionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
+type DomainConflictResolutionOutput struct{ *pulumi.OutputState }
+
+func (DomainConflictResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConflictResolution)(nil)).Elem()
+}
+
+func (o DomainConflictResolutionOutput) ToDomainConflictResolutionOutput() DomainConflictResolutionOutput {
+	return o
+}
+
+func (o DomainConflictResolutionOutput) ToDomainConflictResolutionOutputWithContext(ctx context.Context) DomainConflictResolutionOutput {
+	return o
+}
+
+func (o DomainConflictResolutionOutput) ToDomainConflictResolutionPtrOutput() DomainConflictResolutionPtrOutput {
+	return o.ToDomainConflictResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConflictResolutionOutput) ToDomainConflictResolutionPtrOutputWithContext(ctx context.Context) DomainConflictResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConflictResolution) *DomainConflictResolution {
+		return &v
+	}).(DomainConflictResolutionPtrOutput)
+}
+
+func (o DomainConflictResolutionOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConflictResolution] {
+	return pulumix.Output[DomainConflictResolution]{
+		OutputState: o.OutputState,
+	}
+}
+
+// How the auto-merging process should resolve conflicts between different profiles.
+func (o DomainConflictResolutionOutput) ConflictResolvingModel() DomainConflictResolutionConflictResolvingModelOutput {
+	return o.ApplyT(func(v DomainConflictResolution) DomainConflictResolutionConflictResolvingModel {
+		return v.ConflictResolvingModel
+	}).(DomainConflictResolutionConflictResolvingModelOutput)
+}
+
+// The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+func (o DomainConflictResolutionOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainConflictResolution) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+}
+
+type DomainConflictResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConflictResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConflictResolution)(nil)).Elem()
+}
+
+func (o DomainConflictResolutionPtrOutput) ToDomainConflictResolutionPtrOutput() DomainConflictResolutionPtrOutput {
+	return o
+}
+
+func (o DomainConflictResolutionPtrOutput) ToDomainConflictResolutionPtrOutputWithContext(ctx context.Context) DomainConflictResolutionPtrOutput {
+	return o
+}
+
+func (o DomainConflictResolutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolution] {
+	return pulumix.Output[*DomainConflictResolution]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainConflictResolutionPtrOutput) Elem() DomainConflictResolutionOutput {
+	return o.ApplyT(func(v *DomainConflictResolution) DomainConflictResolution {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConflictResolution
+		return ret
+	}).(DomainConflictResolutionOutput)
+}
+
+// How the auto-merging process should resolve conflicts between different profiles.
+func (o DomainConflictResolutionPtrOutput) ConflictResolvingModel() DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return o.ApplyT(func(v *DomainConflictResolution) *DomainConflictResolutionConflictResolvingModel {
+		if v == nil {
+			return nil
+		}
+		return &v.ConflictResolvingModel
+	}).(DomainConflictResolutionConflictResolvingModelPtrOutput)
+}
+
+// The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+func (o DomainConflictResolutionPtrOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConflictResolution) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+type DomainConsolidation struct {
+	// A list of matching criteria.
+	MatchingAttributesList [][]string `pulumi:"matchingAttributesList"`
+}
+
+// DomainConsolidationInput is an input type that accepts DomainConsolidationArgs and DomainConsolidationOutput values.
+// You can construct a concrete instance of `DomainConsolidationInput` via:
+//
+//	DomainConsolidationArgs{...}
+type DomainConsolidationInput interface {
+	pulumi.Input
+
+	ToDomainConsolidationOutput() DomainConsolidationOutput
+	ToDomainConsolidationOutputWithContext(context.Context) DomainConsolidationOutput
+}
+
+// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+type DomainConsolidationArgs struct {
+	// A list of matching criteria.
+	MatchingAttributesList pulumi.StringArrayArrayInput `pulumi:"matchingAttributesList"`
+}
+
+func (DomainConsolidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConsolidation)(nil)).Elem()
+}
+
+func (i DomainConsolidationArgs) ToDomainConsolidationOutput() DomainConsolidationOutput {
+	return i.ToDomainConsolidationOutputWithContext(context.Background())
+}
+
+func (i DomainConsolidationArgs) ToDomainConsolidationOutputWithContext(ctx context.Context) DomainConsolidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConsolidationOutput)
+}
+
+func (i DomainConsolidationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainConsolidation] {
+	return pulumix.Output[DomainConsolidation]{
+		OutputState: i.ToDomainConsolidationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainConsolidationArgs) ToDomainConsolidationPtrOutput() DomainConsolidationPtrOutput {
+	return i.ToDomainConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainConsolidationArgs) ToDomainConsolidationPtrOutputWithContext(ctx context.Context) DomainConsolidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConsolidationOutput).ToDomainConsolidationPtrOutputWithContext(ctx)
+}
+
+// DomainConsolidationPtrInput is an input type that accepts DomainConsolidationArgs, DomainConsolidationPtr and DomainConsolidationPtrOutput values.
+// You can construct a concrete instance of `DomainConsolidationPtrInput` via:
+//
+//	        DomainConsolidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainConsolidationPtrInput interface {
+	pulumi.Input
+
+	ToDomainConsolidationPtrOutput() DomainConsolidationPtrOutput
+	ToDomainConsolidationPtrOutputWithContext(context.Context) DomainConsolidationPtrOutput
+}
+
+type domainConsolidationPtrType DomainConsolidationArgs
+
+func DomainConsolidationPtr(v *DomainConsolidationArgs) DomainConsolidationPtrInput {
+	return (*domainConsolidationPtrType)(v)
+}
+
+func (*domainConsolidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConsolidation)(nil)).Elem()
+}
+
+func (i *domainConsolidationPtrType) ToDomainConsolidationPtrOutput() DomainConsolidationPtrOutput {
+	return i.ToDomainConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainConsolidationPtrType) ToDomainConsolidationPtrOutputWithContext(ctx context.Context) DomainConsolidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConsolidationPtrOutput)
+}
+
+func (i *domainConsolidationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainConsolidation] {
+	return pulumix.Output[*DomainConsolidation]{
+		OutputState: i.ToDomainConsolidationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+type DomainConsolidationOutput struct{ *pulumi.OutputState }
+
+func (DomainConsolidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConsolidation)(nil)).Elem()
+}
+
+func (o DomainConsolidationOutput) ToDomainConsolidationOutput() DomainConsolidationOutput {
+	return o
+}
+
+func (o DomainConsolidationOutput) ToDomainConsolidationOutputWithContext(ctx context.Context) DomainConsolidationOutput {
+	return o
+}
+
+func (o DomainConsolidationOutput) ToDomainConsolidationPtrOutput() DomainConsolidationPtrOutput {
+	return o.ToDomainConsolidationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConsolidationOutput) ToDomainConsolidationPtrOutputWithContext(ctx context.Context) DomainConsolidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConsolidation) *DomainConsolidation {
+		return &v
+	}).(DomainConsolidationPtrOutput)
+}
+
+func (o DomainConsolidationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConsolidation] {
+	return pulumix.Output[DomainConsolidation]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of matching criteria.
+func (o DomainConsolidationOutput) MatchingAttributesList() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v DomainConsolidation) [][]string { return v.MatchingAttributesList }).(pulumi.StringArrayArrayOutput)
+}
+
+type DomainConsolidationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConsolidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConsolidation)(nil)).Elem()
+}
+
+func (o DomainConsolidationPtrOutput) ToDomainConsolidationPtrOutput() DomainConsolidationPtrOutput {
+	return o
+}
+
+func (o DomainConsolidationPtrOutput) ToDomainConsolidationPtrOutputWithContext(ctx context.Context) DomainConsolidationPtrOutput {
+	return o
+}
+
+func (o DomainConsolidationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConsolidation] {
+	return pulumix.Output[*DomainConsolidation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainConsolidationPtrOutput) Elem() DomainConsolidationOutput {
+	return o.ApplyT(func(v *DomainConsolidation) DomainConsolidation {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConsolidation
+		return ret
+	}).(DomainConsolidationOutput)
+}
+
+// A list of matching criteria.
+func (o DomainConsolidationPtrOutput) MatchingAttributesList() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v *DomainConsolidation) [][]string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingAttributesList
+	}).(pulumi.StringArrayArrayOutput)
+}
+
+// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+type DomainExportingConfig struct {
+	S3Exporting *DomainS3ExportingConfig `pulumi:"s3Exporting"`
+}
+
+// DomainExportingConfigInput is an input type that accepts DomainExportingConfigArgs and DomainExportingConfigOutput values.
+// You can construct a concrete instance of `DomainExportingConfigInput` via:
+//
+//	DomainExportingConfigArgs{...}
+type DomainExportingConfigInput interface {
+	pulumi.Input
+
+	ToDomainExportingConfigOutput() DomainExportingConfigOutput
+	ToDomainExportingConfigOutputWithContext(context.Context) DomainExportingConfigOutput
+}
+
+// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+type DomainExportingConfigArgs struct {
+	S3Exporting DomainS3ExportingConfigPtrInput `pulumi:"s3Exporting"`
+}
+
+func (DomainExportingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainExportingConfig)(nil)).Elem()
+}
+
+func (i DomainExportingConfigArgs) ToDomainExportingConfigOutput() DomainExportingConfigOutput {
+	return i.ToDomainExportingConfigOutputWithContext(context.Background())
+}
+
+func (i DomainExportingConfigArgs) ToDomainExportingConfigOutputWithContext(ctx context.Context) DomainExportingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainExportingConfigOutput)
+}
+
+func (i DomainExportingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainExportingConfig] {
+	return pulumix.Output[DomainExportingConfig]{
+		OutputState: i.ToDomainExportingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainExportingConfigArgs) ToDomainExportingConfigPtrOutput() DomainExportingConfigPtrOutput {
+	return i.ToDomainExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainExportingConfigArgs) ToDomainExportingConfigPtrOutputWithContext(ctx context.Context) DomainExportingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainExportingConfigOutput).ToDomainExportingConfigPtrOutputWithContext(ctx)
+}
+
+// DomainExportingConfigPtrInput is an input type that accepts DomainExportingConfigArgs, DomainExportingConfigPtr and DomainExportingConfigPtrOutput values.
+// You can construct a concrete instance of `DomainExportingConfigPtrInput` via:
+//
+//	        DomainExportingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainExportingConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainExportingConfigPtrOutput() DomainExportingConfigPtrOutput
+	ToDomainExportingConfigPtrOutputWithContext(context.Context) DomainExportingConfigPtrOutput
+}
+
+type domainExportingConfigPtrType DomainExportingConfigArgs
+
+func DomainExportingConfigPtr(v *DomainExportingConfigArgs) DomainExportingConfigPtrInput {
+	return (*domainExportingConfigPtrType)(v)
+}
+
+func (*domainExportingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainExportingConfig)(nil)).Elem()
+}
+
+func (i *domainExportingConfigPtrType) ToDomainExportingConfigPtrOutput() DomainExportingConfigPtrOutput {
+	return i.ToDomainExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainExportingConfigPtrType) ToDomainExportingConfigPtrOutputWithContext(ctx context.Context) DomainExportingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainExportingConfigPtrOutput)
+}
+
+func (i *domainExportingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainExportingConfig] {
+	return pulumix.Output[*DomainExportingConfig]{
+		OutputState: i.ToDomainExportingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+type DomainExportingConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainExportingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainExportingConfig)(nil)).Elem()
+}
+
+func (o DomainExportingConfigOutput) ToDomainExportingConfigOutput() DomainExportingConfigOutput {
+	return o
+}
+
+func (o DomainExportingConfigOutput) ToDomainExportingConfigOutputWithContext(ctx context.Context) DomainExportingConfigOutput {
+	return o
+}
+
+func (o DomainExportingConfigOutput) ToDomainExportingConfigPtrOutput() DomainExportingConfigPtrOutput {
+	return o.ToDomainExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainExportingConfigOutput) ToDomainExportingConfigPtrOutputWithContext(ctx context.Context) DomainExportingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainExportingConfig) *DomainExportingConfig {
+		return &v
+	}).(DomainExportingConfigPtrOutput)
+}
+
+func (o DomainExportingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainExportingConfig] {
+	return pulumix.Output[DomainExportingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainExportingConfigOutput) S3Exporting() DomainS3ExportingConfigPtrOutput {
+	return o.ApplyT(func(v DomainExportingConfig) *DomainS3ExportingConfig { return v.S3Exporting }).(DomainS3ExportingConfigPtrOutput)
+}
+
+type DomainExportingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainExportingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainExportingConfig)(nil)).Elem()
+}
+
+func (o DomainExportingConfigPtrOutput) ToDomainExportingConfigPtrOutput() DomainExportingConfigPtrOutput {
+	return o
+}
+
+func (o DomainExportingConfigPtrOutput) ToDomainExportingConfigPtrOutputWithContext(ctx context.Context) DomainExportingConfigPtrOutput {
+	return o
+}
+
+func (o DomainExportingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainExportingConfig] {
+	return pulumix.Output[*DomainExportingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainExportingConfigPtrOutput) Elem() DomainExportingConfigOutput {
+	return o.ApplyT(func(v *DomainExportingConfig) DomainExportingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainExportingConfig
+		return ret
+	}).(DomainExportingConfigOutput)
+}
+
+func (o DomainExportingConfigPtrOutput) S3Exporting() DomainS3ExportingConfigPtrOutput {
+	return o.ApplyT(func(v *DomainExportingConfig) *DomainS3ExportingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.S3Exporting
+	}).(DomainS3ExportingConfigPtrOutput)
+}
+
+// The day and time when do you want to start the Identity Resolution Job every week.
+type DomainJobSchedule struct {
+	// The day when the Identity Resolution Job should run every week.
+	DayOfTheWeek DomainJobScheduleDayOfTheWeek `pulumi:"dayOfTheWeek"`
+	// The time when the Identity Resolution Job should run every week.
+	Time string `pulumi:"time"`
+}
+
+// DomainJobScheduleInput is an input type that accepts DomainJobScheduleArgs and DomainJobScheduleOutput values.
+// You can construct a concrete instance of `DomainJobScheduleInput` via:
+//
+//	DomainJobScheduleArgs{...}
+type DomainJobScheduleInput interface {
+	pulumi.Input
+
+	ToDomainJobScheduleOutput() DomainJobScheduleOutput
+	ToDomainJobScheduleOutputWithContext(context.Context) DomainJobScheduleOutput
+}
+
+// The day and time when do you want to start the Identity Resolution Job every week.
+type DomainJobScheduleArgs struct {
+	// The day when the Identity Resolution Job should run every week.
+	DayOfTheWeek DomainJobScheduleDayOfTheWeekInput `pulumi:"dayOfTheWeek"`
+	// The time when the Identity Resolution Job should run every week.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (DomainJobScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJobSchedule)(nil)).Elem()
+}
+
+func (i DomainJobScheduleArgs) ToDomainJobScheduleOutput() DomainJobScheduleOutput {
+	return i.ToDomainJobScheduleOutputWithContext(context.Background())
+}
+
+func (i DomainJobScheduleArgs) ToDomainJobScheduleOutputWithContext(ctx context.Context) DomainJobScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJobScheduleOutput)
+}
+
+func (i DomainJobScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[DomainJobSchedule] {
+	return pulumix.Output[DomainJobSchedule]{
+		OutputState: i.ToDomainJobScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainJobScheduleArgs) ToDomainJobSchedulePtrOutput() DomainJobSchedulePtrOutput {
+	return i.ToDomainJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DomainJobScheduleArgs) ToDomainJobSchedulePtrOutputWithContext(ctx context.Context) DomainJobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJobScheduleOutput).ToDomainJobSchedulePtrOutputWithContext(ctx)
+}
+
+// DomainJobSchedulePtrInput is an input type that accepts DomainJobScheduleArgs, DomainJobSchedulePtr and DomainJobSchedulePtrOutput values.
+// You can construct a concrete instance of `DomainJobSchedulePtrInput` via:
+//
+//	        DomainJobScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainJobSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDomainJobSchedulePtrOutput() DomainJobSchedulePtrOutput
+	ToDomainJobSchedulePtrOutputWithContext(context.Context) DomainJobSchedulePtrOutput
+}
+
+type domainJobSchedulePtrType DomainJobScheduleArgs
+
+func DomainJobSchedulePtr(v *DomainJobScheduleArgs) DomainJobSchedulePtrInput {
+	return (*domainJobSchedulePtrType)(v)
+}
+
+func (*domainJobSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJobSchedule)(nil)).Elem()
+}
+
+func (i *domainJobSchedulePtrType) ToDomainJobSchedulePtrOutput() DomainJobSchedulePtrOutput {
+	return i.ToDomainJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *domainJobSchedulePtrType) ToDomainJobSchedulePtrOutputWithContext(ctx context.Context) DomainJobSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJobSchedulePtrOutput)
+}
+
+func (i *domainJobSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainJobSchedule] {
+	return pulumix.Output[*DomainJobSchedule]{
+		OutputState: i.ToDomainJobSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The day and time when do you want to start the Identity Resolution Job every week.
+type DomainJobScheduleOutput struct{ *pulumi.OutputState }
+
+func (DomainJobScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJobSchedule)(nil)).Elem()
+}
+
+func (o DomainJobScheduleOutput) ToDomainJobScheduleOutput() DomainJobScheduleOutput {
+	return o
+}
+
+func (o DomainJobScheduleOutput) ToDomainJobScheduleOutputWithContext(ctx context.Context) DomainJobScheduleOutput {
+	return o
+}
+
+func (o DomainJobScheduleOutput) ToDomainJobSchedulePtrOutput() DomainJobSchedulePtrOutput {
+	return o.ToDomainJobSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DomainJobScheduleOutput) ToDomainJobSchedulePtrOutputWithContext(ctx context.Context) DomainJobSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainJobSchedule) *DomainJobSchedule {
+		return &v
+	}).(DomainJobSchedulePtrOutput)
+}
+
+func (o DomainJobScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[DomainJobSchedule] {
+	return pulumix.Output[DomainJobSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The day when the Identity Resolution Job should run every week.
+func (o DomainJobScheduleOutput) DayOfTheWeek() DomainJobScheduleDayOfTheWeekOutput {
+	return o.ApplyT(func(v DomainJobSchedule) DomainJobScheduleDayOfTheWeek { return v.DayOfTheWeek }).(DomainJobScheduleDayOfTheWeekOutput)
+}
+
+// The time when the Identity Resolution Job should run every week.
+func (o DomainJobScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainJobSchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type DomainJobSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainJobSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJobSchedule)(nil)).Elem()
+}
+
+func (o DomainJobSchedulePtrOutput) ToDomainJobSchedulePtrOutput() DomainJobSchedulePtrOutput {
+	return o
+}
+
+func (o DomainJobSchedulePtrOutput) ToDomainJobSchedulePtrOutputWithContext(ctx context.Context) DomainJobSchedulePtrOutput {
+	return o
+}
+
+func (o DomainJobSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainJobSchedule] {
+	return pulumix.Output[*DomainJobSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainJobSchedulePtrOutput) Elem() DomainJobScheduleOutput {
+	return o.ApplyT(func(v *DomainJobSchedule) DomainJobSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DomainJobSchedule
+		return ret
+	}).(DomainJobScheduleOutput)
+}
+
+// The day when the Identity Resolution Job should run every week.
+func (o DomainJobSchedulePtrOutput) DayOfTheWeek() DomainJobScheduleDayOfTheWeekPtrOutput {
+	return o.ApplyT(func(v *DomainJobSchedule) *DomainJobScheduleDayOfTheWeek {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfTheWeek
+	}).(DomainJobScheduleDayOfTheWeekPtrOutput)
+}
+
+// The time when the Identity Resolution Job should run every week.
+func (o DomainJobSchedulePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainJobSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
+// The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+type DomainMatching struct {
+	AutoMerging *DomainAutoMerging `pulumi:"autoMerging"`
+	// The flag that enables the matching process of duplicate profiles.
+	Enabled         bool                   `pulumi:"enabled"`
+	ExportingConfig *DomainExportingConfig `pulumi:"exportingConfig"`
+	JobSchedule     *DomainJobSchedule     `pulumi:"jobSchedule"`
+}
+
+// DomainMatchingInput is an input type that accepts DomainMatchingArgs and DomainMatchingOutput values.
+// You can construct a concrete instance of `DomainMatchingInput` via:
+//
+//	DomainMatchingArgs{...}
+type DomainMatchingInput interface {
+	pulumi.Input
+
+	ToDomainMatchingOutput() DomainMatchingOutput
+	ToDomainMatchingOutputWithContext(context.Context) DomainMatchingOutput
+}
+
+// The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+type DomainMatchingArgs struct {
+	AutoMerging DomainAutoMergingPtrInput `pulumi:"autoMerging"`
+	// The flag that enables the matching process of duplicate profiles.
+	Enabled         pulumi.BoolInput              `pulumi:"enabled"`
+	ExportingConfig DomainExportingConfigPtrInput `pulumi:"exportingConfig"`
+	JobSchedule     DomainJobSchedulePtrInput     `pulumi:"jobSchedule"`
+}
+
+func (DomainMatchingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMatching)(nil)).Elem()
+}
+
+func (i DomainMatchingArgs) ToDomainMatchingOutput() DomainMatchingOutput {
+	return i.ToDomainMatchingOutputWithContext(context.Background())
+}
+
+func (i DomainMatchingArgs) ToDomainMatchingOutputWithContext(ctx context.Context) DomainMatchingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMatchingOutput)
+}
+
+func (i DomainMatchingArgs) ToOutput(ctx context.Context) pulumix.Output[DomainMatching] {
+	return pulumix.Output[DomainMatching]{
+		OutputState: i.ToDomainMatchingOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainMatchingArgs) ToDomainMatchingPtrOutput() DomainMatchingPtrOutput {
+	return i.ToDomainMatchingPtrOutputWithContext(context.Background())
+}
+
+func (i DomainMatchingArgs) ToDomainMatchingPtrOutputWithContext(ctx context.Context) DomainMatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMatchingOutput).ToDomainMatchingPtrOutputWithContext(ctx)
+}
+
+// DomainMatchingPtrInput is an input type that accepts DomainMatchingArgs, DomainMatchingPtr and DomainMatchingPtrOutput values.
+// You can construct a concrete instance of `DomainMatchingPtrInput` via:
+//
+//	        DomainMatchingArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainMatchingPtrInput interface {
+	pulumi.Input
+
+	ToDomainMatchingPtrOutput() DomainMatchingPtrOutput
+	ToDomainMatchingPtrOutputWithContext(context.Context) DomainMatchingPtrOutput
+}
+
+type domainMatchingPtrType DomainMatchingArgs
+
+func DomainMatchingPtr(v *DomainMatchingArgs) DomainMatchingPtrInput {
+	return (*domainMatchingPtrType)(v)
+}
+
+func (*domainMatchingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainMatching)(nil)).Elem()
+}
+
+func (i *domainMatchingPtrType) ToDomainMatchingPtrOutput() DomainMatchingPtrOutput {
+	return i.ToDomainMatchingPtrOutputWithContext(context.Background())
+}
+
+func (i *domainMatchingPtrType) ToDomainMatchingPtrOutputWithContext(ctx context.Context) DomainMatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMatchingPtrOutput)
+}
+
+func (i *domainMatchingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainMatching] {
+	return pulumix.Output[*DomainMatching]{
+		OutputState: i.ToDomainMatchingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+type DomainMatchingOutput struct{ *pulumi.OutputState }
+
+func (DomainMatchingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMatching)(nil)).Elem()
+}
+
+func (o DomainMatchingOutput) ToDomainMatchingOutput() DomainMatchingOutput {
+	return o
+}
+
+func (o DomainMatchingOutput) ToDomainMatchingOutputWithContext(ctx context.Context) DomainMatchingOutput {
+	return o
+}
+
+func (o DomainMatchingOutput) ToDomainMatchingPtrOutput() DomainMatchingPtrOutput {
+	return o.ToDomainMatchingPtrOutputWithContext(context.Background())
+}
+
+func (o DomainMatchingOutput) ToDomainMatchingPtrOutputWithContext(ctx context.Context) DomainMatchingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainMatching) *DomainMatching {
+		return &v
+	}).(DomainMatchingPtrOutput)
+}
+
+func (o DomainMatchingOutput) ToOutput(ctx context.Context) pulumix.Output[DomainMatching] {
+	return pulumix.Output[DomainMatching]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainMatchingOutput) AutoMerging() DomainAutoMergingPtrOutput {
+	return o.ApplyT(func(v DomainMatching) *DomainAutoMerging { return v.AutoMerging }).(DomainAutoMergingPtrOutput)
+}
+
+// The flag that enables the matching process of duplicate profiles.
+func (o DomainMatchingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o DomainMatchingOutput) ExportingConfig() DomainExportingConfigPtrOutput {
+	return o.ApplyT(func(v DomainMatching) *DomainExportingConfig { return v.ExportingConfig }).(DomainExportingConfigPtrOutput)
+}
+
+func (o DomainMatchingOutput) JobSchedule() DomainJobSchedulePtrOutput {
+	return o.ApplyT(func(v DomainMatching) *DomainJobSchedule { return v.JobSchedule }).(DomainJobSchedulePtrOutput)
+}
+
+type DomainMatchingPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainMatchingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainMatching)(nil)).Elem()
+}
+
+func (o DomainMatchingPtrOutput) ToDomainMatchingPtrOutput() DomainMatchingPtrOutput {
+	return o
+}
+
+func (o DomainMatchingPtrOutput) ToDomainMatchingPtrOutputWithContext(ctx context.Context) DomainMatchingPtrOutput {
+	return o
+}
+
+func (o DomainMatchingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainMatching] {
+	return pulumix.Output[*DomainMatching]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainMatchingPtrOutput) Elem() DomainMatchingOutput {
+	return o.ApplyT(func(v *DomainMatching) DomainMatching {
+		if v != nil {
+			return *v
+		}
+		var ret DomainMatching
+		return ret
+	}).(DomainMatchingOutput)
+}
+
+func (o DomainMatchingPtrOutput) AutoMerging() DomainAutoMergingPtrOutput {
+	return o.ApplyT(func(v *DomainMatching) *DomainAutoMerging {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMerging
+	}).(DomainAutoMergingPtrOutput)
+}
+
+// The flag that enables the matching process of duplicate profiles.
+func (o DomainMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainMatching) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainMatchingPtrOutput) ExportingConfig() DomainExportingConfigPtrOutput {
+	return o.ApplyT(func(v *DomainMatching) *DomainExportingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ExportingConfig
+	}).(DomainExportingConfigPtrOutput)
+}
+
+func (o DomainMatchingPtrOutput) JobSchedule() DomainJobSchedulePtrOutput {
+	return o.ApplyT(func(v *DomainMatching) *DomainJobSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.JobSchedule
+	}).(DomainJobSchedulePtrOutput)
+}
+
+// Specifies how does the rule-based matching process should match profiles.
+type DomainMatchingRule struct {
+	Rule []string `pulumi:"rule"`
+}
+
+// DomainMatchingRuleInput is an input type that accepts DomainMatchingRuleArgs and DomainMatchingRuleOutput values.
+// You can construct a concrete instance of `DomainMatchingRuleInput` via:
+//
+//	DomainMatchingRuleArgs{...}
+type DomainMatchingRuleInput interface {
+	pulumi.Input
+
+	ToDomainMatchingRuleOutput() DomainMatchingRuleOutput
+	ToDomainMatchingRuleOutputWithContext(context.Context) DomainMatchingRuleOutput
+}
+
+// Specifies how does the rule-based matching process should match profiles.
+type DomainMatchingRuleArgs struct {
+	Rule pulumi.StringArrayInput `pulumi:"rule"`
+}
+
+func (DomainMatchingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMatchingRule)(nil)).Elem()
+}
+
+func (i DomainMatchingRuleArgs) ToDomainMatchingRuleOutput() DomainMatchingRuleOutput {
+	return i.ToDomainMatchingRuleOutputWithContext(context.Background())
+}
+
+func (i DomainMatchingRuleArgs) ToDomainMatchingRuleOutputWithContext(ctx context.Context) DomainMatchingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMatchingRuleOutput)
+}
+
+func (i DomainMatchingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DomainMatchingRule] {
+	return pulumix.Output[DomainMatchingRule]{
+		OutputState: i.ToDomainMatchingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DomainMatchingRuleArrayInput is an input type that accepts DomainMatchingRuleArray and DomainMatchingRuleArrayOutput values.
+// You can construct a concrete instance of `DomainMatchingRuleArrayInput` via:
+//
+//	DomainMatchingRuleArray{ DomainMatchingRuleArgs{...} }
+type DomainMatchingRuleArrayInput interface {
+	pulumi.Input
+
+	ToDomainMatchingRuleArrayOutput() DomainMatchingRuleArrayOutput
+	ToDomainMatchingRuleArrayOutputWithContext(context.Context) DomainMatchingRuleArrayOutput
+}
+
+type DomainMatchingRuleArray []DomainMatchingRuleInput
+
+func (DomainMatchingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainMatchingRule)(nil)).Elem()
+}
+
+func (i DomainMatchingRuleArray) ToDomainMatchingRuleArrayOutput() DomainMatchingRuleArrayOutput {
+	return i.ToDomainMatchingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DomainMatchingRuleArray) ToDomainMatchingRuleArrayOutputWithContext(ctx context.Context) DomainMatchingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainMatchingRuleArrayOutput)
+}
+
+func (i DomainMatchingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainMatchingRule] {
+	return pulumix.Output[[]DomainMatchingRule]{
+		OutputState: i.ToDomainMatchingRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies how does the rule-based matching process should match profiles.
+type DomainMatchingRuleOutput struct{ *pulumi.OutputState }
+
+func (DomainMatchingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainMatchingRule)(nil)).Elem()
+}
+
+func (o DomainMatchingRuleOutput) ToDomainMatchingRuleOutput() DomainMatchingRuleOutput {
+	return o
+}
+
+func (o DomainMatchingRuleOutput) ToDomainMatchingRuleOutputWithContext(ctx context.Context) DomainMatchingRuleOutput {
+	return o
+}
+
+func (o DomainMatchingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DomainMatchingRule] {
+	return pulumix.Output[DomainMatchingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainMatchingRuleOutput) Rule() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainMatchingRule) []string { return v.Rule }).(pulumi.StringArrayOutput)
+}
+
+type DomainMatchingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainMatchingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainMatchingRule)(nil)).Elem()
+}
+
+func (o DomainMatchingRuleArrayOutput) ToDomainMatchingRuleArrayOutput() DomainMatchingRuleArrayOutput {
+	return o
+}
+
+func (o DomainMatchingRuleArrayOutput) ToDomainMatchingRuleArrayOutputWithContext(ctx context.Context) DomainMatchingRuleArrayOutput {
+	return o
+}
+
+func (o DomainMatchingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainMatchingRule] {
+	return pulumix.Output[[]DomainMatchingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainMatchingRuleArrayOutput) Index(i pulumi.IntInput) DomainMatchingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainMatchingRule {
+		return vs[0].([]DomainMatchingRule)[vs[1].(int)]
+	}).(DomainMatchingRuleOutput)
+}
+
+// The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+type DomainRuleBasedMatching struct {
+	AttributeTypesSelector *DomainAttributeTypesSelector `pulumi:"attributeTypesSelector"`
+	ConflictResolution     *DomainConflictResolution     `pulumi:"conflictResolution"`
+	// The flag that enables the rule-based matching process of duplicate profiles.
+	Enabled         bool                   `pulumi:"enabled"`
+	ExportingConfig *DomainExportingConfig `pulumi:"exportingConfig"`
+	// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+	MatchingRules []DomainMatchingRule `pulumi:"matchingRules"`
+	// Indicates the maximum allowed rule level for matching.
+	MaxAllowedRuleLevelForMatching *int `pulumi:"maxAllowedRuleLevelForMatching"`
+	// Indicates the maximum allowed rule level for merging.
+	MaxAllowedRuleLevelForMerging *int                           `pulumi:"maxAllowedRuleLevelForMerging"`
+	Status                        *DomainRuleBasedMatchingStatus `pulumi:"status"`
+}
+
+// DomainRuleBasedMatchingInput is an input type that accepts DomainRuleBasedMatchingArgs and DomainRuleBasedMatchingOutput values.
+// You can construct a concrete instance of `DomainRuleBasedMatchingInput` via:
+//
+//	DomainRuleBasedMatchingArgs{...}
+type DomainRuleBasedMatchingInput interface {
+	pulumi.Input
+
+	ToDomainRuleBasedMatchingOutput() DomainRuleBasedMatchingOutput
+	ToDomainRuleBasedMatchingOutputWithContext(context.Context) DomainRuleBasedMatchingOutput
+}
+
+// The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+type DomainRuleBasedMatchingArgs struct {
+	AttributeTypesSelector DomainAttributeTypesSelectorPtrInput `pulumi:"attributeTypesSelector"`
+	ConflictResolution     DomainConflictResolutionPtrInput     `pulumi:"conflictResolution"`
+	// The flag that enables the rule-based matching process of duplicate profiles.
+	Enabled         pulumi.BoolInput              `pulumi:"enabled"`
+	ExportingConfig DomainExportingConfigPtrInput `pulumi:"exportingConfig"`
+	// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+	MatchingRules DomainMatchingRuleArrayInput `pulumi:"matchingRules"`
+	// Indicates the maximum allowed rule level for matching.
+	MaxAllowedRuleLevelForMatching pulumi.IntPtrInput `pulumi:"maxAllowedRuleLevelForMatching"`
+	// Indicates the maximum allowed rule level for merging.
+	MaxAllowedRuleLevelForMerging pulumi.IntPtrInput                    `pulumi:"maxAllowedRuleLevelForMerging"`
+	Status                        DomainRuleBasedMatchingStatusPtrInput `pulumi:"status"`
+}
+
+func (DomainRuleBasedMatchingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRuleBasedMatching)(nil)).Elem()
+}
+
+func (i DomainRuleBasedMatchingArgs) ToDomainRuleBasedMatchingOutput() DomainRuleBasedMatchingOutput {
+	return i.ToDomainRuleBasedMatchingOutputWithContext(context.Background())
+}
+
+func (i DomainRuleBasedMatchingArgs) ToDomainRuleBasedMatchingOutputWithContext(ctx context.Context) DomainRuleBasedMatchingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRuleBasedMatchingOutput)
+}
+
+func (i DomainRuleBasedMatchingArgs) ToOutput(ctx context.Context) pulumix.Output[DomainRuleBasedMatching] {
+	return pulumix.Output[DomainRuleBasedMatching]{
+		OutputState: i.ToDomainRuleBasedMatchingOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainRuleBasedMatchingArgs) ToDomainRuleBasedMatchingPtrOutput() DomainRuleBasedMatchingPtrOutput {
+	return i.ToDomainRuleBasedMatchingPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRuleBasedMatchingArgs) ToDomainRuleBasedMatchingPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRuleBasedMatchingOutput).ToDomainRuleBasedMatchingPtrOutputWithContext(ctx)
+}
+
+// DomainRuleBasedMatchingPtrInput is an input type that accepts DomainRuleBasedMatchingArgs, DomainRuleBasedMatchingPtr and DomainRuleBasedMatchingPtrOutput values.
+// You can construct a concrete instance of `DomainRuleBasedMatchingPtrInput` via:
+//
+//	        DomainRuleBasedMatchingArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainRuleBasedMatchingPtrInput interface {
+	pulumi.Input
+
+	ToDomainRuleBasedMatchingPtrOutput() DomainRuleBasedMatchingPtrOutput
+	ToDomainRuleBasedMatchingPtrOutputWithContext(context.Context) DomainRuleBasedMatchingPtrOutput
+}
+
+type domainRuleBasedMatchingPtrType DomainRuleBasedMatchingArgs
+
+func DomainRuleBasedMatchingPtr(v *DomainRuleBasedMatchingArgs) DomainRuleBasedMatchingPtrInput {
+	return (*domainRuleBasedMatchingPtrType)(v)
+}
+
+func (*domainRuleBasedMatchingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRuleBasedMatching)(nil)).Elem()
+}
+
+func (i *domainRuleBasedMatchingPtrType) ToDomainRuleBasedMatchingPtrOutput() DomainRuleBasedMatchingPtrOutput {
+	return i.ToDomainRuleBasedMatchingPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRuleBasedMatchingPtrType) ToDomainRuleBasedMatchingPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRuleBasedMatchingPtrOutput)
+}
+
+func (i *domainRuleBasedMatchingPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatching] {
+	return pulumix.Output[*DomainRuleBasedMatching]{
+		OutputState: i.ToDomainRuleBasedMatchingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+type DomainRuleBasedMatchingOutput struct{ *pulumi.OutputState }
+
+func (DomainRuleBasedMatchingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRuleBasedMatching)(nil)).Elem()
+}
+
+func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingOutput() DomainRuleBasedMatchingOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingOutputWithContext(ctx context.Context) DomainRuleBasedMatchingOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingPtrOutput() DomainRuleBasedMatchingPtrOutput {
+	return o.ToDomainRuleBasedMatchingPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRuleBasedMatchingOutput) ToDomainRuleBasedMatchingPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRuleBasedMatching) *DomainRuleBasedMatching {
+		return &v
+	}).(DomainRuleBasedMatchingPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRuleBasedMatching] {
+	return pulumix.Output[DomainRuleBasedMatching]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainRuleBasedMatchingOutput) AttributeTypesSelector() DomainAttributeTypesSelectorPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainAttributeTypesSelector { return v.AttributeTypesSelector }).(DomainAttributeTypesSelectorPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainConflictResolution { return v.ConflictResolution }).(DomainConflictResolutionPtrOutput)
+}
+
+// The flag that enables the rule-based matching process of duplicate profiles.
+func (o DomainRuleBasedMatchingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o DomainRuleBasedMatchingOutput) ExportingConfig() DomainExportingConfigPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainExportingConfig { return v.ExportingConfig }).(DomainExportingConfigPtrOutput)
+}
+
+// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+func (o DomainRuleBasedMatchingOutput) MatchingRules() DomainMatchingRuleArrayOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) []DomainMatchingRule { return v.MatchingRules }).(DomainMatchingRuleArrayOutput)
+}
+
+// Indicates the maximum allowed rule level for matching.
+func (o DomainRuleBasedMatchingOutput) MaxAllowedRuleLevelForMatching() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *int { return v.MaxAllowedRuleLevelForMatching }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the maximum allowed rule level for merging.
+func (o DomainRuleBasedMatchingOutput) MaxAllowedRuleLevelForMerging() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *int { return v.MaxAllowedRuleLevelForMerging }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingOutput) Status() DomainRuleBasedMatchingStatusPtrOutput {
+	return o.ApplyT(func(v DomainRuleBasedMatching) *DomainRuleBasedMatchingStatus { return v.Status }).(DomainRuleBasedMatchingStatusPtrOutput)
+}
+
+type DomainRuleBasedMatchingPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRuleBasedMatchingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRuleBasedMatching)(nil)).Elem()
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) ToDomainRuleBasedMatchingPtrOutput() DomainRuleBasedMatchingPtrOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) ToDomainRuleBasedMatchingPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingPtrOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatching] {
+	return pulumix.Output[*DomainRuleBasedMatching]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) Elem() DomainRuleBasedMatchingOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) DomainRuleBasedMatching {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRuleBasedMatching
+		return ret
+	}).(DomainRuleBasedMatchingOutput)
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) AttributeTypesSelector() DomainAttributeTypesSelectorPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainAttributeTypesSelector {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeTypesSelector
+	}).(DomainAttributeTypesSelectorPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) ConflictResolution() DomainConflictResolutionPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainConflictResolution {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolution
+	}).(DomainConflictResolutionPtrOutput)
+}
+
+// The flag that enables the rule-based matching process of duplicate profiles.
+func (o DomainRuleBasedMatchingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) ExportingConfig() DomainExportingConfigPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainExportingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ExportingConfig
+	}).(DomainExportingConfigPtrOutput)
+}
+
+// Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+func (o DomainRuleBasedMatchingPtrOutput) MatchingRules() DomainMatchingRuleArrayOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) []DomainMatchingRule {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRules
+	}).(DomainMatchingRuleArrayOutput)
+}
+
+// Indicates the maximum allowed rule level for matching.
+func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMatching() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAllowedRuleLevelForMatching
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates the maximum allowed rule level for merging.
+func (o DomainRuleBasedMatchingPtrOutput) MaxAllowedRuleLevelForMerging() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAllowedRuleLevelForMerging
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingPtrOutput) Status() DomainRuleBasedMatchingStatusPtrOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatching) *DomainRuleBasedMatchingStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DomainRuleBasedMatchingStatusPtrOutput)
+}
+
+// The S3 location where Identity Resolution Jobs write result files.
+type DomainS3ExportingConfig struct {
+	// The name of the S3 bucket where Identity Resolution Jobs write result files.
+	S3BucketName string `pulumi:"s3BucketName"`
+	// The S3 key name of the location where Identity Resolution Jobs write result files.
+	S3KeyName *string `pulumi:"s3KeyName"`
+}
+
+// DomainS3ExportingConfigInput is an input type that accepts DomainS3ExportingConfigArgs and DomainS3ExportingConfigOutput values.
+// You can construct a concrete instance of `DomainS3ExportingConfigInput` via:
+//
+//	DomainS3ExportingConfigArgs{...}
+type DomainS3ExportingConfigInput interface {
+	pulumi.Input
+
+	ToDomainS3ExportingConfigOutput() DomainS3ExportingConfigOutput
+	ToDomainS3ExportingConfigOutputWithContext(context.Context) DomainS3ExportingConfigOutput
+}
+
+// The S3 location where Identity Resolution Jobs write result files.
+type DomainS3ExportingConfigArgs struct {
+	// The name of the S3 bucket where Identity Resolution Jobs write result files.
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	// The S3 key name of the location where Identity Resolution Jobs write result files.
+	S3KeyName pulumi.StringPtrInput `pulumi:"s3KeyName"`
+}
+
+func (DomainS3ExportingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3ExportingConfig)(nil)).Elem()
+}
+
+func (i DomainS3ExportingConfigArgs) ToDomainS3ExportingConfigOutput() DomainS3ExportingConfigOutput {
+	return i.ToDomainS3ExportingConfigOutputWithContext(context.Background())
+}
+
+func (i DomainS3ExportingConfigArgs) ToDomainS3ExportingConfigOutputWithContext(ctx context.Context) DomainS3ExportingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3ExportingConfigOutput)
+}
+
+func (i DomainS3ExportingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainS3ExportingConfig] {
+	return pulumix.Output[DomainS3ExportingConfig]{
+		OutputState: i.ToDomainS3ExportingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainS3ExportingConfigArgs) ToDomainS3ExportingConfigPtrOutput() DomainS3ExportingConfigPtrOutput {
+	return i.ToDomainS3ExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainS3ExportingConfigArgs) ToDomainS3ExportingConfigPtrOutputWithContext(ctx context.Context) DomainS3ExportingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3ExportingConfigOutput).ToDomainS3ExportingConfigPtrOutputWithContext(ctx)
+}
+
+// DomainS3ExportingConfigPtrInput is an input type that accepts DomainS3ExportingConfigArgs, DomainS3ExportingConfigPtr and DomainS3ExportingConfigPtrOutput values.
+// You can construct a concrete instance of `DomainS3ExportingConfigPtrInput` via:
+//
+//	        DomainS3ExportingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainS3ExportingConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainS3ExportingConfigPtrOutput() DomainS3ExportingConfigPtrOutput
+	ToDomainS3ExportingConfigPtrOutputWithContext(context.Context) DomainS3ExportingConfigPtrOutput
+}
+
+type domainS3ExportingConfigPtrType DomainS3ExportingConfigArgs
+
+func DomainS3ExportingConfigPtr(v *DomainS3ExportingConfigArgs) DomainS3ExportingConfigPtrInput {
+	return (*domainS3ExportingConfigPtrType)(v)
+}
+
+func (*domainS3ExportingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3ExportingConfig)(nil)).Elem()
+}
+
+func (i *domainS3ExportingConfigPtrType) ToDomainS3ExportingConfigPtrOutput() DomainS3ExportingConfigPtrOutput {
+	return i.ToDomainS3ExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainS3ExportingConfigPtrType) ToDomainS3ExportingConfigPtrOutputWithContext(ctx context.Context) DomainS3ExportingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3ExportingConfigPtrOutput)
+}
+
+func (i *domainS3ExportingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainS3ExportingConfig] {
+	return pulumix.Output[*DomainS3ExportingConfig]{
+		OutputState: i.ToDomainS3ExportingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The S3 location where Identity Resolution Jobs write result files.
+type DomainS3ExportingConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainS3ExportingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3ExportingConfig)(nil)).Elem()
+}
+
+func (o DomainS3ExportingConfigOutput) ToDomainS3ExportingConfigOutput() DomainS3ExportingConfigOutput {
+	return o
+}
+
+func (o DomainS3ExportingConfigOutput) ToDomainS3ExportingConfigOutputWithContext(ctx context.Context) DomainS3ExportingConfigOutput {
+	return o
+}
+
+func (o DomainS3ExportingConfigOutput) ToDomainS3ExportingConfigPtrOutput() DomainS3ExportingConfigPtrOutput {
+	return o.ToDomainS3ExportingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainS3ExportingConfigOutput) ToDomainS3ExportingConfigPtrOutputWithContext(ctx context.Context) DomainS3ExportingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainS3ExportingConfig) *DomainS3ExportingConfig {
+		return &v
+	}).(DomainS3ExportingConfigPtrOutput)
+}
+
+func (o DomainS3ExportingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainS3ExportingConfig] {
+	return pulumix.Output[DomainS3ExportingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the S3 bucket where Identity Resolution Jobs write result files.
+func (o DomainS3ExportingConfigOutput) S3BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainS3ExportingConfig) string { return v.S3BucketName }).(pulumi.StringOutput)
+}
+
+// The S3 key name of the location where Identity Resolution Jobs write result files.
+func (o DomainS3ExportingConfigOutput) S3KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainS3ExportingConfig) *string { return v.S3KeyName }).(pulumi.StringPtrOutput)
+}
+
+type DomainS3ExportingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainS3ExportingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3ExportingConfig)(nil)).Elem()
+}
+
+func (o DomainS3ExportingConfigPtrOutput) ToDomainS3ExportingConfigPtrOutput() DomainS3ExportingConfigPtrOutput {
+	return o
+}
+
+func (o DomainS3ExportingConfigPtrOutput) ToDomainS3ExportingConfigPtrOutputWithContext(ctx context.Context) DomainS3ExportingConfigPtrOutput {
+	return o
+}
+
+func (o DomainS3ExportingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainS3ExportingConfig] {
+	return pulumix.Output[*DomainS3ExportingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainS3ExportingConfigPtrOutput) Elem() DomainS3ExportingConfigOutput {
+	return o.ApplyT(func(v *DomainS3ExportingConfig) DomainS3ExportingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainS3ExportingConfig
+		return ret
+	}).(DomainS3ExportingConfigOutput)
+}
+
+// The name of the S3 bucket where Identity Resolution Jobs write result files.
+func (o DomainS3ExportingConfigPtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainS3ExportingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 key name of the location where Identity Resolution Jobs write result files.
+func (o DomainS3ExportingConfigPtrOutput) S3KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainS3ExportingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Usage-specific statistics about the domain.
+type DomainStats struct {
+	// The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+	MeteringProfileCount *float64 `pulumi:"meteringProfileCount"`
+	// The total number of objects in domain.
+	ObjectCount *float64 `pulumi:"objectCount"`
+	// The total number of profiles currently in the domain.
+	ProfileCount *float64 `pulumi:"profileCount"`
+	// The total size, in bytes, of all objects in the domain.
+	TotalSize *float64 `pulumi:"totalSize"`
+}
+
+// Usage-specific statistics about the domain.
+type DomainStatsOutput struct{ *pulumi.OutputState }
+
+func (DomainStatsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainStats)(nil)).Elem()
+}
+
+func (o DomainStatsOutput) ToDomainStatsOutput() DomainStatsOutput {
+	return o
+}
+
+func (o DomainStatsOutput) ToDomainStatsOutputWithContext(ctx context.Context) DomainStatsOutput {
+	return o
+}
+
+func (o DomainStatsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainStats] {
+	return pulumix.Output[DomainStats]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+func (o DomainStatsOutput) MeteringProfileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DomainStats) *float64 { return v.MeteringProfileCount }).(pulumi.Float64PtrOutput)
+}
+
+// The total number of objects in domain.
+func (o DomainStatsOutput) ObjectCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DomainStats) *float64 { return v.ObjectCount }).(pulumi.Float64PtrOutput)
+}
+
+// The total number of profiles currently in the domain.
+func (o DomainStatsOutput) ProfileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DomainStats) *float64 { return v.ProfileCount }).(pulumi.Float64PtrOutput)
+}
+
+// The total size, in bytes, of all objects in the domain.
+func (o DomainStatsOutput) TotalSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DomainStats) *float64 { return v.TotalSize }).(pulumi.Float64PtrOutput)
+}
+
+type DomainStatsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainStatsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainStats)(nil)).Elem()
+}
+
+func (o DomainStatsPtrOutput) ToDomainStatsPtrOutput() DomainStatsPtrOutput {
+	return o
+}
+
+func (o DomainStatsPtrOutput) ToDomainStatsPtrOutputWithContext(ctx context.Context) DomainStatsPtrOutput {
+	return o
+}
+
+func (o DomainStatsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainStats] {
+	return pulumix.Output[*DomainStats]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainStatsPtrOutput) Elem() DomainStatsOutput {
+	return o.ApplyT(func(v *DomainStats) DomainStats {
+		if v != nil {
+			return *v
+		}
+		var ret DomainStats
+		return ret
+	}).(DomainStatsOutput)
+}
+
+// The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+func (o DomainStatsPtrOutput) MeteringProfileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DomainStats) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MeteringProfileCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The total number of objects in domain.
+func (o DomainStatsPtrOutput) ObjectCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DomainStats) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The total number of profiles currently in the domain.
+func (o DomainStatsPtrOutput) ProfileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DomainStats) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The total size, in bytes, of all objects in the domain.
+func (o DomainStatsPtrOutput) TotalSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DomainStats) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TotalSize
+	}).(pulumi.Float64PtrOutput)
+}
+
 type DomainTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4944,6 +6989,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionTagArrayInput)(nil)).Elem(), CalculatedAttributeDefinitionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorInput)(nil)).Elem(), DomainAttributeTypesSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorPtrInput)(nil)).Elem(), DomainAttributeTypesSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoMergingInput)(nil)).Elem(), DomainAutoMergingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoMergingPtrInput)(nil)).Elem(), DomainAutoMergingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionInput)(nil)).Elem(), DomainConflictResolutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionPtrInput)(nil)).Elem(), DomainConflictResolutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConsolidationInput)(nil)).Elem(), DomainConsolidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConsolidationPtrInput)(nil)).Elem(), DomainConsolidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainExportingConfigInput)(nil)).Elem(), DomainExportingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainExportingConfigPtrInput)(nil)).Elem(), DomainExportingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleInput)(nil)).Elem(), DomainJobScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobSchedulePtrInput)(nil)).Elem(), DomainJobScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingInput)(nil)).Elem(), DomainMatchingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingPtrInput)(nil)).Elem(), DomainMatchingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleInput)(nil)).Elem(), DomainMatchingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleArrayInput)(nil)).Elem(), DomainMatchingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingPtrInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3ExportingConfigInput)(nil)).Elem(), DomainS3ExportingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3ExportingConfigPtrInput)(nil)).Elem(), DomainS3ExportingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagArrayInput)(nil)).Elem(), DomainTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamTagInput)(nil)).Elem(), EventStreamTagArgs{})
@@ -5006,6 +7071,28 @@ func init() {
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(DestinationDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationDetailsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DomainAttributeTypesSelectorOutput{})
+	pulumi.RegisterOutputType(DomainAttributeTypesSelectorPtrOutput{})
+	pulumi.RegisterOutputType(DomainAutoMergingOutput{})
+	pulumi.RegisterOutputType(DomainAutoMergingPtrOutput{})
+	pulumi.RegisterOutputType(DomainConflictResolutionOutput{})
+	pulumi.RegisterOutputType(DomainConflictResolutionPtrOutput{})
+	pulumi.RegisterOutputType(DomainConsolidationOutput{})
+	pulumi.RegisterOutputType(DomainConsolidationPtrOutput{})
+	pulumi.RegisterOutputType(DomainExportingConfigOutput{})
+	pulumi.RegisterOutputType(DomainExportingConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainJobScheduleOutput{})
+	pulumi.RegisterOutputType(DomainJobSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DomainMatchingOutput{})
+	pulumi.RegisterOutputType(DomainMatchingPtrOutput{})
+	pulumi.RegisterOutputType(DomainMatchingRuleOutput{})
+	pulumi.RegisterOutputType(DomainMatchingRuleArrayOutput{})
+	pulumi.RegisterOutputType(DomainRuleBasedMatchingOutput{})
+	pulumi.RegisterOutputType(DomainRuleBasedMatchingPtrOutput{})
+	pulumi.RegisterOutputType(DomainS3ExportingConfigOutput{})
+	pulumi.RegisterOutputType(DomainS3ExportingConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainStatsOutput{})
+	pulumi.RegisterOutputType(DomainStatsPtrOutput{})
 	pulumi.RegisterOutputType(DomainTagOutput{})
 	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(EventStreamTagOutput{})

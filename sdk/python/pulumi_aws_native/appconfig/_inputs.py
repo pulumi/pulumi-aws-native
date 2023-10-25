@@ -24,8 +24,13 @@ __all__ = [
 @pulumi.input_type
 class ApplicationTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[str] key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        :param pulumi.Input[str] value: The tag value can be up to 256 characters.
+        """
         ApplicationTagsArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -34,30 +39,34 @@ class ApplicationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
              opts: Optional[pulumi.ResourceOptions]=None):
-        if key is not None:
-            _setter("key", key)
-        if value is not None:
-            _setter("value", value)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

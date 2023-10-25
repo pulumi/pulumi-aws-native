@@ -24,14 +24,19 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	Id string `pulumi:"id"`
+	// The application Id
+	ApplicationId string `pulumi:"applicationId"`
 }
 
 type LookupApplicationResult struct {
-	Description *string           `pulumi:"description"`
-	Id          *string           `pulumi:"id"`
-	Name        *string           `pulumi:"name"`
-	Tags        []ApplicationTags `pulumi:"tags"`
+	// The application Id
+	ApplicationId *string `pulumi:"applicationId"`
+	// A description of the application.
+	Description *string `pulumi:"description"`
+	// A name for the application.
+	Name *string `pulumi:"name"`
+	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []ApplicationTags `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -48,7 +53,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The application Id
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -75,18 +81,22 @@ func (o LookupApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+// The application Id
+func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// A description of the application.
 func (o LookupApplicationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// A name for the application.
 func (o LookupApplicationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 func (o LookupApplicationResultOutput) Tags() ApplicationTagsArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTags { return v.Tags }).(ApplicationTagsArrayOutput)
 }

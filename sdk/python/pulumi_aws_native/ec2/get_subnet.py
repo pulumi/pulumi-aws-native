@@ -19,19 +19,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetResult:
-    def __init__(__self__, assign_ipv6_address_on_creation=None, enable_dns64=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, map_public_ip_on_launch=None, network_acl_association_id=None, private_dns_name_options_on_launch=None, subnet_id=None, tags=None):
+    def __init__(__self__, assign_ipv6_address_on_creation=None, enable_dns64=None, ipv4_netmask_length=None, ipv6_cidr_block=None, ipv6_cidr_blocks=None, ipv6_netmask_length=None, map_public_ip_on_launch=None, network_acl_association_id=None, private_dns_name_options_on_launch=None, subnet_id=None, tags=None):
         if assign_ipv6_address_on_creation and not isinstance(assign_ipv6_address_on_creation, bool):
             raise TypeError("Expected argument 'assign_ipv6_address_on_creation' to be a bool")
         pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
         if enable_dns64 and not isinstance(enable_dns64, bool):
             raise TypeError("Expected argument 'enable_dns64' to be a bool")
         pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if ipv4_netmask_length and not isinstance(ipv4_netmask_length, int):
+            raise TypeError("Expected argument 'ipv4_netmask_length' to be a int")
+        pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block and not isinstance(ipv6_cidr_block, str):
             raise TypeError("Expected argument 'ipv6_cidr_block' to be a str")
         pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_blocks and not isinstance(ipv6_cidr_blocks, list):
             raise TypeError("Expected argument 'ipv6_cidr_blocks' to be a list")
         pulumi.set(__self__, "ipv6_cidr_blocks", ipv6_cidr_blocks)
+        if ipv6_netmask_length and not isinstance(ipv6_netmask_length, int):
+            raise TypeError("Expected argument 'ipv6_netmask_length' to be a int")
+        pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if map_public_ip_on_launch and not isinstance(map_public_ip_on_launch, bool):
             raise TypeError("Expected argument 'map_public_ip_on_launch' to be a bool")
         pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
@@ -59,6 +65,14 @@ class GetSubnetResult:
         return pulumi.get(self, "enable_dns64")
 
     @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[int]:
+        """
+        The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[str]:
         return pulumi.get(self, "ipv6_cidr_block")
@@ -67,6 +81,14 @@ class GetSubnetResult:
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "ipv6_cidr_blocks")
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[int]:
+        """
+        The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
@@ -102,8 +124,10 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         return GetSubnetResult(
             assign_ipv6_address_on_creation=self.assign_ipv6_address_on_creation,
             enable_dns64=self.enable_dns64,
+            ipv4_netmask_length=self.ipv4_netmask_length,
             ipv6_cidr_block=self.ipv6_cidr_block,
             ipv6_cidr_blocks=self.ipv6_cidr_blocks,
+            ipv6_netmask_length=self.ipv6_netmask_length,
             map_public_ip_on_launch=self.map_public_ip_on_launch,
             network_acl_association_id=self.network_acl_association_id,
             private_dns_name_options_on_launch=self.private_dns_name_options_on_launch,
@@ -124,8 +148,10 @@ def get_subnet(subnet_id: Optional[str] = None,
     return AwaitableGetSubnetResult(
         assign_ipv6_address_on_creation=pulumi.get(__ret__, 'assign_ipv6_address_on_creation'),
         enable_dns64=pulumi.get(__ret__, 'enable_dns64'),
+        ipv4_netmask_length=pulumi.get(__ret__, 'ipv4_netmask_length'),
         ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
         ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
+        ipv6_netmask_length=pulumi.get(__ret__, 'ipv6_netmask_length'),
         map_public_ip_on_launch=pulumi.get(__ret__, 'map_public_ip_on_launch'),
         network_acl_association_id=pulumi.get(__ret__, 'network_acl_association_id'),
         private_dns_name_options_on_launch=pulumi.get(__ret__, 'private_dns_name_options_on_launch'),

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::DocumentationPart
+    /// The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:DocumentationPart")]
     public partial class DocumentationPart : global::Pulumi.CustomResource
@@ -22,19 +22,19 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> DocumentationPartId { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the API entity that the documentation applies to.
+        /// The location of the targeted API entity of the to-be-created documentation part.
         /// </summary>
         [Output("location")]
         public Output<Outputs.DocumentationPartLocation> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The documentation content map of the targeted API entity.
+        /// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         /// </summary>
         [Output("properties")]
         public Output<string> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the targeted API entity
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
@@ -90,19 +90,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class DocumentationPartArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of the API entity that the documentation applies to.
+        /// The location of the targeted API entity of the to-be-created documentation part.
         /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.DocumentationPartLocationArgs> Location { get; set; } = null!;
 
         /// <summary>
-        /// The documentation content map of the targeted API entity.
+        /// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         /// </summary>
         [Input("properties", required: true)]
         public Input<string> Properties { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of the targeted API entity
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Sns
     public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// </summary>
+        [Output("archivePolicy")]
+        public Output<object?> ArchivePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
         /// 
         /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -139,6 +145,12 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// </summary>
+        [Input("archivePolicy")]
+        public Input<object>? ArchivePolicy { get; set; }
+
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
         /// 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::SQS::QueuePolicy
+ * The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
  */
 export function getQueuePolicy(args: GetQueuePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuePolicyResult> {
 
@@ -28,16 +28,16 @@ export interface GetQueuePolicyResult {
      */
     readonly id?: string;
     /**
-     * A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+     * A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
      */
     readonly policyDocument?: any;
     /**
-     * The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+     * The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
      */
     readonly queues?: string[];
 }
 /**
- * Resource Type definition for AWS::SQS::QueuePolicy
+ * The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
  */
 export function getQueuePolicyOutput(args: GetQueuePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuePolicyResult> {
     return pulumi.output(args).apply((a: any) => getQueuePolicy(a, opts))

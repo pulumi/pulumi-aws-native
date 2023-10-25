@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Deployment
+ * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
 
@@ -22,7 +22,7 @@ export interface GetDeploymentArgs {
      */
     deploymentId: string;
     /**
-     * The ID of the RestApi resource to deploy. 
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
 }
@@ -33,12 +33,12 @@ export interface GetDeploymentResult {
      */
     readonly deploymentId?: string;
     /**
-     * A description of the purpose of the API Gateway deployment.
+     * The description for the Deployment resource to create.
      */
     readonly description?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::Deployment
+ * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
@@ -50,7 +50,7 @@ export interface GetDeploymentOutputArgs {
      */
     deploymentId: pulumi.Input<string>;
     /**
-     * The ID of the RestApi resource to deploy. 
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

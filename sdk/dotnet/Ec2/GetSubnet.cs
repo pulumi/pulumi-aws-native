@@ -53,8 +53,16 @@ namespace Pulumi.AwsNative.Ec2
     {
         public readonly bool? AssignIpv6AddressOnCreation;
         public readonly bool? EnableDns64;
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        public readonly int? Ipv4NetmaskLength;
         public readonly string? Ipv6CidrBlock;
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        public readonly int? Ipv6NetmaskLength;
         public readonly bool? MapPublicIpOnLaunch;
         public readonly string? NetworkAclAssociationId;
         public readonly Outputs.PrivateDnsNameOptionsOnLaunchProperties? PrivateDnsNameOptionsOnLaunch;
@@ -67,9 +75,13 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? enableDns64,
 
+            int? ipv4NetmaskLength,
+
             string? ipv6CidrBlock,
 
             ImmutableArray<string> ipv6CidrBlocks,
+
+            int? ipv6NetmaskLength,
 
             bool? mapPublicIpOnLaunch,
 
@@ -83,8 +95,10 @@ namespace Pulumi.AwsNative.Ec2
         {
             AssignIpv6AddressOnCreation = assignIpv6AddressOnCreation;
             EnableDns64 = enableDns64;
+            Ipv4NetmaskLength = ipv4NetmaskLength;
             Ipv6CidrBlock = ipv6CidrBlock;
             Ipv6CidrBlocks = ipv6CidrBlocks;
+            Ipv6NetmaskLength = ipv6NetmaskLength;
             MapPublicIpOnLaunch = mapPublicIpOnLaunch;
             NetworkAclAssociationId = networkAclAssociationId;
             PrivateDnsNameOptionsOnLaunch = privateDnsNameOptionsOnLaunch;

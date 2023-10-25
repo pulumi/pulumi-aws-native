@@ -27,7 +27,7 @@ class GetDocumentationVersionResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of the API documentation snapshot.
+        A description about the new documentation snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -45,11 +45,11 @@ def get_documentation_version(documentation_version: Optional[str] = None,
                               rest_api_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationVersionResult:
     """
-    A snapshot of the documentation of an API.
+    The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
-    :param str documentation_version: The version identifier of the API documentation snapshot.
-    :param str rest_api_id: The identifier of the API.
+    :param str documentation_version: The version identifier of the to-be-updated documentation version.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['documentationVersion'] = documentation_version
@@ -66,10 +66,10 @@ def get_documentation_version_output(documentation_version: Optional[pulumi.Inpu
                                      rest_api_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationVersionResult]:
     """
-    A snapshot of the documentation of an API.
+    The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
-    :param str documentation_version: The version identifier of the API documentation snapshot.
-    :param str rest_api_id: The identifier of the API.
+    :param str documentation_version: The version identifier of the to-be-updated documentation version.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

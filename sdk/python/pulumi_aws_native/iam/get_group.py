@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGroupResult:
-    def __init__(__self__, arn=None, id=None, managed_policy_arns=None, path=None, policies=None):
+    def __init__(__self__, arn=None, managed_policy_arns=None, path=None, policies=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if managed_policy_arns and not isinstance(managed_policy_arns, list):
             raise TypeError("Expected argument 'managed_policy_arns' to be a list")
         pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
@@ -39,26 +36,33 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Arn of the group to create
+        """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path to the group
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def policies(self) -> Optional[Sequence['outputs.GroupPolicy']]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM group
+        """
         return pulumi.get(self, "policies")
 
 
@@ -69,34 +73,38 @@ class AwaitableGetGroupResult(GetGroupResult):
             yield self
         return GetGroupResult(
             arn=self.arn,
-            id=self.id,
             managed_policy_arns=self.managed_policy_arns,
             path=self.path,
             policies=self.policies)
 
 
-def get_group(id: Optional[str] = None,
+def get_group(group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Resource Type definition for AWS::IAM::Group
+
+
+    :param str group_name: The name of the group to create
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['groupName'] = group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
-        id=pulumi.get(__ret__, 'id'),
         managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
         path=pulumi.get(__ret__, 'path'),
         policies=pulumi.get(__ret__, 'policies'))
 
 
 @_utilities.lift_output_func(get_group)
-def get_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Resource Type definition for AWS::IAM::Group
+
+
+    :param str group_name: The name of the group to create
     """
     ...

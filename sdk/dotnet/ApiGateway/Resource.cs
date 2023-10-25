@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::Resource
+    /// The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which you want to create this resource..
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> PathPart { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which you want to create this resource..
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

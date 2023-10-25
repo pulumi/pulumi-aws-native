@@ -23,11 +23,11 @@ class DeploymentArgs:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource to deploy. 
-        :param pulumi.Input['DeploymentCanarySettingsArgs'] deployment_canary_settings: Specifies settings for the canary deployment.
-        :param pulumi.Input[str] description: A description of the purpose of the API Gateway deployment.
-        :param pulumi.Input['DeploymentStageDescriptionArgs'] stage_description: Configures the stage that API Gateway creates with this deployment.
-        :param pulumi.Input[str] stage_name: A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input['DeploymentCanarySettingsArgs'] deployment_canary_settings: The input configuration for a canary deployment.
+        :param pulumi.Input[str] description: The description for the Deployment resource to create.
+        :param pulumi.Input['DeploymentStageDescriptionArgs'] stage_description: The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
+        :param pulumi.Input[str] stage_name: The name of the Stage resource for the Deployment resource to create.
         """
         DeploymentArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -60,7 +60,7 @@ class DeploymentArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the RestApi resource to deploy. 
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -72,7 +72,7 @@ class DeploymentArgs:
     @pulumi.getter(name="deploymentCanarySettings")
     def deployment_canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
         """
-        Specifies settings for the canary deployment.
+        The input configuration for a canary deployment.
         """
         return pulumi.get(self, "deployment_canary_settings")
 
@@ -84,7 +84,7 @@ class DeploymentArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the purpose of the API Gateway deployment.
+        The description for the Deployment resource to create.
         """
         return pulumi.get(self, "description")
 
@@ -96,7 +96,7 @@ class DeploymentArgs:
     @pulumi.getter(name="stageDescription")
     def stage_description(self) -> Optional[pulumi.Input['DeploymentStageDescriptionArgs']]:
         """
-        Configures the stage that API Gateway creates with this deployment.
+        The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
         """
         return pulumi.get(self, "stage_description")
 
@@ -108,7 +108,7 @@ class DeploymentArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        The name of the Stage resource for the Deployment resource to create.
         """
         return pulumi.get(self, "stage_name")
 
@@ -129,15 +129,15 @@ class Deployment(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::Deployment
+        The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] deployment_canary_settings: Specifies settings for the canary deployment.
-        :param pulumi.Input[str] description: A description of the purpose of the API Gateway deployment.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource to deploy. 
-        :param pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']] stage_description: Configures the stage that API Gateway creates with this deployment.
-        :param pulumi.Input[str] stage_name: A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] deployment_canary_settings: The input configuration for a canary deployment.
+        :param pulumi.Input[str] description: The description for the Deployment resource to create.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[pulumi.InputType['DeploymentStageDescriptionArgs']] stage_description: The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
+        :param pulumi.Input[str] stage_name: The name of the Stage resource for the Deployment resource to create.
         """
         ...
     @overload
@@ -146,7 +146,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::Deployment
+        The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +235,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentCanarySettings")
     def deployment_canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
         """
-        Specifies settings for the canary deployment.
+        The input configuration for a canary deployment.
         """
         return pulumi.get(self, "deployment_canary_settings")
 
@@ -251,7 +251,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the purpose of the API Gateway deployment.
+        The description for the Deployment resource to create.
         """
         return pulumi.get(self, "description")
 
@@ -259,7 +259,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the RestApi resource to deploy. 
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -267,7 +267,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="stageDescription")
     def stage_description(self) -> pulumi.Output[Optional['outputs.DeploymentStageDescription']]:
         """
-        Configures the stage that API Gateway creates with this deployment.
+        The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
         """
         return pulumi.get(self, "stage_description")
 
@@ -275,7 +275,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        The name of the Stage resource for the Deployment resource to create.
         """
         return pulumi.get(self, "stage_name")
 

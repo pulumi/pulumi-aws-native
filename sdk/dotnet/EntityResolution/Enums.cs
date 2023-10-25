@@ -8,6 +8,33 @@ using Pulumi;
 namespace Pulumi.AwsNative.EntityResolution
 {
     [EnumType]
+    public readonly struct IdMappingWorkflowIdMappingTechniquesIdMappingType : IEquatable<IdMappingWorkflowIdMappingTechniquesIdMappingType>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowIdMappingTechniquesIdMappingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowIdMappingTechniquesIdMappingType Provider { get; } = new IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER");
+
+        public static bool operator ==(IdMappingWorkflowIdMappingTechniquesIdMappingType left, IdMappingWorkflowIdMappingTechniquesIdMappingType right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowIdMappingTechniquesIdMappingType left, IdMappingWorkflowIdMappingTechniquesIdMappingType right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowIdMappingTechniquesIdMappingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowIdMappingTechniquesIdMappingType other && Equals(other);
+        public bool Equals(IdMappingWorkflowIdMappingTechniquesIdMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MatchingWorkflowResolutionTechniquesResolutionType : IEquatable<MatchingWorkflowResolutionTechniquesResolutionType>
     {
         private readonly string _value;

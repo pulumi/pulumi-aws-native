@@ -12,22 +12,36 @@ namespace Pulumi.AwsNative.Iam
     /// <summary>
     /// Resource Type definition for AWS::IAM::Group
     /// </summary>
-    [Obsolete(@"Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Arn of the group to create
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the group to create
+        /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        /// </summary>
         [Output("managedPolicyArns")]
         public Output<ImmutableArray<string>> ManagedPolicyArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The path to the group
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
+        /// <summary>
+        /// Adds or updates an inline policy document that is embedded in the specified IAM group
+        /// </summary>
         [Output("policies")]
         public Output<ImmutableArray<Outputs.GroupPolicy>> Policies { get; private set; } = null!;
 
@@ -80,22 +94,36 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the group to create
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         [Input("managedPolicyArns")]
         private InputList<string>? _managedPolicyArns;
+
+        /// <summary>
+        /// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        /// </summary>
         public InputList<string> ManagedPolicyArns
         {
             get => _managedPolicyArns ?? (_managedPolicyArns = new InputList<string>());
             set => _managedPolicyArns = value;
         }
 
+        /// <summary>
+        /// The path to the group
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         [Input("policies")]
         private InputList<Inputs.GroupPolicyArgs>? _policies;
+
+        /// <summary>
+        /// Adds or updates an inline policy document that is embedded in the specified IAM group
+        /// </summary>
         public InputList<Inputs.GroupPolicyArgs> Policies
         {
             get => _policies ?? (_policies = new InputList<Inputs.GroupPolicyArgs>());

@@ -44,8 +44,12 @@ class GroupPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 policy_document: Any,
+                 policy_document: str,
                  policy_name: str):
+        """
+        :param str policy_document: The policy document.
+        :param str policy_name: The friendly name (not ARN) identifying the policy.
+        """
         GroupPolicy._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             policy_document=policy_document,
@@ -54,7 +58,7 @@ class GroupPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: Any,
+             policy_document: str,
              policy_name: str,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("policy_document", policy_document)
@@ -62,12 +66,18 @@ class GroupPolicy(dict):
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Any:
+    def policy_document(self) -> str:
+        """
+        The policy document.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> str:
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
         return pulumi.get(self, "policy_name")
 
 

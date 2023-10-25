@@ -12,16 +12,30 @@ namespace Pulumi.AwsNative.AppConfig
     /// <summary>
     /// Resource Type definition for AWS::AppConfig::Application
     /// </summary>
-    [Obsolete(@"Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application Id
+        /// </summary>
+        [Output("applicationId")]
+        public Output<string> ApplicationId { get; private set; } = null!;
+
+        /// <summary>
+        /// A description of the application.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the application.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ApplicationTags>> Tags { get; private set; } = null!;
 
@@ -70,14 +84,24 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the application.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A name for the application.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ApplicationTagsArgs>? _tags;
+
+        /// <summary>
+        /// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public InputList<Inputs.ApplicationTagsArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagsArgs>());

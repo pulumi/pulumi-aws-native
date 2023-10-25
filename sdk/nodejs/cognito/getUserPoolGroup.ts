@@ -11,17 +11,18 @@ export function getUserPoolGroup(args: GetUserPoolGroupArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolGroup", {
-        "id": args.id,
+        "groupName": args.groupName,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolGroupArgs {
-    id: string;
+    groupName: string;
+    userPoolId: string;
 }
 
 export interface GetUserPoolGroupResult {
     readonly description?: string;
-    readonly id?: string;
     readonly precedence?: number;
     readonly roleArn?: string;
 }
@@ -33,5 +34,6 @@ export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: 
 }
 
 export interface GetUserPoolGroupOutputArgs {
-    id: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

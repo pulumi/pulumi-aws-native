@@ -38,6 +38,10 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
+     * The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+     */
+    public readonly archivePolicy!: pulumi.Output<any | undefined>;
+    /**
      * Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
      *
      * When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -101,6 +105,7 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
             resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
             resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -113,6 +118,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["topicArn"] = undefined /*out*/;
         } else {
+            resourceInputs["archivePolicy"] = undefined /*out*/;
             resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export class Topic extends pulumi.CustomResource {
  * The set of arguments for constructing a Topic resource.
  */
 export interface TopicArgs {
+    /**
+     * The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+     */
+    archivePolicy?: any;
     /**
      * Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
      *

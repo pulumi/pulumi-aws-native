@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Cognito::UserPool
- *
- * @deprecated UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class UserPool extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class UserPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserPool {
-        pulumi.log.warn("UserPool is deprecated: UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new UserPool(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,6 +59,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
     public readonly userAttributeUpdateSettings!: pulumi.Output<outputs.cognito.UserPoolUserAttributeUpdateSettings | undefined>;
     public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolAddOns | undefined>;
+    public /*out*/ readonly userPoolId!: pulumi.Output<string>;
     public readonly userPoolName!: pulumi.Output<string | undefined>;
     public readonly userPoolTags!: pulumi.Output<any | undefined>;
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
@@ -75,9 +73,7 @@ export class UserPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: UserPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserPool is deprecated: UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,6 +104,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;
             resourceInputs["providerUrl"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
         } else {
             resourceInputs["accountRecoverySetting"] = undefined /*out*/;
             resourceInputs["adminCreateUserConfig"] = undefined /*out*/;
@@ -131,6 +128,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["smsVerificationMessage"] = undefined /*out*/;
             resourceInputs["userAttributeUpdateSettings"] = undefined /*out*/;
             resourceInputs["userPoolAddOns"] = undefined /*out*/;
+            resourceInputs["userPoolId"] = undefined /*out*/;
             resourceInputs["userPoolName"] = undefined /*out*/;
             resourceInputs["userPoolTags"] = undefined /*out*/;
             resourceInputs["usernameAttributes"] = undefined /*out*/;

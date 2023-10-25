@@ -14,16 +14,14 @@ import (
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolGroup
-//
-// Deprecated: UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type UserPoolGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput  `pulumi:"description"`
-	GroupName   pulumi.StringPtrOutput  `pulumi:"groupName"`
-	Precedence  pulumi.Float64PtrOutput `pulumi:"precedence"`
-	RoleArn     pulumi.StringPtrOutput  `pulumi:"roleArn"`
-	UserPoolId  pulumi.StringOutput     `pulumi:"userPoolId"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	GroupName   pulumi.StringPtrOutput `pulumi:"groupName"`
+	Precedence  pulumi.IntPtrOutput    `pulumi:"precedence"`
+	RoleArn     pulumi.StringPtrOutput `pulumi:"roleArn"`
+	UserPoolId  pulumi.StringOutput    `pulumi:"userPoolId"`
 }
 
 // NewUserPoolGroup registers a new resource with the given unique name, arguments, and options.
@@ -74,18 +72,18 @@ func (UserPoolGroupState) ElementType() reflect.Type {
 }
 
 type userPoolGroupArgs struct {
-	Description *string  `pulumi:"description"`
-	GroupName   *string  `pulumi:"groupName"`
-	Precedence  *float64 `pulumi:"precedence"`
-	RoleArn     *string  `pulumi:"roleArn"`
-	UserPoolId  string   `pulumi:"userPoolId"`
+	Description *string `pulumi:"description"`
+	GroupName   *string `pulumi:"groupName"`
+	Precedence  *int    `pulumi:"precedence"`
+	RoleArn     *string `pulumi:"roleArn"`
+	UserPoolId  string  `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolGroup resource.
 type UserPoolGroupArgs struct {
 	Description pulumi.StringPtrInput
 	GroupName   pulumi.StringPtrInput
-	Precedence  pulumi.Float64PtrInput
+	Precedence  pulumi.IntPtrInput
 	RoleArn     pulumi.StringPtrInput
 	UserPoolId  pulumi.StringInput
 }
@@ -147,8 +145,8 @@ func (o UserPoolGroupOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolGroupOutput) Precedence() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *UserPoolGroup) pulumi.Float64PtrOutput { return v.Precedence }).(pulumi.Float64PtrOutput)
+func (o UserPoolGroupOutput) Precedence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
 func (o UserPoolGroupOutput) RoleArn() pulumi.StringPtrOutput {

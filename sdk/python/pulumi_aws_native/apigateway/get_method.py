@@ -56,7 +56,7 @@ class GetMethodResult:
     @pulumi.getter(name="apiKeyRequired")
     def api_key_required(self) -> Optional[bool]:
         """
-        Indicates whether the method requires clients to submit a valid API key.
+        A boolean flag specifying whether a valid ApiKey is required to invoke this method.
         """
         return pulumi.get(self, "api_key_required")
 
@@ -64,7 +64,7 @@ class GetMethodResult:
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[Sequence[str]]:
         """
-        A list of authorization scopes configured on the method.
+        A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -72,7 +72,8 @@ class GetMethodResult:
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional['MethodAuthorizationType']:
         """
-        The method's authorization type.
+        The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
+          If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -80,7 +81,7 @@ class GetMethodResult:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[str]:
         """
-        The identifier of the authorizer to use on this method.
+        The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -88,7 +89,7 @@ class GetMethodResult:
     @pulumi.getter
     def integration(self) -> Optional['outputs.MethodIntegration']:
         """
-        The backend system that the method calls when it receives a request.
+        Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
         """
         return pulumi.get(self, "integration")
 
@@ -96,7 +97,7 @@ class GetMethodResult:
     @pulumi.getter(name="methodResponses")
     def method_responses(self) -> Optional[Sequence['outputs.MethodResponse']]:
         """
-        The responses that can be sent to the client who calls the method.
+        Gets a method response associated with a given HTTP status code.
         """
         return pulumi.get(self, "method_responses")
 
@@ -104,7 +105,7 @@ class GetMethodResult:
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[str]:
         """
-        A friendly operation name for the method.
+        A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
         """
         return pulumi.get(self, "operation_name")
 
@@ -112,7 +113,7 @@ class GetMethodResult:
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[Any]:
         """
-        The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         """
         return pulumi.get(self, "request_models")
 
@@ -120,7 +121,7 @@ class GetMethodResult:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[Any]:
         """
-        The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -128,7 +129,7 @@ class GetMethodResult:
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> Optional[str]:
         """
-        The ID of the associated request validator.
+        The identifier of a RequestValidator for request validation.
         """
         return pulumi.get(self, "request_validator_id")
 
@@ -156,12 +157,12 @@ def get_method(http_method: Optional[str] = None,
                rest_api_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMethodResult:
     """
-    Resource Type definition for AWS::ApiGateway::Method
+    The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 
 
-    :param str http_method: The backend system that the method calls when it receives a request.
-    :param str resource_id: The ID of an API Gateway resource.
-    :param str rest_api_id: The ID of the RestApi resource in which API Gateway creates the method.
+    :param str http_method: The method's HTTP verb.
+    :param str resource_id: The Resource identifier for the MethodResponse resource.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['httpMethod'] = http_method
@@ -189,11 +190,11 @@ def get_method_output(http_method: Optional[pulumi.Input[str]] = None,
                       rest_api_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMethodResult]:
     """
-    Resource Type definition for AWS::ApiGateway::Method
+    The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 
 
-    :param str http_method: The backend system that the method calls when it receives a request.
-    :param str resource_id: The ID of an API Gateway resource.
-    :param str rest_api_id: The ID of the RestApi resource in which API Gateway creates the method.
+    :param str http_method: The method's HTTP verb.
+    :param str resource_id: The Resource identifier for the MethodResponse resource.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

@@ -47,6 +47,7 @@ export class Template extends pulumi.CustomResource {
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.TemplateTag[] | undefined>;
     public readonly templateId!: pulumi.Output<string>;
+    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
@@ -74,6 +75,7 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateId"] = args ? args.templateId : undefined;
+            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
             resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -90,6 +92,7 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["sourceEntity"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateId"] = undefined /*out*/;
+            resourceInputs["validationStrategy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
@@ -111,5 +114,6 @@ export interface TemplateArgs {
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTagArgs>[]>;
     templateId: pulumi.Input<string>;
+    validationStrategy?: pulumi.Input<inputs.quicksight.TemplateValidationStrategyArgs>;
     versionDescription?: pulumi.Input<string>;
 }

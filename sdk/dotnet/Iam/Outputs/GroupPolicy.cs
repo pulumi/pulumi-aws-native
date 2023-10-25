@@ -13,12 +13,18 @@ namespace Pulumi.AwsNative.Iam.Outputs
     [OutputType]
     public sealed class GroupPolicy
     {
-        public readonly object PolicyDocument;
+        /// <summary>
+        /// The policy document.
+        /// </summary>
+        public readonly string PolicyDocument;
+        /// <summary>
+        /// The friendly name (not ARN) identifying the policy.
+        /// </summary>
         public readonly string PolicyName;
 
         [OutputConstructor]
         private GroupPolicy(
-            object policyDocument,
+            string policyDocument,
 
             string policyName)
         {

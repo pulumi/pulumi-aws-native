@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetMethod
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Method
+        /// The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
         /// </summary>
         public static Task<GetMethodResult> InvokeAsync(GetMethodArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Method
+        /// The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
         /// </summary>
         public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetMethodArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backend system that the method calls when it receives a request.
+        /// The method's HTTP verb.
         /// </summary>
         [Input("httpMethod", required: true)]
         public string HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The ID of an API Gateway resource.
+        /// The Resource identifier for the MethodResponse resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which API Gateway creates the method.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -54,19 +54,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetMethodInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The backend system that the method calls when it receives a request.
+        /// The method's HTTP verb.
         /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// The ID of an API Gateway resource.
+        /// The Resource identifier for the MethodResponse resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which API Gateway creates the method.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -82,43 +82,44 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetMethodResult
     {
         /// <summary>
-        /// Indicates whether the method requires clients to submit a valid API key.
+        /// A boolean flag specifying whether a valid ApiKey is required to invoke this method.
         /// </summary>
         public readonly bool? ApiKeyRequired;
         /// <summary>
-        /// A list of authorization scopes configured on the method.
+        /// A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         /// </summary>
         public readonly ImmutableArray<string> AuthorizationScopes;
         /// <summary>
-        /// The method's authorization type.
+        /// The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
+        ///   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         /// </summary>
         public readonly Pulumi.AwsNative.ApiGateway.MethodAuthorizationType? AuthorizationType;
         /// <summary>
-        /// The identifier of the authorizer to use on this method.
+        /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
         /// </summary>
         public readonly string? AuthorizerId;
         /// <summary>
-        /// The backend system that the method calls when it receives a request.
+        /// Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
         /// </summary>
         public readonly Outputs.MethodIntegration? Integration;
         /// <summary>
-        /// The responses that can be sent to the client who calls the method.
+        /// Gets a method response associated with a given HTTP status code.
         /// </summary>
         public readonly ImmutableArray<Outputs.MethodResponse> MethodResponses;
         /// <summary>
-        /// A friendly operation name for the method.
+        /// A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
-        /// The resources that are used for the request's content type. Specify request models as key-value pairs (string-to-string mapping), with a content type as the key and a Model resource name as the value.
+        /// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         /// </summary>
         public readonly object? RequestModels;
         /// <summary>
-        /// The request parameters that API Gateway accepts. Specify request parameters as key-value pairs (string-to-Boolean mapping), with a source as the key and a Boolean as the value.
+        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         public readonly object? RequestParameters;
         /// <summary>
-        /// The ID of the associated request validator.
+        /// The identifier of a RequestValidator for request validation.
         /// </summary>
         public readonly string? RequestValidatorId;
 

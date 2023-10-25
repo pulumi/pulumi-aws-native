@@ -38,7 +38,7 @@ class GetDocumentationPartResult:
     @pulumi.getter
     def properties(self) -> Optional[str]:
         """
-        The documentation content map of the targeted API entity.
+        The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         """
         return pulumi.get(self, "properties")
 
@@ -57,11 +57,11 @@ def get_documentation_part(documentation_part_id: Optional[str] = None,
                            rest_api_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationPartResult:
     """
-    Resource Type definition for AWS::ApiGateway::DocumentationPart
+    The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
     :param str documentation_part_id: The identifier of the documentation Part.
-    :param str rest_api_id: Identifier of the targeted API entity
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['documentationPartId'] = documentation_part_id
@@ -79,10 +79,10 @@ def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[s
                                   rest_api_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationPartResult]:
     """
-    Resource Type definition for AWS::ApiGateway::DocumentationPart
+    The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
 
     :param str documentation_part_id: The identifier of the documentation Part.
-    :param str rest_api_id: Identifier of the targeted API entity
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

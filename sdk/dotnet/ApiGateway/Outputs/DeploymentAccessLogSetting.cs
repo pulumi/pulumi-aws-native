@@ -10,15 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
+    ///   ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+    /// </summary>
     [OutputType]
     public sealed class DeploymentAccessLogSetting
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
         /// </summary>
         public readonly string? DestinationArn;
         /// <summary>
-        /// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+        /// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
         /// </summary>
         public readonly string? Format;
 

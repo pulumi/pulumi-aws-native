@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.Connect
 {
     /// <summary>
-    /// The state of the contact flow module.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContactFlowModuleState : IEquatable<ContactFlowModuleState>
-    {
-        private readonly string _value;
-
-        private ContactFlowModuleState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContactFlowModuleState Active { get; } = new ContactFlowModuleState("ACTIVE");
-        public static ContactFlowModuleState Archived { get; } = new ContactFlowModuleState("ARCHIVED");
-
-        public static bool operator ==(ContactFlowModuleState left, ContactFlowModuleState right) => left.Equals(right);
-        public static bool operator !=(ContactFlowModuleState left, ContactFlowModuleState right) => !left.Equals(right);
-
-        public static explicit operator string(ContactFlowModuleState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContactFlowModuleState other && Equals(other);
-        public bool Equals(ContactFlowModuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The status of the contact flow module.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContactFlowModuleStatus : IEquatable<ContactFlowModuleStatus>
-    {
-        private readonly string _value;
-
-        private ContactFlowModuleStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContactFlowModuleStatus Published { get; } = new ContactFlowModuleStatus("PUBLISHED");
-        public static ContactFlowModuleStatus Saved { get; } = new ContactFlowModuleStatus("SAVED");
-
-        public static bool operator ==(ContactFlowModuleStatus left, ContactFlowModuleStatus right) => left.Equals(right);
-        public static bool operator !=(ContactFlowModuleStatus left, ContactFlowModuleStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ContactFlowModuleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContactFlowModuleStatus other && Equals(other);
-        public bool Equals(ContactFlowModuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The state of the contact flow.
     /// </summary>
     [EnumType]

@@ -31,6 +31,7 @@ type Dashboard struct {
 	SourceEntity            DashboardSourceEntityPtrOutput         `pulumi:"sourceEntity"`
 	Tags                    DashboardTagArrayOutput                `pulumi:"tags"`
 	ThemeArn                pulumi.StringPtrOutput                 `pulumi:"themeArn"`
+	ValidationStrategy      DashboardValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
 	Version                 DashboardVersionOutput                 `pulumi:"version"`
 	VersionDescription      pulumi.StringPtrOutput                 `pulumi:"versionDescription"`
 }
@@ -96,6 +97,7 @@ type dashboardArgs struct {
 	SourceEntity            *DashboardSourceEntity        `pulumi:"sourceEntity"`
 	Tags                    []DashboardTag                `pulumi:"tags"`
 	ThemeArn                *string                       `pulumi:"themeArn"`
+	ValidationStrategy      *DashboardValidationStrategy  `pulumi:"validationStrategy"`
 	VersionDescription      *string                       `pulumi:"versionDescription"`
 }
 
@@ -111,6 +113,7 @@ type DashboardArgs struct {
 	SourceEntity            DashboardSourceEntityPtrInput
 	Tags                    DashboardTagArrayInput
 	ThemeArn                pulumi.StringPtrInput
+	ValidationStrategy      DashboardValidationStrategyPtrInput
 	VersionDescription      pulumi.StringPtrInput
 }
 
@@ -217,6 +220,10 @@ func (o DashboardOutput) Tags() DashboardTagArrayOutput {
 
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardOutput) ValidationStrategy() DashboardValidationStrategyPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardValidationStrategyPtrOutput { return v.ValidationStrategy }).(DashboardValidationStrategyPtrOutput)
 }
 
 func (o DashboardOutput) Version() DashboardVersionOutput {

@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string DataCapturedDestinationS3Uri;
         public readonly Outputs.DataQualityJobDefinitionDatasetFormat DatasetFormat;
         /// <summary>
+        /// Indexes or names of the features to be excluded from analysis
+        /// </summary>
+        public readonly string? ExcludeFeaturesAttribute;
+        /// <summary>
         /// Path to the filesystem where the endpoint data is available to the container.
         /// </summary>
         public readonly string LocalPath;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.DataQualityJobDefinitionDatasetFormat datasetFormat,
 
+            string? excludeFeaturesAttribute,
+
             string localPath,
 
             Pulumi.AwsNative.SageMaker.DataQualityJobDefinitionBatchTransformInputS3DataDistributionType? s3DataDistributionType,
@@ -48,6 +54,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         {
             DataCapturedDestinationS3Uri = dataCapturedDestinationS3Uri;
             DatasetFormat = datasetFormat;
+            ExcludeFeaturesAttribute = excludeFeaturesAttribute;
             LocalPath = localPath;
             S3DataDistributionType = s3DataDistributionType;
             S3InputMode = s3InputMode;

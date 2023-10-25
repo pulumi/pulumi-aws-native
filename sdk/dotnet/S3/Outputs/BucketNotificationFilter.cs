@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// Specifies object key name filtering rules.
-    /// </summary>
     [OutputType]
     public sealed class BucketNotificationFilter
     {

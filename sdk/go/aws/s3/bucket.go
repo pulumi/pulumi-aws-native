@@ -16,52 +16,31 @@ import (
 type Bucket struct {
 	pulumi.CustomResourceState
 
-	// Configuration for the transfer acceleration state.
-	AccelerateConfiguration BucketAccelerateConfigurationPtrOutput `pulumi:"accelerateConfiguration"`
-	// A canned access control list (ACL) that grants predefined permissions to the bucket.
-	AccessControl BucketAccessControlPtrOutput `pulumi:"accessControl"`
-	// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-	AnalyticsConfigurations BucketAnalyticsConfigurationArrayOutput `pulumi:"analyticsConfigurations"`
-	// The Amazon Resource Name (ARN) of the specified bucket.
-	Arn              pulumi.StringOutput       `pulumi:"arn"`
-	BucketEncryption BucketEncryptionPtrOutput `pulumi:"bucketEncryption"`
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// Rules that define cross-origin resource sharing of objects in this bucket.
-	CorsConfiguration BucketCorsConfigurationPtrOutput `pulumi:"corsConfiguration"`
-	// The IPv4 DNS name of the specified bucket.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-	DualStackDomainName pulumi.StringOutput `pulumi:"dualStackDomainName"`
-	// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+	AccelerateConfiguration          BucketAccelerateConfigurationPtrOutput           `pulumi:"accelerateConfiguration"`
+	AccessControl                    pulumi.StringPtrOutput                           `pulumi:"accessControl"`
+	AnalyticsConfigurations          BucketAnalyticsConfigurationArrayOutput          `pulumi:"analyticsConfigurations"`
+	Arn                              pulumi.StringOutput                              `pulumi:"arn"`
+	BucketEncryption                 BucketEncryptionPtrOutput                        `pulumi:"bucketEncryption"`
+	BucketName                       pulumi.StringPtrOutput                           `pulumi:"bucketName"`
+	CorsConfiguration                BucketCorsConfigurationPtrOutput                 `pulumi:"corsConfiguration"`
+	DomainName                       pulumi.StringOutput                              `pulumi:"domainName"`
+	DualStackDomainName              pulumi.StringOutput                              `pulumi:"dualStackDomainName"`
 	IntelligentTieringConfigurations BucketIntelligentTieringConfigurationArrayOutput `pulumi:"intelligentTieringConfigurations"`
-	// The inventory configuration for an Amazon S3 bucket.
-	InventoryConfigurations BucketInventoryConfigurationArrayOutput `pulumi:"inventoryConfigurations"`
-	// Rules that define how Amazon S3 manages objects during their lifetime.
-	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
-	// Settings that define where logs are stored.
-	LoggingConfiguration BucketLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
-	// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
-	MetricsConfigurations BucketMetricsConfigurationArrayOutput `pulumi:"metricsConfigurations"`
-	// Configuration that defines how Amazon S3 handles bucket notifications.
-	NotificationConfiguration BucketNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
-	// Places an Object Lock configuration on the specified bucket.
-	ObjectLockConfiguration BucketObjectLockConfigurationPtrOutput `pulumi:"objectLockConfiguration"`
-	// Indicates whether this bucket has an Object Lock configuration enabled.
-	ObjectLockEnabled pulumi.BoolPtrOutput `pulumi:"objectLockEnabled"`
-	// Specifies the container element for object ownership rules.
-	OwnershipControls              BucketOwnershipControlsPtrOutput              `pulumi:"ownershipControls"`
-	PublicAccessBlockConfiguration BucketPublicAccessBlockConfigurationPtrOutput `pulumi:"publicAccessBlockConfiguration"`
-	// Returns the regional domain name of the specified bucket.
-	RegionalDomainName pulumi.StringOutput `pulumi:"regionalDomainName"`
-	// Configuration for replicating objects in an S3 bucket.
-	ReplicationConfiguration BucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
-	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    BucketTagArrayOutput                   `pulumi:"tags"`
-	VersioningConfiguration BucketVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
-	WebsiteConfiguration    BucketWebsiteConfigurationPtrOutput    `pulumi:"websiteConfiguration"`
-	// The Amazon S3 website endpoint for the specified bucket.
-	WebsiteUrl pulumi.StringOutput `pulumi:"websiteUrl"`
+	InventoryConfigurations          BucketInventoryConfigurationArrayOutput          `pulumi:"inventoryConfigurations"`
+	LifecycleConfiguration           BucketLifecycleConfigurationPtrOutput            `pulumi:"lifecycleConfiguration"`
+	LoggingConfiguration             BucketLoggingConfigurationPtrOutput              `pulumi:"loggingConfiguration"`
+	MetricsConfigurations            BucketMetricsConfigurationArrayOutput            `pulumi:"metricsConfigurations"`
+	NotificationConfiguration        BucketNotificationConfigurationPtrOutput         `pulumi:"notificationConfiguration"`
+	ObjectLockConfiguration          BucketObjectLockConfigurationPtrOutput           `pulumi:"objectLockConfiguration"`
+	ObjectLockEnabled                pulumi.BoolPtrOutput                             `pulumi:"objectLockEnabled"`
+	OwnershipControls                BucketOwnershipControlsPtrOutput                 `pulumi:"ownershipControls"`
+	PublicAccessBlockConfiguration   BucketPublicAccessBlockConfigurationPtrOutput    `pulumi:"publicAccessBlockConfiguration"`
+	RegionalDomainName               pulumi.StringOutput                              `pulumi:"regionalDomainName"`
+	ReplicationConfiguration         BucketReplicationConfigurationPtrOutput          `pulumi:"replicationConfiguration"`
+	Tags                             BucketTagArrayOutput                             `pulumi:"tags"`
+	VersioningConfiguration          BucketVersioningConfigurationPtrOutput           `pulumi:"versioningConfiguration"`
+	WebsiteConfiguration             BucketWebsiteConfigurationPtrOutput              `pulumi:"websiteConfiguration"`
+	WebsiteUrl                       pulumi.StringOutput                              `pulumi:"websiteUrl"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -109,82 +88,50 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// Configuration for the transfer acceleration state.
-	AccelerateConfiguration *BucketAccelerateConfiguration `pulumi:"accelerateConfiguration"`
-	// A canned access control list (ACL) that grants predefined permissions to the bucket.
-	AccessControl *BucketAccessControl `pulumi:"accessControl"`
-	// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-	AnalyticsConfigurations []BucketAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
-	BucketEncryption        *BucketEncryption              `pulumi:"bucketEncryption"`
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-	BucketName *string `pulumi:"bucketName"`
-	// Rules that define cross-origin resource sharing of objects in this bucket.
-	CorsConfiguration *BucketCorsConfiguration `pulumi:"corsConfiguration"`
-	// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+	AccelerateConfiguration          *BucketAccelerateConfiguration          `pulumi:"accelerateConfiguration"`
+	AccessControl                    *string                                 `pulumi:"accessControl"`
+	AnalyticsConfigurations          []BucketAnalyticsConfiguration          `pulumi:"analyticsConfigurations"`
+	BucketEncryption                 *BucketEncryption                       `pulumi:"bucketEncryption"`
+	BucketName                       *string                                 `pulumi:"bucketName"`
+	CorsConfiguration                *BucketCorsConfiguration                `pulumi:"corsConfiguration"`
 	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"intelligentTieringConfigurations"`
-	// The inventory configuration for an Amazon S3 bucket.
-	InventoryConfigurations []BucketInventoryConfiguration `pulumi:"inventoryConfigurations"`
-	// Rules that define how Amazon S3 manages objects during their lifetime.
-	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
-	// Settings that define where logs are stored.
-	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
-	MetricsConfigurations []BucketMetricsConfiguration `pulumi:"metricsConfigurations"`
-	// Configuration that defines how Amazon S3 handles bucket notifications.
-	NotificationConfiguration *BucketNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// Places an Object Lock configuration on the specified bucket.
-	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
-	// Indicates whether this bucket has an Object Lock configuration enabled.
-	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
-	// Specifies the container element for object ownership rules.
-	OwnershipControls              *BucketOwnershipControls              `pulumi:"ownershipControls"`
-	PublicAccessBlockConfiguration *BucketPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfiguration"`
-	// Configuration for replicating objects in an S3 bucket.
-	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
-	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    []BucketTag                    `pulumi:"tags"`
-	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
-	WebsiteConfiguration    *BucketWebsiteConfiguration    `pulumi:"websiteConfiguration"`
+	InventoryConfigurations          []BucketInventoryConfiguration          `pulumi:"inventoryConfigurations"`
+	LifecycleConfiguration           *BucketLifecycleConfiguration           `pulumi:"lifecycleConfiguration"`
+	LoggingConfiguration             *BucketLoggingConfiguration             `pulumi:"loggingConfiguration"`
+	MetricsConfigurations            []BucketMetricsConfiguration            `pulumi:"metricsConfigurations"`
+	NotificationConfiguration        *BucketNotificationConfiguration        `pulumi:"notificationConfiguration"`
+	ObjectLockConfiguration          *BucketObjectLockConfiguration          `pulumi:"objectLockConfiguration"`
+	ObjectLockEnabled                *bool                                   `pulumi:"objectLockEnabled"`
+	OwnershipControls                *BucketOwnershipControls                `pulumi:"ownershipControls"`
+	PublicAccessBlockConfiguration   *BucketPublicAccessBlockConfiguration   `pulumi:"publicAccessBlockConfiguration"`
+	ReplicationConfiguration         *BucketReplicationConfiguration         `pulumi:"replicationConfiguration"`
+	Tags                             []BucketTag                             `pulumi:"tags"`
+	VersioningConfiguration          *BucketVersioningConfiguration          `pulumi:"versioningConfiguration"`
+	WebsiteConfiguration             *BucketWebsiteConfiguration             `pulumi:"websiteConfiguration"`
 }
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// Configuration for the transfer acceleration state.
-	AccelerateConfiguration BucketAccelerateConfigurationPtrInput
-	// A canned access control list (ACL) that grants predefined permissions to the bucket.
-	AccessControl BucketAccessControlPtrInput
-	// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-	AnalyticsConfigurations BucketAnalyticsConfigurationArrayInput
-	BucketEncryption        BucketEncryptionPtrInput
-	// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-	BucketName pulumi.StringPtrInput
-	// Rules that define cross-origin resource sharing of objects in this bucket.
-	CorsConfiguration BucketCorsConfigurationPtrInput
-	// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+	AccelerateConfiguration          BucketAccelerateConfigurationPtrInput
+	AccessControl                    pulumi.StringPtrInput
+	AnalyticsConfigurations          BucketAnalyticsConfigurationArrayInput
+	BucketEncryption                 BucketEncryptionPtrInput
+	BucketName                       pulumi.StringPtrInput
+	CorsConfiguration                BucketCorsConfigurationPtrInput
 	IntelligentTieringConfigurations BucketIntelligentTieringConfigurationArrayInput
-	// The inventory configuration for an Amazon S3 bucket.
-	InventoryConfigurations BucketInventoryConfigurationArrayInput
-	// Rules that define how Amazon S3 manages objects during their lifetime.
-	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
-	// Settings that define where logs are stored.
-	LoggingConfiguration BucketLoggingConfigurationPtrInput
-	// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
-	MetricsConfigurations BucketMetricsConfigurationArrayInput
-	// Configuration that defines how Amazon S3 handles bucket notifications.
-	NotificationConfiguration BucketNotificationConfigurationPtrInput
-	// Places an Object Lock configuration on the specified bucket.
-	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
-	// Indicates whether this bucket has an Object Lock configuration enabled.
-	ObjectLockEnabled pulumi.BoolPtrInput
-	// Specifies the container element for object ownership rules.
-	OwnershipControls              BucketOwnershipControlsPtrInput
-	PublicAccessBlockConfiguration BucketPublicAccessBlockConfigurationPtrInput
-	// Configuration for replicating objects in an S3 bucket.
-	ReplicationConfiguration BucketReplicationConfigurationPtrInput
-	// An arbitrary set of tags (key-value pairs) for this S3 bucket.
-	Tags                    BucketTagArrayInput
-	VersioningConfiguration BucketVersioningConfigurationPtrInput
-	WebsiteConfiguration    BucketWebsiteConfigurationPtrInput
+	InventoryConfigurations          BucketInventoryConfigurationArrayInput
+	LifecycleConfiguration           BucketLifecycleConfigurationPtrInput
+	LoggingConfiguration             BucketLoggingConfigurationPtrInput
+	MetricsConfigurations            BucketMetricsConfigurationArrayInput
+	NotificationConfiguration        BucketNotificationConfigurationPtrInput
+	ObjectLockConfiguration          BucketObjectLockConfigurationPtrInput
+	ObjectLockEnabled                pulumi.BoolPtrInput
+	OwnershipControls                BucketOwnershipControlsPtrInput
+	PublicAccessBlockConfiguration   BucketPublicAccessBlockConfigurationPtrInput
+	ReplicationConfiguration         BucketReplicationConfigurationPtrInput
+	Tags                             BucketTagArrayInput
+	VersioningConfiguration          BucketVersioningConfigurationPtrInput
+	WebsiteConfiguration             BucketWebsiteConfigurationPtrInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {
@@ -236,22 +183,18 @@ func (o BucketOutput) ToOutput(ctx context.Context) pulumix.Output[*Bucket] {
 	}
 }
 
-// Configuration for the transfer acceleration state.
 func (o BucketOutput) AccelerateConfiguration() BucketAccelerateConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketAccelerateConfigurationPtrOutput { return v.AccelerateConfiguration }).(BucketAccelerateConfigurationPtrOutput)
 }
 
-// A canned access control list (ACL) that grants predefined permissions to the bucket.
-func (o BucketOutput) AccessControl() BucketAccessControlPtrOutput {
-	return o.ApplyT(func(v *Bucket) BucketAccessControlPtrOutput { return v.AccessControl }).(BucketAccessControlPtrOutput)
+func (o BucketOutput) AccessControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.AccessControl }).(pulumi.StringPtrOutput)
 }
 
-// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 func (o BucketOutput) AnalyticsConfigurations() BucketAnalyticsConfigurationArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketAnalyticsConfigurationArrayOutput { return v.AnalyticsConfigurations }).(BucketAnalyticsConfigurationArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the specified bucket.
 func (o BucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -260,69 +203,56 @@ func (o BucketOutput) BucketEncryption() BucketEncryptionPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketEncryptionPtrOutput { return v.BucketEncryption }).(BucketEncryptionPtrOutput)
 }
 
-// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 func (o BucketOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Rules that define cross-origin resource sharing of objects in this bucket.
 func (o BucketOutput) CorsConfiguration() BucketCorsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketCorsConfigurationPtrOutput { return v.CorsConfiguration }).(BucketCorsConfigurationPtrOutput)
 }
 
-// The IPv4 DNS name of the specified bucket.
 func (o BucketOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
 func (o BucketOutput) DualStackDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.DualStackDomainName }).(pulumi.StringOutput)
 }
 
-// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
 func (o BucketOutput) IntelligentTieringConfigurations() BucketIntelligentTieringConfigurationArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketIntelligentTieringConfigurationArrayOutput {
 		return v.IntelligentTieringConfigurations
 	}).(BucketIntelligentTieringConfigurationArrayOutput)
 }
 
-// The inventory configuration for an Amazon S3 bucket.
 func (o BucketOutput) InventoryConfigurations() BucketInventoryConfigurationArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketInventoryConfigurationArrayOutput { return v.InventoryConfigurations }).(BucketInventoryConfigurationArrayOutput)
 }
 
-// Rules that define how Amazon S3 manages objects during their lifetime.
 func (o BucketOutput) LifecycleConfiguration() BucketLifecycleConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketLifecycleConfigurationPtrOutput { return v.LifecycleConfiguration }).(BucketLifecycleConfigurationPtrOutput)
 }
 
-// Settings that define where logs are stored.
 func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
 }
 
-// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
 func (o BucketOutput) MetricsConfigurations() BucketMetricsConfigurationArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketMetricsConfigurationArrayOutput { return v.MetricsConfigurations }).(BucketMetricsConfigurationArrayOutput)
 }
 
-// Configuration that defines how Amazon S3 handles bucket notifications.
 func (o BucketOutput) NotificationConfiguration() BucketNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(BucketNotificationConfigurationPtrOutput)
 }
 
-// Places an Object Lock configuration on the specified bucket.
 func (o BucketOutput) ObjectLockConfiguration() BucketObjectLockConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketObjectLockConfigurationPtrOutput { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled.
 func (o BucketOutput) ObjectLockEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.BoolPtrOutput { return v.ObjectLockEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the container element for object ownership rules.
 func (o BucketOutput) OwnershipControls() BucketOwnershipControlsPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketOwnershipControlsPtrOutput { return v.OwnershipControls }).(BucketOwnershipControlsPtrOutput)
 }
@@ -331,17 +261,14 @@ func (o BucketOutput) PublicAccessBlockConfiguration() BucketPublicAccessBlockCo
 	return o.ApplyT(func(v *Bucket) BucketPublicAccessBlockConfigurationPtrOutput { return v.PublicAccessBlockConfiguration }).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
-// Returns the regional domain name of the specified bucket.
 func (o BucketOutput) RegionalDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.RegionalDomainName }).(pulumi.StringOutput)
 }
 
-// Configuration for replicating objects in an S3 bucket.
 func (o BucketOutput) ReplicationConfiguration() BucketReplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketReplicationConfigurationPtrOutput { return v.ReplicationConfiguration }).(BucketReplicationConfigurationPtrOutput)
 }
 
-// An arbitrary set of tags (key-value pairs) for this S3 bucket.
 func (o BucketOutput) Tags() BucketTagArrayOutput {
 	return o.ApplyT(func(v *Bucket) BucketTagArrayOutput { return v.Tags }).(BucketTagArrayOutput)
 }
@@ -354,7 +281,6 @@ func (o BucketOutput) WebsiteConfiguration() BucketWebsiteConfigurationPtrOutput
 	return o.ApplyT(func(v *Bucket) BucketWebsiteConfigurationPtrOutput { return v.WebsiteConfiguration }).(BucketWebsiteConfigurationPtrOutput)
 }
 
-// The Amazon S3 website endpoint for the specified bucket.
 func (o BucketOutput) WebsiteUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteUrl }).(pulumi.StringOutput)
 }

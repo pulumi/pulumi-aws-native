@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Account
+// The “AWS::ApiGateway::Account“ resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one “AWS::ApiGateway::Account“ resource per region per account.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
@@ -29,7 +29,7 @@ type LookupAccountArgs struct {
 }
 
 type LookupAccountResult struct {
-	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn *string `pulumi:"cloudWatchRoleArn"`
 	// Primary identifier which is manually generated.
 	Id *string `pulumi:"id"`
@@ -77,7 +77,7 @@ func (o LookupAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+// The ARN of an Amazon CloudWatch role for the current Account.
 func (o LookupAccountResultOutput) CloudWatchRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.CloudWatchRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetBucketResult',
@@ -20,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetBucketResult:
-    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+    def __init__(__self__, accelerate_configuration=None, access_control=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, id=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
         if accelerate_configuration and not isinstance(accelerate_configuration, dict):
             raise TypeError("Expected argument 'accelerate_configuration' to be a dict")
         pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
+        if access_control and not isinstance(access_control, str):
+            raise TypeError("Expected argument 'access_control' to be a str")
+        pulumi.set(__self__, "access_control", access_control)
         if analytics_configurations and not isinstance(analytics_configurations, list):
             raise TypeError("Expected argument 'analytics_configurations' to be a list")
         pulumi.set(__self__, "analytics_configurations", analytics_configurations)
@@ -42,6 +44,9 @@ class GetBucketResult:
         if dual_stack_domain_name and not isinstance(dual_stack_domain_name, str):
             raise TypeError("Expected argument 'dual_stack_domain_name' to be a str")
         pulumi.set(__self__, "dual_stack_domain_name", dual_stack_domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if intelligent_tiering_configurations and not isinstance(intelligent_tiering_configurations, list):
             raise TypeError("Expected argument 'intelligent_tiering_configurations' to be a list")
         pulumi.set(__self__, "intelligent_tiering_configurations", intelligent_tiering_configurations)
@@ -91,25 +96,21 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="accelerateConfiguration")
     def accelerate_configuration(self) -> Optional['outputs.BucketAccelerateConfiguration']:
-        """
-        Configuration for the transfer acceleration state.
-        """
         return pulumi.get(self, "accelerate_configuration")
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional[str]:
+        return pulumi.get(self, "access_control")
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> Optional[Sequence['outputs.BucketAnalyticsConfiguration']]:
-        """
-        The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-        """
         return pulumi.get(self, "analytics_configurations")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the specified bucket.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -120,89 +121,61 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> Optional['outputs.BucketCorsConfiguration']:
-        """
-        Rules that define cross-origin resource sharing of objects in this bucket.
-        """
         return pulumi.get(self, "cors_configuration")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
-        """
-        The IPv4 DNS name of the specified bucket.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="dualStackDomainName")
     def dual_stack_domain_name(self) -> Optional[str]:
-        """
-        The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-        """
         return pulumi.get(self, "dual_stack_domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="intelligentTieringConfigurations")
     def intelligent_tiering_configurations(self) -> Optional[Sequence['outputs.BucketIntelligentTieringConfiguration']]:
-        """
-        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
-        """
         return pulumi.get(self, "intelligent_tiering_configurations")
 
     @property
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> Optional[Sequence['outputs.BucketInventoryConfiguration']]:
-        """
-        The inventory configuration for an Amazon S3 bucket.
-        """
         return pulumi.get(self, "inventory_configurations")
 
     @property
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional['outputs.BucketLifecycleConfiguration']:
-        """
-        Rules that define how Amazon S3 manages objects during their lifetime.
-        """
         return pulumi.get(self, "lifecycle_configuration")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.BucketLoggingConfiguration']:
-        """
-        Settings that define where logs are stored.
-        """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[Sequence['outputs.BucketMetricsConfiguration']]:
-        """
-        Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
-        """
         return pulumi.get(self, "metrics_configurations")
 
     @property
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> Optional['outputs.BucketNotificationConfiguration']:
-        """
-        Configuration that defines how Amazon S3 handles bucket notifications.
-        """
         return pulumi.get(self, "notification_configuration")
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional['outputs.BucketObjectLockConfiguration']:
-        """
-        Places an Object Lock configuration on the specified bucket.
-        """
         return pulumi.get(self, "object_lock_configuration")
 
     @property
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> Optional['outputs.BucketOwnershipControls']:
-        """
-        Specifies the container element for object ownership rules.
-        """
         return pulumi.get(self, "ownership_controls")
 
     @property
@@ -213,25 +186,16 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> Optional[str]:
-        """
-        Returns the regional domain name of the specified bucket.
-        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional['outputs.BucketReplicationConfiguration']:
-        """
-        Configuration for replicating objects in an S3 bucket.
-        """
         return pulumi.get(self, "replication_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.BucketTag']]:
-        """
-        An arbitrary set of tags (key-value pairs) for this S3 bucket.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -247,9 +211,6 @@ class GetBucketResult:
     @property
     @pulumi.getter(name="websiteUrl")
     def website_url(self) -> Optional[str]:
-        """
-        The Amazon S3 website endpoint for the specified bucket.
-        """
         return pulumi.get(self, "website_url")
 
 
@@ -260,12 +221,14 @@ class AwaitableGetBucketResult(GetBucketResult):
             yield self
         return GetBucketResult(
             accelerate_configuration=self.accelerate_configuration,
+            access_control=self.access_control,
             analytics_configurations=self.analytics_configurations,
             arn=self.arn,
             bucket_encryption=self.bucket_encryption,
             cors_configuration=self.cors_configuration,
             domain_name=self.domain_name,
             dual_stack_domain_name=self.dual_stack_domain_name,
+            id=self.id,
             intelligent_tiering_configurations=self.intelligent_tiering_configurations,
             inventory_configurations=self.inventory_configurations,
             lifecycle_configuration=self.lifecycle_configuration,
@@ -283,27 +246,26 @@ class AwaitableGetBucketResult(GetBucketResult):
             website_url=self.website_url)
 
 
-def get_bucket(bucket_name: Optional[str] = None,
+def get_bucket(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketResult:
     """
     Resource Type definition for AWS::S3::Bucket
-
-
-    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
     """
     __args__ = dict()
-    __args__['bucketName'] = bucket_name
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:s3:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
         accelerate_configuration=pulumi.get(__ret__, 'accelerate_configuration'),
+        access_control=pulumi.get(__ret__, 'access_control'),
         analytics_configurations=pulumi.get(__ret__, 'analytics_configurations'),
         arn=pulumi.get(__ret__, 'arn'),
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
         cors_configuration=pulumi.get(__ret__, 'cors_configuration'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         dual_stack_domain_name=pulumi.get(__ret__, 'dual_stack_domain_name'),
+        id=pulumi.get(__ret__, 'id'),
         intelligent_tiering_configurations=pulumi.get(__ret__, 'intelligent_tiering_configurations'),
         inventory_configurations=pulumi.get(__ret__, 'inventory_configurations'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
@@ -322,12 +284,9 @@ def get_bucket(bucket_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_bucket)
-def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
+def get_bucket_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type definition for AWS::S3::Bucket
-
-
-    :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
     """
     ...

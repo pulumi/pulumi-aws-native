@@ -102,7 +102,7 @@
   "writeOnlyProperties" : [ "/properties/ActivationKey" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateAgent", "datasync:TagResource", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcEndpoints" ]
+      "permissions" : [ "datasync:CreateAgent", "datasync:TagResource", "datasync:DescribeAgent", "datasync:ListTagsForResource", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcEndpoints" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeAgent", "datasync:ListTagsForResource" ]

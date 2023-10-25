@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Inputs
 {
 
+    /// <summary>
+    /// Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+    /// </summary>
     public sealed class FunctionConfigurationSyncConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Conflict Detection strategy to use.
+        /// </summary>
         [Input("conflictDetection", required: true)]
         public Input<string> ConflictDetection { get; set; } = null!;
 
+        /// <summary>
+        /// The Conflict Resolution strategy to perform in the event of a conflict.
+        /// </summary>
         [Input("conflictHandler")]
         public Input<string>? ConflictHandler { get; set; }
 

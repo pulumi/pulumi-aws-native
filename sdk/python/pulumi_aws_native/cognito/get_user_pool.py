@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResult:
-    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, enabled_mfas=None, id=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
+    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
         if account_recovery_setting and not isinstance(account_recovery_setting, dict):
             raise TypeError("Expected argument 'account_recovery_setting' to be a dict")
         pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -50,12 +50,6 @@ class GetUserPoolResult:
         if email_verification_subject and not isinstance(email_verification_subject, str):
             raise TypeError("Expected argument 'email_verification_subject' to be a str")
         pulumi.set(__self__, "email_verification_subject", email_verification_subject)
-        if enabled_mfas and not isinstance(enabled_mfas, list):
-            raise TypeError("Expected argument 'enabled_mfas' to be a list")
-        pulumi.set(__self__, "enabled_mfas", enabled_mfas)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if lambda_config and not isinstance(lambda_config, dict):
             raise TypeError("Expected argument 'lambda_config' to be a dict")
         pulumi.set(__self__, "lambda_config", lambda_config)
@@ -89,6 +83,9 @@ class GetUserPoolResult:
         if user_pool_add_ons and not isinstance(user_pool_add_ons, dict):
             raise TypeError("Expected argument 'user_pool_add_ons' to be a dict")
         pulumi.set(__self__, "user_pool_add_ons", user_pool_add_ons)
+        if user_pool_id and not isinstance(user_pool_id, str):
+            raise TypeError("Expected argument 'user_pool_id' to be a str")
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if user_pool_name and not isinstance(user_pool_name, str):
             raise TypeError("Expected argument 'user_pool_name' to be a str")
         pulumi.set(__self__, "user_pool_name", user_pool_name)
@@ -156,16 +153,6 @@ class GetUserPoolResult:
         return pulumi.get(self, "email_verification_subject")
 
     @property
-    @pulumi.getter(name="enabledMfas")
-    def enabled_mfas(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "enabled_mfas")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional['outputs.UserPoolLambdaConfig']:
         return pulumi.get(self, "lambda_config")
@@ -221,6 +208,11 @@ class GetUserPoolResult:
         return pulumi.get(self, "user_pool_add_ons")
 
     @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[str]:
+        return pulumi.get(self, "user_pool_id")
+
+    @property
     @pulumi.getter(name="userPoolName")
     def user_pool_name(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_name")
@@ -262,8 +254,6 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             email_configuration=self.email_configuration,
             email_verification_message=self.email_verification_message,
             email_verification_subject=self.email_verification_subject,
-            enabled_mfas=self.enabled_mfas,
-            id=self.id,
             lambda_config=self.lambda_config,
             mfa_configuration=self.mfa_configuration,
             policies=self.policies,
@@ -275,6 +265,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             sms_verification_message=self.sms_verification_message,
             user_attribute_update_settings=self.user_attribute_update_settings,
             user_pool_add_ons=self.user_pool_add_ons,
+            user_pool_id=self.user_pool_id,
             user_pool_name=self.user_pool_name,
             user_pool_tags=self.user_pool_tags,
             username_attributes=self.username_attributes,
@@ -282,13 +273,13 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             verification_message_template=self.verification_message_template)
 
 
-def get_user_pool(id: Optional[str] = None,
+def get_user_pool(user_pool_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResult:
     """
     Resource Type definition for AWS::Cognito::UserPool
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPool', __args__, opts=opts, typ=GetUserPoolResult).value
 
@@ -303,8 +294,6 @@ def get_user_pool(id: Optional[str] = None,
         email_configuration=pulumi.get(__ret__, 'email_configuration'),
         email_verification_message=pulumi.get(__ret__, 'email_verification_message'),
         email_verification_subject=pulumi.get(__ret__, 'email_verification_subject'),
-        enabled_mfas=pulumi.get(__ret__, 'enabled_mfas'),
-        id=pulumi.get(__ret__, 'id'),
         lambda_config=pulumi.get(__ret__, 'lambda_config'),
         mfa_configuration=pulumi.get(__ret__, 'mfa_configuration'),
         policies=pulumi.get(__ret__, 'policies'),
@@ -316,6 +305,7 @@ def get_user_pool(id: Optional[str] = None,
         sms_verification_message=pulumi.get(__ret__, 'sms_verification_message'),
         user_attribute_update_settings=pulumi.get(__ret__, 'user_attribute_update_settings'),
         user_pool_add_ons=pulumi.get(__ret__, 'user_pool_add_ons'),
+        user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_name=pulumi.get(__ret__, 'user_pool_name'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'),
@@ -324,7 +314,7 @@ def get_user_pool(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool)
-def get_user_pool_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Resource Type definition for AWS::Cognito::UserPool

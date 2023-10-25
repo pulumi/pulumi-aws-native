@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolInvokeArgs()
         {
@@ -61,8 +61,6 @@ namespace Pulumi.AwsNative.Cognito
         public readonly Outputs.UserPoolEmailConfiguration? EmailConfiguration;
         public readonly string? EmailVerificationMessage;
         public readonly string? EmailVerificationSubject;
-        public readonly ImmutableArray<string> EnabledMfas;
-        public readonly string? Id;
         public readonly Outputs.UserPoolLambdaConfig? LambdaConfig;
         public readonly string? MfaConfiguration;
         public readonly Outputs.UserPoolPolicies? Policies;
@@ -74,6 +72,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? SmsVerificationMessage;
         public readonly Outputs.UserPoolUserAttributeUpdateSettings? UserAttributeUpdateSettings;
         public readonly Outputs.UserPoolAddOns? UserPoolAddOns;
+        public readonly string? UserPoolId;
         public readonly string? UserPoolName;
         public readonly object? UserPoolTags;
         public readonly ImmutableArray<string> UsernameAttributes;
@@ -102,10 +101,6 @@ namespace Pulumi.AwsNative.Cognito
 
             string? emailVerificationSubject,
 
-            ImmutableArray<string> enabledMfas,
-
-            string? id,
-
             Outputs.UserPoolLambdaConfig? lambdaConfig,
 
             string? mfaConfiguration,
@@ -128,6 +123,8 @@ namespace Pulumi.AwsNative.Cognito
 
             Outputs.UserPoolAddOns? userPoolAddOns,
 
+            string? userPoolId,
+
             string? userPoolName,
 
             object? userPoolTags,
@@ -148,8 +145,6 @@ namespace Pulumi.AwsNative.Cognito
             EmailConfiguration = emailConfiguration;
             EmailVerificationMessage = emailVerificationMessage;
             EmailVerificationSubject = emailVerificationSubject;
-            EnabledMfas = enabledMfas;
-            Id = id;
             LambdaConfig = lambdaConfig;
             MfaConfiguration = mfaConfiguration;
             Policies = policies;
@@ -161,6 +156,7 @@ namespace Pulumi.AwsNative.Cognito
             SmsVerificationMessage = smsVerificationMessage;
             UserAttributeUpdateSettings = userAttributeUpdateSettings;
             UserPoolAddOns = userPoolAddOns;
+            UserPoolId = userPoolId;
             UserPoolName = userPoolName;
             UserPoolTags = userPoolTags;
             UsernameAttributes = usernameAttributes;

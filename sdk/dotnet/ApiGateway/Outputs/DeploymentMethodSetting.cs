@@ -10,23 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// The ``MethodSetting`` property type configures settings for all methods in a stage.
+    ///  The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
+    /// </summary>
     [OutputType]
     public sealed class DeploymentMethodSetting
     {
         /// <summary>
-        /// Indicates whether the cached responses are encrypted
+        /// Specifies whether the cached responses are encrypted.
         /// </summary>
         public readonly bool? CacheDataEncrypted;
         /// <summary>
-        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        /// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         /// </summary>
         public readonly int? CacheTtlInSeconds;
         /// <summary>
-        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         /// </summary>
         public readonly bool? CachingEnabled;
         /// <summary>
-        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        /// Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         /// </summary>
         public readonly bool? DataTraceEnabled;
         /// <summary>
@@ -34,23 +38,23 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// </summary>
         public readonly string? HttpMethod;
         /// <summary>
-        /// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        /// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
         /// </summary>
         public readonly string? LoggingLevel;
         /// <summary>
-        /// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        /// Specifies whether Amazon CloudWatch metrics are enabled for this method.
         /// </summary>
         public readonly bool? MetricsEnabled;
         /// <summary>
-        /// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+        /// The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
         /// </summary>
         public readonly string? ResourcePath;
         /// <summary>
-        /// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// Specifies the throttling burst limit.
         /// </summary>
         public readonly int? ThrottlingBurstLimit;
         /// <summary>
-        /// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// Specifies the throttling rate limit.
         /// </summary>
         public readonly double? ThrottlingRateLimit;
 

@@ -23,14 +23,12 @@ class IdentityPoolArgs:
                  cognito_streams: Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_pool_name: Optional[pulumi.Input[str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolTagArgs']]]] = None,
                  open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_login_providers: Optional[Any] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolTagArgs']]] identity_pool_tags: An array of key-value pairs to apply to this resource.
         """
         IdentityPoolArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -41,7 +39,6 @@ class IdentityPoolArgs:
             cognito_streams=cognito_streams,
             developer_provider_name=developer_provider_name,
             identity_pool_name=identity_pool_name,
-            identity_pool_tags=identity_pool_tags,
             open_id_connect_provider_arns=open_id_connect_provider_arns,
             push_sync=push_sync,
             saml_provider_arns=saml_provider_arns,
@@ -57,7 +54,6 @@ class IdentityPoolArgs:
              cognito_streams: Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']] = None,
              developer_provider_name: Optional[pulumi.Input[str]] = None,
              identity_pool_name: Optional[pulumi.Input[str]] = None,
-             identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolTagArgs']]]] = None,
              open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
              saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -76,8 +72,6 @@ class IdentityPoolArgs:
             _setter("developer_provider_name", developer_provider_name)
         if identity_pool_name is not None:
             _setter("identity_pool_name", identity_pool_name)
-        if identity_pool_tags is not None:
-            _setter("identity_pool_tags", identity_pool_tags)
         if open_id_connect_provider_arns is not None:
             _setter("open_id_connect_provider_arns", open_id_connect_provider_arns)
         if push_sync is not None:
@@ -151,18 +145,6 @@ class IdentityPoolArgs:
         pulumi.set(self, "identity_pool_name", value)
 
     @property
-    @pulumi.getter(name="identityPoolTags")
-    def identity_pool_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolTagArgs']]]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
-        return pulumi.get(self, "identity_pool_tags")
-
-    @identity_pool_tags.setter
-    def identity_pool_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolTagArgs']]]]):
-        pulumi.set(self, "identity_pool_tags", value)
-
-    @property
     @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "open_id_connect_provider_arns")
@@ -211,7 +193,6 @@ class IdentityPool(pulumi.CustomResource):
                  cognito_streams: Optional[pulumi.Input[pulumi.InputType['IdentityPoolCognitoStreamsArgs']]] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_pool_name: Optional[pulumi.Input[str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolTagArgs']]]]] = None,
                  open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  push_sync: Optional[pulumi.Input[pulumi.InputType['IdentityPoolPushSyncArgs']]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -222,7 +203,6 @@ class IdentityPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolTagArgs']]]] identity_pool_tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -259,7 +239,6 @@ class IdentityPool(pulumi.CustomResource):
                  cognito_streams: Optional[pulumi.Input[pulumi.InputType['IdentityPoolCognitoStreamsArgs']]] = None,
                  developer_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_pool_name: Optional[pulumi.Input[str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolTagArgs']]]]] = None,
                  open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  push_sync: Optional[pulumi.Input[pulumi.InputType['IdentityPoolPushSyncArgs']]] = None,
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -287,7 +266,6 @@ class IdentityPool(pulumi.CustomResource):
             __props__.__dict__["cognito_streams"] = cognito_streams
             __props__.__dict__["developer_provider_name"] = developer_provider_name
             __props__.__dict__["identity_pool_name"] = identity_pool_name
-            __props__.__dict__["identity_pool_tags"] = identity_pool_tags
             __props__.__dict__["open_id_connect_provider_arns"] = open_id_connect_provider_arns
             if push_sync is not None and not isinstance(push_sync, IdentityPoolPushSyncArgs):
                 push_sync = push_sync or {}
@@ -327,7 +305,6 @@ class IdentityPool(pulumi.CustomResource):
         __props__.__dict__["cognito_streams"] = None
         __props__.__dict__["developer_provider_name"] = None
         __props__.__dict__["identity_pool_name"] = None
-        __props__.__dict__["identity_pool_tags"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_provider_arns"] = None
         __props__.__dict__["push_sync"] = None
@@ -369,14 +346,6 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="identityPoolName")
     def identity_pool_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "identity_pool_name")
-
-    @property
-    @pulumi.getter(name="identityPoolTags")
-    def identity_pool_tags(self) -> pulumi.Output[Optional[Sequence['outputs.IdentityPoolTag']]]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
-        return pulumi.get(self, "identity_pool_tags")
 
     @property
     @pulumi.getter

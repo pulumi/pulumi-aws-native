@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetDocumentationVersion
     {
         /// <summary>
-        /// A snapshot of the documentation of an API.
+        /// The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetDocumentationVersionResult> InvokeAsync(GetDocumentationVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A snapshot of the documentation of an API.
+        /// The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetDocumentationVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The version identifier of the API documentation snapshot.
+        /// The version identifier of the to-be-updated documentation version.
         /// </summary>
         [Input("documentationVersion", required: true)]
         public string DocumentationVersionValue { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the API.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -48,13 +48,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetDocumentationVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The version identifier of the API documentation snapshot.
+        /// The version identifier of the to-be-updated documentation version.
         /// </summary>
         [Input("documentationVersion", required: true)]
         public Input<string> DocumentationVersion { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the API.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetDocumentationVersionResult
     {
         /// <summary>
-        /// The description of the API documentation snapshot.
+        /// A description about the new documentation snapshot.
         /// </summary>
         public readonly string? Description;
 

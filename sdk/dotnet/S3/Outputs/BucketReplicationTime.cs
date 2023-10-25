@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketReplicationTime
     {
-        public readonly Pulumi.AwsNative.S3.BucketReplicationTimeStatus Status;
+        public readonly string Status;
         public readonly Outputs.BucketReplicationTimeValue Time;
 
         [OutputConstructor]
         private BucketReplicationTime(
-            Pulumi.AwsNative.S3.BucketReplicationTimeStatus status,
+            string status,
 
             Outputs.BucketReplicationTimeValue time)
         {

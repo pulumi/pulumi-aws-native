@@ -10,29 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// Specifies which Amazon S3 objects to replicate and where to store the replicas.
-    /// </summary>
     [OutputType]
     public sealed class BucketReplicationRule
     {
         public readonly Outputs.BucketDeleteMarkerReplication? DeleteMarkerReplication;
         public readonly Outputs.BucketReplicationDestination Destination;
         public readonly Outputs.BucketReplicationRuleFilter? Filter;
-        /// <summary>
-        /// A unique identifier for the rule.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// An object key name prefix that identifies the object or objects to which the rule applies.
-        /// </summary>
         public readonly string? Prefix;
         public readonly int? Priority;
         public readonly Outputs.BucketSourceSelectionCriteria? SourceSelectionCriteria;
-        /// <summary>
-        /// Specifies whether the rule is enabled.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketReplicationRuleStatus Status;
+        public readonly string Status;
 
         [OutputConstructor]
         private BucketReplicationRule(
@@ -50,7 +38,7 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             Outputs.BucketSourceSelectionCriteria? sourceSelectionCriteria,
 
-            Pulumi.AwsNative.S3.BucketReplicationRuleStatus status)
+            string status)
         {
             DeleteMarkerReplication = deleteMarkerReplication;
             Destination = destination;

@@ -60,11 +60,11 @@ export class ContactFlowModule extends pulumi.CustomResource {
     /**
      * The state of the contact flow module.
      */
-    public readonly state!: pulumi.Output<enums.connect.ContactFlowModuleState | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The status of the contact flow module.
      */
-    public /*out*/ readonly status!: pulumi.Output<enums.connect.ContactFlowModuleStatus>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * One or more tags.
      */
@@ -133,7 +133,7 @@ export interface ContactFlowModuleArgs {
     /**
      * The state of the contact flow module.
      */
-    state?: pulumi.Input<enums.connect.ContactFlowModuleState>;
+    state?: pulumi.Input<string>;
     /**
      * One or more tags.
      */

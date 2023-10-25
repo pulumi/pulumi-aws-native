@@ -12,6 +12,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IdMappingWorkflowIdMappingTechniques',
+    'IdMappingWorkflowInputSource',
+    'IdMappingWorkflowIntermediateSourceConfiguration',
+    'IdMappingWorkflowOutputSource',
+    'IdMappingWorkflowProviderProperties',
+    'IdMappingWorkflowTag',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
     'MatchingWorkflowOutputAttribute',
@@ -24,6 +30,328 @@ __all__ = [
     'SchemaMappingSchemaInputAttribute',
     'SchemaMappingTag',
 ]
+
+@pulumi.output_type
+class IdMappingWorkflowIdMappingTechniques(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idMappingType":
+            suggest = "id_mapping_type"
+        elif key == "providerProperties":
+            suggest = "provider_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowIdMappingTechniques. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowIdMappingTechniques.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowIdMappingTechniques.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
+                 provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None):
+        IdMappingWorkflowIdMappingTechniques._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id_mapping_type=id_mapping_type,
+            provider_properties=provider_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
+             provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if id_mapping_type is not None:
+            _setter("id_mapping_type", id_mapping_type)
+        if provider_properties is not None:
+            _setter("provider_properties", provider_properties)
+
+    @property
+    @pulumi.getter(name="idMappingType")
+    def id_mapping_type(self) -> Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType']:
+        return pulumi.get(self, "id_mapping_type")
+
+    @property
+    @pulumi.getter(name="providerProperties")
+    def provider_properties(self) -> Optional['outputs.IdMappingWorkflowProviderProperties']:
+        return pulumi.get(self, "provider_properties")
+
+
+@pulumi.output_type
+class IdMappingWorkflowInputSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSourceArn":
+            suggest = "input_source_arn"
+        elif key == "schemaArn":
+            suggest = "schema_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowInputSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowInputSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowInputSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_source_arn: str,
+                 schema_arn: str):
+        """
+        :param str input_source_arn: An Glue table ARN for the input source table
+        """
+        IdMappingWorkflowInputSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_source_arn=input_source_arn,
+            schema_arn=schema_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_source_arn: str,
+             schema_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_source_arn", input_source_arn)
+        _setter("schema_arn", schema_arn)
+
+    @property
+    @pulumi.getter(name="inputSourceArn")
+    def input_source_arn(self) -> str:
+        """
+        An Glue table ARN for the input source table
+        """
+        return pulumi.get(self, "input_source_arn")
+
+    @property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> str:
+        return pulumi.get(self, "schema_arn")
+
+
+@pulumi.output_type
+class IdMappingWorkflowIntermediateSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intermediateS3Path":
+            suggest = "intermediate_s3_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowIntermediateSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowIntermediateSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowIntermediateSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 intermediate_s3_path: str):
+        """
+        :param str intermediate_s3_path: The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        IdMappingWorkflowIntermediateSourceConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intermediate_s3_path=intermediate_s3_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intermediate_s3_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("intermediate_s3_path", intermediate_s3_path)
+
+    @property
+    @pulumi.getter(name="intermediateS3Path")
+    def intermediate_s3_path(self) -> str:
+        """
+        The s3 path that would be used to stage the intermediate data being generated during workflow execution.
+        """
+        return pulumi.get(self, "intermediate_s3_path")
+
+
+@pulumi.output_type
+class IdMappingWorkflowOutputSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputS3Path":
+            suggest = "output_s3_path"
+        elif key == "kmsArn":
+            suggest = "kms_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowOutputSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowOutputSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowOutputSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_s3_path: str,
+                 kms_arn: Optional[str] = None):
+        """
+        :param str output_s3_path: The S3 path to which Entity Resolution will write the output table
+        """
+        IdMappingWorkflowOutputSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output_s3_path=output_s3_path,
+            kms_arn=kms_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output_s3_path: str,
+             kms_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("output_s3_path", output_s3_path)
+        if kms_arn is not None:
+            _setter("kms_arn", kms_arn)
+
+    @property
+    @pulumi.getter(name="outputS3Path")
+    def output_s3_path(self) -> str:
+        """
+        The S3 path to which Entity Resolution will write the output table
+        """
+        return pulumi.get(self, "output_s3_path")
+
+    @property
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_arn")
+
+
+@pulumi.output_type
+class IdMappingWorkflowProviderProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerServiceArn":
+            suggest = "provider_service_arn"
+        elif key == "intermediateSourceConfiguration":
+            suggest = "intermediate_source_configuration"
+        elif key == "providerConfiguration":
+            suggest = "provider_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdMappingWorkflowProviderProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdMappingWorkflowProviderProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdMappingWorkflowProviderProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_service_arn: str,
+                 intermediate_source_configuration: Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration'] = None,
+                 provider_configuration: Optional[Any] = None):
+        """
+        :param str provider_service_arn: Arn of the Provider Service being used.
+        :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        IdMappingWorkflowProviderProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_service_arn=provider_service_arn,
+            intermediate_source_configuration=intermediate_source_configuration,
+            provider_configuration=provider_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_service_arn: str,
+             intermediate_source_configuration: Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration'] = None,
+             provider_configuration: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider_service_arn", provider_service_arn)
+        if intermediate_source_configuration is not None:
+            _setter("intermediate_source_configuration", intermediate_source_configuration)
+        if provider_configuration is not None:
+            _setter("provider_configuration", provider_configuration)
+
+    @property
+    @pulumi.getter(name="providerServiceArn")
+    def provider_service_arn(self) -> str:
+        """
+        Arn of the Provider Service being used.
+        """
+        return pulumi.get(self, "provider_service_arn")
+
+    @property
+    @pulumi.getter(name="intermediateSourceConfiguration")
+    def intermediate_source_configuration(self) -> Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration']:
+        return pulumi.get(self, "intermediate_source_configuration")
+
+    @property
+    @pulumi.getter(name="providerConfiguration")
+    def provider_configuration(self) -> Optional[Any]:
+        """
+        Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
+        """
+        return pulumi.get(self, "provider_configuration")
+
+
+@pulumi.output_type
+class IdMappingWorkflowTag(dict):
+    """
+    A key-value pair to associate with a resource
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        IdMappingWorkflowTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class MatchingWorkflowInputSource(dict):

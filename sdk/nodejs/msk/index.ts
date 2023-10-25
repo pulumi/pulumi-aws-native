@@ -45,6 +45,11 @@ export const getConfiguration: typeof import("./getConfiguration").getConfigurat
 export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
+export { GetReplicatorArgs, GetReplicatorResult, GetReplicatorOutputArgs } from "./getReplicator";
+export const getReplicator: typeof import("./getReplicator").getReplicator = null as any;
+export const getReplicatorOutput: typeof import("./getReplicator").getReplicatorOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicator","getReplicatorOutput"], () => require("./getReplicator"));
+
 export { GetServerlessClusterArgs, GetServerlessClusterResult, GetServerlessClusterOutputArgs } from "./getServerlessCluster";
 export const getServerlessCluster: typeof import("./getServerlessCluster").getServerlessCluster = null as any;
 export const getServerlessClusterOutput: typeof import("./getServerlessCluster").getServerlessClusterOutput = null as any;
@@ -54,6 +59,11 @@ export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArg
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
+
+export { ReplicatorArgs } from "./replicator";
+export type Replicator = import("./replicator").Replicator;
+export const Replicator: typeof import("./replicator").Replicator = null as any;
+utilities.lazyLoad(exports, ["Replicator"], () => require("./replicator"));
 
 export { ServerlessClusterArgs } from "./serverlessCluster";
 export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
@@ -81,6 +91,8 @@ const _module = {
                 return new ClusterPolicy(name, <any>undefined, { urn })
             case "aws-native:msk:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
+            case "aws-native:msk:Replicator":
+                return new Replicator(name, <any>undefined, { urn })
             case "aws-native:msk:ServerlessCluster":
                 return new ServerlessCluster(name, <any>undefined, { urn })
             case "aws-native:msk:VpcConnection":

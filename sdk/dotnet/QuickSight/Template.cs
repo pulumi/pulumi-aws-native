@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("templateId")]
         public Output<string> TemplateId { get; private set; } = null!;
 
+        [Output("validationStrategy")]
+        public Output<Outputs.TemplateValidationStrategy?> ValidationStrategy { get; private set; } = null!;
+
         [Output("version")]
         public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
+
+        [Input("validationStrategy")]
+        public Input<Inputs.TemplateValidationStrategyArgs>? ValidationStrategy { get; set; }
 
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

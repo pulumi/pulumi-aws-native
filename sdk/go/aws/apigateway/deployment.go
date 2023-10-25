@@ -13,21 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Deployment
+// The “AWS::ApiGateway::Deployment“ resource deploys an API Gateway “RestApi“ resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Specifies settings for the canary deployment.
+	// The input configuration for a canary deployment.
 	DeploymentCanarySettings DeploymentCanarySettingsPtrOutput `pulumi:"deploymentCanarySettings"`
 	// Primary Id for this resource
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the RestApi resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// Configures the stage that API Gateway creates with this deployment.
+	// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
 	StageDescription DeploymentStageDescriptionPtrOutput `pulumi:"stageDescription"`
-	// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+	// The name of the Stage resource for the Deployment resource to create.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 }
 
@@ -79,29 +79,29 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// Specifies settings for the canary deployment.
+	// The input configuration for a canary deployment.
 	DeploymentCanarySettings *DeploymentCanarySettings `pulumi:"deploymentCanarySettings"`
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description *string `pulumi:"description"`
-	// The ID of the RestApi resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
-	// Configures the stage that API Gateway creates with this deployment.
+	// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
 	StageDescription *DeploymentStageDescription `pulumi:"stageDescription"`
-	// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+	// The name of the Stage resource for the Deployment resource to create.
 	StageName *string `pulumi:"stageName"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// Specifies settings for the canary deployment.
+	// The input configuration for a canary deployment.
 	DeploymentCanarySettings DeploymentCanarySettingsPtrInput
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description pulumi.StringPtrInput
-	// The ID of the RestApi resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
-	// Configures the stage that API Gateway creates with this deployment.
+	// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
 	StageDescription DeploymentStageDescriptionPtrInput
-	// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+	// The name of the Stage resource for the Deployment resource to create.
 	StageName pulumi.StringPtrInput
 }
 
@@ -154,7 +154,7 @@ func (o DeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*Deployme
 	}
 }
 
-// Specifies settings for the canary deployment.
+// The input configuration for a canary deployment.
 func (o DeploymentOutput) DeploymentCanarySettings() DeploymentCanarySettingsPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.DeploymentCanarySettings }).(DeploymentCanarySettingsPtrOutput)
 }
@@ -164,22 +164,22 @@ func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// A description of the purpose of the API Gateway deployment.
+// The description for the Deployment resource to create.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the RestApi resource to deploy.
+// The string identifier of the associated RestApi.
 func (o DeploymentOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
-// Configures the stage that API Gateway creates with this deployment.
+// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
 func (o DeploymentOutput) StageDescription() DeploymentStageDescriptionPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentStageDescriptionPtrOutput { return v.StageDescription }).(DeploymentStageDescriptionPtrOutput)
 }
 
-// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+// The name of the Stage resource for the Deployment resource to create.
 func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }

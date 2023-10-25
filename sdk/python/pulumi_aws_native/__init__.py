@@ -1730,6 +1730,7 @@ _utilities.register(
   "mod": "entityresolution",
   "fqn": "pulumi_aws_native.entityresolution",
   "classes": {
+   "aws-native:entityresolution:IdMappingWorkflow": "IdMappingWorkflow",
    "aws-native:entityresolution:MatchingWorkflow": "MatchingWorkflow",
    "aws-native:entityresolution:SchemaMapping": "SchemaMapping"
   }
@@ -2545,6 +2546,7 @@ _utilities.register(
    "aws-native:msk:Cluster": "Cluster",
    "aws-native:msk:ClusterPolicy": "ClusterPolicy",
    "aws-native:msk:Configuration": "Configuration",
+   "aws-native:msk:Replicator": "Replicator",
    "aws-native:msk:ServerlessCluster": "ServerlessCluster",
    "aws-native:msk:VpcConnection": "VpcConnection"
   }

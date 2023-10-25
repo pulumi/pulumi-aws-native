@@ -460,6 +460,7 @@ __all__ = [
     'AnalysisTrendArrowOptions',
     'AnalysisUnaggregatedField',
     'AnalysisUniqueValuesComputation',
+    'AnalysisValidationStrategy',
     'AnalysisVisibleRangeOptions',
     'AnalysisVisual',
     'AnalysisVisualCustomAction',
@@ -938,6 +939,7 @@ __all__ = [
     'DashboardTrendArrowOptions',
     'DashboardUnaggregatedField',
     'DashboardUniqueValuesComputation',
+    'DashboardValidationStrategy',
     'DashboardVersion',
     'DashboardVersionDefinition',
     'DashboardVisibleRangeOptions',
@@ -1468,6 +1470,7 @@ __all__ = [
     'TemplateTrendArrowOptions',
     'TemplateUnaggregatedField',
     'TemplateUniqueValuesComputation',
+    'TemplateValidationStrategy',
     'TemplateVersion',
     'TemplateVersionDefinition',
     'TemplateVisibleRangeOptions',
@@ -28853,6 +28856,27 @@ class AnalysisUniqueValuesComputation(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AnalysisValidationStrategy(dict):
+    def __init__(__self__, *,
+                 mode: 'AnalysisValidationStrategyMode'):
+        AnalysisValidationStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: 'AnalysisValidationStrategyMode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> 'AnalysisValidationStrategyMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -58117,6 +58141,27 @@ class DashboardUniqueValuesComputation(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DashboardValidationStrategy(dict):
+    def __init__(__self__, *,
+                 mode: 'DashboardValidationStrategyMode'):
+        DashboardValidationStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: 'DashboardValidationStrategyMode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> 'DashboardValidationStrategyMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -90798,6 +90843,27 @@ class TemplateUniqueValuesComputation(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class TemplateValidationStrategy(dict):
+    def __init__(__self__, *,
+                 mode: 'TemplateValidationStrategyMode'):
+        TemplateValidationStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: 'TemplateValidationStrategyMode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> 'TemplateValidationStrategyMode':
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

@@ -42,6 +42,15 @@ export const FleetComputeType = {
  */
 export type FleetComputeType = (typeof FleetComputeType)[keyof typeof FleetComputeType];
 
+export const FleetInstanceRoleCredentialsProvider = {
+    SharedCredentialFile: "SHARED_CREDENTIAL_FILE",
+} as const;
+
+/**
+ * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+ */
+export type FleetInstanceRoleCredentialsProvider = (typeof FleetInstanceRoleCredentialsProvider)[keyof typeof FleetInstanceRoleCredentialsProvider];
+
 export const FleetIpPermissionProtocol = {
     Tcp: "TCP",
     Udp: "UDP",

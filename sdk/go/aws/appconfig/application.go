@@ -13,14 +13,17 @@ import (
 )
 
 // Resource Type definition for AWS::AppConfig::Application
-//
-// Deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Application struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput     `pulumi:"description"`
-	Name        pulumi.StringOutput        `pulumi:"name"`
-	Tags        ApplicationTagsArrayOutput `pulumi:"tags"`
+	// The application Id
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// A description of the application.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A name for the application.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags ApplicationTagsArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -63,16 +66,22 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	Description *string           `pulumi:"description"`
-	Name        *string           `pulumi:"name"`
-	Tags        []ApplicationTags `pulumi:"tags"`
+	// A description of the application.
+	Description *string `pulumi:"description"`
+	// A name for the application.
+	Name *string `pulumi:"name"`
+	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []ApplicationTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// A description of the application.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        ApplicationTagsArrayInput
+	// A name for the application.
+	Name pulumi.StringPtrInput
+	// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags ApplicationTagsArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -124,14 +133,22 @@ func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Applica
 	}
 }
 
+// The application Id
+func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// A description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A name for the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 func (o ApplicationOutput) Tags() ApplicationTagsArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationTagsArrayOutput { return v.Tags }).(ApplicationTagsArrayOutput)
 }

@@ -105,6 +105,7 @@ __all__ = [
     'AnalysisTopBottomComputationType',
     'AnalysisTopBottomSortOrder',
     'AnalysisUrlTargetConfiguration',
+    'AnalysisValidationStrategyMode',
     'AnalysisValueWhenUnsetOption',
     'AnalysisVerticalTextAlignment',
     'AnalysisVisibility',
@@ -217,6 +218,7 @@ __all__ = [
     'DashboardTopBottomSortOrder',
     'DashboardUiState',
     'DashboardUrlTargetConfiguration',
+    'DashboardValidationStrategyMode',
     'DashboardValueWhenUnsetOption',
     'DashboardVerticalTextAlignment',
     'DashboardVisibility',
@@ -342,6 +344,7 @@ __all__ = [
     'TemplateTopBottomComputationType',
     'TemplateTopBottomSortOrder',
     'TemplateUrlTargetConfiguration',
+    'TemplateValidationStrategyMode',
     'TemplateValueWhenUnsetOption',
     'TemplateVerticalTextAlignment',
     'TemplateVisibility',
@@ -1001,6 +1004,11 @@ class AnalysisUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
+
+
+class AnalysisValidationStrategyMode(str, Enum):
+    STRICT = "STRICT"
+    LENIENT = "LENIENT"
 
 
 class AnalysisValueWhenUnsetOption(str, Enum):
@@ -1688,6 +1696,11 @@ class DashboardUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
+
+
+class DashboardValidationStrategyMode(str, Enum):
+    STRICT = "STRICT"
+    LENIENT = "LENIENT"
 
 
 class DashboardValueWhenUnsetOption(str, Enum):
@@ -2489,6 +2502,11 @@ class TemplateUrlTargetConfiguration(str, Enum):
     NEW_TAB = "NEW_TAB"
     NEW_WINDOW = "NEW_WINDOW"
     SAME_TAB = "SAME_TAB"
+
+
+class TemplateValidationStrategyMode(str, Enum):
+    STRICT = "STRICT"
+    LENIENT = "LENIENT"
 
 
 class TemplateValueWhenUnsetOption(str, Enum):

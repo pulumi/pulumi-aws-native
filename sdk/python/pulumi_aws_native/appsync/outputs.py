@@ -637,6 +637,9 @@ class DataSourceRelationalDatabaseConfig(dict):
 
 @pulumi.output_type
 class FunctionConfigurationAppSyncRuntime(dict):
+    """
+    Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -657,6 +660,11 @@ class FunctionConfigurationAppSyncRuntime(dict):
     def __init__(__self__, *,
                  name: str,
                  runtime_version: str):
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param str name: The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
+        :param str runtime_version: The version of the runtime to use. Currently, the only allowed version is 1.0.0.
+        """
         FunctionConfigurationAppSyncRuntime._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             name=name,
@@ -674,16 +682,25 @@ class FunctionConfigurationAppSyncRuntime(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> str:
+        """
+        The version of the runtime to use. Currently, the only allowed version is 1.0.0.
+        """
         return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type
 class FunctionConfigurationLambdaConflictHandlerConfig(dict):
+    """
+    The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -703,6 +720,10 @@ class FunctionConfigurationLambdaConflictHandlerConfig(dict):
 
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[str] = None):
+        """
+        The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+        :param str lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
         FunctionConfigurationLambdaConflictHandlerConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             lambda_conflict_handler_arn=lambda_conflict_handler_arn,
@@ -718,11 +739,17 @@ class FunctionConfigurationLambdaConflictHandlerConfig(dict):
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
     def lambda_conflict_handler_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
         return pulumi.get(self, "lambda_conflict_handler_arn")
 
 
 @pulumi.output_type
 class FunctionConfigurationSyncConfig(dict):
+    """
+    Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -748,6 +775,11 @@ class FunctionConfigurationSyncConfig(dict):
                  conflict_detection: str,
                  conflict_handler: Optional[str] = None,
                  lambda_conflict_handler_config: Optional['outputs.FunctionConfigurationLambdaConflictHandlerConfig'] = None):
+        """
+        Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+        :param str conflict_detection: The Conflict Detection strategy to use.
+        :param str conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
+        """
         FunctionConfigurationSyncConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             conflict_detection=conflict_detection,
@@ -770,11 +802,17 @@ class FunctionConfigurationSyncConfig(dict):
     @property
     @pulumi.getter(name="conflictDetection")
     def conflict_detection(self) -> str:
+        """
+        The Conflict Detection strategy to use.
+        """
         return pulumi.get(self, "conflict_detection")
 
     @property
     @pulumi.getter(name="conflictHandler")
     def conflict_handler(self) -> Optional[str]:
+        """
+        The Conflict Resolution strategy to perform in the event of a conflict.
+        """
         return pulumi.get(self, "conflict_handler")
 
     @property

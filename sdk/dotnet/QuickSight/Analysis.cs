@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
 
+        [Output("validationStrategy")]
+        public Output<Outputs.AnalysisValidationStrategy?> ValidationStrategy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Analysis resource with the given unique name, arguments, and options.
@@ -152,6 +155,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
+
+        [Input("validationStrategy")]
+        public Input<Inputs.AnalysisValidationStrategyArgs>? ValidationStrategy { get; set; }
 
         public AnalysisArgs()
         {

@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.MonitoringScheduleDatasetFormatArgs> DatasetFormat { get; set; } = null!;
 
         /// <summary>
+        /// Indexes or names of the features to be excluded from analysis
+        /// </summary>
+        [Input("excludeFeaturesAttribute")]
+        public Input<string>? ExcludeFeaturesAttribute { get; set; }
+
+        /// <summary>
         /// Path to the filesystem where the endpoint data is available to the container.
         /// </summary>
         [Input("localPath", required: true)]

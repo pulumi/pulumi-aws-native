@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    /// <summary>
-    /// Tags to use to identify a subset of objects for an Amazon S3 bucket.
-    /// </summary>
     public sealed class BucketTagFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]

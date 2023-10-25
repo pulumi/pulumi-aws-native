@@ -10,25 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
+    /// The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlanKey")]
     public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the usage plan key.
+        /// The Id of the UsagePlanKey resource.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of usage plan key. Currently, the only valid key type is API_KEY.
+        /// The type of a UsagePlanKey resource for a plan customer.
         /// </summary>
         [Output("keyType")]
         public Output<Pulumi.AwsNative.ApiGateway.UsagePlanKeyKeyType> KeyType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the usage plan.
+        /// The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
         /// </summary>
         [Output("usagePlanId")]
         public Output<string> UsagePlanId { get; private set; } = null!;
@@ -85,19 +85,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class UsagePlanKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the usage plan key.
+        /// The Id of the UsagePlanKey resource.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// The type of usage plan key. Currently, the only valid key type is API_KEY.
+        /// The type of a UsagePlanKey resource for a plan customer.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<Pulumi.AwsNative.ApiGateway.UsagePlanKeyKeyType> KeyType { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the usage plan.
+        /// The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
         /// </summary>
         [Input("usagePlanId", required: true)]
         public Input<string> UsagePlanId { get; set; } = null!;

@@ -27,7 +27,10 @@ type Domain struct {
 	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The time of this integration got last updated at
-	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt     pulumi.StringOutput              `pulumi:"lastUpdatedAt"`
+	Matching          DomainMatchingPtrOutput          `pulumi:"matching"`
+	RuleBasedMatching DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
+	Stats             DomainStatsOutput                `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
 	Tags DomainTagArrayOutput `pulumi:"tags"`
 }
@@ -83,7 +86,9 @@ type domainArgs struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
 	// The unique name of the domain.
-	DomainName *string `pulumi:"domainName"`
+	DomainName        *string                  `pulumi:"domainName"`
+	Matching          *DomainMatching          `pulumi:"matching"`
+	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	// The tags (keys and values) associated with the domain
 	Tags []DomainTag `pulumi:"tags"`
 }
@@ -97,7 +102,9 @@ type DomainArgs struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays pulumi.IntPtrInput
 	// The unique name of the domain.
-	DomainName pulumi.StringPtrInput
+	DomainName        pulumi.StringPtrInput
+	Matching          DomainMatchingPtrInput
+	RuleBasedMatching DomainRuleBasedMatchingPtrInput
 	// The tags (keys and values) associated with the domain
 	Tags DomainTagArrayInput
 }
@@ -179,6 +186,18 @@ func (o DomainOutput) DomainName() pulumi.StringOutput {
 // The time of this integration got last updated at
 func (o DomainOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) Matching() DomainMatchingPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainMatchingPtrOutput { return v.Matching }).(DomainMatchingPtrOutput)
+}
+
+func (o DomainOutput) RuleBasedMatching() DomainRuleBasedMatchingPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainRuleBasedMatchingPtrOutput { return v.RuleBasedMatching }).(DomainRuleBasedMatchingPtrOutput)
+}
+
+func (o DomainOutput) Stats() DomainStatsOutput {
+	return o.ApplyT(func(v *Domain) DomainStatsOutput { return v.Stats }).(DomainStatsOutput)
 }
 
 // The tags (keys and values) associated with the domain

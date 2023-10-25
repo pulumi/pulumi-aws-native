@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Outputs
 {
 
+    /// <summary>
+    /// Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+    /// </summary>
     [OutputType]
     public sealed class FunctionConfigurationSyncConfig
     {
+        /// <summary>
+        /// The Conflict Detection strategy to use.
+        /// </summary>
         public readonly string ConflictDetection;
+        /// <summary>
+        /// The Conflict Resolution strategy to perform in the event of a conflict.
+        /// </summary>
         public readonly string? ConflictHandler;
         public readonly Outputs.FunctionConfigurationLambdaConflictHandlerConfig? LambdaConflictHandlerConfig;
 

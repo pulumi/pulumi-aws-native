@@ -18254,6 +18254,188 @@ func (in *analysisUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulum
 	}
 }
 
+type AnalysisValidationStrategyMode string
+
+const (
+	AnalysisValidationStrategyModeStrict  = AnalysisValidationStrategyMode("STRICT")
+	AnalysisValidationStrategyModeLenient = AnalysisValidationStrategyMode("LENIENT")
+)
+
+func (AnalysisValidationStrategyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisValidationStrategyMode)(nil)).Elem()
+}
+
+func (e AnalysisValidationStrategyMode) ToAnalysisValidationStrategyModeOutput() AnalysisValidationStrategyModeOutput {
+	return pulumi.ToOutput(e).(AnalysisValidationStrategyModeOutput)
+}
+
+func (e AnalysisValidationStrategyMode) ToAnalysisValidationStrategyModeOutputWithContext(ctx context.Context) AnalysisValidationStrategyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisValidationStrategyModeOutput)
+}
+
+func (e AnalysisValidationStrategyMode) ToAnalysisValidationStrategyModePtrOutput() AnalysisValidationStrategyModePtrOutput {
+	return e.ToAnalysisValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisValidationStrategyMode) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
+	return AnalysisValidationStrategyMode(e).ToAnalysisValidationStrategyModeOutputWithContext(ctx).ToAnalysisValidationStrategyModePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisValidationStrategyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisValidationStrategyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisValidationStrategyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisValidationStrategyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisValidationStrategyModeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisValidationStrategyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisValidationStrategyMode)(nil)).Elem()
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModeOutput() AnalysisValidationStrategyModeOutput {
+	return o
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModeOutputWithContext(ctx context.Context) AnalysisValidationStrategyModeOutput {
+	return o
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModePtrOutput() AnalysisValidationStrategyModePtrOutput {
+	return o.ToAnalysisValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisValidationStrategyMode) *AnalysisValidationStrategyMode {
+		return &v
+	}).(AnalysisValidationStrategyModePtrOutput)
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisValidationStrategyMode] {
+	return pulumix.Output[AnalysisValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisValidationStrategyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisValidationStrategyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisValidationStrategyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisValidationStrategyModePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisValidationStrategyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisValidationStrategyMode)(nil)).Elem()
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) ToAnalysisValidationStrategyModePtrOutput() AnalysisValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValidationStrategyMode] {
+	return pulumix.Output[*AnalysisValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) Elem() AnalysisValidationStrategyModeOutput {
+	return o.ApplyT(func(v *AnalysisValidationStrategyMode) AnalysisValidationStrategyMode {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisValidationStrategyMode
+		return ret
+	}).(AnalysisValidationStrategyModeOutput)
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisValidationStrategyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisValidationStrategyModeInput is an input type that accepts AnalysisValidationStrategyModeArgs and AnalysisValidationStrategyModeOutput values.
+// You can construct a concrete instance of `AnalysisValidationStrategyModeInput` via:
+//
+//	AnalysisValidationStrategyModeArgs{...}
+type AnalysisValidationStrategyModeInput interface {
+	pulumi.Input
+
+	ToAnalysisValidationStrategyModeOutput() AnalysisValidationStrategyModeOutput
+	ToAnalysisValidationStrategyModeOutputWithContext(context.Context) AnalysisValidationStrategyModeOutput
+}
+
+var analysisValidationStrategyModePtrType = reflect.TypeOf((**AnalysisValidationStrategyMode)(nil)).Elem()
+
+type AnalysisValidationStrategyModePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisValidationStrategyModePtrOutput() AnalysisValidationStrategyModePtrOutput
+	ToAnalysisValidationStrategyModePtrOutputWithContext(context.Context) AnalysisValidationStrategyModePtrOutput
+}
+
+type analysisValidationStrategyModePtr string
+
+func AnalysisValidationStrategyModePtr(v string) AnalysisValidationStrategyModePtrInput {
+	return (*analysisValidationStrategyModePtr)(&v)
+}
+
+func (*analysisValidationStrategyModePtr) ElementType() reflect.Type {
+	return analysisValidationStrategyModePtrType
+}
+
+func (in *analysisValidationStrategyModePtr) ToAnalysisValidationStrategyModePtrOutput() AnalysisValidationStrategyModePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisValidationStrategyModePtrOutput)
+}
+
+func (in *analysisValidationStrategyModePtr) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisValidationStrategyModePtrOutput)
+}
+
+func (in *analysisValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValidationStrategyMode] {
+	return pulumix.Output[*AnalysisValidationStrategyMode]{
+		OutputState: in.ToAnalysisValidationStrategyModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalysisValueWhenUnsetOption string
 
 const (
@@ -38602,6 +38784,188 @@ func (in *dashboardUrlTargetConfigurationPtr) ToDashboardUrlTargetConfigurationP
 func (in *dashboardUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardUrlTargetConfiguration] {
 	return pulumix.Output[*DashboardUrlTargetConfiguration]{
 		OutputState: in.ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DashboardValidationStrategyMode string
+
+const (
+	DashboardValidationStrategyModeStrict  = DashboardValidationStrategyMode("STRICT")
+	DashboardValidationStrategyModeLenient = DashboardValidationStrategyMode("LENIENT")
+)
+
+func (DashboardValidationStrategyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardValidationStrategyMode)(nil)).Elem()
+}
+
+func (e DashboardValidationStrategyMode) ToDashboardValidationStrategyModeOutput() DashboardValidationStrategyModeOutput {
+	return pulumi.ToOutput(e).(DashboardValidationStrategyModeOutput)
+}
+
+func (e DashboardValidationStrategyMode) ToDashboardValidationStrategyModeOutputWithContext(ctx context.Context) DashboardValidationStrategyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardValidationStrategyModeOutput)
+}
+
+func (e DashboardValidationStrategyMode) ToDashboardValidationStrategyModePtrOutput() DashboardValidationStrategyModePtrOutput {
+	return e.ToDashboardValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardValidationStrategyMode) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
+	return DashboardValidationStrategyMode(e).ToDashboardValidationStrategyModeOutputWithContext(ctx).ToDashboardValidationStrategyModePtrOutputWithContext(ctx)
+}
+
+func (e DashboardValidationStrategyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardValidationStrategyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardValidationStrategyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardValidationStrategyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardValidationStrategyModeOutput struct{ *pulumi.OutputState }
+
+func (DashboardValidationStrategyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardValidationStrategyMode)(nil)).Elem()
+}
+
+func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyModeOutput() DashboardValidationStrategyModeOutput {
+	return o
+}
+
+func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyModeOutputWithContext(ctx context.Context) DashboardValidationStrategyModeOutput {
+	return o
+}
+
+func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyModePtrOutput() DashboardValidationStrategyModePtrOutput {
+	return o.ToDashboardValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardValidationStrategyMode) *DashboardValidationStrategyMode {
+		return &v
+	}).(DashboardValidationStrategyModePtrOutput)
+}
+
+func (o DashboardValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardValidationStrategyMode] {
+	return pulumix.Output[DashboardValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardValidationStrategyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardValidationStrategyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardValidationStrategyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardValidationStrategyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardValidationStrategyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardValidationStrategyModePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardValidationStrategyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardValidationStrategyMode)(nil)).Elem()
+}
+
+func (o DashboardValidationStrategyModePtrOutput) ToDashboardValidationStrategyModePtrOutput() DashboardValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o DashboardValidationStrategyModePtrOutput) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o DashboardValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardValidationStrategyMode] {
+	return pulumix.Output[*DashboardValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardValidationStrategyModePtrOutput) Elem() DashboardValidationStrategyModeOutput {
+	return o.ApplyT(func(v *DashboardValidationStrategyMode) DashboardValidationStrategyMode {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardValidationStrategyMode
+		return ret
+	}).(DashboardValidationStrategyModeOutput)
+}
+
+func (o DashboardValidationStrategyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardValidationStrategyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardValidationStrategyModeInput is an input type that accepts DashboardValidationStrategyModeArgs and DashboardValidationStrategyModeOutput values.
+// You can construct a concrete instance of `DashboardValidationStrategyModeInput` via:
+//
+//	DashboardValidationStrategyModeArgs{...}
+type DashboardValidationStrategyModeInput interface {
+	pulumi.Input
+
+	ToDashboardValidationStrategyModeOutput() DashboardValidationStrategyModeOutput
+	ToDashboardValidationStrategyModeOutputWithContext(context.Context) DashboardValidationStrategyModeOutput
+}
+
+var dashboardValidationStrategyModePtrType = reflect.TypeOf((**DashboardValidationStrategyMode)(nil)).Elem()
+
+type DashboardValidationStrategyModePtrInput interface {
+	pulumi.Input
+
+	ToDashboardValidationStrategyModePtrOutput() DashboardValidationStrategyModePtrOutput
+	ToDashboardValidationStrategyModePtrOutputWithContext(context.Context) DashboardValidationStrategyModePtrOutput
+}
+
+type dashboardValidationStrategyModePtr string
+
+func DashboardValidationStrategyModePtr(v string) DashboardValidationStrategyModePtrInput {
+	return (*dashboardValidationStrategyModePtr)(&v)
+}
+
+func (*dashboardValidationStrategyModePtr) ElementType() reflect.Type {
+	return dashboardValidationStrategyModePtrType
+}
+
+func (in *dashboardValidationStrategyModePtr) ToDashboardValidationStrategyModePtrOutput() DashboardValidationStrategyModePtrOutput {
+	return pulumi.ToOutput(in).(DashboardValidationStrategyModePtrOutput)
+}
+
+func (in *dashboardValidationStrategyModePtr) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardValidationStrategyModePtrOutput)
+}
+
+func (in *dashboardValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardValidationStrategyMode] {
+	return pulumix.Output[*DashboardValidationStrategyMode]{
+		OutputState: in.ToDashboardValidationStrategyModePtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -61209,6 +61573,188 @@ func (in *templateUrlTargetConfigurationPtr) ToOutput(ctx context.Context) pulum
 	}
 }
 
+type TemplateValidationStrategyMode string
+
+const (
+	TemplateValidationStrategyModeStrict  = TemplateValidationStrategyMode("STRICT")
+	TemplateValidationStrategyModeLenient = TemplateValidationStrategyMode("LENIENT")
+)
+
+func (TemplateValidationStrategyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateValidationStrategyMode)(nil)).Elem()
+}
+
+func (e TemplateValidationStrategyMode) ToTemplateValidationStrategyModeOutput() TemplateValidationStrategyModeOutput {
+	return pulumi.ToOutput(e).(TemplateValidationStrategyModeOutput)
+}
+
+func (e TemplateValidationStrategyMode) ToTemplateValidationStrategyModeOutputWithContext(ctx context.Context) TemplateValidationStrategyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateValidationStrategyModeOutput)
+}
+
+func (e TemplateValidationStrategyMode) ToTemplateValidationStrategyModePtrOutput() TemplateValidationStrategyModePtrOutput {
+	return e.ToTemplateValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateValidationStrategyMode) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
+	return TemplateValidationStrategyMode(e).ToTemplateValidationStrategyModeOutputWithContext(ctx).ToTemplateValidationStrategyModePtrOutputWithContext(ctx)
+}
+
+func (e TemplateValidationStrategyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateValidationStrategyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateValidationStrategyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateValidationStrategyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateValidationStrategyModeOutput struct{ *pulumi.OutputState }
+
+func (TemplateValidationStrategyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateValidationStrategyMode)(nil)).Elem()
+}
+
+func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModeOutput() TemplateValidationStrategyModeOutput {
+	return o
+}
+
+func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModeOutputWithContext(ctx context.Context) TemplateValidationStrategyModeOutput {
+	return o
+}
+
+func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModePtrOutput() TemplateValidationStrategyModePtrOutput {
+	return o.ToTemplateValidationStrategyModePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateValidationStrategyMode) *TemplateValidationStrategyMode {
+		return &v
+	}).(TemplateValidationStrategyModePtrOutput)
+}
+
+func (o TemplateValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateValidationStrategyMode] {
+	return pulumix.Output[TemplateValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateValidationStrategyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateValidationStrategyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateValidationStrategyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateValidationStrategyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateValidationStrategyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateValidationStrategyModePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateValidationStrategyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateValidationStrategyMode)(nil)).Elem()
+}
+
+func (o TemplateValidationStrategyModePtrOutput) ToTemplateValidationStrategyModePtrOutput() TemplateValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o TemplateValidationStrategyModePtrOutput) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
+	return o
+}
+
+func (o TemplateValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateValidationStrategyMode] {
+	return pulumix.Output[*TemplateValidationStrategyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateValidationStrategyModePtrOutput) Elem() TemplateValidationStrategyModeOutput {
+	return o.ApplyT(func(v *TemplateValidationStrategyMode) TemplateValidationStrategyMode {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateValidationStrategyMode
+		return ret
+	}).(TemplateValidationStrategyModeOutput)
+}
+
+func (o TemplateValidationStrategyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateValidationStrategyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateValidationStrategyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateValidationStrategyModeInput is an input type that accepts TemplateValidationStrategyModeArgs and TemplateValidationStrategyModeOutput values.
+// You can construct a concrete instance of `TemplateValidationStrategyModeInput` via:
+//
+//	TemplateValidationStrategyModeArgs{...}
+type TemplateValidationStrategyModeInput interface {
+	pulumi.Input
+
+	ToTemplateValidationStrategyModeOutput() TemplateValidationStrategyModeOutput
+	ToTemplateValidationStrategyModeOutputWithContext(context.Context) TemplateValidationStrategyModeOutput
+}
+
+var templateValidationStrategyModePtrType = reflect.TypeOf((**TemplateValidationStrategyMode)(nil)).Elem()
+
+type TemplateValidationStrategyModePtrInput interface {
+	pulumi.Input
+
+	ToTemplateValidationStrategyModePtrOutput() TemplateValidationStrategyModePtrOutput
+	ToTemplateValidationStrategyModePtrOutputWithContext(context.Context) TemplateValidationStrategyModePtrOutput
+}
+
+type templateValidationStrategyModePtr string
+
+func TemplateValidationStrategyModePtr(v string) TemplateValidationStrategyModePtrInput {
+	return (*templateValidationStrategyModePtr)(&v)
+}
+
+func (*templateValidationStrategyModePtr) ElementType() reflect.Type {
+	return templateValidationStrategyModePtrType
+}
+
+func (in *templateValidationStrategyModePtr) ToTemplateValidationStrategyModePtrOutput() TemplateValidationStrategyModePtrOutput {
+	return pulumi.ToOutput(in).(TemplateValidationStrategyModePtrOutput)
+}
+
+func (in *templateValidationStrategyModePtr) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateValidationStrategyModePtrOutput)
+}
+
+func (in *templateValidationStrategyModePtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateValidationStrategyMode] {
+	return pulumix.Output[*TemplateValidationStrategyMode]{
+		OutputState: in.ToTemplateValidationStrategyModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateValueWhenUnsetOption string
 
 const (
@@ -67525,6 +68071,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomSortOrderPtrInput)(nil)).Elem(), AnalysisTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisUrlTargetConfigurationPtrInput)(nil)).Elem(), AnalysisUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValidationStrategyModeInput)(nil)).Elem(), AnalysisValidationStrategyMode("STRICT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValidationStrategyModePtrInput)(nil)).Elem(), AnalysisValidationStrategyMode("STRICT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValueWhenUnsetOptionInput)(nil)).Elem(), AnalysisValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisValueWhenUnsetOptionPtrInput)(nil)).Elem(), AnalysisValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisVerticalTextAlignmentInput)(nil)).Elem(), AnalysisVerticalTextAlignment("TOP"))
@@ -67745,6 +68293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUiStatePtrInput)(nil)).Elem(), DashboardUiState("EXPANDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUrlTargetConfigurationInput)(nil)).Elem(), DashboardUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardUrlTargetConfigurationPtrInput)(nil)).Elem(), DashboardUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValidationStrategyModeInput)(nil)).Elem(), DashboardValidationStrategyMode("STRICT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValidationStrategyModePtrInput)(nil)).Elem(), DashboardValidationStrategyMode("STRICT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValueWhenUnsetOptionInput)(nil)).Elem(), DashboardValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardValueWhenUnsetOptionPtrInput)(nil)).Elem(), DashboardValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardVerticalTextAlignmentInput)(nil)).Elem(), DashboardVerticalTextAlignment("TOP"))
@@ -67987,6 +68537,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomSortOrderPtrInput)(nil)).Elem(), TemplateTopBottomSortOrder("PERCENT_DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateUrlTargetConfigurationPtrInput)(nil)).Elem(), TemplateUrlTargetConfiguration("NEW_TAB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidationStrategyModeInput)(nil)).Elem(), TemplateValidationStrategyMode("STRICT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValidationStrategyModePtrInput)(nil)).Elem(), TemplateValidationStrategyMode("STRICT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionPtrInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
@@ -68248,6 +68800,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTopBottomSortOrderPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisUrlTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisValidationStrategyModeOutput{})
+	pulumi.RegisterOutputType(AnalysisValidationStrategyModePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisVerticalTextAlignmentOutput{})
@@ -68472,6 +69026,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardUiStatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardUrlTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardUrlTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardValidationStrategyModeOutput{})
+	pulumi.RegisterOutputType(DashboardValidationStrategyModePtrOutput{})
 	pulumi.RegisterOutputType(DashboardValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(DashboardValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardVerticalTextAlignmentOutput{})
@@ -68722,6 +69278,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTopBottomSortOrderPtrOutput{})
 	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateUrlTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateValidationStrategyModeOutput{})
+	pulumi.RegisterOutputType(TemplateValidationStrategyModePtrOutput{})
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionOutput{})
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentOutput{})

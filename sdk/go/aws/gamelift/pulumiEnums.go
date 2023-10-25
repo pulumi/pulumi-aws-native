@@ -745,6 +745,188 @@ func (in *fleetComputeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Fle
 	}
 }
 
+// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+type FleetInstanceRoleCredentialsProvider string
+
+const (
+	FleetInstanceRoleCredentialsProviderSharedCredentialFile = FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE")
+)
+
+func (FleetInstanceRoleCredentialsProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetInstanceRoleCredentialsProvider)(nil)).Elem()
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToFleetInstanceRoleCredentialsProviderOutput() FleetInstanceRoleCredentialsProviderOutput {
+	return pulumi.ToOutput(e).(FleetInstanceRoleCredentialsProviderOutput)
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToFleetInstanceRoleCredentialsProviderOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetInstanceRoleCredentialsProviderOutput)
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToFleetInstanceRoleCredentialsProviderPtrOutput() FleetInstanceRoleCredentialsProviderPtrOutput {
+	return e.ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(context.Background())
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderPtrOutput {
+	return FleetInstanceRoleCredentialsProvider(e).ToFleetInstanceRoleCredentialsProviderOutputWithContext(ctx).ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx)
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetInstanceRoleCredentialsProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetInstanceRoleCredentialsProviderOutput struct{ *pulumi.OutputState }
+
+func (FleetInstanceRoleCredentialsProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetInstanceRoleCredentialsProvider)(nil)).Elem()
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentialsProviderOutput() FleetInstanceRoleCredentialsProviderOutput {
+	return o
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentialsProviderOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderOutput {
+	return o
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentialsProviderPtrOutput() FleetInstanceRoleCredentialsProviderPtrOutput {
+	return o.ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(context.Background())
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetInstanceRoleCredentialsProvider) *FleetInstanceRoleCredentialsProvider {
+		return &v
+	}).(FleetInstanceRoleCredentialsProviderPtrOutput)
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToOutput(ctx context.Context) pulumix.Output[FleetInstanceRoleCredentialsProvider] {
+	return pulumix.Output[FleetInstanceRoleCredentialsProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetInstanceRoleCredentialsProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetInstanceRoleCredentialsProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetInstanceRoleCredentialsProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetInstanceRoleCredentialsProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetInstanceRoleCredentialsProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetInstanceRoleCredentialsProvider)(nil)).Elem()
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToFleetInstanceRoleCredentialsProviderPtrOutput() FleetInstanceRoleCredentialsProviderPtrOutput {
+	return o
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderPtrOutput {
+	return o
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetInstanceRoleCredentialsProvider] {
+	return pulumix.Output[*FleetInstanceRoleCredentialsProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) Elem() FleetInstanceRoleCredentialsProviderOutput {
+	return o.ApplyT(func(v *FleetInstanceRoleCredentialsProvider) FleetInstanceRoleCredentialsProvider {
+		if v != nil {
+			return *v
+		}
+		var ret FleetInstanceRoleCredentialsProvider
+		return ret
+	}).(FleetInstanceRoleCredentialsProviderOutput)
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetInstanceRoleCredentialsProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetInstanceRoleCredentialsProviderInput is an input type that accepts FleetInstanceRoleCredentialsProviderArgs and FleetInstanceRoleCredentialsProviderOutput values.
+// You can construct a concrete instance of `FleetInstanceRoleCredentialsProviderInput` via:
+//
+//	FleetInstanceRoleCredentialsProviderArgs{...}
+type FleetInstanceRoleCredentialsProviderInput interface {
+	pulumi.Input
+
+	ToFleetInstanceRoleCredentialsProviderOutput() FleetInstanceRoleCredentialsProviderOutput
+	ToFleetInstanceRoleCredentialsProviderOutputWithContext(context.Context) FleetInstanceRoleCredentialsProviderOutput
+}
+
+var fleetInstanceRoleCredentialsProviderPtrType = reflect.TypeOf((**FleetInstanceRoleCredentialsProvider)(nil)).Elem()
+
+type FleetInstanceRoleCredentialsProviderPtrInput interface {
+	pulumi.Input
+
+	ToFleetInstanceRoleCredentialsProviderPtrOutput() FleetInstanceRoleCredentialsProviderPtrOutput
+	ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(context.Context) FleetInstanceRoleCredentialsProviderPtrOutput
+}
+
+type fleetInstanceRoleCredentialsProviderPtr string
+
+func FleetInstanceRoleCredentialsProviderPtr(v string) FleetInstanceRoleCredentialsProviderPtrInput {
+	return (*fleetInstanceRoleCredentialsProviderPtr)(&v)
+}
+
+func (*fleetInstanceRoleCredentialsProviderPtr) ElementType() reflect.Type {
+	return fleetInstanceRoleCredentialsProviderPtrType
+}
+
+func (in *fleetInstanceRoleCredentialsProviderPtr) ToFleetInstanceRoleCredentialsProviderPtrOutput() FleetInstanceRoleCredentialsProviderPtrOutput {
+	return pulumi.ToOutput(in).(FleetInstanceRoleCredentialsProviderPtrOutput)
+}
+
+func (in *fleetInstanceRoleCredentialsProviderPtr) ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetInstanceRoleCredentialsProviderPtrOutput)
+}
+
+func (in *fleetInstanceRoleCredentialsProviderPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetInstanceRoleCredentialsProvider] {
+	return pulumix.Output[*FleetInstanceRoleCredentialsProvider]{
+		OutputState: in.ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The network communication protocol used by the fleet.
 type FleetIpPermissionProtocol string
 
@@ -1854,6 +2036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypePtrInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypePtrInput)(nil)).Elem(), FleetComputeType("EC2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetInstanceRoleCredentialsProviderInput)(nil)).Elem(), FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetInstanceRoleCredentialsProviderPtrInput)(nil)).Elem(), FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
@@ -1874,6 +2058,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetInstanceRoleCredentialsProviderOutput{})
+	pulumi.RegisterOutputType(FleetInstanceRoleCredentialsProviderPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})

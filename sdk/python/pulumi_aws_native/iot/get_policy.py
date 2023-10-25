@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPolicyResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, arn=None, id=None, policy_document=None):
+    def __init__(__self__, arn=None, id=None, policy_document=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,6 +29,9 @@ class GetPolicyResult:
         if policy_document and not isinstance(policy_document, dict):
             raise TypeError("Expected argument 'policy_document' to be a dict")
         pulumi.set(__self__, "policy_document", policy_document)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -44,6 +48,11 @@ class GetPolicyResult:
     def policy_document(self) -> Optional[Any]:
         return pulumi.get(self, "policy_document")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.PolicyTag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
@@ -53,7 +62,8 @@ class AwaitableGetPolicyResult(GetPolicyResult):
         return GetPolicyResult(
             arn=self.arn,
             id=self.id,
-            policy_document=self.policy_document)
+            policy_document=self.policy_document,
+            tags=self.tags)
 
 
 def get_policy(id: Optional[str] = None,
@@ -69,7 +79,8 @@ def get_policy(id: Optional[str] = None,
     return AwaitableGetPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
-        policy_document=pulumi.get(__ret__, 'policy_document'))
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_policy)

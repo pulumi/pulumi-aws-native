@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPool
     /// </summary>
-    [Obsolete(@"UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource
     {
@@ -81,6 +80,9 @@ namespace Pulumi.AwsNative.Cognito
 
         [Output("userPoolAddOns")]
         public Output<Outputs.UserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
+
+        [Output("userPoolId")]
+        public Output<string> UserPoolId { get; private set; } = null!;
 
         [Output("userPoolName")]
         public Output<string?> UserPoolName { get; private set; } = null!;

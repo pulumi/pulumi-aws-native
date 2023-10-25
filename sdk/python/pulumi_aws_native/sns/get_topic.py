@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
+    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
+        if archive_policy and not isinstance(archive_policy, dict):
+            raise TypeError("Expected argument 'archive_policy' to be a dict")
+        pulumi.set(__self__, "archive_policy", archive_policy)
         if content_based_deduplication and not isinstance(content_based_deduplication, bool):
             raise TypeError("Expected argument 'content_based_deduplication' to be a bool")
         pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
@@ -47,6 +50,14 @@ class GetTopicResult:
         if tracing_config and not isinstance(tracing_config, str):
             raise TypeError("Expected argument 'tracing_config' to be a str")
         pulumi.set(__self__, "tracing_config", tracing_config)
+
+    @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> Optional[Any]:
+        """
+        The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        """
+        return pulumi.get(self, "archive_policy")
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -133,6 +144,7 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            archive_policy=self.archive_policy,
             content_based_deduplication=self.content_based_deduplication,
             data_protection_policy=self.data_protection_policy,
             display_name=self.display_name,
@@ -155,6 +167,7 @@ def get_topic(topic_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sns:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
+        archive_policy=pulumi.get(__ret__, 'archive_policy'),
         content_based_deduplication=pulumi.get(__ret__, 'content_based_deduplication'),
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
         display_name=pulumi.get(__ret__, 'display_name'),

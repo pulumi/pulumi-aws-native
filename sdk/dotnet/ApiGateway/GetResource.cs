@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetResource
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Resource
+        /// The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Resource
+        /// The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public string ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which you want to create this resource..
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource in which you want to create this resource..
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

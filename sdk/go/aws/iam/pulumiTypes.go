@@ -15,8 +15,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GroupPolicyType struct {
-	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     string      `pulumi:"policyName"`
+	// The policy document.
+	PolicyDocument string `pulumi:"policyDocument"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName string `pulumi:"policyName"`
 }
 
 // GroupPolicyTypeInput is an input type that accepts GroupPolicyTypeArgs and GroupPolicyTypeOutput values.
@@ -31,8 +33,10 @@ type GroupPolicyTypeInput interface {
 }
 
 type GroupPolicyTypeArgs struct {
-	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+	// The policy document.
+	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
 
 func (GroupPolicyTypeArgs) ElementType() reflect.Type {
@@ -104,10 +108,12 @@ func (o GroupPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[Grou
 	}
 }
 
-func (o GroupPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v GroupPolicyType) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+// The policy document.
+func (o GroupPolicyTypeOutput) PolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicyType) string { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
+// The friendly name (not ARN) identifying the policy.
 func (o GroupPolicyTypeOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPolicyType) string { return v.PolicyName }).(pulumi.StringOutput)
 }

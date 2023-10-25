@@ -19,9 +19,9 @@ class DocumentationVersionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DocumentationVersion resource.
-        :param pulumi.Input[str] documentation_version: The version identifier of the API documentation snapshot.
-        :param pulumi.Input[str] rest_api_id: The identifier of the API.
-        :param pulumi.Input[str] description: The description of the API documentation snapshot.
+        :param pulumi.Input[str] documentation_version: The version identifier of the to-be-updated documentation version.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] description: A description about the new documentation snapshot.
         """
         DocumentationVersionArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -45,7 +45,7 @@ class DocumentationVersionArgs:
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Input[str]:
         """
-        The version identifier of the API documentation snapshot.
+        The version identifier of the to-be-updated documentation version.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -57,7 +57,7 @@ class DocumentationVersionArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The identifier of the API.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -69,7 +69,7 @@ class DocumentationVersionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the API documentation snapshot.
+        A description about the new documentation snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -88,13 +88,13 @@ class DocumentationVersion(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A snapshot of the documentation of an API.
+        The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the API documentation snapshot.
-        :param pulumi.Input[str] documentation_version: The version identifier of the API documentation snapshot.
-        :param pulumi.Input[str] rest_api_id: The identifier of the API.
+        :param pulumi.Input[str] description: A description about the new documentation snapshot.
+        :param pulumi.Input[str] documentation_version: The version identifier of the to-be-updated documentation version.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
         ...
     @overload
@@ -103,7 +103,7 @@ class DocumentationVersion(pulumi.CustomResource):
                  args: DocumentationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A snapshot of the documentation of an API.
+        The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the API documentation snapshot.
+        A description about the new documentation snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -184,7 +184,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[str]:
         """
-        The version identifier of the API documentation snapshot.
+        The version identifier of the to-be-updated documentation version.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -192,7 +192,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The identifier of the API.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 

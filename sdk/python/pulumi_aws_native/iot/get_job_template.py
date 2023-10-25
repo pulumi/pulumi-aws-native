@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetJobTemplateResult',
@@ -20,39 +18,15 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobTemplateResult:
-    def __init__(__self__, arn=None, destination_package_versions=None, job_executions_retry_config=None, maintenance_windows=None):
+    def __init__(__self__, arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if destination_package_versions and not isinstance(destination_package_versions, list):
-            raise TypeError("Expected argument 'destination_package_versions' to be a list")
-        pulumi.set(__self__, "destination_package_versions", destination_package_versions)
-        if job_executions_retry_config and not isinstance(job_executions_retry_config, dict):
-            raise TypeError("Expected argument 'job_executions_retry_config' to be a dict")
-        pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
-        if maintenance_windows and not isinstance(maintenance_windows, list):
-            raise TypeError("Expected argument 'maintenance_windows' to be a list")
-        pulumi.set(__self__, "maintenance_windows", maintenance_windows)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="destinationPackageVersions")
-    def destination_package_versions(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "destination_package_versions")
-
-    @property
-    @pulumi.getter(name="jobExecutionsRetryConfig")
-    def job_executions_retry_config(self) -> Optional['outputs.JobExecutionsRetryConfigProperties']:
-        return pulumi.get(self, "job_executions_retry_config")
-
-    @property
-    @pulumi.getter(name="maintenanceWindows")
-    def maintenance_windows(self) -> Optional[Sequence['outputs.JobTemplateMaintenanceWindow']]:
-        return pulumi.get(self, "maintenance_windows")
 
 
 class AwaitableGetJobTemplateResult(GetJobTemplateResult):
@@ -61,10 +35,7 @@ class AwaitableGetJobTemplateResult(GetJobTemplateResult):
         if False:
             yield self
         return GetJobTemplateResult(
-            arn=self.arn,
-            destination_package_versions=self.destination_package_versions,
-            job_executions_retry_config=self.job_executions_retry_config,
-            maintenance_windows=self.maintenance_windows)
+            arn=self.arn)
 
 
 def get_job_template(job_template_id: Optional[str] = None,
@@ -78,10 +49,7 @@ def get_job_template(job_template_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getJobTemplate', __args__, opts=opts, typ=GetJobTemplateResult).value
 
     return AwaitableGetJobTemplateResult(
-        arn=pulumi.get(__ret__, 'arn'),
-        destination_package_versions=pulumi.get(__ret__, 'destination_package_versions'),
-        job_executions_retry_config=pulumi.get(__ret__, 'job_executions_retry_config'),
-        maintenance_windows=pulumi.get(__ret__, 'maintenance_windows'))
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_job_template)

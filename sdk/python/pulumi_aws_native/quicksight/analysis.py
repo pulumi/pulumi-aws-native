@@ -26,7 +26,8 @@ class AnalysisArgs:
                  source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
-                 theme_arn: Optional[pulumi.Input[str]] = None):
+                 theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None):
         """
         The set of arguments for constructing a Analysis resource.
         """
@@ -42,6 +43,7 @@ class AnalysisArgs:
             status=status,
             tags=tags,
             theme_arn=theme_arn,
+            validation_strategy=validation_strategy,
         )
     @staticmethod
     def _configure(
@@ -56,6 +58,7 @@ class AnalysisArgs:
              status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
              theme_arn: Optional[pulumi.Input[str]] = None,
+             validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("analysis_id", analysis_id)
         _setter("aws_account_id", aws_account_id)
@@ -75,6 +78,8 @@ class AnalysisArgs:
             _setter("tags", tags)
         if theme_arn is not None:
             _setter("theme_arn", theme_arn)
+        if validation_strategy is not None:
+            _setter("validation_strategy", validation_strategy)
 
     @property
     @pulumi.getter(name="analysisId")
@@ -166,6 +171,15 @@ class AnalysisArgs:
     def theme_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "theme_arn", value)
 
+    @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> Optional[pulumi.Input['AnalysisValidationStrategyArgs']]:
+        return pulumi.get(self, "validation_strategy")
+
+    @validation_strategy.setter
+    def validation_strategy(self, value: Optional[pulumi.Input['AnalysisValidationStrategyArgs']]):
+        pulumi.set(self, "validation_strategy", value)
+
 
 class Analysis(pulumi.CustomResource):
     @overload
@@ -182,6 +196,7 @@ class Analysis(pulumi.CustomResource):
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['AnalysisValidationStrategyArgs']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Analysis Resource Type.
@@ -227,6 +242,7 @@ class Analysis(pulumi.CustomResource):
                  status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['AnalysisValidationStrategyArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,6 +281,12 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
+            if validation_strategy is not None and not isinstance(validation_strategy, AnalysisValidationStrategyArgs):
+                validation_strategy = validation_strategy or {}
+                def _setter(key, value):
+                    validation_strategy[key] = value
+                AnalysisValidationStrategyArgs._configure(_setter, **validation_strategy)
+            __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["data_set_arns"] = None
@@ -311,6 +333,7 @@ class Analysis(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["theme_arn"] = None
+        __props__.__dict__["validation_strategy"] = None
         return Analysis(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -392,4 +415,9 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "theme_arn")
+
+    @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> pulumi.Output[Optional['outputs.AnalysisValidationStrategy']]:
+        return pulumi.get(self, "validation_strategy")
 

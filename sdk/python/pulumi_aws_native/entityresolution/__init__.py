@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_id_mapping_workflow import *
 from .get_matching_workflow import *
 from .get_schema_mapping import *
+from .id_mapping_workflow import *
 from .matching_workflow import *
 from .schema_mapping import *
 from ._inputs import *

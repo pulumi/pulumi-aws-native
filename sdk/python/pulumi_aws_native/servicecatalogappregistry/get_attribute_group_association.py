@@ -18,16 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAttributeGroupAssociationResult:
-    def __init__(__self__, application_arn=None, attribute_group_arn=None, id=None):
+    def __init__(__self__, application_arn=None, attribute_group_arn=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
         if attribute_group_arn and not isinstance(attribute_group_arn, str):
             raise TypeError("Expected argument 'attribute_group_arn' to be a str")
         pulumi.set(__self__, "attribute_group_arn", attribute_group_arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -39,11 +36,6 @@ class GetAttributeGroupAssociationResult:
     def attribute_group_arn(self) -> Optional[str]:
         return pulumi.get(self, "attribute_group_arn")
 
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
 
 class AwaitableGetAttributeGroupAssociationResult(GetAttributeGroupAssociationResult):
     # pylint: disable=using-constant-test
@@ -52,28 +44,29 @@ class AwaitableGetAttributeGroupAssociationResult(GetAttributeGroupAssociationRe
             yield self
         return GetAttributeGroupAssociationResult(
             application_arn=self.application_arn,
-            attribute_group_arn=self.attribute_group_arn,
-            id=self.id)
+            attribute_group_arn=self.attribute_group_arn)
 
 
-def get_attribute_group_association(id: Optional[str] = None,
+def get_attribute_group_association(application_arn: Optional[str] = None,
+                                    attribute_group_arn: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttributeGroupAssociationResult:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['applicationArn'] = application_arn
+    __args__['attributeGroupArn'] = attribute_group_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getAttributeGroupAssociation', __args__, opts=opts, typ=GetAttributeGroupAssociationResult).value
 
     return AwaitableGetAttributeGroupAssociationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
-        attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'),
-        id=pulumi.get(__ret__, 'id'))
+        attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'))
 
 
 @_utilities.lift_output_func(get_attribute_group_association)
-def get_attribute_group_association_output(id: Optional[pulumi.Input[str]] = None,
+def get_attribute_group_association_output(application_arn: Optional[pulumi.Input[str]] = None,
+                                           attribute_group_arn: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.

@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IAM::Group
- *
- * @deprecated Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Group extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Group {
-        pulumi.log.warn("Group is deprecated: Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Group(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,10 +37,25 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
+    /**
+     * The Arn of the group to create
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the group to create
+     */
     public readonly groupName!: pulumi.Output<string | undefined>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+     */
     public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The path to the group
+     */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM group
+     */
     public readonly policies!: pulumi.Output<outputs.iam.GroupPolicy[] | undefined>;
 
     /**
@@ -53,9 +65,7 @@ export class Group extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Group is deprecated: Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -82,8 +92,20 @@ export class Group extends pulumi.CustomResource {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
+    /**
+     * The name of the group to create
+     */
     groupName?: pulumi.Input<string>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The path to the group
+     */
     path?: pulumi.Input<string>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM group
+     */
     policies?: pulumi.Input<pulumi.Input<inputs.iam.GroupPolicyArgs>[]>;
 }

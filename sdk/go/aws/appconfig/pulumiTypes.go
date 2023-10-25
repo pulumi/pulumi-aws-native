@@ -14,9 +14,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ApplicationTags struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
+	Value string `pulumi:"value"`
 }
 
 // ApplicationTagsInput is an input type that accepts ApplicationTagsArgs and ApplicationTagsOutput values.
@@ -30,9 +33,12 @@ type ApplicationTagsInput interface {
 	ToApplicationTagsOutputWithContext(context.Context) ApplicationTagsOutput
 }
 
+// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ApplicationTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value can be up to 256 characters.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ApplicationTagsArgs) ElementType() reflect.Type {
@@ -84,6 +90,7 @@ func (i ApplicationTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]App
 	}
 }
 
+// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ApplicationTagsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagsOutput) ElementType() reflect.Type {
@@ -104,12 +111,14 @@ func (o ApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[Appl
 	}
 }
 
-func (o ApplicationTagsOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+func (o ApplicationTagsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTags) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o ApplicationTagsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationTags) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The tag value can be up to 256 characters.
+func (o ApplicationTagsOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTags) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type ApplicationTagsArrayOutput struct{ *pulumi.OutputState }

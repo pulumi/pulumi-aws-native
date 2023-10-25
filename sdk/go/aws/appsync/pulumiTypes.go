@@ -1983,8 +1983,11 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) RelationalDatabaseSourceTyp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type FunctionConfigurationAppSyncRuntime struct {
-	Name           string `pulumi:"name"`
+	// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
+	Name string `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is 1.0.0.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -1999,8 +2002,11 @@ type FunctionConfigurationAppSyncRuntimeInput interface {
 	ToFunctionConfigurationAppSyncRuntimeOutputWithContext(context.Context) FunctionConfigurationAppSyncRuntimeOutput
 }
 
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type FunctionConfigurationAppSyncRuntimeArgs struct {
-	Name           pulumi.StringInput `pulumi:"name"`
+	// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version of the runtime to use. Currently, the only allowed version is 1.0.0.
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -2069,6 +2075,7 @@ func (i *functionConfigurationAppSyncRuntimePtrType) ToOutput(ctx context.Contex
 	}
 }
 
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type FunctionConfigurationAppSyncRuntimeOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationAppSyncRuntimeOutput) ElementType() reflect.Type {
@@ -2099,10 +2106,12 @@ func (o FunctionConfigurationAppSyncRuntimeOutput) ToOutput(ctx context.Context)
 	}
 }
 
+// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
 func (o FunctionConfigurationAppSyncRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfigurationAppSyncRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The version of the runtime to use. Currently, the only allowed version is 1.0.0.
 func (o FunctionConfigurationAppSyncRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfigurationAppSyncRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -2137,6 +2146,7 @@ func (o FunctionConfigurationAppSyncRuntimePtrOutput) Elem() FunctionConfigurati
 	}).(FunctionConfigurationAppSyncRuntimeOutput)
 }
 
+// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
 func (o FunctionConfigurationAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationAppSyncRuntime) *string {
 		if v == nil {
@@ -2146,6 +2156,7 @@ func (o FunctionConfigurationAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the runtime to use. Currently, the only allowed version is 1.0.0.
 func (o FunctionConfigurationAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationAppSyncRuntime) *string {
 		if v == nil {
@@ -2155,7 +2166,9 @@ func (o FunctionConfigurationAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type FunctionConfigurationLambdaConflictHandlerConfig struct {
+	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -2170,7 +2183,9 @@ type FunctionConfigurationLambdaConflictHandlerConfigInput interface {
 	ToFunctionConfigurationLambdaConflictHandlerConfigOutputWithContext(context.Context) FunctionConfigurationLambdaConflictHandlerConfigOutput
 }
 
+// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type FunctionConfigurationLambdaConflictHandlerConfigArgs struct {
+	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -2239,6 +2254,7 @@ func (i *functionConfigurationLambdaConflictHandlerConfigPtrType) ToOutput(ctx c
 	}
 }
 
+// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type FunctionConfigurationLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
@@ -2269,6 +2285,7 @@ func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) ToOutput(ctx con
 	}
 }
 
+// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 func (o FunctionConfigurationLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionConfigurationLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -2303,6 +2320,7 @@ func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) Elem() Functi
 	}).(FunctionConfigurationLambdaConflictHandlerConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationLambdaConflictHandlerConfig) *string {
 		if v == nil {
@@ -2312,8 +2330,11 @@ func (o FunctionConfigurationLambdaConflictHandlerConfigPtrOutput) LambdaConflic
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type FunctionConfigurationSyncConfig struct {
-	ConflictDetection           string                                            `pulumi:"conflictDetection"`
+	// The Conflict Detection strategy to use.
+	ConflictDetection string `pulumi:"conflictDetection"`
+	// The Conflict Resolution strategy to perform in the event of a conflict.
 	ConflictHandler             *string                                           `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig *FunctionConfigurationLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
@@ -2329,8 +2350,11 @@ type FunctionConfigurationSyncConfigInput interface {
 	ToFunctionConfigurationSyncConfigOutputWithContext(context.Context) FunctionConfigurationSyncConfigOutput
 }
 
+// Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type FunctionConfigurationSyncConfigArgs struct {
-	ConflictDetection           pulumi.StringInput                                       `pulumi:"conflictDetection"`
+	// The Conflict Detection strategy to use.
+	ConflictDetection pulumi.StringInput `pulumi:"conflictDetection"`
+	// The Conflict Resolution strategy to perform in the event of a conflict.
 	ConflictHandler             pulumi.StringPtrInput                                    `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig FunctionConfigurationLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
@@ -2400,6 +2424,7 @@ func (i *functionConfigurationSyncConfigPtrType) ToOutput(ctx context.Context) p
 	}
 }
 
+// Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
 type FunctionConfigurationSyncConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionConfigurationSyncConfigOutput) ElementType() reflect.Type {
@@ -2430,10 +2455,12 @@ func (o FunctionConfigurationSyncConfigOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
+// The Conflict Detection strategy to use.
 func (o FunctionConfigurationSyncConfigOutput) ConflictDetection() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfigurationSyncConfig) string { return v.ConflictDetection }).(pulumi.StringOutput)
 }
 
+// The Conflict Resolution strategy to perform in the event of a conflict.
 func (o FunctionConfigurationSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionConfigurationSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
@@ -2474,6 +2501,7 @@ func (o FunctionConfigurationSyncConfigPtrOutput) Elem() FunctionConfigurationSy
 	}).(FunctionConfigurationSyncConfigOutput)
 }
 
+// The Conflict Detection strategy to use.
 func (o FunctionConfigurationSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *string {
 		if v == nil {
@@ -2483,6 +2511,7 @@ func (o FunctionConfigurationSyncConfigPtrOutput) ConflictDetection() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Conflict Resolution strategy to perform in the event of a conflict.
 func (o FunctionConfigurationSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfigurationSyncConfig) *string {
 		if v == nil {

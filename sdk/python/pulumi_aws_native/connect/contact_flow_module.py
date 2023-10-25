@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ContactFlowModuleArgs', 'ContactFlowModule']
@@ -21,7 +20,7 @@ class ContactFlowModuleArgs:
                  instance_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input['ContactFlowModuleState']] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowModuleTagArgs']]]] = None):
         """
         The set of arguments for constructing a ContactFlowModule resource.
@@ -29,7 +28,7 @@ class ContactFlowModuleArgs:
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[str] description: The description of the contact flow module.
         :param pulumi.Input[str] name: The name of the contact flow module.
-        :param pulumi.Input['ContactFlowModuleState'] state: The state of the contact flow module.
+        :param pulumi.Input[str] state: The state of the contact flow module.
         :param pulumi.Input[Sequence[pulumi.Input['ContactFlowModuleTagArgs']]] tags: One or more tags.
         """
         ContactFlowModuleArgs._configure(
@@ -48,7 +47,7 @@ class ContactFlowModuleArgs:
              instance_arn: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input['ContactFlowModuleState']] = None,
+             state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowModuleTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("content", content)
@@ -112,14 +111,14 @@ class ContactFlowModuleArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['ContactFlowModuleState']]:
+    def state(self) -> Optional[pulumi.Input[str]]:
         """
         The state of the contact flow module.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['ContactFlowModuleState']]):
+    def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
 
     @property
@@ -144,7 +143,7 @@ class ContactFlowModule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input['ContactFlowModuleState']] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactFlowModuleTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -156,7 +155,7 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the contact flow module.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[str] name: The name of the contact flow module.
-        :param pulumi.Input['ContactFlowModuleState'] state: The state of the contact flow module.
+        :param pulumi.Input[str] state: The state of the contact flow module.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactFlowModuleTagArgs']]]] tags: One or more tags.
         """
         ...
@@ -191,7 +190,7 @@ class ContactFlowModule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input['ContactFlowModuleState']] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactFlowModuleTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -288,7 +287,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional['ContactFlowModuleState']]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the contact flow module.
         """
@@ -296,7 +295,7 @@ class ContactFlowModule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['ContactFlowModuleStatus']:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the contact flow module.
         """

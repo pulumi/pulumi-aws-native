@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -11,17 +14,23 @@ export function getResourceAssociation(args: GetResourceAssociationArgs, opts?: 
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalogappregistry:getResourceAssociation", {
-        "id": args.id,
+        "applicationArn": args.applicationArn,
+        "resourceArn": args.resourceArn,
+        "resourceType": args.resourceType,
     }, opts);
 }
 
 export interface GetResourceAssociationArgs {
-    id: string;
+    applicationArn: string;
+    resourceArn: string;
+    /**
+     * The type of the CFN Resource for now it's enum CFN_STACK.
+     */
+    resourceType: enums.servicecatalogappregistry.ResourceAssociationResourceType;
 }
 
 export interface GetResourceAssociationResult {
     readonly applicationArn?: string;
-    readonly id?: string;
     readonly resourceArn?: string;
 }
 /**
@@ -32,5 +41,10 @@ export function getResourceAssociationOutput(args: GetResourceAssociationOutputA
 }
 
 export interface GetResourceAssociationOutputArgs {
-    id: pulumi.Input<string>;
+    applicationArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
+    /**
+     * The type of the CFN Resource for now it's enum CFN_STACK.
+     */
+    resourceType: pulumi.Input<enums.servicecatalogappregistry.ResourceAssociationResourceType>;
 }

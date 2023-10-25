@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Resource
+// The “AWS::ApiGateway::Resource“ resource creates a resource in an API.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
@@ -26,7 +26,7 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 type LookupResourceArgs struct {
 	// A unique primary identifier for a Resource
 	ResourceId string `pulumi:"resourceId"`
-	// The ID of the RestApi resource in which you want to create this resource..
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -51,7 +51,7 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 type LookupResourceOutputArgs struct {
 	// A unique primary identifier for a Resource
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The ID of the RestApi resource in which you want to create this resource..
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 

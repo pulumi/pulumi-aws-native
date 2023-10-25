@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::UsagePlanKey
+ * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**
@@ -38,15 +38,15 @@ export class UsagePlanKey extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the usage plan key.
+     * The Id of the UsagePlanKey resource.
      */
     public readonly keyId!: pulumi.Output<string>;
     /**
-     * The type of usage plan key. Currently, the only valid key type is API_KEY.
+     * The type of a UsagePlanKey resource for a plan customer.
      */
     public readonly keyType!: pulumi.Output<enums.apigateway.UsagePlanKeyKeyType>;
     /**
-     * The ID of the usage plan.
+     * The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
      */
     public readonly usagePlanId!: pulumi.Output<string>;
 
@@ -90,15 +90,15 @@ export class UsagePlanKey extends pulumi.CustomResource {
  */
 export interface UsagePlanKeyArgs {
     /**
-     * The ID of the usage plan key.
+     * The Id of the UsagePlanKey resource.
      */
     keyId: pulumi.Input<string>;
     /**
-     * The type of usage plan key. Currently, the only valid key type is API_KEY.
+     * The type of a UsagePlanKey resource for a plan customer.
      */
     keyType: pulumi.Input<enums.apigateway.UsagePlanKeyKeyType>;
     /**
-     * The ID of the usage plan.
+     * The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
      */
     usagePlanId: pulumi.Input<string>;
 }

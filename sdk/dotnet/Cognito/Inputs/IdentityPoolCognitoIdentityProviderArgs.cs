@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class IdentityPoolCognitoIdentityProviderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("clientId", required: true)]
-        public Input<string> ClientId { get; set; } = null!;
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
 
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         [Input("serverSideTokenCheck")]
         public Input<bool>? ServerSideTokenCheck { get; set; }

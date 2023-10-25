@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::AppConfig::Application
- *
- * @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Application(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,8 +37,21 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The application Id
+     */
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * A description of the application.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the application.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     public readonly tags!: pulumi.Output<outputs.appconfig.ApplicationTags[] | undefined>;
 
     /**
@@ -51,16 +61,16 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -74,7 +84,16 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * A description of the application.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * A name for the application.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ApplicationTagsArgs>[]>;
 }

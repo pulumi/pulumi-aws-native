@@ -24,14 +24,14 @@ func LookupUserPoolGroup(ctx *pulumi.Context, args *LookupUserPoolGroupArgs, opt
 }
 
 type LookupUserPoolGroupArgs struct {
-	Id string `pulumi:"id"`
+	GroupName  string `pulumi:"groupName"`
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolGroupResult struct {
-	Description *string  `pulumi:"description"`
-	Id          *string  `pulumi:"id"`
-	Precedence  *float64 `pulumi:"precedence"`
-	RoleArn     *string  `pulumi:"roleArn"`
+	Description *string `pulumi:"description"`
+	Precedence  *int    `pulumi:"precedence"`
+	RoleArn     *string `pulumi:"roleArn"`
 }
 
 func LookupUserPoolGroupOutput(ctx *pulumi.Context, args LookupUserPoolGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolGroupResultOutput {
@@ -48,7 +48,8 @@ func LookupUserPoolGroupOutput(ctx *pulumi.Context, args LookupUserPoolGroupOutp
 }
 
 type LookupUserPoolGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	GroupName  pulumi.StringInput `pulumi:"groupName"`
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolGroupOutputArgs) ElementType() reflect.Type {
@@ -79,12 +80,8 @@ func (o LookupUserPoolGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupUserPoolGroupResultOutput) Precedence() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupUserPoolGroupResult) *float64 { return v.Precedence }).(pulumi.Float64PtrOutput)
+func (o LookupUserPoolGroupResultOutput) Precedence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolGroupResult) *int { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupUserPoolGroupResultOutput) RoleArn() pulumi.StringPtrOutput {

@@ -49,11 +49,11 @@ export interface GetContactFlowModuleResult {
     /**
      * The state of the contact flow module.
      */
-    readonly state?: enums.connect.ContactFlowModuleState;
+    readonly state?: string;
     /**
      * The status of the contact flow module.
      */
-    readonly status?: enums.connect.ContactFlowModuleStatus;
+    readonly status?: string;
     /**
      * One or more tags.
      */

@@ -5373,6 +5373,764 @@ func (o ConfigurationLatestRevisionPtrOutput) Revision() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Details of an Amazon MSK cluster.
+type ReplicatorAmazonMskCluster struct {
+	// The ARN of an Amazon MSK cluster.
+	MskClusterArn string `pulumi:"mskClusterArn"`
+}
+
+// ReplicatorAmazonMskClusterInput is an input type that accepts ReplicatorAmazonMskClusterArgs and ReplicatorAmazonMskClusterOutput values.
+// You can construct a concrete instance of `ReplicatorAmazonMskClusterInput` via:
+//
+//	ReplicatorAmazonMskClusterArgs{...}
+type ReplicatorAmazonMskClusterInput interface {
+	pulumi.Input
+
+	ToReplicatorAmazonMskClusterOutput() ReplicatorAmazonMskClusterOutput
+	ToReplicatorAmazonMskClusterOutputWithContext(context.Context) ReplicatorAmazonMskClusterOutput
+}
+
+// Details of an Amazon MSK cluster.
+type ReplicatorAmazonMskClusterArgs struct {
+	// The ARN of an Amazon MSK cluster.
+	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
+}
+
+func (ReplicatorAmazonMskClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorAmazonMskCluster)(nil)).Elem()
+}
+
+func (i ReplicatorAmazonMskClusterArgs) ToReplicatorAmazonMskClusterOutput() ReplicatorAmazonMskClusterOutput {
+	return i.ToReplicatorAmazonMskClusterOutputWithContext(context.Background())
+}
+
+func (i ReplicatorAmazonMskClusterArgs) ToReplicatorAmazonMskClusterOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorAmazonMskClusterOutput)
+}
+
+func (i ReplicatorAmazonMskClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorAmazonMskCluster] {
+	return pulumix.Output[ReplicatorAmazonMskCluster]{
+		OutputState: i.ToReplicatorAmazonMskClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Details of an Amazon MSK cluster.
+type ReplicatorAmazonMskClusterOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorAmazonMskClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorAmazonMskCluster)(nil)).Elem()
+}
+
+func (o ReplicatorAmazonMskClusterOutput) ToReplicatorAmazonMskClusterOutput() ReplicatorAmazonMskClusterOutput {
+	return o
+}
+
+func (o ReplicatorAmazonMskClusterOutput) ToReplicatorAmazonMskClusterOutputWithContext(ctx context.Context) ReplicatorAmazonMskClusterOutput {
+	return o
+}
+
+func (o ReplicatorAmazonMskClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorAmazonMskCluster] {
+	return pulumix.Output[ReplicatorAmazonMskCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ARN of an Amazon MSK cluster.
+func (o ReplicatorAmazonMskClusterOutput) MskClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorAmazonMskCluster) string { return v.MskClusterArn }).(pulumi.StringOutput)
+}
+
+// Configuration relating to consumer group replication.
+type ReplicatorConsumerGroupReplication struct {
+	// List of regular expression patterns indicating the consumer groups that should not be replicated.
+	ConsumerGroupsToExclude []string `pulumi:"consumerGroupsToExclude"`
+	// List of regular expression patterns indicating the consumer groups to copy.
+	ConsumerGroupsToReplicate []string `pulumi:"consumerGroupsToReplicate"`
+	// Whether to periodically check for new consumer groups.
+	DetectAndCopyNewConsumerGroups *bool `pulumi:"detectAndCopyNewConsumerGroups"`
+	// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+	SynchroniseConsumerGroupOffsets *bool `pulumi:"synchroniseConsumerGroupOffsets"`
+}
+
+// ReplicatorConsumerGroupReplicationInput is an input type that accepts ReplicatorConsumerGroupReplicationArgs and ReplicatorConsumerGroupReplicationOutput values.
+// You can construct a concrete instance of `ReplicatorConsumerGroupReplicationInput` via:
+//
+//	ReplicatorConsumerGroupReplicationArgs{...}
+type ReplicatorConsumerGroupReplicationInput interface {
+	pulumi.Input
+
+	ToReplicatorConsumerGroupReplicationOutput() ReplicatorConsumerGroupReplicationOutput
+	ToReplicatorConsumerGroupReplicationOutputWithContext(context.Context) ReplicatorConsumerGroupReplicationOutput
+}
+
+// Configuration relating to consumer group replication.
+type ReplicatorConsumerGroupReplicationArgs struct {
+	// List of regular expression patterns indicating the consumer groups that should not be replicated.
+	ConsumerGroupsToExclude pulumi.StringArrayInput `pulumi:"consumerGroupsToExclude"`
+	// List of regular expression patterns indicating the consumer groups to copy.
+	ConsumerGroupsToReplicate pulumi.StringArrayInput `pulumi:"consumerGroupsToReplicate"`
+	// Whether to periodically check for new consumer groups.
+	DetectAndCopyNewConsumerGroups pulumi.BoolPtrInput `pulumi:"detectAndCopyNewConsumerGroups"`
+	// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+	SynchroniseConsumerGroupOffsets pulumi.BoolPtrInput `pulumi:"synchroniseConsumerGroupOffsets"`
+}
+
+func (ReplicatorConsumerGroupReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorConsumerGroupReplication)(nil)).Elem()
+}
+
+func (i ReplicatorConsumerGroupReplicationArgs) ToReplicatorConsumerGroupReplicationOutput() ReplicatorConsumerGroupReplicationOutput {
+	return i.ToReplicatorConsumerGroupReplicationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorConsumerGroupReplicationArgs) ToReplicatorConsumerGroupReplicationOutputWithContext(ctx context.Context) ReplicatorConsumerGroupReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorConsumerGroupReplicationOutput)
+}
+
+func (i ReplicatorConsumerGroupReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorConsumerGroupReplication] {
+	return pulumix.Output[ReplicatorConsumerGroupReplication]{
+		OutputState: i.ToReplicatorConsumerGroupReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configuration relating to consumer group replication.
+type ReplicatorConsumerGroupReplicationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorConsumerGroupReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorConsumerGroupReplication)(nil)).Elem()
+}
+
+func (o ReplicatorConsumerGroupReplicationOutput) ToReplicatorConsumerGroupReplicationOutput() ReplicatorConsumerGroupReplicationOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupReplicationOutput) ToReplicatorConsumerGroupReplicationOutputWithContext(ctx context.Context) ReplicatorConsumerGroupReplicationOutput {
+	return o
+}
+
+func (o ReplicatorConsumerGroupReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorConsumerGroupReplication] {
+	return pulumix.Output[ReplicatorConsumerGroupReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of regular expression patterns indicating the consumer groups that should not be replicated.
+func (o ReplicatorConsumerGroupReplicationOutput) ConsumerGroupsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) []string { return v.ConsumerGroupsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of regular expression patterns indicating the consumer groups to copy.
+func (o ReplicatorConsumerGroupReplicationOutput) ConsumerGroupsToReplicate() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) []string { return v.ConsumerGroupsToReplicate }).(pulumi.StringArrayOutput)
+}
+
+// Whether to periodically check for new consumer groups.
+func (o ReplicatorConsumerGroupReplicationOutput) DetectAndCopyNewConsumerGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) *bool { return v.DetectAndCopyNewConsumerGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+func (o ReplicatorConsumerGroupReplicationOutput) SynchroniseConsumerGroupOffsets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatorConsumerGroupReplication) *bool { return v.SynchroniseConsumerGroupOffsets }).(pulumi.BoolPtrOutput)
+}
+
+// Details of a Kafka cluster for replication.
+type ReplicatorKafkaCluster struct {
+	// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+	AmazonMskCluster ReplicatorAmazonMskCluster `pulumi:"amazonMskCluster"`
+	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+	VpcConfig ReplicatorKafkaClusterClientVpcConfig `pulumi:"vpcConfig"`
+}
+
+// ReplicatorKafkaClusterInput is an input type that accepts ReplicatorKafkaClusterArgs and ReplicatorKafkaClusterOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterInput` via:
+//
+//	ReplicatorKafkaClusterArgs{...}
+type ReplicatorKafkaClusterInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOutput() ReplicatorKafkaClusterOutput
+	ToReplicatorKafkaClusterOutputWithContext(context.Context) ReplicatorKafkaClusterOutput
+}
+
+// Details of a Kafka cluster for replication.
+type ReplicatorKafkaClusterArgs struct {
+	// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+	AmazonMskCluster ReplicatorAmazonMskClusterInput `pulumi:"amazonMskCluster"`
+	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+	VpcConfig ReplicatorKafkaClusterClientVpcConfigInput `pulumi:"vpcConfig"`
+}
+
+func (ReplicatorKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaCluster)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterArgs) ToReplicatorKafkaClusterOutput() ReplicatorKafkaClusterOutput {
+	return i.ToReplicatorKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterArgs) ToReplicatorKafkaClusterOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOutput)
+}
+
+func (i ReplicatorKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorKafkaCluster] {
+	return pulumix.Output[ReplicatorKafkaCluster]{
+		OutputState: i.ToReplicatorKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ReplicatorKafkaClusterArrayInput is an input type that accepts ReplicatorKafkaClusterArray and ReplicatorKafkaClusterArrayOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterArrayInput` via:
+//
+//	ReplicatorKafkaClusterArray{ ReplicatorKafkaClusterArgs{...} }
+type ReplicatorKafkaClusterArrayInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterArrayOutput() ReplicatorKafkaClusterArrayOutput
+	ToReplicatorKafkaClusterArrayOutputWithContext(context.Context) ReplicatorKafkaClusterArrayOutput
+}
+
+type ReplicatorKafkaClusterArray []ReplicatorKafkaClusterInput
+
+func (ReplicatorKafkaClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorKafkaCluster)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterArray) ToReplicatorKafkaClusterArrayOutput() ReplicatorKafkaClusterArrayOutput {
+	return i.ToReplicatorKafkaClusterArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterArray) ToReplicatorKafkaClusterArrayOutputWithContext(ctx context.Context) ReplicatorKafkaClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterArrayOutput)
+}
+
+func (i ReplicatorKafkaClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorKafkaCluster] {
+	return pulumix.Output[[]ReplicatorKafkaCluster]{
+		OutputState: i.ToReplicatorKafkaClusterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Details of a Kafka cluster for replication.
+type ReplicatorKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOutput) ToReplicatorKafkaClusterOutput() ReplicatorKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOutput) ToReplicatorKafkaClusterOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorKafkaCluster] {
+	return pulumix.Output[ReplicatorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Details of an Amazon MSK cluster. Exactly one of AmazonMskCluster is required.
+func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorAmazonMskClusterOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorAmazonMskClusterOutput)
+}
+
+// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterClientVpcConfigOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorKafkaClusterClientVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterClientVpcConfigOutput)
+}
+
+type ReplicatorKafkaClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterArrayOutput) ToReplicatorKafkaClusterArrayOutput() ReplicatorKafkaClusterArrayOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterArrayOutput) ToReplicatorKafkaClusterArrayOutputWithContext(ctx context.Context) ReplicatorKafkaClusterArrayOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorKafkaCluster] {
+	return pulumix.Output[[]ReplicatorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorKafkaClusterArrayOutput) Index(i pulumi.IntInput) ReplicatorKafkaClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorKafkaCluster {
+		return vs[0].([]ReplicatorKafkaCluster)[vs[1].(int)]
+	}).(ReplicatorKafkaClusterOutput)
+}
+
+// Details of an Amazon VPC which has network connectivity to the Kafka cluster.
+type ReplicatorKafkaClusterClientVpcConfig struct {
+	// The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ReplicatorKafkaClusterClientVpcConfigInput is an input type that accepts ReplicatorKafkaClusterClientVpcConfigArgs and ReplicatorKafkaClusterClientVpcConfigOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientVpcConfigInput` via:
+//
+//	ReplicatorKafkaClusterClientVpcConfigArgs{...}
+type ReplicatorKafkaClusterClientVpcConfigInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientVpcConfigOutput() ReplicatorKafkaClusterClientVpcConfigOutput
+	ToReplicatorKafkaClusterClientVpcConfigOutputWithContext(context.Context) ReplicatorKafkaClusterClientVpcConfigOutput
+}
+
+// Details of an Amazon VPC which has network connectivity to the Kafka cluster.
+type ReplicatorKafkaClusterClientVpcConfigArgs struct {
+	// The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ReplicatorKafkaClusterClientVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfig)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToReplicatorKafkaClusterClientVpcConfigOutput() ReplicatorKafkaClusterClientVpcConfigOutput {
+	return i.ToReplicatorKafkaClusterClientVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToReplicatorKafkaClusterClientVpcConfigOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientVpcConfigOutput)
+}
+
+func (i ReplicatorKafkaClusterClientVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorKafkaClusterClientVpcConfig] {
+	return pulumix.Output[ReplicatorKafkaClusterClientVpcConfig]{
+		OutputState: i.ToReplicatorKafkaClusterClientVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Details of an Amazon VPC which has network connectivity to the Kafka cluster.
+type ReplicatorKafkaClusterClientVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfig)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToReplicatorKafkaClusterClientVpcConfigOutput() ReplicatorKafkaClusterClientVpcConfigOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToReplicatorKafkaClusterClientVpcConfigOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientVpcConfigOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorKafkaClusterClientVpcConfig] {
+	return pulumix.Output[ReplicatorKafkaClusterClientVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The AWS security groups to associate with the elastic network interfaces in order to specify what the replicator has access to. If a security group is not specified, the default security group associated with the VPC is used.
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets.
+func (o ReplicatorKafkaClusterClientVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies configuration for replication between a source and target Kafka cluster.
+type ReplicatorReplicationInfo struct {
+	// Configuration relating to consumer group replication.
+	ConsumerGroupReplication ReplicatorConsumerGroupReplication `pulumi:"consumerGroupReplication"`
+	// Amazon Resource Name of the source Kafka cluster.
+	SourceKafkaClusterArn string `pulumi:"sourceKafkaClusterArn"`
+	// The type of compression to use writing records to target Kafka cluster.
+	TargetCompressionType ReplicatorReplicationInfoTargetCompressionType `pulumi:"targetCompressionType"`
+	// Amazon Resource Name of the target Kafka cluster.
+	TargetKafkaClusterArn string `pulumi:"targetKafkaClusterArn"`
+	// Configuration relating to topic replication.
+	TopicReplication ReplicatorTopicReplication `pulumi:"topicReplication"`
+}
+
+// ReplicatorReplicationInfoInput is an input type that accepts ReplicatorReplicationInfoArgs and ReplicatorReplicationInfoOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoInput` via:
+//
+//	ReplicatorReplicationInfoArgs{...}
+type ReplicatorReplicationInfoInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoOutput() ReplicatorReplicationInfoOutput
+	ToReplicatorReplicationInfoOutputWithContext(context.Context) ReplicatorReplicationInfoOutput
+}
+
+// Specifies configuration for replication between a source and target Kafka cluster.
+type ReplicatorReplicationInfoArgs struct {
+	// Configuration relating to consumer group replication.
+	ConsumerGroupReplication ReplicatorConsumerGroupReplicationInput `pulumi:"consumerGroupReplication"`
+	// Amazon Resource Name of the source Kafka cluster.
+	SourceKafkaClusterArn pulumi.StringInput `pulumi:"sourceKafkaClusterArn"`
+	// The type of compression to use writing records to target Kafka cluster.
+	TargetCompressionType ReplicatorReplicationInfoTargetCompressionTypeInput `pulumi:"targetCompressionType"`
+	// Amazon Resource Name of the target Kafka cluster.
+	TargetKafkaClusterArn pulumi.StringInput `pulumi:"targetKafkaClusterArn"`
+	// Configuration relating to topic replication.
+	TopicReplication ReplicatorTopicReplicationInput `pulumi:"topicReplication"`
+}
+
+func (ReplicatorReplicationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfo)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationInfoArgs) ToReplicatorReplicationInfoOutput() ReplicatorReplicationInfoOutput {
+	return i.ToReplicatorReplicationInfoOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoArgs) ToReplicatorReplicationInfoOutputWithContext(ctx context.Context) ReplicatorReplicationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoOutput)
+}
+
+func (i ReplicatorReplicationInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorReplicationInfo] {
+	return pulumix.Output[ReplicatorReplicationInfo]{
+		OutputState: i.ToReplicatorReplicationInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ReplicatorReplicationInfoArrayInput is an input type that accepts ReplicatorReplicationInfoArray and ReplicatorReplicationInfoArrayOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoArrayInput` via:
+//
+//	ReplicatorReplicationInfoArray{ ReplicatorReplicationInfoArgs{...} }
+type ReplicatorReplicationInfoArrayInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoArrayOutput() ReplicatorReplicationInfoArrayOutput
+	ToReplicatorReplicationInfoArrayOutputWithContext(context.Context) ReplicatorReplicationInfoArrayOutput
+}
+
+type ReplicatorReplicationInfoArray []ReplicatorReplicationInfoInput
+
+func (ReplicatorReplicationInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorReplicationInfo)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationInfoArray) ToReplicatorReplicationInfoArrayOutput() ReplicatorReplicationInfoArrayOutput {
+	return i.ToReplicatorReplicationInfoArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoArray) ToReplicatorReplicationInfoArrayOutputWithContext(ctx context.Context) ReplicatorReplicationInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoArrayOutput)
+}
+
+func (i ReplicatorReplicationInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorReplicationInfo] {
+	return pulumix.Output[[]ReplicatorReplicationInfo]{
+		OutputState: i.ToReplicatorReplicationInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies configuration for replication between a source and target Kafka cluster.
+type ReplicatorReplicationInfoOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfo)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoOutput) ToReplicatorReplicationInfoOutput() ReplicatorReplicationInfoOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoOutput) ToReplicatorReplicationInfoOutputWithContext(ctx context.Context) ReplicatorReplicationInfoOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorReplicationInfo] {
+	return pulumix.Output[ReplicatorReplicationInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Configuration relating to consumer group replication.
+func (o ReplicatorReplicationInfoOutput) ConsumerGroupReplication() ReplicatorConsumerGroupReplicationOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) ReplicatorConsumerGroupReplication {
+		return v.ConsumerGroupReplication
+	}).(ReplicatorConsumerGroupReplicationOutput)
+}
+
+// Amazon Resource Name of the source Kafka cluster.
+func (o ReplicatorReplicationInfoOutput) SourceKafkaClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) string { return v.SourceKafkaClusterArn }).(pulumi.StringOutput)
+}
+
+// The type of compression to use writing records to target Kafka cluster.
+func (o ReplicatorReplicationInfoOutput) TargetCompressionType() ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) ReplicatorReplicationInfoTargetCompressionType {
+		return v.TargetCompressionType
+	}).(ReplicatorReplicationInfoTargetCompressionTypeOutput)
+}
+
+// Amazon Resource Name of the target Kafka cluster.
+func (o ReplicatorReplicationInfoOutput) TargetKafkaClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) string { return v.TargetKafkaClusterArn }).(pulumi.StringOutput)
+}
+
+// Configuration relating to topic replication.
+func (o ReplicatorReplicationInfoOutput) TopicReplication() ReplicatorTopicReplicationOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfo) ReplicatorTopicReplication { return v.TopicReplication }).(ReplicatorTopicReplicationOutput)
+}
+
+type ReplicatorReplicationInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorReplicationInfo)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoArrayOutput) ToReplicatorReplicationInfoArrayOutput() ReplicatorReplicationInfoArrayOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoArrayOutput) ToReplicatorReplicationInfoArrayOutputWithContext(ctx context.Context) ReplicatorReplicationInfoArrayOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorReplicationInfo] {
+	return pulumix.Output[[]ReplicatorReplicationInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorReplicationInfoArrayOutput) Index(i pulumi.IntInput) ReplicatorReplicationInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorReplicationInfo {
+		return vs[0].([]ReplicatorReplicationInfo)[vs[1].(int)]
+	}).(ReplicatorReplicationInfoOutput)
+}
+
+type ReplicatorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ReplicatorTagInput is an input type that accepts ReplicatorTagArgs and ReplicatorTagOutput values.
+// You can construct a concrete instance of `ReplicatorTagInput` via:
+//
+//	ReplicatorTagArgs{...}
+type ReplicatorTagInput interface {
+	pulumi.Input
+
+	ToReplicatorTagOutput() ReplicatorTagOutput
+	ToReplicatorTagOutputWithContext(context.Context) ReplicatorTagOutput
+}
+
+type ReplicatorTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ReplicatorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTag)(nil)).Elem()
+}
+
+func (i ReplicatorTagArgs) ToReplicatorTagOutput() ReplicatorTagOutput {
+	return i.ToReplicatorTagOutputWithContext(context.Background())
+}
+
+func (i ReplicatorTagArgs) ToReplicatorTagOutputWithContext(ctx context.Context) ReplicatorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorTagOutput)
+}
+
+func (i ReplicatorTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorTag] {
+	return pulumix.Output[ReplicatorTag]{
+		OutputState: i.ToReplicatorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ReplicatorTagArrayInput is an input type that accepts ReplicatorTagArray and ReplicatorTagArrayOutput values.
+// You can construct a concrete instance of `ReplicatorTagArrayInput` via:
+//
+//	ReplicatorTagArray{ ReplicatorTagArgs{...} }
+type ReplicatorTagArrayInput interface {
+	pulumi.Input
+
+	ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput
+	ToReplicatorTagArrayOutputWithContext(context.Context) ReplicatorTagArrayOutput
+}
+
+type ReplicatorTagArray []ReplicatorTagInput
+
+func (ReplicatorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorTag)(nil)).Elem()
+}
+
+func (i ReplicatorTagArray) ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput {
+	return i.ToReplicatorTagArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatorTagArray) ToReplicatorTagArrayOutputWithContext(ctx context.Context) ReplicatorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorTagArrayOutput)
+}
+
+func (i ReplicatorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorTag] {
+	return pulumix.Output[[]ReplicatorTag]{
+		OutputState: i.ToReplicatorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ReplicatorTagOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTag)(nil)).Elem()
+}
+
+func (o ReplicatorTagOutput) ToReplicatorTagOutput() ReplicatorTagOutput {
+	return o
+}
+
+func (o ReplicatorTagOutput) ToReplicatorTagOutputWithContext(ctx context.Context) ReplicatorTagOutput {
+	return o
+}
+
+func (o ReplicatorTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorTag] {
+	return pulumix.Output[ReplicatorTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ReplicatorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ReplicatorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatorTag)(nil)).Elem()
+}
+
+func (o ReplicatorTagArrayOutput) ToReplicatorTagArrayOutput() ReplicatorTagArrayOutput {
+	return o
+}
+
+func (o ReplicatorTagArrayOutput) ToReplicatorTagArrayOutputWithContext(ctx context.Context) ReplicatorTagArrayOutput {
+	return o
+}
+
+func (o ReplicatorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatorTag] {
+	return pulumix.Output[[]ReplicatorTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorTagArrayOutput) Index(i pulumi.IntInput) ReplicatorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorTag {
+		return vs[0].([]ReplicatorTag)[vs[1].(int)]
+	}).(ReplicatorTagOutput)
+}
+
+type ReplicatorTopicReplication struct {
+	// Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+	CopyAccessControlListsForTopics *bool `pulumi:"copyAccessControlListsForTopics"`
+	// Whether to periodically configure remote topics to match their corresponding upstream topics.
+	CopyTopicConfigurations *bool `pulumi:"copyTopicConfigurations"`
+	// Whether to periodically check for new topics and partitions.
+	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
+	// List of regular expression patterns indicating the topics that should not be replicated.
+	TopicsToExclude []string `pulumi:"topicsToExclude"`
+	// List of regular expression patterns indicating the topics to copy.
+	TopicsToReplicate []string `pulumi:"topicsToReplicate"`
+}
+
+// ReplicatorTopicReplicationInput is an input type that accepts ReplicatorTopicReplicationArgs and ReplicatorTopicReplicationOutput values.
+// You can construct a concrete instance of `ReplicatorTopicReplicationInput` via:
+//
+//	ReplicatorTopicReplicationArgs{...}
+type ReplicatorTopicReplicationInput interface {
+	pulumi.Input
+
+	ToReplicatorTopicReplicationOutput() ReplicatorTopicReplicationOutput
+	ToReplicatorTopicReplicationOutputWithContext(context.Context) ReplicatorTopicReplicationOutput
+}
+
+type ReplicatorTopicReplicationArgs struct {
+	// Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+	CopyAccessControlListsForTopics pulumi.BoolPtrInput `pulumi:"copyAccessControlListsForTopics"`
+	// Whether to periodically configure remote topics to match their corresponding upstream topics.
+	CopyTopicConfigurations pulumi.BoolPtrInput `pulumi:"copyTopicConfigurations"`
+	// Whether to periodically check for new topics and partitions.
+	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
+	// List of regular expression patterns indicating the topics that should not be replicated.
+	TopicsToExclude pulumi.StringArrayInput `pulumi:"topicsToExclude"`
+	// List of regular expression patterns indicating the topics to copy.
+	TopicsToReplicate pulumi.StringArrayInput `pulumi:"topicsToReplicate"`
+}
+
+func (ReplicatorTopicReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTopicReplication)(nil)).Elem()
+}
+
+func (i ReplicatorTopicReplicationArgs) ToReplicatorTopicReplicationOutput() ReplicatorTopicReplicationOutput {
+	return i.ToReplicatorTopicReplicationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorTopicReplicationArgs) ToReplicatorTopicReplicationOutputWithContext(ctx context.Context) ReplicatorTopicReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorTopicReplicationOutput)
+}
+
+func (i ReplicatorTopicReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatorTopicReplication] {
+	return pulumix.Output[ReplicatorTopicReplication]{
+		OutputState: i.ToReplicatorTopicReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ReplicatorTopicReplicationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorTopicReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTopicReplication)(nil)).Elem()
+}
+
+func (o ReplicatorTopicReplicationOutput) ToReplicatorTopicReplicationOutput() ReplicatorTopicReplicationOutput {
+	return o
+}
+
+func (o ReplicatorTopicReplicationOutput) ToReplicatorTopicReplicationOutputWithContext(ctx context.Context) ReplicatorTopicReplicationOutput {
+	return o
+}
+
+func (o ReplicatorTopicReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorTopicReplication] {
+	return pulumix.Output[ReplicatorTopicReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+func (o ReplicatorTopicReplicationOutput) CopyAccessControlListsForTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) *bool { return v.CopyAccessControlListsForTopics }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to periodically configure remote topics to match their corresponding upstream topics.
+func (o ReplicatorTopicReplicationOutput) CopyTopicConfigurations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) *bool { return v.CopyTopicConfigurations }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to periodically check for new topics and partitions.
+func (o ReplicatorTopicReplicationOutput) DetectAndCopyNewTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) *bool { return v.DetectAndCopyNewTopics }).(pulumi.BoolPtrOutput)
+}
+
+// List of regular expression patterns indicating the topics that should not be replicated.
+func (o ReplicatorTopicReplicationOutput) TopicsToExclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) []string { return v.TopicsToExclude }).(pulumi.StringArrayOutput)
+}
+
+// List of regular expression patterns indicating the topics to copy.
+func (o ReplicatorTopicReplicationOutput) TopicsToReplicate() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) []string { return v.TopicsToReplicate }).(pulumi.StringArrayOutput)
+}
+
 type ServerlessClusterClientAuthentication struct {
 	Sasl ServerlessClusterSasl `pulumi:"sasl"`
 }
@@ -5889,6 +6647,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsPtrInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationLatestRevisionPtrInput)(nil)).Elem(), ConfigurationLatestRevisionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorAmazonMskClusterInput)(nil)).Elem(), ReplicatorAmazonMskClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupReplicationInput)(nil)).Elem(), ReplicatorConsumerGroupReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterInput)(nil)).Elem(), ReplicatorKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterArrayInput)(nil)).Elem(), ReplicatorKafkaClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoInput)(nil)).Elem(), ReplicatorReplicationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoArrayInput)(nil)).Elem(), ReplicatorReplicationInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTagInput)(nil)).Elem(), ReplicatorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTagArrayInput)(nil)).Elem(), ReplicatorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTopicReplicationInput)(nil)).Elem(), ReplicatorTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterSaslInput)(nil)).Elem(), ServerlessClusterSaslArgs{})
@@ -5960,6 +6728,16 @@ func init() {
 	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionOutput{})
 	pulumi.RegisterOutputType(ConfigurationLatestRevisionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorAmazonMskClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorConsumerGroupReplicationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorTagOutput{})
+	pulumi.RegisterOutputType(ReplicatorTagArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterSaslOutput{})

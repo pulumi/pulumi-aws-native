@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetIdMappingWorkflowArgs, GetIdMappingWorkflowResult, GetIdMappingWorkflowOutputArgs } from "./getIdMappingWorkflow";
+export const getIdMappingWorkflow: typeof import("./getIdMappingWorkflow").getIdMappingWorkflow = null as any;
+export const getIdMappingWorkflowOutput: typeof import("./getIdMappingWorkflow").getIdMappingWorkflowOutput = null as any;
+utilities.lazyLoad(exports, ["getIdMappingWorkflow","getIdMappingWorkflowOutput"], () => require("./getIdMappingWorkflow"));
+
 export { GetMatchingWorkflowArgs, GetMatchingWorkflowResult, GetMatchingWorkflowOutputArgs } from "./getMatchingWorkflow";
 export const getMatchingWorkflow: typeof import("./getMatchingWorkflow").getMatchingWorkflow = null as any;
 export const getMatchingWorkflowOutput: typeof import("./getMatchingWorkflow").getMatchingWorkflowOutput = null as any;
@@ -14,6 +19,11 @@ export { GetSchemaMappingArgs, GetSchemaMappingResult, GetSchemaMappingOutputArg
 export const getSchemaMapping: typeof import("./getSchemaMapping").getSchemaMapping = null as any;
 export const getSchemaMappingOutput: typeof import("./getSchemaMapping").getSchemaMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaMapping","getSchemaMappingOutput"], () => require("./getSchemaMapping"));
+
+export { IdMappingWorkflowArgs } from "./idMappingWorkflow";
+export type IdMappingWorkflow = import("./idMappingWorkflow").IdMappingWorkflow;
+export const IdMappingWorkflow: typeof import("./idMappingWorkflow").IdMappingWorkflow = null as any;
+utilities.lazyLoad(exports, ["IdMappingWorkflow"], () => require("./idMappingWorkflow"));
 
 export { MatchingWorkflowArgs } from "./matchingWorkflow";
 export type MatchingWorkflow = import("./matchingWorkflow").MatchingWorkflow;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:entityresolution:IdMappingWorkflow":
+                return new IdMappingWorkflow(name, <any>undefined, { urn })
             case "aws-native:entityresolution:MatchingWorkflow":
                 return new MatchingWorkflow(name, <any>undefined, { urn })
             case "aws-native:entityresolution:SchemaMapping":

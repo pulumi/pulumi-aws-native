@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
+    ///  ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+    /// </summary>
     public sealed class DeploymentCanarySettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,13 +23,13 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<double>? PercentTraffic { get; set; }
 
         /// <summary>
-        /// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+        /// Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         /// </summary>
         [Input("stageVariableOverrides")]
         public Input<object>? StageVariableOverrides { get; set; }
 
         /// <summary>
-        /// Whether the canary deployment uses the stage cache or not.
+        /// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         /// </summary>
         [Input("useStageCache")]
         public Input<bool>? UseStageCache { get; set; }

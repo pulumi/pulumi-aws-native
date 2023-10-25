@@ -42,6 +42,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
 
     public readonly applicationId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     public readonly locationUri!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
@@ -70,6 +71,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
@@ -79,6 +81,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retrievalRoleArn"] = undefined /*out*/;
@@ -99,6 +102,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
 export interface ConfigurationProfileArgs {
     applicationId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string>;
     locationUri: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     retrievalRoleArn?: pulumi.Input<string>;

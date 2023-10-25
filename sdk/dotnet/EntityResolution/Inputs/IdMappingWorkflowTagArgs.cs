@@ -7,13 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cognito.Inputs
+namespace Pulumi.AwsNative.EntityResolution.Inputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// A key-value pair to associate with a resource
     /// </summary>
-    public sealed class IdentityPoolTagArgs : global::Pulumi.ResourceArgs
+    public sealed class IdMappingWorkflowTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -27,9 +27,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public IdentityPoolTagArgs()
+        public IdMappingWorkflowTagArgs()
         {
         }
-        public static new IdentityPoolTagArgs Empty => new IdentityPoolTagArgs();
+        public static new IdMappingWorkflowTagArgs Empty => new IdMappingWorkflowTagArgs();
     }
 }

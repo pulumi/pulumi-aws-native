@@ -25,8 +25,16 @@ export interface GetSubnetArgs {
 export interface GetSubnetResult {
     readonly assignIpv6AddressOnCreation?: boolean;
     readonly enableDns64?: boolean;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     */
+    readonly ipv4NetmaskLength?: number;
     readonly ipv6CidrBlock?: string;
     readonly ipv6CidrBlocks?: string[];
+    /**
+     * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     */
+    readonly ipv6NetmaskLength?: number;
     readonly mapPublicIpOnLaunch?: boolean;
     readonly networkAclAssociationId?: string;
     readonly privateDnsNameOptionsOnLaunch?: outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties;

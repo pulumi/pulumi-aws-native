@@ -2931,6 +2931,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisValidationStrategyMode : IEquatable<AnalysisValidationStrategyMode>
+    {
+        private readonly string _value;
+
+        private AnalysisValidationStrategyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisValidationStrategyMode Strict { get; } = new AnalysisValidationStrategyMode("STRICT");
+        public static AnalysisValidationStrategyMode Lenient { get; } = new AnalysisValidationStrategyMode("LENIENT");
+
+        public static bool operator ==(AnalysisValidationStrategyMode left, AnalysisValidationStrategyMode right) => left.Equals(right);
+        public static bool operator !=(AnalysisValidationStrategyMode left, AnalysisValidationStrategyMode right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisValidationStrategyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisValidationStrategyMode other && Equals(other);
+        public bool Equals(AnalysisValidationStrategyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisValueWhenUnsetOption : IEquatable<AnalysisValueWhenUnsetOption>
     {
         private readonly string _value;
@@ -6186,6 +6214,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardUrlTargetConfiguration other && Equals(other);
         public bool Equals(DashboardUrlTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardValidationStrategyMode : IEquatable<DashboardValidationStrategyMode>
+    {
+        private readonly string _value;
+
+        private DashboardValidationStrategyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardValidationStrategyMode Strict { get; } = new DashboardValidationStrategyMode("STRICT");
+        public static DashboardValidationStrategyMode Lenient { get; } = new DashboardValidationStrategyMode("LENIENT");
+
+        public static bool operator ==(DashboardValidationStrategyMode left, DashboardValidationStrategyMode right) => left.Equals(right);
+        public static bool operator !=(DashboardValidationStrategyMode left, DashboardValidationStrategyMode right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardValidationStrategyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardValidationStrategyMode other && Equals(other);
+        public bool Equals(DashboardValidationStrategyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9862,6 +9918,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateUrlTargetConfiguration other && Equals(other);
         public bool Equals(TemplateUrlTargetConfiguration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateValidationStrategyMode : IEquatable<TemplateValidationStrategyMode>
+    {
+        private readonly string _value;
+
+        private TemplateValidationStrategyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateValidationStrategyMode Strict { get; } = new TemplateValidationStrategyMode("STRICT");
+        public static TemplateValidationStrategyMode Lenient { get; } = new TemplateValidationStrategyMode("LENIENT");
+
+        public static bool operator ==(TemplateValidationStrategyMode left, TemplateValidationStrategyMode right) => left.Equals(right);
+        public static bool operator !=(TemplateValidationStrategyMode left, TemplateValidationStrategyMode right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateValidationStrategyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateValidationStrategyMode other && Equals(other);
+        public bool Equals(TemplateValidationStrategyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

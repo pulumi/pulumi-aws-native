@@ -14,30 +14,12 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketInventoryConfiguration
     {
         public readonly Outputs.BucketDestination Destination;
-        /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// The ID used to identify the inventory configuration.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Object versions to include in the inventory list.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketInventoryConfigurationIncludedObjectVersions IncludedObjectVersions;
-        /// <summary>
-        /// Contains the optional fields that are included in the inventory results.
-        /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.S3.BucketInventoryConfigurationOptionalFieldsItem> OptionalFields;
-        /// <summary>
-        /// The prefix that is prepended to all inventory results.
-        /// </summary>
+        public readonly string IncludedObjectVersions;
+        public readonly ImmutableArray<string> OptionalFields;
         public readonly string? Prefix;
-        /// <summary>
-        /// Specifies the schedule for generating inventory results.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketInventoryConfigurationScheduleFrequency ScheduleFrequency;
+        public readonly string ScheduleFrequency;
 
         [OutputConstructor]
         private BucketInventoryConfiguration(
@@ -47,13 +29,13 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             string id,
 
-            Pulumi.AwsNative.S3.BucketInventoryConfigurationIncludedObjectVersions includedObjectVersions,
+            string includedObjectVersions,
 
-            ImmutableArray<Pulumi.AwsNative.S3.BucketInventoryConfigurationOptionalFieldsItem> optionalFields,
+            ImmutableArray<string> optionalFields,
 
             string? prefix,
 
-            Pulumi.AwsNative.S3.BucketInventoryConfigurationScheduleFrequency scheduleFrequency)
+            string scheduleFrequency)
         {
             Destination = destination;
             Enabled = enabled;

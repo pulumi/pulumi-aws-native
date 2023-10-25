@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::Deployment
+    /// The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies settings for the canary deployment.
+        /// The input configuration for a canary deployment.
         /// </summary>
         [Output("deploymentCanarySettings")]
         public Output<Outputs.DeploymentCanarySettings?> DeploymentCanarySettings { get; private set; } = null!;
@@ -28,25 +28,25 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the purpose of the API Gateway deployment.
+        /// The description for the Deployment resource to create.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource to deploy. 
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the stage that API Gateway creates with this deployment.
+        /// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
         /// </summary>
         [Output("stageDescription")]
         public Output<Outputs.DeploymentStageDescription?> StageDescription { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        /// The name of the Stage resource for the Deployment resource to create.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
@@ -102,31 +102,31 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies settings for the canary deployment.
+        /// The input configuration for a canary deployment.
         /// </summary>
         [Input("deploymentCanarySettings")]
         public Input<Inputs.DeploymentCanarySettingsArgs>? DeploymentCanarySettings { get; set; }
 
         /// <summary>
-        /// A description of the purpose of the API Gateway deployment.
+        /// The description for the Deployment resource to create.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the RestApi resource to deploy. 
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// Configures the stage that API Gateway creates with this deployment.
+        /// The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
         /// </summary>
         [Input("stageDescription")]
         public Input<Inputs.DeploymentStageDescriptionArgs>? StageDescription { get; set; }
 
         /// <summary>
-        /// A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+        /// The name of the Stage resource for the Deployment resource to create.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

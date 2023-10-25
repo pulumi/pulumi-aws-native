@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string EndpointName;
         /// <summary>
+        /// Indexes or names of the features to be excluded from analysis
+        /// </summary>
+        public readonly string? ExcludeFeaturesAttribute;
+        /// <summary>
         /// Path to the filesystem where the endpoint data is available to the container.
         /// </summary>
         public readonly string LocalPath;
@@ -34,6 +38,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private MonitoringScheduleEndpointInput(
             string endpointName,
 
+            string? excludeFeaturesAttribute,
+
             string localPath,
 
             Pulumi.AwsNative.SageMaker.MonitoringScheduleEndpointInputS3DataDistributionType? s3DataDistributionType,
@@ -41,6 +47,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             Pulumi.AwsNative.SageMaker.MonitoringScheduleEndpointInputS3InputMode? s3InputMode)
         {
             EndpointName = endpointName;
+            ExcludeFeaturesAttribute = excludeFeaturesAttribute;
             LocalPath = localPath;
             S3DataDistributionType = s3DataDistributionType;
             S3InputMode = s3InputMode;

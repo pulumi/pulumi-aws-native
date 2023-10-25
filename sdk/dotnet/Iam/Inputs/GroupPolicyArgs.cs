@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Iam.Inputs
 
     public sealed class GroupPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The policy document.
+        /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<object> PolicyDocument { get; set; } = null!;
+        public Input<string> PolicyDocument { get; set; } = null!;
 
+        /// <summary>
+        /// The friendly name (not ARN) identifying the policy.
+        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 

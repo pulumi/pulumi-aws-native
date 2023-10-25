@@ -723,6 +723,8 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
             suggest = "dataset_format"
         elif key == "localPath":
             suggest = "local_path"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
         elif key == "s3DataDistributionType":
             suggest = "s3_data_distribution_type"
         elif key == "s3InputMode":
@@ -743,12 +745,14 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
                  data_captured_destination_s3_uri: str,
                  dataset_format: 'outputs.DataQualityJobDefinitionDatasetFormat',
                  local_path: str,
+                 exclude_features_attribute: Optional[str] = None,
                  s3_data_distribution_type: Optional['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
                  s3_input_mode: Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode'] = None):
         """
         The batch transform input for a monitoring job.
         :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param 'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param 'DataQualityJobDefinitionBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -757,6 +761,7 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
             data_captured_destination_s3_uri=data_captured_destination_s3_uri,
             dataset_format=dataset_format,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -766,12 +771,15 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
              data_captured_destination_s3_uri: str,
              dataset_format: 'outputs.DataQualityJobDefinitionDatasetFormat',
              local_path: str,
+             exclude_features_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -797,6 +805,14 @@ class DataQualityJobDefinitionBatchTransformInput(dict):
         Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[str]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -1302,6 +1318,8 @@ class DataQualityJobDefinitionEndpointInput(dict):
             suggest = "endpoint_name"
         elif key == "localPath":
             suggest = "local_path"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
         elif key == "s3DataDistributionType":
             suggest = "s3_data_distribution_type"
         elif key == "s3InputMode":
@@ -1321,11 +1339,13 @@ class DataQualityJobDefinitionEndpointInput(dict):
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
+                 exclude_features_attribute: Optional[str] = None,
                  s3_data_distribution_type: Optional['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
                  s3_input_mode: Optional['DataQualityJobDefinitionEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param 'DataQualityJobDefinitionEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param 'DataQualityJobDefinitionEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -1333,6 +1353,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
             lambda key, value: pulumi.set(__self__, key, value),
             endpoint_name=endpoint_name,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -1341,11 +1362,14 @@ class DataQualityJobDefinitionEndpointInput(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_name: str,
              local_path: str,
+             exclude_features_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['DataQualityJobDefinitionEndpointInputS3InputMode'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -1363,6 +1387,14 @@ class DataQualityJobDefinitionEndpointInput(dict):
         Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[str]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -14223,6 +14255,8 @@ class MonitoringScheduleBatchTransformInput(dict):
             suggest = "dataset_format"
         elif key == "localPath":
             suggest = "local_path"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
         elif key == "s3DataDistributionType":
             suggest = "s3_data_distribution_type"
         elif key == "s3InputMode":
@@ -14243,12 +14277,14 @@ class MonitoringScheduleBatchTransformInput(dict):
                  data_captured_destination_s3_uri: str,
                  dataset_format: 'outputs.MonitoringScheduleDatasetFormat',
                  local_path: str,
+                 exclude_features_attribute: Optional[str] = None,
                  s3_data_distribution_type: Optional['MonitoringScheduleBatchTransformInputS3DataDistributionType'] = None,
                  s3_input_mode: Optional['MonitoringScheduleBatchTransformInputS3InputMode'] = None):
         """
         The batch transform input for a monitoring job.
         :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param 'MonitoringScheduleBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param 'MonitoringScheduleBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -14257,6 +14293,7 @@ class MonitoringScheduleBatchTransformInput(dict):
             data_captured_destination_s3_uri=data_captured_destination_s3_uri,
             dataset_format=dataset_format,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -14266,12 +14303,15 @@ class MonitoringScheduleBatchTransformInput(dict):
              data_captured_destination_s3_uri: str,
              dataset_format: 'outputs.MonitoringScheduleDatasetFormat',
              local_path: str,
+             exclude_features_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['MonitoringScheduleBatchTransformInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['MonitoringScheduleBatchTransformInputS3InputMode'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -14297,6 +14337,14 @@ class MonitoringScheduleBatchTransformInput(dict):
         Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[str]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -14635,6 +14683,8 @@ class MonitoringScheduleEndpointInput(dict):
             suggest = "endpoint_name"
         elif key == "localPath":
             suggest = "local_path"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
         elif key == "s3DataDistributionType":
             suggest = "s3_data_distribution_type"
         elif key == "s3InputMode":
@@ -14654,11 +14704,13 @@ class MonitoringScheduleEndpointInput(dict):
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
+                 exclude_features_attribute: Optional[str] = None,
                  s3_data_distribution_type: Optional['MonitoringScheduleEndpointInputS3DataDistributionType'] = None,
                  s3_input_mode: Optional['MonitoringScheduleEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param 'MonitoringScheduleEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param 'MonitoringScheduleEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -14666,6 +14718,7 @@ class MonitoringScheduleEndpointInput(dict):
             lambda key, value: pulumi.set(__self__, key, value),
             endpoint_name=endpoint_name,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -14674,11 +14727,14 @@ class MonitoringScheduleEndpointInput(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_name: str,
              local_path: str,
+             exclude_features_attribute: Optional[str] = None,
              s3_data_distribution_type: Optional['MonitoringScheduleEndpointInputS3DataDistributionType'] = None,
              s3_input_mode: Optional['MonitoringScheduleEndpointInputS3InputMode'] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -14696,6 +14752,14 @@ class MonitoringScheduleEndpointInput(dict):
         Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[str]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -15523,6 +15587,10 @@ class MonitoringScheduleScheduleConfig(dict):
         suggest = None
         if key == "scheduleExpression":
             suggest = "schedule_expression"
+        elif key == "dataAnalysisEndTime":
+            suggest = "data_analysis_end_time"
+        elif key == "dataAnalysisStartTime":
+            suggest = "data_analysis_start_time"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleScheduleConfig. Access the value via the '{suggest}' property getter instead.")
@@ -15536,29 +15604,57 @@ class MonitoringScheduleScheduleConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 schedule_expression: str):
+                 schedule_expression: str,
+                 data_analysis_end_time: Optional[str] = None,
+                 data_analysis_start_time: Optional[str] = None):
         """
         Configuration details about the monitoring schedule.
-        :param str schedule_expression: A cron expression that describes details about the monitoring schedule.
+        :param str schedule_expression: A cron expression or 'NOW' that describes details about the monitoring schedule.
+        :param str data_analysis_end_time: Data Analysis end time, e.g. PT0H
+        :param str data_analysis_start_time: Data Analysis start time, e.g. -PT1H
         """
         MonitoringScheduleScheduleConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             schedule_expression=schedule_expression,
+            data_analysis_end_time=data_analysis_end_time,
+            data_analysis_start_time=data_analysis_start_time,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: str,
+             data_analysis_end_time: Optional[str] = None,
+             data_analysis_start_time: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("schedule_expression", schedule_expression)
+        if data_analysis_end_time is not None:
+            _setter("data_analysis_end_time", data_analysis_end_time)
+        if data_analysis_start_time is not None:
+            _setter("data_analysis_start_time", data_analysis_start_time)
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
         """
-        A cron expression that describes details about the monitoring schedule.
+        A cron expression or 'NOW' that describes details about the monitoring schedule.
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="dataAnalysisEndTime")
+    def data_analysis_end_time(self) -> Optional[str]:
+        """
+        Data Analysis end time, e.g. PT0H
+        """
+        return pulumi.get(self, "data_analysis_end_time")
+
+    @property
+    @pulumi.getter(name="dataAnalysisStartTime")
+    def data_analysis_start_time(self) -> Optional[str]:
+        """
+        Data Analysis start time, e.g. -PT1H
+        """
+        return pulumi.get(self, "data_analysis_start_time")
 
 
 @pulumi.output_type

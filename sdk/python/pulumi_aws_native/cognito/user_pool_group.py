@@ -17,7 +17,7 @@ class UserPoolGroupArgs:
                  user_pool_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 precedence: Optional[pulumi.Input[float]] = None,
+                 precedence: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolGroup resource.
@@ -36,7 +36,7 @@ class UserPoolGroupArgs:
              user_pool_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              group_name: Optional[pulumi.Input[str]] = None,
-             precedence: Optional[pulumi.Input[float]] = None,
+             precedence: Optional[pulumi.Input[int]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("user_pool_id", user_pool_id)
@@ -78,11 +78,11 @@ class UserPoolGroupArgs:
 
     @property
     @pulumi.getter
-    def precedence(self) -> Optional[pulumi.Input[float]]:
+    def precedence(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "precedence")
 
     @precedence.setter
-    def precedence(self, value: Optional[pulumi.Input[float]]):
+    def precedence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "precedence", value)
 
     @property
@@ -95,19 +95,14 @@ class UserPoolGroupArgs:
         pulumi.set(self, "role_arn", value)
 
 
-warnings.warn("""UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class UserPoolGroup(pulumi.CustomResource):
-    warnings.warn("""UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 precedence: Optional[pulumi.Input[float]] = None,
+                 precedence: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -147,11 +142,10 @@ class UserPoolGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 precedence: Optional[pulumi.Input[float]] = None,
+                 precedence: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPoolGroup is deprecated: UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -210,7 +204,7 @@ class UserPoolGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def precedence(self) -> pulumi.Output[Optional[float]]:
+    def precedence(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "precedence")
 
     @property

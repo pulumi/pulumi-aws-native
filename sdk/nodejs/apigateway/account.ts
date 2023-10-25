@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Account
+ * The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+     * The ARN of an Amazon CloudWatch role for the current Account.
      */
     public readonly cloudWatchRoleArn!: pulumi.Output<string | undefined>;
 
@@ -64,7 +64,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+     * The ARN of an Amazon CloudWatch role for the current Account.
      */
     cloudWatchRoleArn?: pulumi.Input<string>;
 }

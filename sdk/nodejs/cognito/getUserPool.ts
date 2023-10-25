@@ -14,12 +14,12 @@ export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPool", {
-        "id": args.id,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolArgs {
-    id: string;
+    userPoolId: string;
 }
 
 export interface GetUserPoolResult {
@@ -33,8 +33,6 @@ export interface GetUserPoolResult {
     readonly emailConfiguration?: outputs.cognito.UserPoolEmailConfiguration;
     readonly emailVerificationMessage?: string;
     readonly emailVerificationSubject?: string;
-    readonly enabledMfas?: string[];
-    readonly id?: string;
     readonly lambdaConfig?: outputs.cognito.UserPoolLambdaConfig;
     readonly mfaConfiguration?: string;
     readonly policies?: outputs.cognito.UserPoolPolicies;
@@ -46,6 +44,7 @@ export interface GetUserPoolResult {
     readonly smsVerificationMessage?: string;
     readonly userAttributeUpdateSettings?: outputs.cognito.UserPoolUserAttributeUpdateSettings;
     readonly userPoolAddOns?: outputs.cognito.UserPoolAddOns;
+    readonly userPoolId?: string;
     readonly userPoolName?: string;
     readonly userPoolTags?: any;
     readonly usernameAttributes?: string[];
@@ -60,5 +59,5 @@ export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetUserPoolOutputArgs {
-    id: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

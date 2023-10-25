@@ -13,13 +13,10 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketReplicaModifications
     {
-        /// <summary>
-        /// Specifies whether Amazon S3 replicates modifications on replicas.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketReplicaModificationsStatus Status;
+        public readonly string Status;
 
         [OutputConstructor]
-        private BucketReplicaModifications(Pulumi.AwsNative.S3.BucketReplicaModificationsStatus status)
+        private BucketReplicaModifications(string status)
         {
             Status = status;
         }

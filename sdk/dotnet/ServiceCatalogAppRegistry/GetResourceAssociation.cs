@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetResourceAssociationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("applicationArn", required: true)]
+        public string ApplicationArn { get; set; } = null!;
+
+        [Input("resourceArn", required: true)]
+        public string ResourceArn { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the CFN Resource for now it's enum CFN_STACK.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType ResourceType { get; set; }
 
         public GetResourceAssociationArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class GetResourceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("applicationArn", required: true)]
+        public Input<string> ApplicationArn { get; set; } = null!;
+
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the CFN Resource for now it's enum CFN_STACK.
+        /// </summary>
+        [Input("resourceType", required: true)]
+        public Input<Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType> ResourceType { get; set; } = null!;
 
         public GetResourceAssociationInvokeArgs()
         {
@@ -52,19 +70,15 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class GetResourceAssociationResult
     {
         public readonly string? ApplicationArn;
-        public readonly string? Id;
         public readonly string? ResourceArn;
 
         [OutputConstructor]
         private GetResourceAssociationResult(
             string? applicationArn,
 
-            string? id,
-
             string? resourceArn)
         {
             ApplicationArn = applicationArn;
-            Id = id;
             ResourceArn = resourceArn;
         }
     }

@@ -9,6 +9,7 @@ __all__ = [
     'BuildOperatingSystem',
     'FleetCertificateConfigurationCertificateType',
     'FleetComputeType',
+    'FleetInstanceRoleCredentialsProvider',
     'FleetIpPermissionProtocol',
     'FleetNewGameSessionProtectionPolicy',
     'FleetType',
@@ -48,6 +49,13 @@ class FleetComputeType(str, Enum):
     """
     EC2 = "EC2"
     ANYWHERE = "ANYWHERE"
+
+
+class FleetInstanceRoleCredentialsProvider(str, Enum):
+    """
+    Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+    """
+    SHARED_CREDENTIAL_FILE = "SHARED_CREDENTIAL_FILE"
 
 
 class FleetIpPermissionProtocol(str, Enum):

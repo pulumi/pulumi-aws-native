@@ -132,6 +132,36 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetInstanceRoleCredentialsProvider : IEquatable<FleetInstanceRoleCredentialsProvider>
+    {
+        private readonly string _value;
+
+        private FleetInstanceRoleCredentialsProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetInstanceRoleCredentialsProvider SharedCredentialFile { get; } = new FleetInstanceRoleCredentialsProvider("SHARED_CREDENTIAL_FILE");
+
+        public static bool operator ==(FleetInstanceRoleCredentialsProvider left, FleetInstanceRoleCredentialsProvider right) => left.Equals(right);
+        public static bool operator !=(FleetInstanceRoleCredentialsProvider left, FleetInstanceRoleCredentialsProvider right) => !left.Equals(right);
+
+        public static explicit operator string(FleetInstanceRoleCredentialsProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetInstanceRoleCredentialsProvider other && Equals(other);
+        public bool Equals(FleetInstanceRoleCredentialsProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The network communication protocol used by the fleet.
     /// </summary>
     [EnumType]

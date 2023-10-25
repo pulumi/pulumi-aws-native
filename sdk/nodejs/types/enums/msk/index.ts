@@ -26,6 +26,19 @@ export const ClusterStorageMode = {
 
 export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];
 
+export const ReplicatorReplicationInfoTargetCompressionType = {
+    None: "NONE",
+    Gzip: "GZIP",
+    Snappy: "SNAPPY",
+    Lz4: "LZ4",
+    Zstd: "ZSTD",
+} as const;
+
+/**
+ * The type of compression to use writing records to target Kafka cluster.
+ */
+export type ReplicatorReplicationInfoTargetCompressionType = (typeof ReplicatorReplicationInfoTargetCompressionType)[keyof typeof ReplicatorReplicationInfoTargetCompressionType];
+
 export const VpcConnectionAuthentication = {
     SaslIam: "SASL_IAM",
     SaslScram: "SASL_SCRAM",

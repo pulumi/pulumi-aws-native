@@ -364,12 +364,7 @@ class UserPoolArgs:
         pulumi.set(self, "verification_message_template", value)
 
 
-warnings.warn("""UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class UserPool(pulumi.CustomResource):
-    warnings.warn("""UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -458,7 +453,6 @@ class UserPool(pulumi.CustomResource):
                  username_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolUsernameConfigurationArgs']]] = None,
                  verification_message_template: Optional[pulumi.Input[pulumi.InputType['UserPoolVerificationMessageTemplateArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPool is deprecated: UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -549,6 +543,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["provider_name"] = None
             __props__.__dict__["provider_url"] = None
+            __props__.__dict__["user_pool_id"] = None
         super(UserPool, __self__).__init__(
             'aws-native:cognito:UserPool',
             resource_name,
@@ -593,6 +588,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["sms_verification_message"] = None
         __props__.__dict__["user_attribute_update_settings"] = None
         __props__.__dict__["user_pool_add_ons"] = None
+        __props__.__dict__["user_pool_id"] = None
         __props__.__dict__["user_pool_name"] = None
         __props__.__dict__["user_pool_tags"] = None
         __props__.__dict__["username_attributes"] = None
@@ -709,6 +705,11 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> pulumi.Output[Optional['outputs.UserPoolAddOns']]:
         return pulumi.get(self, "user_pool_add_ons")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "user_pool_id")
 
     @property
     @pulumi.getter(name="userPoolName")

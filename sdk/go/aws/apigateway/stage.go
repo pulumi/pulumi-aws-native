@@ -13,37 +13,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Stage
+// The “AWS::ApiGateway::Stage“ resource creates a stage for a deployment.
 type Stage struct {
 	pulumi.CustomResourceState
 
-	// Specifies settings for logging access in this stage.
+	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting StageAccessLogSettingPtrOutput `pulumi:"accessLogSetting"`
-	// Indicates whether cache clustering is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage.
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
-	// The stage's cache cluster size.
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
-	// Specifies settings for the canary deployment in this stage.
+	// Settings for the canary deployment in this stage.
 	CanarySetting StageCanarySettingPtrOutput `pulumi:"canarySetting"`
-	// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+	// The identifier of a client certificate for an API stage.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
-	// The ID of the deployment that the stage is associated with. This parameter is required to create a stage.
+	// The identifier of the Deployment that the stage points to.
 	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
-	// A description of the stage.
+	// The stage's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version ID of the API documentation snapshot.
+	// The version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
-	// Settings for all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
 	MethodSettings StageMethodSettingArrayOutput `pulumi:"methodSettings"`
-	// The ID of the RestApi resource that you're deploying with this stage.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
-	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags StageTagArrayOutput `pulumi:"tags"`
-	// Specifies whether active X-Ray tracing is enabled for this stage.
+	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrOutput `pulumi:"tracingEnabled"`
-	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
 	Variables pulumi.AnyOutput `pulumi:"variables"`
 }
 
@@ -95,65 +95,65 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
-	// Specifies settings for logging access in this stage.
+	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting *StageAccessLogSetting `pulumi:"accessLogSetting"`
-	// Indicates whether cache clustering is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage.
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The stage's cache cluster size.
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
-	// Specifies settings for the canary deployment in this stage.
+	// Settings for the canary deployment in this stage.
 	CanarySetting *StageCanarySetting `pulumi:"canarySetting"`
-	// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+	// The identifier of a client certificate for an API stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
-	// The ID of the deployment that the stage is associated with. This parameter is required to create a stage.
+	// The identifier of the Deployment that the stage points to.
 	DeploymentId *string `pulumi:"deploymentId"`
-	// A description of the stage.
+	// The stage's description.
 	Description *string `pulumi:"description"`
-	// The version ID of the API documentation snapshot.
+	// The version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// Settings for all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
 	MethodSettings []StageMethodSetting `pulumi:"methodSettings"`
-	// The ID of the RestApi resource that you're deploying with this stage.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
-	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName *string `pulumi:"stageName"`
-	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []StageTag `pulumi:"tags"`
-	// Specifies whether active X-Ray tracing is enabled for this stage.
+	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled *bool `pulumi:"tracingEnabled"`
-	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
 	Variables interface{} `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
-	// Specifies settings for logging access in this stage.
+	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting StageAccessLogSettingPtrInput
-	// Indicates whether cache clustering is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage.
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The stage's cache cluster size.
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
 	CacheClusterSize pulumi.StringPtrInput
-	// Specifies settings for the canary deployment in this stage.
+	// Settings for the canary deployment in this stage.
 	CanarySetting StageCanarySettingPtrInput
-	// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+	// The identifier of a client certificate for an API stage.
 	ClientCertificateId pulumi.StringPtrInput
-	// The ID of the deployment that the stage is associated with. This parameter is required to create a stage.
+	// The identifier of the Deployment that the stage points to.
 	DeploymentId pulumi.StringPtrInput
-	// A description of the stage.
+	// The stage's description.
 	Description pulumi.StringPtrInput
-	// The version ID of the API documentation snapshot.
+	// The version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
-	// Settings for all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
 	MethodSettings StageMethodSettingArrayInput
-	// The ID of the RestApi resource that you're deploying with this stage.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
-	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+	// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 	StageName pulumi.StringPtrInput
-	// An array of arbitrary tags (key-value pairs) to associate with the stage.
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags StageTagArrayInput
-	// Specifies whether active X-Ray tracing is enabled for this stage.
+	// Specifies whether active tracing with X-ray is enabled for the Stage.
 	TracingEnabled pulumi.BoolPtrInput
-	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+	// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
 	Variables pulumi.Input
 }
 
@@ -206,72 +206,72 @@ func (o StageOutput) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
 	}
 }
 
-// Specifies settings for logging access in this stage.
+// Access log settings, including the access log format and access log destination ARN.
 func (o StageOutput) AccessLogSetting() StageAccessLogSettingPtrOutput {
 	return o.ApplyT(func(v *Stage) StageAccessLogSettingPtrOutput { return v.AccessLogSetting }).(StageAccessLogSettingPtrOutput)
 }
 
-// Indicates whether cache clustering is enabled for the stage.
+// Specifies whether a cache cluster is enabled for the stage.
 func (o StageOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The stage's cache cluster size.
+// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
 func (o StageOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
 
-// Specifies settings for the canary deployment in this stage.
+// Settings for the canary deployment in this stage.
 func (o StageOutput) CanarySetting() StageCanarySettingPtrOutput {
 	return o.ApplyT(func(v *Stage) StageCanarySettingPtrOutput { return v.CanarySetting }).(StageCanarySettingPtrOutput)
 }
 
-// The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+// The identifier of a client certificate for an API stage.
 func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the deployment that the stage is associated with. This parameter is required to create a stage.
+// The identifier of the Deployment that the stage points to.
 func (o StageOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
-// A description of the stage.
+// The stage's description.
 func (o StageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version ID of the API documentation snapshot.
+// The version of the associated API documentation.
 func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
-// Settings for all methods in the stage.
+// A map that defines the method settings for a Stage resource. Keys (designated as “/{method_setting_key“ below) are method paths defined as “{resource_path}/{http_method}“ for an individual method override, or “/\*/\*“ for overriding all methods in the stage.
 func (o StageOutput) MethodSettings() StageMethodSettingArrayOutput {
 	return o.ApplyT(func(v *Stage) StageMethodSettingArrayOutput { return v.MethodSettings }).(StageMethodSettingArrayOutput)
 }
 
-// The ID of the RestApi resource that you're deploying with this stage.
+// The string identifier of the associated RestApi.
 func (o StageOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
-// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+// The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
 func (o StageOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
 }
 
-// An array of arbitrary tags (key-value pairs) to associate with the stage.
+// The collection of tags. Each tag element is associated with a given resource.
 func (o StageOutput) Tags() StageTagArrayOutput {
 	return o.ApplyT(func(v *Stage) StageTagArrayOutput { return v.Tags }).(StageTagArrayOutput)
 }
 
-// Specifies whether active X-Ray tracing is enabled for this stage.
+// Specifies whether active tracing with X-ray is enabled for the Stage.
 func (o StageOutput) TracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.TracingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+// A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: “[A-Za-z0-9-._~:/?#&=,]+“.
 func (o StageOutput) Variables() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Stage) pulumi.AnyOutput { return v.Variables }).(pulumi.AnyOutput)
 }

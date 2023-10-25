@@ -19,6 +19,17 @@ __all__ = [
     'CalculatedAttributeDefinitionTag',
     'CalculatedAttributeDefinitionThreshold',
     'DestinationDetailsProperties',
+    'DomainAttributeTypesSelector',
+    'DomainAutoMerging',
+    'DomainConflictResolution',
+    'DomainConsolidation',
+    'DomainExportingConfig',
+    'DomainJobSchedule',
+    'DomainMatching',
+    'DomainMatchingRule',
+    'DomainRuleBasedMatching',
+    'DomainS3ExportingConfig',
+    'DomainStats',
     'DomainTag',
     'EventStreamTag',
     'IntegrationConnectorOperator',
@@ -323,6 +334,812 @@ class DestinationDetailsProperties(dict):
     @pulumi.getter
     def uri(self) -> str:
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class DomainAttributeTypesSelector(dict):
+    """
+    Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeMatchingModel":
+            suggest = "attribute_matching_model"
+        elif key == "emailAddress":
+            suggest = "email_address"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAttributeTypesSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAttributeTypesSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAttributeTypesSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_matching_model: 'DomainAttributeTypesSelectorAttributeMatchingModel',
+                 address: Optional[Sequence[str]] = None,
+                 email_address: Optional[Sequence[str]] = None,
+                 phone_number: Optional[Sequence[str]] = None):
+        """
+        Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+        :param 'DomainAttributeTypesSelectorAttributeMatchingModel' attribute_matching_model: Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+        :param Sequence[str] address: The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+        :param Sequence[str] email_address: The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+        :param Sequence[str] phone_number: The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+        """
+        DomainAttributeTypesSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_matching_model=attribute_matching_model,
+            address=address,
+            email_address=email_address,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_matching_model: 'DomainAttributeTypesSelectorAttributeMatchingModel',
+             address: Optional[Sequence[str]] = None,
+             email_address: Optional[Sequence[str]] = None,
+             phone_number: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_matching_model", attribute_matching_model)
+        if address is not None:
+            _setter("address", address)
+        if email_address is not None:
+            _setter("email_address", email_address)
+        if phone_number is not None:
+            _setter("phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="attributeMatchingModel")
+    def attribute_matching_model(self) -> 'DomainAttributeTypesSelectorAttributeMatchingModel':
+        """
+        Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+        """
+        return pulumi.get(self, "attribute_matching_model")
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[Sequence[str]]:
+        """
+        The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[Sequence[str]]:
+        """
+        The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[Sequence[str]]:
+        """
+        The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+        """
+        return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class DomainAutoMerging(dict):
+    """
+    Configuration information about the auto-merging process.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conflictResolution":
+            suggest = "conflict_resolution"
+        elif key == "minAllowedConfidenceScoreForMerging":
+            suggest = "min_allowed_confidence_score_for_merging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAutoMerging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAutoMerging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAutoMerging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
+                 consolidation: Optional['outputs.DomainConsolidation'] = None,
+                 min_allowed_confidence_score_for_merging: Optional[float] = None):
+        """
+        Configuration information about the auto-merging process.
+        :param bool enabled: The flag that enables the auto-merging of duplicate profiles.
+        :param float min_allowed_confidence_score_for_merging: A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+        """
+        DomainAutoMerging._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            conflict_resolution=conflict_resolution,
+            consolidation=consolidation,
+            min_allowed_confidence_score_for_merging=min_allowed_confidence_score_for_merging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
+             consolidation: Optional['outputs.DomainConsolidation'] = None,
+             min_allowed_confidence_score_for_merging: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if conflict_resolution is not None:
+            _setter("conflict_resolution", conflict_resolution)
+        if consolidation is not None:
+            _setter("consolidation", consolidation)
+        if min_allowed_confidence_score_for_merging is not None:
+            _setter("min_allowed_confidence_score_for_merging", min_allowed_confidence_score_for_merging)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        The flag that enables the auto-merging of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="conflictResolution")
+    def conflict_resolution(self) -> Optional['outputs.DomainConflictResolution']:
+        return pulumi.get(self, "conflict_resolution")
+
+    @property
+    @pulumi.getter
+    def consolidation(self) -> Optional['outputs.DomainConsolidation']:
+        return pulumi.get(self, "consolidation")
+
+    @property
+    @pulumi.getter(name="minAllowedConfidenceScoreForMerging")
+    def min_allowed_confidence_score_for_merging(self) -> Optional[float]:
+        """
+        A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+        """
+        return pulumi.get(self, "min_allowed_confidence_score_for_merging")
+
+
+@pulumi.output_type
+class DomainConflictResolution(dict):
+    """
+    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conflictResolvingModel":
+            suggest = "conflict_resolving_model"
+        elif key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConflictResolution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConflictResolution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConflictResolution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 conflict_resolving_model: 'DomainConflictResolutionConflictResolvingModel',
+                 source_name: Optional[str] = None):
+        """
+        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+        :param 'DomainConflictResolutionConflictResolvingModel' conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
+        :param str source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+        """
+        DomainConflictResolution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conflict_resolving_model=conflict_resolving_model,
+            source_name=source_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conflict_resolving_model: 'DomainConflictResolutionConflictResolvingModel',
+             source_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conflict_resolving_model", conflict_resolving_model)
+        if source_name is not None:
+            _setter("source_name", source_name)
+
+    @property
+    @pulumi.getter(name="conflictResolvingModel")
+    def conflict_resolving_model(self) -> 'DomainConflictResolutionConflictResolvingModel':
+        """
+        How the auto-merging process should resolve conflicts between different profiles.
+        """
+        return pulumi.get(self, "conflict_resolving_model")
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[str]:
+        """
+        The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+        """
+        return pulumi.get(self, "source_name")
+
+
+@pulumi.output_type
+class DomainConsolidation(dict):
+    """
+    A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingAttributesList":
+            suggest = "matching_attributes_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConsolidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConsolidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConsolidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_attributes_list: Sequence[Sequence[str]]):
+        """
+        A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+        :param Sequence[Sequence[str]] matching_attributes_list: A list of matching criteria.
+        """
+        DomainConsolidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_attributes_list=matching_attributes_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_attributes_list: Sequence[Sequence[str]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_attributes_list", matching_attributes_list)
+
+    @property
+    @pulumi.getter(name="matchingAttributesList")
+    def matching_attributes_list(self) -> Sequence[Sequence[str]]:
+        """
+        A list of matching criteria.
+        """
+        return pulumi.get(self, "matching_attributes_list")
+
+
+@pulumi.output_type
+class DomainExportingConfig(dict):
+    """
+    Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Exporting":
+            suggest = "s3_exporting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainExportingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainExportingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainExportingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_exporting: Optional['outputs.DomainS3ExportingConfig'] = None):
+        """
+        Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        """
+        DomainExportingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_exporting=s3_exporting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_exporting: Optional['outputs.DomainS3ExportingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if s3_exporting is not None:
+            _setter("s3_exporting", s3_exporting)
+
+    @property
+    @pulumi.getter(name="s3Exporting")
+    def s3_exporting(self) -> Optional['outputs.DomainS3ExportingConfig']:
+        return pulumi.get(self, "s3_exporting")
+
+
+@pulumi.output_type
+class DomainJobSchedule(dict):
+    """
+    The day and time when do you want to start the Identity Resolution Job every week.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfTheWeek":
+            suggest = "day_of_the_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainJobSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainJobSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainJobSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_the_week: 'DomainJobScheduleDayOfTheWeek',
+                 time: str):
+        """
+        The day and time when do you want to start the Identity Resolution Job every week.
+        :param 'DomainJobScheduleDayOfTheWeek' day_of_the_week: The day when the Identity Resolution Job should run every week.
+        :param str time: The time when the Identity Resolution Job should run every week.
+        """
+        DomainJobSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_the_week=day_of_the_week,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_the_week: 'DomainJobScheduleDayOfTheWeek',
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_the_week", day_of_the_week)
+        _setter("time", time)
+
+    @property
+    @pulumi.getter(name="dayOfTheWeek")
+    def day_of_the_week(self) -> 'DomainJobScheduleDayOfTheWeek':
+        """
+        The day when the Identity Resolution Job should run every week.
+        """
+        return pulumi.get(self, "day_of_the_week")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time when the Identity Resolution Job should run every week.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class DomainMatching(dict):
+    """
+    The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoMerging":
+            suggest = "auto_merging"
+        elif key == "exportingConfig":
+            suggest = "exporting_config"
+        elif key == "jobSchedule":
+            suggest = "job_schedule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainMatching. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainMatching.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainMatching.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 auto_merging: Optional['outputs.DomainAutoMerging'] = None,
+                 exporting_config: Optional['outputs.DomainExportingConfig'] = None,
+                 job_schedule: Optional['outputs.DomainJobSchedule'] = None):
+        """
+        The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+        :param bool enabled: The flag that enables the matching process of duplicate profiles.
+        """
+        DomainMatching._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            auto_merging=auto_merging,
+            exporting_config=exporting_config,
+            job_schedule=job_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             auto_merging: Optional['outputs.DomainAutoMerging'] = None,
+             exporting_config: Optional['outputs.DomainExportingConfig'] = None,
+             job_schedule: Optional['outputs.DomainJobSchedule'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if auto_merging is not None:
+            _setter("auto_merging", auto_merging)
+        if exporting_config is not None:
+            _setter("exporting_config", exporting_config)
+        if job_schedule is not None:
+            _setter("job_schedule", job_schedule)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        The flag that enables the matching process of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="autoMerging")
+    def auto_merging(self) -> Optional['outputs.DomainAutoMerging']:
+        return pulumi.get(self, "auto_merging")
+
+    @property
+    @pulumi.getter(name="exportingConfig")
+    def exporting_config(self) -> Optional['outputs.DomainExportingConfig']:
+        return pulumi.get(self, "exporting_config")
+
+    @property
+    @pulumi.getter(name="jobSchedule")
+    def job_schedule(self) -> Optional['outputs.DomainJobSchedule']:
+        return pulumi.get(self, "job_schedule")
+
+
+@pulumi.output_type
+class DomainMatchingRule(dict):
+    """
+    Specifies how does the rule-based matching process should match profiles.
+    """
+    def __init__(__self__, *,
+                 rule: Sequence[str]):
+        """
+        Specifies how does the rule-based matching process should match profiles.
+        """
+        DomainMatchingRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule=rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule", rule)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> Sequence[str]:
+        return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class DomainRuleBasedMatching(dict):
+    """
+    The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeTypesSelector":
+            suggest = "attribute_types_selector"
+        elif key == "conflictResolution":
+            suggest = "conflict_resolution"
+        elif key == "exportingConfig":
+            suggest = "exporting_config"
+        elif key == "matchingRules":
+            suggest = "matching_rules"
+        elif key == "maxAllowedRuleLevelForMatching":
+            suggest = "max_allowed_rule_level_for_matching"
+        elif key == "maxAllowedRuleLevelForMerging":
+            suggest = "max_allowed_rule_level_for_merging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainRuleBasedMatching. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainRuleBasedMatching.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainRuleBasedMatching.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 attribute_types_selector: Optional['outputs.DomainAttributeTypesSelector'] = None,
+                 conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
+                 exporting_config: Optional['outputs.DomainExportingConfig'] = None,
+                 matching_rules: Optional[Sequence['outputs.DomainMatchingRule']] = None,
+                 max_allowed_rule_level_for_matching: Optional[int] = None,
+                 max_allowed_rule_level_for_merging: Optional[int] = None,
+                 status: Optional['DomainRuleBasedMatchingStatus'] = None):
+        """
+        The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+        :param bool enabled: The flag that enables the rule-based matching process of duplicate profiles.
+        :param Sequence['DomainMatchingRule'] matching_rules: Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+        :param int max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
+        :param int max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
+        """
+        DomainRuleBasedMatching._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            attribute_types_selector=attribute_types_selector,
+            conflict_resolution=conflict_resolution,
+            exporting_config=exporting_config,
+            matching_rules=matching_rules,
+            max_allowed_rule_level_for_matching=max_allowed_rule_level_for_matching,
+            max_allowed_rule_level_for_merging=max_allowed_rule_level_for_merging,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             attribute_types_selector: Optional['outputs.DomainAttributeTypesSelector'] = None,
+             conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
+             exporting_config: Optional['outputs.DomainExportingConfig'] = None,
+             matching_rules: Optional[Sequence['outputs.DomainMatchingRule']] = None,
+             max_allowed_rule_level_for_matching: Optional[int] = None,
+             max_allowed_rule_level_for_merging: Optional[int] = None,
+             status: Optional['DomainRuleBasedMatchingStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if attribute_types_selector is not None:
+            _setter("attribute_types_selector", attribute_types_selector)
+        if conflict_resolution is not None:
+            _setter("conflict_resolution", conflict_resolution)
+        if exporting_config is not None:
+            _setter("exporting_config", exporting_config)
+        if matching_rules is not None:
+            _setter("matching_rules", matching_rules)
+        if max_allowed_rule_level_for_matching is not None:
+            _setter("max_allowed_rule_level_for_matching", max_allowed_rule_level_for_matching)
+        if max_allowed_rule_level_for_merging is not None:
+            _setter("max_allowed_rule_level_for_merging", max_allowed_rule_level_for_merging)
+        if status is not None:
+            _setter("status", status)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        The flag that enables the rule-based matching process of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="attributeTypesSelector")
+    def attribute_types_selector(self) -> Optional['outputs.DomainAttributeTypesSelector']:
+        return pulumi.get(self, "attribute_types_selector")
+
+    @property
+    @pulumi.getter(name="conflictResolution")
+    def conflict_resolution(self) -> Optional['outputs.DomainConflictResolution']:
+        return pulumi.get(self, "conflict_resolution")
+
+    @property
+    @pulumi.getter(name="exportingConfig")
+    def exporting_config(self) -> Optional['outputs.DomainExportingConfig']:
+        return pulumi.get(self, "exporting_config")
+
+    @property
+    @pulumi.getter(name="matchingRules")
+    def matching_rules(self) -> Optional[Sequence['outputs.DomainMatchingRule']]:
+        """
+        Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+        """
+        return pulumi.get(self, "matching_rules")
+
+    @property
+    @pulumi.getter(name="maxAllowedRuleLevelForMatching")
+    def max_allowed_rule_level_for_matching(self) -> Optional[int]:
+        """
+        Indicates the maximum allowed rule level for matching.
+        """
+        return pulumi.get(self, "max_allowed_rule_level_for_matching")
+
+    @property
+    @pulumi.getter(name="maxAllowedRuleLevelForMerging")
+    def max_allowed_rule_level_for_merging(self) -> Optional[int]:
+        """
+        Indicates the maximum allowed rule level for merging.
+        """
+        return pulumi.get(self, "max_allowed_rule_level_for_merging")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DomainRuleBasedMatchingStatus']:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DomainS3ExportingConfig(dict):
+    """
+    The S3 location where Identity Resolution Jobs write result files.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3KeyName":
+            suggest = "s3_key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainS3ExportingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainS3ExportingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainS3ExportingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket_name: str,
+                 s3_key_name: Optional[str] = None):
+        """
+        The S3 location where Identity Resolution Jobs write result files.
+        :param str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
+        :param str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
+        DomainS3ExportingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            s3_key_name=s3_key_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: str,
+             s3_key_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket_name", s3_bucket_name)
+        if s3_key_name is not None:
+            _setter("s3_key_name", s3_key_name)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> str:
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3KeyName")
+    def s3_key_name(self) -> Optional[str]:
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
+        return pulumi.get(self, "s3_key_name")
+
+
+@pulumi.output_type
+class DomainStats(dict):
+    """
+    Usage-specific statistics about the domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "meteringProfileCount":
+            suggest = "metering_profile_count"
+        elif key == "objectCount":
+            suggest = "object_count"
+        elif key == "profileCount":
+            suggest = "profile_count"
+        elif key == "totalSize":
+            suggest = "total_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainStats. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainStats.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainStats.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metering_profile_count: Optional[float] = None,
+                 object_count: Optional[float] = None,
+                 profile_count: Optional[float] = None,
+                 total_size: Optional[float] = None):
+        """
+        Usage-specific statistics about the domain.
+        :param float metering_profile_count: The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+        :param float object_count: The total number of objects in domain.
+        :param float profile_count: The total number of profiles currently in the domain.
+        :param float total_size: The total size, in bytes, of all objects in the domain.
+        """
+        DomainStats._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metering_profile_count=metering_profile_count,
+            object_count=object_count,
+            profile_count=profile_count,
+            total_size=total_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metering_profile_count: Optional[float] = None,
+             object_count: Optional[float] = None,
+             profile_count: Optional[float] = None,
+             total_size: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if metering_profile_count is not None:
+            _setter("metering_profile_count", metering_profile_count)
+        if object_count is not None:
+            _setter("object_count", object_count)
+        if profile_count is not None:
+            _setter("profile_count", profile_count)
+        if total_size is not None:
+            _setter("total_size", total_size)
+
+    @property
+    @pulumi.getter(name="meteringProfileCount")
+    def metering_profile_count(self) -> Optional[float]:
+        """
+        The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+        """
+        return pulumi.get(self, "metering_profile_count")
+
+    @property
+    @pulumi.getter(name="objectCount")
+    def object_count(self) -> Optional[float]:
+        """
+        The total number of objects in domain.
+        """
+        return pulumi.get(self, "object_count")
+
+    @property
+    @pulumi.getter(name="profileCount")
+    def profile_count(self) -> Optional[float]:
+        """
+        The total number of profiles currently in the domain.
+        """
+        return pulumi.get(self, "profile_count")
+
+    @property
+    @pulumi.getter(name="totalSize")
+    def total_size(self) -> Optional[float]:
+        """
+        The total size, in bytes, of all objects in the domain.
+        """
+        return pulumi.get(self, "total_size")
 
 
 @pulumi.output_type

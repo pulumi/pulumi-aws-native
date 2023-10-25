@@ -27,6 +27,7 @@ class FleetArgs:
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
+                 instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
@@ -53,6 +54,7 @@ class FleetArgs:
         :param pulumi.Input[str] ec2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+        :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -83,6 +85,7 @@ class FleetArgs:
             ec2_instance_type=ec2_instance_type,
             fleet_type=fleet_type,
             instance_role_arn=instance_role_arn,
+            instance_role_credentials_provider=instance_role_credentials_provider,
             locations=locations,
             log_paths=log_paths,
             max_size=max_size,
@@ -111,6 +114,7 @@ class FleetArgs:
              ec2_instance_type: Optional[pulumi.Input[str]] = None,
              fleet_type: Optional[pulumi.Input['FleetType']] = None,
              instance_role_arn: Optional[pulumi.Input[str]] = None,
+             instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
              locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
              log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              max_size: Optional[pulumi.Input[int]] = None,
@@ -146,6 +150,8 @@ class FleetArgs:
             _setter("fleet_type", fleet_type)
         if instance_role_arn is not None:
             _setter("instance_role_arn", instance_role_arn)
+        if instance_role_credentials_provider is not None:
+            _setter("instance_role_credentials_provider", instance_role_credentials_provider)
         if locations is not None:
             _setter("locations", locations)
         if log_paths is not None:
@@ -294,6 +300,18 @@ class FleetArgs:
     @instance_role_arn.setter
     def instance_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_role_arn", value)
+
+    @property
+    @pulumi.getter(name="instanceRoleCredentialsProvider")
+    def instance_role_credentials_provider(self) -> Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']]:
+        """
+        Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        """
+        return pulumi.get(self, "instance_role_credentials_provider")
+
+    @instance_role_credentials_provider.setter
+    def instance_role_credentials_provider(self, value: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']]):
+        pulumi.set(self, "instance_role_credentials_provider", value)
 
     @property
     @pulumi.getter
@@ -480,6 +498,7 @@ class Fleet(pulumi.CustomResource):
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
+                 instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
@@ -510,6 +529,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] ec2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+        :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -566,6 +586,7 @@ class Fleet(pulumi.CustomResource):
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
+                 instance_role_credentials_provider: Optional[pulumi.Input['FleetInstanceRoleCredentialsProvider']] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
@@ -609,6 +630,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["ec2_instance_type"] = ec2_instance_type
             __props__.__dict__["fleet_type"] = fleet_type
             __props__.__dict__["instance_role_arn"] = instance_role_arn
+            __props__.__dict__["instance_role_credentials_provider"] = instance_role_credentials_provider
             __props__.__dict__["locations"] = locations
             __props__.__dict__["log_paths"] = log_paths
             __props__.__dict__["max_size"] = max_size
@@ -634,7 +656,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["build_id", "certificate_configuration", "compute_type", "ec2_instance_type", "fleet_type", "instance_role_arn", "log_paths[*]", "peer_vpc_aws_account_id", "peer_vpc_id", "script_id", "server_launch_parameters", "server_launch_path"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["build_id", "certificate_configuration", "compute_type", "ec2_instance_type", "fleet_type", "instance_role_arn", "instance_role_credentials_provider", "log_paths[*]", "peer_vpc_aws_account_id", "peer_vpc_id", "script_id", "server_launch_parameters", "server_launch_path"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
@@ -669,6 +691,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["fleet_id"] = None
         __props__.__dict__["fleet_type"] = None
         __props__.__dict__["instance_role_arn"] = None
+        __props__.__dict__["instance_role_credentials_provider"] = None
         __props__.__dict__["locations"] = None
         __props__.__dict__["log_paths"] = None
         __props__.__dict__["max_size"] = None
@@ -772,6 +795,14 @@ class Fleet(pulumi.CustomResource):
         A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "instance_role_arn")
+
+    @property
+    @pulumi.getter(name="instanceRoleCredentialsProvider")
+    def instance_role_credentials_provider(self) -> pulumi.Output[Optional['FleetInstanceRoleCredentialsProvider']]:
+        """
+        Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        """
+        return pulumi.get(self, "instance_role_credentials_provider")
 
     @property
     @pulumi.getter

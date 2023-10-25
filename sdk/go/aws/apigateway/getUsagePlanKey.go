@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::UsagePlanKey
+// The “AWS::ApiGateway::UsagePlanKey“ resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
 func LookupUsagePlanKey(ctx *pulumi.Context, args *LookupUsagePlanKeyArgs, opts ...pulumi.InvokeOption) (*LookupUsagePlanKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUsagePlanKeyResult

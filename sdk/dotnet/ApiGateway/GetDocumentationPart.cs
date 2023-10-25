@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetDocumentationPart
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::DocumentationPart
+        /// The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetDocumentationPartResult> InvokeAsync(GetDocumentationPartArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::DocumentationPart
+        /// The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public string DocumentationPartId { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of the targeted API entity
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> DocumentationPartId { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of the targeted API entity
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DocumentationPartId;
         /// <summary>
-        /// The documentation content map of the targeted API entity.
+        /// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         /// </summary>
         public readonly string? Properties;
 

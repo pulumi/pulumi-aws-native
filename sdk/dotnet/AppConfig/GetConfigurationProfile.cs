@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.AppConfig
     {
         public readonly string? Description;
         public readonly string? Id;
+        public readonly string? KmsKeyIdentifier;
         public readonly string? Name;
         public readonly string? RetrievalRoleArn;
         public readonly ImmutableArray<Outputs.ConfigurationProfileTags> Tags;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.AppConfig
 
             string? id,
 
+            string? kmsKeyIdentifier,
+
             string? name,
 
             string? retrievalRoleArn,
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.AppConfig
         {
             Description = description;
             Id = id;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;
             RetrievalRoleArn = retrievalRoleArn;
             Tags = tags;

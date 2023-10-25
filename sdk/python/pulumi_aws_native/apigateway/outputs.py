@@ -175,6 +175,10 @@ class ClientCertificateTag(dict):
 
 @pulumi.output_type
 class DeploymentAccessLogSetting(dict):
+    """
+    The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
+      ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,8 +200,10 @@ class DeploymentAccessLogSetting(dict):
                  destination_arn: Optional[str] = None,
                  format: Optional[str] = None):
         """
-        :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
-        :param str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+        The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
+          ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+        :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
+        :param str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
         """
         DeploymentAccessLogSetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -219,7 +225,7 @@ class DeploymentAccessLogSetting(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. 
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -227,13 +233,17 @@ class DeploymentAccessLogSetting(dict):
     @pulumi.getter
     def format(self) -> Optional[str]:
         """
-        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. 
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
         """
         return pulumi.get(self, "format")
 
 
 @pulumi.output_type
 class DeploymentCanarySetting(dict):
+    """
+    The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
+     ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -260,9 +270,11 @@ class DeploymentCanarySetting(dict):
                  stage_variable_overrides: Optional[Any] = None,
                  use_stage_cache: Optional[bool] = None):
         """
+        The ``CanarySetting`` property type specifies settings for the canary deployment in this stage.
+         ``CanarySetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
         :param float percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
-        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
-        :param bool use_stage_cache: Whether the canary deployment uses the stage cache or not.
+        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        :param bool use_stage_cache: A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         DeploymentCanarySetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -296,7 +308,7 @@ class DeploymentCanarySetting(dict):
     @pulumi.getter(name="stageVariableOverrides")
     def stage_variable_overrides(self) -> Optional[Any]:
         """
-        Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. 
+        Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
@@ -304,13 +316,16 @@ class DeploymentCanarySetting(dict):
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[bool]:
         """
-        Whether the canary deployment uses the stage cache or not.
+        A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
 
 @pulumi.output_type
 class DeploymentCanarySettings(dict):
+    """
+    The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,9 +352,10 @@ class DeploymentCanarySettings(dict):
                  stage_variable_overrides: Optional[Any] = None,
                  use_stage_cache: Optional[bool] = None):
         """
-        :param float percent_traffic: The percentage (0-100) of traffic diverted to a canary deployment.
-        :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
-        :param bool use_stage_cache: Whether the canary deployment uses the stage cache.
+        The ``DeploymentCanarySettings`` property type specifies settings for the canary deployment.
+        :param float percent_traffic: The percentage (0.0-100.0) of traffic routed to the canary deployment.
+        :param Any stage_variable_overrides: A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        :param bool use_stage_cache: A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
         """
         DeploymentCanarySettings._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -365,7 +381,7 @@ class DeploymentCanarySettings(dict):
     @pulumi.getter(name="percentTraffic")
     def percent_traffic(self) -> Optional[float]:
         """
-        The percentage (0-100) of traffic diverted to a canary deployment.
+        The percentage (0.0-100.0) of traffic routed to the canary deployment.
         """
         return pulumi.get(self, "percent_traffic")
 
@@ -373,7 +389,7 @@ class DeploymentCanarySettings(dict):
     @pulumi.getter(name="stageVariableOverrides")
     def stage_variable_overrides(self) -> Optional[Any]:
         """
-        Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values. Duplicates are not allowed.
+        A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
         """
         return pulumi.get(self, "stage_variable_overrides")
 
@@ -381,13 +397,17 @@ class DeploymentCanarySettings(dict):
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[bool]:
         """
-        Whether the canary deployment uses the stage cache.
+        A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
 
 @pulumi.output_type
 class DeploymentMethodSetting(dict):
+    """
+    The ``MethodSetting`` property type configures settings for all methods in a stage.
+     The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -435,16 +455,18 @@ class DeploymentMethodSetting(dict):
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
         """
-        :param bool cache_data_encrypted: Indicates whether the cached responses are encrypted
-        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
-        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
-        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        The ``MethodSetting`` property type configures settings for all methods in a stage.
+         The ``MethodSettings`` property of the [Amazon API Gateway Deployment StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type contains a list of ``MethodSetting`` property types.
+        :param bool cache_data_encrypted: Specifies whether the cached responses are encrypted.
+        :param int cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        :param bool caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+        :param bool data_trace_enabled: Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         :param str http_method: The HTTP method.
-        :param str logging_level: The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
-        :param bool metrics_enabled: Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
-        :param str resource_path: The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
-        :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
-        :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        :param str logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        :param bool metrics_enabled: Specifies whether Amazon CloudWatch metrics are enabled for this method.
+        :param str resource_path: The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
+        :param int throttling_burst_limit: Specifies the throttling burst limit.
+        :param float throttling_rate_limit: Specifies the throttling rate limit.
         """
         DeploymentMethodSetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -498,7 +520,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[bool]:
         """
-        Indicates whether the cached responses are encrypted
+        Specifies whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
@@ -506,7 +528,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[int]:
         """
-        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
@@ -514,7 +536,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[bool]:
         """
-        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         """
         return pulumi.get(self, "caching_enabled")
 
@@ -522,7 +544,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
         """
-        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
@@ -538,7 +560,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
         """
-        The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
@@ -546,7 +568,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="metricsEnabled")
     def metrics_enabled(self) -> Optional[bool]:
         """
-        Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        Specifies whether Amazon CloudWatch metrics are enabled for this method.
         """
         return pulumi.get(self, "metrics_enabled")
 
@@ -554,7 +576,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[str]:
         """
-        The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. 
+        The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
         """
         return pulumi.get(self, "resource_path")
 
@@ -562,7 +584,7 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
         """
-        The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        Specifies the throttling burst limit.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -570,13 +592,16 @@ class DeploymentMethodSetting(dict):
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
         """
-        The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        Specifies the throttling rate limit.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
 
 @pulumi.output_type
 class DeploymentStageDescription(dict):
+    """
+    ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -645,25 +670,27 @@ class DeploymentStageDescription(dict):
                  tracing_enabled: Optional[bool] = None,
                  variables: Optional[Any] = None):
         """
+        ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
         :param 'DeploymentAccessLogSetting' access_log_setting: Specifies settings for logging access in this stage.
-        :param bool cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
-        :param str cache_cluster_size: The size of the stage's cache cluster.
-        :param bool cache_data_encrypted: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
-        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
-        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        :param bool cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
+        :param str cache_cluster_size: The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
+        :param bool cache_data_encrypted: Indicates whether the cached responses are encrypted.
+        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide*.
         :param 'DeploymentCanarySetting' canary_setting: Specifies settings for the canary deployment in this stage.
-        :param str client_certificate_id: The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
-        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        :param str client_certificate_id: The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
+        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
         :param str description: A description of the purpose of the stage.
         :param str documentation_version: The version identifier of the API documentation snapshot.
-        :param str logging_level: The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        :param str logging_level: The logging level for this method. For valid values, see the ``loggingLevel`` property of the [MethodSetting](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html) resource in the *Amazon API Gateway API Reference*.
         :param Sequence['DeploymentMethodSetting'] method_settings: Configures settings for all of the stage's methods.
         :param bool metrics_enabled: Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
         :param Sequence['DeploymentTag'] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
-        :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
-        :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        :param int throttling_burst_limit: The target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
+        :param float throttling_rate_limit: The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         :param bool tracing_enabled: Specifies whether active tracing with X-ray is enabled for this stage.
-        :param Any variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+                For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
+        :param Any variables: A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         DeploymentStageDescription._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -761,7 +788,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[bool]:
         """
-        Indicates whether cache clustering is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -769,7 +796,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[str]:
         """
-        The size of the stage's cache cluster.
+        The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -777,7 +804,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[bool]:
         """
-        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        Indicates whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
@@ -785,7 +812,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[int]:
         """
-        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
@@ -793,7 +820,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[bool]:
         """
-        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "caching_enabled")
 
@@ -809,7 +836,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[str]:
         """
-        The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -817,7 +844,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
         """
-        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
@@ -841,7 +868,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
         """
-        The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        The logging level for this method. For valid values, see the ``loggingLevel`` property of the [MethodSetting](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html) resource in the *Amazon API Gateway API Reference*.
         """
         return pulumi.get(self, "logging_level")
 
@@ -873,7 +900,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
         """
-        The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        The target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -881,7 +908,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
         """
-        The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "throttling_rate_limit")
 
@@ -890,6 +917,7 @@ class DeploymentStageDescription(dict):
     def tracing_enabled(self) -> Optional[bool]:
         """
         Specifies whether active tracing with X-ray is enabled for this stage.
+         For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
         """
         return pulumi.get(self, "tracing_enabled")
 
@@ -897,7 +925,7 @@ class DeploymentStageDescription(dict):
     @pulumi.getter
     def variables(self) -> Optional[Any]:
         """
-        A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&=,]+. 
+        A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
@@ -944,6 +972,10 @@ class DeploymentTag(dict):
 
 @pulumi.output_type
 class DocumentationPartLocation(dict):
+    """
+    The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
+     For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -968,11 +1000,13 @@ class DocumentationPartLocation(dict):
                  status_code: Optional[str] = None,
                  type: Optional['DocumentationPartLocationType'] = None):
         """
-        :param str method: The HTTP verb of a method.
-        :param str name: The name of the targeted API entity.
-        :param str path: The URL path of the target.
-        :param str status_code: The HTTP status code of a response.
-        :param 'DocumentationPartLocationType' type: The type of API entity that the documentation content applies to.
+        The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
+         For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
+        :param str method: The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+        :param str name: The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
+        :param str path: The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+        :param str status_code: The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+        :param 'DocumentationPartLocationType' type: The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
         """
         DocumentationPartLocation._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1006,7 +1040,7 @@ class DocumentationPartLocation(dict):
     @pulumi.getter
     def method(self) -> Optional[str]:
         """
-        The HTTP verb of a method.
+        The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "method")
 
@@ -1014,7 +1048,7 @@ class DocumentationPartLocation(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the targeted API entity.
+        The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
         """
         return pulumi.get(self, "name")
 
@@ -1022,7 +1056,7 @@ class DocumentationPartLocation(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         """
-        The URL path of the target.
+        The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
         """
         return pulumi.get(self, "path")
 
@@ -1030,7 +1064,7 @@ class DocumentationPartLocation(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[str]:
         """
-        The HTTP status code of a response.
+        The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "status_code")
 
@@ -1038,7 +1072,7 @@ class DocumentationPartLocation(dict):
     @pulumi.getter
     def type(self) -> Optional['DocumentationPartLocationType']:
         """
-        The type of API entity that the documentation content applies to.
+        The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
         """
         return pulumi.get(self, "type")
 
@@ -1150,6 +1184,9 @@ class DomainNameTag(dict):
 
 @pulumi.output_type
 class MethodIntegration(dict):
+    """
+    ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1203,20 +1240,24 @@ class MethodIntegration(dict):
                  timeout_in_millis: Optional[int] = None,
                  uri: Optional[str] = None):
         """
-        :param 'MethodIntegrationType' type: The type of backend that your method is running.
-        :param Sequence[str] cache_key_parameters: A list of request parameters whose values API Gateway caches.
-        :param str cache_namespace: An API-specific tag group of related cached parameters.
-        :param str connection_id: The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
-        :param 'MethodIntegrationConnectionType' connection_type: The type of the network connection to the integration endpoint.
-        :param 'MethodIntegrationContentHandling' content_handling: Specifies how to handle request payload content type conversions.
-        :param str credentials: The credentials that are required for the integration.
-        :param str integration_http_method: The integration's HTTP method type.
-        :param Sequence['MethodIntegrationResponse'] integration_responses: The response that API Gateway provides after a method's backend completes processing a request.
-        :param 'MethodIntegrationPassthroughBehavior' passthrough_behavior: Indicates when API Gateway passes requests to the targeted backend.
-        :param Any request_parameters: The request parameters that API Gateway sends with the backend request.
-        :param Any request_templates: A map of Apache Velocity templates that are applied on the request payload.
-        :param int timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds.
-        :param str uri: The Uniform Resource Identifier (URI) for the integration.
+        ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
+        :param 'MethodIntegrationType' type: Specifies an API method integration type. The valid value is one of the following:
+                For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param Sequence[str] cache_key_parameters: A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
+        :param str cache_namespace: Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
+        :param str connection_id: The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
+        :param 'MethodIntegrationConnectionType' connection_type: The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
+        :param 'MethodIntegrationContentHandling' content_handling: Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+                If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+        :param str credentials: Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\\*:user/\\*``. To use resource-based permissions on supported AWS services, specify null.
+        :param str integration_http_method: Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
+        :param Sequence['MethodIntegrationResponse'] integration_responses: Specifies the integration's responses.
+        :param 'MethodIntegrationPassthroughBehavior' passthrough_behavior: Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+        :param Any request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+        :param Any request_templates: Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
+        :param int timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+        :param str uri: Specifies Uniform Resource Identifier (URI) of the integration endpoint.
+                For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
         """
         MethodIntegration._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1285,7 +1326,8 @@ class MethodIntegration(dict):
     @pulumi.getter
     def type(self) -> 'MethodIntegrationType':
         """
-        The type of backend that your method is running.
+        Specifies an API method integration type. The valid value is one of the following:
+         For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         """
         return pulumi.get(self, "type")
 
@@ -1293,7 +1335,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> Optional[Sequence[str]]:
         """
-        A list of request parameters whose values API Gateway caches.
+        A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
         """
         return pulumi.get(self, "cache_key_parameters")
 
@@ -1301,7 +1343,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> Optional[str]:
         """
-        An API-specific tag group of related cached parameters.
+        Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
         """
         return pulumi.get(self, "cache_namespace")
 
@@ -1309,7 +1351,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[str]:
         """
-        The ID of the VpcLink used for the integration when connectionType=VPC_LINK, otherwise undefined.
+        The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
         """
         return pulumi.get(self, "connection_id")
 
@@ -1317,7 +1359,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional['MethodIntegrationConnectionType']:
         """
-        The type of the network connection to the integration endpoint.
+        The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
         """
         return pulumi.get(self, "connection_type")
 
@@ -1325,7 +1367,8 @@ class MethodIntegration(dict):
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional['MethodIntegrationContentHandling']:
         """
-        Specifies how to handle request payload content type conversions.
+        Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+         If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
         """
         return pulumi.get(self, "content_handling")
 
@@ -1333,7 +1376,7 @@ class MethodIntegration(dict):
     @pulumi.getter
     def credentials(self) -> Optional[str]:
         """
-        The credentials that are required for the integration.
+        Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\\*:user/\\*``. To use resource-based permissions on supported AWS services, specify null.
         """
         return pulumi.get(self, "credentials")
 
@@ -1341,7 +1384,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="integrationHttpMethod")
     def integration_http_method(self) -> Optional[str]:
         """
-        The integration's HTTP method type.
+        Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
         """
         return pulumi.get(self, "integration_http_method")
 
@@ -1349,7 +1392,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="integrationResponses")
     def integration_responses(self) -> Optional[Sequence['outputs.MethodIntegrationResponse']]:
         """
-        The response that API Gateway provides after a method's backend completes processing a request.
+        Specifies the integration's responses.
         """
         return pulumi.get(self, "integration_responses")
 
@@ -1357,7 +1400,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional['MethodIntegrationPassthroughBehavior']:
         """
-        Indicates when API Gateway passes requests to the targeted backend.
+        Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         """
         return pulumi.get(self, "passthrough_behavior")
 
@@ -1365,7 +1408,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[Any]:
         """
-        The request parameters that API Gateway sends with the backend request.
+        A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -1373,7 +1416,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="requestTemplates")
     def request_templates(self) -> Optional[Any]:
         """
-        A map of Apache Velocity templates that are applied on the request payload.
+        Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         """
         return pulumi.get(self, "request_templates")
 
@@ -1381,7 +1424,7 @@ class MethodIntegration(dict):
     @pulumi.getter(name="timeoutInMillis")
     def timeout_in_millis(self) -> Optional[int]:
         """
-        Custom timeout between 50 and 29,000 milliseconds.
+        Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         """
         return pulumi.get(self, "timeout_in_millis")
 
@@ -1389,13 +1432,17 @@ class MethodIntegration(dict):
     @pulumi.getter
     def uri(self) -> Optional[str]:
         """
-        The Uniform Resource Identifier (URI) for the integration.
+        Specifies Uniform Resource Identifier (URI) of the integration endpoint.
+         For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
         """
         return pulumi.get(self, "uri")
 
 
 @pulumi.output_type
 class MethodIntegrationResponse(dict):
+    """
+    ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1428,11 +1475,13 @@ class MethodIntegrationResponse(dict):
                  response_templates: Optional[Any] = None,
                  selection_pattern: Optional[str] = None):
         """
-        :param str status_code: The status code that API Gateway uses to map the integration response to a MethodResponse status code.
-        :param 'MethodIntegrationResponseContentHandling' content_handling: Specifies how to handle request payload content type conversions.
-        :param Any response_parameters: The response parameters from the backend response that API Gateway sends to the method response.
-        :param Any response_templates: The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
-        :param str selection_pattern: A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+        ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
+        :param str status_code: Specifies the status code that is used to map the integration response to an existing MethodResponse.
+        :param 'MethodIntegrationResponseContentHandling' content_handling: Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+                If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        :param Any response_parameters: A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+        :param Any response_templates: Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+        :param str selection_pattern: Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         MethodIntegrationResponse._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1465,7 +1514,7 @@ class MethodIntegrationResponse(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         """
-        The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+        Specifies the status code that is used to map the integration response to an existing MethodResponse.
         """
         return pulumi.get(self, "status_code")
 
@@ -1473,7 +1522,8 @@ class MethodIntegrationResponse(dict):
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional['MethodIntegrationResponseContentHandling']:
         """
-        Specifies how to handle request payload content type conversions.
+        Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+         If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         """
         return pulumi.get(self, "content_handling")
 
@@ -1481,7 +1531,7 @@ class MethodIntegrationResponse(dict):
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
         """
-        The response parameters from the backend response that API Gateway sends to the method response.
+        A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -1489,7 +1539,7 @@ class MethodIntegrationResponse(dict):
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
         """
-        The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+        Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         """
         return pulumi.get(self, "response_templates")
 
@@ -1497,13 +1547,16 @@ class MethodIntegrationResponse(dict):
     @pulumi.getter(name="selectionPattern")
     def selection_pattern(self) -> Optional[str]:
         """
-        A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+        Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         return pulumi.get(self, "selection_pattern")
 
 
 @pulumi.output_type
 class MethodResponse(dict):
+    """
+    Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1530,9 +1583,10 @@ class MethodResponse(dict):
                  response_models: Optional[Any] = None,
                  response_parameters: Optional[Any] = None):
         """
-        :param str status_code: The method response's status code, which you map to an IntegrationResponse.
-        :param Any response_models: The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
-        :param Any response_parameters: Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
+        Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
+        :param str status_code: The method response's status code.
+        :param Any response_models: Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
+        :param Any response_parameters: A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         """
         MethodResponse._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1557,7 +1611,7 @@ class MethodResponse(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         """
-        The method response's status code, which you map to an IntegrationResponse.
+        The method response's status code.
         """
         return pulumi.get(self, "status_code")
 
@@ -1565,7 +1619,7 @@ class MethodResponse(dict):
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[Any]:
         """
-        The resources used for the response's content type. Specify response models as key-value pairs (string-to-string maps), with a content type as the key and a Model resource name as the value.
+        Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
         """
         return pulumi.get(self, "response_models")
 
@@ -1573,13 +1627,17 @@ class MethodResponse(dict):
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
         """
-        Response parameters that API Gateway sends to the client that called a method. Specify response parameters as key-value pairs (string-to-Boolean maps), with a destination as the key and a Boolean as the value.
+        A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
 
 @pulumi.output_type
 class RestApiEndpointConfiguration(dict):
+    """
+    The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+     ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1600,6 +1658,12 @@ class RestApiEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: Optional[Sequence[str]] = None,
                  vpc_endpoint_ids: Optional[Sequence[str]] = None):
+        """
+        The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+         ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
+        :param Sequence[str] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+        :param Sequence[str] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+        """
         RestApiEndpointConfiguration._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             types=types,
@@ -1619,16 +1683,26 @@ class RestApiEndpointConfiguration(dict):
     @property
     @pulumi.getter
     def types(self) -> Optional[Sequence[str]]:
+        """
+        A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+        """
         return pulumi.get(self, "types")
 
     @property
     @pulumi.getter(name="vpcEndpointIds")
     def vpc_endpoint_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+        """
         return pulumi.get(self, "vpc_endpoint_ids")
 
 
 @pulumi.output_type
 class RestApiS3Location(dict):
+    """
+    ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
+     On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1651,6 +1725,14 @@ class RestApiS3Location(dict):
                  e_tag: Optional[str] = None,
                  key: Optional[str] = None,
                  version: Optional[str] = None):
+        """
+        ``S3Location`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource that specifies the Amazon S3 location of a OpenAPI (formerly Swagger) file that defines a set of RESTful APIs in JSON or YAML.
+         On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+        :param str bucket: The name of the S3 bucket where the OpenAPI file is stored.
+        :param str e_tag: The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
+        :param str key: The file name of the OpenAPI file (Amazon S3 object name).
+        :param str version: For versioning-enabled buckets, a specific version of the OpenAPI file.
+        """
         RestApiS3Location._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             bucket=bucket,
@@ -1678,21 +1760,33 @@ class RestApiS3Location(dict):
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
+        """
+        The name of the S3 bucket where the OpenAPI file is stored.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="eTag")
     def e_tag(self) -> Optional[str]:
+        """
+        The Amazon S3 ETag (a file checksum) of the OpenAPI file. If you don't specify a value, API Gateway skips ETag validation of your OpenAPI file.
+        """
         return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
+        """
+        The file name of the OpenAPI file (Amazon S3 object name).
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        For versioning-enabled buckets, a specific version of the OpenAPI file.
+        """
         return pulumi.get(self, "version")
 
 
@@ -1729,7 +1823,8 @@ class RestApiTag(dict):
 @pulumi.output_type
 class StageAccessLogSetting(dict):
     """
-    Specifies settings for logging access in this stage.
+    The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
+      ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1752,9 +1847,10 @@ class StageAccessLogSetting(dict):
                  destination_arn: Optional[str] = None,
                  format: Optional[str] = None):
         """
-        Specifies settings for logging access in this stage.
-        :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
-        :param str format: A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
+        The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
+          ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+        :param str destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
+        :param str format: A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """
         StageAccessLogSetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1776,7 +1872,7 @@ class StageAccessLogSetting(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with amazon-apigateway-. This parameter is required to enable access logging.
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -1784,7 +1880,7 @@ class StageAccessLogSetting(dict):
     @pulumi.getter
     def format(self) -> Optional[str]:
         """
-        A single line format of the access logs of data, as specified by selected $context variables (https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least $context.requestId. This parameter is required to enable access logging.
+        A single line format of the access logs of data, as specified by selected [$context variables](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference). The format must include at least ``$context.requestId``. This parameter is required to enable access logging.
         """
         return pulumi.get(self, "format")
 
@@ -1792,7 +1888,7 @@ class StageAccessLogSetting(dict):
 @pulumi.output_type
 class StageCanarySetting(dict):
     """
-    Specifies settings for the canary deployment in this stage.
+    Configuration settings of a canary deployment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1823,11 +1919,11 @@ class StageCanarySetting(dict):
                  stage_variable_overrides: Optional[Any] = None,
                  use_stage_cache: Optional[bool] = None):
         """
-        Specifies settings for the canary deployment in this stage.
-        :param str deployment_id: The identifier of the deployment that the stage points to.
-        :param float percent_traffic: The percentage (0-100) of traffic diverted to a canary deployment.
+        Configuration settings of a canary deployment.
+        :param str deployment_id: The ID of the canary deployment.
+        :param float percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
         :param Any stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
-        :param bool use_stage_cache: Whether the canary deployment uses the stage cache or not.
+        :param bool use_stage_cache: A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         StageCanarySetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -1857,7 +1953,7 @@ class StageCanarySetting(dict):
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[str]:
         """
-        The identifier of the deployment that the stage points to.
+        The ID of the canary deployment.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -1865,7 +1961,7 @@ class StageCanarySetting(dict):
     @pulumi.getter(name="percentTraffic")
     def percent_traffic(self) -> Optional[float]:
         """
-        The percentage (0-100) of traffic diverted to a canary deployment.
+        The percent (0-100) of traffic diverted to a canary deployment.
         """
         return pulumi.get(self, "percent_traffic")
 
@@ -1881,7 +1977,7 @@ class StageCanarySetting(dict):
     @pulumi.getter(name="useStageCache")
     def use_stage_cache(self) -> Optional[bool]:
         """
-        Whether the canary deployment uses the stage cache or not.
+        A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         """
         return pulumi.get(self, "use_stage_cache")
 
@@ -1889,7 +1985,8 @@ class StageCanarySetting(dict):
 @pulumi.output_type
 class StageMethodSetting(dict):
     """
-    Configures settings for all methods in a stage.
+    The ``MethodSetting`` property type configures settings for all methods in a stage.
+     The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1938,17 +2035,18 @@ class StageMethodSetting(dict):
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
         """
-        Configures settings for all methods in a stage.
-        :param bool cache_data_encrypted: Indicates whether the cached responses are encrypted.
-        :param int cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
-        :param bool caching_enabled: Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
-        :param bool data_trace_enabled: Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
-        :param str http_method: The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
-        :param str logging_level: The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
-        :param bool metrics_enabled: Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
-        :param str resource_path: The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
-        :param int throttling_burst_limit: The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
-        :param float throttling_rate_limit: The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        The ``MethodSetting`` property type configures settings for all methods in a stage.
+         The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
+        :param bool cache_data_encrypted: Specifies whether the cached responses are encrypted.
+        :param int cache_ttl_in_seconds: Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        :param bool caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+        :param bool data_trace_enabled: Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
+        :param str http_method: The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
+        :param str logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        :param bool metrics_enabled: Specifies whether Amazon CloudWatch metrics are enabled for this method.
+        :param str resource_path: The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
+        :param int throttling_burst_limit: Specifies the throttling burst limit.
+        :param float throttling_rate_limit: Specifies the throttling rate limit.
         """
         StageMethodSetting._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -2002,7 +2100,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="cacheDataEncrypted")
     def cache_data_encrypted(self) -> Optional[bool]:
         """
-        Indicates whether the cached responses are encrypted.
+        Specifies whether the cached responses are encrypted.
         """
         return pulumi.get(self, "cache_data_encrypted")
 
@@ -2010,7 +2108,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="cacheTtlInSeconds")
     def cache_ttl_in_seconds(self) -> Optional[int]:
         """
-        The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+        Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         """
         return pulumi.get(self, "cache_ttl_in_seconds")
 
@@ -2018,7 +2116,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="cachingEnabled")
     def caching_enabled(self) -> Optional[bool]:
         """
-        Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         """
         return pulumi.get(self, "caching_enabled")
 
@@ -2026,7 +2124,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[bool]:
         """
-        Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+        Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
@@ -2034,7 +2132,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[str]:
         """
-        The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         """
         return pulumi.get(self, "http_method")
 
@@ -2042,7 +2140,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[str]:
         """
-        The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
@@ -2050,7 +2148,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="metricsEnabled")
     def metrics_enabled(self) -> Optional[bool]:
         """
-        Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        Specifies whether Amazon CloudWatch metrics are enabled for this method.
         """
         return pulumi.get(self, "metrics_enabled")
 
@@ -2058,7 +2156,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> Optional[str]:
         """
-        The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         """
         return pulumi.get(self, "resource_path")
 
@@ -2066,7 +2164,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[int]:
         """
-        The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        Specifies the throttling burst limit.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -2074,7 +2172,7 @@ class StageMethodSetting(dict):
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[float]:
         """
-        The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        Specifies the throttling rate limit.
         """
         return pulumi.get(self, "throttling_rate_limit")
 

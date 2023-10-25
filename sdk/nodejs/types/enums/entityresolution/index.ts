@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const IdMappingWorkflowIdMappingTechniquesIdMappingType = {
+    Provider: "PROVIDER",
+} as const;
+
+export type IdMappingWorkflowIdMappingTechniquesIdMappingType = (typeof IdMappingWorkflowIdMappingTechniquesIdMappingType)[keyof typeof IdMappingWorkflowIdMappingTechniquesIdMappingType];
+
 export const MatchingWorkflowResolutionTechniquesResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",

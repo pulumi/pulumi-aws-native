@@ -22,9 +22,9 @@ class DocumentationPartArgs:
                  rest_api_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a DocumentationPart resource.
-        :param pulumi.Input['DocumentationPartLocationArgs'] location: The location of the API entity that the documentation applies to.
-        :param pulumi.Input[str] properties: The documentation content map of the targeted API entity.
-        :param pulumi.Input[str] rest_api_id: Identifier of the targeted API entity
+        :param pulumi.Input['DocumentationPartLocationArgs'] location: The location of the targeted API entity of the to-be-created documentation part.
+        :param pulumi.Input[str] properties: The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
         DocumentationPartArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -47,7 +47,7 @@ class DocumentationPartArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input['DocumentationPartLocationArgs']:
         """
-        The location of the API entity that the documentation applies to.
+        The location of the targeted API entity of the to-be-created documentation part.
         """
         return pulumi.get(self, "location")
 
@@ -59,7 +59,7 @@ class DocumentationPartArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input[str]:
         """
-        The documentation content map of the targeted API entity.
+        The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         """
         return pulumi.get(self, "properties")
 
@@ -71,7 +71,7 @@ class DocumentationPartArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        Identifier of the targeted API entity
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -90,13 +90,13 @@ class DocumentationPart(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::DocumentationPart
+        The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the API entity that the documentation applies to.
-        :param pulumi.Input[str] properties: The documentation content map of the targeted API entity.
-        :param pulumi.Input[str] rest_api_id: Identifier of the targeted API entity
+        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the targeted API entity of the to-be-created documentation part.
+        :param pulumi.Input[str] properties: The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
         ...
     @overload
@@ -105,7 +105,7 @@ class DocumentationPart(pulumi.CustomResource):
                  args: DocumentationPartArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::DocumentationPart
+        The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param DocumentationPartArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +195,7 @@ class DocumentationPart(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.DocumentationPartLocation']:
         """
-        The location of the API entity that the documentation applies to.
+        The location of the targeted API entity of the to-be-created documentation part.
         """
         return pulumi.get(self, "location")
 
@@ -203,7 +203,7 @@ class DocumentationPart(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[str]:
         """
-        The documentation content map of the targeted API entity.
+        The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
         """
         return pulumi.get(self, "properties")
 
@@ -211,7 +211,7 @@ class DocumentationPart(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        Identifier of the targeted API entity
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 

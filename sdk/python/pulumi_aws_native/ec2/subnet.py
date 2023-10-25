@@ -22,14 +22,18 @@ class SubnetArgs:
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Subnet resource.
+        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
         """
         SubnetArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -39,8 +43,10 @@ class SubnetArgs:
             availability_zone_id=availability_zone_id,
             cidr_block=cidr_block,
             enable_dns64=enable_dns64,
+            ipv4_netmask_length=ipv4_netmask_length,
             ipv6_cidr_block=ipv6_cidr_block,
             ipv6_native=ipv6_native,
+            ipv6_netmask_length=ipv6_netmask_length,
             map_public_ip_on_launch=map_public_ip_on_launch,
             outpost_arn=outpost_arn,
             private_dns_name_options_on_launch=private_dns_name_options_on_launch,
@@ -55,8 +61,10 @@ class SubnetArgs:
              availability_zone_id: Optional[pulumi.Input[str]] = None,
              cidr_block: Optional[pulumi.Input[str]] = None,
              enable_dns64: Optional[pulumi.Input[bool]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
              ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
              ipv6_native: Optional[pulumi.Input[bool]] = None,
+             ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
              map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
              outpost_arn: Optional[pulumi.Input[str]] = None,
              private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
@@ -73,10 +81,14 @@ class SubnetArgs:
             _setter("cidr_block", cidr_block)
         if enable_dns64 is not None:
             _setter("enable_dns64", enable_dns64)
+        if ipv4_netmask_length is not None:
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_native is not None:
             _setter("ipv6_native", ipv6_native)
+        if ipv6_netmask_length is not None:
+            _setter("ipv6_netmask_length", ipv6_netmask_length)
         if map_public_ip_on_launch is not None:
             _setter("map_public_ip_on_launch", map_public_ip_on_launch)
         if outpost_arn is not None:
@@ -141,6 +153,18 @@ class SubnetArgs:
         pulumi.set(self, "enable_dns64", value)
 
     @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
@@ -157,6 +181,18 @@ class SubnetArgs:
     @ipv6_native.setter
     def ipv6_native(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ipv6_native", value)
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
@@ -205,8 +241,10 @@ class Subnet(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
@@ -218,6 +256,8 @@ class Subnet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
         """
         ...
     @overload
@@ -252,8 +292,10 @@ class Subnet(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  private_dns_name_options_on_launch: Optional[pulumi.Input[pulumi.InputType['PrivateDnsNameOptionsOnLaunchPropertiesArgs']]] = None,
@@ -273,8 +315,10 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["enable_dns64"] = enable_dns64
+            __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             __props__.__dict__["ipv6_native"] = ipv6_native
+            __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
             if private_dns_name_options_on_launch is not None and not isinstance(private_dns_name_options_on_launch, PrivateDnsNameOptionsOnLaunchPropertiesArgs):
@@ -319,9 +363,11 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["enable_dns64"] = None
+        __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
         __props__.__dict__["ipv6_cidr_blocks"] = None
         __props__.__dict__["ipv6_native"] = None
+        __props__.__dict__["ipv6_netmask_length"] = None
         __props__.__dict__["map_public_ip_on_launch"] = None
         __props__.__dict__["network_acl_association_id"] = None
         __props__.__dict__["outpost_arn"] = None
@@ -357,6 +403,14 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "enable_dns64")
 
     @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        """
+        The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "ipv6_cidr_block")
@@ -370,6 +424,14 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "ipv6_native")
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        """
+        The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")

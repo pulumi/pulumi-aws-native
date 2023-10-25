@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// A container for filter information for the selection of S3 objects encrypted with AWS KMS.
-    /// </summary>
     [OutputType]
     public sealed class BucketSseKmsEncryptedObjects
     {
-        /// <summary>
-        /// Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketSseKmsEncryptedObjectsStatus Status;
+        public readonly string Status;
 
         [OutputConstructor]
-        private BucketSseKmsEncryptedObjects(Pulumi.AwsNative.S3.BucketSseKmsEncryptedObjectsStatus status)
+        private BucketSseKmsEncryptedObjects(string status)
         {
             Status = status;
         }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Deployment
+ * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -38,7 +38,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies settings for the canary deployment.
+     * The input configuration for a canary deployment.
      */
     public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
     /**
@@ -46,19 +46,19 @@ export class Deployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly deploymentId!: pulumi.Output<string>;
     /**
-     * A description of the purpose of the API Gateway deployment.
+     * The description for the Deployment resource to create.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the RestApi resource to deploy. 
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string>;
     /**
-     * Configures the stage that API Gateway creates with this deployment.
+     * The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
      */
     public readonly stageDescription!: pulumi.Output<outputs.apigateway.DeploymentStageDescription | undefined>;
     /**
-     * A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+     * The name of the Stage resource for the Deployment resource to create.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
 
@@ -102,23 +102,23 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentArgs {
     /**
-     * Specifies settings for the canary deployment.
+     * The input configuration for a canary deployment.
      */
     deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingsArgs>;
     /**
-     * A description of the purpose of the API Gateway deployment.
+     * The description for the Deployment resource to create.
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the RestApi resource to deploy. 
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * Configures the stage that API Gateway creates with this deployment.
+     * The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.
      */
     stageDescription?: pulumi.Input<inputs.apigateway.DeploymentStageDescriptionArgs>;
     /**
-     * A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.
+     * The name of the Stage resource for the Deployment resource to create.
      */
     stageName?: pulumi.Input<string>;
 }

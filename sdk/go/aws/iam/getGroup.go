@@ -24,15 +24,19 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 }
 
 type LookupGroupArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the group to create
+	GroupName string `pulumi:"groupName"`
 }
 
 type LookupGroupResult struct {
-	Arn               *string           `pulumi:"arn"`
-	Id                *string           `pulumi:"id"`
-	ManagedPolicyArns []string          `pulumi:"managedPolicyArns"`
-	Path              *string           `pulumi:"path"`
-	Policies          []GroupPolicyType `pulumi:"policies"`
+	// The Arn of the group to create
+	Arn *string `pulumi:"arn"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// The path to the group
+	Path *string `pulumi:"path"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM group
+	Policies []GroupPolicyType `pulumi:"policies"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -49,7 +53,8 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 }
 
 type LookupGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the group to create
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -76,22 +81,22 @@ func (o LookupGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[Lo
 	}
 }
 
+// The Arn of the group to create
 func (o LookupGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 func (o LookupGroupResultOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// The path to the group
 func (o LookupGroupResultOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Adds or updates an inline policy document that is embedded in the specified IAM group
 func (o LookupGroupResultOutput) Policies() GroupPolicyTypeArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GroupPolicyType { return v.Policies }).(GroupPolicyTypeArrayOutput)
 }

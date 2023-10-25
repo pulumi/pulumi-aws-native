@@ -5,8 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ContactFlowModuleState',
-    'ContactFlowModuleStatus',
     'ContactFlowState',
     'ContactFlowType',
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
@@ -38,22 +36,6 @@ __all__ = [
     'TrafficDistributionGroupStatus',
     'UserPhoneType',
 ]
-
-
-class ContactFlowModuleState(str, Enum):
-    """
-    The state of the contact flow module.
-    """
-    ACTIVE = "ACTIVE"
-    ARCHIVED = "ARCHIVED"
-
-
-class ContactFlowModuleStatus(str, Enum):
-    """
-    The status of the contact flow module.
-    """
-    PUBLISHED = "PUBLISHED"
-    SAVED = "SAVED"
 
 
 class ContactFlowState(str, Enum):

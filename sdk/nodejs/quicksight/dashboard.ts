@@ -51,6 +51,7 @@ export class Dashboard extends pulumi.CustomResource {
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.DashboardTag[] | undefined>;
     public readonly themeArn!: pulumi.Output<string | undefined>;
+    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.DashboardValidationStrategy | undefined>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
@@ -81,6 +82,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["themeArn"] = args ? args.themeArn : undefined;
+            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
             resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -102,6 +104,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["sourceEntity"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["themeArn"] = undefined /*out*/;
+            resourceInputs["validationStrategy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
@@ -126,5 +129,6 @@ export interface DashboardArgs {
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTagArgs>[]>;
     themeArn?: pulumi.Input<string>;
+    validationStrategy?: pulumi.Input<inputs.quicksight.DashboardValidationStrategyArgs>;
     versionDescription?: pulumi.Input<string>;
 }

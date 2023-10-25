@@ -30,6 +30,7 @@ type LookupConfigurationProfileArgs struct {
 type LookupConfigurationProfileResult struct {
 	Description      *string                          `pulumi:"description"`
 	Id               *string                          `pulumi:"id"`
+	KmsKeyIdentifier *string                          `pulumi:"kmsKeyIdentifier"`
 	Name             *string                          `pulumi:"name"`
 	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
 	Tags             []ConfigurationProfileTags       `pulumi:"tags"`
@@ -83,6 +84,10 @@ func (o LookupConfigurationProfileResultOutput) Description() pulumi.StringPtrOu
 
 func (o LookupConfigurationProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupConfigurationProfileResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupConfigurationProfileResultOutput) Name() pulumi.StringPtrOutput {

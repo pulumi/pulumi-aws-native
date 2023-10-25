@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetAccount
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Account
+        /// The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Account
+        /// The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        /// The ARN of an Amazon CloudWatch role for the current Account.
         /// </summary>
         public readonly string? CloudWatchRoleArn;
         /// <summary>

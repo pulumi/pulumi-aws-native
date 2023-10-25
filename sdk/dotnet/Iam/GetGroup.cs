@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the group to create
+        /// </summary>
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
 
         public GetGroupArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the group to create
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
 
         public GetGroupInvokeArgs()
         {
@@ -51,17 +57,26 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetGroupResult
     {
+        /// <summary>
+        /// The Arn of the group to create
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? Id;
+        /// <summary>
+        /// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+        /// </summary>
         public readonly ImmutableArray<string> ManagedPolicyArns;
+        /// <summary>
+        /// The path to the group
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// Adds or updates an inline policy document that is embedded in the specified IAM group
+        /// </summary>
         public readonly ImmutableArray<Outputs.GroupPolicy> Policies;
 
         [OutputConstructor]
         private GetGroupResult(
             string? arn,
-
-            string? id,
 
             ImmutableArray<string> managedPolicyArns,
 
@@ -70,7 +85,6 @@ namespace Pulumi.AwsNative.Iam
             ImmutableArray<Outputs.GroupPolicy> policies)
         {
             Arn = arn;
-            Id = id;
             ManagedPolicyArns = managedPolicyArns;
             Path = path;
             Policies = policies;

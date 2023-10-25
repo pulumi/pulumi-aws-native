@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::RestApi.
+// The “AWS::ApiGateway::RestApi“ resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+//
+//	On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRestApiResult
@@ -28,17 +30,26 @@ type LookupRestApiArgs struct {
 }
 
 type LookupRestApiResult struct {
-	ApiKeySourceType          *string                       `pulumi:"apiKeySourceType"`
-	BinaryMediaTypes          []string                      `pulumi:"binaryMediaTypes"`
-	Description               *string                       `pulumi:"description"`
-	DisableExecuteApiEndpoint *bool                         `pulumi:"disableExecuteApiEndpoint"`
-	EndpointConfiguration     *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
-	MinimumCompressionSize    *int                          `pulumi:"minimumCompressionSize"`
-	Name                      *string                       `pulumi:"name"`
-	Policy                    interface{}                   `pulumi:"policy"`
-	RestApiId                 *string                       `pulumi:"restApiId"`
-	RootResourceId            *string                       `pulumi:"rootResourceId"`
-	Tags                      []RestApiTag                  `pulumi:"tags"`
+	// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+	ApiKeySourceType *string `pulumi:"apiKeySourceType"`
+	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
+	// The description of the RestApi.
+	Description *string `pulumi:"description"`
+	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
+	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
+	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
+	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
+	Name *string `pulumi:"name"`
+	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+	Policy         interface{} `pulumi:"policy"`
+	RestApiId      *string     `pulumi:"restApiId"`
+	RootResourceId *string     `pulumi:"rootResourceId"`
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	Tags []RestApiTag `pulumi:"tags"`
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
@@ -82,34 +93,42 @@ func (o LookupRestApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The source of the API key for metering requests according to a usage plan. Valid values are: “HEADER“ to read the API key from the “X-API-Key“ header of a request. “AUTHORIZER“ to read the API key from the “UsageIdentifierKey“ from a custom authorizer.
 func (o LookupRestApiResultOutput) ApiKeySourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.ApiKeySourceType }).(pulumi.StringPtrOutput)
 }
 
+// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 func (o LookupRestApiResultOutput) BinaryMediaTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []string { return v.BinaryMediaTypes }).(pulumi.StringArrayOutput)
 }
 
+// The description of the RestApi.
 func (o LookupRestApiResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether clients can invoke your API by using the default “execute-api“ endpoint. By default, clients can invoke your API with the default “https://{api_id}.execute-api.{region}.amazonaws.com“ endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 func (o LookupRestApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
+// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
 func (o LookupRestApiResultOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *RestApiEndpointConfiguration { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
 }
 
+// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *int { return v.MinimumCompressionSize }).(pulumi.IntPtrOutput)
 }
 
+// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 func (o LookupRestApiResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A policy document that contains the permissions for the “RestApi“ resource. To set the ARN for the policy, use the “!Join“ intrinsic function with “""“ as delimiter and values of “"execute-api:/"“ and “"*"“.
 func (o LookupRestApiResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRestApiResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
@@ -122,6 +141,7 @@ func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RootResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
 func (o LookupRestApiResultOutput) Tags() RestApiTagArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []RestApiTag { return v.Tags }).(RestApiTagArrayOutput)
 }

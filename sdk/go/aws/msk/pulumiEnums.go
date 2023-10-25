@@ -560,6 +560,192 @@ func (in *clusterStorageModePtr) ToOutput(ctx context.Context) pulumix.Output[*C
 	}
 }
 
+// The type of compression to use writing records to target Kafka cluster.
+type ReplicatorReplicationInfoTargetCompressionType string
+
+const (
+	ReplicatorReplicationInfoTargetCompressionTypeNone   = ReplicatorReplicationInfoTargetCompressionType("NONE")
+	ReplicatorReplicationInfoTargetCompressionTypeGzip   = ReplicatorReplicationInfoTargetCompressionType("GZIP")
+	ReplicatorReplicationInfoTargetCompressionTypeSnappy = ReplicatorReplicationInfoTargetCompressionType("SNAPPY")
+	ReplicatorReplicationInfoTargetCompressionTypeLz4    = ReplicatorReplicationInfoTargetCompressionType("LZ4")
+	ReplicatorReplicationInfoTargetCompressionTypeZstd   = ReplicatorReplicationInfoTargetCompressionType("ZSTD")
+)
+
+func (ReplicatorReplicationInfoTargetCompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionType)(nil)).Elem()
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToReplicatorReplicationInfoTargetCompressionTypeOutput() ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return pulumi.ToOutput(e).(ReplicatorReplicationInfoTargetCompressionTypeOutput)
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToReplicatorReplicationInfoTargetCompressionTypeOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorReplicationInfoTargetCompressionTypeOutput)
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToReplicatorReplicationInfoTargetCompressionTypePtrOutput() ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return e.ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return ReplicatorReplicationInfoTargetCompressionType(e).ToReplicatorReplicationInfoTargetCompressionTypeOutputWithContext(ctx).ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationInfoTargetCompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorReplicationInfoTargetCompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoTargetCompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplicationInfoTargetCompressionTypeOutput() ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplicationInfoTargetCompressionTypeOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplicationInfoTargetCompressionTypePtrOutput() ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return o.ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationInfoTargetCompressionType) *ReplicatorReplicationInfoTargetCompressionType {
+		return &v
+	}).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorReplicationInfoTargetCompressionType] {
+	return pulumix.Output[ReplicatorReplicationInfoTargetCompressionType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationInfoTargetCompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationInfoTargetCompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationInfoTargetCompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationInfoTargetCompressionType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToReplicatorReplicationInfoTargetCompressionTypePtrOutput() ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType] {
+	return pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) Elem() ReplicatorReplicationInfoTargetCompressionTypeOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoTargetCompressionType) ReplicatorReplicationInfoTargetCompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationInfoTargetCompressionType
+		return ret
+	}).(ReplicatorReplicationInfoTargetCompressionTypeOutput)
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorReplicationInfoTargetCompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorReplicationInfoTargetCompressionTypeInput is an input type that accepts ReplicatorReplicationInfoTargetCompressionTypeArgs and ReplicatorReplicationInfoTargetCompressionTypeOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoTargetCompressionTypeInput` via:
+//
+//	ReplicatorReplicationInfoTargetCompressionTypeArgs{...}
+type ReplicatorReplicationInfoTargetCompressionTypeInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoTargetCompressionTypeOutput() ReplicatorReplicationInfoTargetCompressionTypeOutput
+	ToReplicatorReplicationInfoTargetCompressionTypeOutputWithContext(context.Context) ReplicatorReplicationInfoTargetCompressionTypeOutput
+}
+
+var replicatorReplicationInfoTargetCompressionTypePtrType = reflect.TypeOf((**ReplicatorReplicationInfoTargetCompressionType)(nil)).Elem()
+
+type ReplicatorReplicationInfoTargetCompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoTargetCompressionTypePtrOutput() ReplicatorReplicationInfoTargetCompressionTypePtrOutput
+	ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput
+}
+
+type replicatorReplicationInfoTargetCompressionTypePtr string
+
+func ReplicatorReplicationInfoTargetCompressionTypePtr(v string) ReplicatorReplicationInfoTargetCompressionTypePtrInput {
+	return (*replicatorReplicationInfoTargetCompressionTypePtr)(&v)
+}
+
+func (*replicatorReplicationInfoTargetCompressionTypePtr) ElementType() reflect.Type {
+	return replicatorReplicationInfoTargetCompressionTypePtrType
+}
+
+func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToReplicatorReplicationInfoTargetCompressionTypePtrOutput() ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
+}
+
+func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
+}
+
+func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType] {
+	return pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType]{
+		OutputState: in.ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The type of private link authentication
 type VpcConnectionAuthentication string
 
@@ -751,6 +937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringPtrInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypeInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypePtrInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationPtrInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
@@ -759,6 +947,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModeOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypeOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationPtrOutput{})
 }

@@ -51,6 +51,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        [Output("matching")]
+        public Output<Outputs.DomainMatching?> Matching { get; private set; } = null!;
+
+        [Output("ruleBasedMatching")]
+        public Output<Outputs.DomainRuleBasedMatching?> RuleBasedMatching { get; private set; } = null!;
+
+        [Output("stats")]
+        public Output<Outputs.DomainStats> Stats { get; private set; } = null!;
+
         /// <summary>
         /// The tags (keys and values) associated with the domain
         /// </summary>
@@ -129,6 +138,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        [Input("matching")]
+        public Input<Inputs.DomainMatchingArgs>? Matching { get; set; }
+
+        [Input("ruleBasedMatching")]
+        public Input<Inputs.DomainRuleBasedMatchingArgs>? RuleBasedMatching { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DomainTagArgs>? _tags;

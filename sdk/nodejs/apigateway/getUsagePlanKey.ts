@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::UsagePlanKey
+ * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  */
 export function getUsagePlanKey(args: GetUsagePlanKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanKeyResult> {
 
@@ -29,7 +29,7 @@ export interface GetUsagePlanKeyResult {
     readonly id?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::UsagePlanKey
+ * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  */
 export function getUsagePlanKeyOutput(args: GetUsagePlanKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanKeyResult> {
     return pulumi.output(args).apply((a: any) => getUsagePlanKey(a, opts))

@@ -9499,6 +9499,20 @@
       "required" : [ "ComputationId" ],
       "additionalProperties" : false
     },
+    "ValidationStrategy" : {
+      "type" : "object",
+      "properties" : {
+        "Mode" : {
+          "$ref" : "#/definitions/ValidationStrategyMode"
+        }
+      },
+      "required" : [ "Mode" ],
+      "additionalProperties" : false
+    },
+    "ValidationStrategyMode" : {
+      "type" : "string",
+      "enum" : [ "STRICT", "LENIENT" ]
+    },
     "ValueWhenUnsetOption" : {
       "type" : "string",
       "enum" : [ "RECOMMENDED_VALUE", "NULL" ]
@@ -10101,6 +10115,9 @@
     "ThemeArn" : {
       "type" : "string"
     },
+    "ValidationStrategy" : {
+      "$ref" : "#/definitions/ValidationStrategy"
+    },
     "Version" : {
       "$ref" : "#/definitions/DashboardVersion"
     },
@@ -10112,7 +10129,7 @@
   },
   "required" : [ "AwsAccountId", "DashboardId", "Name" ],
   "readOnlyProperties" : [ "/properties/DashboardError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/CreatedTime", "/properties/LastUpdatedTime" ],
+  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "handlers" : {

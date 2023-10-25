@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetRestApi
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RestApi.
+        /// The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+        ///  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RestApi.
+        /// The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+        ///  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
@@ -51,16 +53,43 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetRestApiResult
     {
+        /// <summary>
+        /// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        /// </summary>
         public readonly string? ApiKeySourceType;
+        /// <summary>
+        /// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        /// </summary>
         public readonly ImmutableArray<string> BinaryMediaTypes;
+        /// <summary>
+        /// The description of the RestApi.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        /// </summary>
         public readonly bool? DisableExecuteApiEndpoint;
+        /// <summary>
+        /// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+        /// </summary>
         public readonly Outputs.RestApiEndpointConfiguration? EndpointConfiguration;
+        /// <summary>
+        /// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+        /// </summary>
         public readonly int? MinimumCompressionSize;
+        /// <summary>
+        /// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+        /// </summary>
         public readonly object? Policy;
         public readonly string? RestApiId;
         public readonly string? RootResourceId;
+        /// <summary>
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RestApiTag> Tags;
 
         [OutputConstructor]

@@ -10,34 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
+    /// </summary>
     public sealed class MethodIntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how to handle request payload content type conversions.
+        /// Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
+        ///  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Input("contentHandling")]
         public Input<Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseContentHandling>? ContentHandling { get; set; }
 
         /// <summary>
-        /// The response parameters from the backend response that API Gateway sends to the method response.
+        /// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
         /// </summary>
         [Input("responseParameters")]
         public Input<object>? ResponseParameters { get; set; }
 
         /// <summary>
-        /// The templates that are used to transform the integration response body. Specify templates as key-value pairs (string-to-string mappings), with a content type as the key and a template as the value.
+        /// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
         /// </summary>
         [Input("responseTemplates")]
         public Input<object>? ResponseTemplates { get; set; }
 
         /// <summary>
-        /// A regular expression that specifies which error strings or status codes from the backend map to the integration response.
+        /// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }
 
         /// <summary>
-        /// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
+        /// Specifies the status code that is used to map the integration response to an existing MethodResponse.
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;

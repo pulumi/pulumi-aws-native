@@ -25,6 +25,7 @@ export interface GetConfigurationProfileArgs {
 export interface GetConfigurationProfileResult {
     readonly description?: string;
     readonly id?: string;
+    readonly kmsKeyIdentifier?: string;
     readonly name?: string;
     readonly retrievalRoleArn?: string;
     readonly tags?: outputs.appconfig.ConfigurationProfileTags[];

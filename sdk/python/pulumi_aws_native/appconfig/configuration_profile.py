@@ -19,6 +19,7 @@ class ConfigurationProfileArgs:
                  application_id: pulumi.Input[str],
                  location_uri: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
@@ -32,6 +33,7 @@ class ConfigurationProfileArgs:
             application_id=application_id,
             location_uri=location_uri,
             description=description,
+            kms_key_identifier=kms_key_identifier,
             name=name,
             retrieval_role_arn=retrieval_role_arn,
             tags=tags,
@@ -44,6 +46,7 @@ class ConfigurationProfileArgs:
              application_id: pulumi.Input[str],
              location_uri: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
+             kms_key_identifier: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              retrieval_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
@@ -54,6 +57,8 @@ class ConfigurationProfileArgs:
         _setter("location_uri", location_uri)
         if description is not None:
             _setter("description", description)
+        if kms_key_identifier is not None:
+            _setter("kms_key_identifier", kms_key_identifier)
         if name is not None:
             _setter("name", name)
         if retrieval_role_arn is not None:
@@ -91,6 +96,15 @@ class ConfigurationProfileArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
 
     @property
     @pulumi.getter
@@ -150,6 +164,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
@@ -193,6 +208,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retrieval_role_arn: Optional[pulumi.Input[str]] = None,
@@ -213,6 +229,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             if location_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'location_uri'")
             __props__.__dict__["location_uri"] = location_uri
@@ -247,6 +264,7 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retrieval_role_arn"] = None
@@ -264,6 +282,11 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter(name="locationUri")

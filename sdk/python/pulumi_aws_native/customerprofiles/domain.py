@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -20,6 +21,8 @@ class DomainArgs:
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
+                 rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -35,6 +38,8 @@ class DomainArgs:
             default_encryption_key=default_encryption_key,
             default_expiration_days=default_expiration_days,
             domain_name=domain_name,
+            matching=matching,
+            rule_based_matching=rule_based_matching,
             tags=tags,
         )
     @staticmethod
@@ -44,6 +49,8 @@ class DomainArgs:
              default_encryption_key: Optional[pulumi.Input[str]] = None,
              default_expiration_days: Optional[pulumi.Input[int]] = None,
              domain_name: Optional[pulumi.Input[str]] = None,
+             matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
+             rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         if dead_letter_queue_url is not None:
@@ -54,6 +61,10 @@ class DomainArgs:
             _setter("default_expiration_days", default_expiration_days)
         if domain_name is not None:
             _setter("domain_name", domain_name)
+        if matching is not None:
+            _setter("matching", matching)
+        if rule_based_matching is not None:
+            _setter("rule_based_matching", rule_based_matching)
         if tags is not None:
             _setter("tags", tags)
 
@@ -107,6 +118,24 @@ class DomainArgs:
 
     @property
     @pulumi.getter
+    def matching(self) -> Optional[pulumi.Input['DomainMatchingArgs']]:
+        return pulumi.get(self, "matching")
+
+    @matching.setter
+    def matching(self, value: Optional[pulumi.Input['DomainMatchingArgs']]):
+        pulumi.set(self, "matching", value)
+
+    @property
+    @pulumi.getter(name="ruleBasedMatching")
+    def rule_based_matching(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]:
+        return pulumi.get(self, "rule_based_matching")
+
+    @rule_based_matching.setter
+    def rule_based_matching(self, value: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']]):
+        pulumi.set(self, "rule_based_matching", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
         """
         The tags (keys and values) associated with the domain
@@ -127,6 +156,8 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -172,6 +203,8 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -186,9 +219,22 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["default_encryption_key"] = default_encryption_key
             __props__.__dict__["default_expiration_days"] = default_expiration_days
             __props__.__dict__["domain_name"] = domain_name
+            if matching is not None and not isinstance(matching, DomainMatchingArgs):
+                matching = matching or {}
+                def _setter(key, value):
+                    matching[key] = value
+                DomainMatchingArgs._configure(_setter, **matching)
+            __props__.__dict__["matching"] = matching
+            if rule_based_matching is not None and not isinstance(rule_based_matching, DomainRuleBasedMatchingArgs):
+                rule_based_matching = rule_based_matching or {}
+                def _setter(key, value):
+                    rule_based_matching[key] = value
+                DomainRuleBasedMatchingArgs._configure(_setter, **rule_based_matching)
+            __props__.__dict__["rule_based_matching"] = rule_based_matching
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
+            __props__.__dict__["stats"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
@@ -219,6 +265,9 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["default_expiration_days"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["last_updated_at"] = None
+        __props__.__dict__["matching"] = None
+        __props__.__dict__["rule_based_matching"] = None
+        __props__.__dict__["stats"] = None
         __props__.__dict__["tags"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
@@ -269,6 +318,21 @@ class Domain(pulumi.CustomResource):
         The time of this integration got last updated at
         """
         return pulumi.get(self, "last_updated_at")
+
+    @property
+    @pulumi.getter
+    def matching(self) -> pulumi.Output[Optional['outputs.DomainMatching']]:
+        return pulumi.get(self, "matching")
+
+    @property
+    @pulumi.getter(name="ruleBasedMatching")
+    def rule_based_matching(self) -> pulumi.Output[Optional['outputs.DomainRuleBasedMatching']]:
+        return pulumi.get(self, "rule_based_matching")
+
+    @property
+    @pulumi.getter
+    def stats(self) -> pulumi.Output['outputs.DomainStats']:
+        return pulumi.get(self, "stats")
 
     @property
     @pulumi.getter

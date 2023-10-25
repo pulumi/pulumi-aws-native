@@ -13,15 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::SQS::QueuePolicy
+// The “AWS::SQS::QueuePolicy“ type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
 //
 // Deprecated: QueuePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
-	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
-	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
 }
 
@@ -71,17 +71,17 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
-	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
 	Queues []string `pulumi:"queues"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 	PolicyDocument pulumi.Input
-	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
 	Queues pulumi.StringArrayInput
 }
 
@@ -134,12 +134,12 @@ func (o QueuePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*QueuePo
 	}
 }
 
-// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 func (o QueuePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+// The URLs of the queues to which you want to add the policy. You can use the “Ref“ function to specify an “AWS::SQS::Queue“ resource.
 func (o QueuePolicyOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
 }

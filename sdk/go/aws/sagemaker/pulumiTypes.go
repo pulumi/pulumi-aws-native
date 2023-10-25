@@ -1237,6 +1237,8 @@ type DataQualityJobDefinitionBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
 	DataCapturedDestinationS3Uri string                                `pulumi:"dataCapturedDestinationS3Uri"`
 	DatasetFormat                DataQualityJobDefinitionDatasetFormat `pulumi:"datasetFormat"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1261,6 +1263,8 @@ type DataQualityJobDefinitionBatchTransformInputArgs struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
 	DataCapturedDestinationS3Uri pulumi.StringInput                         `pulumi:"dataCapturedDestinationS3Uri"`
 	DatasetFormat                DataQualityJobDefinitionDatasetFormatInput `pulumi:"datasetFormat"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -1376,6 +1380,11 @@ func (o DataQualityJobDefinitionBatchTransformInputOutput) DatasetFormat() DataQ
 	}).(DataQualityJobDefinitionDatasetFormatOutput)
 }
 
+// Indexes or names of the features to be excluded from analysis
+func (o DataQualityJobDefinitionBatchTransformInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) *string { return v.ExcludeFeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
 // Path to the filesystem where the endpoint data is available to the container.
 func (o DataQualityJobDefinitionBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
@@ -1442,6 +1451,16 @@ func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) DatasetFormat() Da
 		}
 		return &v.DatasetFormat
 	}).(DataQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// Indexes or names of the features to be excluded from analysis
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
 }
 
 // Path to the filesystem where the endpoint data is available to the container.
@@ -2473,6 +2492,8 @@ func (o DataQualityJobDefinitionDatasetFormatPtrOutput) Parquet() pulumi.BoolPtr
 // The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInput struct {
 	EndpointName string `pulumi:"endpointName"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -2495,6 +2516,8 @@ type DataQualityJobDefinitionEndpointInputInput interface {
 // The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInputArgs struct {
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -2603,6 +2626,11 @@ func (o DataQualityJobDefinitionEndpointInputOutput) EndpointName() pulumi.Strin
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
+// Indexes or names of the features to be excluded from analysis
+func (o DataQualityJobDefinitionEndpointInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *string { return v.ExcludeFeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
 // Path to the filesystem where the endpoint data is available to the container.
 func (o DataQualityJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
@@ -2658,6 +2686,16 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.St
 			return nil
 		}
 		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indexes or names of the features to be excluded from analysis
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -33441,6 +33479,8 @@ type MonitoringScheduleBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
 	DataCapturedDestinationS3Uri string                          `pulumi:"dataCapturedDestinationS3Uri"`
 	DatasetFormat                MonitoringScheduleDatasetFormat `pulumi:"datasetFormat"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -33465,6 +33505,8 @@ type MonitoringScheduleBatchTransformInputArgs struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
 	DataCapturedDestinationS3Uri pulumi.StringInput                   `pulumi:"dataCapturedDestinationS3Uri"`
 	DatasetFormat                MonitoringScheduleDatasetFormatInput `pulumi:"datasetFormat"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -33578,6 +33620,11 @@ func (o MonitoringScheduleBatchTransformInputOutput) DatasetFormat() MonitoringS
 	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) MonitoringScheduleDatasetFormat { return v.DatasetFormat }).(MonitoringScheduleDatasetFormatOutput)
 }
 
+// Indexes or names of the features to be excluded from analysis
+func (o MonitoringScheduleBatchTransformInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) *string { return v.ExcludeFeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
 // Path to the filesystem where the endpoint data is available to the container.
 func (o MonitoringScheduleBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
@@ -33644,6 +33691,16 @@ func (o MonitoringScheduleBatchTransformInputPtrOutput) DatasetFormat() Monitori
 		}
 		return &v.DatasetFormat
 	}).(MonitoringScheduleDatasetFormatPtrOutput)
+}
+
+// Indexes or names of the features to be excluded from analysis
+func (o MonitoringScheduleBatchTransformInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
 }
 
 // Path to the filesystem where the endpoint data is available to the container.
@@ -34572,6 +34629,8 @@ func (o MonitoringScheduleDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput
 // The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInput struct {
 	EndpointName string `pulumi:"endpointName"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -34594,6 +34653,8 @@ type MonitoringScheduleEndpointInputInput interface {
 // The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInputArgs struct {
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// Indexes or names of the features to be excluded from analysis
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -34702,6 +34763,11 @@ func (o MonitoringScheduleEndpointInputOutput) EndpointName() pulumi.StringOutpu
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
+// Indexes or names of the features to be excluded from analysis
+func (o MonitoringScheduleEndpointInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.ExcludeFeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
 // Path to the filesystem where the endpoint data is available to the container.
 func (o MonitoringScheduleEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
@@ -34757,6 +34823,16 @@ func (o MonitoringScheduleEndpointInputPtrOutput) EndpointName() pulumi.StringPt
 			return nil
 		}
 		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indexes or names of the features to be excluded from analysis
+func (o MonitoringScheduleEndpointInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36667,7 +36743,11 @@ func (o MonitoringScheduleS3OutputOutput) S3Uri() pulumi.StringOutput {
 
 // Configuration details about the monitoring schedule.
 type MonitoringScheduleScheduleConfig struct {
-	// A cron expression that describes details about the monitoring schedule.
+	// Data Analysis end time, e.g. PT0H
+	DataAnalysisEndTime *string `pulumi:"dataAnalysisEndTime"`
+	// Data Analysis start time, e.g. -PT1H
+	DataAnalysisStartTime *string `pulumi:"dataAnalysisStartTime"`
+	// A cron expression or 'NOW' that describes details about the monitoring schedule.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -36684,7 +36764,11 @@ type MonitoringScheduleScheduleConfigInput interface {
 
 // Configuration details about the monitoring schedule.
 type MonitoringScheduleScheduleConfigArgs struct {
-	// A cron expression that describes details about the monitoring schedule.
+	// Data Analysis end time, e.g. PT0H
+	DataAnalysisEndTime pulumi.StringPtrInput `pulumi:"dataAnalysisEndTime"`
+	// Data Analysis start time, e.g. -PT1H
+	DataAnalysisStartTime pulumi.StringPtrInput `pulumi:"dataAnalysisStartTime"`
+	// A cron expression or 'NOW' that describes details about the monitoring schedule.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -36784,7 +36868,17 @@ func (o MonitoringScheduleScheduleConfigOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// A cron expression that describes details about the monitoring schedule.
+// Data Analysis end time, e.g. PT0H
+func (o MonitoringScheduleScheduleConfigOutput) DataAnalysisEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleScheduleConfig) *string { return v.DataAnalysisEndTime }).(pulumi.StringPtrOutput)
+}
+
+// Data Analysis start time, e.g. -PT1H
+func (o MonitoringScheduleScheduleConfigOutput) DataAnalysisStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleScheduleConfig) *string { return v.DataAnalysisStartTime }).(pulumi.StringPtrOutput)
+}
+
+// A cron expression or 'NOW' that describes details about the monitoring schedule.
 func (o MonitoringScheduleScheduleConfigOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleScheduleConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -36819,7 +36913,27 @@ func (o MonitoringScheduleScheduleConfigPtrOutput) Elem() MonitoringScheduleSche
 	}).(MonitoringScheduleScheduleConfigOutput)
 }
 
-// A cron expression that describes details about the monitoring schedule.
+// Data Analysis end time, e.g. PT0H
+func (o MonitoringScheduleScheduleConfigPtrOutput) DataAnalysisEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataAnalysisEndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data Analysis start time, e.g. -PT1H
+func (o MonitoringScheduleScheduleConfigPtrOutput) DataAnalysisStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataAnalysisStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// A cron expression or 'NOW' that describes details about the monitoring schedule.
 func (o MonitoringScheduleScheduleConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleScheduleConfig) *string {
 		if v == nil {

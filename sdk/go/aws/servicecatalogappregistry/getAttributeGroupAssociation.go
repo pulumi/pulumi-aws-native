@@ -24,13 +24,13 @@ func LookupAttributeGroupAssociation(ctx *pulumi.Context, args *LookupAttributeG
 }
 
 type LookupAttributeGroupAssociationArgs struct {
-	Id string `pulumi:"id"`
+	ApplicationArn    string `pulumi:"applicationArn"`
+	AttributeGroupArn string `pulumi:"attributeGroupArn"`
 }
 
 type LookupAttributeGroupAssociationResult struct {
 	ApplicationArn    *string `pulumi:"applicationArn"`
 	AttributeGroupArn *string `pulumi:"attributeGroupArn"`
-	Id                *string `pulumi:"id"`
 }
 
 func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttributeGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAttributeGroupAssociationResultOutput {
@@ -47,7 +47,8 @@ func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttri
 }
 
 type LookupAttributeGroupAssociationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApplicationArn    pulumi.StringInput `pulumi:"applicationArn"`
+	AttributeGroupArn pulumi.StringInput `pulumi:"attributeGroupArn"`
 }
 
 func (LookupAttributeGroupAssociationOutputArgs) ElementType() reflect.Type {
@@ -80,10 +81,6 @@ func (o LookupAttributeGroupAssociationResultOutput) ApplicationArn() pulumi.Str
 
 func (o LookupAttributeGroupAssociationResultOutput) AttributeGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.AttributeGroupArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupAttributeGroupAssociationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAttributeGroupAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

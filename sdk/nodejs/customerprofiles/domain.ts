@@ -61,6 +61,9 @@ export class Domain extends pulumi.CustomResource {
      * The time of this integration got last updated at
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
+    public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
+    public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
+    public /*out*/ readonly stats!: pulumi.Output<outputs.customerprofiles.DomainStats>;
     /**
      * The tags (keys and values) associated with the domain
      */
@@ -81,9 +84,12 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
             resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["matching"] = args ? args.matching : undefined;
+            resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["stats"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deadLetterQueueUrl"] = undefined /*out*/;
@@ -91,6 +97,9 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
+            resourceInputs["matching"] = undefined /*out*/;
+            resourceInputs["ruleBasedMatching"] = undefined /*out*/;
+            resourceInputs["stats"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +129,8 @@ export interface DomainArgs {
      * The unique name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    matching?: pulumi.Input<inputs.customerprofiles.DomainMatchingArgs>;
+    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatchingArgs>;
     /**
      * The tags (keys and values) associated with the domain
      */

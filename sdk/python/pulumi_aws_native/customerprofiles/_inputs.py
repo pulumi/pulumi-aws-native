@@ -17,6 +17,16 @@ __all__ = [
     'CalculatedAttributeDefinitionRangeArgs',
     'CalculatedAttributeDefinitionTagArgs',
     'CalculatedAttributeDefinitionThresholdArgs',
+    'DomainAttributeTypesSelectorArgs',
+    'DomainAutoMergingArgs',
+    'DomainConflictResolutionArgs',
+    'DomainConsolidationArgs',
+    'DomainExportingConfigArgs',
+    'DomainJobScheduleArgs',
+    'DomainMatchingRuleArgs',
+    'DomainMatchingArgs',
+    'DomainRuleBasedMatchingArgs',
+    'DomainS3ExportingConfigArgs',
     'DomainTagArgs',
     'EventStreamTagArgs',
     'IntegrationConnectorOperatorArgs',
@@ -298,6 +308,624 @@ class CalculatedAttributeDefinitionThresholdArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DomainAttributeTypesSelectorArgs:
+    def __init__(__self__, *,
+                 attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'],
+                 address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 email_address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 phone_number: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
+        :param pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'] attribute_matching_model: Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address: The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_address: The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_number: The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+        """
+        DomainAttributeTypesSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_matching_model=attribute_matching_model,
+            address=address,
+            email_address=email_address,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'],
+             address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             phone_number: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_matching_model", attribute_matching_model)
+        if address is not None:
+            _setter("address", address)
+        if email_address is not None:
+            _setter("email_address", email_address)
+        if phone_number is not None:
+            _setter("phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="attributeMatchingModel")
+    def attribute_matching_model(self) -> pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel']:
+        """
+        Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+        """
+        return pulumi.get(self, "attribute_matching_model")
+
+    @attribute_matching_model.setter
+    def attribute_matching_model(self, value: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel']):
+        pulumi.set(self, "attribute_matching_model", value)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "phone_number", value)
+
+
+@pulumi.input_type
+class DomainAutoMergingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
+                 consolidation: Optional[pulumi.Input['DomainConsolidationArgs']] = None,
+                 min_allowed_confidence_score_for_merging: Optional[pulumi.Input[float]] = None):
+        """
+        Configuration information about the auto-merging process.
+        :param pulumi.Input[bool] enabled: The flag that enables the auto-merging of duplicate profiles.
+        :param pulumi.Input[float] min_allowed_confidence_score_for_merging: A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+        """
+        DomainAutoMergingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            conflict_resolution=conflict_resolution,
+            consolidation=consolidation,
+            min_allowed_confidence_score_for_merging=min_allowed_confidence_score_for_merging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
+             consolidation: Optional[pulumi.Input['DomainConsolidationArgs']] = None,
+             min_allowed_confidence_score_for_merging: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if conflict_resolution is not None:
+            _setter("conflict_resolution", conflict_resolution)
+        if consolidation is not None:
+            _setter("consolidation", consolidation)
+        if min_allowed_confidence_score_for_merging is not None:
+            _setter("min_allowed_confidence_score_for_merging", min_allowed_confidence_score_for_merging)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        The flag that enables the auto-merging of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="conflictResolution")
+    def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+        return pulumi.get(self, "conflict_resolution")
+
+    @conflict_resolution.setter
+    def conflict_resolution(self, value: Optional[pulumi.Input['DomainConflictResolutionArgs']]):
+        pulumi.set(self, "conflict_resolution", value)
+
+    @property
+    @pulumi.getter
+    def consolidation(self) -> Optional[pulumi.Input['DomainConsolidationArgs']]:
+        return pulumi.get(self, "consolidation")
+
+    @consolidation.setter
+    def consolidation(self, value: Optional[pulumi.Input['DomainConsolidationArgs']]):
+        pulumi.set(self, "consolidation", value)
+
+    @property
+    @pulumi.getter(name="minAllowedConfidenceScoreForMerging")
+    def min_allowed_confidence_score_for_merging(self) -> Optional[pulumi.Input[float]]:
+        """
+        A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+        """
+        return pulumi.get(self, "min_allowed_confidence_score_for_merging")
+
+    @min_allowed_confidence_score_for_merging.setter
+    def min_allowed_confidence_score_for_merging(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_allowed_confidence_score_for_merging", value)
+
+
+@pulumi.input_type
+class DomainConflictResolutionArgs:
+    def __init__(__self__, *,
+                 conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel'],
+                 source_name: Optional[pulumi.Input[str]] = None):
+        """
+        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+        :param pulumi.Input['DomainConflictResolutionConflictResolvingModel'] conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
+        :param pulumi.Input[str] source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+        """
+        DomainConflictResolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conflict_resolving_model=conflict_resolving_model,
+            source_name=source_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel'],
+             source_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conflict_resolving_model", conflict_resolving_model)
+        if source_name is not None:
+            _setter("source_name", source_name)
+
+    @property
+    @pulumi.getter(name="conflictResolvingModel")
+    def conflict_resolving_model(self) -> pulumi.Input['DomainConflictResolutionConflictResolvingModel']:
+        """
+        How the auto-merging process should resolve conflicts between different profiles.
+        """
+        return pulumi.get(self, "conflict_resolving_model")
+
+    @conflict_resolving_model.setter
+    def conflict_resolving_model(self, value: pulumi.Input['DomainConflictResolutionConflictResolvingModel']):
+        pulumi.set(self, "conflict_resolving_model", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+
+@pulumi.input_type
+class DomainConsolidationArgs:
+    def __init__(__self__, *,
+                 matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]):
+        """
+        A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] matching_attributes_list: A list of matching criteria.
+        """
+        DomainConsolidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_attributes_list=matching_attributes_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_attributes_list", matching_attributes_list)
+
+    @property
+    @pulumi.getter(name="matchingAttributesList")
+    def matching_attributes_list(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]:
+        """
+        A list of matching criteria.
+        """
+        return pulumi.get(self, "matching_attributes_list")
+
+    @matching_attributes_list.setter
+    def matching_attributes_list(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]):
+        pulumi.set(self, "matching_attributes_list", value)
+
+
+@pulumi.input_type
+class DomainExportingConfigArgs:
+    def __init__(__self__, *,
+                 s3_exporting: Optional[pulumi.Input['DomainS3ExportingConfigArgs']] = None):
+        """
+        Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        """
+        DomainExportingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_exporting=s3_exporting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_exporting: Optional[pulumi.Input['DomainS3ExportingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if s3_exporting is not None:
+            _setter("s3_exporting", s3_exporting)
+
+    @property
+    @pulumi.getter(name="s3Exporting")
+    def s3_exporting(self) -> Optional[pulumi.Input['DomainS3ExportingConfigArgs']]:
+        return pulumi.get(self, "s3_exporting")
+
+    @s3_exporting.setter
+    def s3_exporting(self, value: Optional[pulumi.Input['DomainS3ExportingConfigArgs']]):
+        pulumi.set(self, "s3_exporting", value)
+
+
+@pulumi.input_type
+class DomainJobScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_the_week: pulumi.Input['DomainJobScheduleDayOfTheWeek'],
+                 time: pulumi.Input[str]):
+        """
+        The day and time when do you want to start the Identity Resolution Job every week.
+        :param pulumi.Input['DomainJobScheduleDayOfTheWeek'] day_of_the_week: The day when the Identity Resolution Job should run every week.
+        :param pulumi.Input[str] time: The time when the Identity Resolution Job should run every week.
+        """
+        DomainJobScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_the_week=day_of_the_week,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_the_week: pulumi.Input['DomainJobScheduleDayOfTheWeek'],
+             time: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_the_week", day_of_the_week)
+        _setter("time", time)
+
+    @property
+    @pulumi.getter(name="dayOfTheWeek")
+    def day_of_the_week(self) -> pulumi.Input['DomainJobScheduleDayOfTheWeek']:
+        """
+        The day when the Identity Resolution Job should run every week.
+        """
+        return pulumi.get(self, "day_of_the_week")
+
+    @day_of_the_week.setter
+    def day_of_the_week(self, value: pulumi.Input['DomainJobScheduleDayOfTheWeek']):
+        pulumi.set(self, "day_of_the_week", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time when the Identity Resolution Job should run every week.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
+
+
+@pulumi.input_type
+class DomainMatchingRuleArgs:
+    def __init__(__self__, *,
+                 rule: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Specifies how does the rule-based matching process should match profiles.
+        """
+        DomainMatchingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule=rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule", rule)
+
+    @property
+    @pulumi.getter
+    def rule(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "rule")
+
+    @rule.setter
+    def rule(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "rule", value)
+
+
+@pulumi.input_type
+class DomainMatchingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 auto_merging: Optional[pulumi.Input['DomainAutoMergingArgs']] = None,
+                 exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
+                 job_schedule: Optional[pulumi.Input['DomainJobScheduleArgs']] = None):
+        """
+        The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+        :param pulumi.Input[bool] enabled: The flag that enables the matching process of duplicate profiles.
+        """
+        DomainMatchingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            auto_merging=auto_merging,
+            exporting_config=exporting_config,
+            job_schedule=job_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             auto_merging: Optional[pulumi.Input['DomainAutoMergingArgs']] = None,
+             exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
+             job_schedule: Optional[pulumi.Input['DomainJobScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if auto_merging is not None:
+            _setter("auto_merging", auto_merging)
+        if exporting_config is not None:
+            _setter("exporting_config", exporting_config)
+        if job_schedule is not None:
+            _setter("job_schedule", job_schedule)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        The flag that enables the matching process of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="autoMerging")
+    def auto_merging(self) -> Optional[pulumi.Input['DomainAutoMergingArgs']]:
+        return pulumi.get(self, "auto_merging")
+
+    @auto_merging.setter
+    def auto_merging(self, value: Optional[pulumi.Input['DomainAutoMergingArgs']]):
+        pulumi.set(self, "auto_merging", value)
+
+    @property
+    @pulumi.getter(name="exportingConfig")
+    def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
+        return pulumi.get(self, "exporting_config")
+
+    @exporting_config.setter
+    def exporting_config(self, value: Optional[pulumi.Input['DomainExportingConfigArgs']]):
+        pulumi.set(self, "exporting_config", value)
+
+    @property
+    @pulumi.getter(name="jobSchedule")
+    def job_schedule(self) -> Optional[pulumi.Input['DomainJobScheduleArgs']]:
+        return pulumi.get(self, "job_schedule")
+
+    @job_schedule.setter
+    def job_schedule(self, value: Optional[pulumi.Input['DomainJobScheduleArgs']]):
+        pulumi.set(self, "job_schedule", value)
+
+
+@pulumi.input_type
+class DomainRuleBasedMatchingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 attribute_types_selector: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']] = None,
+                 conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
+                 exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
+                 matching_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]] = None,
+                 max_allowed_rule_level_for_matching: Optional[pulumi.Input[int]] = None,
+                 max_allowed_rule_level_for_merging: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']] = None):
+        """
+        The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+        :param pulumi.Input[bool] enabled: The flag that enables the rule-based matching process of duplicate profiles.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]] matching_rules: Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+        :param pulumi.Input[int] max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
+        :param pulumi.Input[int] max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
+        """
+        DomainRuleBasedMatchingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            attribute_types_selector=attribute_types_selector,
+            conflict_resolution=conflict_resolution,
+            exporting_config=exporting_config,
+            matching_rules=matching_rules,
+            max_allowed_rule_level_for_matching=max_allowed_rule_level_for_matching,
+            max_allowed_rule_level_for_merging=max_allowed_rule_level_for_merging,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             attribute_types_selector: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']] = None,
+             conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
+             exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
+             matching_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]] = None,
+             max_allowed_rule_level_for_matching: Optional[pulumi.Input[int]] = None,
+             max_allowed_rule_level_for_merging: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        if attribute_types_selector is not None:
+            _setter("attribute_types_selector", attribute_types_selector)
+        if conflict_resolution is not None:
+            _setter("conflict_resolution", conflict_resolution)
+        if exporting_config is not None:
+            _setter("exporting_config", exporting_config)
+        if matching_rules is not None:
+            _setter("matching_rules", matching_rules)
+        if max_allowed_rule_level_for_matching is not None:
+            _setter("max_allowed_rule_level_for_matching", max_allowed_rule_level_for_matching)
+        if max_allowed_rule_level_for_merging is not None:
+            _setter("max_allowed_rule_level_for_merging", max_allowed_rule_level_for_merging)
+        if status is not None:
+            _setter("status", status)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        The flag that enables the rule-based matching process of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="attributeTypesSelector")
+    def attribute_types_selector(self) -> Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']]:
+        return pulumi.get(self, "attribute_types_selector")
+
+    @attribute_types_selector.setter
+    def attribute_types_selector(self, value: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']]):
+        pulumi.set(self, "attribute_types_selector", value)
+
+    @property
+    @pulumi.getter(name="conflictResolution")
+    def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+        return pulumi.get(self, "conflict_resolution")
+
+    @conflict_resolution.setter
+    def conflict_resolution(self, value: Optional[pulumi.Input['DomainConflictResolutionArgs']]):
+        pulumi.set(self, "conflict_resolution", value)
+
+    @property
+    @pulumi.getter(name="exportingConfig")
+    def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
+        return pulumi.get(self, "exporting_config")
+
+    @exporting_config.setter
+    def exporting_config(self, value: Optional[pulumi.Input['DomainExportingConfigArgs']]):
+        pulumi.set(self, "exporting_config", value)
+
+    @property
+    @pulumi.getter(name="matchingRules")
+    def matching_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]:
+        """
+        Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
+        """
+        return pulumi.get(self, "matching_rules")
+
+    @matching_rules.setter
+    def matching_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]):
+        pulumi.set(self, "matching_rules", value)
+
+    @property
+    @pulumi.getter(name="maxAllowedRuleLevelForMatching")
+    def max_allowed_rule_level_for_matching(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the maximum allowed rule level for matching.
+        """
+        return pulumi.get(self, "max_allowed_rule_level_for_matching")
+
+    @max_allowed_rule_level_for_matching.setter
+    def max_allowed_rule_level_for_matching(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_allowed_rule_level_for_matching", value)
+
+    @property
+    @pulumi.getter(name="maxAllowedRuleLevelForMerging")
+    def max_allowed_rule_level_for_merging(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the maximum allowed rule level for merging.
+        """
+        return pulumi.get(self, "max_allowed_rule_level_for_merging")
+
+    @max_allowed_rule_level_for_merging.setter
+    def max_allowed_rule_level_for_merging(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_allowed_rule_level_for_merging", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DomainS3ExportingConfigArgs:
+    def __init__(__self__, *,
+                 s3_bucket_name: pulumi.Input[str],
+                 s3_key_name: Optional[pulumi.Input[str]] = None):
+        """
+        The S3 location where Identity Resolution Jobs write result files.
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
+        :param pulumi.Input[str] s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
+        DomainS3ExportingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            s3_key_name=s3_key_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: pulumi.Input[str],
+             s3_key_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket_name", s3_bucket_name)
+        if s3_key_name is not None:
+            _setter("s3_key_name", s3_key_name)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket where Identity Resolution Jobs write result files.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3KeyName")
+    def s3_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 key name of the location where Identity Resolution Jobs write result files.
+        """
+        return pulumi.get(self, "s3_key_name")
+
+    @s3_key_name.setter
+    def s3_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key_name", value)
 
 
 @pulumi.input_type

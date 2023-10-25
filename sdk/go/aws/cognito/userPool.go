@@ -13,8 +13,6 @@ import (
 )
 
 // Resource Type definition for AWS::Cognito::UserPool
-//
-// Deprecated: UserPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type UserPool struct {
 	pulumi.CustomResourceState
 
@@ -40,6 +38,7 @@ type UserPool struct {
 	SmsVerificationMessage      pulumi.StringPtrOutput                       `pulumi:"smsVerificationMessage"`
 	UserAttributeUpdateSettings UserPoolUserAttributeUpdateSettingsPtrOutput `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              UserPoolAddOnsPtrOutput                      `pulumi:"userPoolAddOns"`
+	UserPoolId                  pulumi.StringOutput                          `pulumi:"userPoolId"`
 	UserPoolName                pulumi.StringPtrOutput                       `pulumi:"userPoolName"`
 	UserPoolTags                pulumi.AnyOutput                             `pulumi:"userPoolTags"`
 	UsernameAttributes          pulumi.StringArrayOutput                     `pulumi:"usernameAttributes"`
@@ -276,6 +275,10 @@ func (o UserPoolOutput) UserAttributeUpdateSettings() UserPoolUserAttributeUpdat
 
 func (o UserPoolOutput) UserPoolAddOns() UserPoolAddOnsPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolAddOnsPtrOutput { return v.UserPoolAddOns }).(UserPoolAddOnsPtrOutput)
+}
+
+func (o UserPoolOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolOutput) UserPoolName() pulumi.StringPtrOutput {

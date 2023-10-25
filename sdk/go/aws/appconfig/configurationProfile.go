@@ -21,6 +21,7 @@ type ConfigurationProfile struct {
 
 	ApplicationId    pulumi.StringOutput                       `pulumi:"applicationId"`
 	Description      pulumi.StringPtrOutput                    `pulumi:"description"`
+	KmsKeyIdentifier pulumi.StringPtrOutput                    `pulumi:"kmsKeyIdentifier"`
 	LocationUri      pulumi.StringOutput                       `pulumi:"locationUri"`
 	Name             pulumi.StringOutput                       `pulumi:"name"`
 	RetrievalRoleArn pulumi.StringPtrOutput                    `pulumi:"retrievalRoleArn"`
@@ -83,6 +84,7 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 type configurationProfileArgs struct {
 	ApplicationId    string                           `pulumi:"applicationId"`
 	Description      *string                          `pulumi:"description"`
+	KmsKeyIdentifier *string                          `pulumi:"kmsKeyIdentifier"`
 	LocationUri      string                           `pulumi:"locationUri"`
 	Name             *string                          `pulumi:"name"`
 	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
@@ -95,6 +97,7 @@ type configurationProfileArgs struct {
 type ConfigurationProfileArgs struct {
 	ApplicationId    pulumi.StringInput
 	Description      pulumi.StringPtrInput
+	KmsKeyIdentifier pulumi.StringPtrInput
 	LocationUri      pulumi.StringInput
 	Name             pulumi.StringPtrInput
 	RetrievalRoleArn pulumi.StringPtrInput
@@ -158,6 +161,10 @@ func (o ConfigurationProfileOutput) ApplicationId() pulumi.StringOutput {
 
 func (o ConfigurationProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o ConfigurationProfileOutput) LocationUri() pulumi.StringOutput {

@@ -10,10 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
+    ///  ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
+    /// </summary>
     public sealed class RestApiEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("types")]
         private InputList<string>? _types;
+
+        /// <summary>
+        /// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+        /// </summary>
         public InputList<string> Types
         {
             get => _types ?? (_types = new InputList<string>());
@@ -22,6 +30,10 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 
         [Input("vpcEndpointIds")]
         private InputList<string>? _vpcEndpointIds;
+
+        /// <summary>
+        /// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+        /// </summary>
         public InputList<string> VpcEndpointIds
         {
             get => _vpcEndpointIds ?? (_vpcEndpointIds = new InputList<string>());

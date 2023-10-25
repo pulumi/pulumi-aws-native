@@ -84,13 +84,13 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediapackage-vod:CreateAsset", "mediapackage-vod:DescribeAsset", "mediapackage-vod:DescribePackagingGroup", "mediapackage-vod:TagResource", "iam:PassRole" ]
+      "permissions" : [ "mediapackage-vod:CreateAsset", "mediapackage-vod:DescribeAsset", "mediapackage-vod:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "mediapackage-vod:DescribeAsset" ]
     },
     "delete" : {
-      "permissions" : [ "mediapackage-vod:DeleteAsset" ]
+      "permissions" : [ "mediapackage-vod:DescribeAsset", "mediapackage-vod:DeleteAsset" ]
     },
     "list" : {
       "permissions" : [ "mediapackage-vod:ListAssets", "mediapackage-vod:DescribePackagingGroup" ]

@@ -24,12 +24,14 @@ func LookupResourceAssociation(ctx *pulumi.Context, args *LookupResourceAssociat
 }
 
 type LookupResourceAssociationArgs struct {
-	Id string `pulumi:"id"`
+	ApplicationArn string `pulumi:"applicationArn"`
+	ResourceArn    string `pulumi:"resourceArn"`
+	// The type of the CFN Resource for now it's enum CFN_STACK.
+	ResourceType ResourceAssociationResourceType `pulumi:"resourceType"`
 }
 
 type LookupResourceAssociationResult struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
-	Id             *string `pulumi:"id"`
 	ResourceArn    *string `pulumi:"resourceArn"`
 }
 
@@ -47,7 +49,10 @@ func LookupResourceAssociationOutput(ctx *pulumi.Context, args LookupResourceAss
 }
 
 type LookupResourceAssociationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	ResourceArn    pulumi.StringInput `pulumi:"resourceArn"`
+	// The type of the CFN Resource for now it's enum CFN_STACK.
+	ResourceType ResourceAssociationResourceTypeInput `pulumi:"resourceType"`
 }
 
 func (LookupResourceAssociationOutputArgs) ElementType() reflect.Type {
@@ -76,10 +81,6 @@ func (o LookupResourceAssociationResultOutput) ToOutput(ctx context.Context) pul
 
 func (o LookupResourceAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceAssociationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupResourceAssociationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResourceAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResourceAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {

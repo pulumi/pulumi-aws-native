@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PolicyArgs', 'Policy']
 
@@ -15,7 +17,8 @@ __all__ = ['PolicyArgs', 'Policy']
 class PolicyArgs:
     def __init__(__self__, *,
                  policy_document: Any,
-                 policy_name: Optional[pulumi.Input[str]] = None):
+                 policy_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
         """
@@ -23,16 +26,20 @@ class PolicyArgs:
             lambda key, value: pulumi.set(__self__, key, value),
             policy_document=policy_document,
             policy_name=policy_name,
+            tags=tags,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              policy_document: Any,
              policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("policy_document", policy_document)
         if policy_name is not None:
             _setter("policy_name", policy_name)
+        if tags is not None:
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -52,6 +59,15 @@ class PolicyArgs:
     def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Policy(pulumi.CustomResource):
     @overload
@@ -60,6 +76,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::Policy
@@ -97,6 +114,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -110,6 +128,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_name"] = policy_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -138,6 +157,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["policy_name"] = None
+        __props__.__dict__["tags"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -154,4 +174,9 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyTag']]]:
+        return pulumi.get(self, "tags")
 

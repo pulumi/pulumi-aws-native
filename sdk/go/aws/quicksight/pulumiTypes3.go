@@ -14,6 +14,474 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TopicCategoryFilterConstant struct {
+	CollectiveConstant *TopicCollectiveConstant `pulumi:"collectiveConstant"`
+	ConstantType       *TopicConstantType       `pulumi:"constantType"`
+	SingularConstant   *string                  `pulumi:"singularConstant"`
+}
+
+// TopicCategoryFilterConstantInput is an input type that accepts TopicCategoryFilterConstantArgs and TopicCategoryFilterConstantOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterConstantInput` via:
+//
+//	TopicCategoryFilterConstantArgs{...}
+type TopicCategoryFilterConstantInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterConstantOutput() TopicCategoryFilterConstantOutput
+	ToTopicCategoryFilterConstantOutputWithContext(context.Context) TopicCategoryFilterConstantOutput
+}
+
+type TopicCategoryFilterConstantArgs struct {
+	CollectiveConstant TopicCollectiveConstantPtrInput `pulumi:"collectiveConstant"`
+	ConstantType       TopicConstantTypePtrInput       `pulumi:"constantType"`
+	SingularConstant   pulumi.StringPtrInput           `pulumi:"singularConstant"`
+}
+
+func (TopicCategoryFilterConstantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterConstant)(nil)).Elem()
+}
+
+func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantOutput() TopicCategoryFilterConstantOutput {
+	return i.ToTopicCategoryFilterConstantOutputWithContext(context.Background())
+}
+
+func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantOutputWithContext(ctx context.Context) TopicCategoryFilterConstantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterConstantOutput)
+}
+
+func (i TopicCategoryFilterConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterConstant] {
+	return pulumix.Output[TopicCategoryFilterConstant]{
+		OutputState: i.ToTopicCategoryFilterConstantOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput {
+	return i.ToTopicCategoryFilterConstantPtrOutputWithContext(context.Background())
+}
+
+func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantPtrOutputWithContext(ctx context.Context) TopicCategoryFilterConstantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterConstantOutput).ToTopicCategoryFilterConstantPtrOutputWithContext(ctx)
+}
+
+// TopicCategoryFilterConstantPtrInput is an input type that accepts TopicCategoryFilterConstantArgs, TopicCategoryFilterConstantPtr and TopicCategoryFilterConstantPtrOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterConstantPtrInput` via:
+//
+//	        TopicCategoryFilterConstantArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicCategoryFilterConstantPtrInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput
+	ToTopicCategoryFilterConstantPtrOutputWithContext(context.Context) TopicCategoryFilterConstantPtrOutput
+}
+
+type topicCategoryFilterConstantPtrType TopicCategoryFilterConstantArgs
+
+func TopicCategoryFilterConstantPtr(v *TopicCategoryFilterConstantArgs) TopicCategoryFilterConstantPtrInput {
+	return (*topicCategoryFilterConstantPtrType)(v)
+}
+
+func (*topicCategoryFilterConstantPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilterConstant)(nil)).Elem()
+}
+
+func (i *topicCategoryFilterConstantPtrType) ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput {
+	return i.ToTopicCategoryFilterConstantPtrOutputWithContext(context.Background())
+}
+
+func (i *topicCategoryFilterConstantPtrType) ToTopicCategoryFilterConstantPtrOutputWithContext(ctx context.Context) TopicCategoryFilterConstantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterConstantPtrOutput)
+}
+
+func (i *topicCategoryFilterConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterConstant] {
+	return pulumix.Output[*TopicCategoryFilterConstant]{
+		OutputState: i.ToTopicCategoryFilterConstantPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicCategoryFilterConstantOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterConstantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilterConstant)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantOutput() TopicCategoryFilterConstantOutput {
+	return o
+}
+
+func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantOutputWithContext(ctx context.Context) TopicCategoryFilterConstantOutput {
+	return o
+}
+
+func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput {
+	return o.ToTopicCategoryFilterConstantPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantPtrOutputWithContext(ctx context.Context) TopicCategoryFilterConstantPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilterConstant) *TopicCategoryFilterConstant {
+		return &v
+	}).(TopicCategoryFilterConstantPtrOutput)
+}
+
+func (o TopicCategoryFilterConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterConstant] {
+	return pulumix.Output[TopicCategoryFilterConstant]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCategoryFilterConstantOutput) CollectiveConstant() TopicCollectiveConstantPtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilterConstant) *TopicCollectiveConstant { return v.CollectiveConstant }).(TopicCollectiveConstantPtrOutput)
+}
+
+func (o TopicCategoryFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
+}
+
+func (o TopicCategoryFilterConstantOutput) SingularConstant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilterConstant) *string { return v.SingularConstant }).(pulumi.StringPtrOutput)
+}
+
+type TopicCategoryFilterConstantPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterConstantPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilterConstant)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) ToTopicCategoryFilterConstantPtrOutputWithContext(ctx context.Context) TopicCategoryFilterConstantPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterConstant] {
+	return pulumix.Output[*TopicCategoryFilterConstant]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) Elem() TopicCategoryFilterConstantOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterConstant) TopicCategoryFilterConstant {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCategoryFilterConstant
+		return ret
+	}).(TopicCategoryFilterConstantOutput)
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) CollectiveConstant() TopicCollectiveConstantPtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterConstant) *TopicCollectiveConstant {
+		if v == nil {
+			return nil
+		}
+		return v.CollectiveConstant
+	}).(TopicCollectiveConstantPtrOutput)
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) ConstantType() TopicConstantTypePtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterConstant) *TopicConstantType {
+		if v == nil {
+			return nil
+		}
+		return v.ConstantType
+	}).(TopicConstantTypePtrOutput)
+}
+
+func (o TopicCategoryFilterConstantPtrOutput) SingularConstant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilterConstant) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SingularConstant
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicCellValueSynonym struct {
+	CellValue *string  `pulumi:"cellValue"`
+	Synonyms  []string `pulumi:"synonyms"`
+}
+
+// TopicCellValueSynonymInput is an input type that accepts TopicCellValueSynonymArgs and TopicCellValueSynonymOutput values.
+// You can construct a concrete instance of `TopicCellValueSynonymInput` via:
+//
+//	TopicCellValueSynonymArgs{...}
+type TopicCellValueSynonymInput interface {
+	pulumi.Input
+
+	ToTopicCellValueSynonymOutput() TopicCellValueSynonymOutput
+	ToTopicCellValueSynonymOutputWithContext(context.Context) TopicCellValueSynonymOutput
+}
+
+type TopicCellValueSynonymArgs struct {
+	CellValue pulumi.StringPtrInput   `pulumi:"cellValue"`
+	Synonyms  pulumi.StringArrayInput `pulumi:"synonyms"`
+}
+
+func (TopicCellValueSynonymArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCellValueSynonym)(nil)).Elem()
+}
+
+func (i TopicCellValueSynonymArgs) ToTopicCellValueSynonymOutput() TopicCellValueSynonymOutput {
+	return i.ToTopicCellValueSynonymOutputWithContext(context.Background())
+}
+
+func (i TopicCellValueSynonymArgs) ToTopicCellValueSynonymOutputWithContext(ctx context.Context) TopicCellValueSynonymOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCellValueSynonymOutput)
+}
+
+func (i TopicCellValueSynonymArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCellValueSynonym] {
+	return pulumix.Output[TopicCellValueSynonym]{
+		OutputState: i.ToTopicCellValueSynonymOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicCellValueSynonymArrayInput is an input type that accepts TopicCellValueSynonymArray and TopicCellValueSynonymArrayOutput values.
+// You can construct a concrete instance of `TopicCellValueSynonymArrayInput` via:
+//
+//	TopicCellValueSynonymArray{ TopicCellValueSynonymArgs{...} }
+type TopicCellValueSynonymArrayInput interface {
+	pulumi.Input
+
+	ToTopicCellValueSynonymArrayOutput() TopicCellValueSynonymArrayOutput
+	ToTopicCellValueSynonymArrayOutputWithContext(context.Context) TopicCellValueSynonymArrayOutput
+}
+
+type TopicCellValueSynonymArray []TopicCellValueSynonymInput
+
+func (TopicCellValueSynonymArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicCellValueSynonym)(nil)).Elem()
+}
+
+func (i TopicCellValueSynonymArray) ToTopicCellValueSynonymArrayOutput() TopicCellValueSynonymArrayOutput {
+	return i.ToTopicCellValueSynonymArrayOutputWithContext(context.Background())
+}
+
+func (i TopicCellValueSynonymArray) ToTopicCellValueSynonymArrayOutputWithContext(ctx context.Context) TopicCellValueSynonymArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCellValueSynonymArrayOutput)
+}
+
+func (i TopicCellValueSynonymArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicCellValueSynonym] {
+	return pulumix.Output[[]TopicCellValueSynonym]{
+		OutputState: i.ToTopicCellValueSynonymArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicCellValueSynonymOutput struct{ *pulumi.OutputState }
+
+func (TopicCellValueSynonymOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCellValueSynonym)(nil)).Elem()
+}
+
+func (o TopicCellValueSynonymOutput) ToTopicCellValueSynonymOutput() TopicCellValueSynonymOutput {
+	return o
+}
+
+func (o TopicCellValueSynonymOutput) ToTopicCellValueSynonymOutputWithContext(ctx context.Context) TopicCellValueSynonymOutput {
+	return o
+}
+
+func (o TopicCellValueSynonymOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCellValueSynonym] {
+	return pulumix.Output[TopicCellValueSynonym]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCellValueSynonymOutput) CellValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicCellValueSynonym) *string { return v.CellValue }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicCellValueSynonymOutput) Synonyms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicCellValueSynonym) []string { return v.Synonyms }).(pulumi.StringArrayOutput)
+}
+
+type TopicCellValueSynonymArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicCellValueSynonymArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicCellValueSynonym)(nil)).Elem()
+}
+
+func (o TopicCellValueSynonymArrayOutput) ToTopicCellValueSynonymArrayOutput() TopicCellValueSynonymArrayOutput {
+	return o
+}
+
+func (o TopicCellValueSynonymArrayOutput) ToTopicCellValueSynonymArrayOutputWithContext(ctx context.Context) TopicCellValueSynonymArrayOutput {
+	return o
+}
+
+func (o TopicCellValueSynonymArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicCellValueSynonym] {
+	return pulumix.Output[[]TopicCellValueSynonym]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCellValueSynonymArrayOutput) Index(i pulumi.IntInput) TopicCellValueSynonymOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicCellValueSynonym {
+		return vs[0].([]TopicCellValueSynonym)[vs[1].(int)]
+	}).(TopicCellValueSynonymOutput)
+}
+
+type TopicCollectiveConstant struct {
+	ValueList []string `pulumi:"valueList"`
+}
+
+// TopicCollectiveConstantInput is an input type that accepts TopicCollectiveConstantArgs and TopicCollectiveConstantOutput values.
+// You can construct a concrete instance of `TopicCollectiveConstantInput` via:
+//
+//	TopicCollectiveConstantArgs{...}
+type TopicCollectiveConstantInput interface {
+	pulumi.Input
+
+	ToTopicCollectiveConstantOutput() TopicCollectiveConstantOutput
+	ToTopicCollectiveConstantOutputWithContext(context.Context) TopicCollectiveConstantOutput
+}
+
+type TopicCollectiveConstantArgs struct {
+	ValueList pulumi.StringArrayInput `pulumi:"valueList"`
+}
+
+func (TopicCollectiveConstantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCollectiveConstant)(nil)).Elem()
+}
+
+func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantOutput() TopicCollectiveConstantOutput {
+	return i.ToTopicCollectiveConstantOutputWithContext(context.Background())
+}
+
+func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantOutputWithContext(ctx context.Context) TopicCollectiveConstantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCollectiveConstantOutput)
+}
+
+func (i TopicCollectiveConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCollectiveConstant] {
+	return pulumix.Output[TopicCollectiveConstant]{
+		OutputState: i.ToTopicCollectiveConstantOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput {
+	return i.ToTopicCollectiveConstantPtrOutputWithContext(context.Background())
+}
+
+func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantPtrOutputWithContext(ctx context.Context) TopicCollectiveConstantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCollectiveConstantOutput).ToTopicCollectiveConstantPtrOutputWithContext(ctx)
+}
+
+// TopicCollectiveConstantPtrInput is an input type that accepts TopicCollectiveConstantArgs, TopicCollectiveConstantPtr and TopicCollectiveConstantPtrOutput values.
+// You can construct a concrete instance of `TopicCollectiveConstantPtrInput` via:
+//
+//	        TopicCollectiveConstantArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicCollectiveConstantPtrInput interface {
+	pulumi.Input
+
+	ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput
+	ToTopicCollectiveConstantPtrOutputWithContext(context.Context) TopicCollectiveConstantPtrOutput
+}
+
+type topicCollectiveConstantPtrType TopicCollectiveConstantArgs
+
+func TopicCollectiveConstantPtr(v *TopicCollectiveConstantArgs) TopicCollectiveConstantPtrInput {
+	return (*topicCollectiveConstantPtrType)(v)
+}
+
+func (*topicCollectiveConstantPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCollectiveConstant)(nil)).Elem()
+}
+
+func (i *topicCollectiveConstantPtrType) ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput {
+	return i.ToTopicCollectiveConstantPtrOutputWithContext(context.Background())
+}
+
+func (i *topicCollectiveConstantPtrType) ToTopicCollectiveConstantPtrOutputWithContext(ctx context.Context) TopicCollectiveConstantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCollectiveConstantPtrOutput)
+}
+
+func (i *topicCollectiveConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCollectiveConstant] {
+	return pulumix.Output[*TopicCollectiveConstant]{
+		OutputState: i.ToTopicCollectiveConstantPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicCollectiveConstantOutput struct{ *pulumi.OutputState }
+
+func (TopicCollectiveConstantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCollectiveConstant)(nil)).Elem()
+}
+
+func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantOutput() TopicCollectiveConstantOutput {
+	return o
+}
+
+func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantOutputWithContext(ctx context.Context) TopicCollectiveConstantOutput {
+	return o
+}
+
+func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput {
+	return o.ToTopicCollectiveConstantPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantPtrOutputWithContext(ctx context.Context) TopicCollectiveConstantPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCollectiveConstant) *TopicCollectiveConstant {
+		return &v
+	}).(TopicCollectiveConstantPtrOutput)
+}
+
+func (o TopicCollectiveConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCollectiveConstant] {
+	return pulumix.Output[TopicCollectiveConstant]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCollectiveConstantOutput) ValueList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicCollectiveConstant) []string { return v.ValueList }).(pulumi.StringArrayOutput)
+}
+
+type TopicCollectiveConstantPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCollectiveConstantPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCollectiveConstant)(nil)).Elem()
+}
+
+func (o TopicCollectiveConstantPtrOutput) ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput {
+	return o
+}
+
+func (o TopicCollectiveConstantPtrOutput) ToTopicCollectiveConstantPtrOutputWithContext(ctx context.Context) TopicCollectiveConstantPtrOutput {
+	return o
+}
+
+func (o TopicCollectiveConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCollectiveConstant] {
+	return pulumix.Output[*TopicCollectiveConstant]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCollectiveConstantPtrOutput) Elem() TopicCollectiveConstantOutput {
+	return o.ApplyT(func(v *TopicCollectiveConstant) TopicCollectiveConstant {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCollectiveConstant
+		return ret
+	}).(TopicCollectiveConstantOutput)
+}
+
+func (o TopicCollectiveConstantPtrOutput) ValueList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicCollectiveConstant) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueList
+	}).(pulumi.StringArrayOutput)
+}
+
 type TopicColumn struct {
 	Aggregation            *TopicDefaultAggregation          `pulumi:"aggregation"`
 	AllowedAggregations    []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
@@ -4054,6 +4522,12 @@ func (o VpcConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcConnectionTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterConstantInput)(nil)).Elem(), TopicCategoryFilterConstantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterConstantPtrInput)(nil)).Elem(), TopicCategoryFilterConstantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCellValueSynonymInput)(nil)).Elem(), TopicCellValueSynonymArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCellValueSynonymArrayInput)(nil)).Elem(), TopicCellValueSynonymArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCollectiveConstantInput)(nil)).Elem(), TopicCollectiveConstantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCollectiveConstantPtrInput)(nil)).Elem(), TopicCollectiveConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnInput)(nil)).Elem(), TopicColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnArrayInput)(nil)).Elem(), TopicColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicComparativeOrderInput)(nil)).Elem(), TopicComparativeOrderArgs{})
@@ -4098,6 +4572,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagInput)(nil)).Elem(), VpcConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagArrayInput)(nil)).Elem(), VpcConnectionTagArray{})
+	pulumi.RegisterOutputType(TopicCategoryFilterConstantOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterConstantPtrOutput{})
+	pulumi.RegisterOutputType(TopicCellValueSynonymOutput{})
+	pulumi.RegisterOutputType(TopicCellValueSynonymArrayOutput{})
+	pulumi.RegisterOutputType(TopicCollectiveConstantOutput{})
+	pulumi.RegisterOutputType(TopicCollectiveConstantPtrOutput{})
 	pulumi.RegisterOutputType(TopicColumnOutput{})
 	pulumi.RegisterOutputType(TopicColumnArrayOutput{})
 	pulumi.RegisterOutputType(TopicComparativeOrderOutput{})

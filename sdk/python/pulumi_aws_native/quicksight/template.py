@@ -24,6 +24,7 @@ class TemplateArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
+                 validation_strategy: Optional[pulumi.Input['TemplateValidationStrategyArgs']] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Template resource.
@@ -37,6 +38,7 @@ class TemplateArgs:
             permissions=permissions,
             source_entity=source_entity,
             tags=tags,
+            validation_strategy=validation_strategy,
             version_description=version_description,
         )
     @staticmethod
@@ -49,6 +51,7 @@ class TemplateArgs:
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
              source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
+             validation_strategy: Optional[pulumi.Input['TemplateValidationStrategyArgs']] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("aws_account_id", aws_account_id)
@@ -63,6 +66,8 @@ class TemplateArgs:
             _setter("source_entity", source_entity)
         if tags is not None:
             _setter("tags", tags)
+        if validation_strategy is not None:
+            _setter("validation_strategy", validation_strategy)
         if version_description is not None:
             _setter("version_description", version_description)
 
@@ -130,6 +135,15 @@ class TemplateArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> Optional[pulumi.Input['TemplateValidationStrategyArgs']]:
+        return pulumi.get(self, "validation_strategy")
+
+    @validation_strategy.setter
+    def validation_strategy(self, value: Optional[pulumi.Input['TemplateValidationStrategyArgs']]):
+        pulumi.set(self, "validation_strategy", value)
+
+    @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "version_description")
@@ -151,6 +165,7 @@ class Template(pulumi.CustomResource):
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['TemplateValidationStrategyArgs']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -194,6 +209,7 @@ class Template(pulumi.CustomResource):
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['TemplateValidationStrategyArgs']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -225,6 +241,12 @@ class Template(pulumi.CustomResource):
             if template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
+            if validation_strategy is not None and not isinstance(validation_strategy, TemplateValidationStrategyArgs):
+                validation_strategy = validation_strategy or {}
+                def _setter(key, value):
+                    validation_strategy[key] = value
+                TemplateValidationStrategyArgs._configure(_setter, **validation_strategy)
+            __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
@@ -264,6 +286,7 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["source_entity"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_id"] = None
+        __props__.__dict__["validation_strategy"] = None
         __props__.__dict__["version"] = None
         __props__.__dict__["version_description"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
@@ -317,6 +340,11 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "template_id")
+
+    @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> pulumi.Output[Optional['outputs.TemplateValidationStrategy']]:
+        return pulumi.get(self, "validation_strategy")
 
     @property
     @pulumi.getter

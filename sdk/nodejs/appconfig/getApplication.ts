@@ -14,18 +14,33 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getApplication", {
-        "id": args.id,
+        "applicationId": args.applicationId,
     }, opts);
 }
 
 export interface GetApplicationArgs {
-    id: string;
+    /**
+     * The application Id
+     */
+    applicationId: string;
 }
 
 export interface GetApplicationResult {
+    /**
+     * The application Id
+     */
+    readonly applicationId?: string;
+    /**
+     * A description of the application.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * A name for the application.
+     */
     readonly name?: string;
+    /**
+     * Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     readonly tags?: outputs.appconfig.ApplicationTags[];
 }
 /**
@@ -36,5 +51,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The application Id
+     */
+    applicationId: pulumi.Input<string>;
 }

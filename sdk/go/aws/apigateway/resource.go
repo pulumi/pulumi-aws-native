@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Resource
+// The “AWS::ApiGateway::Resource“ resource creates a resource in an API.
 type Resource struct {
 	pulumi.CustomResourceState
 
@@ -23,7 +23,7 @@ type Resource struct {
 	PathPart pulumi.StringOutput `pulumi:"pathPart"`
 	// A unique primary identifier for a Resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The ID of the RestApi resource in which you want to create this resource..
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -86,7 +86,7 @@ type resourceArgs struct {
 	ParentId string `pulumi:"parentId"`
 	// The last path segment for this resource.
 	PathPart string `pulumi:"pathPart"`
-	// The ID of the RestApi resource in which you want to create this resource..
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -96,7 +96,7 @@ type ResourceArgs struct {
 	ParentId pulumi.StringInput
 	// The last path segment for this resource.
 	PathPart pulumi.StringInput
-	// The ID of the RestApi resource in which you want to create this resource..
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
 }
 
@@ -164,7 +164,7 @@ func (o ResourceOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The ID of the RestApi resource in which you want to create this resource..
+// The string identifier of the associated RestApi.
 func (o ResourceOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

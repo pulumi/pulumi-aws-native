@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::DocumentationPart
+ * The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export function getDocumentationPart(args: GetDocumentationPartArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationPartResult> {
 
@@ -22,7 +22,7 @@ export interface GetDocumentationPartArgs {
      */
     documentationPartId: string;
     /**
-     * Identifier of the targeted API entity
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
 }
@@ -33,12 +33,12 @@ export interface GetDocumentationPartResult {
      */
     readonly documentationPartId?: string;
     /**
-     * The documentation content map of the targeted API entity.
+     * The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
      */
     readonly properties?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::DocumentationPart
+ * The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationPartResult> {
     return pulumi.output(args).apply((a: any) => getDocumentationPart(a, opts))
@@ -50,7 +50,7 @@ export interface GetDocumentationPartOutputArgs {
      */
     documentationPartId: pulumi.Input<string>;
     /**
-     * Identifier of the targeted API entity
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

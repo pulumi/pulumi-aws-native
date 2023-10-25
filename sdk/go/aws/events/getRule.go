@@ -24,28 +24,18 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 }
 
 type LookupRuleArgs struct {
-	// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
-	Arn string `pulumi:"arn"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRuleResult struct {
-	// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
-	Arn *string `pulumi:"arn"`
-	// The description of the rule.
-	Description *string `pulumi:"description"`
-	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-	EventBusName *string `pulumi:"eventBusName"`
-	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-	EventPattern *string `pulumi:"eventPattern"`
-	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
-	RoleArn *string `pulumi:"roleArn"`
-	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// The state of the rule.
-	State *RuleStateEnum `pulumi:"state"`
-	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
-	// Targets are the resources that are invoked when a rule is triggered.
-	Targets []RuleTarget `pulumi:"targets"`
+	Arn                *string      `pulumi:"arn"`
+	Description        *string      `pulumi:"description"`
+	EventPattern       interface{}  `pulumi:"eventPattern"`
+	Id                 *string      `pulumi:"id"`
+	RoleArn            *string      `pulumi:"roleArn"`
+	ScheduleExpression *string      `pulumi:"scheduleExpression"`
+	State              *string      `pulumi:"state"`
+	Targets            []RuleTarget `pulumi:"targets"`
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
@@ -62,8 +52,7 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 }
 
 type LookupRuleOutputArgs struct {
-	// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRuleOutputArgs) ElementType() reflect.Type {
@@ -90,43 +79,34 @@ func (o LookupRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[Loo
 	}
 }
 
-// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
 func (o LookupRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The description of the rule.
 func (o LookupRuleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-func (o LookupRuleResultOutput) EventBusName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRuleResult) *string { return v.EventBusName }).(pulumi.StringPtrOutput)
+func (o LookupRuleResultOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupRuleResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
-// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-func (o LookupRuleResultOutput) EventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRuleResult) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
+func (o LookupRuleResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 func (o LookupRuleResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 func (o LookupRuleResultOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
-// The state of the rule.
-func (o LookupRuleResultOutput) State() RuleStateEnumPtrOutput {
-	return o.ApplyT(func(v LookupRuleResult) *RuleStateEnum { return v.State }).(RuleStateEnumPtrOutput)
+func (o LookupRuleResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
-// Targets are the resources that are invoked when a rule is triggered.
 func (o LookupRuleResultOutput) Targets() RuleTargetArrayOutput {
 	return o.ApplyT(func(v LookupRuleResult) []RuleTarget { return v.Targets }).(RuleTargetArrayOutput)
 }

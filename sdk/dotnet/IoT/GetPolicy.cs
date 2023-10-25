@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly string? Arn;
         public readonly string? Id;
         public readonly object? PolicyDocument;
+        public readonly ImmutableArray<Outputs.PolicyTag> Tags;
 
         [OutputConstructor]
         private GetPolicyResult(
@@ -61,11 +62,14 @@ namespace Pulumi.AwsNative.IoT
 
             string? id,
 
-            object? policyDocument)
+            object? policyDocument,
+
+            ImmutableArray<Outputs.PolicyTag> tags)
         {
             Arn = arn;
             Id = id;
             PolicyDocument = policyDocument;
+            Tags = tags;
         }
     }
 }

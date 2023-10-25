@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RestApi.
+ * The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+ *  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
  */
 export class RestApi extends pulumi.CustomResource {
     /**
@@ -37,22 +38,72 @@ export class RestApi extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestApi.__pulumiType;
     }
 
+    /**
+     * The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+     */
     public readonly apiKeySourceType!: pulumi.Output<string | undefined>;
+    /**
+     * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+     */
     public readonly binaryMediaTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     */
     public readonly body!: pulumi.Output<any | undefined>;
+    /**
+     * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
+     */
     public readonly bodyS3Location!: pulumi.Output<outputs.apigateway.RestApiS3Location | undefined>;
+    /**
+     * The ID of the RestApi that you want to clone from.
+     */
     public readonly cloneFrom!: pulumi.Output<string | undefined>;
+    /**
+     * The description of the RestApi.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+     */
     public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+     */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
+    /**
+     * A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+     */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
+    /**
+     * A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+     */
     public readonly minimumCompressionSize!: pulumi.Output<number | undefined>;
+    /**
+     * This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
+     *  Valid values are ``overwrite`` or ``merge``. 
+     *  For ``overwrite``, the new API definition replaces the existing one. The existing API identifier remains unchanged.
+     *   For ``merge``, the new API definition is merged with the existing API.
+     *  If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is ``overwrite``. For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. 
+     *  Use the default mode to define top-level ``RestApi`` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
+     */
     public readonly mode!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+     */
     public readonly parameters!: pulumi.Output<any | undefined>;
+    /**
+     * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     */
     public readonly policy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly restApiId!: pulumi.Output<string>;
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
+    /**
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     */
     public readonly tags!: pulumi.Output<outputs.apigateway.RestApiTag[] | undefined>;
 
     /**
@@ -111,19 +162,69 @@ export class RestApi extends pulumi.CustomResource {
  * The set of arguments for constructing a RestApi resource.
  */
 export interface RestApiArgs {
+    /**
+     * The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+     */
     apiKeySourceType?: pulumi.Input<string>;
+    /**
+     * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+     */
     binaryMediaTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     */
     body?: any;
+    /**
+     * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
+     */
     bodyS3Location?: pulumi.Input<inputs.apigateway.RestApiS3LocationArgs>;
+    /**
+     * The ID of the RestApi that you want to clone from.
+     */
     cloneFrom?: pulumi.Input<string>;
+    /**
+     * The description of the RestApi.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+     */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
+    /**
+     * A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+     */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfigurationArgs>;
+    /**
+     * A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+     */
     failOnWarnings?: pulumi.Input<boolean>;
+    /**
+     * A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+     */
     minimumCompressionSize?: pulumi.Input<number>;
+    /**
+     * This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
+     *  Valid values are ``overwrite`` or ``merge``. 
+     *  For ``overwrite``, the new API definition replaces the existing one. The existing API identifier remains unchanged.
+     *   For ``merge``, the new API definition is merged with the existing API.
+     *  If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is ``overwrite``. For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. 
+     *  Use the default mode to define top-level ``RestApi`` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
+     */
     mode?: pulumi.Input<string>;
+    /**
+     * The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+     */
     parameters?: any;
+    /**
+     * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     */
     policy?: any;
+    /**
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.RestApiTagArgs>[]>;
 }

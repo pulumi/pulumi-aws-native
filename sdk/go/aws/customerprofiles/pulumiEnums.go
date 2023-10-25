@@ -567,6 +567,743 @@ func (in *calculatedAttributeDefinitionThresholdOperatorPtr) ToOutput(ctx contex
 	}
 }
 
+// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+type DomainAttributeTypesSelectorAttributeMatchingModel string
+
+const (
+	DomainAttributeTypesSelectorAttributeMatchingModelOneToOne   = DomainAttributeTypesSelectorAttributeMatchingModel("ONE_TO_ONE")
+	DomainAttributeTypesSelectorAttributeMatchingModelManyToMany = DomainAttributeTypesSelectorAttributeMatchingModel("MANY_TO_MANY")
+)
+
+func (DomainAttributeTypesSelectorAttributeMatchingModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAttributeTypesSelectorAttributeMatchingModel)(nil)).Elem()
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToDomainAttributeTypesSelectorAttributeMatchingModelOutput() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return pulumi.ToOutput(e).(DomainAttributeTypesSelectorAttributeMatchingModelOutput)
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToDomainAttributeTypesSelectorAttributeMatchingModelOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainAttributeTypesSelectorAttributeMatchingModelOutput)
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutput() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return e.ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return DomainAttributeTypesSelectorAttributeMatchingModel(e).ToDomainAttributeTypesSelectorAttributeMatchingModelOutputWithContext(ctx).ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx)
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainAttributeTypesSelectorAttributeMatchingModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainAttributeTypesSelectorAttributeMatchingModelOutput struct{ *pulumi.OutputState }
+
+func (DomainAttributeTypesSelectorAttributeMatchingModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAttributeTypesSelectorAttributeMatchingModel)(nil)).Elem()
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelOutput() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutput() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return o.ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAttributeTypesSelectorAttributeMatchingModel) *DomainAttributeTypesSelectorAttributeMatchingModel {
+		return &v
+	}).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel] {
+	return pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAttributeTypesSelectorAttributeMatchingModel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainAttributeTypesSelectorAttributeMatchingModel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAttributeTypesSelectorAttributeMatchingModel)(nil)).Elem()
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutput() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return o
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel] {
+	return pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) Elem() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
+	return o.ApplyT(func(v *DomainAttributeTypesSelectorAttributeMatchingModel) DomainAttributeTypesSelectorAttributeMatchingModel {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAttributeTypesSelectorAttributeMatchingModel
+		return ret
+	}).(DomainAttributeTypesSelectorAttributeMatchingModelOutput)
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainAttributeTypesSelectorAttributeMatchingModel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainAttributeTypesSelectorAttributeMatchingModelInput is an input type that accepts DomainAttributeTypesSelectorAttributeMatchingModelArgs and DomainAttributeTypesSelectorAttributeMatchingModelOutput values.
+// You can construct a concrete instance of `DomainAttributeTypesSelectorAttributeMatchingModelInput` via:
+//
+//	DomainAttributeTypesSelectorAttributeMatchingModelArgs{...}
+type DomainAttributeTypesSelectorAttributeMatchingModelInput interface {
+	pulumi.Input
+
+	ToDomainAttributeTypesSelectorAttributeMatchingModelOutput() DomainAttributeTypesSelectorAttributeMatchingModelOutput
+	ToDomainAttributeTypesSelectorAttributeMatchingModelOutputWithContext(context.Context) DomainAttributeTypesSelectorAttributeMatchingModelOutput
+}
+
+var domainAttributeTypesSelectorAttributeMatchingModelPtrType = reflect.TypeOf((**DomainAttributeTypesSelectorAttributeMatchingModel)(nil)).Elem()
+
+type DomainAttributeTypesSelectorAttributeMatchingModelPtrInput interface {
+	pulumi.Input
+
+	ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutput() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput
+	ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput
+}
+
+type domainAttributeTypesSelectorAttributeMatchingModelPtr string
+
+func DomainAttributeTypesSelectorAttributeMatchingModelPtr(v string) DomainAttributeTypesSelectorAttributeMatchingModelPtrInput {
+	return (*domainAttributeTypesSelectorAttributeMatchingModelPtr)(&v)
+}
+
+func (*domainAttributeTypesSelectorAttributeMatchingModelPtr) ElementType() reflect.Type {
+	return domainAttributeTypesSelectorAttributeMatchingModelPtrType
+}
+
+func (in *domainAttributeTypesSelectorAttributeMatchingModelPtr) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutput() DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return pulumi.ToOutput(in).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
+}
+
+func (in *domainAttributeTypesSelectorAttributeMatchingModelPtr) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
+}
+
+func (in *domainAttributeTypesSelectorAttributeMatchingModelPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel] {
+	return pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel]{
+		OutputState: in.ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// How the auto-merging process should resolve conflicts between different profiles.
+type DomainConflictResolutionConflictResolvingModel string
+
+const (
+	DomainConflictResolutionConflictResolvingModelRecency = DomainConflictResolutionConflictResolvingModel("RECENCY")
+	DomainConflictResolutionConflictResolvingModelSource  = DomainConflictResolutionConflictResolvingModel("SOURCE")
+)
+
+func (DomainConflictResolutionConflictResolvingModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConflictResolutionConflictResolvingModel)(nil)).Elem()
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToDomainConflictResolutionConflictResolvingModelOutput() DomainConflictResolutionConflictResolvingModelOutput {
+	return pulumi.ToOutput(e).(DomainConflictResolutionConflictResolvingModelOutput)
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToDomainConflictResolutionConflictResolvingModelOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainConflictResolutionConflictResolvingModelOutput)
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToDomainConflictResolutionConflictResolvingModelPtrOutput() DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return e.ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return DomainConflictResolutionConflictResolvingModel(e).ToDomainConflictResolutionConflictResolvingModelOutputWithContext(ctx).ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx)
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConflictResolutionConflictResolvingModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainConflictResolutionConflictResolvingModelOutput struct{ *pulumi.OutputState }
+
+func (DomainConflictResolutionConflictResolvingModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConflictResolutionConflictResolvingModel)(nil)).Elem()
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictResolutionConflictResolvingModelOutput() DomainConflictResolutionConflictResolvingModelOutput {
+	return o
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictResolutionConflictResolvingModelOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelOutput {
+	return o
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictResolutionConflictResolvingModelPtrOutput() DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return o.ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConflictResolutionConflictResolvingModel) *DomainConflictResolutionConflictResolvingModel {
+		return &v
+	}).(DomainConflictResolutionConflictResolvingModelPtrOutput)
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConflictResolutionConflictResolvingModel] {
+	return pulumix.Output[DomainConflictResolutionConflictResolvingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConflictResolutionConflictResolvingModel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConflictResolutionConflictResolvingModel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainConflictResolutionConflictResolvingModelPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConflictResolutionConflictResolvingModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConflictResolutionConflictResolvingModel)(nil)).Elem()
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToDomainConflictResolutionConflictResolvingModelPtrOutput() DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return o
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return o
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolutionConflictResolvingModel] {
+	return pulumix.Output[*DomainConflictResolutionConflictResolvingModel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) Elem() DomainConflictResolutionConflictResolvingModelOutput {
+	return o.ApplyT(func(v *DomainConflictResolutionConflictResolvingModel) DomainConflictResolutionConflictResolvingModel {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConflictResolutionConflictResolvingModel
+		return ret
+	}).(DomainConflictResolutionConflictResolvingModelOutput)
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainConflictResolutionConflictResolvingModel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainConflictResolutionConflictResolvingModelInput is an input type that accepts DomainConflictResolutionConflictResolvingModelArgs and DomainConflictResolutionConflictResolvingModelOutput values.
+// You can construct a concrete instance of `DomainConflictResolutionConflictResolvingModelInput` via:
+//
+//	DomainConflictResolutionConflictResolvingModelArgs{...}
+type DomainConflictResolutionConflictResolvingModelInput interface {
+	pulumi.Input
+
+	ToDomainConflictResolutionConflictResolvingModelOutput() DomainConflictResolutionConflictResolvingModelOutput
+	ToDomainConflictResolutionConflictResolvingModelOutputWithContext(context.Context) DomainConflictResolutionConflictResolvingModelOutput
+}
+
+var domainConflictResolutionConflictResolvingModelPtrType = reflect.TypeOf((**DomainConflictResolutionConflictResolvingModel)(nil)).Elem()
+
+type DomainConflictResolutionConflictResolvingModelPtrInput interface {
+	pulumi.Input
+
+	ToDomainConflictResolutionConflictResolvingModelPtrOutput() DomainConflictResolutionConflictResolvingModelPtrOutput
+	ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput
+}
+
+type domainConflictResolutionConflictResolvingModelPtr string
+
+func DomainConflictResolutionConflictResolvingModelPtr(v string) DomainConflictResolutionConflictResolvingModelPtrInput {
+	return (*domainConflictResolutionConflictResolvingModelPtr)(&v)
+}
+
+func (*domainConflictResolutionConflictResolvingModelPtr) ElementType() reflect.Type {
+	return domainConflictResolutionConflictResolvingModelPtrType
+}
+
+func (in *domainConflictResolutionConflictResolvingModelPtr) ToDomainConflictResolutionConflictResolvingModelPtrOutput() DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return pulumi.ToOutput(in).(DomainConflictResolutionConflictResolvingModelPtrOutput)
+}
+
+func (in *domainConflictResolutionConflictResolvingModelPtr) ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainConflictResolutionConflictResolvingModelPtrOutput)
+}
+
+func (in *domainConflictResolutionConflictResolvingModelPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolutionConflictResolvingModel] {
+	return pulumix.Output[*DomainConflictResolutionConflictResolvingModel]{
+		OutputState: in.ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The day when the Identity Resolution Job should run every week.
+type DomainJobScheduleDayOfTheWeek string
+
+const (
+	DomainJobScheduleDayOfTheWeekSunday    = DomainJobScheduleDayOfTheWeek("SUNDAY")
+	DomainJobScheduleDayOfTheWeekMonday    = DomainJobScheduleDayOfTheWeek("MONDAY")
+	DomainJobScheduleDayOfTheWeekTuesday   = DomainJobScheduleDayOfTheWeek("TUESDAY")
+	DomainJobScheduleDayOfTheWeekWednesday = DomainJobScheduleDayOfTheWeek("WEDNESDAY")
+	DomainJobScheduleDayOfTheWeekThursday  = DomainJobScheduleDayOfTheWeek("THURSDAY")
+	DomainJobScheduleDayOfTheWeekFriday    = DomainJobScheduleDayOfTheWeek("FRIDAY")
+	DomainJobScheduleDayOfTheWeekSaturday  = DomainJobScheduleDayOfTheWeek("SATURDAY")
+)
+
+func (DomainJobScheduleDayOfTheWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJobScheduleDayOfTheWeek)(nil)).Elem()
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToDomainJobScheduleDayOfTheWeekOutput() DomainJobScheduleDayOfTheWeekOutput {
+	return pulumi.ToOutput(e).(DomainJobScheduleDayOfTheWeekOutput)
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToDomainJobScheduleDayOfTheWeekOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainJobScheduleDayOfTheWeekOutput)
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToDomainJobScheduleDayOfTheWeekPtrOutput() DomainJobScheduleDayOfTheWeekPtrOutput {
+	return e.ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekPtrOutput {
+	return DomainJobScheduleDayOfTheWeek(e).ToDomainJobScheduleDayOfTheWeekOutputWithContext(ctx).ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx)
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainJobScheduleDayOfTheWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainJobScheduleDayOfTheWeekOutput struct{ *pulumi.OutputState }
+
+func (DomainJobScheduleDayOfTheWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJobScheduleDayOfTheWeek)(nil)).Elem()
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekOutput() DomainJobScheduleDayOfTheWeekOutput {
+	return o
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekOutput {
+	return o
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekPtrOutput() DomainJobScheduleDayOfTheWeekPtrOutput {
+	return o.ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainJobScheduleDayOfTheWeek) *DomainJobScheduleDayOfTheWeek {
+		return &v
+	}).(DomainJobScheduleDayOfTheWeekPtrOutput)
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[DomainJobScheduleDayOfTheWeek] {
+	return pulumix.Output[DomainJobScheduleDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainJobScheduleDayOfTheWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainJobScheduleDayOfTheWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainJobScheduleDayOfTheWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainJobScheduleDayOfTheWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainJobScheduleDayOfTheWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJobScheduleDayOfTheWeek)(nil)).Elem()
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToDomainJobScheduleDayOfTheWeekPtrOutput() DomainJobScheduleDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainJobScheduleDayOfTheWeek] {
+	return pulumix.Output[*DomainJobScheduleDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) Elem() DomainJobScheduleDayOfTheWeekOutput {
+	return o.ApplyT(func(v *DomainJobScheduleDayOfTheWeek) DomainJobScheduleDayOfTheWeek {
+		if v != nil {
+			return *v
+		}
+		var ret DomainJobScheduleDayOfTheWeek
+		return ret
+	}).(DomainJobScheduleDayOfTheWeekOutput)
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainJobScheduleDayOfTheWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainJobScheduleDayOfTheWeekInput is an input type that accepts DomainJobScheduleDayOfTheWeekArgs and DomainJobScheduleDayOfTheWeekOutput values.
+// You can construct a concrete instance of `DomainJobScheduleDayOfTheWeekInput` via:
+//
+//	DomainJobScheduleDayOfTheWeekArgs{...}
+type DomainJobScheduleDayOfTheWeekInput interface {
+	pulumi.Input
+
+	ToDomainJobScheduleDayOfTheWeekOutput() DomainJobScheduleDayOfTheWeekOutput
+	ToDomainJobScheduleDayOfTheWeekOutputWithContext(context.Context) DomainJobScheduleDayOfTheWeekOutput
+}
+
+var domainJobScheduleDayOfTheWeekPtrType = reflect.TypeOf((**DomainJobScheduleDayOfTheWeek)(nil)).Elem()
+
+type DomainJobScheduleDayOfTheWeekPtrInput interface {
+	pulumi.Input
+
+	ToDomainJobScheduleDayOfTheWeekPtrOutput() DomainJobScheduleDayOfTheWeekPtrOutput
+	ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(context.Context) DomainJobScheduleDayOfTheWeekPtrOutput
+}
+
+type domainJobScheduleDayOfTheWeekPtr string
+
+func DomainJobScheduleDayOfTheWeekPtr(v string) DomainJobScheduleDayOfTheWeekPtrInput {
+	return (*domainJobScheduleDayOfTheWeekPtr)(&v)
+}
+
+func (*domainJobScheduleDayOfTheWeekPtr) ElementType() reflect.Type {
+	return domainJobScheduleDayOfTheWeekPtrType
+}
+
+func (in *domainJobScheduleDayOfTheWeekPtr) ToDomainJobScheduleDayOfTheWeekPtrOutput() DomainJobScheduleDayOfTheWeekPtrOutput {
+	return pulumi.ToOutput(in).(DomainJobScheduleDayOfTheWeekPtrOutput)
+}
+
+func (in *domainJobScheduleDayOfTheWeekPtr) ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainJobScheduleDayOfTheWeekPtrOutput)
+}
+
+func (in *domainJobScheduleDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainJobScheduleDayOfTheWeek] {
+	return pulumix.Output[*DomainJobScheduleDayOfTheWeek]{
+		OutputState: in.ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainRuleBasedMatchingStatus string
+
+const (
+	DomainRuleBasedMatchingStatusPending    = DomainRuleBasedMatchingStatus("PENDING")
+	DomainRuleBasedMatchingStatusInProgress = DomainRuleBasedMatchingStatus("IN_PROGRESS")
+	DomainRuleBasedMatchingStatusActive     = DomainRuleBasedMatchingStatus("ACTIVE")
+)
+
+func (DomainRuleBasedMatchingStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRuleBasedMatchingStatus)(nil)).Elem()
+}
+
+func (e DomainRuleBasedMatchingStatus) ToDomainRuleBasedMatchingStatusOutput() DomainRuleBasedMatchingStatusOutput {
+	return pulumi.ToOutput(e).(DomainRuleBasedMatchingStatusOutput)
+}
+
+func (e DomainRuleBasedMatchingStatus) ToDomainRuleBasedMatchingStatusOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainRuleBasedMatchingStatusOutput)
+}
+
+func (e DomainRuleBasedMatchingStatus) ToDomainRuleBasedMatchingStatusPtrOutput() DomainRuleBasedMatchingStatusPtrOutput {
+	return e.ToDomainRuleBasedMatchingStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRuleBasedMatchingStatus) ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusPtrOutput {
+	return DomainRuleBasedMatchingStatus(e).ToDomainRuleBasedMatchingStatusOutputWithContext(ctx).ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx)
+}
+
+func (e DomainRuleBasedMatchingStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRuleBasedMatchingStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRuleBasedMatchingStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRuleBasedMatchingStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainRuleBasedMatchingStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainRuleBasedMatchingStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRuleBasedMatchingStatus)(nil)).Elem()
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusOutput() DomainRuleBasedMatchingStatusOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusPtrOutput() DomainRuleBasedMatchingStatusPtrOutput {
+	return o.ToDomainRuleBasedMatchingStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRuleBasedMatchingStatus) *DomainRuleBasedMatchingStatus {
+		return &v
+	}).(DomainRuleBasedMatchingStatusPtrOutput)
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRuleBasedMatchingStatus] {
+	return pulumix.Output[DomainRuleBasedMatchingStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRuleBasedMatchingStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRuleBasedMatchingStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRuleBasedMatchingStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainRuleBasedMatchingStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRuleBasedMatchingStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRuleBasedMatchingStatus)(nil)).Elem()
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToDomainRuleBasedMatchingStatusPtrOutput() DomainRuleBasedMatchingStatusPtrOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusPtrOutput {
+	return o
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatchingStatus] {
+	return pulumix.Output[*DomainRuleBasedMatchingStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) Elem() DomainRuleBasedMatchingStatusOutput {
+	return o.ApplyT(func(v *DomainRuleBasedMatchingStatus) DomainRuleBasedMatchingStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRuleBasedMatchingStatus
+		return ret
+	}).(DomainRuleBasedMatchingStatusOutput)
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRuleBasedMatchingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainRuleBasedMatchingStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainRuleBasedMatchingStatusInput is an input type that accepts DomainRuleBasedMatchingStatusArgs and DomainRuleBasedMatchingStatusOutput values.
+// You can construct a concrete instance of `DomainRuleBasedMatchingStatusInput` via:
+//
+//	DomainRuleBasedMatchingStatusArgs{...}
+type DomainRuleBasedMatchingStatusInput interface {
+	pulumi.Input
+
+	ToDomainRuleBasedMatchingStatusOutput() DomainRuleBasedMatchingStatusOutput
+	ToDomainRuleBasedMatchingStatusOutputWithContext(context.Context) DomainRuleBasedMatchingStatusOutput
+}
+
+var domainRuleBasedMatchingStatusPtrType = reflect.TypeOf((**DomainRuleBasedMatchingStatus)(nil)).Elem()
+
+type DomainRuleBasedMatchingStatusPtrInput interface {
+	pulumi.Input
+
+	ToDomainRuleBasedMatchingStatusPtrOutput() DomainRuleBasedMatchingStatusPtrOutput
+	ToDomainRuleBasedMatchingStatusPtrOutputWithContext(context.Context) DomainRuleBasedMatchingStatusPtrOutput
+}
+
+type domainRuleBasedMatchingStatusPtr string
+
+func DomainRuleBasedMatchingStatusPtr(v string) DomainRuleBasedMatchingStatusPtrInput {
+	return (*domainRuleBasedMatchingStatusPtr)(&v)
+}
+
+func (*domainRuleBasedMatchingStatusPtr) ElementType() reflect.Type {
+	return domainRuleBasedMatchingStatusPtrType
+}
+
+func (in *domainRuleBasedMatchingStatusPtr) ToDomainRuleBasedMatchingStatusPtrOutput() DomainRuleBasedMatchingStatusPtrOutput {
+	return pulumi.ToOutput(in).(DomainRuleBasedMatchingStatusPtrOutput)
+}
+
+func (in *domainRuleBasedMatchingStatusPtr) ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainRuleBasedMatchingStatusPtrOutput)
+}
+
+func (in *domainRuleBasedMatchingStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatchingStatus] {
+	return pulumix.Output[*DomainRuleBasedMatchingStatus]{
+		OutputState: in.ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The operational state of destination stream for export.
 type EventStreamStateEnum string
 
@@ -3134,6 +3871,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionStatisticPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionStatistic("FIRST_OCCURRENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperatorInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionThresholdOperatorPtrInput)(nil)).Elem(), CalculatedAttributeDefinitionThresholdOperator("EQUAL_TO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorAttributeMatchingModelInput)(nil)).Elem(), DomainAttributeTypesSelectorAttributeMatchingModel("ONE_TO_ONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAttributeTypesSelectorAttributeMatchingModelPtrInput)(nil)).Elem(), DomainAttributeTypesSelectorAttributeMatchingModel("ONE_TO_ONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionConflictResolvingModelInput)(nil)).Elem(), DomainConflictResolutionConflictResolvingModel("RECENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionConflictResolvingModelPtrInput)(nil)).Elem(), DomainConflictResolutionConflictResolvingModel("RECENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleDayOfTheWeekInput)(nil)).Elem(), DomainJobScheduleDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleDayOfTheWeekPtrInput)(nil)).Elem(), DomainJobScheduleDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusPtrInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypeInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypePtrInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoConnectorOperatorInput)(nil)).Elem(), IntegrationMarketoConnectorOperator("PROJECTION"))
@@ -3165,6 +3910,14 @@ func init() {
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionStatisticPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOperatorOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionThresholdOperatorPtrOutput{})
+	pulumi.RegisterOutputType(DomainAttributeTypesSelectorAttributeMatchingModelOutput{})
+	pulumi.RegisterOutputType(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput{})
+	pulumi.RegisterOutputType(DomainConflictResolutionConflictResolvingModelOutput{})
+	pulumi.RegisterOutputType(DomainConflictResolutionConflictResolvingModelPtrOutput{})
+	pulumi.RegisterOutputType(DomainJobScheduleDayOfTheWeekOutput{})
+	pulumi.RegisterOutputType(DomainJobScheduleDayOfTheWeekPtrOutput{})
+	pulumi.RegisterOutputType(DomainRuleBasedMatchingStatusOutput{})
+	pulumi.RegisterOutputType(DomainRuleBasedMatchingStatusPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamStateEnumOutput{})
 	pulumi.RegisterOutputType(EventStreamStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamStatusOutput{})

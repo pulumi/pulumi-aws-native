@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketDeleteMarkerReplication
     {
-        public readonly Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus? Status;
+        public readonly string? Status;
 
         [OutputConstructor]
-        private BucketDeleteMarkerReplication(Pulumi.AwsNative.S3.BucketDeleteMarkerReplicationStatus? status)
+        private BucketDeleteMarkerReplication(string? status)
         {
             Status = status;
         }

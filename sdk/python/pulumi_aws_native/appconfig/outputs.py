@@ -23,9 +23,17 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationTags(dict):
+    """
+    Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+    """
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
+                 key: str,
+                 value: str):
+        """
+        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param str key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        :param str value: The tag value can be up to 256 characters.
+        """
         ApplicationTags._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             key=key,
@@ -34,22 +42,26 @@ class ApplicationTags(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
+             key: str,
+             value: str,
              opts: Optional[pulumi.ResourceOptions]=None):
-        if key is not None:
-            _setter("key", key)
-        if value is not None:
-            _setter("value", value)
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
+        """
+        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
+        """
+        The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "value")
 
 

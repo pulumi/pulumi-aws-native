@@ -14,19 +14,33 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getGroup", {
-        "id": args.id,
+        "groupName": args.groupName,
     }, opts);
 }
 
 export interface GetGroupArgs {
-    id: string;
+    /**
+     * The name of the group to create
+     */
+    groupName: string;
 }
 
 export interface GetGroupResult {
+    /**
+     * The Arn of the group to create
+     */
     readonly arn?: string;
-    readonly id?: string;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role. 
+     */
     readonly managedPolicyArns?: string[];
+    /**
+     * The path to the group
+     */
     readonly path?: string;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM group
+     */
     readonly policies?: outputs.iam.GroupPolicy[];
 }
 /**
@@ -37,5 +51,8 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the group to create
+     */
+    groupName: pulumi.Input<string>;
 }

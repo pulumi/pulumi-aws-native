@@ -8,6 +8,7 @@ __all__ = [
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
     'ClusterStorageMode',
+    'ReplicatorReplicationInfoTargetCompressionType',
     'VpcConnectionAuthentication',
 ]
 
@@ -28,6 +29,17 @@ class ClusterEnhancedMonitoring(str, Enum):
 class ClusterStorageMode(str, Enum):
     LOCAL = "LOCAL"
     TIERED = "TIERED"
+
+
+class ReplicatorReplicationInfoTargetCompressionType(str, Enum):
+    """
+    The type of compression to use writing records to target Kafka cluster.
+    """
+    NONE = "NONE"
+    GZIP = "GZIP"
+    SNAPPY = "SNAPPY"
+    LZ4 = "LZ4"
+    ZSTD = "ZSTD"
 
 
 class VpcConnectionAuthentication(str, Enum):

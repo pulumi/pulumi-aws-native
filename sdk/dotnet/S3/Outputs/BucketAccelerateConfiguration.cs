@@ -13,13 +13,10 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketAccelerateConfiguration
     {
-        /// <summary>
-        /// Configures the transfer acceleration state for an Amazon S3 bucket.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketAccelerateConfigurationAccelerationStatus AccelerationStatus;
+        public readonly string AccelerationStatus;
 
         [OutputConstructor]
-        private BucketAccelerateConfiguration(Pulumi.AwsNative.S3.BucketAccelerateConfigurationAccelerationStatus accelerationStatus)
+        private BucketAccelerateConfiguration(string accelerationStatus)
         {
             AccelerationStatus = accelerationStatus;
         }

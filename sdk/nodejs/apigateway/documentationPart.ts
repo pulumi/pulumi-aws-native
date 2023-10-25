@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::DocumentationPart
+ * The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export class DocumentationPart extends pulumi.CustomResource {
     /**
@@ -42,15 +42,15 @@ export class DocumentationPart extends pulumi.CustomResource {
      */
     public /*out*/ readonly documentationPartId!: pulumi.Output<string>;
     /**
-     * The location of the API entity that the documentation applies to.
+     * The location of the targeted API entity of the to-be-created documentation part.
      */
     public readonly location!: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
     /**
-     * The documentation content map of the targeted API entity.
+     * The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
      */
     public readonly properties!: pulumi.Output<string>;
     /**
-     * Identifier of the targeted API entity
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -96,15 +96,15 @@ export class DocumentationPart extends pulumi.CustomResource {
  */
 export interface DocumentationPartArgs {
     /**
-     * The location of the API entity that the documentation applies to.
+     * The location of the targeted API entity of the to-be-created documentation part.
      */
     location: pulumi.Input<inputs.apigateway.DocumentationPartLocationArgs>;
     /**
-     * The documentation content map of the targeted API entity.
+     * The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
      */
     properties: pulumi.Input<string>;
     /**
-     * Identifier of the targeted API entity
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

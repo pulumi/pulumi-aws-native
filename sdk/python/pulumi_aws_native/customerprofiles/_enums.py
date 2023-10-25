@@ -8,6 +8,10 @@ __all__ = [
     'CalculatedAttributeDefinitionRangeUnit',
     'CalculatedAttributeDefinitionStatistic',
     'CalculatedAttributeDefinitionThresholdOperator',
+    'DomainAttributeTypesSelectorAttributeMatchingModel',
+    'DomainConflictResolutionConflictResolvingModel',
+    'DomainJobScheduleDayOfTheWeek',
+    'DomainRuleBasedMatchingStatus',
     'EventStreamState',
     'EventStreamStatus',
     'IntegrationConnectorType',
@@ -54,6 +58,41 @@ class CalculatedAttributeDefinitionThresholdOperator(str, Enum):
     GREATER_THAN = "GREATER_THAN"
     LESS_THAN = "LESS_THAN"
     NOT_EQUAL_TO = "NOT_EQUAL_TO"
+
+
+class DomainAttributeTypesSelectorAttributeMatchingModel(str, Enum):
+    """
+    Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+    """
+    ONE_TO_ONE = "ONE_TO_ONE"
+    MANY_TO_MANY = "MANY_TO_MANY"
+
+
+class DomainConflictResolutionConflictResolvingModel(str, Enum):
+    """
+    How the auto-merging process should resolve conflicts between different profiles.
+    """
+    RECENCY = "RECENCY"
+    SOURCE = "SOURCE"
+
+
+class DomainJobScheduleDayOfTheWeek(str, Enum):
+    """
+    The day when the Identity Resolution Job should run every week.
+    """
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+
+
+class DomainRuleBasedMatchingStatus(str, Enum):
+    PENDING = "PENDING"
+    IN_PROGRESS = "IN_PROGRESS"
+    ACTIVE = "ACTIVE"
 
 
 class EventStreamState(str, Enum):

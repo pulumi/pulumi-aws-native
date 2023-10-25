@@ -5,10 +5,15 @@
 from enum import Enum
 
 __all__ = [
+    'IdMappingWorkflowIdMappingTechniquesIdMappingType',
     'MatchingWorkflowResolutionTechniquesResolutionType',
     'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
     'SchemaMappingSchemaAttributeType',
 ]
+
+
+class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
+    PROVIDER = "PROVIDER"
 
 
 class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):

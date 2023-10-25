@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetUsagePlanKey
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
+        /// The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
         /// </summary>
         public static Task<GetUsagePlanKeyResult> InvokeAsync(GetUsagePlanKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
+        /// The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
         /// </summary>
         public static Output<GetUsagePlanKeyResult> Invoke(GetUsagePlanKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyInvokeArgs(), options.WithDefaults());

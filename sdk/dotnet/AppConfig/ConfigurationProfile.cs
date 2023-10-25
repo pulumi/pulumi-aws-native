@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.AppConfig
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
 
         [Input("locationUri", required: true)]
         public Input<string> LocationUri { get; set; } = null!;

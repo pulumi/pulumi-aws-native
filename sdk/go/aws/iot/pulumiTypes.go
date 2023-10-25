@@ -5491,6 +5491,130 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() Mitigat
 	}).(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput)
 }
 
+type PolicyTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PolicyTagInput is an input type that accepts PolicyTagArgs and PolicyTagOutput values.
+// You can construct a concrete instance of `PolicyTagInput` via:
+//
+//	PolicyTagArgs{...}
+type PolicyTagInput interface {
+	pulumi.Input
+
+	ToPolicyTagOutput() PolicyTagOutput
+	ToPolicyTagOutputWithContext(context.Context) PolicyTagOutput
+}
+
+type PolicyTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PolicyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
+}
+
+func (i PolicyTagArgs) ToPolicyTagOutput() PolicyTagOutput {
+	return i.ToPolicyTagOutputWithContext(context.Background())
+}
+
+func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagOutput)
+}
+
+func (i PolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
+	return pulumix.Output[PolicyTag]{
+		OutputState: i.ToPolicyTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
+// You can construct a concrete instance of `PolicyTagArrayInput` via:
+//
+//	PolicyTagArray{ PolicyTagArgs{...} }
+type PolicyTagArrayInput interface {
+	pulumi.Input
+
+	ToPolicyTagArrayOutput() PolicyTagArrayOutput
+	ToPolicyTagArrayOutputWithContext(context.Context) PolicyTagArrayOutput
+}
+
+type PolicyTagArray []PolicyTagInput
+
+func (PolicyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
+}
+
+func (i PolicyTagArray) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
+	return i.ToPolicyTagArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyTagArray) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagArrayOutput)
+}
+
+func (i PolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
+	return pulumix.Output[[]PolicyTag]{
+		OutputState: i.ToPolicyTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PolicyTagOutput struct{ *pulumi.OutputState }
+
+func (PolicyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTag)(nil)).Elem()
+}
+
+func (o PolicyTagOutput) ToPolicyTagOutput() PolicyTagOutput {
+	return o
+}
+
+func (o PolicyTagOutput) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
+	return o
+}
+
+func (o PolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
+	return pulumix.Output[PolicyTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PolicyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PolicyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PolicyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyTag)(nil)).Elem()
+}
+
+func (o PolicyTagArrayOutput) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
+	return o
+}
+
+func (o PolicyTagArrayOutput) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
+	return o
+}
+
+func (o PolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
+	return pulumix.Output[[]PolicyTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTag {
+		return vs[0].([]PolicyTag)[vs[1].(int)]
+	}).(PolicyTagOutput)
+}
+
 // Configuration for pre-signed S3 URLs.
 type PresignedUrlConfigProperties struct {
 	ExpiresInSec *int   `pulumi:"expiresInSec"`
@@ -16887,6 +17011,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateCaCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateCaCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionUpdateDeviceCertificateParamsPtrInput)(nil)).Elem(), MitigationActionUpdateDeviceCertificateParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagInput)(nil)).Elem(), PolicyTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTagArrayInput)(nil)).Elem(), PolicyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresignedUrlConfigPropertiesInput)(nil)).Elem(), PresignedUrlConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PresignedUrlConfigPropertiesPtrInput)(nil)).Elem(), PresignedUrlConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplateProvisioningHookInput)(nil)).Elem(), ProvisioningTemplateProvisioningHookArgs{})
@@ -17081,6 +17207,8 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionUpdateCaCertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsPtrOutput{})
+	pulumi.RegisterOutputType(PolicyTagOutput{})
+	pulumi.RegisterOutputType(PolicyTagArrayOutput{})
 	pulumi.RegisterOutputType(PresignedUrlConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(PresignedUrlConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookOutput{})

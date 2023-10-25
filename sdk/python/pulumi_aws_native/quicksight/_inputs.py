@@ -456,6 +456,7 @@ __all__ = [
     'AnalysisTrendArrowOptionsArgs',
     'AnalysisUnaggregatedFieldArgs',
     'AnalysisUniqueValuesComputationArgs',
+    'AnalysisValidationStrategyArgs',
     'AnalysisVisibleRangeOptionsArgs',
     'AnalysisVisualCustomActionOperationArgs',
     'AnalysisVisualCustomActionArgs',
@@ -931,6 +932,7 @@ __all__ = [
     'DashboardTrendArrowOptionsArgs',
     'DashboardUnaggregatedFieldArgs',
     'DashboardUniqueValuesComputationArgs',
+    'DashboardValidationStrategyArgs',
     'DashboardVersionDefinitionArgs',
     'DashboardVisibleRangeOptionsArgs',
     'DashboardVisualAxisSortOptionArgs',
@@ -1456,6 +1458,7 @@ __all__ = [
     'TemplateTrendArrowOptionsArgs',
     'TemplateUnaggregatedFieldArgs',
     'TemplateUniqueValuesComputationArgs',
+    'TemplateValidationStrategyArgs',
     'TemplateVersionDefinitionArgs',
     'TemplateVisibleRangeOptionsArgs',
     'TemplateVisualCustomActionOperationArgs',
@@ -26931,6 +26934,31 @@ class AnalysisUniqueValuesComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class AnalysisValidationStrategyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['AnalysisValidationStrategyMode']):
+        AnalysisValidationStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input['AnalysisValidationStrategyMode'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['AnalysisValidationStrategyMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['AnalysisValidationStrategyMode']):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
@@ -54107,6 +54135,31 @@ class DashboardUniqueValuesComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DashboardValidationStrategyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['DashboardValidationStrategyMode']):
+        DashboardValidationStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input['DashboardValidationStrategyMode'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['DashboardValidationStrategyMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['DashboardValidationStrategyMode']):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
@@ -84308,6 +84361,31 @@ class TemplateUniqueValuesComputationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TemplateValidationStrategyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['TemplateValidationStrategyMode']):
+        TemplateValidationStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input['TemplateValidationStrategyMode'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['TemplateValidationStrategyMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['TemplateValidationStrategyMode']):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type

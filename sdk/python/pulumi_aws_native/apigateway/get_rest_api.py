@@ -57,41 +57,65 @@ class GetRestApiResult:
     @property
     @pulumi.getter(name="apiKeySourceType")
     def api_key_source_type(self) -> Optional[str]:
+        """
+        The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        """
         return pulumi.get(self, "api_key_source_type")
 
     @property
     @pulumi.getter(name="binaryMediaTypes")
     def binary_media_types(self) -> Optional[Sequence[str]]:
+        """
+        The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
+        """
         return pulumi.get(self, "binary_media_types")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the RestApi.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> Optional[bool]:
+        """
+        Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional['outputs.RestApiEndpointConfiguration']:
+        """
+        A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+        """
         return pulumi.get(self, "endpoint_configuration")
 
     @property
     @pulumi.getter(name="minimumCompressionSize")
     def minimum_compression_size(self) -> Optional[int]:
+        """
+        A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+        """
         return pulumi.get(self, "minimum_compression_size")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
+        """
+        A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+        """
         return pulumi.get(self, "policy")
 
     @property
@@ -107,6 +131,9 @@ class GetRestApiResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.RestApiTag']]:
+        """
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -132,7 +159,8 @@ class AwaitableGetRestApiResult(GetRestApiResult):
 def get_rest_api(rest_api_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestApiResult:
     """
-    Resource Type definition for AWS::ApiGateway::RestApi.
+    The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+     On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
     """
     __args__ = dict()
     __args__['restApiId'] = rest_api_id
@@ -157,6 +185,7 @@ def get_rest_api(rest_api_id: Optional[str] = None,
 def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
-    Resource Type definition for AWS::ApiGateway::RestApi.
+    The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+     On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
     """
     ...

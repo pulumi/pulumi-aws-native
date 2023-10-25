@@ -372,7 +372,7 @@ class JobTemplate(pulumi.CustomResource):
                 TimeoutConfigPropertiesArgs._configure(_setter, **timeout_config)
             __props__.__dict__["timeout_config"] = timeout_config
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["abort_config", "description", "document", "document_source", "job_arn", "job_executions_rollout_config", "job_template_id", "presigned_url_config", "tags[*]", "timeout_config"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["abort_config", "description", "destination_package_versions[*]", "document", "document_source", "job_arn", "job_executions_retry_config", "job_executions_rollout_config", "job_template_id", "maintenance_windows[*]", "presigned_url_config", "tags[*]", "timeout_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(JobTemplate, __self__).__init__(
             'aws-native:iot:JobTemplate',

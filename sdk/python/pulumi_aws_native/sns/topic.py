@@ -16,6 +16,7 @@ __all__ = ['TopicArgs', 'Topic']
 @pulumi.input_type
 class TopicArgs:
     def __init__(__self__, *,
+                 archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class TopicArgs:
                  tracing_config: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Topic resource.
+        :param Any archive_policy: The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
                
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -54,6 +56,7 @@ class TopicArgs:
         """
         TopicArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            archive_policy=archive_policy,
             content_based_deduplication=content_based_deduplication,
             data_protection_policy=data_protection_policy,
             display_name=display_name,
@@ -68,6 +71,7 @@ class TopicArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             archive_policy: Optional[Any] = None,
              content_based_deduplication: Optional[pulumi.Input[bool]] = None,
              data_protection_policy: Optional[Any] = None,
              display_name: Optional[pulumi.Input[str]] = None,
@@ -79,6 +83,8 @@ class TopicArgs:
              topic_name: Optional[pulumi.Input[str]] = None,
              tracing_config: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
+        if archive_policy is not None:
+            _setter("archive_policy", archive_policy)
         if content_based_deduplication is not None:
             _setter("content_based_deduplication", content_based_deduplication)
         if data_protection_policy is not None:
@@ -99,6 +105,18 @@ class TopicArgs:
             _setter("topic_name", topic_name)
         if tracing_config is not None:
             _setter("tracing_config", tracing_config)
+
+    @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> Optional[Any]:
+        """
+        The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        """
+        return pulumi.get(self, "archive_policy")
+
+    @archive_policy.setter
+    def archive_policy(self, value: Optional[Any]):
+        pulumi.set(self, "archive_policy", value)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -237,6 +255,7 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -253,6 +272,7 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any archive_policy: The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
                
                When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -305,6 +325,7 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -324,6 +345,7 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicArgs.__new__(TopicArgs)
 
+            __props__.__dict__["archive_policy"] = archive_policy
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
             __props__.__dict__["data_protection_policy"] = data_protection_policy
             __props__.__dict__["display_name"] = display_name
@@ -359,6 +381,7 @@ class Topic(pulumi.CustomResource):
 
         __props__ = TopicArgs.__new__(TopicArgs)
 
+        __props__.__dict__["archive_policy"] = None
         __props__.__dict__["content_based_deduplication"] = None
         __props__.__dict__["data_protection_policy"] = None
         __props__.__dict__["display_name"] = None
@@ -371,6 +394,14 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["topic_name"] = None
         __props__.__dict__["tracing_config"] = None
         return Topic(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        """
+        return pulumi.get(self, "archive_policy")
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")

@@ -13,15 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// A snapshot of the documentation of an API.
+// The “AWS::ApiGateway::DocumentationVersion“ resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
 
-	// The description of the API documentation snapshot.
+	// A description about the new documentation snapshot.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion pulumi.StringOutput `pulumi:"documentationVersion"`
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -76,21 +76,21 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 }
 
 type documentationVersionArgs struct {
-	// The description of the API documentation snapshot.
+	// A description about the new documentation snapshot.
 	Description *string `pulumi:"description"`
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion string `pulumi:"documentationVersion"`
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a DocumentationVersion resource.
 type DocumentationVersionArgs struct {
-	// The description of the API documentation snapshot.
+	// A description about the new documentation snapshot.
 	Description pulumi.StringPtrInput
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion pulumi.StringInput
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
 }
 
@@ -143,17 +143,17 @@ func (o DocumentationVersionOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
-// The description of the API documentation snapshot.
+// A description about the new documentation snapshot.
 func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version identifier of the API documentation snapshot.
+// The version identifier of the to-be-updated documentation version.
 func (o DocumentationVersionOutput) DocumentationVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.DocumentationVersion }).(pulumi.StringOutput)
 }
 
-// The identifier of the API.
+// The string identifier of the associated RestApi.
 func (o DocumentationVersionOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

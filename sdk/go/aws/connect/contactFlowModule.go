@@ -28,9 +28,9 @@ type ContactFlowModule struct {
 	// The name of the contact flow module.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The state of the contact flow module.
-	State ContactFlowModuleStateEnumPtrOutput `pulumi:"state"`
+	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The status of the contact flow module.
-	Status ContactFlowModuleStatusOutput `pulumi:"status"`
+	Status pulumi.StringOutput `pulumi:"status"`
 	// One or more tags.
 	Tags ContactFlowModuleTagArrayOutput `pulumi:"tags"`
 }
@@ -90,7 +90,7 @@ type contactFlowModuleArgs struct {
 	// The name of the contact flow module.
 	Name *string `pulumi:"name"`
 	// The state of the contact flow module.
-	State *ContactFlowModuleStateEnum `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// One or more tags.
 	Tags []ContactFlowModuleTag `pulumi:"tags"`
 }
@@ -106,7 +106,7 @@ type ContactFlowModuleArgs struct {
 	// The name of the contact flow module.
 	Name pulumi.StringPtrInput
 	// The state of the contact flow module.
-	State ContactFlowModuleStateEnumPtrInput
+	State pulumi.StringPtrInput
 	// One or more tags.
 	Tags ContactFlowModuleTagArrayInput
 }
@@ -186,13 +186,13 @@ func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
 }
 
 // The state of the contact flow module.
-func (o ContactFlowModuleOutput) State() ContactFlowModuleStateEnumPtrOutput {
-	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleStateEnumPtrOutput { return v.State }).(ContactFlowModuleStateEnumPtrOutput)
+func (o ContactFlowModuleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // The status of the contact flow module.
-func (o ContactFlowModuleOutput) Status() ContactFlowModuleStatusOutput {
-	return o.ApplyT(func(v *ContactFlowModule) ContactFlowModuleStatusOutput { return v.Status }).(ContactFlowModuleStatusOutput)
+func (o ContactFlowModuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // One or more tags.

@@ -15,9 +15,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentityPoolCognitoIdentityProvider struct {
-	ClientId             string `pulumi:"clientId"`
-	ProviderName         string `pulumi:"providerName"`
-	ServerSideTokenCheck *bool  `pulumi:"serverSideTokenCheck"`
+	ClientId             *string `pulumi:"clientId"`
+	ProviderName         *string `pulumi:"providerName"`
+	ServerSideTokenCheck *bool   `pulumi:"serverSideTokenCheck"`
 }
 
 // IdentityPoolCognitoIdentityProviderInput is an input type that accepts IdentityPoolCognitoIdentityProviderArgs and IdentityPoolCognitoIdentityProviderOutput values.
@@ -32,9 +32,9 @@ type IdentityPoolCognitoIdentityProviderInput interface {
 }
 
 type IdentityPoolCognitoIdentityProviderArgs struct {
-	ClientId             pulumi.StringInput  `pulumi:"clientId"`
-	ProviderName         pulumi.StringInput  `pulumi:"providerName"`
-	ServerSideTokenCheck pulumi.BoolPtrInput `pulumi:"serverSideTokenCheck"`
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
+	ProviderName         pulumi.StringPtrInput `pulumi:"providerName"`
+	ServerSideTokenCheck pulumi.BoolPtrInput   `pulumi:"serverSideTokenCheck"`
 }
 
 func (IdentityPoolCognitoIdentityProviderArgs) ElementType() reflect.Type {
@@ -106,12 +106,12 @@ func (o IdentityPoolCognitoIdentityProviderOutput) ToOutput(ctx context.Context)
 	}
 }
 
-func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ClientId }).(pulumi.StringOutput)
+func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o IdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) string { return v.ProviderName }).(pulumi.StringOutput)
+func (o IdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPoolCognitoIdentityProvider) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
 func (o IdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolPtrOutput {
@@ -501,139 +501,6 @@ func (o IdentityPoolPushSyncPtrOutput) RoleArn() pulumi.StringPtrOutput {
 		}
 		return v.RoleArn
 	}).(pulumi.StringPtrOutput)
-}
-
-// A key-value pair to associate with a resource.
-type IdentityPoolTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
-}
-
-// IdentityPoolTagInput is an input type that accepts IdentityPoolTagArgs and IdentityPoolTagOutput values.
-// You can construct a concrete instance of `IdentityPoolTagInput` via:
-//
-//	IdentityPoolTagArgs{...}
-type IdentityPoolTagInput interface {
-	pulumi.Input
-
-	ToIdentityPoolTagOutput() IdentityPoolTagOutput
-	ToIdentityPoolTagOutputWithContext(context.Context) IdentityPoolTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type IdentityPoolTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (IdentityPoolTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolTag)(nil)).Elem()
-}
-
-func (i IdentityPoolTagArgs) ToIdentityPoolTagOutput() IdentityPoolTagOutput {
-	return i.ToIdentityPoolTagOutputWithContext(context.Background())
-}
-
-func (i IdentityPoolTagArgs) ToIdentityPoolTagOutputWithContext(ctx context.Context) IdentityPoolTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolTagOutput)
-}
-
-func (i IdentityPoolTagArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolTag] {
-	return pulumix.Output[IdentityPoolTag]{
-		OutputState: i.ToIdentityPoolTagOutputWithContext(ctx).OutputState,
-	}
-}
-
-// IdentityPoolTagArrayInput is an input type that accepts IdentityPoolTagArray and IdentityPoolTagArrayOutput values.
-// You can construct a concrete instance of `IdentityPoolTagArrayInput` via:
-//
-//	IdentityPoolTagArray{ IdentityPoolTagArgs{...} }
-type IdentityPoolTagArrayInput interface {
-	pulumi.Input
-
-	ToIdentityPoolTagArrayOutput() IdentityPoolTagArrayOutput
-	ToIdentityPoolTagArrayOutputWithContext(context.Context) IdentityPoolTagArrayOutput
-}
-
-type IdentityPoolTagArray []IdentityPoolTagInput
-
-func (IdentityPoolTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPoolTag)(nil)).Elem()
-}
-
-func (i IdentityPoolTagArray) ToIdentityPoolTagArrayOutput() IdentityPoolTagArrayOutput {
-	return i.ToIdentityPoolTagArrayOutputWithContext(context.Background())
-}
-
-func (i IdentityPoolTagArray) ToIdentityPoolTagArrayOutputWithContext(ctx context.Context) IdentityPoolTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolTagArrayOutput)
-}
-
-func (i IdentityPoolTagArray) ToOutput(ctx context.Context) pulumix.Output[[]IdentityPoolTag] {
-	return pulumix.Output[[]IdentityPoolTag]{
-		OutputState: i.ToIdentityPoolTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
-// A key-value pair to associate with a resource.
-type IdentityPoolTagOutput struct{ *pulumi.OutputState }
-
-func (IdentityPoolTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityPoolTag)(nil)).Elem()
-}
-
-func (o IdentityPoolTagOutput) ToIdentityPoolTagOutput() IdentityPoolTagOutput {
-	return o
-}
-
-func (o IdentityPoolTagOutput) ToIdentityPoolTagOutputWithContext(ctx context.Context) IdentityPoolTagOutput {
-	return o
-}
-
-func (o IdentityPoolTagOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolTag] {
-	return pulumix.Output[IdentityPoolTag]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IdentityPoolTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityPoolTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o IdentityPoolTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityPoolTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IdentityPoolTagArrayOutput struct{ *pulumi.OutputState }
-
-func (IdentityPoolTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentityPoolTag)(nil)).Elem()
-}
-
-func (o IdentityPoolTagArrayOutput) ToIdentityPoolTagArrayOutput() IdentityPoolTagArrayOutput {
-	return o
-}
-
-func (o IdentityPoolTagArrayOutput) ToIdentityPoolTagArrayOutputWithContext(ctx context.Context) IdentityPoolTagArrayOutput {
-	return o
-}
-
-func (o IdentityPoolTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IdentityPoolTag] {
-	return pulumix.Output[[]IdentityPoolTag]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o IdentityPoolTagArrayOutput) Index(i pulumi.IntInput) IdentityPoolTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentityPoolTag {
-		return vs[0].([]IdentityPoolTag)[vs[1].(int)]
-	}).(IdentityPoolTagOutput)
 }
 
 type LogDeliveryConfigurationCloudWatchLogsConfiguration struct {
@@ -6726,8 +6593,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoStreamsPtrInput)(nil)).Elem(), IdentityPoolCognitoStreamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolPushSyncPtrInput)(nil)).Elem(), IdentityPoolPushSyncArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolTagInput)(nil)).Elem(), IdentityPoolTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolTagArrayInput)(nil)).Elem(), IdentityPoolTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationCloudWatchLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArgs{})
@@ -6802,8 +6667,6 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolCognitoStreamsPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncOutput{})
 	pulumi.RegisterOutputType(IdentityPoolPushSyncPtrOutput{})
-	pulumi.RegisterOutputType(IdentityPoolTagOutput{})
-	pulumi.RegisterOutputType(IdentityPoolTagArrayOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationOutput{})

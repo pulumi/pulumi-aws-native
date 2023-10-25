@@ -37,42 +37,14 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    /**
-     * The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the rule.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-     */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
-    /**
-     * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-     */
-    public readonly eventPattern!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the rule.
-     */
+    public readonly eventPattern!: pulumi.Output<any | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the role that is used for target invocation.
-     */
     public readonly roleArn!: pulumi.Output<string | undefined>;
-    /**
-     * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
-     */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
-    /**
-     * The state of the rule.
-     */
-    public readonly state!: pulumi.Output<enums.events.RuleState | undefined>;
-    /**
-     * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
-     * Targets are the resources that are invoked when a rule is triggered.
-     */
+    public readonly state!: pulumi.Output<string | undefined>;
     public readonly targets!: pulumi.Output<outputs.events.RuleTarget[] | undefined>;
 
     /**
@@ -107,7 +79,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["eventBusName", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,37 +89,12 @@ export class Rule extends pulumi.CustomResource {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * The description of the rule.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-     */
     eventBusName?: pulumi.Input<string>;
-    /**
-     * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-     */
-    eventPattern?: pulumi.Input<string>;
-    /**
-     * The name of the rule.
-     */
+    eventPattern?: any;
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the role that is used for target invocation.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
-     */
     scheduleExpression?: pulumi.Input<string>;
-    /**
-     * The state of the rule.
-     */
-    state?: pulumi.Input<enums.events.RuleState>;
-    /**
-     * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
-     * Targets are the resources that are invoked when a rule is triggered.
-     */
+    state?: pulumi.Input<string>;
     targets?: pulumi.Input<pulumi.Input<inputs.events.RuleTargetArgs>[]>;
 }

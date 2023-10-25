@@ -31,6 +31,7 @@ type LookupPolicyResult struct {
 	Arn            *string     `pulumi:"arn"`
 	Id             *string     `pulumi:"id"`
 	PolicyDocument interface{} `pulumi:"policyDocument"`
+	Tags           []PolicyTag `pulumi:"tags"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -84,6 +85,10 @@ func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o LookupPolicyResultOutput) Tags() PolicyTagArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []PolicyTag { return v.Tags }).(PolicyTagArrayOutput)
 }
 
 func init() {

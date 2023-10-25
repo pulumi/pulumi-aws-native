@@ -21,7 +21,7 @@ class ResourceArgs:
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[str] parent_id: The parent resource's identifier.
         :param pulumi.Input[str] path_part: The last path segment for this resource.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which you want to create this resource..
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
         ResourceArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -68,7 +68,7 @@ class ResourceArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the RestApi resource in which you want to create this resource..
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -87,13 +87,13 @@ class Resource(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::Resource
+        The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] parent_id: The parent resource's identifier.
         :param pulumi.Input[str] path_part: The last path segment for this resource.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which you want to create this resource..
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
         ...
     @overload
@@ -102,7 +102,7 @@ class Resource(pulumi.CustomResource):
                  args: ResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::Resource
+        The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the RestApi resource in which you want to create this resource..
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 

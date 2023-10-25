@@ -24,7 +24,7 @@ func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulum
 }
 
 type LookupUserPoolArgs struct {
-	Id string `pulumi:"id"`
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolResult struct {
@@ -38,8 +38,6 @@ type LookupUserPoolResult struct {
 	EmailConfiguration          *UserPoolEmailConfiguration          `pulumi:"emailConfiguration"`
 	EmailVerificationMessage    *string                              `pulumi:"emailVerificationMessage"`
 	EmailVerificationSubject    *string                              `pulumi:"emailVerificationSubject"`
-	EnabledMfas                 []string                             `pulumi:"enabledMfas"`
-	Id                          *string                              `pulumi:"id"`
 	LambdaConfig                *UserPoolLambdaConfig                `pulumi:"lambdaConfig"`
 	MfaConfiguration            *string                              `pulumi:"mfaConfiguration"`
 	Policies                    *UserPoolPolicies                    `pulumi:"policies"`
@@ -51,6 +49,7 @@ type LookupUserPoolResult struct {
 	SmsVerificationMessage      *string                              `pulumi:"smsVerificationMessage"`
 	UserAttributeUpdateSettings *UserPoolUserAttributeUpdateSettings `pulumi:"userAttributeUpdateSettings"`
 	UserPoolAddOns              *UserPoolAddOns                      `pulumi:"userPoolAddOns"`
+	UserPoolId                  *string                              `pulumi:"userPoolId"`
 	UserPoolName                *string                              `pulumi:"userPoolName"`
 	UserPoolTags                interface{}                          `pulumi:"userPoolTags"`
 	UsernameAttributes          []string                             `pulumi:"usernameAttributes"`
@@ -72,7 +71,7 @@ func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, op
 }
 
 type LookupUserPoolOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolOutputArgs) ElementType() reflect.Type {
@@ -139,14 +138,6 @@ func (o LookupUserPoolResultOutput) EmailVerificationSubject() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.EmailVerificationSubject }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolResultOutput) EnabledMfas() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupUserPoolResult) []string { return v.EnabledMfas }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupUserPoolResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupUserPoolResultOutput) LambdaConfig() UserPoolLambdaConfigPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolLambdaConfig { return v.LambdaConfig }).(UserPoolLambdaConfigPtrOutput)
 }
@@ -191,6 +182,10 @@ func (o LookupUserPoolResultOutput) UserAttributeUpdateSettings() UserPoolUserAt
 
 func (o LookupUserPoolResultOutput) UserPoolAddOns() UserPoolAddOnsPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolAddOns { return v.UserPoolAddOns }).(UserPoolAddOnsPtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.UserPoolId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolResultOutput) UserPoolName() pulumi.StringPtrOutput {

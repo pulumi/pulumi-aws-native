@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// A snapshot of the documentation of an API.
+// The “AWS::ApiGateway::DocumentationVersion“ resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 func LookupDocumentationVersion(ctx *pulumi.Context, args *LookupDocumentationVersionArgs, opts ...pulumi.InvokeOption) (*LookupDocumentationVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentationVersionResult
@@ -24,14 +24,14 @@ func LookupDocumentationVersion(ctx *pulumi.Context, args *LookupDocumentationVe
 }
 
 type LookupDocumentationVersionArgs struct {
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion string `pulumi:"documentationVersion"`
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDocumentationVersionResult struct {
-	// The description of the API documentation snapshot.
+	// A description about the new documentation snapshot.
 	Description *string `pulumi:"description"`
 }
 
@@ -49,9 +49,9 @@ func LookupDocumentationVersionOutput(ctx *pulumi.Context, args LookupDocumentat
 }
 
 type LookupDocumentationVersionOutputArgs struct {
-	// The version identifier of the API documentation snapshot.
+	// The version identifier of the to-be-updated documentation version.
 	DocumentationVersion pulumi.StringInput `pulumi:"documentationVersion"`
-	// The identifier of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -79,7 +79,7 @@ func (o LookupDocumentationVersionResultOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// The description of the API documentation snapshot.
+// A description about the new documentation snapshot.
 func (o LookupDocumentationVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentationVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

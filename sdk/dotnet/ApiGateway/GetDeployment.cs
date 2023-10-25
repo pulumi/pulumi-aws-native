@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetDeployment
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Deployment
+        /// The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("aws-native:apigateway:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::Deployment
+        /// The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:apigateway:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public string DeploymentId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource to deploy. 
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> DeploymentId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the RestApi resource to deploy. 
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DeploymentId;
         /// <summary>
-        /// A description of the purpose of the API Gateway deployment.
+        /// The description for the Deployment resource to create.
         /// </summary>
         public readonly string? Description;
 

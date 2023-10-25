@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPoolGroup
     /// </summary>
-    [Obsolete(@"UserPoolGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolGroup")]
     public partial class UserPoolGroup : global::Pulumi.CustomResource
     {
@@ -23,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> GroupName { get; private set; } = null!;
 
         [Output("precedence")]
-        public Output<double?> Precedence { get; private set; } = null!;
+        public Output<int?> Precedence { get; private set; } = null!;
 
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -88,7 +87,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? GroupName { get; set; }
 
         [Input("precedence")]
-        public Input<double>? Precedence { get; set; }
+        public Input<int>? Precedence { get; set; }
 
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

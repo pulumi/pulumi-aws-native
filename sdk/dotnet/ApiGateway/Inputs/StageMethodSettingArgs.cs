@@ -11,66 +11,67 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     /// <summary>
-    /// Configures settings for all methods in a stage.
+    /// The ``MethodSetting`` property type configures settings for all methods in a stage.
+    ///  The ``MethodSettings`` property of the ``AWS::ApiGateway::Stage`` resource contains a list of ``MethodSetting`` property types.
     /// </summary>
     public sealed class StageMethodSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the cached responses are encrypted.
+        /// Specifies whether the cached responses are encrypted.
         /// </summary>
         [Input("cacheDataEncrypted")]
         public Input<bool>? CacheDataEncrypted { get; set; }
 
         /// <summary>
-        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
+        /// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
         /// </summary>
         [Input("cacheTtlInSeconds")]
         public Input<int>? CacheTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         /// </summary>
         [Input("cachingEnabled")]
         public Input<bool>? CachingEnabled { get; set; }
 
         /// <summary>
-        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
+        /// Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         /// </summary>
         [Input("dataTraceEnabled")]
         public Input<bool>? DataTraceEnabled { get; set; }
 
         /// <summary>
-        /// The HTTP method. You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        /// The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The logging level for this method. For valid values, see the loggingLevel property of the Stage (https://docs.aws.amazon.com/apigateway/api-reference/resource/stage/#loggingLevel) resource in the Amazon API Gateway API Reference.
+        /// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
 
         /// <summary>
-        /// Indicates whether Amazon CloudWatch metrics are enabled for methods in the stage.
+        /// Specifies whether Amazon CloudWatch metrics are enabled for this method.
         /// </summary>
         [Input("metricsEnabled")]
         public Input<bool>? MetricsEnabled { get; set; }
 
         /// <summary>
-        /// The resource path for this method. Forward slashes (/) are encoded as ~1 and the initial slash must include a forward slash. For example, the path value /resource/subresource must be encoded as /~1resource~1subresource. To specify the root path, use only a slash (/). You can use an asterisk (*) as a wildcard to apply method settings to multiple methods.
+        /// The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         /// </summary>
         [Input("resourcePath")]
         public Input<string>? ResourcePath { get; set; }
 
         /// <summary>
-        /// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// Specifies the throttling burst limit.
         /// </summary>
         [Input("throttlingBurstLimit")]
         public Input<int>? ThrottlingBurstLimit { get; set; }
 
         /// <summary>
-        /// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// Specifies the throttling rate limit.
         /// </summary>
         [Input("throttlingRateLimit")]
         public Input<double>? ThrottlingRateLimit { get; set; }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Stage
+ * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
  */
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
 
@@ -21,67 +21,67 @@ export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetStageArgs {
     /**
-     * The ID of the RestApi resource that you're deploying with this stage.
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
     /**
-     * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+     * The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
      */
     stageName: string;
 }
 
 export interface GetStageResult {
     /**
-     * Specifies settings for logging access in this stage.
+     * Access log settings, including the access log format and access log destination ARN.
      */
     readonly accessLogSetting?: outputs.apigateway.StageAccessLogSetting;
     /**
-     * Indicates whether cache clustering is enabled for the stage.
+     * Specifies whether a cache cluster is enabled for the stage.
      */
     readonly cacheClusterEnabled?: boolean;
     /**
-     * The stage's cache cluster size.
+     * The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
      */
     readonly cacheClusterSize?: string;
     /**
-     * Specifies settings for the canary deployment in this stage.
+     * Settings for the canary deployment in this stage.
      */
     readonly canarySetting?: outputs.apigateway.StageCanarySetting;
     /**
-     * The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+     * The identifier of a client certificate for an API stage.
      */
     readonly clientCertificateId?: string;
     /**
-     * The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+     * The identifier of the Deployment that the stage points to.
      */
     readonly deploymentId?: string;
     /**
-     * A description of the stage.
+     * The stage's description.
      */
     readonly description?: string;
     /**
-     * The version ID of the API documentation snapshot.
+     * The version of the associated API documentation.
      */
     readonly documentationVersion?: string;
     /**
-     * Settings for all methods in the stage.
+     * A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*&#47;\*`` for overriding all methods in the stage.
      */
     readonly methodSettings?: outputs.apigateway.StageMethodSetting[];
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the stage.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     readonly tags?: outputs.apigateway.StageTag[];
     /**
-     * Specifies whether active X-Ray tracing is enabled for this stage.
+     * Specifies whether active tracing with X-ray is enabled for the Stage.
      */
     readonly tracingEnabled?: boolean;
     /**
-     * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+     * A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
      */
     readonly variables?: any;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::Stage
+ * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
  */
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
     return pulumi.output(args).apply((a: any) => getStage(a, opts))
@@ -89,11 +89,11 @@ export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetStageOutputArgs {
     /**
-     * The ID of the RestApi resource that you're deploying with this stage.
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+     * The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
      */
     stageName: pulumi.Input<string>;
 }

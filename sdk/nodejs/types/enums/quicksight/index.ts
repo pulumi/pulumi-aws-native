@@ -825,6 +825,13 @@ export const AnalysisUrlTargetConfiguration = {
 
 export type AnalysisUrlTargetConfiguration = (typeof AnalysisUrlTargetConfiguration)[keyof typeof AnalysisUrlTargetConfiguration];
 
+export const AnalysisValidationStrategyMode = {
+    Strict: "STRICT",
+    Lenient: "LENIENT",
+} as const;
+
+export type AnalysisValidationStrategyMode = (typeof AnalysisValidationStrategyMode)[keyof typeof AnalysisValidationStrategyMode];
+
 export const AnalysisValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",
     Null: "NULL",
@@ -1735,6 +1742,13 @@ export const DashboardUrlTargetConfiguration = {
 } as const;
 
 export type DashboardUrlTargetConfiguration = (typeof DashboardUrlTargetConfiguration)[keyof typeof DashboardUrlTargetConfiguration];
+
+export const DashboardValidationStrategyMode = {
+    Strict: "STRICT",
+    Lenient: "LENIENT",
+} as const;
+
+export type DashboardValidationStrategyMode = (typeof DashboardValidationStrategyMode)[keyof typeof DashboardValidationStrategyMode];
 
 export const DashboardValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",
@@ -2786,6 +2800,13 @@ export const TemplateUrlTargetConfiguration = {
 } as const;
 
 export type TemplateUrlTargetConfiguration = (typeof TemplateUrlTargetConfiguration)[keyof typeof TemplateUrlTargetConfiguration];
+
+export const TemplateValidationStrategyMode = {
+    Strict: "STRICT",
+    Lenient: "LENIENT",
+} as const;
+
+export type TemplateValidationStrategyMode = (typeof TemplateValidationStrategyMode)[keyof typeof TemplateValidationStrategyMode];
 
 export const TemplateValueWhenUnsetOption = {
     RecommendedValue: "RECOMMENDED_VALUE",

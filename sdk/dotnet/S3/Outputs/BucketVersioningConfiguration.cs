@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// Describes the versioning state of an Amazon S3 bucket.
-    /// </summary>
     [OutputType]
     public sealed class BucketVersioningConfiguration
     {
-        /// <summary>
-        /// The versioning state of the bucket.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketVersioningConfigurationStatus Status;
+        public readonly string Status;
 
         [OutputConstructor]
-        private BucketVersioningConfiguration(Pulumi.AwsNative.S3.BucketVersioningConfigurationStatus status)
+        private BucketVersioningConfiguration(string status)
         {
             Status = status;
         }

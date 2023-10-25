@@ -39,6 +39,49 @@ export const CalculatedAttributeDefinitionThresholdOperator = {
  */
 export type CalculatedAttributeDefinitionThresholdOperator = (typeof CalculatedAttributeDefinitionThresholdOperator)[keyof typeof CalculatedAttributeDefinitionThresholdOperator];
 
+export const DomainAttributeTypesSelectorAttributeMatchingModel = {
+    OneToOne: "ONE_TO_ONE",
+    ManyToMany: "MANY_TO_MANY",
+} as const;
+
+/**
+ * Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+ */
+export type DomainAttributeTypesSelectorAttributeMatchingModel = (typeof DomainAttributeTypesSelectorAttributeMatchingModel)[keyof typeof DomainAttributeTypesSelectorAttributeMatchingModel];
+
+export const DomainConflictResolutionConflictResolvingModel = {
+    Recency: "RECENCY",
+    Source: "SOURCE",
+} as const;
+
+/**
+ * How the auto-merging process should resolve conflicts between different profiles.
+ */
+export type DomainConflictResolutionConflictResolvingModel = (typeof DomainConflictResolutionConflictResolvingModel)[keyof typeof DomainConflictResolutionConflictResolvingModel];
+
+export const DomainJobScheduleDayOfTheWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+/**
+ * The day when the Identity Resolution Job should run every week.
+ */
+export type DomainJobScheduleDayOfTheWeek = (typeof DomainJobScheduleDayOfTheWeek)[keyof typeof DomainJobScheduleDayOfTheWeek];
+
+export const DomainRuleBasedMatchingStatus = {
+    Pending: "PENDING",
+    InProgress: "IN_PROGRESS",
+    Active: "ACTIVE",
+} as const;
+
+export type DomainRuleBasedMatchingStatus = (typeof DomainRuleBasedMatchingStatus)[keyof typeof DomainRuleBasedMatchingStatus];
+
 export const EventStreamState = {
     Running: "RUNNING",
     Stopped: "STOPPED",

@@ -46,6 +46,9 @@ export interface GetDomainResult {
      * The time of this integration got last updated at
      */
     readonly lastUpdatedAt?: string;
+    readonly matching?: outputs.customerprofiles.DomainMatching;
+    readonly ruleBasedMatching?: outputs.customerprofiles.DomainRuleBasedMatching;
+    readonly stats?: outputs.customerprofiles.DomainStats;
     /**
      * The tags (keys and values) associated with the domain
      */

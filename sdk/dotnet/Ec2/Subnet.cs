@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("enableDns64")]
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Output("ipv4NetmaskLength")]
+        public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
@@ -38,6 +44,12 @@ namespace Pulumi.AwsNative.Ec2
 
         [Output("ipv6Native")]
         public Output<bool?> Ipv6Native { get; private set; } = null!;
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Output("ipv6NetmaskLength")]
+        public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -129,11 +141,23 @@ namespace Pulumi.AwsNative.Ec2
         [Input("enableDns64")]
         public Input<bool>? EnableDns64 { get; set; }
 
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
+
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
         [Input("ipv6Native")]
         public Input<bool>? Ipv6Native { get; set; }
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
 
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }

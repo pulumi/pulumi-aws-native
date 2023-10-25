@@ -17,13 +17,28 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class MonitoringScheduleScheduleConfig
     {
         /// <summary>
-        /// A cron expression that describes details about the monitoring schedule.
+        /// Data Analysis end time, e.g. PT0H
+        /// </summary>
+        public readonly string? DataAnalysisEndTime;
+        /// <summary>
+        /// Data Analysis start time, e.g. -PT1H
+        /// </summary>
+        public readonly string? DataAnalysisStartTime;
+        /// <summary>
+        /// A cron expression or 'NOW' that describes details about the monitoring schedule.
         /// </summary>
         public readonly string ScheduleExpression;
 
         [OutputConstructor]
-        private MonitoringScheduleScheduleConfig(string scheduleExpression)
+        private MonitoringScheduleScheduleConfig(
+            string? dataAnalysisEndTime,
+
+            string? dataAnalysisStartTime,
+
+            string scheduleExpression)
         {
+            DataAnalysisEndTime = dataAnalysisEndTime;
+            DataAnalysisStartTime = dataAnalysisStartTime;
             ScheduleExpression = scheduleExpression;
         }
     }

@@ -44,6 +44,7 @@ __all__ = [
     'MitigationActionTagArgs',
     'MitigationActionUpdateCaCertificateParamsArgs',
     'MitigationActionUpdateDeviceCertificateParamsArgs',
+    'PolicyTagArgs',
     'PresignedUrlConfigPropertiesArgs',
     'ProvisioningTemplateProvisioningHookArgs',
     'ProvisioningTemplateTagArgs',
@@ -1785,6 +1786,44 @@ class MitigationActionUpdateDeviceCertificateParamsArgs:
     @action.setter
     def action(self, value: pulumi.Input['MitigationActionUpdateDeviceCertificateParamsAction']):
         pulumi.set(self, "action", value)
+
+
+@pulumi.input_type
+class PolicyTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        PolicyTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

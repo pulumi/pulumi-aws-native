@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Sqs
     public static class GetQueuePolicy
     {
         /// <summary>
-        /// Resource Type definition for AWS::SQS::QueuePolicy
+        /// The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
         /// </summary>
         public static Task<GetQueuePolicyResult> InvokeAsync(GetQueuePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::SQS::QueuePolicy
+        /// The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
         /// </summary>
         public static Output<GetQueuePolicyResult> Invoke(GetQueuePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyInvokeArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative.Sqs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
         /// </summary>
         public readonly object? PolicyDocument;
         /// <summary>
-        /// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        /// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
         /// </summary>
         public readonly ImmutableArray<string> Queues;
 

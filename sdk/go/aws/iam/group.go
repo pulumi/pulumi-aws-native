@@ -13,16 +13,19 @@ import (
 )
 
 // Resource Type definition for AWS::IAM::Group
-//
-// Deprecated: Group is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Group struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput        `pulumi:"arn"`
-	GroupName         pulumi.StringPtrOutput     `pulumi:"groupName"`
-	ManagedPolicyArns pulumi.StringArrayOutput   `pulumi:"managedPolicyArns"`
-	Path              pulumi.StringPtrOutput     `pulumi:"path"`
-	Policies          GroupPolicyTypeArrayOutput `pulumi:"policies"`
+	// The Arn of the group to create
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the group to create
+	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	// The path to the group
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM group
+	Policies GroupPolicyTypeArrayOutput `pulumi:"policies"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -69,18 +72,26 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	GroupName         *string           `pulumi:"groupName"`
-	ManagedPolicyArns []string          `pulumi:"managedPolicyArns"`
-	Path              *string           `pulumi:"path"`
-	Policies          []GroupPolicyType `pulumi:"policies"`
+	// The name of the group to create
+	GroupName *string `pulumi:"groupName"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// The path to the group
+	Path *string `pulumi:"path"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM group
+	Policies []GroupPolicyType `pulumi:"policies"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	GroupName         pulumi.StringPtrInput
+	// The name of the group to create
+	GroupName pulumi.StringPtrInput
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 	ManagedPolicyArns pulumi.StringArrayInput
-	Path              pulumi.StringPtrInput
-	Policies          GroupPolicyTypeArrayInput
+	// The path to the group
+	Path pulumi.StringPtrInput
+	// Adds or updates an inline policy document that is embedded in the specified IAM group
+	Policies GroupPolicyTypeArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -132,22 +143,27 @@ func (o GroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Group] {
 	}
 }
 
+// The Arn of the group to create
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the group to create
 func (o GroupOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 func (o GroupOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// The path to the group
 func (o GroupOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// Adds or updates an inline policy document that is embedded in the specified IAM group
 func (o GroupOutput) Policies() GroupPolicyTypeArrayOutput {
 	return o.ApplyT(func(v *Group) GroupPolicyTypeArrayOutput { return v.Policies }).(GroupPolicyTypeArrayOutput)
 }

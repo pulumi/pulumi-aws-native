@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::DocumentationPart
+// The “AWS::ApiGateway::DocumentationPart“ resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartArgs, opts ...pulumi.InvokeOption) (*LookupDocumentationPartResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentationPartResult
@@ -26,14 +26,14 @@ func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartA
 type LookupDocumentationPartArgs struct {
 	// The identifier of the documentation Part.
 	DocumentationPartId string `pulumi:"documentationPartId"`
-	// Identifier of the targeted API entity
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDocumentationPartResult struct {
 	// The identifier of the documentation Part.
 	DocumentationPartId *string `pulumi:"documentationPartId"`
-	// The documentation content map of the targeted API entity.
+	// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties *string `pulumi:"properties"`
 }
 
@@ -53,7 +53,7 @@ func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentation
 type LookupDocumentationPartOutputArgs struct {
 	// The identifier of the documentation Part.
 	DocumentationPartId pulumi.StringInput `pulumi:"documentationPartId"`
-	// Identifier of the targeted API entity
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -86,7 +86,7 @@ func (o LookupDocumentationPartResultOutput) DocumentationPartId() pulumi.String
 	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.DocumentationPartId }).(pulumi.StringPtrOutput)
 }
 
-// The documentation content map of the targeted API entity.
+// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 func (o LookupDocumentationPartResultOutput) Properties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.Properties }).(pulumi.StringPtrOutput)
 }

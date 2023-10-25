@@ -53,6 +53,7 @@ export class Analysis extends pulumi.CustomResource {
     public readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.AnalysisTag[] | undefined>;
     public readonly themeArn!: pulumi.Output<string | undefined>;
+    public readonly validationStrategy!: pulumi.Output<outputs.quicksight.AnalysisValidationStrategy | undefined>;
 
     /**
      * Create a Analysis resource with the given unique name, arguments, and options.
@@ -81,6 +82,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["themeArn"] = args ? args.themeArn : undefined;
+            resourceInputs["validationStrategy"] = args ? args.validationStrategy : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["dataSetArns"] = undefined /*out*/;
@@ -104,6 +106,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["themeArn"] = undefined /*out*/;
+            resourceInputs["validationStrategy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["analysisId", "awsAccountId"] };
@@ -126,4 +129,5 @@ export interface AnalysisArgs {
     status?: pulumi.Input<enums.quicksight.AnalysisResourceStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTagArgs>[]>;
     themeArn?: pulumi.Input<string>;
+    validationStrategy?: pulumi.Input<inputs.quicksight.AnalysisValidationStrategyArgs>;
 }

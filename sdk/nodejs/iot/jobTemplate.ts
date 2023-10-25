@@ -127,7 +127,7 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["timeoutConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["abortConfig", "description", "document", "documentSource", "jobArn", "jobExecutionsRolloutConfig", "jobTemplateId", "presignedUrlConfig", "tags[*]", "timeoutConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["abortConfig", "description", "destinationPackageVersions[*]", "document", "documentSource", "jobArn", "jobExecutionsRetryConfig", "jobExecutionsRolloutConfig", "jobTemplateId", "maintenanceWindows[*]", "presignedUrlConfig", "tags[*]", "timeoutConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobTemplate.__pulumiType, name, resourceInputs, opts);
     }

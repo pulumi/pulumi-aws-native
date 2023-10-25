@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,6 +40,7 @@ export class Policy extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly policyDocument!: pulumi.Output<any>;
     public readonly policyName!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iot.PolicyTag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -54,11 +58,13 @@ export class Policy extends pulumi.CustomResource {
             }
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["policyName"] };
@@ -73,4 +79,5 @@ export class Policy extends pulumi.CustomResource {
 export interface PolicyArgs {
     policyDocument: any;
     policyName?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iot.PolicyTagArgs>[]>;
 }

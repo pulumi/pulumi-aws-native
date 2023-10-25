@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
+    /// </summary>
     public sealed class DeploymentStageDescriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,31 +22,31 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<Inputs.DeploymentAccessLogSettingArgs>? AccessLogSetting { get; set; }
 
         /// <summary>
-        /// Indicates whether cache clustering is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage.
         /// </summary>
         [Input("cacheClusterEnabled")]
         public Input<bool>? CacheClusterEnabled { get; set; }
 
         /// <summary>
-        /// The size of the stage's cache cluster.
+        /// The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
         /// </summary>
         [Input("cacheClusterSize")]
         public Input<string>? CacheClusterSize { get; set; }
 
         /// <summary>
-        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        /// Indicates whether the cached responses are encrypted.
         /// </summary>
         [Input("cacheDataEncrypted")]
         public Input<bool>? CacheDataEncrypted { get; set; }
 
         /// <summary>
-        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses. 
+        /// The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
         /// </summary>
         [Input("cacheTtlInSeconds")]
         public Input<int>? CacheTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses.
+        /// Indicates whether responses are cached and returned for requests. You must enable a cache cluster on the stage to cache responses. For more information, see [Enable API Gateway Caching in a Stage to Enhance API Performance](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) in the *API Gateway Developer Guide*.
         /// </summary>
         [Input("cachingEnabled")]
         public Input<bool>? CachingEnabled { get; set; }
@@ -55,13 +58,13 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<Inputs.DeploymentCanarySettingArgs>? CanarySetting { get; set; }
 
         /// <summary>
-        /// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        /// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
 
         /// <summary>
-        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs. 
+        /// Indicates whether data trace logging is enabled for methods in the stage. API Gateway pushes these logs to Amazon CloudWatch Logs.
         /// </summary>
         [Input("dataTraceEnabled")]
         public Input<bool>? DataTraceEnabled { get; set; }
@@ -79,7 +82,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<string>? DocumentationVersion { get; set; }
 
         /// <summary>
-        /// The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference. 
+        /// The logging level for this method. For valid values, see the ``loggingLevel`` property of the [MethodSetting](https://docs.aws.amazon.com/apigateway/latest/api/API_MethodSetting.html) resource in the *Amazon API Gateway API Reference*.
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }
@@ -115,25 +118,26 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         }
 
         /// <summary>
-        /// The number of burst requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// The target request burst rate limit. This allows more requests through for a period of time than the target rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         /// </summary>
         [Input("throttlingBurstLimit")]
         public Input<int>? ThrottlingBurstLimit { get; set; }
 
         /// <summary>
-        /// The number of steady-state requests per second that API Gateway permits across all APIs, stages, and methods in your AWS account.
+        /// The target request steady-state rate limit. For more information, see [Manage API Request Throttling](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) in the *API Gateway Developer Guide*.
         /// </summary>
         [Input("throttlingRateLimit")]
         public Input<double>? ThrottlingRateLimit { get; set; }
 
         /// <summary>
         /// Specifies whether active tracing with X-ray is enabled for this stage.
+        ///  For more information, see [Trace API Gateway API Execution with X-Ray](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html) in the *API Gateway Developer Guide*.
         /// </summary>
         [Input("tracingEnabled")]
         public Input<bool>? TracingEnabled { get; set; }
 
         /// <summary>
-        /// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: [A-Za-z0-9-._~:/?#&amp;=,]+. 
+        /// A map that defines the stage variables. Variable names must consist of alphanumeric characters, and the values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&amp;=,]+``.
         /// </summary>
         [Input("variables")]
         public Input<object>? Variables { get; set; }

@@ -10,16 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
-    /// <summary>
-    /// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
-    /// </summary>
     public sealed class BucketEventBridgeConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
-        /// </summary>
-        [Input("eventBridgeEnabled", required: true)]
-        public Input<bool> EventBridgeEnabled { get; set; } = null!;
+        [Input("eventBridgeEnabled")]
+        public Input<bool>? EventBridgeEnabled { get; set; }
 
         public BucketEventBridgeConfigurationArgs()
         {

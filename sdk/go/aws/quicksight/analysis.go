@@ -17,22 +17,23 @@ import (
 type Analysis struct {
 	pulumi.CustomResourceState
 
-	AnalysisId      pulumi.StringOutput                   `pulumi:"analysisId"`
-	Arn             pulumi.StringOutput                   `pulumi:"arn"`
-	AwsAccountId    pulumi.StringOutput                   `pulumi:"awsAccountId"`
-	CreatedTime     pulumi.StringOutput                   `pulumi:"createdTime"`
-	DataSetArns     pulumi.StringArrayOutput              `pulumi:"dataSetArns"`
-	Definition      AnalysisDefinitionPtrOutput           `pulumi:"definition"`
-	Errors          AnalysisErrorArrayOutput              `pulumi:"errors"`
-	LastUpdatedTime pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
-	Name            pulumi.StringOutput                   `pulumi:"name"`
-	Parameters      AnalysisParametersPtrOutput           `pulumi:"parameters"`
-	Permissions     AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
-	Sheets          AnalysisSheetArrayOutput              `pulumi:"sheets"`
-	SourceEntity    AnalysisSourceEntityPtrOutput         `pulumi:"sourceEntity"`
-	Status          AnalysisResourceStatusPtrOutput       `pulumi:"status"`
-	Tags            AnalysisTagArrayOutput                `pulumi:"tags"`
-	ThemeArn        pulumi.StringPtrOutput                `pulumi:"themeArn"`
+	AnalysisId         pulumi.StringOutput                   `pulumi:"analysisId"`
+	Arn                pulumi.StringOutput                   `pulumi:"arn"`
+	AwsAccountId       pulumi.StringOutput                   `pulumi:"awsAccountId"`
+	CreatedTime        pulumi.StringOutput                   `pulumi:"createdTime"`
+	DataSetArns        pulumi.StringArrayOutput              `pulumi:"dataSetArns"`
+	Definition         AnalysisDefinitionPtrOutput           `pulumi:"definition"`
+	Errors             AnalysisErrorArrayOutput              `pulumi:"errors"`
+	LastUpdatedTime    pulumi.StringOutput                   `pulumi:"lastUpdatedTime"`
+	Name               pulumi.StringOutput                   `pulumi:"name"`
+	Parameters         AnalysisParametersPtrOutput           `pulumi:"parameters"`
+	Permissions        AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
+	Sheets             AnalysisSheetArrayOutput              `pulumi:"sheets"`
+	SourceEntity       AnalysisSourceEntityPtrOutput         `pulumi:"sourceEntity"`
+	Status             AnalysisResourceStatusPtrOutput       `pulumi:"status"`
+	Tags               AnalysisTagArrayOutput                `pulumi:"tags"`
+	ThemeArn           pulumi.StringPtrOutput                `pulumi:"themeArn"`
+	ValidationStrategy AnalysisValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
 }
 
 // NewAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -86,30 +87,32 @@ func (AnalysisState) ElementType() reflect.Type {
 }
 
 type analysisArgs struct {
-	AnalysisId   string                       `pulumi:"analysisId"`
-	AwsAccountId string                       `pulumi:"awsAccountId"`
-	Definition   *AnalysisDefinition          `pulumi:"definition"`
-	Name         *string                      `pulumi:"name"`
-	Parameters   *AnalysisParameters          `pulumi:"parameters"`
-	Permissions  []AnalysisResourcePermission `pulumi:"permissions"`
-	SourceEntity *AnalysisSourceEntity        `pulumi:"sourceEntity"`
-	Status       *AnalysisResourceStatus      `pulumi:"status"`
-	Tags         []AnalysisTag                `pulumi:"tags"`
-	ThemeArn     *string                      `pulumi:"themeArn"`
+	AnalysisId         string                       `pulumi:"analysisId"`
+	AwsAccountId       string                       `pulumi:"awsAccountId"`
+	Definition         *AnalysisDefinition          `pulumi:"definition"`
+	Name               *string                      `pulumi:"name"`
+	Parameters         *AnalysisParameters          `pulumi:"parameters"`
+	Permissions        []AnalysisResourcePermission `pulumi:"permissions"`
+	SourceEntity       *AnalysisSourceEntity        `pulumi:"sourceEntity"`
+	Status             *AnalysisResourceStatus      `pulumi:"status"`
+	Tags               []AnalysisTag                `pulumi:"tags"`
+	ThemeArn           *string                      `pulumi:"themeArn"`
+	ValidationStrategy *AnalysisValidationStrategy  `pulumi:"validationStrategy"`
 }
 
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
-	AnalysisId   pulumi.StringInput
-	AwsAccountId pulumi.StringInput
-	Definition   AnalysisDefinitionPtrInput
-	Name         pulumi.StringPtrInput
-	Parameters   AnalysisParametersPtrInput
-	Permissions  AnalysisResourcePermissionArrayInput
-	SourceEntity AnalysisSourceEntityPtrInput
-	Status       AnalysisResourceStatusPtrInput
-	Tags         AnalysisTagArrayInput
-	ThemeArn     pulumi.StringPtrInput
+	AnalysisId         pulumi.StringInput
+	AwsAccountId       pulumi.StringInput
+	Definition         AnalysisDefinitionPtrInput
+	Name               pulumi.StringPtrInput
+	Parameters         AnalysisParametersPtrInput
+	Permissions        AnalysisResourcePermissionArrayInput
+	SourceEntity       AnalysisSourceEntityPtrInput
+	Status             AnalysisResourceStatusPtrInput
+	Tags               AnalysisTagArrayInput
+	ThemeArn           pulumi.StringPtrInput
+	ValidationStrategy AnalysisValidationStrategyPtrInput
 }
 
 func (AnalysisArgs) ElementType() reflect.Type {
@@ -223,6 +226,10 @@ func (o AnalysisOutput) Tags() AnalysisTagArrayOutput {
 
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisOutput) ValidationStrategy() AnalysisValidationStrategyPtrOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisValidationStrategyPtrOutput { return v.ValidationStrategy }).(AnalysisValidationStrategyPtrOutput)
 }
 
 func init() {

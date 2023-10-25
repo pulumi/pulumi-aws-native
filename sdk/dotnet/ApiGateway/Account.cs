@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::Account
+    /// The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        /// The ARN of an Amazon CloudWatch role for the current Account.
         /// </summary>
         [Output("cloudWatchRoleArn")]
         public Output<string?> CloudWatchRoleArn { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        /// The ARN of an Amazon CloudWatch role for the current Account.
         /// </summary>
         [Input("cloudWatchRoleArn")]
         public Input<string>? CloudWatchRoleArn { get; set; }

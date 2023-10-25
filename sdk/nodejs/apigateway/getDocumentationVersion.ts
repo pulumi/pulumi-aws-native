@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A snapshot of the documentation of an API.
+ * The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export function getDocumentationVersion(args: GetDocumentationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationVersionResult> {
 
@@ -18,23 +18,23 @@ export function getDocumentationVersion(args: GetDocumentationVersionArgs, opts?
 
 export interface GetDocumentationVersionArgs {
     /**
-     * The version identifier of the API documentation snapshot.
+     * The version identifier of the to-be-updated documentation version.
      */
     documentationVersion: string;
     /**
-     * The identifier of the API.
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
 }
 
 export interface GetDocumentationVersionResult {
     /**
-     * The description of the API documentation snapshot.
+     * A description about the new documentation snapshot.
      */
     readonly description?: string;
 }
 /**
- * A snapshot of the documentation of an API.
+ * The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export function getDocumentationVersionOutput(args: GetDocumentationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationVersionResult> {
     return pulumi.output(args).apply((a: any) => getDocumentationVersion(a, opts))
@@ -42,11 +42,11 @@ export function getDocumentationVersionOutput(args: GetDocumentationVersionOutpu
 
 export interface GetDocumentationVersionOutputArgs {
     /**
-     * The version identifier of the API documentation snapshot.
+     * The version identifier of the to-be-updated documentation version.
      */
     documentationVersion: pulumi.Input<string>;
     /**
-     * The identifier of the API.
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

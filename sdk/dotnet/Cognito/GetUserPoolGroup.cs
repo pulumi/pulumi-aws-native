@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolGroupArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolGroupInvokeArgs()
         {
@@ -52,22 +58,18 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolGroupResult
     {
         public readonly string? Description;
-        public readonly string? Id;
-        public readonly double? Precedence;
+        public readonly int? Precedence;
         public readonly string? RoleArn;
 
         [OutputConstructor]
         private GetUserPoolGroupResult(
             string? description,
 
-            string? id,
-
-            double? precedence,
+            int? precedence,
 
             string? roleArn)
         {
             Description = description;
-            Id = id;
             Precedence = precedence;
             RoleArn = roleArn;
         }

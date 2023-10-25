@@ -53,16 +53,15 @@ namespace Pulumi.AwsNative.Cognito
     {
         public readonly bool? AllowClassicFlow;
         public readonly bool? AllowUnauthenticatedIdentities;
+        public readonly object? CognitoEvents;
         public readonly ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider> CognitoIdentityProviders;
+        public readonly Outputs.IdentityPoolCognitoStreams? CognitoStreams;
         public readonly string? DeveloperProviderName;
         public readonly string? Id;
         public readonly string? IdentityPoolName;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IdentityPoolTag> IdentityPoolTags;
         public readonly string? Name;
         public readonly ImmutableArray<string> OpenIdConnectProviderArns;
+        public readonly Outputs.IdentityPoolPushSync? PushSync;
         public readonly ImmutableArray<string> SamlProviderArns;
         public readonly object? SupportedLoginProviders;
 
@@ -72,7 +71,11 @@ namespace Pulumi.AwsNative.Cognito
 
             bool? allowUnauthenticatedIdentities,
 
+            object? cognitoEvents,
+
             ImmutableArray<Outputs.IdentityPoolCognitoIdentityProvider> cognitoIdentityProviders,
+
+            Outputs.IdentityPoolCognitoStreams? cognitoStreams,
 
             string? developerProviderName,
 
@@ -80,11 +83,11 @@ namespace Pulumi.AwsNative.Cognito
 
             string? identityPoolName,
 
-            ImmutableArray<Outputs.IdentityPoolTag> identityPoolTags,
-
             string? name,
 
             ImmutableArray<string> openIdConnectProviderArns,
+
+            Outputs.IdentityPoolPushSync? pushSync,
 
             ImmutableArray<string> samlProviderArns,
 
@@ -92,13 +95,15 @@ namespace Pulumi.AwsNative.Cognito
         {
             AllowClassicFlow = allowClassicFlow;
             AllowUnauthenticatedIdentities = allowUnauthenticatedIdentities;
+            CognitoEvents = cognitoEvents;
             CognitoIdentityProviders = cognitoIdentityProviders;
+            CognitoStreams = cognitoStreams;
             DeveloperProviderName = developerProviderName;
             Id = id;
             IdentityPoolName = identityPoolName;
-            IdentityPoolTags = identityPoolTags;
             Name = name;
             OpenIdConnectProviderArns = openIdConnectProviderArns;
+            PushSync = pushSync;
             SamlProviderArns = samlProviderArns;
             SupportedLoginProviders = supportedLoginProviders;
         }

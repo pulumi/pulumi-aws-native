@@ -21,6 +21,9 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagsArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] description: A description of the application.
+        :param pulumi.Input[str] name: A name for the application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagsArgs']]] tags: Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         ApplicationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -45,6 +48,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the application.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,6 +60,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the application.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +72,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagsArgs']]]]:
+        """
+        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -70,12 +82,7 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Application(pulumi.CustomResource):
-    warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -89,6 +96,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the application.
+        :param pulumi.Input[str] name: A name for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagsArgs']]]] tags: Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         ...
     @overload
@@ -122,7 +132,6 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagsArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -134,6 +143,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["application_id"] = None
         super(Application, __self__).__init__(
             'aws-native:appconfig:Application',
             resource_name,
@@ -156,23 +166,41 @@ class Application(pulumi.CustomResource):
 
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+        __props__.__dict__["application_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Output[str]:
+        """
+        The application Id
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the application.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A name for the application.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTags']]]:
+        """
+        Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        """
         return pulumi.get(self, "tags")
 

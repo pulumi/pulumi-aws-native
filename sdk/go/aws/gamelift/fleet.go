@@ -37,8 +37,10 @@ type Fleet struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	FleetType FleetTypePtrOutput `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-	InstanceRoleArn pulumi.StringPtrOutput                `pulumi:"instanceRoleArn"`
-	Locations       FleetLocationConfigurationArrayOutput `pulumi:"locations"`
+	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
+	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrOutput `pulumi:"instanceRoleCredentialsProvider"`
+	Locations                       FleetLocationConfigurationArrayOutput         `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -85,6 +87,7 @@ func NewFleet(ctx *pulumi.Context,
 		"ec2InstanceType",
 		"fleetType",
 		"instanceRoleArn",
+		"instanceRoleCredentialsProvider",
 		"logPaths[*]",
 		"peerVpcAwsAccountId",
 		"peerVpcId",
@@ -145,8 +148,10 @@ type fleetArgs struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	FleetType *FleetType `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-	InstanceRoleArn *string                      `pulumi:"instanceRoleArn"`
-	Locations       []FleetLocationConfiguration `pulumi:"locations"`
+	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
+	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	InstanceRoleCredentialsProvider *FleetInstanceRoleCredentialsProvider `pulumi:"instanceRoleCredentialsProvider"`
+	Locations                       []FleetLocationConfiguration          `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths []string `pulumi:"logPaths"`
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -201,7 +206,9 @@ type FleetArgs struct {
 	FleetType FleetTypePtrInput
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
 	InstanceRoleArn pulumi.StringPtrInput
-	Locations       FleetLocationConfigurationArrayInput
+	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrInput
+	Locations                       FleetLocationConfigurationArrayInput
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayInput
 	// [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -336,6 +343,11 @@ func (o FleetOutput) FleetType() FleetTypePtrOutput {
 // A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
 func (o FleetOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+func (o FleetOutput) InstanceRoleCredentialsProvider() FleetInstanceRoleCredentialsProviderPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetInstanceRoleCredentialsProviderPtrOutput { return v.InstanceRoleCredentialsProvider }).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
 func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {

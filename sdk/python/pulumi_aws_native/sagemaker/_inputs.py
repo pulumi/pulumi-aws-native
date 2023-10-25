@@ -686,12 +686,14 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
                  data_captured_destination_s3_uri: pulumi.Input[str],
                  dataset_format: pulumi.Input['DataQualityJobDefinitionDatasetFormatArgs'],
                  local_path: pulumi.Input[str],
+                 exclude_features_attribute: Optional[pulumi.Input[str]] = None,
                  s3_data_distribution_type: Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType']] = None,
                  s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3InputMode']] = None):
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -700,6 +702,7 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
             data_captured_destination_s3_uri=data_captured_destination_s3_uri,
             dataset_format=dataset_format,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -709,12 +712,15 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
              data_captured_destination_s3_uri: pulumi.Input[str],
              dataset_format: pulumi.Input['DataQualityJobDefinitionDatasetFormatArgs'],
              local_path: pulumi.Input[str],
+             exclude_features_attribute: Optional[pulumi.Input[str]] = None,
              s3_data_distribution_type: Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType']] = None,
              s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3InputMode']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -752,6 +758,18 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
     @local_path.setter
     def local_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @exclude_features_attribute.setter
+    def exclude_features_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_features_attribute", value)
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -1212,11 +1230,13 @@ class DataQualityJobDefinitionEndpointInputArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[str],
                  local_path: pulumi.Input[str],
+                 exclude_features_attribute: Optional[pulumi.Input[str]] = None,
                  s3_data_distribution_type: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3DataDistributionType']] = None,
                  s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -1224,6 +1244,7 @@ class DataQualityJobDefinitionEndpointInputArgs:
             lambda key, value: pulumi.set(__self__, key, value),
             endpoint_name=endpoint_name,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -1232,11 +1253,14 @@ class DataQualityJobDefinitionEndpointInputArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_name: pulumi.Input[str],
              local_path: pulumi.Input[str],
+             exclude_features_attribute: Optional[pulumi.Input[str]] = None,
              s3_data_distribution_type: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3DataDistributionType']] = None,
              s3_input_mode: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -1262,6 +1286,18 @@ class DataQualityJobDefinitionEndpointInputArgs:
     @local_path.setter
     def local_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @exclude_features_attribute.setter
+    def exclude_features_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_features_attribute", value)
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -12780,12 +12816,14 @@ class MonitoringScheduleBatchTransformInputArgs:
                  data_captured_destination_s3_uri: pulumi.Input[str],
                  dataset_format: pulumi.Input['MonitoringScheduleDatasetFormatArgs'],
                  local_path: pulumi.Input[str],
+                 exclude_features_attribute: Optional[pulumi.Input[str]] = None,
                  s3_data_distribution_type: Optional[pulumi.Input['MonitoringScheduleBatchTransformInputS3DataDistributionType']] = None,
                  s3_input_mode: Optional[pulumi.Input['MonitoringScheduleBatchTransformInputS3InputMode']] = None):
         """
         The batch transform input for a monitoring job.
         :param pulumi.Input[str] data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['MonitoringScheduleBatchTransformInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['MonitoringScheduleBatchTransformInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -12794,6 +12832,7 @@ class MonitoringScheduleBatchTransformInputArgs:
             data_captured_destination_s3_uri=data_captured_destination_s3_uri,
             dataset_format=dataset_format,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -12803,12 +12842,15 @@ class MonitoringScheduleBatchTransformInputArgs:
              data_captured_destination_s3_uri: pulumi.Input[str],
              dataset_format: pulumi.Input['MonitoringScheduleDatasetFormatArgs'],
              local_path: pulumi.Input[str],
+             exclude_features_attribute: Optional[pulumi.Input[str]] = None,
              s3_data_distribution_type: Optional[pulumi.Input['MonitoringScheduleBatchTransformInputS3DataDistributionType']] = None,
              s3_input_mode: Optional[pulumi.Input['MonitoringScheduleBatchTransformInputS3InputMode']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
         _setter("dataset_format", dataset_format)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -12846,6 +12888,18 @@ class MonitoringScheduleBatchTransformInputArgs:
     @local_path.setter
     def local_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @exclude_features_attribute.setter
+    def exclude_features_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_features_attribute", value)
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -13159,11 +13213,13 @@ class MonitoringScheduleEndpointInputArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[str],
                  local_path: pulumi.Input[str],
+                 exclude_features_attribute: Optional[pulumi.Input[str]] = None,
                  s3_data_distribution_type: Optional[pulumi.Input['MonitoringScheduleEndpointInputS3DataDistributionType']] = None,
                  s3_input_mode: Optional[pulumi.Input['MonitoringScheduleEndpointInputS3InputMode']] = None):
         """
         The endpoint for a monitoring job.
         :param pulumi.Input[str] local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param pulumi.Input[str] exclude_features_attribute: Indexes or names of the features to be excluded from analysis
         :param pulumi.Input['MonitoringScheduleEndpointInputS3DataDistributionType'] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         :param pulumi.Input['MonitoringScheduleEndpointInputS3InputMode'] s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -13171,6 +13227,7 @@ class MonitoringScheduleEndpointInputArgs:
             lambda key, value: pulumi.set(__self__, key, value),
             endpoint_name=endpoint_name,
             local_path=local_path,
+            exclude_features_attribute=exclude_features_attribute,
             s3_data_distribution_type=s3_data_distribution_type,
             s3_input_mode=s3_input_mode,
         )
@@ -13179,11 +13236,14 @@ class MonitoringScheduleEndpointInputArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_name: pulumi.Input[str],
              local_path: pulumi.Input[str],
+             exclude_features_attribute: Optional[pulumi.Input[str]] = None,
              s3_data_distribution_type: Optional[pulumi.Input['MonitoringScheduleEndpointInputS3DataDistributionType']] = None,
              s3_input_mode: Optional[pulumi.Input['MonitoringScheduleEndpointInputS3InputMode']] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("endpoint_name", endpoint_name)
         _setter("local_path", local_path)
+        if exclude_features_attribute is not None:
+            _setter("exclude_features_attribute", exclude_features_attribute)
         if s3_data_distribution_type is not None:
             _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
@@ -13209,6 +13269,18 @@ class MonitoringScheduleEndpointInputArgs:
     @local_path.setter
     def local_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "local_path", value)
+
+    @property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indexes or names of the features to be excluded from analysis
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @exclude_features_attribute.setter
+    def exclude_features_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_features_attribute", value)
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
@@ -13946,33 +14018,69 @@ class MonitoringScheduleS3OutputArgs:
 @pulumi.input_type
 class MonitoringScheduleScheduleConfigArgs:
     def __init__(__self__, *,
-                 schedule_expression: pulumi.Input[str]):
+                 schedule_expression: pulumi.Input[str],
+                 data_analysis_end_time: Optional[pulumi.Input[str]] = None,
+                 data_analysis_start_time: Optional[pulumi.Input[str]] = None):
         """
         Configuration details about the monitoring schedule.
-        :param pulumi.Input[str] schedule_expression: A cron expression that describes details about the monitoring schedule.
+        :param pulumi.Input[str] schedule_expression: A cron expression or 'NOW' that describes details about the monitoring schedule.
+        :param pulumi.Input[str] data_analysis_end_time: Data Analysis end time, e.g. PT0H
+        :param pulumi.Input[str] data_analysis_start_time: Data Analysis start time, e.g. -PT1H
         """
         MonitoringScheduleScheduleConfigArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             schedule_expression=schedule_expression,
+            data_analysis_end_time=data_analysis_end_time,
+            data_analysis_start_time=data_analysis_start_time,
         )
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: pulumi.Input[str],
+             data_analysis_end_time: Optional[pulumi.Input[str]] = None,
+             data_analysis_start_time: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("schedule_expression", schedule_expression)
+        if data_analysis_end_time is not None:
+            _setter("data_analysis_end_time", data_analysis_end_time)
+        if data_analysis_start_time is not None:
+            _setter("data_analysis_start_time", data_analysis_start_time)
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
         """
-        A cron expression that describes details about the monitoring schedule.
+        A cron expression or 'NOW' that describes details about the monitoring schedule.
         """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
     def schedule_expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "schedule_expression", value)
+
+    @property
+    @pulumi.getter(name="dataAnalysisEndTime")
+    def data_analysis_end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data Analysis end time, e.g. PT0H
+        """
+        return pulumi.get(self, "data_analysis_end_time")
+
+    @data_analysis_end_time.setter
+    def data_analysis_end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_analysis_end_time", value)
+
+    @property
+    @pulumi.getter(name="dataAnalysisStartTime")
+    def data_analysis_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data Analysis start time, e.g. -PT1H
+        """
+        return pulumi.get(self, "data_analysis_start_time")
+
+    @data_analysis_start_time.setter
+    def data_analysis_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_analysis_start_time", value)
 
 
 @pulumi.input_type

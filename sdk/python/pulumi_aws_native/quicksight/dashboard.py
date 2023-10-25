@@ -27,6 +27,7 @@ class DashboardArgs:
                  source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input['DashboardValidationStrategyArgs']] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
@@ -43,6 +44,7 @@ class DashboardArgs:
             source_entity=source_entity,
             tags=tags,
             theme_arn=theme_arn,
+            validation_strategy=validation_strategy,
             version_description=version_description,
         )
     @staticmethod
@@ -58,6 +60,7 @@ class DashboardArgs:
              source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
              theme_arn: Optional[pulumi.Input[str]] = None,
+             validation_strategy: Optional[pulumi.Input['DashboardValidationStrategyArgs']] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("aws_account_id", aws_account_id)
@@ -78,6 +81,8 @@ class DashboardArgs:
             _setter("tags", tags)
         if theme_arn is not None:
             _setter("theme_arn", theme_arn)
+        if validation_strategy is not None:
+            _setter("validation_strategy", validation_strategy)
         if version_description is not None:
             _setter("version_description", version_description)
 
@@ -172,6 +177,15 @@ class DashboardArgs:
         pulumi.set(self, "theme_arn", value)
 
     @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> Optional[pulumi.Input['DashboardValidationStrategyArgs']]:
+        return pulumi.get(self, "validation_strategy")
+
+    @validation_strategy.setter
+    def validation_strategy(self, value: Optional[pulumi.Input['DashboardValidationStrategyArgs']]):
+        pulumi.set(self, "validation_strategy", value)
+
+    @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "version_description")
@@ -196,6 +210,7 @@ class Dashboard(pulumi.CustomResource):
                  source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['DashboardValidationStrategyArgs']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -242,6 +257,7 @@ class Dashboard(pulumi.CustomResource):
                  source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
+                 validation_strategy: Optional[pulumi.Input[pulumi.InputType['DashboardValidationStrategyArgs']]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -286,6 +302,12 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
+            if validation_strategy is not None and not isinstance(validation_strategy, DashboardValidationStrategyArgs):
+                validation_strategy = validation_strategy or {}
+                def _setter(key, value):
+                    validation_strategy[key] = value
+                DashboardValidationStrategyArgs._configure(_setter, **validation_strategy)
+            __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
@@ -330,6 +352,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["source_entity"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["theme_arn"] = None
+        __props__.__dict__["validation_strategy"] = None
         __props__.__dict__["version"] = None
         __props__.__dict__["version_description"] = None
         return Dashboard(resource_name, opts=opts, __props__=__props__)
@@ -403,6 +426,11 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "theme_arn")
+
+    @property
+    @pulumi.getter(name="validationStrategy")
+    def validation_strategy(self) -> pulumi.Output[Optional['outputs.DashboardValidationStrategy']]:
+        return pulumi.get(self, "validation_strategy")
 
     @property
     @pulumi.getter

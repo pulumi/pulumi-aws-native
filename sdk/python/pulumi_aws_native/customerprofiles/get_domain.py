@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, created_at=None, dead_letter_queue_url=None, default_encryption_key=None, default_expiration_days=None, last_updated_at=None, tags=None):
+    def __init__(__self__, created_at=None, dead_letter_queue_url=None, default_encryption_key=None, default_expiration_days=None, last_updated_at=None, matching=None, rule_based_matching=None, stats=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -35,6 +36,15 @@ class GetDomainResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if matching and not isinstance(matching, dict):
+            raise TypeError("Expected argument 'matching' to be a dict")
+        pulumi.set(__self__, "matching", matching)
+        if rule_based_matching and not isinstance(rule_based_matching, dict):
+            raise TypeError("Expected argument 'rule_based_matching' to be a dict")
+        pulumi.set(__self__, "rule_based_matching", rule_based_matching)
+        if stats and not isinstance(stats, dict):
+            raise TypeError("Expected argument 'stats' to be a dict")
+        pulumi.set(__self__, "stats", stats)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -81,6 +91,21 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
+    def matching(self) -> Optional['outputs.DomainMatching']:
+        return pulumi.get(self, "matching")
+
+    @property
+    @pulumi.getter(name="ruleBasedMatching")
+    def rule_based_matching(self) -> Optional['outputs.DomainRuleBasedMatching']:
+        return pulumi.get(self, "rule_based_matching")
+
+    @property
+    @pulumi.getter
+    def stats(self) -> Optional['outputs.DomainStats']:
+        return pulumi.get(self, "stats")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DomainTag']]:
         """
         The tags (keys and values) associated with the domain
@@ -99,6 +124,9 @@ class AwaitableGetDomainResult(GetDomainResult):
             default_encryption_key=self.default_encryption_key,
             default_expiration_days=self.default_expiration_days,
             last_updated_at=self.last_updated_at,
+            matching=self.matching,
+            rule_based_matching=self.rule_based_matching,
+            stats=self.stats,
             tags=self.tags)
 
 
@@ -121,6 +149,9 @@ def get_domain(domain_name: Optional[str] = None,
         default_encryption_key=pulumi.get(__ret__, 'default_encryption_key'),
         default_expiration_days=pulumi.get(__ret__, 'default_expiration_days'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        matching=pulumi.get(__ret__, 'matching'),
+        rule_based_matching=pulumi.get(__ret__, 'rule_based_matching'),
+        stats=pulumi.get(__ret__, 'stats'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

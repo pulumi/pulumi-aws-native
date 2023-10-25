@@ -18,8 +18,8 @@ class QueuePolicyArgs:
                  queues: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a QueuePolicy resource.
-        :param Any policy_document: A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        :param Any policy_document: A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
         """
         QueuePolicyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -39,7 +39,7 @@ class QueuePolicyArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
         """
-        A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
         """
         return pulumi.get(self, "policy_document")
 
@@ -51,7 +51,7 @@ class QueuePolicyArgs:
     @pulumi.getter
     def queues(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
         """
         return pulumi.get(self, "queues")
 
@@ -74,12 +74,12 @@ class QueuePolicy(pulumi.CustomResource):
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::SQS::QueuePolicy
+        The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy_document: A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        :param Any policy_document: A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class QueuePolicy(pulumi.CustomResource):
                  args: QueuePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::SQS::QueuePolicy
+        The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class QueuePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
         """
-        A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
         """
         return pulumi.get(self, "policy_document")
 
@@ -165,7 +165,7 @@ class QueuePolicy(pulumi.CustomResource):
     @pulumi.getter
     def queues(self) -> pulumi.Output[Sequence[str]]:
         """
-        The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
         """
         return pulumi.get(self, "queues")
 

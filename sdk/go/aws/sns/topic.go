@@ -16,6 +16,8 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
+	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	ArchivePolicy pulumi.AnyOutput `pulumi:"archivePolicy"`
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
 	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -97,6 +99,8 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	ArchivePolicy interface{} `pulumi:"archivePolicy"`
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
 	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -134,6 +138,8 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	ArchivePolicy pulumi.Input
 	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
 	//
 	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -216,6 +222,11 @@ func (o TopicOutput) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
 	return pulumix.Output[*Topic]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+func (o TopicOutput) ArchivePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.ArchivePolicy }).(pulumi.AnyOutput)
 }
 
 // Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.

@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The time of this integration got last updated at
         /// </summary>
         public readonly string? LastUpdatedAt;
+        public readonly Outputs.DomainMatching? Matching;
+        public readonly Outputs.DomainRuleBasedMatching? RuleBasedMatching;
+        public readonly Outputs.DomainStats? Stats;
         /// <summary>
         /// The tags (keys and values) associated with the domain
         /// </summary>
@@ -94,6 +97,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? lastUpdatedAt,
 
+            Outputs.DomainMatching? matching,
+
+            Outputs.DomainRuleBasedMatching? ruleBasedMatching,
+
+            Outputs.DomainStats? stats,
+
             ImmutableArray<Outputs.DomainTag> tags)
         {
             CreatedAt = createdAt;
@@ -101,6 +110,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
             DefaultEncryptionKey = defaultEncryptionKey;
             DefaultExpirationDays = defaultExpirationDays;
             LastUpdatedAt = lastUpdatedAt;
+            Matching = matching;
+            RuleBasedMatching = ruleBasedMatching;
+            Stats = stats;
             Tags = tags;
         }
     }

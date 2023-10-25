@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
-    /// </summary>
     [OutputType]
     public sealed class BucketReplicationDestination
     {
@@ -22,10 +19,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly Outputs.BucketEncryptionConfiguration? EncryptionConfiguration;
         public readonly Outputs.BucketMetrics? Metrics;
         public readonly Outputs.BucketReplicationTime? ReplicationTime;
-        /// <summary>
-        /// The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketReplicationDestinationStorageClass? StorageClass;
+        public readonly string? StorageClass;
 
         [OutputConstructor]
         private BucketReplicationDestination(
@@ -41,7 +35,7 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             Outputs.BucketReplicationTime? replicationTime,
 
-            Pulumi.AwsNative.S3.BucketReplicationDestinationStorageClass? storageClass)
+            string? storageClass)
         {
             AccessControlTranslation = accessControlTranslation;
             Account = account;

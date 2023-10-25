@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::Deployment
+// The “AWS::ApiGateway::Deployment“ resource deploys an API Gateway “RestApi“ resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentResult
@@ -26,14 +26,14 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 type LookupDeploymentArgs struct {
 	// Primary Id for this resource
 	DeploymentId string `pulumi:"deploymentId"`
-	// The ID of the RestApi resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDeploymentResult struct {
 	// Primary Id for this resource
 	DeploymentId *string `pulumi:"deploymentId"`
-	// A description of the purpose of the API Gateway deployment.
+	// The description for the Deployment resource to create.
 	Description *string `pulumi:"description"`
 }
 
@@ -53,7 +53,7 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 type LookupDeploymentOutputArgs struct {
 	// Primary Id for this resource
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
-	// The ID of the RestApi resource to deploy.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -86,7 +86,7 @@ func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }
 
-// A description of the purpose of the API Gateway deployment.
+// The description for the Deployment resource to create.
 func (o LookupDeploymentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

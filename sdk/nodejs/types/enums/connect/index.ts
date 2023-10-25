@@ -2,26 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ContactFlowModuleState = {
-    Active: "ACTIVE",
-    Archived: "ARCHIVED",
-} as const;
-
-/**
- * The state of the contact flow module.
- */
-export type ContactFlowModuleState = (typeof ContactFlowModuleState)[keyof typeof ContactFlowModuleState];
-
-export const ContactFlowModuleStatus = {
-    Published: "PUBLISHED",
-    Saved: "SAVED",
-} as const;
-
-/**
- * The status of the contact flow module.
- */
-export type ContactFlowModuleStatus = (typeof ContactFlowModuleStatus)[keyof typeof ContactFlowModuleStatus];
-
 export const ContactFlowState = {
     Active: "ACTIVE",
     Archived: "ARCHIVED",

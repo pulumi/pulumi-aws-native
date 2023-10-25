@@ -12,11 +12,8 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketReplicaModificationsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether Amazon S3 replicates modifications on replicas.
-        /// </summary>
         [Input("status", required: true)]
-        public Input<Pulumi.AwsNative.S3.BucketReplicaModificationsStatus> Status { get; set; } = null!;
+        public Input<string> Status { get; set; } = null!;
 
         public BucketReplicaModificationsArgs()
         {

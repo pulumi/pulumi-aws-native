@@ -24,13 +24,11 @@ type IdentityPool struct {
 	CognitoStreams                 IdentityPoolCognitoStreamsPtrOutput            `pulumi:"cognitoStreams"`
 	DeveloperProviderName          pulumi.StringPtrOutput                         `pulumi:"developerProviderName"`
 	IdentityPoolName               pulumi.StringPtrOutput                         `pulumi:"identityPoolName"`
-	// An array of key-value pairs to apply to this resource.
-	IdentityPoolTags          IdentityPoolTagArrayOutput    `pulumi:"identityPoolTags"`
-	Name                      pulumi.StringOutput           `pulumi:"name"`
-	OpenIdConnectProviderArns pulumi.StringArrayOutput      `pulumi:"openIdConnectProviderArns"`
-	PushSync                  IdentityPoolPushSyncPtrOutput `pulumi:"pushSync"`
-	SamlProviderArns          pulumi.StringArrayOutput      `pulumi:"samlProviderArns"`
-	SupportedLoginProviders   pulumi.AnyOutput              `pulumi:"supportedLoginProviders"`
+	Name                           pulumi.StringOutput                            `pulumi:"name"`
+	OpenIdConnectProviderArns      pulumi.StringArrayOutput                       `pulumi:"openIdConnectProviderArns"`
+	PushSync                       IdentityPoolPushSyncPtrOutput                  `pulumi:"pushSync"`
+	SamlProviderArns               pulumi.StringArrayOutput                       `pulumi:"samlProviderArns"`
+	SupportedLoginProviders        pulumi.AnyOutput                               `pulumi:"supportedLoginProviders"`
 }
 
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
@@ -83,12 +81,10 @@ type identityPoolArgs struct {
 	CognitoStreams                 *IdentityPoolCognitoStreams           `pulumi:"cognitoStreams"`
 	DeveloperProviderName          *string                               `pulumi:"developerProviderName"`
 	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
-	// An array of key-value pairs to apply to this resource.
-	IdentityPoolTags          []IdentityPoolTag     `pulumi:"identityPoolTags"`
-	OpenIdConnectProviderArns []string              `pulumi:"openIdConnectProviderArns"`
-	PushSync                  *IdentityPoolPushSync `pulumi:"pushSync"`
-	SamlProviderArns          []string              `pulumi:"samlProviderArns"`
-	SupportedLoginProviders   interface{}           `pulumi:"supportedLoginProviders"`
+	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
+	PushSync                       *IdentityPoolPushSync                 `pulumi:"pushSync"`
+	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
+	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
 }
 
 // The set of arguments for constructing a IdentityPool resource.
@@ -100,12 +96,10 @@ type IdentityPoolArgs struct {
 	CognitoStreams                 IdentityPoolCognitoStreamsPtrInput
 	DeveloperProviderName          pulumi.StringPtrInput
 	IdentityPoolName               pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
-	IdentityPoolTags          IdentityPoolTagArrayInput
-	OpenIdConnectProviderArns pulumi.StringArrayInput
-	PushSync                  IdentityPoolPushSyncPtrInput
-	SamlProviderArns          pulumi.StringArrayInput
-	SupportedLoginProviders   pulumi.Input
+	OpenIdConnectProviderArns      pulumi.StringArrayInput
+	PushSync                       IdentityPoolPushSyncPtrInput
+	SamlProviderArns               pulumi.StringArrayInput
+	SupportedLoginProviders        pulumi.Input
 }
 
 func (IdentityPoolArgs) ElementType() reflect.Type {
@@ -185,11 +179,6 @@ func (o IdentityPoolOutput) DeveloperProviderName() pulumi.StringPtrOutput {
 
 func (o IdentityPoolOutput) IdentityPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringPtrOutput { return v.IdentityPoolName }).(pulumi.StringPtrOutput)
-}
-
-// An array of key-value pairs to apply to this resource.
-func (o IdentityPoolOutput) IdentityPoolTags() IdentityPoolTagArrayOutput {
-	return o.ApplyT(func(v *IdentityPool) IdentityPoolTagArrayOutput { return v.IdentityPoolTags }).(IdentityPoolTagArrayOutput)
 }
 
 func (o IdentityPoolOutput) Name() pulumi.StringOutput {

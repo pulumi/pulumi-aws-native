@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Resource
+ * The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
@@ -22,7 +22,7 @@ export interface GetResourceArgs {
      */
     resourceId: string;
     /**
-     * The ID of the RestApi resource in which you want to create this resource..
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
 }
@@ -34,7 +34,7 @@ export interface GetResourceResult {
     readonly resourceId?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::Resource
+ * The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
  */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
@@ -46,7 +46,7 @@ export interface GetResourceOutputArgs {
      */
     resourceId: pulumi.Input<string>;
     /**
-     * The ID of the RestApi resource in which you want to create this resource..
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

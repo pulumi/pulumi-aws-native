@@ -30,7 +30,7 @@ class GetAccountResult:
     @pulumi.getter(name="cloudWatchRoleArn")
     def cloud_watch_role_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+        The ARN of an Amazon CloudWatch role for the current Account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
 
@@ -56,7 +56,7 @@ class AwaitableGetAccountResult(GetAccountResult):
 def get_account(id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Resource Type definition for AWS::ApiGateway::Account
+    The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
 
 
     :param str id: Primary identifier which is manually generated.
@@ -75,7 +75,7 @@ def get_account(id: Optional[str] = None,
 def get_account_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Resource Type definition for AWS::ApiGateway::Account
+    The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
 
 
     :param str id: Primary identifier which is manually generated.

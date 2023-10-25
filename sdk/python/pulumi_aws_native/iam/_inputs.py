@@ -25,8 +25,12 @@ __all__ = [
 @pulumi.input_type
 class GroupPolicyArgs:
     def __init__(__self__, *,
-                 policy_document: Any,
+                 policy_document: pulumi.Input[str],
                  policy_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] policy_document: The policy document.
+        :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
+        """
         GroupPolicyArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             policy_document=policy_document,
@@ -35,7 +39,7 @@ class GroupPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: Any,
+             policy_document: pulumi.Input[str],
              policy_name: pulumi.Input[str],
              opts: Optional[pulumi.ResourceOptions]=None):
         _setter("policy_document", policy_document)
@@ -43,16 +47,22 @@ class GroupPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Any:
+    def policy_document(self) -> pulumi.Input[str]:
+        """
+        The policy document.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Any):
+    def policy_document(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_document", value)
 
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[str]:
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter

@@ -46,6 +46,7 @@ __all__ = [
     'MitigationActionTag',
     'MitigationActionUpdateCaCertificateParams',
     'MitigationActionUpdateDeviceCertificateParams',
+    'PolicyTag',
     'PresignedUrlConfigProperties',
     'ProvisioningTemplateProvisioningHook',
     'ProvisioningTemplateTag',
@@ -1997,6 +1998,36 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
     @pulumi.getter
     def action(self) -> 'MitigationActionUpdateDeviceCertificateParamsAction':
         return pulumi.get(self, "action")
+
+
+@pulumi.output_type
+class PolicyTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        PolicyTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

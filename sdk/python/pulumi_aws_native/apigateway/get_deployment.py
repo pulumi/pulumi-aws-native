@@ -38,7 +38,7 @@ class GetDeploymentResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the purpose of the API Gateway deployment.
+        The description for the Deployment resource to create.
         """
         return pulumi.get(self, "description")
 
@@ -57,11 +57,11 @@ def get_deployment(deployment_id: Optional[str] = None,
                    rest_api_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
-    Resource Type definition for AWS::ApiGateway::Deployment
+    The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
 
     :param str deployment_id: Primary Id for this resource
-    :param str rest_api_id: The ID of the RestApi resource to deploy. 
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['deploymentId'] = deployment_id
@@ -79,10 +79,10 @@ def get_deployment_output(deployment_id: Optional[pulumi.Input[str]] = None,
                           rest_api_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
-    Resource Type definition for AWS::ApiGateway::Deployment
+    The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
 
     :param str deployment_id: Primary Id for this resource
-    :param str rest_api_id: The ID of the RestApi resource to deploy. 
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

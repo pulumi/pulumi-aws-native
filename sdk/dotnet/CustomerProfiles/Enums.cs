@@ -108,6 +108,133 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainAttributeTypesSelectorAttributeMatchingModel : IEquatable<DomainAttributeTypesSelectorAttributeMatchingModel>
+    {
+        private readonly string _value;
+
+        private DomainAttributeTypesSelectorAttributeMatchingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainAttributeTypesSelectorAttributeMatchingModel OneToOne { get; } = new DomainAttributeTypesSelectorAttributeMatchingModel("ONE_TO_ONE");
+        public static DomainAttributeTypesSelectorAttributeMatchingModel ManyToMany { get; } = new DomainAttributeTypesSelectorAttributeMatchingModel("MANY_TO_MANY");
+
+        public static bool operator ==(DomainAttributeTypesSelectorAttributeMatchingModel left, DomainAttributeTypesSelectorAttributeMatchingModel right) => left.Equals(right);
+        public static bool operator !=(DomainAttributeTypesSelectorAttributeMatchingModel left, DomainAttributeTypesSelectorAttributeMatchingModel right) => !left.Equals(right);
+
+        public static explicit operator string(DomainAttributeTypesSelectorAttributeMatchingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainAttributeTypesSelectorAttributeMatchingModel other && Equals(other);
+        public bool Equals(DomainAttributeTypesSelectorAttributeMatchingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How the auto-merging process should resolve conflicts between different profiles.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainConflictResolutionConflictResolvingModel : IEquatable<DomainConflictResolutionConflictResolvingModel>
+    {
+        private readonly string _value;
+
+        private DomainConflictResolutionConflictResolvingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainConflictResolutionConflictResolvingModel Recency { get; } = new DomainConflictResolutionConflictResolvingModel("RECENCY");
+        public static DomainConflictResolutionConflictResolvingModel Source { get; } = new DomainConflictResolutionConflictResolvingModel("SOURCE");
+
+        public static bool operator ==(DomainConflictResolutionConflictResolvingModel left, DomainConflictResolutionConflictResolvingModel right) => left.Equals(right);
+        public static bool operator !=(DomainConflictResolutionConflictResolvingModel left, DomainConflictResolutionConflictResolvingModel right) => !left.Equals(right);
+
+        public static explicit operator string(DomainConflictResolutionConflictResolvingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainConflictResolutionConflictResolvingModel other && Equals(other);
+        public bool Equals(DomainConflictResolutionConflictResolvingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day when the Identity Resolution Job should run every week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainJobScheduleDayOfTheWeek : IEquatable<DomainJobScheduleDayOfTheWeek>
+    {
+        private readonly string _value;
+
+        private DomainJobScheduleDayOfTheWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainJobScheduleDayOfTheWeek Sunday { get; } = new DomainJobScheduleDayOfTheWeek("SUNDAY");
+        public static DomainJobScheduleDayOfTheWeek Monday { get; } = new DomainJobScheduleDayOfTheWeek("MONDAY");
+        public static DomainJobScheduleDayOfTheWeek Tuesday { get; } = new DomainJobScheduleDayOfTheWeek("TUESDAY");
+        public static DomainJobScheduleDayOfTheWeek Wednesday { get; } = new DomainJobScheduleDayOfTheWeek("WEDNESDAY");
+        public static DomainJobScheduleDayOfTheWeek Thursday { get; } = new DomainJobScheduleDayOfTheWeek("THURSDAY");
+        public static DomainJobScheduleDayOfTheWeek Friday { get; } = new DomainJobScheduleDayOfTheWeek("FRIDAY");
+        public static DomainJobScheduleDayOfTheWeek Saturday { get; } = new DomainJobScheduleDayOfTheWeek("SATURDAY");
+
+        public static bool operator ==(DomainJobScheduleDayOfTheWeek left, DomainJobScheduleDayOfTheWeek right) => left.Equals(right);
+        public static bool operator !=(DomainJobScheduleDayOfTheWeek left, DomainJobScheduleDayOfTheWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DomainJobScheduleDayOfTheWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainJobScheduleDayOfTheWeek other && Equals(other);
+        public bool Equals(DomainJobScheduleDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainRuleBasedMatchingStatus : IEquatable<DomainRuleBasedMatchingStatus>
+    {
+        private readonly string _value;
+
+        private DomainRuleBasedMatchingStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainRuleBasedMatchingStatus Pending { get; } = new DomainRuleBasedMatchingStatus("PENDING");
+        public static DomainRuleBasedMatchingStatus InProgress { get; } = new DomainRuleBasedMatchingStatus("IN_PROGRESS");
+        public static DomainRuleBasedMatchingStatus Active { get; } = new DomainRuleBasedMatchingStatus("ACTIVE");
+
+        public static bool operator ==(DomainRuleBasedMatchingStatus left, DomainRuleBasedMatchingStatus right) => left.Equals(right);
+        public static bool operator !=(DomainRuleBasedMatchingStatus left, DomainRuleBasedMatchingStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainRuleBasedMatchingStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainRuleBasedMatchingStatus other && Equals(other);
+        public bool Equals(DomainRuleBasedMatchingStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operational state of destination stream for export.
     /// </summary>
     [EnumType]

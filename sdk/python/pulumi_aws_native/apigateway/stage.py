@@ -32,20 +32,20 @@ class StageArgs:
                  variables: Optional[Any] = None):
         """
         The set of arguments for constructing a Stage resource.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource that you're deploying with this stage.
-        :param pulumi.Input['StageAccessLogSettingArgs'] access_log_setting: Specifies settings for logging access in this stage.
-        :param pulumi.Input[bool] cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
-        :param pulumi.Input[str] cache_cluster_size: The stage's cache cluster size.
-        :param pulumi.Input['StageCanarySettingArgs'] canary_setting: Specifies settings for the canary deployment in this stage.
-        :param pulumi.Input[str] client_certificate_id: The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
-        :param pulumi.Input[str] deployment_id: The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
-        :param pulumi.Input[str] description: A description of the stage.
-        :param pulumi.Input[str] documentation_version: The version ID of the API documentation snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: Settings for all methods in the stage.
-        :param pulumi.Input[str] stage_name: The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-        :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
-        :param pulumi.Input[bool] tracing_enabled: Specifies whether active X-Ray tracing is enabled for this stage.
-        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input['StageAccessLogSettingArgs'] access_log_setting: Access log settings, including the access log format and access log destination ARN.
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        :param pulumi.Input['StageCanarySettingArgs'] canary_setting: Settings for the canary deployment in this stage.
+        :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for an API stage.
+        :param pulumi.Input[str] deployment_id: The identifier of the Deployment that the stage points to.
+        :param pulumi.Input[str] description: The stage's description.
+        :param pulumi.Input[str] documentation_version: The version of the associated API documentation.
+        :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
+        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         StageArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -114,7 +114,7 @@ class StageArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The ID of the RestApi resource that you're deploying with this stage.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -126,7 +126,7 @@ class StageArgs:
     @pulumi.getter(name="accessLogSetting")
     def access_log_setting(self) -> Optional[pulumi.Input['StageAccessLogSettingArgs']]:
         """
-        Specifies settings for logging access in this stage.
+        Access log settings, including the access log format and access log destination ARN.
         """
         return pulumi.get(self, "access_log_setting")
 
@@ -138,7 +138,7 @@ class StageArgs:
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether cache clustering is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -150,7 +150,7 @@ class StageArgs:
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
         """
-        The stage's cache cluster size.
+        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -162,7 +162,7 @@ class StageArgs:
     @pulumi.getter(name="canarySetting")
     def canary_setting(self) -> Optional[pulumi.Input['StageCanarySettingArgs']]:
         """
-        Specifies settings for the canary deployment in this stage.
+        Settings for the canary deployment in this stage.
         """
         return pulumi.get(self, "canary_setting")
 
@@ -174,7 +174,7 @@ class StageArgs:
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        The identifier of a client certificate for an API stage.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -186,7 +186,7 @@ class StageArgs:
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        The identifier of the Deployment that the stage points to.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -198,7 +198,7 @@ class StageArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the stage.
+        The stage's description.
         """
         return pulumi.get(self, "description")
 
@@ -210,7 +210,7 @@ class StageArgs:
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version ID of the API documentation snapshot.
+        The version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -222,7 +222,7 @@ class StageArgs:
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]]:
         """
-        Settings for all methods in the stage.
+        A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 
@@ -234,7 +234,7 @@ class StageArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
@@ -246,7 +246,7 @@ class StageArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -258,7 +258,7 @@ class StageArgs:
     @pulumi.getter(name="tracingEnabled")
     def tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether active X-Ray tracing is enabled for this stage.
+        Specifies whether active tracing with X-ray is enabled for the Stage.
         """
         return pulumi.get(self, "tracing_enabled")
 
@@ -270,7 +270,7 @@ class StageArgs:
     @pulumi.getter
     def variables(self) -> Optional[Any]:
         """
-        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
@@ -300,24 +300,24 @@ class Stage(pulumi.CustomResource):
                  variables: Optional[Any] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::Stage
+        The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StageAccessLogSettingArgs']] access_log_setting: Specifies settings for logging access in this stage.
-        :param pulumi.Input[bool] cache_cluster_enabled: Indicates whether cache clustering is enabled for the stage.
-        :param pulumi.Input[str] cache_cluster_size: The stage's cache cluster size.
-        :param pulumi.Input[pulumi.InputType['StageCanarySettingArgs']] canary_setting: Specifies settings for the canary deployment in this stage.
-        :param pulumi.Input[str] client_certificate_id: The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
-        :param pulumi.Input[str] deployment_id: The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
-        :param pulumi.Input[str] description: A description of the stage.
-        :param pulumi.Input[str] documentation_version: The version ID of the API documentation snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]] method_settings: Settings for all methods in the stage.
-        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource that you're deploying with this stage.
-        :param pulumi.Input[str] stage_name: The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the stage.
-        :param pulumi.Input[bool] tracing_enabled: Specifies whether active X-Ray tracing is enabled for this stage.
-        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        :param pulumi.Input[pulumi.InputType['StageAccessLogSettingArgs']] access_log_setting: Access log settings, including the access log format and access log destination ARN.
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        :param pulumi.Input[pulumi.InputType['StageCanarySettingArgs']] canary_setting: Settings for the canary deployment in this stage.
+        :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for an API stage.
+        :param pulumi.Input[str] deployment_id: The identifier of the Deployment that the stage points to.
+        :param pulumi.Input[str] description: The stage's description.
+        :param pulumi.Input[str] documentation_version: The version of the associated API documentation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageMethodSettingArgs']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
+        :param Any variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         ...
     @overload
@@ -326,7 +326,7 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::Stage
+        The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
@@ -440,7 +440,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="accessLogSetting")
     def access_log_setting(self) -> pulumi.Output[Optional['outputs.StageAccessLogSetting']]:
         """
-        Specifies settings for logging access in this stage.
+        Access log settings, including the access log format and access log destination ARN.
         """
         return pulumi.get(self, "access_log_setting")
 
@@ -448,7 +448,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether cache clustering is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -456,7 +456,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> pulumi.Output[Optional[str]]:
         """
-        The stage's cache cluster size.
+        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -464,7 +464,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="canarySetting")
     def canary_setting(self) -> pulumi.Output[Optional['outputs.StageCanarySetting']]:
         """
-        Specifies settings for the canary deployment in this stage.
+        Settings for the canary deployment in this stage.
         """
         return pulumi.get(self, "canary_setting")
 
@@ -472,7 +472,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the client certificate that API Gateway uses to call your integration endpoints in the stage. 
+        The identifier of a client certificate for an API stage.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -480,7 +480,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the deployment that the stage is associated with. This parameter is required to create a stage. 
+        The identifier of the Deployment that the stage points to.
         """
         return pulumi.get(self, "deployment_id")
 
@@ -488,7 +488,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the stage.
+        The stage's description.
         """
         return pulumi.get(self, "description")
 
@@ -496,7 +496,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version ID of the API documentation snapshot.
+        The version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -504,7 +504,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StageMethodSetting']]]:
         """
-        Settings for all methods in the stage.
+        A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 
@@ -512,7 +512,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The ID of the RestApi resource that you're deploying with this stage.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -520,7 +520,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
+        The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
@@ -528,7 +528,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StageTag']]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the stage.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -536,7 +536,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="tracingEnabled")
     def tracing_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether active X-Ray tracing is enabled for this stage.
+        Specifies whether active tracing with X-ray is enabled for the Stage.
         """
         return pulumi.get(self, "tracing_enabled")
 
@@ -544,7 +544,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Any]]:
         """
-        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value.
+        A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 

@@ -81,6 +81,10 @@ export class Fleet extends pulumi.CustomResource {
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
     public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+     */
+    public readonly instanceRoleCredentialsProvider!: pulumi.Output<enums.gamelift.FleetInstanceRoleCredentialsProvider | undefined>;
     public readonly locations!: pulumi.Output<outputs.gamelift.FleetLocationConfiguration[] | undefined>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -160,6 +164,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
             resourceInputs["fleetType"] = args ? args.fleetType : undefined;
             resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
+            resourceInputs["instanceRoleCredentialsProvider"] = args ? args.instanceRoleCredentialsProvider : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["logPaths"] = args ? args.logPaths : undefined;
             resourceInputs["maxSize"] = args ? args.maxSize : undefined;
@@ -187,6 +192,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fleetId"] = undefined /*out*/;
             resourceInputs["fleetType"] = undefined /*out*/;
             resourceInputs["instanceRoleArn"] = undefined /*out*/;
+            resourceInputs["instanceRoleCredentialsProvider"] = undefined /*out*/;
             resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["logPaths"] = undefined /*out*/;
             resourceInputs["maxSize"] = undefined /*out*/;
@@ -203,7 +209,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -253,6 +259,10 @@ export interface FleetArgs {
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
     instanceRoleArn?: pulumi.Input<string>;
+    /**
+     * Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+     */
+    instanceRoleCredentialsProvider?: pulumi.Input<enums.gamelift.FleetInstanceRoleCredentialsProvider>;
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetLocationConfigurationArgs>[]>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()

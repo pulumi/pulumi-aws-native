@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.Connect
         /// The state of the contact flow module.
         /// </summary>
         [Output("state")]
-        public Output<Pulumi.AwsNative.Connect.ContactFlowModuleState?> State { get; private set; } = null!;
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The status of the contact flow module.
         /// </summary>
         [Output("status")]
-        public Output<Pulumi.AwsNative.Connect.ContactFlowModuleStatus> Status { get; private set; } = null!;
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// One or more tags.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Connect
         /// The state of the contact flow module.
         /// </summary>
         [Input("state")]
-        public Input<Pulumi.AwsNative.Connect.ContactFlowModuleState>? State { get; set; }
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ContactFlowModuleTagArgs>? _tags;

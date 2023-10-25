@@ -99,6 +99,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly packageType!: pulumi.Output<enums.lambda.FunctionPackageType | undefined>;
     /**
+     * The resource policy of your function
+     */
+    public readonly policy!: pulumi.Output<any | undefined>;
+    /**
      * The number of simultaneous executions to reserve for the function.
      */
     public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
@@ -171,6 +175,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["layers"] = args ? args.layers : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -199,6 +204,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["layers"] = undefined /*out*/;
             resourceInputs["memorySize"] = undefined /*out*/;
             resourceInputs["packageType"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["runtime"] = undefined /*out*/;
@@ -278,6 +284,10 @@ export interface FunctionArgs {
      * PackageType.
      */
     packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
+    /**
+     * The resource policy of your function
+     */
+    policy?: any;
     /**
      * The number of simultaneous executions to reserve for the function.
      */

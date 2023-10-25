@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A snapshot of the documentation of an API.
+ * The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
 export class DocumentationVersion extends pulumi.CustomResource {
     /**
@@ -35,15 +35,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the API documentation snapshot.
+     * A description about the new documentation snapshot.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The version identifier of the API documentation snapshot.
+     * The version identifier of the to-be-updated documentation version.
      */
     public readonly documentationVersion!: pulumi.Output<string>;
     /**
-     * The identifier of the API.
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -84,15 +84,15 @@ export class DocumentationVersion extends pulumi.CustomResource {
  */
 export interface DocumentationVersionArgs {
     /**
-     * The description of the API documentation snapshot.
+     * A description about the new documentation snapshot.
      */
     description?: pulumi.Input<string>;
     /**
-     * The version identifier of the API documentation snapshot.
+     * The version identifier of the to-be-updated documentation version.
      */
     documentationVersion: pulumi.Input<string>;
     /**
-     * The identifier of the API.
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

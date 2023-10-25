@@ -52,6 +52,10 @@ namespace Pulumi.AwsNative.Sns
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// </summary>
+        public readonly object? ArchivePolicy;
+        /// <summary>
         /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
         /// 
         /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.Sns
 
         [OutputConstructor]
         private GetTopicResult(
+            object? archivePolicy,
+
             bool? contentBasedDeduplication,
 
             object? dataProtectionPolicy,
@@ -114,6 +120,7 @@ namespace Pulumi.AwsNative.Sns
 
             string? tracingConfig)
         {
+            ArchivePolicy = archivePolicy;
             ContentBasedDeduplication = contentBasedDeduplication;
             DataProtectionPolicy = dataProtectionPolicy;
             DisplayName = displayName;

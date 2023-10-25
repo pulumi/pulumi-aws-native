@@ -13,17 +13,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::DocumentationPart
+// The “AWS::ApiGateway::DocumentationPart“ resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 
 	// The identifier of the documentation Part.
 	DocumentationPartId pulumi.StringOutput `pulumi:"documentationPartId"`
-	// The location of the API entity that the documentation applies to.
+	// The location of the targeted API entity of the to-be-created documentation part.
 	Location DocumentationPartLocationOutput `pulumi:"location"`
-	// The documentation content map of the targeted API entity.
+	// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties pulumi.StringOutput `pulumi:"properties"`
-	// Identifier of the targeted API entity
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -81,21 +81,21 @@ func (DocumentationPartState) ElementType() reflect.Type {
 }
 
 type documentationPartArgs struct {
-	// The location of the API entity that the documentation applies to.
+	// The location of the targeted API entity of the to-be-created documentation part.
 	Location DocumentationPartLocation `pulumi:"location"`
-	// The documentation content map of the targeted API entity.
+	// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties string `pulumi:"properties"`
-	// Identifier of the targeted API entity
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a DocumentationPart resource.
 type DocumentationPartArgs struct {
-	// The location of the API entity that the documentation applies to.
+	// The location of the targeted API entity of the to-be-created documentation part.
 	Location DocumentationPartLocationInput
-	// The documentation content map of the targeted API entity.
+	// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties pulumi.StringInput
-	// Identifier of the targeted API entity
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
 }
 
@@ -153,17 +153,17 @@ func (o DocumentationPartOutput) DocumentationPartId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.DocumentationPartId }).(pulumi.StringOutput)
 }
 
-// The location of the API entity that the documentation applies to.
+// The location of the targeted API entity of the to-be-created documentation part.
 func (o DocumentationPartOutput) Location() DocumentationPartLocationOutput {
 	return o.ApplyT(func(v *DocumentationPart) DocumentationPartLocationOutput { return v.Location }).(DocumentationPartLocationOutput)
 }
 
-// The documentation content map of the targeted API entity.
+// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 func (o DocumentationPartOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
 }
 
-// Identifier of the targeted API entity
+// The string identifier of the associated RestApi.
 func (o DocumentationPartOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

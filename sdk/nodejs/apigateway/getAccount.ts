@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::Account
+ * The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -24,7 +24,7 @@ export interface GetAccountArgs {
 
 export interface GetAccountResult {
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
+     * The ARN of an Amazon CloudWatch role for the current Account.
      */
     readonly cloudWatchRoleArn?: string;
     /**
@@ -33,7 +33,7 @@ export interface GetAccountResult {
     readonly id?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::Account
+ * The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

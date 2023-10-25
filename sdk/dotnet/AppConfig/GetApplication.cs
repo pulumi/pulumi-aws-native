@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The application Id
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public string ApplicationId { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The application Id
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {
@@ -51,23 +57,35 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The application Id
+        /// </summary>
+        public readonly string? ApplicationId;
+        /// <summary>
+        /// A description of the application.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// A name for the application.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationTags> Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? description,
+            string? applicationId,
 
-            string? id,
+            string? description,
 
             string? name,
 
             ImmutableArray<Outputs.ApplicationTags> tags)
         {
+            ApplicationId = applicationId;
             Description = description;
-            Id = id;
             Name = name;
             Tags = tags;
         }

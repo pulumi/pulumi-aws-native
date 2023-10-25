@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetContactFlowModuleResult',
@@ -88,7 +87,7 @@ class GetContactFlowModuleResult:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional['ContactFlowModuleState']:
+    def state(self) -> Optional[str]:
         """
         The state of the contact flow module.
         """
@@ -96,7 +95,7 @@ class GetContactFlowModuleResult:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['ContactFlowModuleStatus']:
+    def status(self) -> Optional[str]:
         """
         The status of the contact flow module.
         """

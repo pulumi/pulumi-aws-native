@@ -16,7 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class MonitoringScheduleScheduleConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A cron expression that describes details about the monitoring schedule.
+        /// Data Analysis end time, e.g. PT0H
+        /// </summary>
+        [Input("dataAnalysisEndTime")]
+        public Input<string>? DataAnalysisEndTime { get; set; }
+
+        /// <summary>
+        /// Data Analysis start time, e.g. -PT1H
+        /// </summary>
+        [Input("dataAnalysisStartTime")]
+        public Input<string>? DataAnalysisStartTime { get; set; }
+
+        /// <summary>
+        /// A cron expression or 'NOW' that describes details about the monitoring schedule.
         /// </summary>
         [Input("scheduleExpression", required: true)]
         public Input<string> ScheduleExpression { get; set; } = null!;

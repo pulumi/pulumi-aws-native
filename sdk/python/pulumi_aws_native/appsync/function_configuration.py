@@ -32,6 +32,20 @@ class FunctionConfigurationArgs:
                  sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a FunctionConfiguration resource.
+        :param pulumi.Input[str] api_id: The AWS AppSync GraphQL API that you want to attach using this function.
+        :param pulumi.Input[str] data_source_name: The name of data source this function will attach.
+        :param pulumi.Input[str] code: The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] code_s3_location: The Amazon S3 endpoint (where the code is located??).
+        :param pulumi.Input[str] description: The function description.
+        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
+        :param pulumi.Input[int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        :param pulumi.Input[str] name: The name of the function.
+        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] request_mapping_template_s3_location: Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
+        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[str] response_mapping_template_s3_location: The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+        :param pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param pulumi.Input['FunctionConfigurationSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         """
         FunctionConfigurationArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -98,6 +112,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The AWS AppSync GraphQL API that you want to attach using this function.
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -107,6 +124,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="dataSourceName")
     def data_source_name(self) -> pulumi.Input[str]:
+        """
+        The name of data source this function will attach.
+        """
         return pulumi.get(self, "data_source_name")
 
     @data_source_name.setter
@@ -116,6 +136,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -125,6 +148,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="codeS3Location")
     def code_s3_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 endpoint (where the code is located??).
+        """
         return pulumi.get(self, "code_s3_location")
 
     @code_s3_location.setter
@@ -134,6 +160,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -143,6 +172,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
+        """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
@@ -152,6 +184,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
@@ -161,6 +196,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the function.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -170,6 +208,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
@@ -179,6 +220,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="requestMappingTemplateS3Location")
     def request_mapping_template_s3_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
+        """
         return pulumi.get(self, "request_mapping_template_s3_location")
 
     @request_mapping_template_s3_location.setter
@@ -188,6 +232,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Function response mapping template.
+        """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
@@ -197,6 +244,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="responseMappingTemplateS3Location")
     def response_mapping_template_s3_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+        """
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @response_mapping_template_s3_location.setter
@@ -206,6 +256,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -215,6 +268,9 @@ class FunctionConfigurationArgs:
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']]:
+        """
+        Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+        """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
@@ -222,12 +278,7 @@ class FunctionConfigurationArgs:
         pulumi.set(self, "sync_config", value)
 
 
-warnings.warn("""FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class FunctionConfiguration(pulumi.CustomResource):
-    warnings.warn("""FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,10 +299,24 @@ class FunctionConfiguration(pulumi.CustomResource):
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::AppSync::FunctionConfiguration
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The AWS AppSync GraphQL API that you want to attach using this function.
+        :param pulumi.Input[str] code: The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        :param pulumi.Input[str] code_s3_location: The Amazon S3 endpoint (where the code is located??).
+        :param pulumi.Input[str] data_source_name: The name of data source this function will attach.
+        :param pulumi.Input[str] description: The function description.
+        :param pulumi.Input[str] function_version: The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
+        :param pulumi.Input[int] max_batch_size: The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        :param pulumi.Input[str] name: The name of the function.
+        :param pulumi.Input[str] request_mapping_template: The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        :param pulumi.Input[str] request_mapping_template_s3_location: Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
+        :param pulumi.Input[str] response_mapping_template: The Function response mapping template.
+        :param pulumi.Input[str] response_mapping_template_s3_location: The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+        :param pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         """
         ...
     @overload
@@ -260,7 +325,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  args: FunctionConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::AppSync::FunctionConfiguration
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param FunctionConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -296,7 +361,6 @@ class FunctionConfiguration(pulumi.CustomResource):
                  runtime: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""FunctionConfiguration is deprecated: FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -380,80 +444,128 @@ class FunctionConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The AWS AppSync GraphQL API that you want to attach using this function.
+        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter(name="codeS3Location")
     def code_s3_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon S3 endpoint (where the code is located??).
+        """
         return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
     def data_source_name(self) -> pulumi.Output[str]:
+        """
+        The name of data source this function will attach.
+        """
         return pulumi.get(self, "data_source_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The function description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN for the function generated by the service
+        """
         return pulumi.get(self, "function_arn")
 
     @property
     @pulumi.getter(name="functionId")
     def function_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the function generated by the service
+        """
         return pulumi.get(self, "function_id")
 
     @property
     @pulumi.getter(name="functionVersion")
     def function_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
+        """
         return pulumi.get(self, "function_version")
 
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        """
         return pulumi.get(self, "max_batch_size")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the function.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        """
         return pulumi.get(self, "request_mapping_template")
 
     @property
     @pulumi.getter(name="requestMappingTemplateS3Location")
     def request_mapping_template_s3_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
+        """
         return pulumi.get(self, "request_mapping_template_s3_location")
 
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Function response mapping template.
+        """
         return pulumi.get(self, "response_mapping_template")
 
     @property
     @pulumi.getter(name="responseMappingTemplateS3Location")
     def response_mapping_template_s3_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+        """
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @property
     @pulumi.getter
     def runtime(self) -> pulumi.Output[Optional['outputs.FunctionConfigurationAppSyncRuntime']]:
+        """
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        """
         return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> pulumi.Output[Optional['outputs.FunctionConfigurationSyncConfig']]:
+        """
+        Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+        """
         return pulumi.get(self, "sync_config")
 

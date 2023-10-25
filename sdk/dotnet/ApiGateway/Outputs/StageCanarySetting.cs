@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
     /// <summary>
-    /// Specifies settings for the canary deployment in this stage.
+    /// Configuration settings of a canary deployment.
     /// </summary>
     [OutputType]
     public sealed class StageCanarySetting
     {
         /// <summary>
-        /// The identifier of the deployment that the stage points to.
+        /// The ID of the canary deployment.
         /// </summary>
         public readonly string? DeploymentId;
         /// <summary>
-        /// The percentage (0-100) of traffic diverted to a canary deployment.
+        /// The percent (0-100) of traffic diverted to a canary deployment.
         /// </summary>
         public readonly double? PercentTraffic;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// </summary>
         public readonly object? StageVariableOverrides;
         /// <summary>
-        /// Whether the canary deployment uses the stage cache or not.
+        /// A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
         /// </summary>
         public readonly bool? UseStageCache;
 

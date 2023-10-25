@@ -81,6 +81,12 @@ namespace Pulumi.AwsNative.GameLift
         [Output("instanceRoleArn")]
         public Output<string?> InstanceRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        /// </summary>
+        [Output("instanceRoleCredentialsProvider")]
+        public Output<Pulumi.AwsNative.GameLift.FleetInstanceRoleCredentialsProvider?> InstanceRoleCredentialsProvider { get; private set; } = null!;
+
         [Output("locations")]
         public Output<ImmutableArray<Outputs.FleetLocationConfiguration>> Locations { get; private set; } = null!;
 
@@ -197,6 +203,7 @@ namespace Pulumi.AwsNative.GameLift
                     "ec2InstanceType",
                     "fleetType",
                     "instanceRoleArn",
+                    "instanceRoleCredentialsProvider",
                     "logPaths[*]",
                     "peerVpcAwsAccountId",
                     "peerVpcId",
@@ -291,6 +298,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("instanceRoleArn")]
         public Input<string>? InstanceRoleArn { get; set; }
+
+        /// <summary>
+        /// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
+        /// </summary>
+        [Input("instanceRoleCredentialsProvider")]
+        public Input<Pulumi.AwsNative.GameLift.FleetInstanceRoleCredentialsProvider>? InstanceRoleCredentialsProvider { get; set; }
 
         [Input("locations")]
         private InputList<Inputs.FleetLocationConfigurationArgs>? _locations;

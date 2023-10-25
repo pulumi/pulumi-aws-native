@@ -27,6 +27,7 @@ type Template struct {
 	SourceEntity       TemplateSourceEntityPtrOutput         `pulumi:"sourceEntity"`
 	Tags               TemplateTagArrayOutput                `pulumi:"tags"`
 	TemplateId         pulumi.StringOutput                   `pulumi:"templateId"`
+	ValidationStrategy TemplateValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
 	Version            TemplateVersionOutput                 `pulumi:"version"`
 	VersionDescription pulumi.StringPtrOutput                `pulumi:"versionDescription"`
 }
@@ -89,6 +90,7 @@ type templateArgs struct {
 	SourceEntity       *TemplateSourceEntity        `pulumi:"sourceEntity"`
 	Tags               []TemplateTag                `pulumi:"tags"`
 	TemplateId         string                       `pulumi:"templateId"`
+	ValidationStrategy *TemplateValidationStrategy  `pulumi:"validationStrategy"`
 	VersionDescription *string                      `pulumi:"versionDescription"`
 }
 
@@ -101,6 +103,7 @@ type TemplateArgs struct {
 	SourceEntity       TemplateSourceEntityPtrInput
 	Tags               TemplateTagArrayInput
 	TemplateId         pulumi.StringInput
+	ValidationStrategy TemplateValidationStrategyPtrInput
 	VersionDescription pulumi.StringPtrInput
 }
 
@@ -191,6 +194,10 @@ func (o TemplateOutput) Tags() TemplateTagArrayOutput {
 
 func (o TemplateOutput) TemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.TemplateId }).(pulumi.StringOutput)
+}
+
+func (o TemplateOutput) ValidationStrategy() TemplateValidationStrategyPtrOutput {
+	return o.ApplyT(func(v *Template) TemplateValidationStrategyPtrOutput { return v.ValidationStrategy }).(TemplateValidationStrategyPtrOutput)
 }
 
 func (o TemplateOutput) Version() TemplateVersionOutput {

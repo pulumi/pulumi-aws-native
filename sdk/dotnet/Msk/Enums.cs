@@ -95,6 +95,40 @@ namespace Pulumi.AwsNative.Msk
     }
 
     /// <summary>
+    /// The type of compression to use writing records to target Kafka cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorReplicationInfoTargetCompressionType : IEquatable<ReplicatorReplicationInfoTargetCompressionType>
+    {
+        private readonly string _value;
+
+        private ReplicatorReplicationInfoTargetCompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorReplicationInfoTargetCompressionType None { get; } = new ReplicatorReplicationInfoTargetCompressionType("NONE");
+        public static ReplicatorReplicationInfoTargetCompressionType Gzip { get; } = new ReplicatorReplicationInfoTargetCompressionType("GZIP");
+        public static ReplicatorReplicationInfoTargetCompressionType Snappy { get; } = new ReplicatorReplicationInfoTargetCompressionType("SNAPPY");
+        public static ReplicatorReplicationInfoTargetCompressionType Lz4 { get; } = new ReplicatorReplicationInfoTargetCompressionType("LZ4");
+        public static ReplicatorReplicationInfoTargetCompressionType Zstd { get; } = new ReplicatorReplicationInfoTargetCompressionType("ZSTD");
+
+        public static bool operator ==(ReplicatorReplicationInfoTargetCompressionType left, ReplicatorReplicationInfoTargetCompressionType right) => left.Equals(right);
+        public static bool operator !=(ReplicatorReplicationInfoTargetCompressionType left, ReplicatorReplicationInfoTargetCompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorReplicationInfoTargetCompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorReplicationInfoTargetCompressionType other && Equals(other);
+        public bool Equals(ReplicatorReplicationInfoTargetCompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of private link authentication
     /// </summary>
     [EnumType]

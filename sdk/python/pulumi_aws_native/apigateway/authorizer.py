@@ -26,16 +26,16 @@ class AuthorizerArgs:
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
-        :param pulumi.Input[str] rest_api_id: The identifier of the API.
-        :param pulumi.Input[str] type: The authorizer type.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] type: The authorizer type. Valid values are ``TOKEN`` for a Lambda function using a single authorization token submitted in a custom header, ``REQUEST`` for a Lambda function using incoming request parameters, and ``COGNITO_USER_POOLS`` for using an Amazon Cognito user pool.
         :param pulumi.Input[str] auth_type: Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-        :param pulumi.Input[str] authorizer_credentials: Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL in seconds of cached authorizer results.
-        :param pulumi.Input[str] authorizer_uri: Specifies the authorizer's Uniform Resource Identifier (URI).
-        :param pulumi.Input[str] identity_source: The identity source for which authorization is requested.
-        :param pulumi.Input[str] identity_validation_expression: A validation expression for the incoming identity token.
+        :param pulumi.Input[str] authorizer_credentials: Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
+        :param pulumi.Input[str] authorizer_uri: Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations``. In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}``, where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/``. For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations``.
+        :param pulumi.Input[str] identity_source: The identity source for which authorization is requested. For a ``TOKEN`` or ``COGNITO_USER_POOLS`` authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is ``Auth``, the header mapping expression is ``method.request.header.Auth``. For the ``REQUEST`` authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an ``Auth`` header, a ``Name`` query string parameter are defined as identity sources, this value is ``method.request.header.Auth, method.request.querystring.Name``. These parameters will be used to derive the authorization caching key and to perform runtime validation of the ``REQUEST`` authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
+        :param pulumi.Input[str] identity_validation_expression: A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. For ``COGNITO_USER_POOLS`` authorizers, API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         :param pulumi.Input[str] name: The name of the authorizer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the ``COGNITO_USER_POOLS`` authorizer. Each element is of this format: ``arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}``. For a ``TOKEN`` or ``REQUEST`` authorizer, this is not defined.
         """
         AuthorizerArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -87,7 +87,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The identifier of the API.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -99,7 +99,7 @@ class AuthorizerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The authorizer type.
+        The authorizer type. Valid values are ``TOKEN`` for a Lambda function using a single authorization token submitted in a custom header, ``REQUEST`` for a Lambda function using incoming request parameters, and ``COGNITO_USER_POOLS`` for using an Amazon Cognito user pool.
         """
         return pulumi.get(self, "type")
 
@@ -123,7 +123,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="authorizerCredentials")
     def authorizer_credentials(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
+        Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         """
         return pulumi.get(self, "authorizer_credentials")
 
@@ -135,7 +135,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The TTL in seconds of cached authorizer results.
+        The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
         """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
@@ -147,7 +147,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the authorizer's Uniform Resource Identifier (URI).
+        Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations``. In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}``, where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/``. For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations``.
         """
         return pulumi.get(self, "authorizer_uri")
 
@@ -159,7 +159,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="identitySource")
     def identity_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity source for which authorization is requested.
+        The identity source for which authorization is requested. For a ``TOKEN`` or ``COGNITO_USER_POOLS`` authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is ``Auth``, the header mapping expression is ``method.request.header.Auth``. For the ``REQUEST`` authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an ``Auth`` header, a ``Name`` query string parameter are defined as identity sources, this value is ``method.request.header.Auth, method.request.querystring.Name``. These parameters will be used to derive the authorization caching key and to perform runtime validation of the ``REQUEST`` authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
         """
         return pulumi.get(self, "identity_source")
 
@@ -171,7 +171,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="identityValidationExpression")
     def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        A validation expression for the incoming identity token.
+        A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. For ``COGNITO_USER_POOLS`` authorizers, API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         """
         return pulumi.get(self, "identity_validation_expression")
 
@@ -195,7 +195,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="providerArns")
     def provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+        A list of the Amazon Cognito user pool ARNs for the ``COGNITO_USER_POOLS`` authorizer. Each element is of this format: ``arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}``. For a ``TOKEN`` or ``REQUEST`` authorizer, this is not defined.
         """
         return pulumi.get(self, "provider_arns")
 
@@ -221,20 +221,20 @@ class Authorizer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+        The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
-        :param pulumi.Input[str] authorizer_credentials: Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
-        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL in seconds of cached authorizer results.
-        :param pulumi.Input[str] authorizer_uri: Specifies the authorizer's Uniform Resource Identifier (URI).
-        :param pulumi.Input[str] identity_source: The identity source for which authorization is requested.
-        :param pulumi.Input[str] identity_validation_expression: A validation expression for the incoming identity token.
+        :param pulumi.Input[str] authorizer_credentials: Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
+        :param pulumi.Input[str] authorizer_uri: Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations``. In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}``, where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/``. For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations``.
+        :param pulumi.Input[str] identity_source: The identity source for which authorization is requested. For a ``TOKEN`` or ``COGNITO_USER_POOLS`` authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is ``Auth``, the header mapping expression is ``method.request.header.Auth``. For the ``REQUEST`` authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an ``Auth`` header, a ``Name`` query string parameter are defined as identity sources, this value is ``method.request.header.Auth, method.request.querystring.Name``. These parameters will be used to derive the authorization caching key and to perform runtime validation of the ``REQUEST`` authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
+        :param pulumi.Input[str] identity_validation_expression: A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. For ``COGNITO_USER_POOLS`` authorizers, API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         :param pulumi.Input[str] name: The name of the authorizer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-        :param pulumi.Input[str] rest_api_id: The identifier of the API.
-        :param pulumi.Input[str] type: The authorizer type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: A list of the Amazon Cognito user pool ARNs for the ``COGNITO_USER_POOLS`` authorizer. Each element is of this format: ``arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}``. For a ``TOKEN`` or ``REQUEST`` authorizer, this is not defined.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] type: The authorizer type. Valid values are ``TOKEN`` for a Lambda function using a single authorization token submitted in a custom header, ``REQUEST`` for a Lambda function using incoming request parameters, and ``COGNITO_USER_POOLS`` for using an Amazon Cognito user pool.
         """
         ...
     @overload
@@ -243,7 +243,7 @@ class Authorizer(pulumi.CustomResource):
                  args: AuthorizerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+        The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.
@@ -347,7 +347,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerCredentials")
     def authorizer_credentials(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
+        Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
         """
         return pulumi.get(self, "authorizer_credentials")
 
@@ -360,7 +360,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerResultTtlInSeconds")
     def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        The TTL in seconds of cached authorizer results.
+        The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
         """
         return pulumi.get(self, "authorizer_result_ttl_in_seconds")
 
@@ -368,7 +368,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the authorizer's Uniform Resource Identifier (URI).
+        Specifies the authorizer's Uniform Resource Identifier (URI). For ``TOKEN`` or ``REQUEST`` authorizers, this must be a well-formed Lambda function URI, for example, ``arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations``. In general, the URI has this form ``arn:aws:apigateway:{region}:lambda:path/{service_api}``, where ``{region}`` is the same as the region hosting the Lambda function, ``path`` indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial ``/``. For Lambda functions, this is usually of the form ``/2015-03-31/functions/[FunctionARN]/invocations``.
         """
         return pulumi.get(self, "authorizer_uri")
 
@@ -376,7 +376,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="identitySource")
     def identity_source(self) -> pulumi.Output[Optional[str]]:
         """
-        The identity source for which authorization is requested.
+        The identity source for which authorization is requested. For a ``TOKEN`` or ``COGNITO_USER_POOLS`` authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is ``Auth``, the header mapping expression is ``method.request.header.Auth``. For the ``REQUEST`` authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an ``Auth`` header, a ``Name`` query string parameter are defined as identity sources, this value is ``method.request.header.Auth, method.request.querystring.Name``. These parameters will be used to derive the authorization caching key and to perform runtime validation of the ``REQUEST`` authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
         """
         return pulumi.get(self, "identity_source")
 
@@ -384,7 +384,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="identityValidationExpression")
     def identity_validation_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        A validation expression for the incoming identity token.
+        A validation expression for the incoming identity token. For ``TOKEN`` authorizers, this value is a regular expression. For ``COGNITO_USER_POOLS`` authorizers, API Gateway will match the ``aud`` field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the ``REQUEST`` authorizer.
         """
         return pulumi.get(self, "identity_validation_expression")
 
@@ -400,7 +400,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="providerArns")
     def provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
+        A list of the Amazon Cognito user pool ARNs for the ``COGNITO_USER_POOLS`` authorizer. Each element is of this format: ``arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}``. For a ``TOKEN`` or ``REQUEST`` authorizer, this is not defined.
         """
         return pulumi.get(self, "provider_arns")
 
@@ -408,7 +408,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The identifier of the API.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -416,7 +416,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The authorizer type.
+        The authorizer type. Valid values are ``TOKEN`` for a Lambda function using a single authorization token submitted in a custom header, ``REQUEST`` for a Lambda function using incoming request parameters, and ``COGNITO_USER_POOLS`` for using an Amazon Cognito user pool.
         """
         return pulumi.get(self, "type")
 

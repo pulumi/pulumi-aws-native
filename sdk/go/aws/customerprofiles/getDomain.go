@@ -38,7 +38,10 @@ type LookupDomainResult struct {
 	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
 	// The time of this integration got last updated at
-	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	LastUpdatedAt     *string                  `pulumi:"lastUpdatedAt"`
+	Matching          *DomainMatching          `pulumi:"matching"`
+	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
+	Stats             *DomainStats             `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
 	Tags []DomainTag `pulumi:"tags"`
 }
@@ -108,6 +111,18 @@ func (o LookupDomainResultOutput) DefaultExpirationDays() pulumi.IntPtrOutput {
 // The time of this integration got last updated at
 func (o LookupDomainResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainResultOutput) Matching() DomainMatchingPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainMatching { return v.Matching }).(DomainMatchingPtrOutput)
+}
+
+func (o LookupDomainResultOutput) RuleBasedMatching() DomainRuleBasedMatchingPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainRuleBasedMatching { return v.RuleBasedMatching }).(DomainRuleBasedMatchingPtrOutput)
+}
+
+func (o LookupDomainResultOutput) Stats() DomainStatsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainStats { return v.Stats }).(DomainStatsPtrOutput)
 }
 
 // The tags (keys and values) associated with the domain

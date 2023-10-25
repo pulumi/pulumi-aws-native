@@ -33,6 +33,7 @@ class FunctionArgs:
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 policy: Optional[Any] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
                  runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
@@ -58,6 +59,7 @@ class FunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
+        :param Any policy: The resource policy of your function
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
         :param pulumi.Input['FunctionRuntimeManagementConfigArgs'] runtime_management_config: RuntimeManagementConfig
@@ -85,6 +87,7 @@ class FunctionArgs:
             layers=layers,
             memory_size=memory_size,
             package_type=package_type,
+            policy=policy,
             reserved_concurrent_executions=reserved_concurrent_executions,
             runtime=runtime,
             runtime_management_config=runtime_management_config,
@@ -113,6 +116,7 @@ class FunctionArgs:
              layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              memory_size: Optional[pulumi.Input[int]] = None,
              package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+             policy: Optional[Any] = None,
              reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
              runtime: Optional[pulumi.Input[str]] = None,
              runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
@@ -152,6 +156,8 @@ class FunctionArgs:
             _setter("memory_size", memory_size)
         if package_type is not None:
             _setter("package_type", package_type)
+        if policy is not None:
+            _setter("policy", policy)
         if reserved_concurrent_executions is not None:
             _setter("reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
@@ -359,6 +365,18 @@ class FunctionArgs:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter
+    def policy(self) -> Optional[Any]:
+        """
+        The resource policy of your function
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[Any]):
+        pulumi.set(self, "policy", value)
+
+    @property
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
@@ -475,6 +493,7 @@ class Function(pulumi.CustomResource):
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 policy: Optional[Any] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -504,6 +523,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
+        :param Any policy: The resource policy of your function
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
@@ -557,6 +577,7 @@ class Function(pulumi.CustomResource):
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 policy: Optional[Any] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -617,6 +638,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["layers"] = layers
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["package_type"] = package_type
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
@@ -690,6 +712,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["layers"] = None
         __props__.__dict__["memory_size"] = None
         __props__.__dict__["package_type"] = None
+        __props__.__dict__["policy"] = None
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["runtime"] = None
@@ -826,6 +849,14 @@ class Function(pulumi.CustomResource):
         PackageType.
         """
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The resource policy of your function
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="reservedConcurrentExecutions")

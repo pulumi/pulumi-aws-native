@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationProfileResult:
-    def __init__(__self__, description=None, id=None, name=None, retrieval_role_arn=None, tags=None, validators=None):
+    def __init__(__self__, description=None, id=None, kms_key_identifier=None, name=None, retrieval_role_arn=None, tags=None, validators=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -48,6 +51,11 @@ class GetConfigurationProfileResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter
@@ -78,6 +86,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
         return GetConfigurationProfileResult(
             description=self.description,
             id=self.id,
+            kms_key_identifier=self.kms_key_identifier,
             name=self.name,
             retrieval_role_arn=self.retrieval_role_arn,
             tags=self.tags,
@@ -97,6 +106,7 @@ def get_configuration_profile(id: Optional[str] = None,
     return AwaitableGetConfigurationProfileResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'),
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
