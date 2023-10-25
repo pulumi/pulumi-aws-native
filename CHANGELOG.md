@@ -1,5 +1,112 @@
 ## HEAD (Unreleased)
 
+## 0.82.0 (2023-10-25)
+
+Resource "aws-native:s3:Bucket" input "accessControl" type changed from "#/types/aws-native:s3:BucketAccessControl" to "string"
+Resource "aws-native:s3:Bucket" output "accessControl" type changed from "#/types/aws-native:s3:BucketAccessControl" to "string"
+Resource "aws-native:events:Rule" input "state" type changed from "#/types/aws-native:events:RuleState" to "string"
+Resource "aws-native:events:Rule" input "eventPattern" type changed from "string" to "pulumi.json#/Any"
+Resource "aws-native:events:Rule" output "eventPattern" type changed from "string" to "pulumi.json#/Any"
+Resource "aws-native:events:Rule" output "state" type changed from "#/types/aws-native:events:RuleState" to "string"
+Resource "aws-native:connect:ContactFlowModule" input "state" type changed from "#/types/aws-native:connect:ContactFlowModuleState" to "string"
+Resource "aws-native:connect:ContactFlowModule" output "state" type changed from "#/types/aws-native:connect:ContactFlowModuleState" to "string"
+Resource "aws-native:connect:ContactFlowModule" output "status" type changed from "#/types/aws-native:connect:ContactFlowModuleStatus" to "string"
+Resource "aws-native:cognito:IdentityPool" missing input "identityPoolTags"
+Resource "aws-native:cognito:IdentityPool" missing output "identityPoolTags"
+Function "aws-native:servicecatalogappregistry:getResourceAssociation" missing input "id"
+Function "aws-native:servicecatalogappregistry:getResourceAssociation" missing output "id"
+Function "aws-native:cognito:getIdentityPool" missing output "identityPoolTags"
+Function "aws-native:iot:getJobTemplate" missing output "destinationPackageVersions"
+Function "aws-native:iot:getJobTemplate" missing output "jobExecutionsRetryConfig"
+Function "aws-native:iot:getJobTemplate" missing output "maintenanceWindows"
+Function "aws-native:servicecatalogappregistry:getAttributeGroupAssociation" missing input "id"
+Function "aws-native:servicecatalogappregistry:getAttributeGroupAssociation" missing output "id"
+Function "aws-native:s3:getBucket" missing input "bucketName"
+Function "aws-native:connect:getContactFlowModule" output "state" type changed from "#/types/aws-native:connect:ContactFlowModuleState" to "string"
+Function "aws-native:connect:getContactFlowModule" output "status" type changed from "#/types/aws-native:connect:ContactFlowModuleStatus" to "string"
+Function "aws-native:events:getRule" missing input "arn"
+Function "aws-native:events:getRule" missing output "eventBusName"
+Function "aws-native:events:getRule" output "eventPattern" type changed from "string" to "pulumi.json#/Any"
+Function "aws-native:events:getRule" output "state" type changed from "#/types/aws-native:events:RuleState" to "string"
+Type "aws-native:s3:BucketReplicationRule" input "status" type changed from "#/types/aws-native:s3:BucketReplicationRuleStatus" to "string"
+Type "aws-native:s3:BucketTransitionStorageClass" missing
+Type "aws-native:s3:BucketRedirectRuleProtocol" missing
+Type "aws-native:s3:BucketReplicaModifications" input "status" type changed from "#/types/aws-native:s3:BucketReplicaModificationsStatus" to "string"
+Type "aws-native:s3:BucketIntelligentTieringConfigurationStatus" missing
+Type "aws-native:s3:BucketReplicationDestinationStorageClass" missing
+Type "aws-native:s3:BucketDestinationFormat" missing
+Type "aws-native:s3:BucketCorsRuleAllowedMethodsItem" missing
+Type "aws-native:s3:BucketTieringAccessTier" missing
+Type "aws-native:s3:BucketDefaultRetentionMode" missing
+Type "aws-native:connect:ContactFlowModuleStatus" missing
+Type "aws-native:s3:BucketMetrics" input "status" type changed from "#/types/aws-native:s3:BucketMetricsStatus" to "string"
+Type "aws-native:s3:BucketMetricsStatus" missing
+Type "aws-native:s3:BucketAccelerateConfigurationAccelerationStatus" missing
+Type "aws-native:s3:BucketRule" input "status" type changed from "#/types/aws-native:s3:BucketRuleStatus" to "string"
+Type "aws-native:s3:BucketRule" input "objectSizeLessThan" type changed from "string" to "integer"
+Type "aws-native:s3:BucketRule" input "objectSizeGreaterThan" type changed from "string" to "integer"
+Type "aws-native:connect:ContactFlowModuleState" missing
+Type "aws-native:s3:BucketReplicationTime" input "status" type changed from "#/types/aws-native:s3:BucketReplicationTimeStatus" to "string"
+Type "aws-native:s3:BucketCorsRule" input "allowedMethods" items type changed from "#/types/aws-native:s3:BucketCorsRuleAllowedMethodsItem" to "string"
+Type "aws-native:s3:BucketReplicaModificationsStatus" missing
+Type "aws-native:s3:BucketReplicationDestination" input "storageClass" type changed from "#/types/aws-native:s3:BucketReplicationDestinationStorageClass" to "string"
+Type "aws-native:s3:BucketInventoryConfiguration" input "includedObjectVersions" type changed from "#/types/aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions" to "string"
+Type "aws-native:s3:BucketInventoryConfiguration" input "optionalFields" items type changed from "#/types/aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem" to "string"
+Type "aws-native:s3:BucketInventoryConfiguration" input "scheduleFrequency" type changed from "#/types/aws-native:s3:BucketInventoryConfigurationScheduleFrequency" to "string"
+Type "aws-native:s3:BucketOwnershipControlsRule" input "objectOwnership" type changed from "#/types/aws-native:s3:BucketOwnershipControlsRuleObjectOwnership" to "string"
+Type "aws-native:s3:BucketNoncurrentVersionTransitionStorageClass" missing
+Type "aws-native:s3:BucketReplicationRuleStatus" missing
+Type "aws-native:s3:BucketAccelerateConfiguration" input "accelerationStatus" type changed from "#/types/aws-native:s3:BucketAccelerateConfigurationAccelerationStatus" to "string"
+Type "aws-native:s3:BucketSseKmsEncryptedObjects" input "status" type changed from "#/types/aws-native:s3:BucketSseKmsEncryptedObjectsStatus" to "string"
+Type "aws-native:s3:BucketTransition" input "storageClass" type changed from "#/types/aws-native:s3:BucketTransitionStorageClass" to "string"
+Type "aws-native:s3:BucketDeleteMarkerReplicationStatus" missing
+Type "aws-native:s3:BucketDestination" input "format" type changed from "#/types/aws-native:s3:BucketDestinationFormat" to "string"
+Type "aws-native:s3:BucketRuleStatus" missing
+Type "aws-native:s3:BucketSseKmsEncryptedObjectsStatus" missing
+Type "aws-native:s3:BucketDefaultRetention" input "mode" type changed from "#/types/aws-native:s3:BucketDefaultRetentionMode" to "string"
+Type "aws-native:s3:BucketRedirectAllRequestsToProtocol" missing
+Type "aws-native:events:RuleRedshiftDataParameters" missing property "sqls"
+Type "aws-native:s3:BucketTiering" input "accessTier" type changed from "#/types/aws-native:s3:BucketTieringAccessTier" to "string"
+Type "aws-native:s3:BucketDeleteMarkerReplication" input "status" type changed from "#/types/aws-native:s3:BucketDeleteMarkerReplicationStatus" to "string"
+Type "aws-native:s3:BucketServerSideEncryptionByDefault" input "sseAlgorithm" type changed from "#/types/aws-native:s3:BucketServerSideEncryptionByDefaultSseAlgorithm" to "string"
+Type "aws-native:s3:BucketServerSideEncryptionByDefaultSseAlgorithm" missing
+Type "aws-native:s3:BucketAccessControl" missing
+Type "aws-native:s3:BucketRedirectAllRequestsTo" input "protocol" type changed from "#/types/aws-native:s3:BucketRedirectAllRequestsToProtocol" to "string"
+Type "aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem" missing
+Type "aws-native:s3:BucketNoncurrentVersionTransition" input "storageClass" type changed from "#/types/aws-native:s3:BucketNoncurrentVersionTransitionStorageClass" to "string"
+Type "aws-native:s3:BucketVersioningConfigurationStatus" missing
+Type "aws-native:s3:BucketRedirectRule" input "protocol" type changed from "#/types/aws-native:s3:BucketRedirectRuleProtocol" to "string"
+Type "aws-native:s3:BucketInventoryConfigurationScheduleFrequency" missing
+Type "aws-native:s3:BucketIntelligentTieringConfiguration" input "status" type changed from "#/types/aws-native:s3:BucketIntelligentTieringConfigurationStatus" to "string"
+Type "aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions" missing
+Type "aws-native:events:RuleState" missing
+Type "aws-native:s3:BucketReplicationTimeStatus" missing
+Type "aws-native:s3:BucketOwnershipControlsRuleObjectOwnership" missing
+Type "aws-native:s3:BucketVersioningConfiguration" input "status" type changed from "#/types/aws-native:s3:BucketVersioningConfigurationStatus" to "string"
+Type "aws-native:cognito:IdentityPoolTag" missing
+
+### New resources
+
+- `appconfig.Application`
+- `appsync.FunctionConfiguration`
+- `cognito.UserPool`
+- `cognito.UserPoolClient`
+- `cognito.UserPoolGroup`
+- `entityresolution.IdMappingWorkflow`
+- `iam.Group`
+- `msk.Replicator`
+
+### New functions
+
+- `appconfig.getApplication`
+- `appsync.getFunctionConfiguration`
+- `cognito.getUserPool`
+- `cognito.getUserPoolClient`
+- `cognito.getUserPoolGroup`
+- `entityresolution.getIdMappingWorkflow`
+- `iam.getGroup`
+- `msk.getReplicator`
+
 ## 0.81.0 (2023-10-16)
 
 Resource "aws-native:autoscaling:AutoScalingGroup" property "instanceMaintenancePolicy" removed
